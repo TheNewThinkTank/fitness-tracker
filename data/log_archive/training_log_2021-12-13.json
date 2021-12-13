@@ -1,0 +1,36 @@
+{
+  "date": "2021-12-13",
+  "split": "chest",
+  "exercises": {
+    "benchpress": [
+      { "set no.": 1, "reps": 5, "weight": "70 kg" },
+      { "set no.": 2, "reps": 5, "weight": "70 kg" },
+      { "set no.": 3, "reps": 12, "weight": "60 kg" }
+    ],
+    "cable crossover": [
+      { "set no.": 1, "reps": 15, "weight": "2x18 kg" },
+      { "set no.": 2, "reps": 12, "weight": "2x23 kg" },
+      { "set no.": 3, "reps": 10, "weight": "2x27 kg" }
+    ],
+    "incline dumbbell press": [
+      { "set no.": 1, "reps": 2, "weight": "2x26 kg" },
+      { "set no.": 2, "reps": 8, "weight": "2x18 kg" },
+      { "set no.": 3, "reps": 12, "weight": "2x16 kg" }
+    ],
+    "cable crossover, low-high": [
+      { "set no.": 1, "reps": 12, "weight": "2x11 kg" },
+      { "set no.": 2, "reps": 9, "weight": "2x11 kg" },
+      { "set no.": 3, "reps": 10, "weight": "2x9 kg" }
+    ],
+    "dips": [
+      { "set no.": 1, "reps": 5, "weight": "0 kg" },
+      { "set no.": 2, "reps": 5, "weight": "0 kg" },
+      { "set no.": 3, "reps": 5, "weight": "0 kg" }
+    ],
+    "cable crossover, high-low": [
+      { "set no.": 1, "reps": 12, "weight": "2x18 kg" },
+      { "set no.": 2, "reps": 10, "weight": "2x18 kg" },
+      { "set no.": 3, "reps": 10, "weight": "2x18 kg" }
+    ]
+  }
+}

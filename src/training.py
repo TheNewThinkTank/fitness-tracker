@@ -5,41 +5,34 @@ Purpose: Store and analyze weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-import json
-from pprint import pprint as pp
-
 from tinydb import Query, TinyDB
 
 
-def insert_data(db, log):
-    """Store training log in database"""
-    log_path = "training_log.json"
-    with open(log_path) as rf:
-        json_content = json.load(rf)
-    log.insert(json_content)
+def get_all(log):
+    """get all documents"""
+    return log.all()
 
 
-def describe_workout(log):
+def describe_workout(log, date):
     """Simple summary statistics for each exercise"""
-    # get all documents
-    # print(log.all())
 
+    d = {}
     for item in log:
-        d = {"Date of workout": item["date"]}
+        if item["date"] == date:
+            d["Date of workout"] = date
+            for k, v in item["exercises"].items():
+                d[k] = f"{len(v)} sets"
+    return d
 
-    summary = {k: f"{len(v)} sets" for k, v in item["exercises"].items()}
-    return {**d, **summary}
 
-
-def show_exercise(log, exercise):
+def show_exercise(log, exercise, date):
     """Show data for selected exercise"""
 
     for item in log:
-        for k, v in item["exercises"].items():
-            if k == exercise:
-                # print(k)
-                # pp(v)
-                return v  # k
+        if item["date"] == date:
+            for k, v in item["exercises"].items():
+                if k == exercise:
+                    return v
 
 
 def analyze_workout(db, log):
@@ -67,12 +60,11 @@ def cleanup(db):
 
 
 def main():
-    db = TinyDB("db.json")
+    db = TinyDB("data/db.json")
     log = db.table("log")
 
-    # insert_data(db, log)
-    describe_workout(log)
-    show_exercise(log, "squat")
+    print(describe_workout(log, "2021-12-13"))
+    # show_exercise(log, "squat", "2021-12-11")
     # analyze_workout(db, log)
     # cleanup(db)
 

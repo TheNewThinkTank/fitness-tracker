@@ -29,7 +29,7 @@ def get_data(date, exercises):
     return dfs
 
 
-def show_plot(dfs):
+def show_plot(dfs, date):
     """Plot training data from specific date"""
     sns.set_theme(style="white", context="talk")
 
@@ -60,15 +60,17 @@ def show_plot(dfs):
     sns.despine(bottom=True)
     plt.setp(f.axes, yticks=[])
     plt.tight_layout(h_pad=2)
-    plt.savefig("img/legday.png")
+    plt.title(f"Workout date: {date}")
+    plt.savefig(f"img/workout_{date}.png")
 
 
-def main(dfs):
-    show_plot(dfs)
+def main(dfs, date):
+    show_plot(dfs, date)
 
 
 if __name__ == "__main__":
-    dfs = get_data("2021-12-11", ["squat", "leg extention"])
+    date = "2021-12-11"
+    dfs = get_data(date, ["squat", "leg extention"])
     # for df in dfs:
     #     print(df)
-    main(dfs)
+    main(dfs, date)

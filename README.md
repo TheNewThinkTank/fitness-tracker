@@ -8,7 +8,10 @@ Visually inspect your progression through dates and exercises
 
 ## Upcoming features
 
-- Test suite
-- More documentation
+- Test suite (Pytest)
+- Documentation (Sphinx)
+- Extended plotting (Seaborn)
+- Additional query methods (get_dates, get_exercises etc.)
 - YAML-support
-- More graphics
+- Dashboard
+- Hosting on PyPi

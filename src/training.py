@@ -20,6 +20,7 @@ def describe_workout(log, date):
     for item in log:
         if item["date"] == date:
             d["Date of workout"] = date
+
             for k, v in item["exercises"].items():
                 d[k] = f"{len(v)} sets"
     return d

@@ -8,3 +8,5 @@ Add weight-training logs continuously to db.json and query the date through the 
 
 - YAML-support
 - Graphics
+
+![alt](img/legday.png)

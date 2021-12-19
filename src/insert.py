@@ -21,11 +21,10 @@ def main(date):
     """Insert training log from specific date"""
     db = TinyDB("data/db.json")
     log = db.table("log")
-    base_path = "data/log_archive/"
-    log_path = f"{base_path}training_log_{date}.json"
+    log_path = f"data/log_archive/JSON/training_log_{date}.json"
     insert_data(log, log_path)
 
 
 if __name__ == "__main__":
-    date = "2021-12-13"
+    date = "2021-12-15"
     main(date)

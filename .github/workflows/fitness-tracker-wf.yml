@@ -1,7 +1,7 @@
 name: Fitness Tracker Workflow
 on: [push]
 jobs:
-  Lint-And-Unit-Test:
+  Run-Linting-And-Unit-Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code

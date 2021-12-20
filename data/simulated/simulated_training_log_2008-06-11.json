@@ -1,0 +1,21 @@
+{
+  "date": "2008-06-11",
+  "split": "shoulders",
+  "exercises": {
+    "dumbbel side lateral raises": [
+      { "set no.": 1, "reps": "null", "weight": "value kg" },
+      { "set no.": 2, "reps": "null", "weight": "value kg" },
+      { "set no.": 3, "reps": "null", "weight": "value kg" }
+    ],
+    "cable side lateral raises": [
+      { "set no.": 1, "reps": "null", "weight": "value kg" },
+      { "set no.": 2, "reps": "null", "weight": "value kg" },
+      { "set no.": 3, "reps": "null", "weight": "value kg" }
+    ],
+    "seated dumbbel rear lateral raises": [
+      { "set no.": 1, "reps": "null", "weight": "value kg" },
+      { "set no.": 2, "reps": "null", "weight": "value kg" },
+      { "set no.": 3, "reps": "null", "weight": "value kg" }
+    ]
+  }
+}

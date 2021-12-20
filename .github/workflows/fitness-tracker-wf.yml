@@ -29,7 +29,8 @@ jobs:
 
       - name: Lint with flake8
         run: |
-          pipenv run lint .
+          pip install flake8
+          flake8 .
 
       - name: Run test suite
         run: |

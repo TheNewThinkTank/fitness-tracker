@@ -1,7 +1,7 @@
 name: Fitness Tracker Workflow
 on: [push]
 jobs:
-  Run-Unit-Tests:
+  Run-Linting-And-Unit-Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -27,9 +27,9 @@ jobs:
         run: |
           pipenv install --deploy --dev
 
-    - name: Lint with flake8
-      run: |
-        flake8 .
+      - name: Lint with flake8
+        run: |
+          flake8 .
 
       - name: Run test suite
         run: |

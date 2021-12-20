@@ -22,17 +22,11 @@ db = TinyDB("../data/db.json")
 log = db.table("log")
 
 
-# @app.get("/")
-# async def root():
-#     date = "2021-12-13"
-#     return describe_workout(log, date)  # , show_exercise(log, "squat", date)
-
-
 @app.get("/dates/{date}")
-async def describe_workout(date: str):
+async def get_workout_description(date: str):
     return describe_workout(log, date)
 
 
 @app.get("/{date}/exercises/{exercise}")
-async def show_exercise(exercise: str, date: str):
+async def get_exercise_info(exercise: str, date: str):
     return show_exercise(log, exercise, date)

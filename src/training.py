@@ -56,7 +56,7 @@ def show_exercise(log, exercise, date):
 def analyze_workout(db, log):
     """Deeper analysis of workout"""
     Log = Query()
-    Exercise = Query()
+    # Exercise = Query()
     # print(log.search(Exercise.date == "2021-12-11"))
     print(log.search(Log.exercises == "squat"))
     # print(log.search(Log.exercises.any(Exercise.name == "squat")))

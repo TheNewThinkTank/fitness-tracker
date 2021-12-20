@@ -19,9 +19,7 @@ def get_data(date, exercises):
     db = TinyDB("data/db.json")
     log = db.table("log")
 
-    return [
-        pd.DataFrame(data=show_exercise(log, exercise, date)) for exercise in exercises
-    ]
+    return [pd.DataFrame(data=show_exercise(log, ex, date)) for ex in exercises]
 
 
 def create_plot(dfs, date):

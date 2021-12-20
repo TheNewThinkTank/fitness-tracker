@@ -29,7 +29,7 @@ jobs:
 
       - name: Lint with flake8
         run: |
-          flake8 .
+          pipenv run flake8 .
 
       - name: Run test suite
         run: |

@@ -1,0 +1,30 @@
+{
+  "date": "2021-12-16",
+  "split": "shoulders & abs",
+  "exercises": {
+    "cable extentions": [
+      { "set no.": 1, "reps": 12, "weight": "9 kg" },
+      { "set no.": 2, "reps": 10, "weight": "14 kg" },
+      { "set no.": 3, "reps": 9, "weight": "18 kg" }
+    ],
+    "dumbbell front laterals": [
+      { "set no.": 1, "reps": 10, "weight": "8 kg" },
+      { "set no.": 2, "reps": 8, "weight": "8 kg" },
+      { "set no.": 3, "reps": 8, "weight": "6 kg" }
+    ],
+    "seated rear dumbbell laterals": [
+      { "set no.": 1, "reps": 10, "weight": "4 kg" },
+      { "set no.": 2, "reps": 10, "weight": "4 kg" },
+      { "set no.": 3, "reps": 12, "weight": "4 kg" }
+    ],
+    "barbell (pre-exhaust) shrugs": [
+      { "set no.": 1, "reps": 12, "weight": "40 kg" },
+      { "set no.": 2, "reps": 6, "weight": "40 kg" },
+      { "set no.": 3, "reps": 6, "weight": "40 kg" }
+    ],
+    "hanging toes-to-bar": [
+      { "set no.": 1, "reps": 8, "weight": "0 kg" },
+      { "set no.": 2, "reps": 8, "weight": "0 kg" }
+    ]
+  }
+}

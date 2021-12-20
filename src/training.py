@@ -8,6 +8,23 @@ https://tinydb.readthedocs.io/en/latest/getting-started.html
 from tinydb import Query, TinyDB
 
 
+def get_dates_and_muscle_groups(log):
+    """Returns all workout dates with their corresponding muscle groups."""
+    return {item["date"]: item["split"] for item in log}
+
+
+def show_exercises(log, date):
+    """Show all exercises for given workout date"""
+
+    all_exercises_during_workout = []
+
+    for item in log:
+        if item["date"] == date:
+            for k, _ in item["exercises"].items():
+                all_exercises_during_workout.append(k)
+    return all_exercises_during_workout
+
+
 def get_all(log):
     """get all documents"""
     return log.all()
@@ -27,7 +44,7 @@ def describe_workout(log, date):
 
 
 def show_exercise(log, exercise, date):
-    """Show data for selected exercise"""
+    """Show detailed data for selected exercise"""
 
     for item in log:
         if item["date"] == date:
@@ -64,7 +81,12 @@ def main():
     db = TinyDB("data/db.json")
     log = db.table("log")
 
-    print(describe_workout(log, "2021-12-13"))
+    # dates_and_muscle_groups = get_dates_and_muscle_groups(log)
+    # print(dates_and_muscle_groups)
+
+    print(show_exercises(log, "2021-12-16"))
+
+    # print(describe_workout(log, "2021-12-13"))
     # show_exercise(log, "squat", "2021-12-11")
     # analyze_workout(db, log)
     # cleanup(db)

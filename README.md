@@ -9,6 +9,7 @@ Visually inspect your progression through dates and exercises
 ## Upcoming features
 
 - Test suite (Pytest)
+- GitHub Actions workflow
 - Documentation (Sphinx)
 - Extended plotting (Seaborn)
 - YAML-support

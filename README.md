@@ -15,14 +15,15 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 - Test suite (Pytest)
 - Plotting (Seaborn)
 - GitHub Actions workflow
+- Data simulation (Faker)
 
 ## Upcoming features
 
-- Data simulation (Faker)
 - Documentation (Sphinx)
 - Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
 - YAML-support
 - Add cardio tracking (integrate app with Strava)
 - Dashboard
 - Add key exercises (benchpress, squat, deadlift) to dashboard
-- Hosting on PyPi
+- Hosting on PyPi (automated deploy with GitHub Actions)
+- Identify musclegroups and exercises with best or worst progression

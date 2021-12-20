@@ -11,7 +11,6 @@ Visually inspect your progression through dates and exercises
 - Test suite (Pytest)
 - Documentation (Sphinx)
 - Extended plotting (Seaborn)
-- Additional query methods (get_dates, get_exercises etc.)
 - YAML-support
 - Dashboard
 - Hosting on PyPi

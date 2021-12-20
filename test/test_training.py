@@ -5,11 +5,13 @@ unit test suite for src folder
 from tinydb import TinyDB
 import pytest
 
-# from ..src.training import show_exercises
+import sys
+import os
 
-# import src.training
-# from .src.training import show_exercises
-# from src.training import show_exercises
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+from src.training import show_exercises
 
 
 @pytest.fixture
@@ -21,7 +23,7 @@ def setup():
 
 def test_show_exercises(setup):
     """unit test placeholder."""
-    assert src.training.show_exercises(setup, "2021-12-16") == [
+    assert show_exercises(setup, "2021-12-16") == [
         "cable extentions",
         "dumbbell front laterals",
         "seated rear dumbbell laterals",

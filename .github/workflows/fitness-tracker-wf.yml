@@ -36,3 +36,11 @@ jobs:
       - name: Run test suite
         run: |
           pipenv run test -v
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ammaraskar/sphinx-action@master
+        with:
+          docs-folder: "docs/"

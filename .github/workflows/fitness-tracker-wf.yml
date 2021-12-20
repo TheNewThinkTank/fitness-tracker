@@ -1,13 +1,13 @@
 name: Fitness Tracker Workflow
 on: [push]
 jobs:
-  Run-Unit-Tests:
+  Run-Linting-And-Tests:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      #Setup Python (faster than using Python container)
+      # Setup Python (faster than using Python container)
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
@@ -26,6 +26,11 @@ jobs:
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
           pipenv install --deploy --dev
+
+    - name: Lint with flake8
+      run: |
+        flake8 .
+
       - name: Run test suite
         run: |
           pipenv run test -v

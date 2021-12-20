@@ -6,12 +6,19 @@ Visually inspect your progression through dates and exercises
 
 ![alt](img/workout_2021-12-11.png)
 
-## Upcoming features
+## Current features
 
 - Test suite (Pytest)
+- Plotting (Seaborn)
 - GitHub Actions workflow
+
+## Upcoming features
+
+- Data simulation (Faker)
 - Documentation (Sphinx)
-- Extended plotting (Seaborn)
+- Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
 - YAML-support
+- Add cardio tracking (integrate app with Strava)
 - Dashboard
+- Add key exercises (benchpress, squat, deadlift) to dashboard
 - Hosting on PyPi

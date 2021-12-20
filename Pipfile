@@ -9,10 +9,10 @@ name = "pypi"
 flake8 = "*"
 pytest = "*"
 tinydb = "*"
-# fastapi = "*"
 
 [requires]
-python_version = "3.10"  # "3.9"
+python_version = "3.10"
 
 [scripts]
 test = "pytest"
+lint = "flake8"

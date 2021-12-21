@@ -19,6 +19,7 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 
 ## Upcoming features
 
+- ML models (Scikit Learn)
 - Documentation (Sphinx)
 - Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
 - YAML-support

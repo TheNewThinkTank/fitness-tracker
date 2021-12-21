@@ -10,6 +10,9 @@ import random
 import pandas as pd
 from datetime import datetime
 
+# TODO: Implement improving trend across workouts
+# TODO: Implement declining trend across sets (also taking reps into account)
+
 
 def get_dates(number_of_workouts):
     """Get list of dates."""

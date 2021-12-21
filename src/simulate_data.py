@@ -16,10 +16,8 @@ from faker.providers import DynamicProvider
 fake = Faker()
 
 
-def simulate_date_and_split():
-    """Simulate data for workout date and split."""
-
-    workout_date = fake.date()
+def add_faker_providers():
+    """Add exercises dynamic providers."""
 
     splits_provider = DynamicProvider(
         provider_name="splits",
@@ -27,13 +25,7 @@ def simulate_date_and_split():
     )
 
     fake.add_provider(splits_provider)
-    workout_split = fake.splits()
 
-    return workout_date, workout_split
-
-
-def simulate_exercises(workout_split):
-    """Simulate data for exercises."""
     chest_exercises_provider = DynamicProvider(
         provider_name="chest_exercises",
         elements=["benchpress", "flys", "pullovers", "dips"],
@@ -63,6 +55,15 @@ def simulate_exercises(workout_split):
     fake.add_provider(back_exercises_provider)
     fake.add_provider(leg_exercises_provider)
     fake.add_provider(shoulder_exercises_provider)
+
+
+def simulate_date_and_split():
+    """Simulate data for workout date and split."""
+    return fake.date(), fake.splits()
+
+
+def simulate_exercises(workout_split):
+    """Simulate data for exercises."""
 
     workout_chest_exercises = [fake.unique.chest_exercises() for _ in range(3)]
     workout_back_exercises = [fake.unique.back_exercises() for _ in range(3)]
@@ -132,6 +133,8 @@ def write_data(formatted_data):
 
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
+
+    add_faker_providers()
 
     number_of_workouts = 2
 

@@ -15,7 +15,7 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 - Test suite (Pytest)
 - Plotting (Seaborn)
 - GitHub Actions workflow
-- Data simulation (Faker)
+- Data simulation
 
 ## Upcoming features
 

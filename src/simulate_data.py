@@ -7,68 +7,44 @@ Purpose: Simulate weight-training data
 import json
 import pathlib
 import random
-
-# from pprint import pprint as pp
-
-from faker import Faker
-from faker.providers import DynamicProvider
-
-fake = Faker()
+import pandas as pd
+from datetime import datetime
 
 
-def add_faker_providers():
-    """Add exercises dynamic providers."""
-
-    splits_provider = DynamicProvider(
-        provider_name="splits",
-        elements=["back", "chest", "legs", "shoulders"],
-    )
-
-    fake.add_provider(splits_provider)
-
-    chest_exercises_provider = DynamicProvider(
-        provider_name="chest_exercises",
-        elements=["benchpress", "flys", "pullovers", "dips"],
-    )
-
-    back_exercises_provider = DynamicProvider(
-        provider_name="back_exercises",
-        elements=["chinups", "lat pulldowns", "seated row", "dead row"],
-    )
-
-    leg_exercises_provider = DynamicProvider(
-        provider_name="leg_exercises",
-        elements=["squat", "legpress", "leg extention", "deadlift"],
-    )
-
-    shoulder_exercises_provider = DynamicProvider(
-        provider_name="shoulder_exercises",
-        elements=[
-            "dumbbel side lateral raises",
-            "cable side lateral raises",
-            "dumbbel front lateral raises",
-            "seated dumbbel rear lateral raises",
-        ],
-    )
-
-    fake.add_provider(chest_exercises_provider)
-    fake.add_provider(back_exercises_provider)
-    fake.add_provider(leg_exercises_provider)
-    fake.add_provider(shoulder_exercises_provider)
+def get_dates(number_of_workouts):
+    """Get list of dates."""
+    start = datetime(2021, 1, 1)
+    datelist = pd.date_range(start, periods=300).tolist()
+    datelist = [date.strftime("%Y-%m-%d") for date in datelist]
+    return random.sample(datelist, k=number_of_workouts)
 
 
-def simulate_date_and_split():
-    """Simulate data for workout date and split."""
-    return fake.date(), fake.splits()
+def simulate_split():
+    """Simulate data for workout split."""
+    return random.choice(["back", "chest", "legs", "shoulders"])
 
 
 def simulate_exercises(workout_split):
     """Simulate data for exercises."""
 
-    workout_chest_exercises = [fake.unique.chest_exercises() for _ in range(3)]
-    workout_back_exercises = [fake.unique.back_exercises() for _ in range(3)]
-    workout_leg_exercises = [fake.unique.leg_exercises() for _ in range(3)]
-    workout_shoulder_exercises = [fake.unique.shoulder_exercises() for _ in range(3)]
+    workout_chest_exercises = random.sample(
+        ["benchpress", "flys", "pullovers", "dips"], k=3
+    )
+    workout_back_exercises = random.sample(
+        ["chinups", "lat pulldowns", "seated row", "dead row"], k=3
+    )
+    workout_leg_exercises = random.sample(
+        ["squat", "legpress", "leg extention", "deadlift"], k=3
+    )
+    workout_shoulder_exercises = random.sample(
+        [
+            "dumbbel side lateral raises",
+            "cable side lateral raises",
+            "dumbbel front lateral raises",
+            "seated dumbbel rear lateral raises",
+        ],
+        k=3,
+    )
 
     switcher = {
         "back": workout_back_exercises,
@@ -134,16 +110,15 @@ def write_data(formatted_data):
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
 
-    add_faker_providers()
-
-    number_of_workouts = 2
+    number_of_workouts = 100
+    dates = get_dates(number_of_workouts)
 
     for workout in range(number_of_workouts):
-        workout_date, workout_split = simulate_date_and_split()
+        workout_date = dates[workout]
+        workout_split = simulate_split()
         exercises = simulate_exercises(workout_split)
         data = attach_data_to_exercise(exercises)
         formatted_data = format_data(workout_date, workout_split, data)
-        # pp(formatted_data)
         write_data(formatted_data)
 
 

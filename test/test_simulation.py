@@ -20,7 +20,7 @@ def test_get_available_exercises():
         x in get_available_exercises()
         for x in [
             {"barbell bench press": [50, 90]},
-            {"dumbbell flys": [10, 18]},
+            {"dumbbell fly": [10, 18]},
             {"barbell incline press": [30, 70]},
         ]
     )

@@ -8,7 +8,7 @@ name = "pypi"
 [dev-packages]
 pytest = "*"
 tinydb = "*"
-yaml = "*"
+yaml = "*"  # test
 
 [requires]
 python_version = "3.10"

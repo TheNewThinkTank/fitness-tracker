@@ -6,6 +6,7 @@ on:
       - feature/simulations
     paths:
       - "src/simulations/**"
+      - "Pipfile"
 
 jobs:
   Run-Linting-And-Unit-Tests:

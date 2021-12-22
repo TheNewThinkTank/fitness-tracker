@@ -44,7 +44,7 @@ jobs:
       - name: install pyyaml
         run: |
           # python -m pip install PyYAML
-          pip install pyyaml  # PyYAML
+          pipenv install pyyaml  # PyYAML
 
       - name: Run (simulations) test suite
         run: |

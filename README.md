@@ -13,8 +13,8 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 ## Current features
 
 - Catalogue of musclegroups and corresponding exercises
-- Data simulation
-- GitHub Actions workflow
+- Realistic workout data simulation (with naturally progressing trend over time)
+- Multiple GitHub Actions workflows
 - Plotting (Seaborn)
 - Test suite (Pytest)
 

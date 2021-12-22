@@ -4,25 +4,41 @@ Author: Gustav Collin Rasmussen
 Purpose: Simulate weight-training data
 """
 
-from pprint import pprint as pp
-import yaml
 import json
+import os
 import pathlib
 import random
-import pandas as pd
 from datetime import datetime
 
+# from pprint import pprint as pp
+
+import pandas as pd
+import yaml
+
 # To make simulations/samples more realistic:
-# TODO: Implement musclegroup-exercises catalogue, with weight-ranges
 # TODO: Implement improving trend across workouts
 # TODO: Implement declining trend across sets (also taking reps into account)
 
 
-def get_muscles_and_exercises(workout_split="chest"):
+def cleanup() -> None:
+    """Empty all simulated data."""
+
+    p = pathlib.Path("data/simulated/")
+    all_files = os.listdir(p)
+
+    for f in all_files:
+        os.remove(p / f)
+
+    assert os.listdir(p) == []
+
+    return
+
+
+def get_available_exercises(workout_split="chest"):
     """Fetch musclegroup-exercises catalogue, with weight-ranges."""
     with open("src/simulations/muscles_and_exercises.yaml", "r") as rf:
-        muscles_and_exercises = yaml.load(rf, Loader=yaml.FullLoader)
-    return muscles_and_exercises[workout_split]
+        available_exercises = yaml.load(rf, Loader=yaml.FullLoader)
+    return available_exercises[workout_split]
 
 
 def get_dates(number_of_workouts):
@@ -38,65 +54,32 @@ def simulate_split():
     return random.choice(["back", "chest", "legs", "shoulders"])
 
 
-def simulate_exercises(workout_split):
+def simulate_exercises(available_exercises):
     """Simulate data for exercises."""
-
-    workout_chest_exercises = random.sample(
-        ["benchpress", "flys", "pullovers", "dips"], k=3
-    )
-    workout_back_exercises = random.sample(
-        ["chinups", "lat pulldowns", "seated row", "dead row"], k=3
-    )
-    workout_leg_exercises = random.sample(
-        ["squat", "legpress", "leg extention", "deadlift"], k=3
-    )
-    workout_shoulder_exercises = random.sample(
-        [
-            "dumbbel side lateral raises",
-            "cable side lateral raises",
-            "dumbbel front lateral raises",
-            "seated dumbbel rear lateral raises",
-        ],
-        k=3,
-    )
-
-    switcher = {
-        "back": workout_back_exercises,
-        "chest": workout_chest_exercises,
-        "legs": workout_leg_exercises,
-        "shoulders": workout_shoulder_exercises,
-    }
-
-    return switcher.get(workout_split, "Invalid muscle-group")
+    return random.sample(available_exercises, k=3)
 
 
-def simulate_sets_reps_weight():
+def simulate_sets_reps_weight(exercises):
     """Simulate data for sets, reps and weight."""
-    no_of_sets = random.randint(1, 6)
 
-    data = []
-
-    for set in range(1, no_of_sets + 1):
-        data.append(
-            {
-                "set no.": set,
-                "reps": random.randint(1, 20),
-                "weight": f"{random.randint(1, 100)} kg",
-            }
-        )
-
-    return data
-
-
-def attach_data_to_exercise(exercises):
-    """Fill in sets, reps and weight data for each exercise"""
-
-    data = {}
+    mapping = {}
 
     for exercise in exercises:
-        data[exercise] = simulate_sets_reps_weight()
+        no_of_sets = random.randint(1, 6)
+        for k, v in exercise.items():
+            mapping[k] = []
+            for set in range(1, no_of_sets + 1):
+                mapping[k].append(
+                    [
+                        {
+                            "set no.": set,
+                            "reps": random.randint(1, 20),
+                            "weight": f"{random.randint(v[0], v[1])} kg",
+                        }
+                    ]
+                )
 
-    return data
+    return mapping
 
 
 def format_data(workout_date, workout_split, data):
@@ -124,20 +107,19 @@ def write_data(formatted_data):
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
 
-    muscles_and_exercises = get_muscles_and_exercises()
-    pp(muscles_and_exercises)
-    """
+    # cleanup()
+
     number_of_workouts = 100
     dates = get_dates(number_of_workouts)
 
     for workout in range(number_of_workouts):
         workout_date = dates[workout]
         workout_split = simulate_split()
-        exercises = simulate_exercises(workout_split)
-        data = attach_data_to_exercise(exercises)
+        available_exercises = get_available_exercises(workout_split)
+        exercises = simulate_exercises(available_exercises)
+        data = simulate_sets_reps_weight(exercises)
         formatted_data = format_data(workout_date, workout_split, data)
         write_data(formatted_data)
-    """
 
 
 if __name__ == "__main__":

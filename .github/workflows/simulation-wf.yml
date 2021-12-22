@@ -43,7 +43,6 @@ jobs:
 
       - name: install pyyaml and pandas
         run: |
-          # python -m pip install pyyaml  # PyYAML
           pipenv install pyyaml pandas
 
       - name: Run (simulations) test suite

@@ -16,8 +16,10 @@ import pandas as pd
 import yaml
 
 # To make simulations/samples more realistic:
+# TODO: higher reps must result in lower weight for a given set
+# TODO: Implement declining trend across sets (also taking reps into account) to simulate fatigue
 # TODO: Implement improving trend across workouts
-# TODO: Implement declining trend across sets (also taking reps into account)
+# (mainly more weight, could also be higher reps, more sets, more exercises and higher workout frequency)
 
 
 def cleanup() -> None:

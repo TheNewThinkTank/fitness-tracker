@@ -10,6 +10,8 @@ import random
 import pandas as pd
 from datetime import datetime
 
+# To make simulations/samples more realistic:
+# TODO: Implement musclegroup-exercises catalogue, with weight-ranges
 # TODO: Implement improving trend across workouts
 # TODO: Implement declining trend across sets (also taking reps into account)
 

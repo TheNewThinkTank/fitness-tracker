@@ -1,0 +1,20 @@
+---
+legs:
+  - squat: [50, 120]
+  - legpress: [50, 120]
+  - leg extentions: [30, 70]
+
+chest:
+  - barbell bench press: [50, 90]
+  - dumbbell flys: [10, 18]
+  - barbell incline press: [30, 70]
+
+back:
+  - lat pulldown: [40, 70]
+  - seated row: [40, 70]
+  - chinups: [0, 10]
+
+shoulders:
+  - side laterals: [4, 12]
+  - front laterals: [4, 12]
+  - rear laterals: [2, 10]

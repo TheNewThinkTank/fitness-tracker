@@ -12,18 +12,19 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 
 ## Current features
 
-- Test suite (Pytest)
-- Plotting (Seaborn)
-- GitHub Actions workflow
+- Catalogue of musclegroups and corresponding exercises
 - Data simulation
+- GitHub Actions workflow
+- Plotting (Seaborn)
+- Test suite (Pytest)
 
 ## Upcoming features
 
-- ML models (Scikit Learn)
-- Documentation (Sphinx)
-- Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
-- YAML-support
 - Add cardio tracking (integrate app with Strava)
+- Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
+- Documentation (Sphinx)
+- ML models (Scikit Learn)
+- YAML-support
 - Dashboard
 - Add key exercises (benchpress, squat, deadlift) to dashboard
 - Hosting on PyPi (automated deploy with GitHub Actions)

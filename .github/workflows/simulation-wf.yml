@@ -7,6 +7,7 @@ on:
     paths:
       - "src/simulations/**"
       - "Pipfile"
+      - ".github/workflows/simulation-wf.yml"
 
 jobs:
   Run-Linting-And-Unit-Tests:

@@ -42,7 +42,7 @@ jobs:
 
       - name: install pyyaml
         run: |
-          python -m pip install pyyaml
+          python -m pip install PyYAML  # pyyaml
 
       - name: Run (simulations) test suite
         run: |

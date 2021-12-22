@@ -1,8 +1,10 @@
 name: Fitness Tracker Workflow
+
 on:
   push:
-    paths:
+    paths-ignore:
       - "!src/simulations/**"
+
 jobs:
   Run-Linting-And-Unit-Tests:
     runs-on: ubuntu-latest

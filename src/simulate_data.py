@@ -4,6 +4,8 @@ Author: Gustav Collin Rasmussen
 Purpose: Simulate weight-training data
 """
 
+from pprint import pprint as pp
+import yaml
 import json
 import pathlib
 import random
@@ -14,6 +16,13 @@ from datetime import datetime
 # TODO: Implement musclegroup-exercises catalogue, with weight-ranges
 # TODO: Implement improving trend across workouts
 # TODO: Implement declining trend across sets (also taking reps into account)
+
+
+def get_muscles_and_exercises():
+    """Fetch musclegroup-exercises catalogue, with weight-ranges."""
+    with open("src/muscles_and_exercises.yaml", "r") as rf:
+        muscles_and_exercises = yaml.load(rf, Loader=yaml.FullLoader)
+    return muscles_and_exercises
 
 
 def get_dates(number_of_workouts):
@@ -115,6 +124,9 @@ def write_data(formatted_data):
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
 
+    muscles_and_exercises = get_muscles_and_exercises()
+    pp(muscles_and_exercises)
+    """
     number_of_workouts = 100
     dates = get_dates(number_of_workouts)
 
@@ -125,6 +137,7 @@ def main():
         data = attach_data_to_exercise(exercises)
         formatted_data = format_data(workout_date, workout_split, data)
         write_data(formatted_data)
+    """
 
 
 if __name__ == "__main__":

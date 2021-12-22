@@ -14,7 +14,7 @@ visit URL: http://127.0.0.1:8000/docs
 from fastapi import FastAPI
 from tinydb import TinyDB
 
-from training import describe_workout, show_exercise
+from CRUD.training import describe_workout, show_exercise
 
 app = FastAPI()
 

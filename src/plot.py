@@ -11,7 +11,7 @@ import pandas as pd
 import seaborn as sns
 from tinydb import TinyDB
 
-from training import show_exercise
+from CRUD.training import show_exercise
 
 
 def get_data(date, exercises):

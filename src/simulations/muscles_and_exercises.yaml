@@ -3,6 +3,7 @@ legs:
   - squat: [50, 120]
   - legpress: [50, 120]
   - leg extentions: [30, 70]
+  - hamstring curls: [10, 45]
 
 chest:
   - barbell bench press: [50, 90]

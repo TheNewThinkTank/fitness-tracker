@@ -9,7 +9,7 @@ name = "pypi"
 pytest = "*"
 tinydb = "*"
 pandas = "*"
-yaml = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.10"

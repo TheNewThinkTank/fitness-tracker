@@ -6,6 +6,7 @@ on:
       - feature/simulations
     paths:
       - "src/simulations/**"
+      - "test/test_simulation.py"
       - "Pipfile"
       - ".github/workflows/simulation-wf.yml"
 

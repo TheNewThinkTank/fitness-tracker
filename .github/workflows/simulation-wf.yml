@@ -2,6 +2,8 @@ name: Fitness Tracker Simulation Workflow
 
 on:
   push:
+    branches:
+      - feature/simulations
     paths:
       - "src/simulations/**"
 

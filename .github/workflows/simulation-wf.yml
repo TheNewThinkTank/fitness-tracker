@@ -39,6 +39,6 @@ jobs:
           pip install flake8
           flake8 --ignore=E402,E501 simulations
 
-      # TODO: - name: Run (simulations) test suite
-      #   run: |
-      #     pipenv run test -v
+      - name: Run (simulations) test suite
+        run: |
+          pipenv run test -k "test_simulation and not test_training" -v

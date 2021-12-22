@@ -18,11 +18,11 @@ from datetime import datetime
 # TODO: Implement declining trend across sets (also taking reps into account)
 
 
-def get_muscles_and_exercises():
+def get_muscles_and_exercises(workout_split="chest"):
     """Fetch musclegroup-exercises catalogue, with weight-ranges."""
-    with open("src/muscles_and_exercises.yaml", "r") as rf:
+    with open("src/simulations/muscles_and_exercises.yaml", "r") as rf:
         muscles_and_exercises = yaml.load(rf, Loader=yaml.FullLoader)
-    return muscles_and_exercises
+    return muscles_and_exercises[workout_split]
 
 
 def get_dates(number_of_workouts):

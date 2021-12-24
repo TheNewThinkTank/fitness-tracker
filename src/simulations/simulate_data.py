@@ -9,9 +9,9 @@ import os
 import pathlib
 import random
 from datetime import datetime
+from pprint import pprint as pp
 
-# from pprint import pprint as pp
-
+import numpy as np
 import pandas as pd
 import yaml
 
@@ -61,6 +61,20 @@ def simulate_exercises(available_exercises):
     return random.sample(available_exercises, k=3)
 
 
+def high_reps_low_weight(weight_range):
+    """Simulate that higher reps leads to lower weights"""
+
+    reps_available = list(range(1, 20))
+
+    # ensure weight has same len as reps_available
+    weights = np.linspace(weight_range[0], weight_range[-1], len(reps_available))
+
+    reversed_reps = list(reversed(reps_available))
+    normalized_w = reversed_reps / np.sum(reps_available)  # probabilities must sum to 1
+    weight_choice = int(np.random.choice(weights, p=normalized_w))
+    return f"{weight_choice} kg"
+
+
 def simulate_sets_reps_weight(exercises):
     """Simulate data for sets, reps and weight."""
 
@@ -68,15 +82,17 @@ def simulate_sets_reps_weight(exercises):
 
     for exercise in exercises:
         no_of_sets = random.randint(1, 6)
-        for k, v in exercise.items():
+        for k, weight_range in exercise.items():
             mapping[k] = []
             for set in range(1, no_of_sets + 1):
+                actual_reps = random.randint(1, 20)
+                actual_weight = high_reps_low_weight(weight_range)
                 mapping[k].append(
                     [
                         {
                             "set no.": set,
-                            "reps": random.randint(1, 20),
-                            "weight": f"{random.randint(v[0], v[1])} kg",
+                            "reps": actual_reps,
+                            "weight": actual_weight,
                         }
                     ]
                 )
@@ -110,8 +126,9 @@ def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
 
     # cleanup()
+    # pp(high_reps_low_weight([0, 20]))
 
-    number_of_workouts = 100
+    number_of_workouts = 2
     dates = get_dates(number_of_workouts)
 
     for workout in range(number_of_workouts):
@@ -120,6 +137,7 @@ def main():
         available_exercises = get_available_exercises(workout_split)
         exercises = simulate_exercises(available_exercises)
         data = simulate_sets_reps_weight(exercises)
+        # pp(data)
         formatted_data = format_data(workout_date, workout_split, data)
         write_data(formatted_data)
 

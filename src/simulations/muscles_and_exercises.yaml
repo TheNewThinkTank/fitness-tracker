@@ -3,9 +3,11 @@ legs:
   - squat: [50, 120]
   - deadlift: [50, 120]
   - legpress: [50, 120]
+  - barbell lunge: [20, 70]
   - leg extention: [30, 70]
   - hamstring curl: [10, 45]
-  - calf raise: [20, 70]
+  - standing calf raise: [20, 70]
+  - seated calf raise: [10, 60]
 
 chest:
   - barbell bench press: [50, 90]

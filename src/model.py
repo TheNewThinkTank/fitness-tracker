@@ -5,7 +5,6 @@ Purpose: Train a linear-regression model on simulated weight-training data,
 using the Scikit Learn library
 """
 
-# TODO: Add sim data to sim_db.json with TinyDB
 # TODO: load sim data into X and y
 # TODO: print coefficients
 # TODO: plot data and fit together in same figure
@@ -13,6 +12,8 @@ using the Scikit Learn library
 from sklearn import linear_model
 
 reg = linear_model.LinearRegression()
+
+# x: workout-dates  y: avg(weight) for squat
 
 X, y = [[0, 0], [1, 1], [2, 2]], [0, 1, 2]
 reg.fit(X, y)

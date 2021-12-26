@@ -5,35 +5,28 @@ Purpose: Simulate weight-training data
 """
 
 import json
+import sys
 import os
 import pathlib
 import random
 from datetime import datetime
+
 from pprint import pprint as pp
 
 import numpy as np
 import pandas as pd
 import yaml
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+import helpers.cleanup as cleanup
+
 # To make simulations/samples more realistic:
 # TODO: higher reps must result in lower weight for a given set
 # TODO: Implement declining trend across sets (also taking reps into account) to simulate fatigue
 # TODO: Implement improving trend across workouts
 # (mainly more weight, could also be higher reps, more sets, more exercises and higher workout frequency)
-
-
-def cleanup() -> None:
-    """Empty all simulated data."""
-
-    p = pathlib.Path("data/simulated/")
-    all_files = os.listdir(p)
-
-    for f in all_files:
-        os.remove(p / f)
-
-    assert os.listdir(p) == []
-
-    return
 
 
 def get_available_exercises(workout_split="chest"):
@@ -102,13 +95,10 @@ def simulate_sets_reps_weight(exercises):
 
 def format_data(workout_date, workout_split, data):
     """Prepare data format for JSON file."""
-
-    final_data = {"date": workout_date, "split": workout_split, "exercises": data}
-
-    return final_data
+    return {"date": workout_date, "split": workout_split, "exercises": data}
 
 
-def write_data(formatted_data):
+def write_data(formatted_data) -> None:
     """Insert simulated, formatted data into JSON file."""
 
     date = formatted_data["date"]
@@ -120,15 +110,25 @@ def write_data(formatted_data):
 
     with filepath.open("w", encoding="utf-8") as f:
         json.dump(formatted_data, f)
+    return
 
 
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
+    delete = 0
+    debug = 0
+    simulate = 1
 
-    # cleanup()
-    # pp(high_reps_low_weight([0, 20]))
+    if delete:
+        cleanup.cleanup("data/simulated/")
 
-    number_of_workouts = 2
+    if debug:
+        pp(high_reps_low_weight([0, 20]))
+
+    if not simulate:
+        return
+
+    number_of_workouts = 10
     dates = get_dates(number_of_workouts)
 
     for workout in range(number_of_workouts):
@@ -137,9 +137,9 @@ def main():
         available_exercises = get_available_exercises(workout_split)
         exercises = simulate_exercises(available_exercises)
         data = simulate_sets_reps_weight(exercises)
-        # pp(data)
-        formatted_data = format_data(workout_date, workout_split, data)
-        write_data(formatted_data)
+        pp(data)
+        # formatted_data = format_data(workout_date, workout_split, data)
+        # write_data(formatted_data)
 
 
 if __name__ == "__main__":

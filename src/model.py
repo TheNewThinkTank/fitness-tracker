@@ -18,21 +18,37 @@ from tinydb import TinyDB
 from CRUD.training import show_exercise
 
 reg = linear_model.LinearRegression()
-db = TinyDB("data/db.json")
+
+datatypes = ["real", "simulated"]
+datatype = datatypes[1]
+
+db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
 log = db.table("log")
 
-df1 = pd.DataFrame(data=show_exercise(log, "squat", "2021-12-11"))
-df1["date"] = "2021-12-11"
-df2 = pd.DataFrame(data=show_exercise(log, "squat", "2021-12-25"))
-df2["date"] = "2021-12-25"
 
-frames = [df1, df2]
-df = pd.concat(frames)
+def get_df(split="legs", exercise="squat"):
+    """."""
+    if datatype == "real":
+        df1 = pd.DataFrame(data=show_exercise(log, exercise, "2021-12-11"))
+        df1["date"] = "2021-12-11"
+        df2 = pd.DataFrame(data=show_exercise(log, exercise, "2021-12-25"))
+        df2["date"] = "2021-12-25"
+        frames = [df1, df2]
+        return pd.concat(frames)
+    elif datatype == "simulated":
+        # TODO: implement
+        """
+        df = pd.DataFrame([])
+        for item in log:
+            if item["split"] == split:
+                for k, v in item["exercises"].items():
+                    if k == exercise:
+                        df[k] = v
+        """
+        return pd.DataFrame([])
 
-# print(df)
 
-
-def one_rep_max_estimator():
+def one_rep_max_estimator(df):
     """The ACSM (American College of Sports Medicine) protocol
     is used to implement the 1RM estimation
     """
@@ -44,11 +60,24 @@ def one_rep_max_estimator():
     return df.groupby("date")[["1RM"]].agg("max")
 
 
-print(one_rep_max_estimator())
+def fit_data():
+    """Lin reg
+    X: workout-dates as int  y: max 1RM estimate in kg, for squat
+    """
+    X = [[0, 102.857143], [14, 91.428571]]  # [[0, 0], [1, 1], [2, 2]]
+    y = [102.857143, 91.428571]  # [0, 1, 2]
 
-# X: workout-dates as int  y: max 1RM estimate in kg, for squat
-# X = [[0, 102.857143], [14, 91.428571]]  # [[0, 0], [1, 1], [2, 2]]
-# y = [102.857143, 91.428571]  # [0, 1, 2]
+    reg.fit(X, y)
+    print(reg.coef_)
+    return
 
-# reg.fit(X, y)
-# print(reg.coef_)
+
+def main():
+    """Prepare dfs, calc 1RM and do linear regression."""
+    df = get_df()
+    print(df)
+    # print(one_rep_max_estimator())
+
+
+if __name__ == "__main__":
+    main()

@@ -141,7 +141,7 @@ def main():
         # pp(data)
         formatted_data = format_data(workout_date, workout_split, data)
         write_data(formatted_data)
-        progress += 1
+        progress += 0.4
 
 
 if __name__ == "__main__":

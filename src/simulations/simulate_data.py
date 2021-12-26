@@ -61,7 +61,7 @@ def high_reps_low_weight(weight_range, actual_reps, progress):
 
     reps_factor = 1 / actual_reps
 
-    weight_choice = int(weight_choice * reps_factor + progress)
+    weight_choice = int(weight_choice * reps_factor) + progress
 
     return f"{weight_choice} kg"
 
@@ -141,7 +141,7 @@ def main():
         # pp(data)
         formatted_data = format_data(workout_date, workout_split, data)
         write_data(formatted_data)
-        progress += 0.4
+        progress += 0.25
 
 
 if __name__ == "__main__":

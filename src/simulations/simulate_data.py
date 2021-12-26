@@ -117,7 +117,7 @@ def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
     delete = 0
     debug = 0
-    simulate = 1
+    simulate = 0
 
     if delete:
         cleanup.cleanup("data/simulated/")

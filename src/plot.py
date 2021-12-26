@@ -86,7 +86,8 @@ def main():
     """Get data and create figure."""
     date = "2021-12-11"
     dfs = get_data(date, ["squat", "leg extention", "deadlift"])
-    create_plot(dfs, date)
+    print(dfs)
+    # create_plot(dfs, date)
 
 
 if __name__ == "__main__":

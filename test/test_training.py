@@ -22,7 +22,7 @@ def setup():
 
 
 def test_show_exercises(setup):
-    """unit test placeholder."""
+    """Verify that test_show_exercises gives correct exercises for known workout."""
     assert show_exercises(setup, "2021-12-16") == [
         "cable extentions",
         "dumbbell front laterals",

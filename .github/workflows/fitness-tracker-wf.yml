@@ -43,6 +43,7 @@ jobs:
       - name: Run test suite
         run: |
           pipenv run test -v
+          pipenv run test -k "test_training and not test_simulation"
 
   # docs:
   #   runs-on: ubuntu-latest

@@ -1,0 +1,2178 @@
+{
+  "log": {
+    "1": {
+      "date": "2021-09-25",
+      "split": "chest",
+      "exercises": {
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 14, "weight": "6.75 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "6.75 kg" }]
+        ],
+        "dip": [
+          [{ "set no.": 1, "reps": 18, "weight": "5.75 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "5.75 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "5.75 kg" }]
+        ],
+        "cable crossover": [[{ "set no.": 1, "reps": 16, "weight": "5.75 kg" }]]
+      }
+    },
+    "2": {
+      "date": "2021-08-08",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 4, "weight": "33.0 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "27.0 kg" }]
+        ],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 12, "weight": "20.0 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "21.0 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "25.0 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "20.0 kg" }],
+          [{ "set no.": 5, "reps": 13, "weight": "20.0 kg" }]
+        ],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 3, "weight": "33.0 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "23.0 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "21.0 kg" }]
+        ]
+      }
+    },
+    "3": {
+      "date": "2021-06-16",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 5, "weight": "18.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "17.25 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 10, "weight": "21.25 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "20.25 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 16, "weight": "20.25 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "22.25 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "21.25 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "21.25 kg" }],
+          [{ "set no.": 5, "reps": 2, "weight": "43.25 kg" }]
+        ]
+      }
+    },
+    "4": {
+      "date": "2021-01-04",
+      "split": "shoulders",
+      "exercises": {
+        "front laterals": [[{ "set no.": 1, "reps": 3, "weight": "17.0 kg" }]],
+        "side laterals": [[{ "set no.": 1, "reps": 10, "weight": "16.0 kg" }]],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 3, "weight": "16.0 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "16.0 kg" }]
+        ]
+      }
+    },
+    "5": {
+      "date": "2021-02-14",
+      "split": "chest",
+      "exercises": {
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 10, "weight": "13.0 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "14.0 kg" }],
+          [{ "set no.": 3, "reps": 15, "weight": "12.0 kg" }],
+          [{ "set no.": 4, "reps": 5, "weight": "14.0 kg" }],
+          [{ "set no.": 5, "reps": 10, "weight": "13.0 kg" }],
+          [{ "set no.": 6, "reps": 2, "weight": "17.0 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 13, "weight": "14.0 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "13.0 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "18.0 kg" }]
+        ],
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 19, "weight": "15.0 kg" }]
+        ]
+      }
+    },
+    "6": {
+      "date": "2021-07-01",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 1, "weight": "12.0 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "10.0 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "10.0 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 15, "weight": "14.0 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "19.0 kg" }],
+          [{ "set no.": 3, "reps": 11, "weight": "15.0 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "16.0 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "12.0 kg" }],
+          [{ "set no.": 6, "reps": 19, "weight": "12.0 kg" }]
+        ],
+        "chinup": [[{ "set no.": 1, "reps": 12, "weight": "10.0 kg" }]]
+      }
+    },
+    "7": {
+      "date": "2021-03-15",
+      "split": "shoulders",
+      "exercises": {
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 5, "weight": "10.75 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "8.75 kg" }],
+          [{ "set no.": 3, "reps": 5, "weight": "10.75 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "18.75 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "8.75 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 15, "weight": "8.75 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "8.75 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "8.75 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "8.75 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "8.75 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 12, "weight": "8.75 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "8.75 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "8.75 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "8.75 kg" }]
+        ]
+      }
+    },
+    "8": {
+      "date": "2021-04-27",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 12, "weight": "19.5 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "24.5 kg" }],
+          [{ "set no.": 3, "reps": 5, "weight": "20.5 kg" }]
+        ],
+        "seated row": [[{ "set no.": 1, "reps": 9, "weight": "23.5 kg" }]],
+        "chinup": [
+          [{ "set no.": 1, "reps": 13, "weight": "19.5 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "24.5 kg" }]
+        ]
+      }
+    },
+    "9": {
+      "date": "2021-09-29",
+      "split": "legs",
+      "exercises": {
+        "seated calf raise": [
+          [{ "set no.": 1, "reps": 7, "weight": "13.75 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "17.75 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "12.75 kg" }],
+          [{ "set no.": 4, "reps": 18, "weight": "12.75 kg" }]
+        ],
+        "standing calf raise": [
+          [{ "set no.": 1, "reps": 20, "weight": "12.75 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "12.75 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "12.75 kg" }],
+          [{ "set no.": 4, "reps": 4, "weight": "13.75 kg" }]
+        ],
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 3, "weight": "22.75 kg" }],
+          [{ "set no.": 2, "reps": 10, "weight": "15.75 kg" }]
+        ]
+      }
+    },
+    "10": {
+      "date": "2021-01-24",
+      "split": "shoulders",
+      "exercises": {
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 13, "weight": "15.75 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "15.75 kg" }],
+          [{ "set no.": 3, "reps": 17, "weight": "15.75 kg" }],
+          [{ "set no.": 4, "reps": 15, "weight": "15.75 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 9, "weight": "15.75 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "15.75 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "15.75 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "16.75 kg" }],
+          [{ "set no.": 5, "reps": 3, "weight": "15.75 kg" }],
+          [{ "set no.": 6, "reps": 8, "weight": "15.75 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 1, "weight": "22.75 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "15.75 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "15.75 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "16.75 kg" }],
+          [{ "set no.": 5, "reps": 12, "weight": "15.75 kg" }]
+        ]
+      }
+    },
+    "11": {
+      "date": "2021-09-05",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 9, "weight": "3.0 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "3.0 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 19, "weight": "6.0 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "14.0 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "54.0 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "5.0 kg" }],
+          [{ "set no.": 5, "reps": 11, "weight": "7.0 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 18, "weight": "5.0 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "5.0 kg" }]
+        ]
+      }
+    },
+    "12": {
+      "date": "2021-08-29",
+      "split": "chest",
+      "exercises": {
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 16, "weight": "24.75 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "28.75 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "25.75 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "27.75 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "24.75 kg" }]
+        ],
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 19, "weight": "24.75 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "25.75 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "31.75 kg" }],
+          [{ "set no.": 4, "reps": 9, "weight": "25.75 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "24.75 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 19, "weight": "25.75 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "35.75 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "24.75 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "27.75 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "24.75 kg" }],
+          [{ "set no.": 6, "reps": 15, "weight": "25.75 kg" }]
+        ]
+      }
+    },
+    "13": {
+      "date": "2021-01-25",
+      "split": "back",
+      "exercises": {
+        "seated row": [
+          [{ "set no.": 1, "reps": 17, "weight": "3.75 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "3.75 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "7.75 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "7.75 kg" }],
+          [{ "set no.": 5, "reps": 6, "weight": "8.75 kg" }],
+          [{ "set no.": 6, "reps": 16, "weight": "3.75 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 14, "weight": "4.75 kg" }],
+          [{ "set no.": 2, "reps": 10, "weight": "5.75 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 2, "weight": "3.75 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "1.75 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "1.75 kg" }],
+          [{ "set no.": 4, "reps": 5, "weight": "1.75 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "1.75 kg" }],
+          [{ "set no.": 6, "reps": 7, "weight": "1.75 kg" }]
+        ]
+      }
+    },
+    "14": {
+      "date": "2021-02-19",
+      "split": "chest",
+      "exercises": {
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 19, "weight": "19.25 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "21.25 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "20.25 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "19.25 kg" }]
+        ],
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 3, "weight": "25.25 kg" }],
+          [{ "set no.": 2, "reps": 8, "weight": "20.25 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 5, "weight": "22.25 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "20.25 kg" }],
+          [{ "set no.": 3, "reps": 11, "weight": "21.25 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "27.25 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "20.25 kg" }]
+        ]
+      }
+    },
+    "15": {
+      "date": "2021-08-13",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 6, "weight": "21.25 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "21.25 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "21.25 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "21.25 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "21.25 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 10, "weight": "25.25 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "28.25 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "25.25 kg" }],
+          [{ "set no.": 4, "reps": 11, "weight": "25.25 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 9, "weight": "21.25 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "23.25 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "24.25 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "21.25 kg" }]
+        ]
+      }
+    },
+    "16": {
+      "date": "2021-03-22",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          [{ "set no.": 1, "reps": 18, "weight": "5.0 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "6.0 kg" }],
+          [{ "set no.": 3, "reps": 15, "weight": "4.0 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "4.0 kg" }],
+          [{ "set no.": 5, "reps": 20, "weight": "3.0 kg" }],
+          [{ "set no.": 6, "reps": 20, "weight": "5.0 kg" }]
+        ],
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 13, "weight": "4.0 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "5.0 kg" }]
+        ],
+        "legpress": [
+          [{ "set no.": 1, "reps": 9, "weight": "7.0 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "4.0 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "6.0 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "58.0 kg" }],
+          [{ "set no.": 5, "reps": 7, "weight": "8.0 kg" }],
+          [{ "set no.": 6, "reps": 20, "weight": "4.0 kg" }]
+        ]
+      }
+    },
+    "17": {
+      "date": "2021-09-08",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 14, "weight": "10.25 kg" }]
+        ],
+        "dip": [
+          [{ "set no.": 1, "reps": 6, "weight": "5.25 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "6.25 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "5.25 kg" }],
+          [{ "set no.": 4, "reps": 16, "weight": "5.25 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "5.25 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 20, "weight": "5.25 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "7.25 kg" }]
+        ]
+      }
+    },
+    "18": {
+      "date": "2021-03-02",
+      "split": "legs",
+      "exercises": {
+        "deadlift": [[{ "set no.": 1, "reps": 12, "weight": "15.25 kg" }]],
+        "hamstring curl": [[{ "set no.": 1, "reps": 3, "weight": "14.25 kg" }]],
+        "barbell lunge": [[{ "set no.": 1, "reps": 17, "weight": "11.25 kg" }]]
+      }
+    },
+    "19": {
+      "date": "2021-10-04",
+      "split": "back",
+      "exercises": {
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 11, "weight": "21.5 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "20.5 kg" }],
+          [{ "set no.": 3, "reps": 11, "weight": "21.5 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "22.5 kg" }],
+          [{ "set no.": 5, "reps": 4, "weight": "28.5 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 8, "weight": "17.5 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "17.5 kg" }],
+          [{ "set no.": 3, "reps": 5, "weight": "17.5 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "17.5 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "17.5 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 9, "weight": "17.5 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "17.5 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "17.5 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "17.5 kg" }]
+        ]
+      }
+    },
+    "20": {
+      "date": "2021-01-29",
+      "split": "legs",
+      "exercises": {
+        "legpress": [[{ "set no.": 1, "reps": 6, "weight": "28.75 kg" }]],
+        "seated calf raise": [
+          [{ "set no.": 1, "reps": 12, "weight": "15.75 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "15.75 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "14.75 kg" }]
+        ],
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 6, "weight": "20.75 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "18.75 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "16.75 kg" }],
+          [{ "set no.": 4, "reps": 9, "weight": "16.75 kg" }]
+        ]
+      }
+    },
+    "21": {
+      "date": "2021-04-10",
+      "split": "back",
+      "exercises": {
+        "chinup": [
+          [{ "set no.": 1, "reps": 17, "weight": "14.5 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "14.5 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "15.5 kg" }],
+          [{ "set no.": 4, "reps": 10, "weight": "14.5 kg" }],
+          [{ "set no.": 5, "reps": 12, "weight": "14.5 kg" }],
+          [{ "set no.": 6, "reps": 20, "weight": "14.5 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 14, "weight": "17.5 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "28.5 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "17.5 kg" }],
+          [{ "set no.": 4, "reps": 5, "weight": "22.5 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "16.5 kg" }]
+        ],
+        "lat pulldown": [[{ "set no.": 1, "reps": 5, "weight": "23.5 kg" }]]
+      }
+    },
+    "22": {
+      "date": "2021-01-05",
+      "split": "back",
+      "exercises": {
+        "chinup": [
+          [{ "set no.": 1, "reps": 18, "weight": "19.0 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "19.0 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "23.0 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "19.0 kg" }],
+          [{ "set no.": 5, "reps": 3, "weight": "19.0 kg" }],
+          [{ "set no.": 6, "reps": 8, "weight": "19.0 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 11, "weight": "19.0 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "19.0 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 2, "weight": "42.0 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "23.0 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "32.0 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "21.0 kg" }]
+        ]
+      }
+    },
+    "23": {
+      "date": "2021-08-09",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          [{ "set no.": 1, "reps": 20, "weight": "14.75 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "84.75 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "13.75 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "27.75 kg" }],
+          [{ "set no.": 5, "reps": 3, "weight": "45.75 kg" }],
+          [{ "set no.": 6, "reps": 6, "weight": "23.75 kg" }]
+        ],
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 17, "weight": "12.75 kg" }]
+        ],
+        "leg extention": [
+          [{ "set no.": 1, "reps": 11, "weight": "14.75 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "43.75 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "12.75 kg" }],
+          [{ "set no.": 4, "reps": 18, "weight": "13.75 kg" }]
+        ]
+      }
+    },
+    "24": {
+      "date": "2021-02-03",
+      "split": "back",
+      "exercises": {
+        "chinup": [
+          [{ "set no.": 1, "reps": 10, "weight": "8.0 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "8.0 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 11, "weight": "8.0 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "8.0 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "9.0 kg" }],
+          [{ "set no.": 4, "reps": 19, "weight": "8.0 kg" }],
+          [{ "set no.": 5, "reps": 5, "weight": "8.0 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 20, "weight": "10.0 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "15.0 kg" }]
+        ]
+      }
+    },
+    "25": {
+      "date": "2021-01-18",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 14, "weight": "14.0 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "14.0 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "14.0 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "15.0 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 16, "weight": "14.0 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "14.0 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "15.0 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 1, "weight": "22.0 kg" }],
+          [{ "set no.": 2, "reps": 14, "weight": "15.0 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "15.0 kg" }],
+          [{ "set no.": 4, "reps": 15, "weight": "14.0 kg" }],
+          [{ "set no.": 5, "reps": 16, "weight": "14.0 kg" }],
+          [{ "set no.": 6, "reps": 20, "weight": "14.0 kg" }]
+        ]
+      }
+    },
+    "26": {
+      "date": "2021-08-14",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 5, "weight": "15.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "15.25 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 18, "weight": "17.25 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "18.25 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "19.25 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 20, "weight": "17.25 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "17.25 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "30.25 kg" }],
+          [{ "set no.": 4, "reps": 9, "weight": "19.25 kg" }],
+          [{ "set no.": 5, "reps": 8, "weight": "20.25 kg" }],
+          [{ "set no.": 6, "reps": 4, "weight": "26.25 kg" }]
+        ]
+      }
+    },
+    "27": {
+      "date": "2021-07-27",
+      "split": "shoulders",
+      "exercises": {
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 19, "weight": "23.75 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "24.75 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "24.75 kg" }],
+          [{ "set no.": 4, "reps": 10, "weight": "23.75 kg" }]
+        ],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 11, "weight": "23.75 kg" }],
+          [{ "set no.": 2, "reps": 14, "weight": "23.75 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "23.75 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 4, "weight": "23.75 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "23.75 kg" }]
+        ]
+      }
+    },
+    "28": {
+      "date": "2021-06-26",
+      "split": "back",
+      "exercises": {
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 8, "weight": "19.25 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "24.25 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "17.25 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "22.25 kg" }],
+          [{ "set no.": 5, "reps": 9, "weight": "21.25 kg" }],
+          [{ "set no.": 6, "reps": 6, "weight": "23.25 kg" }]
+        ],
+        "seated row": [[{ "set no.": 1, "reps": 8, "weight": "22.25 kg" }]],
+        "pullup": [
+          [{ "set no.": 1, "reps": 3, "weight": "14.25 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "14.25 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "14.25 kg" }],
+          [{ "set no.": 4, "reps": 16, "weight": "14.25 kg" }]
+        ]
+      }
+    },
+    "29": {
+      "date": "2021-10-19",
+      "split": "shoulders",
+      "exercises": {
+        "front laterals": [
+          [{ "set no.": 1, "reps": 16, "weight": "12.5 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "12.5 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "12.5 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "13.5 kg" }],
+          [{ "set no.": 5, "reps": 15, "weight": "12.5 kg" }]
+        ],
+        "rear laterals": [[{ "set no.": 1, "reps": 9, "weight": "12.5 kg" }]],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 11, "weight": "12.5 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "12.5 kg" }]
+        ]
+      }
+    },
+    "30": {
+      "date": "2021-05-20",
+      "split": "legs",
+      "exercises": {
+        "leg extention": [
+          [{ "set no.": 1, "reps": 7, "weight": "27.0 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "26.0 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "23.0 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "22.0 kg" }],
+          [{ "set no.": 5, "reps": 11, "weight": "25.0 kg" }],
+          [{ "set no.": 6, "reps": 7, "weight": "25.0 kg" }]
+        ],
+        "legpress": [[{ "set no.": 1, "reps": 20, "weight": "24.0 kg" }]],
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 17, "weight": "23.0 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "23.0 kg" }],
+          [{ "set no.": 3, "reps": 16, "weight": "22.0 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "22.0 kg" }],
+          [{ "set no.": 5, "reps": 3, "weight": "27.0 kg" }]
+        ]
+      }
+    },
+    "31": {
+      "date": "2021-01-14",
+      "split": "legs",
+      "exercises": {
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 11, "weight": "21.0 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "20.0 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "65.0 kg" }]
+        ],
+        "seated calf raise": [
+          [{ "set no.": 1, "reps": 20, "weight": "18.0 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "19.0 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "20.0 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "18.0 kg" }],
+          [{ "set no.": 5, "reps": 1, "weight": "28.0 kg" }],
+          [{ "set no.": 6, "reps": 7, "weight": "18.0 kg" }]
+        ],
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 5, "weight": "21.0 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "19.0 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "18.0 kg" }]
+        ]
+      }
+    },
+    "32": {
+      "date": "2021-09-23",
+      "split": "shoulders",
+      "exercises": {
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 1, "weight": "19.75 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "16.75 kg" }],
+          [{ "set no.": 3, "reps": 16, "weight": "16.75 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "16.75 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 6, "weight": "17.75 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "17.75 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "16.75 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "17.75 kg" }],
+          [{ "set no.": 5, "reps": 4, "weight": "17.75 kg" }]
+        ],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 10, "weight": "16.75 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "16.75 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "16.75 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "18.75 kg" }],
+          [{ "set no.": 5, "reps": 12, "weight": "16.75 kg" }]
+        ]
+      }
+    },
+    "33": {
+      "date": "2021-05-16",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [[{ "set no.": 1, "reps": 14, "weight": "15.0 kg" }]],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 15, "weight": "15.0 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "15.0 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "15.0 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "15.0 kg" }],
+          [{ "set no.": 5, "reps": 9, "weight": "15.0 kg" }]
+        ],
+        "rear laterals": [[{ "set no.": 1, "reps": 5, "weight": "15.0 kg" }]]
+      }
+    },
+    "34": {
+      "date": "2021-08-18",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 19, "weight": "22.0 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "25.0 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "24.0 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "23.0 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 5, "weight": "22.0 kg" }],
+          [{ "set no.": 2, "reps": 8, "weight": "22.0 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 16, "weight": "22.0 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "23.0 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "22.0 kg" }]
+        ]
+      }
+    },
+    "35": {
+      "date": "2021-01-02",
+      "split": "legs",
+      "exercises": {
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 16, "weight": "20.25 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "21.25 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "31.25 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "21.25 kg" }],
+          [{ "set no.": 5, "reps": 1, "weight": "30.25 kg" }]
+        ],
+        "squat": [
+          [{ "set no.": 1, "reps": 8, "weight": "34.25 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "30.25 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "27.25 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "23.25 kg" }],
+          [{ "set no.": 5, "reps": 8, "weight": "30.25 kg" }],
+          [{ "set no.": 6, "reps": 20, "weight": "24.25 kg" }]
+        ],
+        "deadlift": [
+          [{ "set no.": 1, "reps": 1, "weight": "77.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "31.25 kg" }]
+        ]
+      }
+    },
+    "36": {
+      "date": "2021-02-12",
+      "split": "legs",
+      "exercises": {
+        "deadlift": [
+          [{ "set no.": 1, "reps": 6, "weight": "30.75 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "36.75 kg" }]
+        ],
+        "legpress": [
+          [{ "set no.": 1, "reps": 7, "weight": "32.75 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "133.75 kg" }]
+        ],
+        "leg extention": [
+          [{ "set no.": 1, "reps": 15, "weight": "24.75 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "28.75 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "27.75 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "26.75 kg" }]
+        ]
+      }
+    },
+    "37": {
+      "date": "2021-07-07",
+      "split": "legs",
+      "exercises": {
+        "standing calf raise": [
+          [{ "set no.": 1, "reps": 1, "weight": "15.75 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "5.75 kg" }],
+          [{ "set no.": 3, "reps": 5, "weight": "6.75 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "4.75 kg" }],
+          [{ "set no.": 5, "reps": 12, "weight": "4.75 kg" }],
+          [{ "set no.": 6, "reps": 10, "weight": "4.75 kg" }]
+        ],
+        "seated calf raise": [
+          [{ "set no.": 1, "reps": 6, "weight": "4.75 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "4.75 kg" }]
+        ],
+        "hamstring curl": [[{ "set no.": 1, "reps": 3, "weight": "17.75 kg" }]]
+      }
+    },
+    "38": {
+      "date": "2021-02-28",
+      "split": "legs",
+      "exercises": {
+        "leg extention": [[{ "set no.": 1, "reps": 3, "weight": "23.75 kg" }]],
+        "deadlift": [
+          [{ "set no.": 1, "reps": 2, "weight": "38.75 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "16.75 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "16.75 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "25.75 kg" }]
+        ],
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 16, "weight": "14.75 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "19.75 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "16.75 kg" }],
+          [{ "set no.": 4, "reps": 9, "weight": "19.75 kg" }]
+        ]
+      }
+    },
+    "39": {
+      "date": "2021-08-23",
+      "split": "legs",
+      "exercises": {
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 3, "weight": "24.25 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "46.25 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "21.25 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "19.25 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "20.25 kg" }]
+        ],
+        "leg extention": [
+          [{ "set no.": 1, "reps": 16, "weight": "22.25 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "21.25 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "31.25 kg" }]
+        ],
+        "seated calf raise": [
+          [{ "set no.": 1, "reps": 10, "weight": "18.25 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "21.25 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "18.25 kg" }],
+          [{ "set no.": 4, "reps": 2, "weight": "21.25 kg" }]
+        ]
+      }
+    },
+    "40": {
+      "date": "2021-10-14",
+      "split": "back",
+      "exercises": {
+        "chinup": [[{ "set no.": 1, "reps": 6, "weight": "8.0 kg" }]],
+        "pullup": [
+          [{ "set no.": 1, "reps": 9, "weight": "7.0 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "7.0 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "7.0 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 19, "weight": "9.0 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "38.0 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "22.0 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "11.0 kg" }]
+        ]
+      }
+    },
+    "41": {
+      "date": "2021-10-02",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 1, "weight": "22.75 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "18.75 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "19.75 kg" }],
+          [{ "set no.": 4, "reps": 18, "weight": "18.75 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 19, "weight": "18.75 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "18.75 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "18.75 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 3, "weight": "19.75 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "18.75 kg" }]
+        ]
+      }
+    },
+    "42": {
+      "date": "2021-08-19",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 12, "weight": "13.5 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "14.5 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 16, "weight": "16.5 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "16.5 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "15.5 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "26.5 kg" }],
+          [{ "set no.": 5, "reps": 4, "weight": "23.5 kg" }],
+          [{ "set no.": 6, "reps": 18, "weight": "15.5 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 17, "weight": "16.5 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "15.5 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "16.5 kg" }]
+        ]
+      }
+    },
+    "43": {
+      "date": "2021-01-15",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 17, "weight": "18.5 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 5, "weight": "18.5 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "27.5 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "17.5 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "16.5 kg" }],
+          [{ "set no.": 5, "reps": 18, "weight": "15.5 kg" }]
+        ],
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 18, "weight": "16.5 kg" }]
+        ]
+      }
+    },
+    "44": {
+      "date": "2021-02-25",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 19, "weight": "6.0 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 18, "weight": "4.0 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "4.0 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "5.0 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "7.0 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "5.0 kg" }]
+        ],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 5, "weight": "7.0 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "5.0 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "5.0 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "4.0 kg" }],
+          [{ "set no.": 5, "reps": 1, "weight": "15.0 kg" }],
+          [{ "set no.": 6, "reps": 15, "weight": "5.0 kg" }]
+        ]
+      }
+    },
+    "45": {
+      "date": "2021-09-14",
+      "split": "shoulders",
+      "exercises": {
+        "rear laterals": [[{ "set no.": 1, "reps": 5, "weight": "2.5 kg" }]],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 11, "weight": "2.5 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "3.5 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "2.5 kg" }],
+          [{ "set no.": 4, "reps": 19, "weight": "2.5 kg" }],
+          [{ "set no.": 5, "reps": 4, "weight": "2.5 kg" }],
+          [{ "set no.": 6, "reps": 16, "weight": "2.5 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 20, "weight": "2.5 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "2.5 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "2.5 kg" }],
+          [{ "set no.": 4, "reps": 18, "weight": "2.5 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "2.5 kg" }],
+          [{ "set no.": 6, "reps": 16, "weight": "2.5 kg" }]
+        ]
+      }
+    },
+    "46": {
+      "date": "2021-10-22",
+      "split": "back",
+      "exercises": {
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 20, "weight": "25.0 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "25.0 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 2, "weight": "26.0 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "23.0 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "23.0 kg" }],
+          [{ "set no.": 4, "reps": 16, "weight": "23.0 kg" }],
+          [{ "set no.": 5, "reps": 3, "weight": "23.0 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 2, "weight": "25.0 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "23.0 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "23.0 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "23.0 kg" }],
+          [{ "set no.": 5, "reps": 8, "weight": "23.0 kg" }],
+          [{ "set no.": 6, "reps": 12, "weight": "23.0 kg" }]
+        ]
+      }
+    },
+    "47": {
+      "date": "2021-07-30",
+      "split": "shoulders",
+      "exercises": {
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 10, "weight": "13.0 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "13.0 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "17.0 kg" }]
+        ],
+        "rear laterals": [[{ "set no.": 1, "reps": 4, "weight": "13.0 kg" }]],
+        "front laterals": [[{ "set no.": 1, "reps": 11, "weight": "13.0 kg" }]]
+      }
+    },
+    "48": {
+      "date": "2021-01-19",
+      "split": "legs",
+      "exercises": {
+        "deadlift": [
+          [{ "set no.": 1, "reps": 7, "weight": "11.25 kg" }],
+          [{ "set no.": 2, "reps": 8, "weight": "10.25 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "12.25 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "6.25 kg" }]
+        ],
+        "squat": [
+          [{ "set no.": 1, "reps": 15, "weight": "6.25 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "21.25 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "8.25 kg" }]
+        ],
+        "standing calf raise": [
+          [{ "set no.": 1, "reps": 19, "weight": "2.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "5.25 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "3.25 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "2.25 kg" }],
+          [{ "set no.": 5, "reps": 2, "weight": "6.25 kg" }]
+        ]
+      }
+    },
+    "49": {
+      "date": "2021-02-26",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 11, "weight": "13.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "14.25 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "14.25 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 15, "weight": "13.25 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "13.25 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 9, "weight": "13.25 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "20.25 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "13.25 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "14.25 kg" }],
+          [{ "set no.": 5, "reps": 7, "weight": "13.25 kg" }],
+          [{ "set no.": 6, "reps": 16, "weight": "13.25 kg" }]
+        ]
+      }
+    },
+    "50": {
+      "date": "2021-06-24",
+      "split": "shoulders",
+      "exercises": {
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 20, "weight": "7.25 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "7.25 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "9.25 kg" }],
+          [{ "set no.": 4, "reps": 5, "weight": "7.25 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 16, "weight": "7.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "8.25 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "8.25 kg" }],
+          [{ "set no.": 4, "reps": 2, "weight": "12.25 kg" }],
+          [{ "set no.": 5, "reps": 13, "weight": "8.25 kg" }],
+          [{ "set no.": 6, "reps": 2, "weight": "11.25 kg" }]
+        ],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 7, "weight": "7.25 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "9.25 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "7.25 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "7.25 kg" }],
+          [{ "set no.": 5, "reps": 8, "weight": "7.25 kg" }],
+          [{ "set no.": 6, "reps": 19, "weight": "7.25 kg" }]
+        ]
+      }
+    },
+    "51": {
+      "date": "2021-10-21",
+      "split": "legs",
+      "exercises": {
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 5, "weight": "19.75 kg" }],
+          [{ "set no.": 2, "reps": 8, "weight": "13.75 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "13.75 kg" }]
+        ],
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 9, "weight": "13.75 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "10.75 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "15.75 kg" }]
+        ],
+        "standing calf raise": [
+          [{ "set no.": 1, "reps": 5, "weight": "11.75 kg" }],
+          [{ "set no.": 2, "reps": 10, "weight": "11.75 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "11.75 kg" }]
+        ]
+      }
+    },
+    "52": {
+      "date": "2021-07-25",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 3, "weight": "20.5 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "20.5 kg" }],
+          [{ "set no.": 3, "reps": 17, "weight": "20.5 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 3, "weight": "21.5 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "20.5 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 18, "weight": "20.5 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "20.5 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "20.5 kg" }],
+          [{ "set no.": 4, "reps": 11, "weight": "20.5 kg" }],
+          [{ "set no.": 5, "reps": 5, "weight": "20.5 kg" }],
+          [{ "set no.": 6, "reps": 5, "weight": "20.5 kg" }]
+        ]
+      }
+    },
+    "53": {
+      "date": "2021-06-08",
+      "split": "chest",
+      "exercises": {
+        "dip": [
+          [{ "set no.": 1, "reps": 2, "weight": "8.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "8.25 kg" }]
+        ],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 16, "weight": "8.25 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "8.25 kg" }],
+          [{ "set no.": 3, "reps": 17, "weight": "8.25 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "9.25 kg" }]
+        ],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 9, "weight": "14.25 kg" }]
+        ]
+      }
+    },
+    "54": {
+      "date": "2021-03-27",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 9, "weight": "12.25 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "12.25 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 14, "weight": "14.25 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "14.25 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "16.25 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "14.25 kg" }],
+          [{ "set no.": 5, "reps": 4, "weight": "24.25 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 16, "weight": "15.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "19.25 kg" }],
+          [{ "set no.": 3, "reps": 15, "weight": "15.25 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "18.25 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "15.25 kg" }],
+          [{ "set no.": 6, "reps": 5, "weight": "20.25 kg" }]
+        ]
+      }
+    },
+    "55": {
+      "date": "2021-04-03",
+      "split": "legs",
+      "exercises": {
+        "deadlift": [
+          [{ "set no.": 1, "reps": 18, "weight": "12.75 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "26.75 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "12.75 kg" }],
+          [{ "set no.": 4, "reps": 15, "weight": "12.75 kg" }],
+          [{ "set no.": 5, "reps": 10, "weight": "18.75 kg" }],
+          [{ "set no.": 6, "reps": 2, "weight": "37.75 kg" }]
+        ],
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 2, "weight": "30.75 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "20.75 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "14.75 kg" }],
+          [{ "set no.": 4, "reps": 16, "weight": "11.75 kg" }],
+          [{ "set no.": 5, "reps": 9, "weight": "13.75 kg" }]
+        ],
+        "seated calf raise": [
+          [{ "set no.": 1, "reps": 2, "weight": "12.75 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "9.75 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "9.75 kg" }]
+        ]
+      }
+    },
+    "56": {
+      "date": "2021-07-13",
+      "split": "shoulders",
+      "exercises": {
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 7, "weight": "11.5 kg" }],
+          [{ "set no.": 2, "reps": 10, "weight": "11.5 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "11.5 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 5, "weight": "11.5 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "11.5 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "11.5 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 1, "weight": "19.5 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "11.5 kg" }],
+          [{ "set no.": 3, "reps": 11, "weight": "11.5 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "11.5 kg" }]
+        ]
+      }
+    },
+    "57": {
+      "date": "2021-03-07",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 1, "weight": "82.5 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "46.5 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "18.5 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "21.5 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "14.5 kg" }],
+          [{ "set no.": 6, "reps": 18, "weight": "12.5 kg" }]
+        ],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 17, "weight": "13.5 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "32.5 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "18.5 kg" }],
+          [{ "set no.": 4, "reps": 18, "weight": "11.5 kg" }]
+        ],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 7, "weight": "11.5 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "10.5 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "10.5 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "11.5 kg" }],
+          [{ "set no.": 5, "reps": 4, "weight": "12.5 kg" }],
+          [{ "set no.": 6, "reps": 19, "weight": "10.5 kg" }]
+        ]
+      }
+    },
+    "58": {
+      "date": "2021-07-05",
+      "split": "chest",
+      "exercises": {
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 2, "weight": "19.0 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "10.0 kg" }]
+        ],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 20, "weight": "9.0 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "15.0 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "10.0 kg" }]
+        ],
+        "dip": [
+          [{ "set no.": 1, "reps": 20, "weight": "9.0 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "9.0 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "9.0 kg" }]
+        ]
+      }
+    },
+    "59": {
+      "date": "2021-05-14",
+      "split": "back",
+      "exercises": {
+        "chinup": [
+          [{ "set no.": 1, "reps": 5, "weight": "20.75 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "20.75 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "20.75 kg" }]
+        ],
+        "lat pulldown": [[{ "set no.": 1, "reps": 14, "weight": "22.75 kg" }]],
+        "pullup": [
+          [{ "set no.": 1, "reps": 9, "weight": "20.75 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "20.75 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "20.75 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "20.75 kg" }],
+          [{ "set no.": 5, "reps": 4, "weight": "21.75 kg" }]
+        ]
+      }
+    },
+    "60": {
+      "date": "2021-06-12",
+      "split": "legs",
+      "exercises": {
+        "legpress": [
+          [{ "set no.": 1, "reps": 18, "weight": "26.5 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "24.5 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "32.5 kg" }],
+          [{ "set no.": 4, "reps": 11, "weight": "28.5 kg" }],
+          [{ "set no.": 5, "reps": 10, "weight": "28.5 kg" }]
+        ],
+        "deadlift": [
+          [{ "set no.": 1, "reps": 2, "weight": "47.5 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "41.5 kg" }]
+        ],
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 10, "weight": "24.5 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "57.5 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "23.5 kg" }]
+        ]
+      }
+    },
+    "61": {
+      "date": "2021-09-21",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 17, "weight": "8.5 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "16.5 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "11.5 kg" }]
+        ],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 6, "weight": "12.5 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "36.5 kg" }],
+          [{ "set no.": 3, "reps": 17, "weight": "9.5 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "10.5 kg" }],
+          [{ "set no.": 5, "reps": 10, "weight": "10.5 kg" }]
+        ],
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 2, "weight": "14.5 kg" }]
+        ]
+      }
+    },
+    "62": {
+      "date": "2021-01-17",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 4, "weight": "20.5 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "18.5 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 18, "weight": "18.5 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "18.5 kg" }],
+          [{ "set no.": 3, "reps": 17, "weight": "18.5 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "18.5 kg" }],
+          [{ "set no.": 5, "reps": 9, "weight": "19.5 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 10, "weight": "18.5 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "18.5 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "18.5 kg" }],
+          [{ "set no.": 4, "reps": 4, "weight": "18.5 kg" }],
+          [{ "set no.": 5, "reps": 2, "weight": "19.5 kg" }]
+        ]
+      }
+    },
+    "63": {
+      "date": "2021-02-07",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 4, "weight": "18.25 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "17.25 kg" }],
+          [{ "set no.": 3, "reps": 11, "weight": "16.25 kg" }],
+          [{ "set no.": 4, "reps": 19, "weight": "16.25 kg" }],
+          [{ "set no.": 5, "reps": 9, "weight": "16.25 kg" }],
+          [{ "set no.": 6, "reps": 5, "weight": "17.25 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 6, "weight": "17.25 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "17.25 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "17.25 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "17.25 kg" }],
+          [{ "set no.": 5, "reps": 11, "weight": "17.25 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 14, "weight": "16.25 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "16.25 kg" }]
+        ]
+      }
+    },
+    "64": {
+      "date": "2021-09-20",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 9, "weight": "24.0 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "24.0 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "25.0 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "24.0 kg" }],
+          [{ "set no.": 5, "reps": 5, "weight": "24.0 kg" }],
+          [{ "set no.": 6, "reps": 7, "weight": "24.0 kg" }]
+        ],
+        "seated row": [[{ "set no.": 1, "reps": 5, "weight": "32.0 kg" }]],
+        "chinup": [
+          [{ "set no.": 1, "reps": 8, "weight": "24.0 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "24.0 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "24.0 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "24.0 kg" }]
+        ]
+      }
+    },
+    "65": {
+      "date": "2021-06-13",
+      "split": "chest",
+      "exercises": {
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 14, "weight": "22.75 kg" }]
+        ],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 4, "weight": "26.75 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "23.75 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "28.75 kg" }]
+        ],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 3, "weight": "39.75 kg" }],
+          [{ "set no.": 2, "reps": 8, "weight": "25.75 kg" }],
+          [{ "set no.": 3, "reps": 16, "weight": "25.75 kg" }],
+          [{ "set no.": 4, "reps": 19, "weight": "25.75 kg" }],
+          [{ "set no.": 5, "reps": 15, "weight": "25.75 kg" }]
+        ]
+      }
+    },
+    "66": {
+      "date": "2021-01-01",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 7, "weight": "10.25 kg" }],
+          [{ "set no.": 2, "reps": 10, "weight": "10.25 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "10.25 kg" }],
+          [{ "set no.": 4, "reps": 10, "weight": "10.25 kg" }],
+          [{ "set no.": 5, "reps": 20, "weight": "10.25 kg" }]
+        ],
+        "chinup": [[{ "set no.": 1, "reps": 11, "weight": "10.25 kg" }]],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 16, "weight": "12.25 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "20.25 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "55.25 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "50.25 kg" }]
+        ]
+      }
+    },
+    "67": {
+      "date": "2021-08-17",
+      "split": "shoulders",
+      "exercises": {
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 14, "weight": "8.5 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "8.5 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "8.5 kg" }],
+          [{ "set no.": 4, "reps": 4, "weight": "8.5 kg" }]
+        ],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 1, "weight": "16.5 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "8.5 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "8.5 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "8.5 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "8.5 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 20, "weight": "8.5 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "8.5 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "8.5 kg" }]
+        ]
+      }
+    },
+    "68": {
+      "date": "2021-06-09",
+      "split": "back",
+      "exercises": {
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 18, "weight": "13.25 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "16.25 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "31.25 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 3, "weight": "11.25 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "11.25 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "11.25 kg" }],
+          [{ "set no.": 4, "reps": 2, "weight": "11.25 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 3, "weight": "27.25 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "17.25 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "14.25 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "14.25 kg" }]
+        ]
+      }
+    },
+    "69": {
+      "date": "2021-07-24",
+      "split": "chest",
+      "exercises": {
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 10, "weight": "6.5 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "14.5 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "13.5 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "6.5 kg" }]
+        ],
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 7, "weight": "6.5 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "4.5 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "3.5 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 12, "weight": "4.5 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "3.5 kg" }]
+        ]
+      }
+    },
+    "70": {
+      "date": "2021-07-08",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [
+          [{ "set no.": 1, "reps": 11, "weight": "5.5 kg" }],
+          [{ "set no.": 2, "reps": 14, "weight": "5.5 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 14, "weight": "5.5 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "5.5 kg" }],
+          [{ "set no.": 3, "reps": 5, "weight": "7.5 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "8.5 kg" }],
+          [{ "set no.": 5, "reps": 7, "weight": "6.5 kg" }]
+        ],
+        "rear laterals": [[{ "set no.": 1, "reps": 2, "weight": "6.5 kg" }]]
+      }
+    },
+    "71": {
+      "date": "2021-01-21",
+      "split": "back",
+      "exercises": {
+        "chinup": [
+          [{ "set no.": 1, "reps": 12, "weight": "19.75 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "19.75 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "19.75 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "19.75 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 1, "weight": "26.75 kg" }],
+          [{ "set no.": 2, "reps": 8, "weight": "19.75 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "20.75 kg" }],
+          [{ "set no.": 4, "reps": 16, "weight": "19.75 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "19.75 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 14, "weight": "22.75 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "26.75 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "23.75 kg" }],
+          [{ "set no.": 4, "reps": 15, "weight": "22.75 kg" }],
+          [{ "set no.": 5, "reps": 6, "weight": "27.75 kg" }]
+        ]
+      }
+    },
+    "72": {
+      "date": "2021-02-27",
+      "split": "back",
+      "exercises": {
+        "seated row": [
+          [{ "set no.": 1, "reps": 18, "weight": "6.5 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "10.5 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 3, "weight": "19.5 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "25.5 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "16.5 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 15, "weight": "4.5 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "4.5 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "4.5 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "9.5 kg" }],
+          [{ "set no.": 5, "reps": 1, "weight": "8.5 kg" }],
+          [{ "set no.": 6, "reps": 20, "weight": "4.5 kg" }]
+        ]
+      }
+    },
+    "73": {
+      "date": "2021-08-26",
+      "split": "back",
+      "exercises": {
+        "chinup": [
+          [{ "set no.": 1, "reps": 10, "weight": "24.25 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "24.25 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "24.25 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "24.25 kg" }],
+          [{ "set no.": 5, "reps": 20, "weight": "24.25 kg" }]
+        ],
+        "seated row": [
+          [{ "set no.": 1, "reps": 8, "weight": "31.25 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "26.25 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 11, "weight": "24.25 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "24.25 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "24.25 kg" }]
+        ]
+      }
+    },
+    "74": {
+      "date": "2021-07-15",
+      "split": "back",
+      "exercises": {
+        "seated row": [
+          [{ "set no.": 1, "reps": 13, "weight": "25.5 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "23.5 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 11, "weight": "21.5 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "21.5 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "21.5 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 19, "weight": "21.5 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "21.5 kg" }],
+          [{ "set no.": 3, "reps": 17, "weight": "21.5 kg" }],
+          [{ "set no.": 4, "reps": 15, "weight": "21.5 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "21.5 kg" }],
+          [{ "set no.": 6, "reps": 17, "weight": "21.5 kg" }]
+        ]
+      }
+    },
+    "75": {
+      "date": "2021-03-01",
+      "split": "legs",
+      "exercises": {
+        "barbell lunge": [
+          [{ "set no.": 1, "reps": 13, "weight": "4.25 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "8.25 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "18.25 kg" }]
+        ],
+        "deadlift": [
+          [{ "set no.": 1, "reps": 14, "weight": "3.25 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "30.25 kg" }],
+          [{ "set no.": 3, "reps": 8, "weight": "11.25 kg" }],
+          [{ "set no.": 4, "reps": 12, "weight": "4.25 kg" }]
+        ],
+        "legpress": [
+          [{ "set no.": 1, "reps": 19, "weight": "2.25 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "4.25 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "7.25 kg" }]
+        ]
+      }
+    },
+    "76": {
+      "date": "2021-03-17",
+      "split": "chest",
+      "exercises": {
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 3, "weight": "21.0 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "16.0 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "15.0 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "13.0 kg" }],
+          [{ "set no.": 5, "reps": 11, "weight": "13.0 kg" }],
+          [{ "set no.": 6, "reps": 15, "weight": "15.0 kg" }]
+        ],
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 13, "weight": "12.0 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "12.0 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "12.0 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 3, "weight": "19.0 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "11.0 kg" }],
+          [{ "set no.": 3, "reps": 5, "weight": "14.0 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "15.0 kg" }],
+          [{ "set no.": 5, "reps": 20, "weight": "12.0 kg" }]
+        ]
+      }
+    },
+    "77": {
+      "date": "2021-04-13",
+      "split": "shoulders",
+      "exercises": {
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 15, "weight": "17.0 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "17.0 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "23.0 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "17.0 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "17.0 kg" }]
+        ],
+        "rear laterals": [[{ "set no.": 1, "reps": 10, "weight": "17.0 kg" }]],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 5, "weight": "18.0 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "17.0 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "18.0 kg" }],
+          [{ "set no.": 4, "reps": 9, "weight": "17.0 kg" }],
+          [{ "set no.": 5, "reps": 3, "weight": "18.0 kg" }],
+          [{ "set no.": 6, "reps": 11, "weight": "17.0 kg" }]
+        ]
+      }
+    },
+    "78": {
+      "date": "2021-08-30",
+      "split": "shoulders",
+      "exercises": {
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 9, "weight": "6.25 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "6.25 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 12, "weight": "6.25 kg" }],
+          [{ "set no.": 2, "reps": 10, "weight": "6.25 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "6.25 kg" }],
+          [{ "set no.": 4, "reps": 13, "weight": "6.25 kg" }],
+          [{ "set no.": 5, "reps": 20, "weight": "6.25 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 9, "weight": "6.25 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "6.25 kg" }]
+        ]
+      }
+    },
+    "79": {
+      "date": "2021-07-03",
+      "split": "back",
+      "exercises": {
+        "chinup": [
+          [{ "set no.": 1, "reps": 13, "weight": "5.0 kg" }],
+          [{ "set no.": 2, "reps": 8, "weight": "5.0 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 1, "weight": "8.0 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "7.0 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "5.0 kg" }],
+          [{ "set no.": 4, "reps": 14, "weight": "5.0 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "5.0 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 12, "weight": "10.0 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "8.0 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "11.0 kg" }],
+          [{ "set no.": 4, "reps": 18, "weight": "7.0 kg" }]
+        ]
+      }
+    },
+    "80": {
+      "date": "2021-06-02",
+      "split": "chest",
+      "exercises": {
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 12, "weight": "3.75 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "2.75 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "2.75 kg" }],
+          [{ "set no.": 4, "reps": 2, "weight": "10.75 kg" }]
+        ],
+        "dip": [
+          [{ "set no.": 1, "reps": 9, "weight": "2.75 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "2.75 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "2.75 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "2.75 kg" }]
+        ],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 17, "weight": "2.75 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "2.75 kg" }]
+        ]
+      }
+    },
+    "81": {
+      "date": "2021-05-12",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 4, "weight": "24.5 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "23.5 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "23.5 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "23.5 kg" }],
+          [{ "set no.": 5, "reps": 12, "weight": "23.5 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 10, "weight": "27.5 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "31.5 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "25.5 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "38.5 kg" }],
+          [{ "set no.": 5, "reps": 11, "weight": "27.5 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 18, "weight": "23.5 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "27.5 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "23.5 kg" }],
+          [{ "set no.": 4, "reps": 4, "weight": "23.5 kg" }]
+        ]
+      }
+    },
+    "82": {
+      "date": "2021-04-29",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 10, "weight": "12.5 kg" }],
+          [{ "set no.": 2, "reps": 14, "weight": "11.5 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "12.5 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "9.5 kg" }]
+        ],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 16, "weight": "10.5 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "10.5 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "10.5 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 15, "weight": "7.5 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "9.5 kg" }],
+          [{ "set no.": 3, "reps": 17, "weight": "7.5 kg" }],
+          [{ "set no.": 4, "reps": 7, "weight": "8.5 kg" }]
+        ]
+      }
+    },
+    "83": {
+      "date": "2021-05-04",
+      "split": "shoulders",
+      "exercises": {
+        "front laterals": [
+          [{ "set no.": 1, "reps": 9, "weight": "22.25 kg" }],
+          [{ "set no.": 2, "reps": 16, "weight": "22.25 kg" }]
+        ],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 18, "weight": "22.25 kg" }],
+          [{ "set no.": 2, "reps": 11, "weight": "22.25 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "22.25 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 14, "weight": "22.25 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "23.25 kg" }],
+          [{ "set no.": 3, "reps": 16, "weight": "22.25 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "25.25 kg" }],
+          [{ "set no.": 5, "reps": 15, "weight": "22.25 kg" }],
+          [{ "set no.": 6, "reps": 11, "weight": "22.25 kg" }]
+        ]
+      }
+    },
+    "84": {
+      "date": "2021-09-07",
+      "split": "back",
+      "exercises": {
+        "seated row": [
+          [{ "set no.": 1, "reps": 2, "weight": "28.75 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "9.75 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "11.75 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "5.75 kg" }],
+          [{ "set no.": 5, "reps": 15, "weight": "7.75 kg" }],
+          [{ "set no.": 6, "reps": 12, "weight": "6.75 kg" }]
+        ],
+        "pullup": [
+          [{ "set no.": 1, "reps": 11, "weight": "3.75 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "3.75 kg" }],
+          [{ "set no.": 3, "reps": 15, "weight": "3.75 kg" }]
+        ],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 3, "weight": "20.75 kg" }],
+          [{ "set no.": 2, "reps": 14, "weight": "6.75 kg" }],
+          [{ "set no.": 3, "reps": 9, "weight": "9.75 kg" }],
+          [{ "set no.": 4, "reps": 16, "weight": "5.75 kg" }],
+          [{ "set no.": 5, "reps": 17, "weight": "5.75 kg" }],
+          [{ "set no.": 6, "reps": 3, "weight": "16.75 kg" }]
+        ]
+      }
+    },
+    "85": {
+      "date": "2021-01-30",
+      "split": "back",
+      "exercises": {
+        "pullup": [
+          [{ "set no.": 1, "reps": 15, "weight": "9.5 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "9.5 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "9.5 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "9.5 kg" }],
+          [{ "set no.": 5, "reps": 9, "weight": "9.5 kg" }],
+          [{ "set no.": 6, "reps": 16, "weight": "9.5 kg" }]
+        ],
+        "lat pulldown": [[{ "set no.": 1, "reps": 7, "weight": "15.5 kg" }]],
+        "chinup": [
+          [{ "set no.": 1, "reps": 15, "weight": "9.5 kg" }],
+          [{ "set no.": 2, "reps": 9, "weight": "9.5 kg" }],
+          [{ "set no.": 3, "reps": 15, "weight": "9.5 kg" }],
+          [{ "set no.": 4, "reps": 19, "weight": "9.5 kg" }],
+          [{ "set no.": 5, "reps": 12, "weight": "9.5 kg" }],
+          [{ "set no.": 6, "reps": 11, "weight": "9.5 kg" }]
+        ]
+      }
+    },
+    "86": {
+      "date": "2021-09-11",
+      "split": "chest",
+      "exercises": {
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 6, "weight": "10.0 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "4.0 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "31.0 kg" }],
+          [{ "set no.": 4, "reps": 3, "weight": "12.0 kg" }],
+          [{ "set no.": 5, "reps": 12, "weight": "7.0 kg" }]
+        ],
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 15, "weight": "2.0 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "12.0 kg" }],
+          [{ "set no.": 3, "reps": 6, "weight": "6.0 kg" }]
+        ],
+        "barbell bench press": [
+          [{ "set no.": 1, "reps": 8, "weight": "9.0 kg" }]
+        ]
+      }
+    },
+    "87": {
+      "date": "2021-10-27",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          [{ "set no.": 1, "reps": 5, "weight": "19.25 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "30.25 kg" }]
+        ],
+        "seated calf raise": [
+          [{ "set no.": 1, "reps": 10, "weight": "4.25 kg" }],
+          [{ "set no.": 2, "reps": 4, "weight": "6.25 kg" }]
+        ],
+        "deadlift": [[{ "set no.": 1, "reps": 11, "weight": "9.25 kg" }]]
+      }
+    },
+    "88": {
+      "date": "2021-08-10",
+      "split": "chest",
+      "exercises": {
+        "cable crossover": [[{ "set no.": 1, "reps": 1, "weight": "18.5 kg" }]],
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 7, "weight": "1.5 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "6.5 kg" }],
+          [{ "set no.": 3, "reps": 20, "weight": "0.5 kg" }]
+        ],
+        "dip": [[{ "set no.": 1, "reps": 2, "weight": "0.5 kg" }]]
+      }
+    },
+    "89": {
+      "date": "2021-08-06",
+      "split": "chest",
+      "exercises": {
+        "cable crossover": [
+          [{ "set no.": 1, "reps": 19, "weight": "3.25 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "3.25 kg" }],
+          [{ "set no.": 3, "reps": 11, "weight": "4.25 kg" }],
+          [{ "set no.": 4, "reps": 4, "weight": "5.25 kg" }],
+          [{ "set no.": 5, "reps": 9, "weight": "4.25 kg" }],
+          [{ "set no.": 6, "reps": 6, "weight": "6.25 kg" }]
+        ],
+        "dumbbell fly": [[{ "set no.": 1, "reps": 4, "weight": "5.25 kg" }]],
+        "dip": [
+          [{ "set no.": 1, "reps": 11, "weight": "3.25 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "3.25 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "3.25 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "5.25 kg" }],
+          [{ "set no.": 5, "reps": 10, "weight": "3.25 kg" }],
+          [{ "set no.": 6, "reps": 13, "weight": "3.25 kg" }]
+        ]
+      }
+    },
+    "90": {
+      "date": "2021-06-18",
+      "split": "shoulders",
+      "exercises": {
+        "side laterals": [[{ "set no.": 1, "reps": 19, "weight": "6.75 kg" }]],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 1, "weight": "14.75 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "6.75 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "6.75 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 10, "weight": "6.75 kg" }]
+        ]
+      }
+    },
+    "91": {
+      "date": "2021-05-09",
+      "split": "shoulders",
+      "exercises": {
+        "front laterals": [
+          [{ "set no.": 1, "reps": 10, "weight": "17.75 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "17.75 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "17.75 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "17.75 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 10, "weight": "18.75 kg" }],
+          [{ "set no.": 2, "reps": 3, "weight": "21.75 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 5, "weight": "17.75 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "20.75 kg" }],
+          [{ "set no.": 3, "reps": 14, "weight": "17.75 kg" }],
+          [{ "set no.": 4, "reps": 15, "weight": "17.75 kg" }],
+          [{ "set no.": 5, "reps": 7, "weight": "17.75 kg" }],
+          [{ "set no.": 6, "reps": 18, "weight": "17.75 kg" }]
+        ]
+      }
+    },
+    "92": {
+      "date": "2021-08-11",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          [{ "set no.": 1, "reps": 6, "weight": "9.5 kg" }],
+          [{ "set no.": 2, "reps": 15, "weight": "4.5 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "3.5 kg" }],
+          [{ "set no.": 4, "reps": 5, "weight": "20.5 kg" }],
+          [{ "set no.": 5, "reps": 13, "weight": "5.5 kg" }],
+          [{ "set no.": 6, "reps": 10, "weight": "9.5 kg" }]
+        ],
+        "legpress": [
+          [{ "set no.": 1, "reps": 10, "weight": "11.5 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "33.5 kg" }],
+          [{ "set no.": 3, "reps": 13, "weight": "5.5 kg" }],
+          [{ "set no.": 4, "reps": 6, "weight": "14.5 kg" }]
+        ],
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 3, "weight": "10.5 kg" }],
+          [{ "set no.": 2, "reps": 14, "weight": "1.5 kg" }]
+        ]
+      }
+    },
+    "93": {
+      "date": "2021-04-08",
+      "split": "chest",
+      "exercises": {
+        "dumbbell fly": [
+          [{ "set no.": 1, "reps": 5, "weight": "3.25 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "8.25 kg" }],
+          [{ "set no.": 3, "reps": 12, "weight": "2.25 kg" }]
+        ],
+        "dip": [
+          [{ "set no.": 1, "reps": 8, "weight": "1.25 kg" }],
+          [{ "set no.": 2, "reps": 13, "weight": "1.25 kg" }]
+        ],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 5, "weight": "9.25 kg" }],
+          [{ "set no.": 2, "reps": 6, "weight": "8.25 kg" }],
+          [{ "set no.": 3, "reps": 3, "weight": "18.25 kg" }],
+          [{ "set no.": 4, "reps": 10, "weight": "4.25 kg" }],
+          [{ "set no.": 5, "reps": 10, "weight": "7.25 kg" }],
+          [{ "set no.": 6, "reps": 12, "weight": "4.25 kg" }]
+        ]
+      }
+    },
+    "94": {
+      "date": "2021-01-11",
+      "split": "back",
+      "exercises": {
+        "seated row": [
+          [{ "set no.": 1, "reps": 4, "weight": "26.5 kg" }],
+          [{ "set no.": 2, "reps": 10, "weight": "20.5 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "47.5 kg" }],
+          [{ "set no.": 4, "reps": 4, "weight": "28.5 kg" }],
+          [{ "set no.": 5, "reps": 14, "weight": "19.5 kg" }],
+          [{ "set no.": 6, "reps": 17, "weight": "18.5 kg" }]
+        ],
+        "pullup": [[{ "set no.": 1, "reps": 20, "weight": "16.5 kg" }]],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 1, "weight": "59.5 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "18.5 kg" }]
+        ]
+      }
+    },
+    "95": {
+      "date": "2021-05-05",
+      "split": "legs",
+      "exercises": {
+        "deadlift": [
+          [{ "set no.": 1, "reps": 18, "weight": "10.75 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "11.75 kg" }],
+          [{ "set no.": 3, "reps": 19, "weight": "9.75 kg" }]
+        ],
+        "legpress": [
+          [{ "set no.": 1, "reps": 7, "weight": "14.75 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "32.75 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "41.75 kg" }]
+        ],
+        "hamstring curl": [
+          [{ "set no.": 1, "reps": 7, "weight": "8.75 kg" }],
+          [{ "set no.": 2, "reps": 7, "weight": "12.75 kg" }]
+        ]
+      }
+    },
+    "96": {
+      "date": "2021-06-15",
+      "split": "back",
+      "exercises": {
+        "seated row": [[{ "set no.": 1, "reps": 12, "weight": "4.75 kg" }]],
+        "lat pulldown": [
+          [{ "set no.": 1, "reps": 2, "weight": "29.75 kg" }],
+          [{ "set no.": 2, "reps": 1, "weight": "41.75 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "40.75 kg" }]
+        ],
+        "chinup": [
+          [{ "set no.": 1, "reps": 17, "weight": "0.75 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "0.75 kg" }],
+          [{ "set no.": 3, "reps": 5, "weight": "0.75 kg" }]
+        ]
+      }
+    },
+    "97": {
+      "date": "2021-05-13",
+      "split": "shoulders",
+      "exercises": {
+        "front laterals": [
+          [{ "set no.": 1, "reps": 19, "weight": "23.25 kg" }],
+          [{ "set no.": 2, "reps": 20, "weight": "23.25 kg" }],
+          [{ "set no.": 3, "reps": 18, "weight": "23.25 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "23.25 kg" }]
+        ],
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 1, "weight": "24.25 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "24.25 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 3, "weight": "26.25 kg" }]
+        ]
+      }
+    },
+    "98": {
+      "date": "2021-03-16",
+      "split": "chest",
+      "exercises": {
+        "cable crossover": [[{ "set no.": 1, "reps": 17, "weight": "6.0 kg" }]],
+        "barbell incline press": [
+          [{ "set no.": 1, "reps": 19, "weight": "8.0 kg" }],
+          [{ "set no.": 2, "reps": 2, "weight": "26.0 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "10.0 kg" }]
+        ],
+        "dumbbell pullover": [
+          [{ "set no.": 1, "reps": 19, "weight": "6.0 kg" }],
+          [{ "set no.": 2, "reps": 12, "weight": "7.0 kg" }],
+          [{ "set no.": 3, "reps": 1, "weight": "25.0 kg" }],
+          [{ "set no.": 4, "reps": 1, "weight": "22.0 kg" }]
+        ]
+      }
+    },
+    "99": {
+      "date": "2021-10-06",
+      "split": "shoulders",
+      "exercises": {
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 16, "weight": "0 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "0 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "0 kg" }],
+          [{ "set no.": 4, "reps": 20, "weight": "0 kg" }],
+          [{ "set no.": 5, "reps": 19, "weight": "0 kg" }],
+          [{ "set no.": 6, "reps": 14, "weight": "0 kg" }]
+        ],
+        "dumbbell military press": [
+          [{ "set no.": 1, "reps": 17, "weight": "0 kg" }],
+          [{ "set no.": 2, "reps": 17, "weight": "0 kg" }],
+          [{ "set no.": 3, "reps": 10, "weight": "1 kg" }],
+          [{ "set no.": 4, "reps": 5, "weight": "2 kg" }],
+          [{ "set no.": 5, "reps": 10, "weight": "0 kg" }]
+        ],
+        "front laterals": [
+          [{ "set no.": 1, "reps": 4, "weight": "0 kg" }],
+          [{ "set no.": 2, "reps": 5, "weight": "1 kg" }],
+          [{ "set no.": 3, "reps": 2, "weight": "2 kg" }],
+          [{ "set no.": 4, "reps": 9, "weight": "0 kg" }],
+          [{ "set no.": 5, "reps": 11, "weight": "0 kg" }]
+        ]
+      }
+    },
+    "100": {
+      "date": "2021-04-04",
+      "split": "shoulders",
+      "exercises": {
+        "rear laterals": [
+          [{ "set no.": 1, "reps": 18, "weight": "24.5 kg" }],
+          [{ "set no.": 2, "reps": 18, "weight": "24.5 kg" }],
+          [{ "set no.": 3, "reps": 4, "weight": "24.5 kg" }],
+          [{ "set no.": 4, "reps": 17, "weight": "24.5 kg" }]
+        ],
+        "front laterals": [[{ "set no.": 1, "reps": 6, "weight": "24.5 kg" }]],
+        "side laterals": [
+          [{ "set no.": 1, "reps": 13, "weight": "24.5 kg" }],
+          [{ "set no.": 2, "reps": 19, "weight": "24.5 kg" }],
+          [{ "set no.": 3, "reps": 7, "weight": "24.5 kg" }],
+          [{ "set no.": 4, "reps": 8, "weight": "24.5 kg" }],
+          [{ "set no.": 5, "reps": 5, "weight": "24.5 kg" }]
+        ]
+      }
+    }
+  }
+}

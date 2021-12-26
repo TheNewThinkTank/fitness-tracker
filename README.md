@@ -6,17 +6,19 @@ Visually inspect your progression through dates and exercises
 
 ![fitness-tracker-wf](https://github.com/TheNewThinkTank/Fitness-Tracker/actions/workflows/fitness-tracker-wf.yml/badge.svg)
 
+![simulation-wf](https://github.com/TheNewThinkTank/Fitness-Tracker/actions/workflows/simulation-wf.yml/badge.svg)
+
 ![alt](img/workout_2021-12-11.png)
 
 Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11
 
 ## Current features
 
-- Catalogue of musclegroups and corresponding exercises
-- Data simulation
-- GitHub Actions workflow
+- Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)
+- Realistic workout data simulation <!-- (with naturally progressing trend over time) -->
+- Multiple GitHub Actions workflows
 - Plotting (Seaborn)
-- Test suite (Pytest)
+- Multiple unit test suites (Pytest)
 
 ## Upcoming features
 

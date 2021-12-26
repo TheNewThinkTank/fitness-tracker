@@ -4,25 +4,30 @@ Author: Gustav Collin Rasmussen
 Purpose: Simulate weight-training data
 """
 
-from pprint import pprint as pp
-import yaml
 import json
+import sys
+import os
 import pathlib
 import random
-import pandas as pd
 from datetime import datetime
 
-# To make simulations/samples more realistic:
-# TODO: Implement musclegroup-exercises catalogue, with weight-ranges
-# TODO: Implement improving trend across workouts
-# TODO: Implement declining trend across sets (also taking reps into account)
+from pprint import pprint as pp
+
+import numpy as np
+import pandas as pd
+import yaml
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+import helpers.cleanup as cleanup
 
 
-def get_muscles_and_exercises():
+def get_available_exercises(workout_split="chest"):
     """Fetch musclegroup-exercises catalogue, with weight-ranges."""
-    with open("src/muscles_and_exercises.yaml", "r") as rf:
-        muscles_and_exercises = yaml.load(rf, Loader=yaml.FullLoader)
-    return muscles_and_exercises
+    with open("src/simulations/muscles_and_exercises.yaml", "r") as rf:
+        available_exercises = yaml.load(rf, Loader=yaml.FullLoader)
+    return available_exercises[workout_split]
 
 
 def get_dates(number_of_workouts):
@@ -38,76 +43,62 @@ def simulate_split():
     return random.choice(["back", "chest", "legs", "shoulders"])
 
 
-def simulate_exercises(workout_split):
+def simulate_exercises(available_exercises):
     """Simulate data for exercises."""
-
-    workout_chest_exercises = random.sample(
-        ["benchpress", "flys", "pullovers", "dips"], k=3
-    )
-    workout_back_exercises = random.sample(
-        ["chinups", "lat pulldowns", "seated row", "dead row"], k=3
-    )
-    workout_leg_exercises = random.sample(
-        ["squat", "legpress", "leg extention", "deadlift"], k=3
-    )
-    workout_shoulder_exercises = random.sample(
-        [
-            "dumbbel side lateral raises",
-            "cable side lateral raises",
-            "dumbbel front lateral raises",
-            "seated dumbbel rear lateral raises",
-        ],
-        k=3,
-    )
-
-    switcher = {
-        "back": workout_back_exercises,
-        "chest": workout_chest_exercises,
-        "legs": workout_leg_exercises,
-        "shoulders": workout_shoulder_exercises,
-    }
-
-    return switcher.get(workout_split, "Invalid muscle-group")
+    return random.sample(available_exercises, k=3)
 
 
-def simulate_sets_reps_weight():
+def high_reps_low_weight(weight_range, actual_reps, progress):
+    """Simulate that higher reps leads to lower weights"""
+    reps_available = list(range(1, 20))
+
+    # ensure weight has same len as reps_available
+    weights = np.linspace(weight_range[0], weight_range[-1], len(reps_available))
+
+    reversed_reps = list(reversed(reps_available))
+    normalized_w = reversed_reps / np.sum(reps_available)  # probabilities must sum to 1
+    weight_choice = int(np.random.choice(weights, p=normalized_w))
+
+    reps_factor = 1 / actual_reps
+
+    weight_choice = int(weight_choice * reps_factor) + progress
+
+    return f"{weight_choice} kg"
+
+
+def simulate_sets_reps_weight(exercises, progress):
     """Simulate data for sets, reps and weight."""
-    no_of_sets = random.randint(1, 6)
 
-    data = []
-
-    for set in range(1, no_of_sets + 1):
-        data.append(
-            {
-                "set no.": set,
-                "reps": random.randint(1, 20),
-                "weight": f"{random.randint(1, 100)} kg",
-            }
-        )
-
-    return data
-
-
-def attach_data_to_exercise(exercises):
-    """Fill in sets, reps and weight data for each exercise"""
-
-    data = {}
+    mapping = {}
 
     for exercise in exercises:
-        data[exercise] = simulate_sets_reps_weight()
+        no_of_sets = random.randint(1, 6)
+        for k, weight_range in exercise.items():
+            mapping[k] = []
+            for set in range(1, no_of_sets + 1):
+                actual_reps = random.randint(1, 20)
+                actual_weight = high_reps_low_weight(
+                    weight_range, actual_reps, progress
+                )
+                mapping[k].append(
+                    [
+                        {
+                            "set no.": set,
+                            "reps": actual_reps,
+                            "weight": actual_weight,
+                        }
+                    ]
+                )
 
-    return data
+    return mapping
 
 
 def format_data(workout_date, workout_split, data):
     """Prepare data format for JSON file."""
-
-    final_data = {"date": workout_date, "split": workout_split, "exercises": data}
-
-    return final_data
+    return {"date": workout_date, "split": workout_split, "exercises": data}
 
 
-def write_data(formatted_data):
+def write_data(formatted_data) -> None:
     """Insert simulated, formatted data into JSON file."""
 
     date = formatted_data["date"]
@@ -119,25 +110,38 @@ def write_data(formatted_data):
 
     with filepath.open("w", encoding="utf-8") as f:
         json.dump(formatted_data, f)
+    return
 
 
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
+    delete = 0
+    debug = 0
+    simulate = 1
 
-    muscles_and_exercises = get_muscles_and_exercises()
-    pp(muscles_and_exercises)
-    """
+    if delete:
+        cleanup.cleanup("data/simulated/")
+
+    if debug:
+        pp(high_reps_low_weight([0, 20], 5, 0))
+
+    if not simulate:
+        return
+
     number_of_workouts = 100
     dates = get_dates(number_of_workouts)
+    progress = 0  # to simulate higher weight per set across workouts
 
     for workout in range(number_of_workouts):
         workout_date = dates[workout]
         workout_split = simulate_split()
-        exercises = simulate_exercises(workout_split)
-        data = attach_data_to_exercise(exercises)
+        available_exercises = get_available_exercises(workout_split)
+        exercises = simulate_exercises(available_exercises)
+        data = simulate_sets_reps_weight(exercises, progress)
+        # pp(data)
         formatted_data = format_data(workout_date, workout_split, data)
         write_data(formatted_data)
-    """
+        progress += 0.25
 
 
 if __name__ == "__main__":

@@ -1,20 +1,36 @@
 ---
 legs:
   - squat: [50, 120]
+  - deadlift: [50, 120]
   - legpress: [50, 120]
-  - leg extentions: [30, 70]
+  - barbell lunge: [20, 70]
+  - leg extention: [30, 70]
+  - hamstring curl: [10, 45]
+  - standing calf raise: [5, 30]
+  - seated calf raise: [5, 20]
 
 chest:
   - barbell bench press: [50, 90]
-  - dumbbell flys: [10, 18]
+  - dumbbell fly: [10, 18]
   - barbell incline press: [30, 70]
+  - cable crossover: [10, 35]
+  - dumbbell pullover: [12, 30]
+  - dip: [0, 5]
 
 back:
   - lat pulldown: [40, 70]
   - seated row: [40, 70]
-  - chinups: [0, 10]
+  - chinup: [0, 10]
+  - pullup: [0, 10]
 
 shoulders:
-  - side laterals: [4, 12]
-  - front laterals: [4, 12]
-  - rear laterals: [2, 10]
+  - side laterals: [2, 10]
+  - front laterals: [2, 10]
+  - rear laterals: [1, 4]
+  - dumbbell military press: [8, 16]
+
+abs:
+  - crunch: [0]
+  - side jackknife: [0]
+  - toe-to-bar: [0]
+  - leg raise: [0]

@@ -2,7 +2,7 @@
   "log": {
     "1": {
       "date": "2021-12-11",
-      "split": "legday",
+      "split": "legs",
       "exercises": {
         "squat": [
           { "set no.": 1, "reps": 8, "weight": "70 kg" },
@@ -151,6 +151,81 @@
         "hanging toes-to-bar": [
           { "set no.": 1, "reps": 8, "weight": "0 kg" },
           { "set no.": 2, "reps": 8, "weight": "0 kg" }
+        ]
+      }
+    },
+    "5": {
+      "date": "2021-12-25",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 5, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "80 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "60 kg" },
+          { "set no.": 2, "reps": 5, "weight": "60 kg" },
+          { "set no.": 3, "reps": 5, "weight": "60 kg" },
+          { "set no.": 4, "reps": 5, "weight": "60 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 12, "weight": "70 kg" },
+          { "set no.": 2, "reps": 10, "weight": "90 kg" },
+          { "set no.": 3, "reps": 10, "weight": "120 kg" },
+          { "set no.": 4, "reps": 10, "weight": "140 kg" }
+        ],
+        "standing calf raise": [
+          { "set no.": 1, "reps": 10, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 8, "weight": "50 kg" }
+        ],
+        "walking barbell lunge": [
+          { "set no.": 1, "reps": 20, "weight": "40 kg" },
+          { "set no.": 2, "reps": 20, "weight": "40 kg" }
+        ]
+      }
+    },
+    "6": {
+      "date": "2021-12-26",
+      "split": "chest",
+      "exercises": {
+        "barbell bench press": [
+          { "set no.": 1, "reps": 5, "weight": "70 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" }
+        ],
+        "cable crossover": [
+          { "set no.": 1, "reps": 12, "weight": "44 kg" },
+          { "set no.": 2, "reps": 10, "weight": "44 kg" },
+          { "set no.": 3, "reps": 10, "weight": "44 kg" }
+        ],
+        "cable crossover (low-high)": [
+          { "set no.": 1, "reps": 12, "weight": "18 kg" },
+          { "set no.": 2, "reps": 12, "weight": "18 kg" },
+          { "set no.": 3, "reps": 12, "weight": "18 kg" }
+        ],
+        "cable crossover (high-low)": [
+          { "set no.": 1, "reps": 12, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "36 kg" },
+          { "set no.": 3, "reps": 12, "weight": "36 kg" }
+        ],
+        "incline barbell press": [
+          { "set no.": 1, "reps": 8, "weight": "40 kg" },
+          { "set no.": 2, "reps": 5, "weight": "50 kg" },
+          { "set no.": 3, "reps": 5, "weight": "50 kg" }
+        ],
+        "dips": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "dumbbell pullovers": [
+          { "set no.": 1, "reps": 8, "weight": "22 kg" },
+          { "set no.": 2, "reps": 8, "weight": "22 kg" },
+          { "set no.": 3, "reps": 8, "weight": "22 kg" }
         ]
       }
     }

@@ -15,8 +15,9 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 ## Current features
 
 - Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)
-- Realistic workout data simulation <!-- (with naturally progressing trend over time) -->
+- Realistic workout data simulation (with naturally progressing trend over time)
 - Multiple GitHub Actions workflows
+- 1 Rep Max estimation
 - Plotting (Seaborn)
 - Multiple unit test suites (Pytest)
 

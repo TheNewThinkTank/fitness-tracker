@@ -10,11 +10,12 @@ import json
 from tinydb import TinyDB
 
 
-def insert_data(table, log_path):
+def insert_data(table, log_path) -> None:
     """Store training log: log_path in database table"""
     with open(log_path) as rf:
         json_content = json.load(rf)
     table.insert(json_content)
+    return
 
 
 def main(date):
@@ -45,5 +46,5 @@ def main(date):
 
 
 if __name__ == "__main__":
-    date = "2021-12-25"
+    date = "2021-12-26"
     main(date)

@@ -22,12 +22,6 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 import helpers.cleanup as cleanup
 
-# To make simulations/samples more realistic:
-# TODO: higher reps must result in lower weight for a given set
-# TODO: Implement declining trend across sets (also taking reps into account) to simulate fatigue
-# TODO: Implement improving trend across workouts
-# (mainly more weight, could also be higher reps, more sets, more exercises and higher workout frequency)
-
 
 def get_available_exercises(workout_split="chest"):
     """Fetch musclegroup-exercises catalogue, with weight-ranges."""
@@ -54,9 +48,8 @@ def simulate_exercises(available_exercises):
     return random.sample(available_exercises, k=3)
 
 
-def high_reps_low_weight(weight_range):
+def high_reps_low_weight(weight_range, actual_reps, progress):
     """Simulate that higher reps leads to lower weights"""
-
     reps_available = list(range(1, 20))
 
     # ensure weight has same len as reps_available
@@ -65,10 +58,15 @@ def high_reps_low_weight(weight_range):
     reversed_reps = list(reversed(reps_available))
     normalized_w = reversed_reps / np.sum(reps_available)  # probabilities must sum to 1
     weight_choice = int(np.random.choice(weights, p=normalized_w))
+
+    reps_factor = 1 / actual_reps
+
+    weight_choice = int(weight_choice * reps_factor + progress)
+
     return f"{weight_choice} kg"
 
 
-def simulate_sets_reps_weight(exercises):
+def simulate_sets_reps_weight(exercises, progress):
     """Simulate data for sets, reps and weight."""
 
     mapping = {}
@@ -79,7 +77,9 @@ def simulate_sets_reps_weight(exercises):
             mapping[k] = []
             for set in range(1, no_of_sets + 1):
                 actual_reps = random.randint(1, 20)
-                actual_weight = high_reps_low_weight(weight_range)
+                actual_weight = high_reps_low_weight(
+                    weight_range, actual_reps, progress
+                )
                 mapping[k].append(
                     [
                         {
@@ -123,23 +123,25 @@ def main():
         cleanup.cleanup("data/simulated/")
 
     if debug:
-        pp(high_reps_low_weight([0, 20]))
+        pp(high_reps_low_weight([0, 20], 5, 0))
 
     if not simulate:
         return
 
-    number_of_workouts = 10
+    number_of_workouts = 100
     dates = get_dates(number_of_workouts)
+    progress = 0  # to simulate higher weight per set across workouts
 
     for workout in range(number_of_workouts):
         workout_date = dates[workout]
         workout_split = simulate_split()
         available_exercises = get_available_exercises(workout_split)
         exercises = simulate_exercises(available_exercises)
-        data = simulate_sets_reps_weight(exercises)
-        pp(data)
-        # formatted_data = format_data(workout_date, workout_split, data)
-        # write_data(formatted_data)
+        data = simulate_sets_reps_weight(exercises, progress)
+        # pp(data)
+        formatted_data = format_data(workout_date, workout_split, data)
+        write_data(formatted_data)
+        progress += 1
 
 
 if __name__ == "__main__":

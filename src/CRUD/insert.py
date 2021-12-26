@@ -6,6 +6,8 @@ https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
 import json
+import os
+import pathlib
 
 from tinydb import TinyDB
 
@@ -18,8 +20,23 @@ def insert_data(table, log_path) -> None:
     return
 
 
+def insert_sim_data():
+    """Store simulated training logs in simulation database"""
+    db = TinyDB("data/sim_db.json")
+    log = db.table("log")
+
+    p = pathlib.Path("data/simulated/")
+    all_files = os.listdir(p)
+
+    for f in all_files:
+        insert_data(log, p / f)
+
+    return
+
+
 def main(date):
     """Insert training log from specific date"""
+
     db = TinyDB("data/db.json")
     log = db.table("log")
 
@@ -43,8 +60,10 @@ def main(date):
 
     log_path = f"data/log_archive/JSON/{YEAR}/{MONTH}/training_log_{date}.json"
     insert_data(log, log_path)
+    return
 
 
 if __name__ == "__main__":
     date = "2021-12-26"
     main(date)
+    # insert_sim_data()

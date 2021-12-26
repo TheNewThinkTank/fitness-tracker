@@ -35,6 +35,10 @@ jobs:
         run: |
           pipenv install --deploy --dev
 
+      - name: install numpy
+        run: |
+          pip install numpy
+
       - name: Lint with flake8
         continue-on-error: true
         run: |

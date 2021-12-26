@@ -4,12 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-numpy = "*"
 
 [dev-packages]
 pytest = "*"
 tinydb = "*"
-numpy = "*"
 
 [requires]
 python_version = "3.10"

@@ -5,11 +5,9 @@ Purpose: Train a linear-regression model on simulated weight-training data,
 using the Scikit Learn library
 """
 
-# TODO: load sim data into X and y
-# TODO: print coefficients
 # TODO: plot data and fit together in same figure
 
-# from statistics import mean
+from datetime import datetime
 
 import pandas as pd
 from sklearn import linear_model
@@ -34,18 +32,20 @@ def get_df(split="legs", exercise="squat"):
         df2 = pd.DataFrame(data=show_exercise(log, exercise, "2021-12-25"))
         df2["date"] = "2021-12-25"
         frames = [df1, df2]
-        return pd.concat(frames)
+
     elif datatype == "simulated":
-        # TODO: implement
-        """
-        df = pd.DataFrame([])
+        frames = []
         for item in log:
             if item["split"] == split:
-                for k, v in item["exercises"].items():
-                    if k == exercise:
-                        df[k] = v
-        """
-        return pd.DataFrame([])
+                if exercise in item["exercises"].keys():
+                    df = pd.DataFrame(item["exercises"][exercise])
+                    df["date"] = item["date"]
+                    frames.append(df)
+
+    else:
+        return "Invalid datatype, choose between [real/simulated]"
+
+    return pd.concat(frames)
 
 
 def one_rep_max_estimator(df):
@@ -53,30 +53,33 @@ def one_rep_max_estimator(df):
     is used to implement the 1RM estimation
     """
 
-    df["1RM"] = df["weight"].str.strip(" kg").astype(int) / (
+    df["1RM"] = df["weight"].str.strip(" kg").astype(float) / (
         (100 - df["reps"] * 2.5) / 100
     )
 
     return df.groupby("date")[["1RM"]].agg("max")
 
 
-def fit_data():
+def fit_data(df):
     """Lin reg
     X: workout-dates as int  y: max 1RM estimate in kg, for squat
     """
-    X = [[0, 102.857143], [14, 91.428571]]  # [[0, 0], [1, 1], [2, 2]]
-    y = [102.857143, 91.428571]  # [0, 1, 2]
-
+    date_strs = df.index.tolist()
+    x = [datetime.fromisoformat(i).timestamp() for i in date_strs]
+    y = df["1RM"].tolist()
+    X = []
+    for i, j in zip(x, y):
+        X.append([i, j])
     reg.fit(X, y)
-    print(reg.coef_)
-    return
+    return x, y, reg.coef_
 
 
 def main():
     """Prepare dfs, calc 1RM and do linear regression."""
     df = get_df()
-    print(df)
-    # print(one_rep_max_estimator())
+    df_1rm = one_rep_max_estimator(df)
+    x, y, coeffs = fit_data(df_1rm)
+    print(x, y, coeffs)
 
 
 if __name__ == "__main__":

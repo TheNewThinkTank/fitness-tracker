@@ -64,32 +64,37 @@ def analyze_workout(db, log):
     # print(log.search(Log.exercises.all(Exercise.name == "squat")))
 
 
-def cleanup(db):
+def cleanup(db, log, action) -> None:
     """Update, remove or truncate database"""
-    # db.update({'count': 10}, Fruit.type == 'apple')
-    # db.all()
 
-    # db.remove(Fruit.count < 5)
-    # db.all()
+    # TODO: implement update and remove actions
+    # if action == "update":
+    #     log.update({"count": 10}, Fruit.type == "apple")
 
-    # db.truncate()
-    # db.all()
-    return
+    # if action == "remove":
+    #     log.remove(exercises.squat < 5)
+
+    if action == "truncate":
+        log.truncate()
+        assert log.all() == []
+        # db.truncate()
+        # assert db.all() == []
 
 
 def main():
-    db = TinyDB("data/db.json")
+    datamodels = ["real", "simulated"]
+    datamodel = datamodels[1]
+
+    db = TinyDB("data/db.json") if datamodel == "real" else TinyDB("data/sim_db.json")
     log = db.table("log")
 
     # dates_and_muscle_groups = get_dates_and_muscle_groups(log)
     # print(dates_and_muscle_groups)
-
-    print(show_exercises(log, "2021-12-16"))
-
+    # print(show_exercises(log, "2021-12-16"))
     # print(describe_workout(log, "2021-12-13"))
     # show_exercise(log, "squat", "2021-12-11")
     # analyze_workout(db, log)
-    # cleanup(db)
+    # cleanup(db, log, action="truncate")
 
 
 if __name__ == "__main__":

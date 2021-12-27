@@ -1,0 +1,14 @@
+{
+  "date": "2021-10-03",
+  "split": "shoulders",
+  "exercises": {
+    "cable crossover": [
+      { "set no.": 1, "reps": 2, "weight": "2.25 kg" },
+      { "set no.": 2, "reps": 14, "weight": "0.25 kg" }
+    ],
+    "rear laterals": [
+      { "set no.": 1, "reps": 15, "weight": "0.25 kg" },
+      { "set no.": 2, "reps": 12, "weight": "0.25 kg" }
+    ]
+  }
+}

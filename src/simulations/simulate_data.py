@@ -40,12 +40,14 @@ def get_dates(number_of_workouts):
 
 def simulate_split():
     """Simulate data for workout split."""
-    return random.choice(["back", "chest", "legs", "shoulders"])
+    # TODO: Implement abs (handle weight range)
+    splits = ["back", "chest", "legs", "shoulders"]
+    return random.choice(splits)
 
 
 def simulate_exercises(available_exercises):
     """Simulate data for exercises."""
-    return random.sample(available_exercises, k=3)
+    return random.sample(available_exercises, k=random.randint(2, 6))
 
 
 def high_reps_low_weight(weight_range, actual_reps, progress):
@@ -81,13 +83,11 @@ def simulate_sets_reps_weight(exercises, progress):
                     weight_range, actual_reps, progress
                 )
                 mapping[k].append(
-                    [
-                        {
-                            "set no.": set,
-                            "reps": actual_reps,
-                            "weight": actual_weight,
-                        }
-                    ]
+                    {
+                        "set no.": set,
+                        "reps": actual_reps,
+                        "weight": actual_weight,
+                    }
                 )
 
     return mapping

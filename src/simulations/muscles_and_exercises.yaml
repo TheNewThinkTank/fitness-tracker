@@ -22,15 +22,20 @@ back:
   - seated row: [40, 70]
   - chinup: [0, 10]
   - pullup: [0, 10]
+  - face pull: [5, 8]
+  - barbell shrug: [10, 15]
 
 shoulders:
   - side laterals: [2, 10]
   - front laterals: [2, 10]
   - rear laterals: [1, 4]
   - dumbbell military press: [8, 16]
+  - cable crossover: [4, 8]
+  - arnold press: [8, 16]
 
 abs:
   - crunch: [0]
   - side jackknife: [0]
   - toe-to-bar: [0]
   - leg raise: [0]
+  - Reverse crunch: [0]

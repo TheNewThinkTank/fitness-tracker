@@ -7,13 +7,18 @@ using the Scikit Learn library
 
 # TODO: plot data and fit together in same figure
 
+import sys
+import os
 from datetime import datetime
 
 import pandas as pd
 from sklearn import linear_model
 from tinydb import TinyDB
 
-from CRUD.training import show_exercise
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+import CRUD.training as training
 
 reg = linear_model.LinearRegression()
 
@@ -27,9 +32,9 @@ log = db.table("log")
 def get_df(split="legs", exercise="squat"):
     """."""
     if datatype == "real":
-        df1 = pd.DataFrame(data=show_exercise(log, exercise, "2021-12-11"))
+        df1 = pd.DataFrame(data=training.show_exercise(log, exercise, "2021-12-11"))
         df1["date"] = "2021-12-11"
-        df2 = pd.DataFrame(data=show_exercise(log, exercise, "2021-12-25"))
+        df2 = pd.DataFrame(data=training.show_exercise(log, exercise, "2021-12-25"))
         df2["date"] = "2021-12-25"
         frames = [df1, df2]
 

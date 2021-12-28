@@ -6,18 +6,14 @@ Purpose: Plot weight-training data with fit
 
 import os
 import sys
-from datetime import datetime
 
 import matplotlib.pyplot as plt
-import pandas as pd
 import seaborn as sns
 from sklearn import linear_model
 from tinydb import TinyDB
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-
-import CRUD.training as training
 
 reg = linear_model.LinearRegression()
 

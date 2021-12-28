@@ -32,8 +32,8 @@ def get_available_exercises(workout_split="chest"):
 
 def get_dates(number_of_workouts):
     """Get list of dates."""
-    start = datetime(2021, 1, 1)
-    datelist = pd.date_range(start, periods=300).tolist()
+    start = datetime(2019, 1, 1)
+    datelist = pd.date_range(start, periods=3 * 365).tolist()
     datelist = [date.strftime("%Y-%m-%d") for date in datelist]
     return random.sample(datelist, k=number_of_workouts)
 
@@ -63,7 +63,9 @@ def high_reps_low_weight(weight_range, actual_reps, progress):
 
     reps_factor = 1 / actual_reps
 
-    weight_choice = int(weight_choice * reps_factor) + progress
+    weight_choice = weight_choice * reps_factor + progress * random.choice(
+        [0.8, 0.9, 1.0, 1.1, 1.2]
+    )
 
     return f"{weight_choice} kg"
 
@@ -117,7 +119,7 @@ def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
     delete = 0
     debug = 0
-    simulate = 0
+    simulate = 1
 
     if delete:
         cleanup.cleanup("data/simulated/")
@@ -128,7 +130,7 @@ def main():
     if not simulate:
         return
 
-    number_of_workouts = 100
+    number_of_workouts = 2 * 365
     dates = get_dates(number_of_workouts)
     progress = 0  # to simulate higher weight per set across workouts
 

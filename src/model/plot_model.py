@@ -30,29 +30,38 @@ log = db.table("log")
 from model import get_df, one_rep_max_estimator, fit_data
 
 
-def get_data():
+def get_data(split, exercise):
     """Prepare pandas dataframes with training data for plotting"""
 
-    df = get_df()
+    df = get_df(split, exercise)
     df_1rm = one_rep_max_estimator(df)
     x, y, coeffs = fit_data(df_1rm)
 
     return x, y, coeffs
 
 
-def create_plots(x, y):
+def create_plots(x, y, exercise):
     """Plot training data with fit"""
     ax = sns.regplot(x=x, y=y, ci=68, truncate=False)
     ax.set_xlabel("date (timestamp)")
-    ax.set_ylabel("1 RM estimate (squat) with fit")
-    # plt.show()
-    plt.savefig(f"img/fitted_data.png")
+    ax.set_ylabel(f"1 RM estimate [kg] ({exercise}) with fit")
+    ax.set_title(f"1RM progression ({exercise}) w. 68 % confidence intervals")
+    plt.savefig(f"img/fitted_data_{exercise}.png")
 
 
 def main():
     """Get data and create figure."""
-    x, y, _ = get_data()
-    create_plots(x, y)
+
+    splits_and_key_exercises = [
+        ("chest", "barbell bench press"),
+        ("legs", "squat"),
+        ("legs", "deadlift"),
+        ("legs", "legpress"),
+    ]
+
+    for split, exercise in splits_and_key_exercises:
+        x, y, _ = get_data(split, exercise)
+        create_plots(x, y, exercise)
 
 
 if __name__ == "__main__":

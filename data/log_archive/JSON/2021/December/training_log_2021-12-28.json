@@ -1,0 +1,42 @@
+{
+  "date": "2021-12-28",
+  "split": "back & biceps",
+  "exercises": {
+    "pullup (wide grip)": [
+      { "set no.": 1, "reps": 5, "weight": "0 kg" },
+      { "set no.": 2, "reps": 5, "weight": "0 kg" }
+    ],
+    "chinup": [
+      { "set no.": 1, "reps": 5, "weight": "0 kg" },
+      { "set no.": 2, "reps": 5, "weight": "0 kg" }
+    ],
+    "seated row": [
+      { "set no.": 1, "reps": 10, "weight": "50 kg" },
+      { "set no.": 2, "reps": 10, "weight": "50 kg" },
+      { "set no.": 3, "reps": 10, "weight": "50 kg" },
+      { "set no.": 4, "reps": 10, "weight": "50 kg" }
+    ],
+    "diverging seated row": [
+      { "set no.": 1, "reps": 12, "weight": "40 kg" },
+      { "set no.": 2, "reps": 12, "weight": "40 kg" },
+      { "set no.": 3, "reps": 12, "weight": "40 kg" },
+      { "set no.": 4, "reps": 12, "weight": "40 kg" }
+    ],
+    "diverging pulldown": [
+      { "set no.": 1, "reps": 12, "weight": "50 kg" },
+      { "set no.": 2, "reps": 10, "weight": "50 kg" },
+      { "set no.": 3, "reps": 10, "weight": "50 kg" },
+      { "set no.": 4, "reps": 10, "weight": "50 kg" }
+    ],
+    "face pull": [
+      { "set no.": 1, "reps": 10, "weight": "9 kg" },
+      { "set no.": 2, "reps": 10, "weight": "11 kg" },
+      { "set no.": 3, "reps": 10, "weight": "13 kg" },
+      { "set no.": 4, "reps": 10, "weight": "15 kg" }
+    ],
+    "EZ-bar curl": [
+      { "set no.": 1, "reps": 8, "weight": "20 kg" },
+      { "set no.": 2, "reps": 8, "weight": "20 kg" }
+    ]
+  }
+}

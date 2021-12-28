@@ -64,6 +64,6 @@ def main(date):
 
 
 if __name__ == "__main__":
-    # date = "2021-12-26"
+    # date = "2021-12-28"
     # main(date)
     insert_sim_data()

@@ -1,0 +1,8 @@
+---
+date: YYYY-MM-DD
+split: [legs, chest, back_and_biceps, shoulders_and_abs]
+exercises:
+  exercise:
+    - set no. X: int
+    - reps: int
+    - weight: float (kg)

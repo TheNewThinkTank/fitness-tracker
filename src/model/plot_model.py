@@ -47,6 +47,7 @@ def create_plots(x, y, exercise):
     ax.set_ylabel(f"1 RM estimate [kg] ({exercise}) with fit")
     ax.set_title(f"1RM progression ({exercise}) w. 68 % confidence intervals")
     plt.savefig(f"img/fitted_data_{exercise}.png")
+    plt.clf()  # clear figure before next plot
 
 
 def main():

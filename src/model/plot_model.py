@@ -42,10 +42,11 @@ def get_data(split, exercise):
 
 def create_plots(x, y, exercise):
     """Plot training data with fit"""
+    plt.figure(figsize=(6, 4))
     ax = sns.regplot(x=x, y=y, ci=68, truncate=False)
     ax.set_xlabel("date (timestamp)")
-    ax.set_ylabel(f"1 RM estimate [kg] ({exercise}) with fit")
-    ax.set_title(f"1RM progression ({exercise}) w. 68 % confidence intervals")
+    ax.set_ylabel(f"1 RM estimates [kg]")
+    ax.set_title(f"{exercise} w. 68 % confidence intervals")
     plt.savefig(f"img/fitted_data_{exercise}.png")
     plt.clf()  # clear figure before next plot
 

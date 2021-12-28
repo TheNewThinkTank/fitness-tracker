@@ -61,11 +61,10 @@ def high_reps_low_weight(weight_range, actual_reps, progress):
     normalized_w = reversed_reps / np.sum(reps_available)  # probabilities must sum to 1
     weight_choice = int(np.random.choice(weights, p=normalized_w))
 
-    reps_factor = 1 / actual_reps
-
-    weight_choice = weight_choice * reps_factor + progress * random.choice(
-        [0.8, 0.9, 1.0, 1.1, 1.2]
-    )
+    # choose weight from inverted 1RM estimate plus randomised progression
+    weight_choice = weight_range[-1] * (
+        (100 - actual_reps * 2.5) / 100
+    ) + progress * random.choice([0.8, 0.9, 1.0, 1.1, 1.2])
 
     return f"{weight_choice} kg"
 
@@ -119,7 +118,7 @@ def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
     delete = 0
     debug = 0
-    simulate = 1
+    simulate = 0
 
     if delete:
         cleanup.cleanup("data/simulated/")
@@ -143,7 +142,7 @@ def main():
         # pp(data)
         formatted_data = format_data(workout_date, workout_split, data)
         write_data(formatted_data)
-        progress += 0.25
+        progress += 0.01
 
 
 if __name__ == "__main__":

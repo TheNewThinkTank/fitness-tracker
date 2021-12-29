@@ -49,9 +49,11 @@ class SimulateWorkout:
         """Simulate that higher reps leads to lower weights.
         choose weight from inverted 1RM estimate plus randomised progression"""
 
-        weight_choice = weight_range[-1] * (
-            (100 - actual_reps * 2.5) / 100
-        ) + self.progress * random.choice([0.8, 0.9, 1.0, 1.1, 1.2])
+        weight_choice = (
+            weight_range[-1]
+            * ((100 - actual_reps * 2.5) / 100)
+            * (self.progress + random.choice([-0.01, 0, 0.01]))
+        )
 
         return f"{weight_choice:.2f} kg"
 
@@ -112,7 +114,7 @@ def main():
     number_of_workouts = 2 * 365
     dates = get_dates(number_of_workouts, datetime(2019, 1, 1), 3 * 365)
 
-    progress = 0  # to simulate higher weight per set across workouts
+    progress = 1  # to simulate higher weight per set across workouts
     for workout in range(number_of_workouts):
         workout_date = dates[workout]
         simulated_workout = SimulateWorkout(workout_date, progress)

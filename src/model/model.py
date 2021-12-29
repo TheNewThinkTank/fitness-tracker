@@ -5,25 +5,16 @@ Purpose: Train a linear-regression model on simulated weight-training data,
 using the Scikit Learn library
 """
 
-# TODO: plot data and fit together in same figure
-
-import sys
-import os
 from datetime import datetime
 
 import pandas as pd
 from sklearn import linear_model
 from tinydb import TinyDB
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
-
-import CRUD.training as training
-
 reg = linear_model.LinearRegression()
 
 datatypes = ["real", "simulated"]
-datatype = datatypes[1]
+datatype = datatypes[0]
 
 db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
 log = db.table("log")
@@ -31,24 +22,13 @@ log = db.table("log")
 
 def get_df(split="legs", exercise="squat"):
     """."""
-    if datatype == "real":
-        df1 = pd.DataFrame(data=training.show_exercise(log, exercise, "2021-12-11"))
-        df1["date"] = "2021-12-11"
-        df2 = pd.DataFrame(data=training.show_exercise(log, exercise, "2021-12-25"))
-        df2["date"] = "2021-12-25"
-        frames = [df1, df2]
-
-    elif datatype == "simulated":
-        frames = []
-        for item in log:
-            if item["split"] == split:
-                if exercise in item["exercises"].keys():
-                    df = pd.DataFrame(item["exercises"][exercise])
-                    df["date"] = item["date"]
-                    frames.append(df)
-
-    else:
-        return "Invalid datatype, choose between [real/simulated]"
+    frames = []
+    for item in log:
+        if item["split"] == split:
+            if exercise in item["exercises"].keys():
+                df = pd.DataFrame(item["exercises"][exercise])
+                df["date"] = item["date"]
+                frames.append(df)
 
     return pd.concat(frames)
 
@@ -72,6 +52,7 @@ def fit_data(df):
     date_strs = df.index.tolist()
     x = [datetime.fromisoformat(i).timestamp() for i in date_strs]
     y = df["1RM"].tolist()
+    y = [float("{:.2f}".format(x)) for x in y]
     X = []
     for i, j in zip(x, y):
         X.append([i, j])

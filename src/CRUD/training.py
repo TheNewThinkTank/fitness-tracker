@@ -53,15 +53,11 @@ def show_exercise(log, exercise, date):
                     return v
 
 
-def analyze_workout(db, log):
+def analyze_workout(log, exercise):
     """Deeper analysis of workout"""
     Log = Query()
-    # Exercise = Query()
-    # print(log.search(Exercise.date == "2021-12-11"))
-    print(log.search(Log.exercises == "squat"))
-    # print(log.search(Log.exercises.any(Exercise.name == "squat")))
-    # print(db.search(Exercise.exercises.all(Exercise.name == "squat")))
-    # print(log.search(Log.exercises.all(Exercise.name == "squat")))
+    data = log.search(Log["exercises"][exercise].exists())
+    return [d["exercises"][exercise] for d in data]
 
 
 def cleanup(db, log, action) -> None:
@@ -77,13 +73,11 @@ def cleanup(db, log, action) -> None:
     if action == "truncate":
         log.truncate()
         assert log.all() == []
-        # db.truncate()
-        # assert db.all() == []
 
 
 def main():
     datamodels = ["real", "simulated"]
-    datamodel = datamodels[1]
+    datamodel = datamodels[0]
 
     db = TinyDB("data/db.json") if datamodel == "real" else TinyDB("data/sim_db.json")
     log = db.table("log")
@@ -93,7 +87,7 @@ def main():
     # print(show_exercises(log, "2021-12-16"))
     # print(describe_workout(log, "2021-12-13"))
     # show_exercise(log, "squat", "2021-12-11")
-    # analyze_workout(db, log)
+    print(analyze_workout(log, "squat"))
     # cleanup(db, log, action="truncate")
 
 

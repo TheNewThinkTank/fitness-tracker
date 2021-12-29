@@ -11,16 +11,8 @@ import pandas as pd
 from sklearn import linear_model
 from tinydb import TinyDB
 
-reg = linear_model.LinearRegression()
 
-datatypes = ["real", "simulated"]
-datatype = datatypes[0]
-
-db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
-log = db.table("log")
-
-
-def get_df(split="legs", exercise="squat"):
+def get_df(log, split="legs", exercise="squat"):
     """."""
     frames = []
     for item in log:
@@ -49,6 +41,7 @@ def fit_data(df):
     """Lin reg
     X: workout-dates as int  y: max 1RM estimate in kg, for squat
     """
+    reg = linear_model.LinearRegression()
     date_strs = df.index.tolist()
     x = [datetime.fromisoformat(i).timestamp() for i in date_strs]
     y = df["1RM"].tolist()
@@ -62,7 +55,13 @@ def fit_data(df):
 
 def main():
     """Prepare dfs, calc 1RM and do linear regression."""
-    df = get_df()
+
+    datatypes = ["real", "simulated"]
+    datatype = datatypes[0]
+    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
+    log = db.table("log")
+
+    df = get_df(log)
     df_1rm = one_rep_max_estimator(df)
     x, y, coeffs = fit_data(df_1rm)
     print(x, y, coeffs)

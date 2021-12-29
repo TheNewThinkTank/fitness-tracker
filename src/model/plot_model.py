@@ -9,27 +9,24 @@ import sys
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn import linear_model
+
+# from sklearn import linear_model
 from tinydb import TinyDB
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-
-reg = linear_model.LinearRegression()
-
-datatypes = ["real", "simulated"]
-datatype = datatypes[1]
-
-db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
-log = db.table("log")
 
 from model import get_df, one_rep_max_estimator, fit_data
 
 
 def get_data(split, exercise):
     """Prepare pandas dataframes with training data for plotting"""
-
-    df = get_df(split, exercise)
+    # reg = linear_model.LinearRegression()
+    datatypes = ["real", "simulated"]
+    datatype = datatypes[1]
+    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
+    log = db.table("log")
+    df = get_df(log, split, exercise)
     df_1rm = one_rep_max_estimator(df)
     x, y, coeffs = fit_data(df_1rm)
 
@@ -51,7 +48,7 @@ def main():
     """Get data and create figure."""
 
     splits_and_key_exercises = [
-        ("chest", "barbell bench press"),
+        ("chest", "barbell_bench_press"),
         ("legs", "squat"),
         ("legs", "deadlift"),
         ("legs", "legpress"),

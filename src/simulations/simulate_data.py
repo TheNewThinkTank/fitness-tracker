@@ -104,7 +104,7 @@ def get_dates(number_of_workouts: int, start: datetime, periods: int):
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
     # cleanup.cleanup("data/simulated/")
-    simulate = 1
+    simulate = 0
 
     if not simulate:
         return

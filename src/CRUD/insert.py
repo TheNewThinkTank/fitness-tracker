@@ -66,7 +66,7 @@ def main(date):
 if __name__ == "__main__":
     # date = "2021-12-28"
     # main(date)
-
+    """
     dates = [
         "2021-12-11",
         "2021-12-13",
@@ -79,5 +79,6 @@ if __name__ == "__main__":
     ]
     for date in dates:
         main(date)
+    """
 
-    # insert_sim_data()
+    insert_sim_data()

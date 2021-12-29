@@ -1,8 +1,8 @@
 {
   "date": "2021-12-15",
-  "split": "back & biceps",
+  "split": "back_and_biceps",
   "exercises": {
-    "pullup (wide grip)": [
+    "pullup_wide_grip": [
       { "set no.": 1, "reps": 5, "weight": "0 kg" },
       { "set no.": 2, "reps": 5, "weight": "0 kg" },
       { "set no.": 3, "reps": 6, "weight": "0 kg" }
@@ -11,37 +11,37 @@
       { "set no.": 1, "reps": 5, "weight": "0 kg" },
       { "set no.": 2, "reps": 5, "weight": "0 kg" }
     ],
-    "dead row": [
+    "dead_row": [
       { "set no.": 1, "reps": 10, "weight": "40 kg" },
       { "set no.": 2, "reps": 10, "weight": "40 kg" }
     ],
-    "lat pulldown with twist": [
+    "lat_pulldown_with_twist": [
       { "set no.": 1, "reps": 10, "weight": "45 kg" },
       { "set no.": 2, "reps": 10, "weight": "45 kg" }
     ],
-    "single arm cable row (high)": [
+    "high_single_arm_cable_row": [
       { "set no.": 1, "reps": 10, "weight": "32 kg" },
       { "set no.": 2, "reps": 10, "weight": "32 kg" }
     ],
-    "face pull": [
+    "face_pull": [
       { "set no.": 1, "reps": 10, "weight": "9 kg" },
       { "set no.": 2, "reps": 10, "weight": "14 kg" }
     ],
-    "dumbbell pullover": [
+    "dumbbell_pullover": [
       { "set no.": 1, "reps": 10, "weight": "24 kg" },
       { "set no.": 2, "reps": 5, "weight": "24 kg" }
     ],
-    "lat pulldown": [
+    "lat_pulldown": [
       { "set no.": 1, "reps": 12, "weight": "32 kg" },
       { "set no.": 2, "reps": 12, "weight": "36 kg" }
     ],
-    "diverging low row": [
+    "diverging_low_row": [
       { "set no.": 1, "reps": 12, "weight": "45 kg" },
       { "set no.": 2, "reps": 12, "weight": "45 kg" }
     ],
-    "EZ-bar curl": [
-      { "set no.": 1, "reps": 7, "weight": "30 kg + bar" },
-      { "set no.": 2, "reps": 10, "weight": "20 kg + bar" }
+    "EZ_bar_curl": [
+      { "set no.": 1, "reps": 7, "weight": "40 kg" },
+      { "set no.": 2, "reps": 10, "weight": "30 kg" }
     ]
   }
 }

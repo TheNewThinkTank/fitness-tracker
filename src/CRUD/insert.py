@@ -66,4 +66,18 @@ def main(date):
 if __name__ == "__main__":
     # date = "2021-12-28"
     # main(date)
-    insert_sim_data()
+
+    dates = [
+        "2021-12-11",
+        "2021-12-13",
+        "2021-12-15",
+        "2021-12-16",
+        "2021-12-25",
+        "2021-12-26",
+        "2021-12-28",
+        "2021-12-29",
+    ]
+    for date in dates:
+        main(date)
+
+    # insert_sim_data()

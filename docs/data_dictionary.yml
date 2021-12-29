@@ -1,8 +1,13 @@
 ---
 date: YYYY-MM-DD
-split: [legs, chest, back_and_biceps, shoulders_and_abs]
+split (snake_case): [legs, chest, back_and_biceps, shoulders_and_abs]
 exercises:
-  exercise:
+  exercise (snake_case):
     - set no. X: int
     - reps: int
     - weight: float (kg)
+
+Notes:
+For all workouts, barbells of 20 kg
+and EZ-bars of 10 kg are used.
+Their weight are added to the weight data where relavant.

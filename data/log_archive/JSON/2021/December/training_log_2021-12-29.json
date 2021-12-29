@@ -1,0 +1,48 @@
+{
+  "date": "2021-12-29",
+  "split": "shoulders_and_abs",
+  "exercises": {
+    "arnold_press": [
+      { "set no.": 1, "reps": 10, "weight": "28 kg" },
+      { "set no.": 2, "reps": 10, "weight": "32 kg" },
+      { "set no.": 3, "reps": 10, "weight": "32 kg" }
+    ],
+    "cable_side_lateral": [
+      { "set no.": 1, "reps": 12, "weight": "11 kg" },
+      { "set no.": 2, "reps": 12, "weight": "13 kg" },
+      { "set no.": 3, "reps": 10, "weight": "13 kg" },
+      { "set no.": 4, "reps": 10, "weight": "15 kg" }
+    ],
+    "dumbbell_side_lateral": [
+      { "set no.": 1, "reps": 10, "weight": "20 kg" },
+      { "set no.": 2, "reps": 10, "weight": "20 kg" },
+      { "set no.": 3, "reps": 10, "weight": "20 kg" }
+    ],
+    "dumbbell_front_lateral_raise": [
+      { "set no.": 1, "reps": 5, "weight": "20 kg" },
+      { "set no.": 2, "reps": 10, "weight": "12 kg" },
+      { "set no.": 3, "reps": 10, "weight": "12 kg" },
+      { "set no.": 4, "reps": 10, "weight": "8 kg" }
+    ],
+    "dumbbell_rear_lateral_raise": [
+      { "set no.": 1, "reps": 12, "weight": "4 kg" },
+      { "set no.": 2, "reps": 12, "weight": "8 kg" },
+      { "set no.": 3, "reps": 12, "weight": "8 kg" }
+    ],
+    "dumbbell_shrug": [
+      { "set no.": 1, "reps": 12, "weight": "48 kg" },
+      { "set no.": 2, "reps": 12, "weight": "48 kg" },
+      { "set no.": 3, "reps": 12, "weight": "48 kg" }
+    ],
+    "twisting_leg_raise": [
+      { "set no.": 1, "reps": 24, "weight": "0 kg" },
+      { "set no.": 2, "reps": 20, "weight": "0 kg" },
+      { "set no.": 3, "reps": 20, "weight": "0 kg" }
+    ],
+    "swiss_ball_crunch": [
+      { "set no.": 1, "reps": 15, "weight": "0 kg" },
+      { "set no.": 2, "reps": 15, "weight": "0 kg" },
+      { "set no.": 3, "reps": 15, "weight": "0 kg" }
+    ]
+  }
+}

@@ -20,13 +20,13 @@
       { "set no.": 3, "reps": 10, "weight": "120 kg" },
       { "set no.": 4, "reps": 10, "weight": "140 kg" }
     ],
-    "standing calf raise": [
+    "standing_calf_raise": [
       { "set no.": 1, "reps": 10, "weight": "50 kg" },
       { "set no.": 2, "reps": 10, "weight": "50 kg" },
       { "set no.": 3, "reps": 10, "weight": "50 kg" },
       { "set no.": 4, "reps": 8, "weight": "50 kg" }
     ],
-    "walking barbell lunge": [
+    "walking_barbell_lunge": [
       { "set no.": 1, "reps": 20, "weight": "40 kg" },
       { "set no.": 2, "reps": 20, "weight": "40 kg" }
     ]

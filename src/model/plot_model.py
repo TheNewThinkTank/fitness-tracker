@@ -21,7 +21,9 @@ from model import get_data, get_df, one_rep_max_estimator
 
 def create_plots(x, y, exercise):
     """Plot training data with fit"""
-    plt.figure(figsize=(6, 4))
+
+    plt.clf()
+    plt.figure(figsize=(10, 8))
 
     ax = sns.regplot(x=x, y=y, ci=68, truncate=False)
 
@@ -33,6 +35,7 @@ def create_plots(x, y, exercise):
     ax.set_xticklabels(xticks_dates)
 
     ax.set_xlabel("workout date")
+    plt.xticks(rotation=45)
     ax.set_ylabel(f"1 RM estimates [kg]")
     ax.set_title(f"{exercise} w. 68 % confidence intervals")
     # plt.show()
@@ -49,9 +52,9 @@ def main():
     table = db.table("weight_training_log")
 
     splits_and_key_exercises = [
-        # ("chest", "barbell_bench_press"),
-        # ("legs", "squat"),
-        # ("legs", "deadlift"),
+        ("chest", "barbell_bench_press"),
+        ("legs", "squat"),
+        ("legs", "deadlift"),
         ("legs", "legpress"),
     ]
 

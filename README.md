@@ -8,11 +8,14 @@ Visually inspect your progression through dates and exercises
 
 ![simulation-wf](https://github.com/TheNewThinkTank/Fitness-Tracker/actions/workflows/simulation-wf.yml/badge.svg)
 
+![fitted_data_legpress](img/fitted_data_legpress.png)
+
+<!--
 |                 fitted_data_deadlift                  |                       fitted_data_barbell_bench_press                       |
 | :---------------------------------------------------: | :-------------------------------------------------------------------------: |
 | ![fitted_data_deadlift](img/fitted_data_deadlift.png) | ![fitted_data_barbell_bench_press](img/fitted_data_barbell_bench_press.png) |
 
-<!-- ![fitted_data](img/fitted_data.png)
+![fitted_data](img/fitted_data.png)
 
 ![workout_2021-12-11](img/workout_2021-12-11.png)
 

@@ -4,11 +4,12 @@ Author: Gustav Collin Rasmussen
 Purpose: Plot weight-training data with fit
 """
 
-from datetime import datetime
 import os
 import sys
-
+from datetime import datetime
+from pprint import pprint as pp
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 import seaborn as sns
 from tinydb import TinyDB
 
@@ -26,6 +27,9 @@ def create_plots(x, y, exercise):
 
     xticks = ax.get_xticks()
     xticks_dates = [datetime.fromtimestamp(x).strftime("%Y-%m-%d") for x in xticks]
+
+    pp(xticks_dates)
+
     ax.set_xticklabels(xticks_dates)
 
     ax.set_xlabel("workout date")
@@ -40,14 +44,14 @@ def main():
     """Get data and create figure."""
 
     datatypes = ["real", "simulated"]
-    datatype = datatypes[1]
+    datatype = datatypes[0]
     db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
     table = db.table("weight_training_log")
 
     splits_and_key_exercises = [
-        ("chest", "barbell_bench_press"),
-        ("legs", "squat"),
-        ("legs", "deadlift"),
+        # ("chest", "barbell_bench_press"),
+        # ("legs", "squat"),
+        # ("legs", "deadlift"),
         ("legs", "legpress"),
     ]
 

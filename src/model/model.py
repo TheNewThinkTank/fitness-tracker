@@ -5,10 +5,12 @@ Purpose: Train a linear-regression model on simulated weight-training data,
 using the Scikit Learn library
 """
 
-from datetime import datetime
+# from datetime import datetime
 
+from datetime import datetime
 import pandas as pd
-from sklearn import linear_model
+
+# from sklearn import linear_model
 from tinydb import TinyDB
 
 
@@ -37,34 +39,31 @@ def one_rep_max_estimator(df):
     return df.groupby("date")[["1RM"]].agg("max")
 
 
-def fit_data(df):
-    """Lin reg
-    X: workout-dates as int  y: max 1RM estimate in kg, for squat
+def get_data(df):
     """
-    reg = linear_model.LinearRegression()
+    date_strs: workout-dates, y: max 1RM estimate in kg
+    """
+
     date_strs = df.index.tolist()
     x = [datetime.fromisoformat(i).timestamp() for i in date_strs]
     y = df["1RM"].tolist()
     y = [float("{:.2f}".format(x)) for x in y]
-    X = []
-    for i, j in zip(x, y):
-        X.append([i, j])
-    reg.fit(X, y)
-    return x, y, reg.coef_
+
+    return x, y
 
 
 def main():
     """Prepare dfs, calc 1RM and do linear regression."""
 
     datatypes = ["real", "simulated"]
-    datatype = datatypes[0]
+    datatype = datatypes[1]
     db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
-    log = db.table("log")
+    table = db.table("weight_training_log")
 
-    df = get_df(log)
+    df = get_df(table)
     df_1rm = one_rep_max_estimator(df)
-    x, y, coeffs = fit_data(df_1rm)
-    print(x, y, coeffs)
+    x, y = get_data(df_1rm)
+    print(x, y)
 
 
 if __name__ == "__main__":

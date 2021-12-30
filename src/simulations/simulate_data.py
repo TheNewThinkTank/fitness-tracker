@@ -5,15 +5,11 @@ Purpose: Simulate weight-training data
 """
 
 import json
-import sys
 import os
 import pathlib
 import random
+import sys
 from datetime import datetime
-
-from pprint import pprint as pp
-
-import numpy as np
 import pandas as pd
 import yaml
 
@@ -50,9 +46,7 @@ class SimulateWorkout:
         choose weight from inverted 1RM estimate plus randomised progression"""
 
         weight_choice = (
-            weight_range[-1]
-            * ((100 - actual_reps * 2.5) / 100)
-            * (self.progress + random.choice([-0.01, 0, 0.01]))
+            weight_range[-1] * ((100 - actual_reps * 2.5) / 100) * self.progress
         )
 
         return f"{weight_choice:.2f} kg"
@@ -106,7 +100,7 @@ def get_dates(number_of_workouts: int, start: datetime, periods: int):
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
     # cleanup.cleanup("data/simulated/")
-    simulate = 0
+    simulate = 1
 
     if not simulate:
         return

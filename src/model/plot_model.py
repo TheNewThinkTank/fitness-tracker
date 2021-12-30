@@ -4,48 +4,45 @@ Author: Gustav Collin Rasmussen
 Purpose: Plot weight-training data with fit
 """
 
+from datetime import datetime
 import os
 import sys
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-# from sklearn import linear_model
 from tinydb import TinyDB
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from model import get_df, one_rep_max_estimator, fit_data
-
-
-def get_data(split, exercise):
-    """Prepare pandas dataframes with training data for plotting"""
-    # reg = linear_model.LinearRegression()
-    datatypes = ["real", "simulated"]
-    datatype = datatypes[1]
-    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
-    log = db.table("log")
-    df = get_df(log, split, exercise)
-    df_1rm = one_rep_max_estimator(df)
-    x, y, coeffs = fit_data(df_1rm)
-
-    return x, y, coeffs
+from model import get_data, get_df, one_rep_max_estimator
 
 
 def create_plots(x, y, exercise):
     """Plot training data with fit"""
     plt.figure(figsize=(6, 4))
+
     ax = sns.regplot(x=x, y=y, ci=68, truncate=False)
-    ax.set_xlabel("date (timestamp)")
+
+    xticks = ax.get_xticks()
+    xticks_dates = [datetime.fromtimestamp(x).strftime("%Y-%m-%d") for x in xticks]
+    ax.set_xticklabels(xticks_dates)
+
+    ax.set_xlabel("workout date")
     ax.set_ylabel(f"1 RM estimates [kg]")
     ax.set_title(f"{exercise} w. 68 % confidence intervals")
+    # plt.show()
     plt.savefig(f"img/fitted_data_{exercise}.png")
     plt.clf()  # clear figure before next plot
 
 
 def main():
     """Get data and create figure."""
+
+    datatypes = ["real", "simulated"]
+    datatype = datatypes[1]
+    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
+    table = db.table("weight_training_log")
 
     splits_and_key_exercises = [
         ("chest", "barbell_bench_press"),
@@ -55,7 +52,11 @@ def main():
     ]
 
     for split, exercise in splits_and_key_exercises:
-        x, y, _ = get_data(split, exercise)
+
+        df = get_df(table, split, exercise)
+        df_1rm = one_rep_max_estimator(df)
+        x, y = get_data(df_1rm)
+        # print(x, y)
         create_plots(x, y, exercise)
 
 

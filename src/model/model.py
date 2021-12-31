@@ -1,8 +1,8 @@
 """
-Date: 2021-12-21
-Author: Gustav Collin Rasmussen
-Purpose: Train a linear-regression model on simulated weight-training data,
-using the Scikit Learn library
+    Date: 2021-12-21
+    Author: Gustav Collin Rasmussen
+    Purpose: Train a linear-regression model on simulated weight-training data,
+             using the Scikit Learn library
 """
 
 # from datetime import datetime

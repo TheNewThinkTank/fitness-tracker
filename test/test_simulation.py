@@ -1,5 +1,5 @@
 """
-unit test suite for src folder
+    unit test suite for simulations
 """
 
 import pytest

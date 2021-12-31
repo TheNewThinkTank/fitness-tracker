@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - main
+      - feature/models
     paths-ignore:
-      - "!src/simulations/**"
+      - "src/simulations/**"
 
 jobs:
   Run-Linting-And-Unit-Tests:
@@ -34,16 +35,20 @@ jobs:
         run: |
           pipenv install --deploy --dev
 
+      # - name: install numpy
+      #   run: |
+      #     pip install numpy
+
       - name: Lint with flake8
         continue-on-error: true
         run: |
           pip install flake8
           flake8 --ignore=E402,E501 .
 
-      - name: Run test suite
-        run: |
-          pipenv run test -v
-          pipenv run test -k "test_training and not test_simulation"
+      # - name: Run test suite
+      #   run: |
+      #     pipenv run test -v
+      #     pipenv run test -k "test_training and not test_simulation"
 
   # docs:
   #   runs-on: ubuntu-latest

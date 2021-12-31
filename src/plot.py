@@ -22,7 +22,7 @@ def get_data(date, exercises):
     return [pd.DataFrame(data=show_exercise(log, ex, date)) for ex in exercises]
 
 
-def create_plot(dfs, date):
+def create_barplots(dfs, date):
     """Plot training data from specific date"""
 
     # TODO: highten legend transparency
@@ -86,7 +86,8 @@ def main():
     """Get data and create figure."""
     date = "2021-12-11"
     dfs = get_data(date, ["squat", "leg extention", "deadlift"])
-    create_plot(dfs, date)
+    print(dfs)
+    # create_barplots(dfs, date)
 
 
 if __name__ == "__main__":

@@ -8,15 +8,25 @@ Visually inspect your progression through dates and exercises
 
 ![simulation-wf](https://github.com/TheNewThinkTank/Fitness-Tracker/actions/workflows/simulation-wf.yml/badge.svg)
 
-![alt](img/workout_2021-12-11.png)
+![fitted_data_legpress](img/fitted_data_legpress.png)
 
-Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11
+<!--
+|                 fitted_data_deadlift                  |                       fitted_data_barbell_bench_press                       |
+| :---------------------------------------------------: | :-------------------------------------------------------------------------: |
+| ![fitted_data_deadlift](img/fitted_data_deadlift.png) | ![fitted_data_barbell_bench_press](img/fitted_data_barbell_bench_press.png) |
+
+![fitted_data](img/fitted_data.png)
+
+![workout_2021-12-11](img/workout_2021-12-11.png)
+
+Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11 -->
 
 ## Current features
 
 - Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)
-- Realistic workout data simulation <!-- (with naturally progressing trend over time) -->
+- Realistic workout data simulation (with naturally progressing trend over time)
 - Multiple GitHub Actions workflows
+- 1 Rep Max estimation
 - Plotting (Seaborn)
 - Multiple unit test suites (Pytest)
 

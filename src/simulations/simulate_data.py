@@ -5,15 +5,11 @@ Purpose: Simulate weight-training data
 """
 
 import json
-import sys
 import os
 import pathlib
 import random
+import sys
 from datetime import datetime
-
-from pprint import pprint as pp
-
-import numpy as np
 import pandas as pd
 import yaml
 
@@ -23,125 +19,101 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 import helpers.cleanup as cleanup
 
 
-def get_available_exercises(workout_split="chest"):
-    """Fetch musclegroup-exercises catalogue, with weight-ranges."""
-    with open("src/simulations/muscles_and_exercises.yaml", "r") as rf:
-        available_exercises = yaml.load(rf, Loader=yaml.FullLoader)
-    return available_exercises[workout_split]
+class SimulateWorkout:
+    """Simulate a workout"""
 
+    splits = ["back", "chest", "legs", "shoulders"]
+    training_catalogue = "src/simulations/muscles_and_exercises.yaml"
+    output_dir = "data/simulated/"
 
-def get_dates(number_of_workouts):
-    """Get list of dates."""
-    start = datetime(2021, 1, 1)
-    datelist = pd.date_range(start, periods=300).tolist()
-    datelist = [date.strftime("%Y-%m-%d") for date in datelist]
-    return random.sample(datelist, k=number_of_workouts)
+    def __init__(self, workout_date, progress) -> None:
+        self.workout_date = workout_date
+        self.progress = progress
+        self.split = random.choice(self.splits)
 
+    def get_available_exercises(self):
+        """Fetch musclegroup-exercises catalogue, with weight-ranges."""
+        with open(self.training_catalogue, "r") as rf:
+            available_exercises = yaml.load(rf, Loader=yaml.FullLoader)
+        return available_exercises[self.split]
 
-def simulate_split():
-    """Simulate data for workout split."""
-    return random.choice(["back", "chest", "legs", "shoulders"])
+    def simulate_exercises(self):
+        """Simulate data for exercises."""
+        return random.sample(self.get_available_exercises(), k=random.randint(2, 6))
 
+    def high_reps_low_weight(self, weight_range, actual_reps):
+        """Simulate that higher reps leads to lower weights.
+        choose weight from inverted 1RM estimate plus randomised progression"""
 
-def simulate_exercises(available_exercises):
-    """Simulate data for exercises."""
-    return random.sample(available_exercises, k=3)
+        weight_choice = (
+            weight_range[-1] * ((100 - actual_reps * 2.5) / 100) * self.progress
+        )
 
+        return f"{weight_choice:.2f} kg"
 
-def high_reps_low_weight(weight_range, actual_reps, progress):
-    """Simulate that higher reps leads to lower weights"""
-    reps_available = list(range(1, 20))
-
-    # ensure weight has same len as reps_available
-    weights = np.linspace(weight_range[0], weight_range[-1], len(reps_available))
-
-    reversed_reps = list(reversed(reps_available))
-    normalized_w = reversed_reps / np.sum(reps_available)  # probabilities must sum to 1
-    weight_choice = int(np.random.choice(weights, p=normalized_w))
-
-    reps_factor = 1 / actual_reps
-
-    weight_choice = int(weight_choice * reps_factor) + progress
-
-    return f"{weight_choice} kg"
-
-
-def simulate_sets_reps_weight(exercises, progress):
-    """Simulate data for sets, reps and weight."""
-
-    mapping = {}
-
-    for exercise in exercises:
-        no_of_sets = random.randint(1, 6)
-        for k, weight_range in exercise.items():
-            mapping[k] = []
-            for set in range(1, no_of_sets + 1):
-                actual_reps = random.randint(1, 20)
-                actual_weight = high_reps_low_weight(
-                    weight_range, actual_reps, progress
-                )
-                mapping[k].append(
-                    [
+    def simulate_sets_reps_weight(self):
+        """Simulate data for sets, reps and weight."""
+        mapping = {}
+        for exercise in self.simulate_exercises():
+            no_of_sets = random.randint(1, 6)
+            for k, weight_range in exercise.items():
+                mapping[k] = []
+                for set in range(1, no_of_sets + 1):
+                    actual_reps = random.randint(1, 20)
+                    actual_weight = self.high_reps_low_weight(weight_range, actual_reps)
+                    mapping[k].append(
                         {
                             "set no.": set,
                             "reps": actual_reps,
                             "weight": actual_weight,
                         }
-                    ]
-                )
+                    )
 
-    return mapping
+        return mapping
+
+    def format_data(self):
+        """Prepare data format for JSON file."""
+        return {
+            "date": self.workout_date,
+            "split": self.split,
+            "exercises": self.simulate_sets_reps_weight(),
+        }
+
+    def write_data(self) -> None:
+        """Insert simulated, formatted data into JSON file."""
+        date = self.format_data()["date"]
+        p = pathlib.Path(self.output_dir)
+        p.mkdir(parents=True, exist_ok=True)
+        fn = f"simulated_training_log_{date}.json"
+        filepath = p / fn
+        with filepath.open("w", encoding="utf-8") as f:
+            json.dump(self.format_data(), f)
 
 
-def format_data(workout_date, workout_split, data):
-    """Prepare data format for JSON file."""
-    return {"date": workout_date, "split": workout_split, "exercises": data}
-
-
-def write_data(formatted_data) -> None:
-    """Insert simulated, formatted data into JSON file."""
-
-    date = formatted_data["date"]
-
-    p = pathlib.Path("data/simulated/")
-    p.mkdir(parents=True, exist_ok=True)
-    fn = f"simulated_training_log_{date}.json"
-    filepath = p / fn
-
-    with filepath.open("w", encoding="utf-8") as f:
-        json.dump(formatted_data, f)
-    return
+def get_dates(number_of_workouts: int, start: datetime, periods: int):
+    """Get list of dates."""
+    datelist = pd.date_range(start, periods=periods).tolist()
+    datelist = [date.strftime("%Y-%m-%d") for date in datelist]
+    return random.sample(datelist, k=number_of_workouts)
 
 
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
-    delete = 0
-    debug = 0
+    # cleanup.cleanup("data/simulated/")
     simulate = 1
-
-    if delete:
-        cleanup.cleanup("data/simulated/")
-
-    if debug:
-        pp(high_reps_low_weight([0, 20], 5, 0))
 
     if not simulate:
         return
 
-    number_of_workouts = 100
-    dates = get_dates(number_of_workouts)
-    progress = 0  # to simulate higher weight per set across workouts
+    number_of_workouts = 2 * 365
+    dates = get_dates(number_of_workouts, datetime(2019, 1, 1), 3 * 365)
 
+    progress = 1  # to simulate higher weight per set across workouts
     for workout in range(number_of_workouts):
         workout_date = dates[workout]
-        workout_split = simulate_split()
-        available_exercises = get_available_exercises(workout_split)
-        exercises = simulate_exercises(available_exercises)
-        data = simulate_sets_reps_weight(exercises, progress)
-        # pp(data)
-        formatted_data = format_data(workout_date, workout_split, data)
-        write_data(formatted_data)
-        progress += 0.25
+        simulated_workout = SimulateWorkout(workout_date, progress)
+        simulated_workout.write_data()
+        progress += 0.01
 
 
 if __name__ == "__main__":

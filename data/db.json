@@ -45,7 +45,7 @@
       "date": "2021-12-13",
       "split": "chest",
       "exercises": {
-        "benchpress": [
+        "barbell_bench_press": [
           { "set no.": 1, "reps": 5, "weight": "70 kg" },
           { "set no.": 2, "reps": 5, "weight": "70 kg" },
           { "set no.": 3, "reps": 12, "weight": "60 kg" }

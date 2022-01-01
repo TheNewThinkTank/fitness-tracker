@@ -1,13 +1,20 @@
 ---
-date: YYYY-MM-DD
-split (snake_case): [legs, chest, back_and_biceps, shoulders_and_abs]
-exercises:
-  exercise (snake_case):
-    - set no. X: int
-    - reps: int
-    - weight: float (kg)
+table: weight_training_log
+  date: YYYY-MM-DD
+  split (snake_case): [legs, chest, back_and_biceps, shoulders_and_abs]
+  exercises:
+    exercise (snake_case):
+      - set no. X: int
+      - reps: int
+      - weight: float (kg)
 
-Notes:
-For all workouts, barbells of 20 kg
-and EZ-bars of 10 kg are used.
-Their weight are added to the weight data where relavant.
+  Notes:
+  For all workouts, barbells of 20 kg
+  and EZ-bars of 10 kg are used.
+  Their weight are added to the weight data where relavant.
+  Machines are from Technogym.
+
+table: disciplines_log
+  date: string (YYYY-MM-DD)
+  discipline: string (name)
+  duration: int (minutes)

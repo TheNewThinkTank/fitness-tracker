@@ -318,6 +318,45 @@
           { "set no.": 3, "reps": 15, "weight": "0 kg" }
         ]
       }
+    },
+    "9": {
+      "date": "2022-01-01",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 5, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "90 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "90 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 10, "weight": "150 kg" },
+          { "set no.": 2, "reps": 10, "weight": "150 kg" },
+          { "set no.": 3, "reps": 10, "weight": "150 kg" },
+          { "set no.": 4, "reps": 10, "weight": "150 kg" }
+        ],
+        "prone_leg_curl": [
+          { "set no.": 1, "reps": 8, "weight": "41 kg" },
+          { "set no.": 2, "reps": 8, "weight": "41 kg" },
+          { "set no.": 3, "reps": 8, "weight": "41 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 12, "weight": "50 kg" },
+          { "set no.": 3, "reps": 12, "weight": "50 kg" }
+        ],
+        "barbell_lunge": [
+          { "set no.": 1, "reps": 4, "weight": "60 kg" },
+          { "set no.": 2, "reps": 8, "weight": "40 kg" },
+          { "set no.": 3, "reps": 14, "weight": "40 kg" }
+        ]
+      }
     }
   },
   "disciplines_log": {

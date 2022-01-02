@@ -1,0 +1,6 @@
+Field Name, Data Type, Description, Example
+date, Text, Date of a particular workout, '2021-01-01'
+split, Text, Musclegroups trained during a workout, 'back_and_biceps'
+exercises, Array, names of exercises performed with their sets reps and weight, "exercises": {"lat_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" }
+        ]}

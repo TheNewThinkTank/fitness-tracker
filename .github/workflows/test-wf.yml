@@ -1,4 +1,5 @@
 name: Fitness Tracker Test Workflow
+# https://medium.com/@vanflymen/blazing-fast-ci-with-github-actions-poetry-black-and-pytest-9e74299dd4a5
 
 on:
   push:
@@ -10,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Poetry
-        uses: dschep/install-poetry-action@v1.2
+        uses: snok/install-poetry@v1
+      # - name: Install Poetry
+      #   uses: dschep/install-poetry-action@v1.2
 
       - name: Cache Poetry virtualenv
         uses: actions/cache@v1
@@ -23,7 +26,8 @@ jobs:
 
       - name: Set Poetry config
         run: |
-          poetry config settings.virtualenvs.in-project false
+          poetry config virtualenvs.in-project false
+          # poetry config settings.virtualenvs.in-project false
           poetry config settings.virtualenvs.path ~/.virtualenvs
 
       - name: Install Dependencies

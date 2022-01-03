@@ -62,7 +62,7 @@ def main():
     table = db.table(logs[0])
 
     if data_model == "real":
-        date = "2022-01-01"
+        date = "2022-01-03"
         insert_specific_log(date, table)
 
         """

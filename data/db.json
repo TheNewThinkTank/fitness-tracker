@@ -395,6 +395,49 @@
           { "set no.": 3, "reps": 5, "weight": "0 kg" }
         ]
       }
+    },
+    "11": {
+      "date": "2022-01-05",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "diverging_seated_row": [
+          { "set no.": 1, "reps": 12, "weight": "40 kg" },
+          { "set no.": 2, "reps": 12, "weight": "40 kg" },
+          { "set no.": 3, "reps": 12, "weight": "40 kg" },
+          { "set no.": 4, "reps": 12, "weight": "40 kg" }
+        ],
+        "diverging_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "14 kg" },
+          { "set no.": 2, "reps": 10, "weight": "16 kg" },
+          { "set no.": 3, "reps": 10, "weight": "18 kg" },
+          { "set no.": 4, "reps": 10, "weight": "20 kg" }
+        ],
+        "dumbbell_curl": [
+          { "set no.": 1, "reps": 6, "weight": "32 kg" },
+          { "set no.": 2, "reps": 6, "weight": "32 kg" }
+        ]
+      }
     }
   },
   "disciplines_log": {

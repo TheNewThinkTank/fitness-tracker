@@ -27,7 +27,8 @@ def create_plots(x, y, exercise):
 
     # Only add confidence intervals if there are sufficient data points
     if len(x) < 10:
-        ax = sns.regplot(x=x, y=y, truncate=False)
+        # ax = sns.regplot(x=x, y=y, truncate=False)
+        ax = sns.scatterplot(x=x, y=y)
         ax.set_title(f"{exercise}")
     else:
         ax = sns.regplot(x=x, y=y, ci=68, truncate=False)

@@ -23,9 +23,17 @@ def create_plots(x, y, exercise):
     """Plot training data with fit"""
 
     plt.clf()
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(8, 8))
+    sns.set_theme()
 
-    ax = sns.regplot(x=x, y=y, ci=68, truncate=False)
+    # Only add confidence intervals if there are sufficient data points
+    if len(x) < 10:
+        # ax = sns.regplot(x=x, y=y, truncate=False)
+        ax = sns.scatterplot(x=x, y=y)
+        ax.set_title(f"{exercise}")
+    else:
+        ax = sns.regplot(x=x, y=y, ci=68, truncate=False)
+        ax.set_title(f"{exercise} w. 68 % confidence intervals")
 
     xticks = ax.get_xticks()
     xticks_dates = [datetime.fromtimestamp(x).strftime("%Y-%m-%d") for x in xticks]
@@ -34,10 +42,9 @@ def create_plots(x, y, exercise):
 
     ax.set_xticklabels(xticks_dates)
 
-    ax.set_xlabel("workout date")
+    # ax.set_xlabel("workout date")
     plt.xticks(rotation=45)
     ax.set_ylabel(f"1 RM estimates [kg]")
-    ax.set_title(f"{exercise} w. 68 % confidence intervals")
     # plt.show()
     plt.savefig(f"img/fitted_data_{exercise}.png")
     plt.clf()  # clear figure before next plot
@@ -53,6 +60,7 @@ def main():
 
     splits_and_key_exercises = [
         ("chest", "barbell_bench_press"),
+        ("back_and_biceps", "seated_row"),
         ("legs", "squat"),
         ("legs", "deadlift"),
         ("legs", "legpress"),
@@ -64,6 +72,7 @@ def main():
         df_1rm = one_rep_max_estimator(df)
         x, y = get_data(df_1rm)
         # print(x, y)
+        assert len(x) == len(y)
         create_plots(x, y, exercise)
 
 

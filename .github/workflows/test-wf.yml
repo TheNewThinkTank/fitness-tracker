@@ -1,0 +1,41 @@
+name: Fitness Tracker Test Workflow
+# https://medium.com/@vanflymen/blazing-fast-ci-with-github-actions-poetry-black-and-pytest-9e74299dd4a5
+
+on:
+  push:
+    branches:
+      - feature/test
+
+jobs:
+  Run-Linting-And-Unit-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+      # - name: Install Poetry
+      #   uses: dschep/install-poetry-action@v1.2
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: ~/.virtualenvs
+          key: poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            poetry-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Set Poetry config
+        run: |
+          # poetry config virtualenvs.in-project false
+          poetry config settings.virtualenvs.in-project true
+          poetry config settings.virtualenvs.path ~/.virtualenvs
+
+      - name: Install Dependencies
+        run: poetry install
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Code Quality
+        run: poetry run black . --check
+
+      - name: Test with pytest
+        run: poetry run pytest --cov . -n 2

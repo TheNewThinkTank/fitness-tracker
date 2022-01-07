@@ -55,14 +55,14 @@ def insert_specific_log(date, table):
 def main():
     """Insert training log from specific date"""
     data_models = ["real", "simulated"]
-    data_model = data_models[1]
+    data_model = data_models[0]
 
     db = TinyDB("data/db.json") if data_model == "real" else TinyDB("data/sim_db.json")
     logs = ["weight_training_log", "disciplines_log"]
     table = db.table(logs[0])
 
     if data_model == "real":
-        date = "2021-12-30"
+        date = "2022-01-06"
         insert_specific_log(date, table)
 
         """

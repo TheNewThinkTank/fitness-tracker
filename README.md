@@ -8,10 +8,9 @@ Visually inspect your progression through dates and exercises
 
 ![simulation-wf](https://github.com/TheNewThinkTank/Fitness-Tracker/actions/workflows/simulation-wf.yml/badge.svg)
 
-![fitted_data_legpress](img/fitted_data_legpress.png)
+<!-- ![fitted_data_legpress](img/fitted_data_legpress.png) -->
 
-<!--
-|                 fitted_data_deadlift                  |                       fitted_data_barbell_bench_press                       |
+|                 deadlift progression                  |                       barbell_bench_press progression                       |
 | :---------------------------------------------------: | :-------------------------------------------------------------------------: |
 | ![fitted_data_deadlift](img/fitted_data_deadlift.png) | ![fitted_data_barbell_bench_press](img/fitted_data_barbell_bench_press.png) |
 
@@ -19,7 +18,7 @@ Visually inspect your progression through dates and exercises
 
 ![workout_2021-12-11](img/workout_2021-12-11.png)
 
-Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11 -->
+Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11
 
 ## Current features
 

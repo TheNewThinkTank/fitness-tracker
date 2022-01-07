@@ -23,7 +23,8 @@ def create_plots(x, y, exercise):
     """Plot training data with fit"""
 
     plt.clf()
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(8, 8))
+    sns.set_theme()
 
     # Only add confidence intervals if there are sufficient data points
     if len(x) < 10:
@@ -41,7 +42,7 @@ def create_plots(x, y, exercise):
 
     ax.set_xticklabels(xticks_dates)
 
-    ax.set_xlabel("workout date")
+    # ax.set_xlabel("workout date")
     plt.xticks(rotation=45)
     ax.set_ylabel(f"1 RM estimates [kg]")
     # plt.show()

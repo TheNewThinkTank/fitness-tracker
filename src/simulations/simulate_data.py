@@ -4,6 +4,7 @@ Author: Gustav Collin Rasmussen
 Purpose: Simulate weight-training data
 """
 
+import numpy as np
 import json
 import os
 import pathlib
@@ -12,6 +13,7 @@ import sys
 from datetime import datetime
 import pandas as pd
 import yaml
+from pprint import pprint as pp
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
@@ -45,9 +47,11 @@ class SimulateWorkout:
         """Simulate that higher reps leads to lower weights.
         choose weight from inverted 1RM estimate plus randomised progression"""
 
-        weight_choice = (
-            weight_range[-1] * ((100 - actual_reps * 2.5) / 100) * self.progress
+        weight_choice = weight_range[-1] * ((100 - actual_reps * 2.5) / 100) + np.log10(
+            self.progress
         )
+
+        # print(weight_range, actual_reps, self.progress, weight_choice)
 
         return f"{weight_choice:.2f} kg"
 
@@ -59,7 +63,7 @@ class SimulateWorkout:
             for k, weight_range in exercise.items():
                 mapping[k] = []
                 for set in range(1, no_of_sets + 1):
-                    actual_reps = random.randint(1, 20)
+                    actual_reps = random.randint(1, 10)
                     actual_weight = self.high_reps_low_weight(weight_range, actual_reps)
                     mapping[k].append(
                         {
@@ -105,15 +109,21 @@ def main():
     if not simulate:
         return
 
-    number_of_workouts = 2 * 365
-    dates = get_dates(number_of_workouts, datetime(2019, 1, 1), 3 * 365)
+    number_of_workouts = 3 * 365
+    dates = get_dates(number_of_workouts, datetime(2018, 1, 1), 4 * 365)
 
-    progress = 1  # to simulate higher weight per set across workouts
+    progress = 10  # to simulate higher weight per set across workouts
     for workout in range(number_of_workouts):
         workout_date = dates[workout]
         simulated_workout = SimulateWorkout(workout_date, progress)
+
+        # actual_reps = random.randint(1, 10)
+        # weight_range = [50, 90]
+
+        # simulated_workout.high_reps_low_weight(weight_range, actual_reps)
+        # pp(simulated_workout)
         simulated_workout.write_data()
-        progress += 0.01
+        progress += 1_000
 
 
 if __name__ == "__main__":

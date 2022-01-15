@@ -52,18 +52,18 @@ def create_plots(x, y, exercise):
 def main():
     """Get data and create figure."""
 
-    datatypes = ["real", "simulated"]
-    datatype = datatypes[1]
+    # datatypes = ["real", "simulated"]
+    datatype = sys.argv[1]  # datatypes[1]
     db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
     table = db.table("weight_training_log")
 
     splits_and_key_exercises = [
         ("chest", "barbell_bench_press"),
         # ("back_and_biceps", "seated_row"),
-        ("back", "seated_row"),
-        ("legs", "squat"),
-        ("legs", "deadlift"),
-        ("legs", "legpress"),
+        # ("back", "seated_row"),
+        # ("legs", "squat"),
+        # ("legs", "deadlift"),
+        # ("legs", "legpress"),
     ]
 
     for split, exercise in splits_and_key_exercises:

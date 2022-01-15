@@ -6,19 +6,14 @@ Purpose: Simulate weight-training data
 
 import numpy as np
 import json
-import os
 import pathlib
 import random
 import sys
 from datetime import datetime
 import pandas as pd
 import yaml
-from pprint import pprint as pp
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
-
-import helpers.cleanup as cleanup
+# from pprint import pprint as pp
 
 
 class SimulateWorkout:
@@ -103,13 +98,8 @@ def get_dates(number_of_workouts: int, start: datetime, periods: int):
 
 def main():
     """Simulate specified number of workouts and insert their data into JSON files."""
-    # cleanup.cleanup("data/simulated/")
-    simulate = 1
 
-    if not simulate:
-        return
-
-    number_of_workouts = 3 * 365
+    number_of_workouts = int(sys.argv[1])  # 3 * 365
     dates = get_dates(number_of_workouts, datetime(2018, 1, 1), 4 * 365)
 
     progress = 10  # to simulate higher weight per set across workouts

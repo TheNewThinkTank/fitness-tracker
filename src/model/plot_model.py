@@ -53,16 +53,16 @@ def main():
     """Get data and create figure."""
 
     # datatypes = ["real", "simulated"]
-    datatype = sys.argv[1]  # datatypes[1]
+    datatype = sys.argv[1]  # "real"  # datatypes[1]
     db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
     table = db.table("weight_training_log")
 
     splits_and_key_exercises = [
-        ("chest", "barbell_bench_press"),
+        # ("chest", "barbell_bench_press"),
         # ("back_and_biceps", "seated_row"),
         # ("back", "seated_row"),
-        # ("legs", "squat"),
-        # ("legs", "deadlift"),
+        ("legs", "squat"),
+        ("legs", "deadlift"),
         # ("legs", "legpress"),
     ]
 

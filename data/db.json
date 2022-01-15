@@ -487,6 +487,39 @@
           { "set no.": 3, "reps": 20, "weight": "0 kg" }
         ]
       }
+    },
+    "13": {
+      "date": "2022-01-15",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 3, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "100 kg" },
+          { "set no.": 3, "reps": 5, "weight": "100 kg" },
+          { "set no.": 4, "reps": 5, "weight": "100 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 12, "weight": "50 kg" },
+          { "set no.": 3, "reps": 12, "weight": "50 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 10, "weight": "70 kg" },
+          { "set no.": 2, "reps": 7, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" }
+        ],
+        "hack_squat": [
+          { "set no.": 1, "reps": 15, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "70 kg" }
+        ]
+      }
     }
   },
   "disciplines_log": {

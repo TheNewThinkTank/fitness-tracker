@@ -10,15 +10,14 @@ Visually inspect your progression through dates and exercises
 
 <!-- ![fitted_data_legpress](img/fitted_data_legpress.png) -->
 
-|                 deadlift progression                  |                       barbell_bench_press progression                       |
-| :---------------------------------------------------: | :-------------------------------------------------------------------------: |
-| ![fitted_data_deadlift](img/fitted_data_deadlift.png) | ![fitted_data_barbell_bench_press](img/fitted_data_barbell_bench_press.png) |
+|                 deadlift progression                  |                squat progression                |
+| :---------------------------------------------------: | :---------------------------------------------: |
+| ![fitted_data_deadlift](img/fitted_data_deadlift.png) | ![fitted_data_squat](img/fitted_data_squat.png) |
 
-![fitted_data](img/fitted_data.png)
+<!-- ![fitted_data](img/fitted_data.png)
 
 ![workout_2021-12-11](img/workout_2021-12-11.png)
-
-Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11
+Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11 -->
 
 ## Current features
 

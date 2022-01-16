@@ -58,7 +58,7 @@ def main():
     table = db.table("weight_training_log")
 
     splits_and_key_exercises = [
-        # ("chest", "barbell_bench_press"),
+        ("chest", "barbell_bench_press"),
         # ("back_and_biceps", "seated_row"),
         # ("back", "seated_row"),
         ("legs", "squat"),

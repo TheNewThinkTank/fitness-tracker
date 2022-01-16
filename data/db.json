@@ -520,6 +520,44 @@
           { "set no.": 3, "reps": 10, "weight": "70 kg" }
         ]
       }
+    },
+    "14": {
+      "date": "2022-01-16",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 2, "weight": "80 kg" },
+          { "set no.": 2, "reps": 6, "weight": "70 kg" },
+          { "set no.": 3, "reps": 4, "weight": "70 kg" },
+          { "set no.": 4, "reps": 10, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 5, "weight": "52 kg" },
+          { "set no.": 2, "reps": 5, "weight": "48 kg" },
+          { "set no.": 3, "reps": 5, "weight": "44 kg" },
+          { "set no.": 4, "reps": 5, "weight": "40 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 12, "weight": "54 kg" },
+          { "set no.": 2, "reps": 8, "weight": "54 kg" },
+          { "set no.": 3, "reps": 6, "weight": "54 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 10, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "28 kg" },
+          { "set no.": 3, "reps": 8, "weight": "28 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 7, "weight": "28 kg" },
+          { "set no.": 2, "reps": 12, "weight": "18 kg" },
+          { "set no.": 3, "reps": 12, "weight": "18 kg" }
+        ]
+      }
     }
   },
   "disciplines_log": {

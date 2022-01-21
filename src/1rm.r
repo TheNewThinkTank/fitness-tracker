@@ -1,4 +1,9 @@
-# 1 repetition maximum formulas
+# Date: 2022-01-21
+# Author: Gustav Collin Rasmussen
+# Purpose: Definition and exploration of popular 1-repetition-maximum formulas
+
+# library(tidyverse)
+library(ggplot2)
 
 
 epley <- function(w, r) {
@@ -23,16 +28,21 @@ brzycki_inverted <- function(one_rm, r, progression) {
 }
 
 
-df <- data.frame(weight = seq(10, 60, by=10),
-                 reps = c(2, 2, 3, 3, 4, 4),
-                 epley_1rm = c(epley(10, 2), epley(20, 2), epley(30, 3), epley(40, 3), epley(50, 4), epley(60, 4)),
-                 brzycki_1rm = c(brzycki(10, 2), brzycki(20, 2), brzycki(30, 3), brzycki(40, 3), brzycki(50, 4), brzycki(60, 4)),
-                 progressions = seq(10, 60, by=10),
-                 epley_inverted = c(epley_inverted(60, 5, 10), epley_inverted(60, 5, 20), epley_inverted(60, 5, 30), epley_inverted(60, 5, 40), epley_inverted(60, 5, 50), epley_inverted(60, 5, 60)),
-                 brzycki_inverted = c(brzycki_inverted(60, 5, 10), brzycki_inverted(60, 5, 20), brzycki_inverted(60, 5, 30), brzycki_inverted(60, 5, 40), brzycki_inverted(60, 5, 50), brzycki_inverted(60, 5, 60))
-                )
+weight = seq(10, 60, by=10)
 
-print(df)
+# evaluate 1rm formulas at 5 reps for varying weights
+one_rm_df <- data.frame(weight = weight,
+                        epley_1rm = epley(weight, 5),
+                        brzycki_1rm = brzycki(weight, 5)
+                        )
+
+# progressions = seq(10, 60, by=10),
+# epley_inverted = c(epley_inverted(60, 5, 10), epley_inverted(60, 5, 20), epley_inverted(60, 5, 30), epley_inverted(60, 5, 40), epley_inverted(60, 5, 50), epley_inverted(60, 5, 60)),
+# brzycki_inverted = c(brzycki_inverted(60, 5, 10), brzycki_inverted(60, 5, 20), brzycki_inverted(60, 5, 30), brzycki_inverted(60, 5, 40), brzycki_inverted(60, 5, 50), brzycki_inverted(60, 5, 60))
+print(one_rm_df)
+
+ggplot(data = one_rm_df, aes(x = weight, y = epley_1rm)) +
+    geom_point()
 
 # weights = c(10, 20, 30, 40, 50)
 # weights = seq(10, 50, by=10)

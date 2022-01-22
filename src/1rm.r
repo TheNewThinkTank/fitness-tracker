@@ -2,8 +2,8 @@
 # Author: Gustav Collin Rasmussen
 # Purpose: Definition and exploration of popular 1-repetition-maximum formulas
 
-# library(tidyverse)
-library(ggplot2)
+library(tidyverse)
+# library(ggplot2)
 
 
 epley <- function(w, r) {
@@ -39,10 +39,16 @@ one_rm_df <- data.frame(weight = weight,
 # progressions = seq(10, 60, by=10),
 # epley_inverted = c(epley_inverted(60, 5, 10), epley_inverted(60, 5, 20), epley_inverted(60, 5, 30), epley_inverted(60, 5, 40), epley_inverted(60, 5, 50), epley_inverted(60, 5, 60)),
 # brzycki_inverted = c(brzycki_inverted(60, 5, 10), brzycki_inverted(60, 5, 20), brzycki_inverted(60, 5, 30), brzycki_inverted(60, 5, 40), brzycki_inverted(60, 5, 50), brzycki_inverted(60, 5, 60))
-print(one_rm_df)
+# print(one_rm_df)
 
-ggplot(data = one_rm_df, aes(x = weight, y = epley_1rm)) +
-    geom_point()
+df <- one_rm_df %>%
+  select(weight, epley_1rm, brzycki_1rm) %>%
+  gather(key = "variable", value = "one_rep_max", -weight)
+df
+
+ggplot(df, aes(x = weight, y = one_rep_max)) + 
+  geom_point(aes(color = variable)) +
+  scale_color_manual(values = c("darkred", "steelblue"))
 
 # weights = c(10, 20, 30, 40, 50)
 # weights = seq(10, 50, by=10)

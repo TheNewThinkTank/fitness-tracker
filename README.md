@@ -14,6 +14,8 @@ Visually inspect your progression through dates and exercises
 | :---------------------------------------------------: | :---------------------------------------------: |
 | ![fitted_data_deadlift](img/fitted_data_deadlift.png) | ![fitted_data_squat](img/fitted_data_squat.png) |
 
+![1repmax_comparrisons_Rplot](img/1repmax_comparrisons_Rplot.png)
+
 <!-- ![fitted_data](img/fitted_data.png)
 
 ![workout_2021-12-11](img/workout_2021-12-11.png)

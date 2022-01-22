@@ -3,7 +3,7 @@
 # Purpose: Definition and exploration of popular 1-repetition-maximum formulas
 
 library(tidyverse)
-# library(ggplot2)
+library(cowplot)
 
 
 epley <- function(w, r) {
@@ -28,27 +28,70 @@ brzycki_inverted <- function(one_rm, r, progression) {
 }
 
 
+###### evaluate 1rm formulas at 5 reps for varying weights ######
 weight = seq(10, 60, by=10)
 
-# evaluate 1rm formulas at 5 reps for varying weights
-one_rm_df <- data.frame(weight = weight,
+one_rm_constant_reps_df <- data.frame(weight = weight,
                         epley_1rm = epley(weight, 5),
                         brzycki_1rm = brzycki(weight, 5)
                         )
 
-# progressions = seq(10, 60, by=10),
-# epley_inverted = c(epley_inverted(60, 5, 10), epley_inverted(60, 5, 20), epley_inverted(60, 5, 30), epley_inverted(60, 5, 40), epley_inverted(60, 5, 50), epley_inverted(60, 5, 60)),
-# brzycki_inverted = c(brzycki_inverted(60, 5, 10), brzycki_inverted(60, 5, 20), brzycki_inverted(60, 5, 30), brzycki_inverted(60, 5, 40), brzycki_inverted(60, 5, 50), brzycki_inverted(60, 5, 60))
-# print(one_rm_df)
-
-df <- one_rm_df %>%
+df1 <- one_rm_constant_reps_df %>%
   select(weight, epley_1rm, brzycki_1rm) %>%
   gather(key = "variable", value = "one_rep_max", -weight)
-df
 
-ggplot(df, aes(x = weight, y = one_rep_max)) + 
+###### evaluate 1rm formulas at weight: 70 kg for varying reps ######
+reps = 2:10
+one_rm_constant_weight_df <- data.frame(reps = reps,
+                                      epley_1rm = epley(70, reps),
+                                      brzycki_1rm = brzycki(70, reps)
+)
+
+df2 <- one_rm_constant_weight_df %>%
+  select(reps, epley_1rm, brzycki_1rm) %>%
+  gather(key = "variable", value = "one_rep_max", -reps)
+
+###### evaluate inverse 1rm formulas at 5 reps for varying weights ######
+inverse_one_rm_constant_reps_df <- data.frame(weight = weight,
+                        epley_inverted = epley_inverted(weight, 5, 10),
+                        brzycki_inverted = brzycki_inverted(weight, 5, 10)
+                        )
+
+df3 <- inverse_one_rm_constant_reps_df %>%
+  select(weight, epley_inverted, brzycki_inverted) %>%
+  gather(key = "variable", value = "inverse_one_rep_max", -weight)
+
+###### evaluate inverse 1rm formulas at weight: 70 kg for varying reps ######
+inverse_one_rm_constant_weight_df <- data.frame(reps = reps,
+                                      epley_inverted = epley_inverted(70, reps, 10),
+                                      brzycki_inverted = brzycki_inverted(70, reps, 10)
+)
+
+df4 <- inverse_one_rm_constant_weight_df %>%
+  select(reps, epley_inverted, brzycki_inverted) %>%
+  gather(key = "variable", value = "inverse_one_rep_max", -reps)
+
+################## prepare plots ##################
+sp1 <- ggplot(df1, aes(x = weight, y = one_rep_max)) + 
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
+
+sp2 <- ggplot(df2, aes(x = reps, y = one_rep_max)) + 
+  geom_point(aes(color = variable)) +
+  scale_color_manual(values = c("darkred", "steelblue"))
+
+sp3 <- ggplot(df3, aes(x = weight, y = inverse_one_rep_max)) + 
+  geom_point(aes(color = variable)) +
+  scale_color_manual(values = c("darkred", "steelblue"))
+
+sp4 <- ggplot(df4, aes(x = reps, y = inverse_one_rep_max)) + 
+  geom_point(aes(color = variable)) +
+  scale_color_manual(values = c("darkred", "steelblue"))
+
+################## show figure ##################
+plot_grid(sp1, sp2, sp3, sp4,
+          labels = rep(c("constant reps (5)", "constant weight (70 kg)"), times=2),
+          ncol = 2, nrow = 2)
 
 # weights = c(10, 20, 30, 40, 50)
 # weights = seq(10, 50, by=10)

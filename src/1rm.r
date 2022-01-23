@@ -72,19 +72,19 @@ df4 <- inverse_one_rm_constant_weight_df %>%
   gather(key = "variable", value = "inverse_one_rep_max", -reps)
 
 ################## prepare plots ##################
-sp1 <- ggplot(df1, aes(x = weight, y = one_rep_max)) + 
+sp1 <- ggplot(df1, aes(weight, one_rep_max)) +
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
 
-sp2 <- ggplot(df2, aes(x = reps, y = one_rep_max)) + 
+sp2 <- ggplot(df2, aes(reps, one_rep_max)) +
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
 
-sp3 <- ggplot(df3, aes(x = weight, y = inverse_one_rep_max)) + 
+sp3 <- ggplot(df3, aes(weight, inverse_one_rep_max)) + 
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
 
-sp4 <- ggplot(df4, aes(x = reps, y = inverse_one_rep_max)) + 
+sp4 <- ggplot(df4, aes(reps, inverse_one_rep_max)) + 
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
 

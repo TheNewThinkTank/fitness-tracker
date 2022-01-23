@@ -10,9 +10,9 @@ Visually inspect your progression through dates and exercises
 
 <!-- ![fitted_data_legpress](img/fitted_data_legpress.png) -->
 
-|                 deadlift progression                  |                squat progression                |
-| :---------------------------------------------------: | :---------------------------------------------: |
-| ![fitted_data_deadlift](img/fitted_data_deadlift.png) | ![fitted_data_squat](img/fitted_data_squat.png) |
+|                    deadlift progression                    |                  squat progression                   |
+| :--------------------------------------------------------: | :--------------------------------------------------: |
+| ![fitted_data_deadlift](img/real_fitted_data_deadlift.png) | ![fitted_data_squat](img/real_fitted_data_squat.png) |
 
 ![1repmax_comparrisons_Rplot](img/1repmax_comparrisons_Rplot.png)
 

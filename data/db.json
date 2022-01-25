@@ -653,6 +653,11 @@
       "date": "2021-12-30",
       "discipline": "vinyasa_yoga",
       "duration": "60 min"
+    },
+    "2": {
+      "date": "2022-01-25",
+      "discipline": "acro_yoga",
+      "duration": "120 min"
     }
   }
 }

@@ -5,10 +5,10 @@
              using the Scikit Learn library
 """
 
-# from datetime import datetime
-
 from datetime import datetime
 import pandas as pd
+
+import pathlib
 
 # from sklearn import linear_model
 from tinydb import TinyDB
@@ -49,16 +49,44 @@ def get_data(df):
 
 def main():
     """Prepare dfs, calc 1RM and do linear regression."""
+    import logging
+
+    pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
+
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
+        datefmt="%m-%d %H:%M",
+        filename="logs/model.log",
+        filemode="w",
+    )
+
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+
+    formatter = logging.Formatter("%(name)-12s: %(levelname)-8s %(message)s")
+    console.setFormatter(formatter)
+    logging.getLogger("").addHandler(console)
+
+    logging.info("Running model.py ...")
+
+    logger1 = logging.getLogger("model.area1")
+    logger2 = logging.getLogger("model.area2")
 
     datatypes = ["real", "simulated"]
     datatype = datatypes[0]
     db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
     table = db.table("weight_training_log")
 
+    logger1.info("datatype: %s", datatype)
+    logger1.debug("db: %s", db)
+    logger1.debug("table: %s", table)
+
     df = get_df(table)
     df_1rm = one_rep_max_estimator(df)
     x, y = get_data(df_1rm)
-    print(x, y)
+
+    logger2.info("x, y: %s, %s", x, y)
 
 
 if __name__ == "__main__":

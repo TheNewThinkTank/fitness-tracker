@@ -1,0 +1,4 @@
+01-30 20:03 root         INFO     Running Fitness-Tracker/src/CRUD/insert.py ...
+01-30 20:03 root         INFO     data_model: real
+01-30 20:03 root         DEBUG    db: <TinyDB tables=['disciplines_log', 'weight_training_log'], tables_count=2, default_table_documents_count=0, all_tables_documents_count=['disciplines_log=2', 'weight_training_log=18']>
+01-30 20:03 root         DEBUG    table: <Table name='weight_training_log', total=18, storage=<tinydb.storages.JSONStorage object at 0x7fee7e68f940>>

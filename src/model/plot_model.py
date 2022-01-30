@@ -54,7 +54,7 @@ def main():
     splits_and_key_exercises = (
         [
             ("chest", "barbell_bench_press"),
-            ("back_and_biceps", "diverging_seated_row"),
+            ("back_and_biceps", "seated_row"),
             ("legs", "squat"),
             ("legs", "deadlift"),
             ("legs", "legpress"),

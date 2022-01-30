@@ -1,5 +1,5 @@
-01-30 16:04 root         INFO     Running model.py ...
-01-30 16:04 model.area1  INFO     datatype: real
-01-30 16:04 model.area1  DEBUG    db: <TinyDB tables=['disciplines_log', 'weight_training_log'], tables_count=2, default_table_documents_count=0, all_tables_documents_count=['disciplines_log=2', 'weight_training_log=18']>
-01-30 16:04 model.area1  DEBUG    table: <Table name='weight_training_log', total=18, storage=<tinydb.storages.JSONStorage object at 0x7fbf8c127850>>
-01-30 16:04 model.area2  INFO     x, y: [1639177200.0, 1640386800.0, 1640991600.0, 1642201200.0, 1643238000.0], [102.86, 91.43, 102.86, 108.11, 108.11]
+01-30 20:13 root         INFO     Running Fitness-Tracker/src/model/model.py ...
+01-30 20:13 model.area1  INFO     data_model: real
+01-30 20:13 model.area1  DEBUG    db: <TinyDB tables=['disciplines_log', 'weight_training_log'], tables_count=2, default_table_documents_count=0, all_tables_documents_count=['disciplines_log=2', 'weight_training_log=19']>
+01-30 20:13 model.area1  DEBUG    table: <Table name='weight_training_log', total=19, storage=<tinydb.storages.JSONStorage object at 0x7ff2be126910>>
+01-30 20:13 model.area2  INFO     x, y: [1639177200.0, 1640386800.0, 1640991600.0, 1642201200.0, 1643238000.0], [102.86, 91.43, 102.86, 108.11, 108.11]

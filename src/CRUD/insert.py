@@ -55,37 +55,43 @@ def insert_specific_log(date, table):
 
 def main():
     """Insert training log from specific date"""
-    # data_models = ["real", "simulated"]
-    data_model = sys.argv[1]  # "real"  # data_models[1]
+
+    import logging
+
+    pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
+        datefmt="%m-%d %H:%M",
+        filename="logs/insert.log",
+        filemode="w",
+    )
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    formatter = logging.Formatter("%(name)-12s: %(levelname)-8s %(message)s")
+    console.setFormatter(formatter)
+    logging.getLogger("").addHandler(console)
+    logging.info("Running %s ...", "/".join(__file__.split("/")[-4:]))
+
+    data_model = sys.argv[1]  # ["real", "simulated"]
 
     db = TinyDB("data/db.json") if data_model == "real" else TinyDB("data/sim_db.json")
     logs = ["weight_training_log", "disciplines_log"]
     table = db.table(logs[0])
 
-    if data_model == "real":
-        date = sys.argv[2]  # "2022-01-16"
-        insert_specific_log(date, table)
+    logging.info("data_model: %s", data_model)
+    logging.debug("db: %s", db)
+    logging.debug("table: %s", table)
 
-        """
-        dates = [
-            "2021-12-11",
-            "2021-12-13",
-            "2021-12-15",
-            "2021-12-16",
-            "2021-12-25",
-            "2021-12-26",
-            "2021-12-28",
-            "2021-12-29",
-        ]
-        for date in dates:
-            insert_specific_log(date, table)
-        """
+    if data_model == "real":
+        date = sys.argv[2]
+        insert_specific_log(date, table)
 
     elif data_model == "simulated":
         insert_all_logs(table, "data/simulated/")
 
     else:
-        print("Unsupported data_model")
+        logging.error("Unsupported value for data_model: %s", data_model)
 
 
 if __name__ == "__main__":

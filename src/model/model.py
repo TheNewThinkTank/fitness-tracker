@@ -52,7 +52,6 @@ def main():
     import logging
 
     pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
-
     logging.basicConfig(
         level=logging.DEBUG,
         format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
@@ -63,22 +62,19 @@ def main():
 
     console = logging.StreamHandler()
     console.setLevel(logging.INFO)
-
     formatter = logging.Formatter("%(name)-12s: %(levelname)-8s %(message)s")
     console.setFormatter(formatter)
     logging.getLogger("").addHandler(console)
-
-    logging.info("Running model.py ...")
-
+    logging.info("Running %s ...", "/".join(__file__.split("/")[-4:]))
     logger1 = logging.getLogger("model.area1")
     logger2 = logging.getLogger("model.area2")
 
-    datatypes = ["real", "simulated"]
-    datatype = datatypes[0]
-    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
+    data_models = ["real", "simulated"]
+    data_model = data_models[0]
+    db = TinyDB("data/db.json") if data_model == "real" else TinyDB("data/sim_db.json")
     table = db.table("weight_training_log")
 
-    logger1.info("datatype: %s", datatype)
+    logger1.info("data_model: %s", data_model)
     logger1.debug("db: %s", db)
     logger1.debug("table: %s", table)
 

@@ -26,18 +26,19 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 - Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)
 - Realistic workout data simulation (with naturally progressing trend over time)
 - Multiple GitHub Actions workflows
-- 1 Rep Max estimation
+- KPI tracking: 1-Rep-Max estimation
 - Plotting (Seaborn)
 - Multiple unit test suites (Pytest)
+- Program logging
 
 ## Upcoming features
 
-- Add cardio tracking (integrate app with Strava)
-- Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
 - Documentation (Sphinx)
 - ML models (Scikit Learn)
 - YAML-support
+- Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
 - Dashboard
 - Add key exercises (benchpress, squat, deadlift) to dashboard
 - Hosting on PyPi (automated deploy with GitHub Actions)
 - Identify musclegroups and exercises with best or worst progression
+- Add cardio tracking (integrate app with Strava)

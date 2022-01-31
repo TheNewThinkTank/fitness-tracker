@@ -10,5 +10,5 @@ python3 src/simulations/simulate_data.py 100
 echo 'simulations complete'
 python3 src/CRUD/insert.py simulated
 echo 'simulations inserted in database. Preparing figures ..'
-python3 src/model/plot_model.py simulated
+python3 src/model/plot_model.py --datatype simulated
 open img/fitted_data_barbell_bench_press.png

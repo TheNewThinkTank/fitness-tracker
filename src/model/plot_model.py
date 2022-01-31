@@ -47,7 +47,13 @@ def create_plots(datatype, x, y, exercise):
 def main():
     """Get data and create figure."""
 
-    datatype = sys.argv[1]  # real/simulated
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--datatype", type=str, required=True)  # real/simulated
+    args = parser.parse_args()
+    datatype = args.datatype
+
     db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
     table = db.table("weight_training_log")
 

@@ -45,14 +45,18 @@ jobs:
           # pip install flake8
           flake8 --ignore=E402,E501 .
 
-      - name: ls src/simulations
-        run: |
-          ls src/simulations
+      # - name: ls src/simulations
+      #   run: |
+      #     ls src/simulations
 
-      - name: static type checking
+      - name: Install mypy
         run: |
           pip install mypy
-          mypy -m src/simulations/simulate_data.py
+
+      - name: mypy
+        run: |
+          mypy src/
+          # mypy -m src/simulations/simulate_data  # .py
 
       # - name: Run test suite
       #   run: |

@@ -5,8 +5,8 @@ on:
     branches:
       - main
       - feature/models
-    paths-ignore:
-      - "src/simulations/**"
+    # paths-ignore:
+    #   - "src/simulations/**"
 
 jobs:
   Run-Linting-And-Unit-Tests:
@@ -44,6 +44,10 @@ jobs:
         run: |
           # pip install flake8
           flake8 --ignore=E402,E501 .
+
+      - name: static type checking
+        run: |
+          mypy -m src/simulations/simulate_data
 
       # - name: Run test suite
       #   run: |

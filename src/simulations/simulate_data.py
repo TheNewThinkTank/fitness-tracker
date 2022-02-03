@@ -4,13 +4,14 @@ Author: Gustav Collin Rasmussen
 Purpose: Simulate weight-training data
 """
 
-import numpy as np
+import typing
+import numpy as np  # type: ignore
 import json
 import pathlib
 import random
 import sys
 from datetime import datetime
-import pandas as pd
+import pandas as pd  # type: ignore
 import yaml
 
 # from pprint import pprint as pp
@@ -19,9 +20,9 @@ import yaml
 class SimulateWorkout:
     """Simulate a workout"""
 
-    splits = ["back", "chest", "legs", "shoulders"]
-    training_catalogue = "src/simulations/muscles_and_exercises.yaml"
-    output_dir = "data/simulated/"
+    splits: list = ["back", "chest", "legs", "shoulders"]
+    training_catalogue: str = "src/simulations/muscles_and_exercises.yaml"
+    output_dir: str = "data/simulated/"
 
     def __init__(self, workout_date, progress) -> None:
         self.workout_date = workout_date
@@ -38,7 +39,7 @@ class SimulateWorkout:
         """Simulate data for exercises."""
         return random.sample(self.get_available_exercises(), k=random.randint(2, 6))
 
-    def high_reps_low_weight(self, weight_range, actual_reps):
+    def high_reps_low_weight(self, weight_range, actual_reps) -> str:
         """Simulate that higher reps leads to lower weights.
         choose weight from inverted 1RM estimate plus randomised progression"""
 
@@ -89,14 +90,16 @@ class SimulateWorkout:
             json.dump(self.format_data(), f)
 
 
-def get_dates(number_of_workouts: int, start: datetime, periods: int):
+def get_dates(
+    number_of_workouts: int, start: datetime, periods: int
+) -> typing.List[str]:
     """Get list of dates."""
     datelist = pd.date_range(start, periods=periods).tolist()
     datelist = [date.strftime("%Y-%m-%d") for date in datelist]
     return random.sample(datelist, k=number_of_workouts)
 
 
-def main():
+def main() -> None:
     """Simulate specified number of workouts and insert their data into JSON files."""
 
     number_of_workouts = int(sys.argv[1])  # 3 * 365

@@ -7,9 +7,11 @@ Purpose: Plot weight-training data with fit
 import os
 import sys
 from datetime import datetime
-from pprint import pprint as pp
+
+# from pprint import pprint as pp
 import matplotlib.pyplot as plt  # type: ignore
-import matplotlib.ticker as mticker  # type: ignore
+
+# import matplotlib.ticker as mticker  # type: ignore
 import seaborn as sns  # type: ignore
 from tinydb import TinyDB  # type: ignore
 
@@ -39,7 +41,7 @@ def create_plots(datatype, x, y, exercise):
     ax.set_xticklabels(xticks_dates)
     plt.ylim(0, max(y) + 5)
     plt.xticks(rotation=45)
-    ax.set_ylabel(f"1 RM estimates [kg]")
+    ax.set_ylabel("1 RM estimates [kg]")
     plt.savefig(f"img/{datatype}_fitted_data_{exercise}.png")
     plt.clf()  # clear figure before next plot
 

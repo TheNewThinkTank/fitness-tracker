@@ -39,15 +39,14 @@ jobs:
       #   run: |
       #     pip install numpy
 
-      - name: Lint with flake8
-        # continue-on-error: true
+      - name: Install Dependencies
         run: |
-          pip install flake8
-          flake8 --ignore=E402,E501 .
+          pip install flake8 mypy
 
-      - name: Install mypy
+      - name: Lint with flake8
+        continue-on-error: true
         run: |
-          pip install mypy
+          flake8 --ignore=E402,E501 .
 
       - name: mypy
         run: |

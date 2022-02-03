@@ -45,10 +45,14 @@ jobs:
           # pip install flake8
           flake8 --ignore=E402,E501 .
 
-      - name: static type checking
+      - name: ls GITHUB_WORKSPACE
         run: |
-          pip install mypy
-          mypy -m GITHUB_WORKSPACE/src/simulations/simulate_data
+          ls GITHUB_WORKSPACE
+
+      # - name: static type checking
+      #   run: |
+      #     pip install mypy
+      #     mypy -m GITHUB_WORKSPACE/src/simulations/simulate_data
 
       # - name: Run test suite
       #   run: |

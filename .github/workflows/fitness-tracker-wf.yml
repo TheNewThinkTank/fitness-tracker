@@ -40,9 +40,9 @@ jobs:
       #     pip install numpy
 
       - name: Lint with flake8
-        continue-on-error: true
+        # continue-on-error: true
         run: |
-          # pip install flake8
+          pip install flake8
           flake8 --ignore=E402,E501 .
 
       - name: Install mypy

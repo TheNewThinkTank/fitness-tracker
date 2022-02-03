@@ -44,7 +44,7 @@ jobs:
           pip install flake8 mypy
 
       - name: Lint with flake8
-        continue-on-error: true
+        # continue-on-error: true
         run: |
           flake8 --ignore=E402,E501 .
 

@@ -5,7 +5,7 @@ Purpose: Store and analyze weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-from tinydb import Query, TinyDB
+from tinydb import Query, TinyDB  # type: ignore
 
 
 def get_dates_and_muscle_groups(log):

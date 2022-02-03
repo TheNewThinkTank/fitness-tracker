@@ -8,10 +8,10 @@ import os
 import sys
 from datetime import datetime
 from pprint import pprint as pp
-import matplotlib.pyplot as plt
-import matplotlib.ticker as mticker
-import seaborn as sns
-from tinydb import TinyDB
+import matplotlib.pyplot as plt  # type: ignore
+import matplotlib.ticker as mticker  # type: ignore
+import seaborn as sns  # type: ignore
+from tinydb import TinyDB  # type: ignore
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))

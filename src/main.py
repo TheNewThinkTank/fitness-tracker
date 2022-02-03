@@ -11,10 +11,10 @@ cd src && uvicorn main:app --reload
 visit URL: http://127.0.0.1:8000/docs
 """
 
-from fastapi import FastAPI
-from tinydb import TinyDB
+from fastapi import FastAPI  # type: ignore
+from tinydb import TinyDB  # type: ignore
 
-from CRUD.training import describe_workout, show_exercise
+from CRUD.training import describe_workout, show_exercise  # type: ignore
 
 app = FastAPI()
 

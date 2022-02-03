@@ -6,12 +6,12 @@
 """
 
 from datetime import datetime
-import pandas as pd
+import pandas as pd  # type: ignore
 
 import pathlib
 
 # from sklearn import linear_model
-from tinydb import TinyDB
+from tinydb import TinyDB  # type: ignore
 
 
 def get_df(log, split="legs", exercise="squat"):

@@ -10,7 +10,7 @@ import os
 import pathlib
 import sys
 
-from tinydb import TinyDB
+from tinydb import TinyDB  # type: ignore
 
 
 def insert_log(table, log_path) -> None:

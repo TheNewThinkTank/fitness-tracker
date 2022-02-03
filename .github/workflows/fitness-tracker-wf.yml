@@ -45,9 +45,9 @@ jobs:
           # pip install flake8
           flake8 --ignore=E402,E501 .
 
-      - name: ls GITHUB_WORKSPACE
+      - name: ls .
         run: |
-          ls GITHUB_WORKSPACE
+          ls .
 
       # - name: static type checking
       #   run: |

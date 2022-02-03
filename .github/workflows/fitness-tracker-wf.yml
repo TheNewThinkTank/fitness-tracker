@@ -47,6 +47,7 @@ jobs:
 
       - name: static type checking
         run: |
+          pip install mypy
           mypy -m src/simulations/simulate_data
 
       # - name: Run test suite

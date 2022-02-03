@@ -45,9 +45,9 @@ jobs:
           # pip install flake8
           flake8 --ignore=E402,E501 .
 
-      - name: ls src
+      - name: ls src/simulations
         run: |
-          ls src
+          ls src/simulations
 
       # - name: static type checking
       #   run: |

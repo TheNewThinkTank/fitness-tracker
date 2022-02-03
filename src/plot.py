@@ -4,14 +4,14 @@ Author: Gustav Collin Rasmussen
 Purpose: Plot weight-training data
 """
 
-import matplotlib.pyplot as plt
-import pandas as pd
+import matplotlib.pyplot as plt  # type: ignore
+import pandas as pd  # type: ignore
 
 # import numpy as np
-import seaborn as sns
-from tinydb import TinyDB
+import seaborn as sns  # type: ignore
+from tinydb import TinyDB  # type: ignore
 
-from CRUD.training import show_exercise
+from CRUD.training import show_exercise  # type: ignore
 
 
 def get_data(date, exercises):

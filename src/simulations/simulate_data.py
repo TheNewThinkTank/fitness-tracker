@@ -12,7 +12,7 @@ import random
 import sys
 from datetime import datetime
 import pandas as pd  # type: ignore
-import yaml
+import yaml  # type: ignore
 
 # from pprint import pprint as pp
 

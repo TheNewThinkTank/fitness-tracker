@@ -14,14 +14,12 @@ Visually inspect your progression through dates and exercises
 | :--------------------------------------------------------: | :--------------------------------------------------: |
 | ![fitted_data_deadlift](img/real_fitted_data_deadlift.png) | ![fitted_data_squat](img/real_fitted_data_squat.png) |
 
-![1repmax_comparrisons_Rplot](img/1repmax_comparrisons_Rplot.png)
-
-<!-- ![fitted_data](img/fitted_data.png)
-
+<!-- ![1repmax_comparrisons_Rplot](img/1repmax_comparrisons_Rplot.png)
+![fitted_data](img/fitted_data.png)
 ![workout_2021-12-11](img/workout_2021-12-11.png)
 Above: selected exercises (sets vs reps, with weight resistance shown in the legend)<br>for leg workout on 2021-12-11 -->
 
-## Current features
+## Features
 
 - Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)
 - Realistic workout data simulation (with naturally progressing trend over time)
@@ -31,7 +29,7 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 - Multiple unit test suites (Pytest)
 - Program logging
 
-## Upcoming features
+<!-- ## Upcoming features
 
 - Documentation (Sphinx)
 - ML models (Scikit Learn)
@@ -41,4 +39,4 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 - Add key exercises (benchpress, squat, deadlift) to dashboard
 - Hosting on PyPi (automated deploy with GitHub Actions)
 - Identify musclegroups and exercises with best or worst progression
-- Add cardio tracking (integrate app with Strava)
+- Add cardio tracking (integrate app with Strava) -->

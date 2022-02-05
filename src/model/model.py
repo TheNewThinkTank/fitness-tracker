@@ -14,11 +14,11 @@ import pathlib
 from tinydb import TinyDB  # type: ignore
 
 
-def get_df(log, split="legs", exercise="squat"):
+def get_df(log, split: str = "legs", exercise: str = "squat"):
     """."""
     frames = []
     for item in log:
-        if item["split"] == split:
+        if split in item["split"]:
             if exercise in item["exercises"].keys():
                 df = pd.DataFrame(item["exercises"][exercise])
                 df["date"] = item["date"]

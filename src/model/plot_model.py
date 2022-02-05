@@ -21,13 +21,13 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from model import get_data, get_df, one_rep_max_estimator
 
 
-def create_plots(datatype, x, y, exercise):
+def create_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     """Plot training data with fit"""
 
     plt.figure(figsize=(8, 8))
 
     # Only add confidence intervals if there are sufficient data points
-    if len(x) < 10:
+    if len(x) < 5:
         sns.set_theme()
         ax = sns.scatterplot(x=x, y=y)
         ax.set_title(f"{exercise}")
@@ -46,7 +46,7 @@ def create_plots(datatype, x, y, exercise):
     plt.clf()  # clear figure before next plot
 
 
-def main():
+def main() -> None:
     """Get data and create figure."""
 
     import argparse
@@ -59,23 +59,13 @@ def main():
     db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
     table = db.table("weight_training_log")
 
-    splits_and_key_exercises = (
-        [
-            ("chest", "barbell_bench_press"),
-            ("back_and_biceps", "seated_row"),
-            ("legs", "squat"),
-            ("legs", "deadlift"),
-            ("legs", "legpress"),
-        ]
-        if datatype == "real"
-        else [
-            ("chest", "barbell_bench_press"),
-            ("back", "seated_row"),
-            ("legs", "squat"),
-            ("legs", "deadlift"),
-            ("legs", "legpress"),
-        ]
-    )
+    splits_and_key_exercises = [
+        ("chest", "barbell_bench_press"),
+        ("back", "seated_row"),
+        ("legs", "squat"),
+        ("legs", "deadlift"),
+        ("legs", "legpress"),
+    ]
 
     for split, exercise in splits_and_key_exercises:
 

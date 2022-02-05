@@ -1,0 +1,45 @@
+{
+  "date": "2022-02-05",
+  "split": "legs_and_abs",
+  "exercises": {
+    "squat": [
+      { "set no.": 1, "reps": 3, "weight": "100 kg" },
+      { "set no.": 2, "reps": 5, "weight": "90 kg" },
+      { "set no.": 3, "reps": 5, "weight": "80 kg" },
+      { "set no.": 4, "reps": 5, "weight": "80 kg" }
+    ],
+    "deadlift": [
+      { "set no.": 1, "reps": 5, "weight": "100 kg" },
+      { "set no.": 2, "reps": 5, "weight": "90 kg" },
+      { "set no.": 3, "reps": 5, "weight": "80 kg" },
+      { "set no.": 4, "reps": 5, "weight": "70 kg" }
+    ],
+    "leg_extention": [
+      { "set no.": 1, "reps": 15, "weight": "73 kg" },
+      { "set no.": 2, "reps": 12, "weight": "73 kg" },
+      { "set no.": 3, "reps": 10, "weight": "73 kg" }
+    ],
+    "standing_calf_raise": [
+      { "set no.": 1, "reps": 10, "weight": "60 kg" },
+      { "set no.": 2, "reps": 10, "weight": "60 kg" },
+      { "set no.": 3, "reps": 12, "weight": "40 kg" },
+      { "set no.": 4, "reps": 12, "weight": "40 kg" }
+    ],
+    "legpress": [
+      { "set no.": 1, "reps": 10, "weight": "150 kg" },
+      { "set no.": 2, "reps": 10, "weight": "150 kg" },
+      { "set no.": 3, "reps": 10, "weight": "150 kg" },
+      { "set no.": 4, "reps": 10, "weight": "150 kg" }
+    ],
+    "twisting_leg_raise": [
+      { "set no.": 1, "reps": 30, "weight": "0 kg" },
+      { "set no.": 2, "reps": 20, "weight": "0 kg" },
+      { "set no.": 3, "reps": 20, "weight": "0 kg" }
+    ],
+    "swiss_ball_crunch": [
+      { "set no.": 1, "reps": 16, "weight": "0 kg" },
+      { "set no.": 2, "reps": 15, "weight": "0 kg" },
+      { "set no.": 3, "reps": 15, "weight": "0 kg" }
+    ]
+  }
+}

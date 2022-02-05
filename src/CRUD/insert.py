@@ -56,7 +56,15 @@ def insert_specific_log(date, table):
 def main():
     """Insert training log from specific date"""
 
+    import argparse
     import logging
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--datatype", type=str, required=True)
+    parser.add_argument("--dates", type=str)
+    args = parser.parse_args()
+    datatype = args.datatype  # real/simulated
+    dates = args.dates  # 2022-02-03,2022-02-05
 
     pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
@@ -73,25 +81,24 @@ def main():
     logging.getLogger("").addHandler(console)
     logging.info("Running %s ...", "/".join(__file__.split("/")[-4:]))
 
-    data_model = sys.argv[1]  # ["real", "simulated"]
-
-    db = TinyDB("data/db.json") if data_model == "real" else TinyDB("data/sim_db.json")
+    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
     logs = ["weight_training_log", "disciplines_log"]
     table = db.table(logs[0])
 
-    logging.info("data_model: %s", data_model)
+    logging.info("datatype: %s", datatype)
     logging.debug("db: %s", db)
     logging.debug("table: %s", table)
 
-    if data_model == "real":
-        date = sys.argv[2]
-        insert_specific_log(date, table)
+    if datatype == "real":
+        logging.info("workout dates: %s", dates)
+        for date in dates.split(","):
+            insert_specific_log(date, table)
 
-    elif data_model == "simulated":
+    elif datatype == "simulated":
         insert_all_logs(table, "data/simulated/")
 
     else:
-        logging.error("Unsupported value for data_model: %s", data_model)
+        logging.error("Unsupported value for datatype: %s", datatype)
 
 
 if __name__ == "__main__":

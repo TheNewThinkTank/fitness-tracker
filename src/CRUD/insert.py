@@ -8,7 +8,6 @@ https://tinydb.readthedocs.io/en/latest/getting-started.html
 import json
 import os
 import pathlib
-import sys
 
 from tinydb import TinyDB  # type: ignore
 

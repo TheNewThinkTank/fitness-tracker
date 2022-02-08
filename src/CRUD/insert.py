@@ -94,12 +94,13 @@ def main():
     logging.debug("table: %s", table)
 
     if datatype == "real":
-        logging.info("workout dates: %s", dates)
+        logging.info("workout date(s): %s", dates)
         for date in dates.split(","):
             if args.workout_number is None:
                 insert_specific_log(date, table)
             else:
                 insert_specific_log(date, table, workout_number)
+                logging.info("workout number: %s", workout_number)
 
     elif datatype == "simulated":
         insert_all_logs(table, "data/simulated/")

@@ -28,7 +28,7 @@ def insert_all_logs(table, folderpath):
         insert_log(table, p / f)
 
 
-def insert_specific_log(date, table):
+def insert_specific_log(date, table, workout_number=1):
     """Store a specific training log in database"""
     months = {
         "01": "January",
@@ -47,7 +47,10 @@ def insert_specific_log(date, table):
 
     YEAR = date[:4]
     MONTH = months[date[5:7]]
-    log_path = f"data/log_archive/JSON/{YEAR}/{MONTH}/training_log_{date}.json"
+    if workout_number == 1:
+        log_path = f"data/log_archive/JSON/{YEAR}/{MONTH}/training_log_{date}.json"
+    else:
+        log_path = f"data/log_archive/JSON/{YEAR}/{MONTH}/training_log_{date}_{workout_number}.json"
 
     insert_log(table, log_path)
 
@@ -61,9 +64,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--datatype", type=str, required=True)
     parser.add_argument("--dates", type=str)
+    parser.add_argument("--workout_number", type=int)
     args = parser.parse_args()
     datatype = args.datatype  # real/simulated
     dates = args.dates  # 2022-02-03,2022-02-05
+    workout_number = args.workout_number
 
     pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
@@ -91,7 +96,10 @@ def main():
     if datatype == "real":
         logging.info("workout dates: %s", dates)
         for date in dates.split(","):
-            insert_specific_log(date, table)
+            if args.workout_number is None:
+                insert_specific_log(date, table)
+            else:
+                insert_specific_log(date, table, workout_number)
 
     elif datatype == "simulated":
         insert_all_logs(table, "data/simulated/")

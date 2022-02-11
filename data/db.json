@@ -980,6 +980,12 @@
       "discipline": "mountain_trekking",
       "duration": "5 hours",
       "location": "Gibraltar"
+    },
+    "4": {
+      "date": "2022-02-10",
+      "discipline": "mountain_trekking",
+      "duration": "2 hours",
+      "location": "Ceuta, Morocco"
     }
   }
 }

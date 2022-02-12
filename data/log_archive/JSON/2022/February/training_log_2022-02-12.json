@@ -1,0 +1,30 @@
+{
+  "date": "2022-02-12",
+  "split": "legs",
+  "note": "calves skipped due to fatigue from mountain trekking",
+  "exercises": {
+    "squat": [
+      { "set no.": 1, "reps": 3, "weight": "100 kg" },
+      { "set no.": 2, "reps": 5, "weight": "90 kg" },
+      { "set no.": 3, "reps": 8, "weight": "80 kg" },
+      { "set no.": 4, "reps": 5, "weight": "80 kg" }
+    ],
+    "deadlift": [
+      { "set no.": 1, "reps": 5, "weight": "100 kg" },
+      { "set no.": 2, "reps": 5, "weight": "90 kg" },
+      { "set no.": 3, "reps": 5, "weight": "80 kg" },
+      { "set no.": 4, "reps": 5, "weight": "80 kg" }
+    ],
+    "leg_extention": [
+      { "set no.": 1, "reps": 15, "weight": "73 kg" },
+      { "set no.": 2, "reps": 15, "weight": "73 kg" },
+      { "set no.": 3, "reps": 14, "weight": "109 kg" },
+      { "set no.": 4, "reps": 14, "weight": "109 kg" }
+    ],
+    "back_extention": [
+      { "set no.": 1, "reps": 12, "weight": "0 kg" },
+      { "set no.": 2, "reps": 12, "weight": "0 kg" },
+      { "set no.": 3, "reps": 12, "weight": "0 kg" }
+    ]
+  }
+}

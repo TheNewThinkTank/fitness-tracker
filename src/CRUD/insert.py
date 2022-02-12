@@ -13,14 +13,29 @@ from tinydb import TinyDB  # type: ignore
 
 
 def insert_log(table, log_path) -> None:
-    """Store training log: log_path in database table"""
+    """Store training log: log_path in database table.
+
+    :param table: A TinyDB table
+    :type table: TinyDB table
+    :param log_path: A path to the workout log file
+        that will be inserted into the table
+    :type log_path: string
+    """
+
     with open(log_path) as rf:
         json_content = json.load(rf)
     table.insert(json_content)
 
 
-def insert_all_logs(table, folderpath):
-    """Store all training logs in database"""
+def insert_all_logs(table, folderpath) -> None:
+    """Store all training logs in database.
+
+    :param table: A TinyDB table
+    :type table: TinyDB table
+    :param folderpath: A path to the workout log folder,
+        from where each file will be inserted into the table
+    :type folderpath: string
+    """
 
     p = pathlib.Path(folderpath)
     all_files = os.listdir(p)
@@ -28,8 +43,18 @@ def insert_all_logs(table, folderpath):
         insert_log(table, p / f)
 
 
-def insert_specific_log(date, table, workout_number=1):
-    """Store a specific training log in database"""
+def insert_specific_log(date, table, workout_number=1) -> None:
+    """Store a specific training log in database.
+
+    :param date: string of date in format YYYY-MM-DD
+    :type date: str
+    :param table: A TinyDB table
+    :type table: TinyDB table
+    :param workout_number: unique identifier of the workout on a given day,
+        in case of multiple workouts. Defaults to 1
+    :type workout_number: int, optional
+    """
+
     months = {
         "01": "January",
         "02": "February",
@@ -55,8 +80,8 @@ def insert_specific_log(date, table, workout_number=1):
     insert_log(table, log_path)
 
 
-def main():
-    """Insert training log from specific date"""
+def main() -> None:
+    """Insert all simulated- or 1 or more real training logs"""
 
     import argparse
     import logging

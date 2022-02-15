@@ -28,10 +28,10 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 - Plotting (Seaborn)
 - Multiple unit test suites (Pytest)
 - Program logging
+- Documentation (Sphinx)
 
 <!-- ## Upcoming features
-
-- Documentation (Sphinx)
+- Add muscle groups to log file name
 - ML models (Scikit Learn)
 - YAML-support
 - Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)

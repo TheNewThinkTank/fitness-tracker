@@ -5,6 +5,7 @@ Purpose: Store weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
+import glob
 import json
 import os
 import pathlib
@@ -22,7 +23,7 @@ def insert_log(table, log_path) -> None:
     :type log_path: string
     """
 
-    with open(log_path) as rf:
+    with open(*log_path) as rf:
         json_content = json.load(rf)
     table.insert(json_content)
 
@@ -73,10 +74,13 @@ def insert_specific_log(date, table, workout_number=1) -> None:
     YEAR = date[:4]
     MONTH = months[date[5:7]]
     if workout_number == 1:
-        log_path = f"data/log_archive/JSON/{YEAR}/{MONTH}/training_log_{date}.json"
+        log_path = glob.glob(
+            f"data/log_archive/JSON/{YEAR}/{MONTH}/*training_log_{date}.json"
+        )
     else:
-        log_path = f"data/log_archive/JSON/{YEAR}/{MONTH}/training_log_{date}_{workout_number}.json"
-
+        log_path = glob.glob(
+            f"data/log_archive/JSON/{YEAR}/{MONTH}/*training_log_{date}_{workout_number}.json"
+        )
     insert_log(table, log_path)
 
 

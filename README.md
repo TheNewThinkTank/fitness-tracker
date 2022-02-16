@@ -10,11 +10,11 @@ Visually inspect your progression through dates and exercises
 
 <!-- ![fitted_data_legpress](img/fitted_data_legpress.png) -->
 
-|                    deadlift progression                    |                  squat progression                   |
+|                          Deadlift                          |                        Squat                         |
 | :--------------------------------------------------------: | :--------------------------------------------------: |
 | ![fitted_data_deadlift](img/real_fitted_data_deadlift.png) | ![fitted_data_squat](img/real_fitted_data_squat.png) |
 
-|                             bench_press progression                              |                     seated_row progression                     |
+|                                   Bench_press                                    |                           Seated_row                           |
 | :------------------------------------------------------------------------------: | :------------------------------------------------------------: |
 | ![fitted_data_barbell_bench_press](img/real_fitted_data_barbell_bench_press.png) | ![fitted_data_seated_row](img/real_fitted_data_seated_row.png) |
 

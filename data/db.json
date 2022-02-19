@@ -1067,6 +1067,56 @@
           { "set no.": 2, "reps": 6, "weight": "35 kg" }
         ]
       }
+    },
+    "28": {
+      "date": "2022-02-18",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "arnold_press": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 10, "weight": "32 kg" },
+          { "set no.": 3, "reps": 6, "weight": "36 kg" },
+          { "set no.": 4, "reps": 6, "weight": "36 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "18 kg" },
+          { "set no.": 2, "reps": 12, "weight": "14 kg" },
+          { "set no.": 3, "reps": 12, "weight": "14 kg" },
+          { "set no.": 4, "reps": 12, "weight": "14 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" },
+          { "set no.": 4, "reps": 10, "weight": "12 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 12, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "55 kg" },
+          { "set no.": 2, "reps": 15, "weight": "55 kg" },
+          { "set no.": 3, "reps": 15, "weight": "55 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 12, "weight": "32 kg" },
+          { "set no.": 3, "reps": 12, "weight": "32 kg" },
+          { "set no.": 4, "reps": 12, "weight": "32 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 32, "weight": "0 kg" },
+          { "set no.": 2, "reps": 26, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 20, "weight": "0 kg" },
+          { "set no.": 2, "reps": 15, "weight": "0 kg" },
+          { "set no.": 3, "reps": 15, "weight": "0 kg" }
+        ]
+      }
     }
   },
   "disciplines_log": {

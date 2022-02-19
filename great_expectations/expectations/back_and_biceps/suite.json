@@ -1,18 +1,18 @@
 {
   "data_asset_type": null,
-  "expectation_suite_name": "2022_expectation_suite.traininglogs",
+  "expectation_suite_name": "back_and_biceps.suite",
   "expectations": [],
   "ge_cloud_id": null,
   "meta": {
     "citations": [
       {
         "batch_request": {
-          "data_asset_name": "2022",
+          "data_asset_name": "back_and_biceps_training_log_2022-01-05.json",
           "data_connector_name": "default_inferred_data_connector_name",
           "datasource_name": "training_logs",
           "limit": 1000
         },
-        "citation_date": "2022-02-18T22:28:49.788204Z",
+        "citation_date": "2022-02-19T21:27:14.459163Z",
         "comment": "Created suite added via CLI"
       }
     ],

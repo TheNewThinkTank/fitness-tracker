@@ -15,25 +15,25 @@ config_version: 3.0
 # add a new datasource. Read more at https://docs.greatexpectations.io/en/latest/reference/core_concepts/datasource.html
 datasources:
   training_logs:
+    class_name: Datasource
+    module_name: great_expectations.datasource
+    execution_engine:
+      module_name: great_expectations.execution_engine
+      class_name: PandasExecutionEngine
     data_connectors:
       default_inferred_data_connector_name:
-        base_directory: ../data/log_archive/JSON
         class_name: InferredAssetFilesystemDataConnector
+        module_name: great_expectations.datasource.data_connector
+        base_directory: ../data/log_archive/JSON/2022/January
         default_regex:
           group_names:
             - data_asset_name
           pattern: (.*)
-        module_name: great_expectations.datasource.data_connector
       default_runtime_data_connector_name:
-        batch_identifiers:
-          - default_identifier_name
         class_name: RuntimeDataConnector
         module_name: great_expectations.datasource.data_connector
-    class_name: Datasource
-    execution_engine:
-      class_name: PandasExecutionEngine
-      module_name: great_expectations.execution_engine
-    module_name: great_expectations.datasource
+        batch_identifiers:
+          - default_identifier_name
 
 # This config file supports variable substitution which enables: 1) keeping
 # secrets out of source control & 2) environment-based configuration changes
@@ -119,6 +119,6 @@ data_docs_sites:
       class_name: DefaultSiteIndexBuilder
 
 anonymous_usage_statistics:
+  data_context_id: 625685b2-10e5-46fc-ab18-8c04a999aa6c
   enabled: true
-  data_context_id: 392d0d59-1fc0-4636-b1a9-2d66bc68a436
 notebooks:

@@ -1,0 +1,16 @@
+date,split,exercise,set no.,weight,reps
+2022-02-12,legs,squat,1,'100 kg',3
+2022-02-12,legs,squat,2,'90 kg',5
+2022-02-12,legs,squat,3,'80 kg',8
+2022-02-12,legs,squat,4,'80 kg',5
+2022-02-12,legs,deadlift,1,'100 kg',5
+2022-02-12,legs,deadlift,2,'90 kg',5
+2022-02-12,legs,deadlift,3,'80 kg',5
+2022-02-12,legs,deadlift,4,'80 kg',5
+2022-02-12,legs,leg_extention,1,'73 kg',15
+2022-02-12,legs,leg_extention,2,'73 kg',15
+2022-02-12,legs,leg_extention,3,'109 kg',14
+2022-02-12,legs,leg_extention,4,'109 kg',14
+2022-02-12,legs,back_extention,1,'0 kg',12
+2022-02-12,legs,back_extention,2,'0 kg',12
+2022-02-12,legs,back_extention,3,'0 kg',12

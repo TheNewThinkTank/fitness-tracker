@@ -6,7 +6,7 @@ Purpose: flatten nested JSON data into csv format,
 """
 
 import json
-import pandas as pd
+import pandas as pd  # type: ignore
 
 
 def json2csv(infile) -> None:

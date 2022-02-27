@@ -25,14 +25,16 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 
 ## Features
 
-- Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)
-- Realistic workout data simulation (with naturally progressing trend over time)
-- Multiple GitHub Actions workflows
-- KPI tracking: 1-Rep-Max estimation
-- Plotting (Seaborn)
-- Multiple unit test suites (Pytest)
 - Program logging
+- Plotting (Seaborn)
 - Documentation (Sphinx)
+- Multiple GitHub Actions workflows
+- Multiple unit test suites (Pytest)
+- Package dependency management (Poetry)
+- Data quality validation (Great Expections)
+- KPI tracking: 1-Rep-Max estimation (Epley and Brzycki formulas)
+- Realistic workout data simulation (with naturally progressing trend over time)
+- Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)
 
 <!-- ## Upcoming features
 - Add muscle groups to log file name

@@ -28,10 +28,10 @@ Above: selected exercises (sets vs reps, with weight resistance shown in the leg
 - Program logging
 - Plotting (Seaborn)
 - Documentation (Sphinx)
-- Multiple GitHub Actions workflows
 - Multiple unit test suites (Pytest)
-- Package dependency management (Poetry)
+- Multiple GitHub Actions workflows
 - Data quality validation (Great Expections)
+- Package dependency management (Poetry)
 - KPI tracking: 1-Rep-Max estimation (Epley and Brzycki formulas)
 - Realistic workout data simulation (with naturally progressing trend over time)
 - Catalogue of musclegroups, corresponding exercises and suggested weight ranges (for simulations)

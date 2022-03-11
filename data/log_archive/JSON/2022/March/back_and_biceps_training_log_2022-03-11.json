@@ -1,0 +1,40 @@
+{
+  "date": "2022-03-11",
+  "gym": "BA",
+  "split": "back_and_biceps",
+  "exercises": {
+    "wide_grip_pullup": [
+      { "set no.": 1, "reps": 5, "weight": "0 kg" },
+      { "set no.": 2, "reps": 5, "weight": "0 kg" }
+    ],
+    "chinup": [
+      { "set no.": 1, "reps": 5, "weight": "0 kg" },
+      { "set no.": 2, "reps": 5, "weight": "0 kg" }
+    ],
+    "seated_row": [
+      { "set no.": 1, "reps": 8, "weight": "70 kg" },
+      { "set no.": 2, "reps": 8, "weight": "65 kg" },
+      { "set no.": 3, "reps": 8, "weight": "60 kg" },
+      { "set no.": 4, "reps": 8, "weight": "55 kg" }
+    ],
+    "lat_pulldown": [
+      { "set no.": 1, "reps": 8, "weight": "70 kg" },
+      { "set no.": 2, "reps": 8, "weight": "65 kg" },
+      { "set no.": 3, "reps": 8, "weight": "60 kg" },
+      { "set no.": 4, "reps": 10, "weight": "55 kg" }
+    ],
+    "face_pull": [
+      { "set no.": 1, "reps": 10, "weight": "25 kg" },
+      { "set no.": 2, "reps": 10, "weight": "22.5 kg" },
+      { "set no.": 3, "reps": 10, "weight": "20 kg" }
+    ],
+    "barbell_curl": [
+      { "set no.": 1, "reps": 8, "weight": "35 kg" },
+      { "set no.": 2, "reps": 8, "weight": "35 kg" }
+    ],
+    "machine_reverse_fly": [
+      { "set no.": 1, "reps": 12, "weight": "20 kg" },
+      { "set no.": 2, "reps": 10, "weight": "30 kg" }
+    ]
+  }
+}

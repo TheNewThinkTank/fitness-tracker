@@ -1522,6 +1522,46 @@
           { "set no.": 3, "reps": 15, "weight": "10 kg" }
         ]
       }
+    },
+    "39": {
+      "date": "2022-03-17",
+      "gym": "BA",
+      "split": "back_and_biceps",
+      "exercises": {
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "40 kg" },
+          { "set no.": 2, "reps": 12, "weight": "40 kg" },
+          { "set no.": 3, "reps": 12, "weight": "40 kg" },
+          { "set no.": 4, "reps": 12, "weight": "40 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 12, "weight": "35 kg" },
+          { "set no.": 2, "reps": 12, "weight": "35 kg" },
+          { "set no.": 3, "reps": 12, "weight": "35 kg" },
+          { "set no.": 4, "reps": 12, "weight": "35 kg" },
+          { "set no.": 5, "reps": 6, "weight": "80 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 2, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 3, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 4, "reps": 12, "weight": "7.5 kg" }
+        ],
+        "one_arm_dumbbell_row": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 12, "weight": "12 kg" },
+          { "set no.": 3, "reps": 12, "weight": "12 kg" },
+          { "set no.": 4, "reps": 12, "weight": "12 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 6, "weight": "40 kg" },
+          { "set no.": 2, "reps": 6, "weight": "40 kg" }
+        ]
+      }
     }
   },
   "disciplines_log": {

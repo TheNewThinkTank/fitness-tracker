@@ -39,9 +39,9 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">CRUD package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#crud-insert-module">CRUD.insert module</a></li>
-<li><a class="reference internal" href="#crud-training-module">CRUD.training module</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#module-CRUD.insert">CRUD.insert module</a></li>
+<li><a class="reference internal" href="#module-CRUD.training">CRUD.training module</a></li>
+<li><a class="reference internal" href="#module-CRUD">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -75,14 +75,121 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
-<section id="crud-insert-module">
-<h2>CRUD.insert module<a class="headerlink" href="#crud-insert-module" title="Permalink to this headline"></a></h2>
+<section id="module-CRUD.insert">
+<span id="crud-insert-module"></span><h2>CRUD.insert module<a class="headerlink" href="#module-CRUD.insert" title="Permalink to this headline"></a></h2>
+<p>Date: 2021-12-13
+Author: Gustav Collin Rasmussen
+Purpose: Store weight-training data
+<a class="reference external" href="https://tinydb.readthedocs.io/en/latest/getting-started.html">https://tinydb.readthedocs.io/en/latest/getting-started.html</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.insert.insert_all_logs">
+<span class="sig-prename descclassname"><span class="pre">CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">insert_all_logs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#CRUD.insert.insert_all_logs" title="Permalink to this definition"></a></dt>
+<dd><p>Store all training logs in database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>folderpath</strong> (<em>string</em>) – A path to the workout log folder,
+from where each file will be inserted into the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.insert.insert_log">
+<span class="sig-prename descclassname"><span class="pre">CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">insert_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#CRUD.insert.insert_log" title="Permalink to this definition"></a></dt>
+<dd><p>Store training log: log_path in database table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>log_path</strong> (<em>string</em>) – A path to the workout log file
+that will be inserted into the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.insert.insert_specific_log">
+<span class="sig-prename descclassname"><span class="pre">CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">insert_specific_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workout_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#CRUD.insert.insert_specific_log" title="Permalink to this definition"></a></dt>
+<dd><p>Store a specific training log in database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> (<em>str</em>) – string of date in format YYYY-MM-DD</p></li>
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>workout_number</strong> (<em>int</em><em>, </em><em>optional</em>) – unique identifier of the workout on a given day,
+in case of multiple workouts. Defaults to 1</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.insert.main">
+<span class="sig-prename descclassname"><span class="pre">CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#CRUD.insert.main" title="Permalink to this definition"></a></dt>
+<dd><p>Insert all simulated- or 1 or more real training logs</p>
+</dd></dl>
+
 </section>
-<section id="crud-training-module">
-<h2>CRUD.training module<a class="headerlink" href="#crud-training-module" title="Permalink to this headline"></a></h2>
+<section id="module-CRUD.training">
+<span id="crud-training-module"></span><h2>CRUD.training module<a class="headerlink" href="#module-CRUD.training" title="Permalink to this headline"></a></h2>
+<p>Date: 2021-12-11
+Author: Gustav Collin Rasmussen
+Purpose: Store and analyze weight-training data
+<a class="reference external" href="https://tinydb.readthedocs.io/en/latest/getting-started.html">https://tinydb.readthedocs.io/en/latest/getting-started.html</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.analyze_workout">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">analyze_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CRUD.training.analyze_workout" title="Permalink to this definition"></a></dt>
+<dd><p>Deeper analysis of workout</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.cleanup">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#CRUD.training.cleanup" title="Permalink to this definition"></a></dt>
+<dd><p>Update, remove or truncate database</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.describe_workout">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">describe_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CRUD.training.describe_workout" title="Permalink to this definition"></a></dt>
+<dd><p>Simple summary statistics for each exercise</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.get_all">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CRUD.training.get_all" title="Permalink to this definition"></a></dt>
+<dd><p>get all documents</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.get_dates_and_muscle_groups">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">get_dates_and_muscle_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CRUD.training.get_dates_and_muscle_groups" title="Permalink to this definition"></a></dt>
+<dd><p>Returns all workout dates with their corresponding muscle groups.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.main">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CRUD.training.main" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.show_exercise">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">show_exercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CRUD.training.show_exercise" title="Permalink to this definition"></a></dt>
+<dd><p>Show detailed data for selected exercise</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="CRUD.training.show_exercises">
+<span class="sig-prename descclassname"><span class="pre">CRUD.training.</span></span><span class="sig-name descname"><span class="pre">show_exercises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#CRUD.training.show_exercises" title="Permalink to this definition"></a></dt>
+<dd><p>Show all exercises for given workout date</p>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="module-CRUD">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-CRUD" title="Permalink to this headline"></a></h2>
 </section>
 </section>
 

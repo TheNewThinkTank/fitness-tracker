@@ -36,6 +36,7 @@ def json2csv(infile) -> None:
 
 
 def main():
+    """Convert all JSON files inside nested folders to CSV"""
     from pathlib import Path
 
     dircontent = []

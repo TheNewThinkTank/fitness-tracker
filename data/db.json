@@ -1649,7 +1649,18 @@
       "date": "2022-02-25",
       "discipline": "badminton",
       "duration": "2 hours",
-      "Note": "Both single and double practice"
+      "note": "Both single and double practice"
+    },
+    "8": {
+      "date": "2022-03-20",
+      "discipline": "power walking",
+      "duration": "4 hours"
+    },
+    "9": {
+      "date": "2022-03-21",
+      "discipline": "boxing",
+      "duration": "1.25 hours",
+      "note": "sparring, focus pads and heavy bag"
     }
   }
 }

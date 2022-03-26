@@ -60,16 +60,16 @@ def main() -> None:
     table = db.table("weight_training_log")
 
     splits_and_key_exercises = [
-        ("chest", "barbell_bench_press"),
-        ("back", "seated_row"),
-        ("legs", "squat"),
-        ("legs", "deadlift"),
-        ("legs", "legpress"),
+        (["chest", "push"], "barbell_bench_press"),
+        (["back"], "seated_row"),
+        (["legs"], "squat"),
+        (["legs"], "deadlift"),
+        (["legs"], "legpress"),
     ]
 
-    for split, exercise in splits_and_key_exercises:
+    for splits, exercise in splits_and_key_exercises:
 
-        df = get_df(table, split, exercise)
+        df = get_df(table, splits, exercise)
         df_1rm = one_rep_max_estimator(df)
         x, y = get_data(df_1rm)
         create_plots(datatype, x, y, exercise)

@@ -1,0 +1,43 @@
+{
+  "date": "2022-03-26",
+  "split": "push",
+  "exercises": {
+    "barbell_bench_press": [
+      { "set no.": 1, "reps": 8, "weight": "80 kg" },
+      { "set no.": 2, "reps": 6, "weight": "70 kg" },
+      { "set no.": 3, "reps": 10, "weight": "60 kg" }
+    ],
+    "dumbbell_incline_press": [
+      { "set no.": 1, "reps": 6, "weight": "56 kg" },
+      { "set no.": 2, "reps": 8, "weight": "52 kg" },
+      { "set no.": 3, "reps": 7, "weight": "48 kg" }
+    ],
+    "standing_barbell_military_press": [
+      { "set no.": 1, "reps": 7, "weight": "40 kg" },
+      { "set no.": 2, "reps": 5, "weight": "40 kg" },
+      { "set no.": 3, "reps": 10, "weight": "25 kg" }
+    ],
+    "dumbbell_flys": [
+      { "set no.": 1, "reps": 10, "weight": "32 kg" },
+      { "set no.": 2, "reps": 9, "weight": "32 kg" },
+      { "set no.": 3, "reps": 10, "weight": "32 kg" }
+    ],
+    "dumbbell_front_lateral_raise": [
+      { "set no.": 1, "reps": 10, "weight": "20 kg" },
+      { "set no.": 2, "reps": 12, "weight": "16 kg" },
+      { "set no.": 3, "reps": 12, "weight": "16 kg" }
+    ],
+    "french_press": [
+      { "set no.": 1, "reps": 10, "weight": "22 kg" },
+      { "set no.": 2, "reps": 10, "weight": "22 kg" }
+    ],
+    "swiss_ball_crunch": [
+      { "set no.": 1, "reps": 30, "weight": "0 kg" },
+      { "set no.": 2, "reps": 22, "weight": "0 kg" }
+    ],
+    "twisting_leg_raise": [
+      { "set no.": 1, "reps": 24, "weight": "0 kg" },
+      { "set no.": 2, "reps": 20, "weight": "0 kg" }
+    ]
+  }
+}

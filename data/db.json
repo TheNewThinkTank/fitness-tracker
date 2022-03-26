@@ -1661,6 +1661,18 @@
       "discipline": "boxing",
       "duration": "1.25 hours",
       "note": "sparring, focus pads and heavy bag"
+    },
+    "10": {
+      "date": "2022-03-23",
+      "discipline": "boxing",
+      "duration": "1.25 hours",
+      "note": "focus pads and heavy bag"
+    },
+    "11": {
+      "date": "2022-03-24",
+      "discipline": "football",
+      "duration": "2 hours",
+      "event": "DM&A offsite, Køge"
     }
   }
 }

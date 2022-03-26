@@ -1,5 +1,5 @@
-03-19 15:54 root         INFO     Running Fitness-Tracker/src/CRUD/insert.py ...
-03-19 15:54 root         INFO     datatype: real
-03-19 15:54 root         DEBUG    db: <TinyDB tables=['weight_training_log', 'disciplines_log'], tables_count=2, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=39', 'disciplines_log=7']>
-03-19 15:54 root         DEBUG    table: <Table name='weight_training_log', total=39, storage=<tinydb.storages.JSONStorage object at 0x10a029e70>>
-03-19 15:54 root         INFO     workout date(s): 2022-03-19
+03-26 17:13 root         INFO     Running Fitness-Tracker/src/CRUD/insert.py ...
+03-26 17:13 root         INFO     datatype: real
+03-26 17:13 root         DEBUG    db: <TinyDB tables=['disciplines_log', 'weight_training_log'], tables_count=2, default_table_documents_count=0, all_tables_documents_count=['disciplines_log=11', 'weight_training_log=40']>
+03-26 17:13 root         DEBUG    table: <Table name='weight_training_log', total=40, storage=<tinydb.storages.JSONStorage object at 0x1041a5e70>>
+03-26 17:13 root         INFO     workout date(s): 2022-03-26

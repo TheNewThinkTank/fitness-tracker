@@ -61,7 +61,7 @@ def main() -> None:
 
     splits_and_key_exercises = [
         (["chest", "push"], "barbell_bench_press"),
-        (["back"], "seated_row"),
+        (["back", "pull"], "seated_row"),
         (["legs"], "squat"),
         (["legs"], "deadlift"),
         (["legs"], "legpress"),

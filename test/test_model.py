@@ -15,7 +15,6 @@ from src.model.model import get_df, one_rep_max_estimator
 from tinydb import TinyDB
 
 db = TinyDB("../data/sim_db.json")
-# db = TinyDB("data/sim_db.json")
 table = db.table("weight_training_log")
 
 

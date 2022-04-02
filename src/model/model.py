@@ -6,6 +6,7 @@
 """
 
 from datetime import datetime
+import json
 import pandas as pd  # type: ignore
 
 import pathlib
@@ -72,11 +73,21 @@ def main():
     logger2 = logging.getLogger("model.area2")
 
     data_models = ["real", "simulated"]
-    data_model = data_models[0]
-    db = TinyDB("data/db.json") if data_model == "real" else TinyDB("data/sim_db.json")
-    table = db.table("weight_training_log")
+    datatype = data_models[0]
 
-    logger1.info("data_model: %s", data_model)
+    data = json.load(open(file="./config.json", encoding="utf-8"))
+    db = (
+        TinyDB(data["real_workout_database"])
+        if datatype == "real"
+        else TinyDB(data["simulated_workout_database"])
+    )
+    table = (
+        db.table(data["real_weight_table"])
+        if datatype == "real"
+        else db.table(data["simulated_weight_table"])
+    )
+
+    logger1.info("data_model: %s", datatype)
     logger1.debug("db: %s", db)
     logger1.debug("table: %s", table)
 

@@ -114,9 +114,17 @@ def main() -> None:
     logging.getLogger("").addHandler(console)
     logging.info("Running %s ...", "/".join(__file__.split("/")[-4:]))
 
-    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
-    logs = ["weight_training_log", "disciplines_log"]
-    table = db.table(logs[0])
+    data = json.load(open(file="./config.json", encoding="utf-8"))
+    db = (
+        TinyDB(data["real_workout_database"])
+        if datatype == "real"
+        else TinyDB(data["simulated_workout_database"])
+    )
+    table = (
+        db.table(data["real_weight_table"])
+        if datatype == "real"
+        else db.table(data["simulated_weight_table"])
+    )
 
     logging.info("datatype: %s", datatype)
     logging.debug("db: %s", db)

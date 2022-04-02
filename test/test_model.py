@@ -2,6 +2,7 @@
     unit test suite for model
 """
 
+import json
 import pytest
 
 import sys
@@ -14,8 +15,21 @@ from src.model.model import get_df, one_rep_max_estimator
 
 from tinydb import TinyDB
 
-db = TinyDB("../data/sim_db.json")
-table = db.table("weight_training_log")
+datatype = "real"
+data = json.load(open(file="./config.json", encoding="utf-8"))
+db = (
+    TinyDB(data["real_workout_database"])
+    if datatype == "real"
+    else TinyDB(data["simulated_workout_database"])
+)
+table = (
+    db.table(data["real_weight_table"])
+    if datatype == "real"
+    else db.table(data["simulated_weight_table"])
+)
+
+# db = TinyDB("../data/sim_db.json")
+# table = db.table("weight_training_log")
 
 
 @pytest.mark.parametrize(

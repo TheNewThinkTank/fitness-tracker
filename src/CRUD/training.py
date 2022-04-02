@@ -5,6 +5,7 @@ Purpose: Store and analyze weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
+import json
 from tinydb import Query, TinyDB  # type: ignore
 
 
@@ -77,18 +78,27 @@ def cleanup(db, log, action) -> None:
 
 def main():
     datamodels = ["real", "simulated"]
-    datamodel = datamodels[0]
+    datatype = datamodels[0]
 
-    db = TinyDB("data/db.json") if datamodel == "real" else TinyDB("data/sim_db.json")
-    log = db.table("log")
+    data = json.load(open(file="./config.json", encoding="utf-8"))
+    db = (
+        TinyDB(data["real_workout_database"])
+        if datatype == "real"
+        else TinyDB(data["simulated_workout_database"])
+    )
+    table = (
+        db.table(data["real_weight_table"])
+        if datatype == "real"
+        else db.table(data["simulated_weight_table"])
+    )
 
-    # dates_and_muscle_groups = get_dates_and_muscle_groups(log)
+    # dates_and_muscle_groups = get_dates_and_muscle_groups(table)
     # print(dates_and_muscle_groups)
-    # print(show_exercises(log, "2021-12-16"))
-    # print(describe_workout(log, "2021-12-13"))
-    # show_exercise(log, "squat", "2021-12-11")
-    print(analyze_workout(log, "squat"))
-    # cleanup(db, log, action="truncate")
+    # print(show_exercises(table, "2021-12-16"))
+    # print(describe_workout(table, "2021-12-13"))
+    # show_exercise(table, "squat", "2021-12-11")
+    print(analyze_workout(table, "squat"))
+    # cleanup(db, table, action="truncate")
 
 
 if __name__ == "__main__":

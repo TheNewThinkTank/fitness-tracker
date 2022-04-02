@@ -4,6 +4,7 @@ Author: Gustav Collin Rasmussen
 Purpose: Plot weight-training data
 """
 
+import json
 import matplotlib.pyplot as plt  # type: ignore
 import pandas as pd  # type: ignore
 
@@ -16,10 +17,22 @@ from CRUD.training import show_exercise  # type: ignore
 
 def get_data(date, exercises):
     """Prepare pandas dataframes with training data for plotting"""
-    db = TinyDB("data/db.json")
-    log = db.table("log")
 
-    return [pd.DataFrame(data=show_exercise(log, ex, date)) for ex in exercises]
+    datatype = "real"
+
+    data = json.load(open(file="./config.json", encoding="utf-8"))
+    db = (
+        TinyDB(data["real_workout_database"])
+        if datatype == "real"
+        else TinyDB(data["simulated_workout_database"])
+    )
+    table = (
+        db.table(data["real_weight_table"])
+        if datatype == "real"
+        else db.table(data["simulated_weight_table"])
+    )
+
+    return [pd.DataFrame(data=show_exercise(table, ex, date)) for ex in exercises]
 
 
 def create_barplots(dfs, date):

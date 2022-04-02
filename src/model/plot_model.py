@@ -4,6 +4,7 @@ Author: Gustav Collin Rasmussen
 Purpose: Plot weight-training data with fit
 """
 
+import json
 import os
 import sys
 from datetime import datetime
@@ -56,8 +57,18 @@ def main() -> None:
     args = parser.parse_args()
     datatype = args.datatype
 
-    db = TinyDB("data/db.json") if datatype == "real" else TinyDB("data/sim_db.json")
-    table = db.table("weight_training_log")
+    data = json.load(open(file="./config.json", encoding="utf-8"))
+
+    db = (
+        TinyDB(data["real_workout_database"])
+        if datatype == "real"
+        else TinyDB(data["simulated_workout_database"])
+    )
+    table = (
+        db.table(data["real_weight_table"])
+        if datatype == "real"
+        else db.table(data["simulated_weight_table"])
+    )
 
     splits_and_key_exercises = [
         (["chest", "push"], "barbell_bench_press"),

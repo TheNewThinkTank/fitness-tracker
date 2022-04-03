@@ -1,0 +1,120 @@
+{
+  "date": "2022-04-03",
+  "split": "pull",
+  "exercises": {
+    "seated_row": [
+      {
+        "set no.": 1,
+        "reps": 6,
+        "weight": "86 kg"
+      },
+      {
+        "set no.": 2,
+        "reps": 10,
+        "weight": "77 kg"
+      },
+      {
+        "set no.": 3,
+        "reps": 12,
+        "weight": "68 kg"
+      }
+    ],
+    "lat_pulldown": [
+      {
+        "set no.": 1,
+        "reps": 6,
+        "weight": "86 kg"
+      },
+      {
+        "set no.": 2,
+        "reps": 8,
+        "weight": "77 kg"
+      },
+      {
+        "set no.": 3,
+        "reps": 10,
+        "weight": "68 kg"
+      }
+    ],
+    "face_pull": [
+      {
+        "set no.": 1,
+        "reps": 12,
+        "weight": "41 kg"
+      },
+      {
+        "set no.": 2,
+        "reps": 12,
+        "weight": "41 kg"
+      },
+      {
+        "set no.": 3,
+        "reps": 12,
+        "weight": "41 kg"
+      }
+    ],
+    "barbell_shrug": [
+      {
+        "set no.": 1,
+        "reps": 15,
+        "weight": "55 kg"
+      },
+      {
+        "set no.": 2,
+        "reps": 15,
+        "weight": "55 kg"
+      },
+      {
+        "set no.": 3,
+        "reps": 15,
+        "weight": "55 kg"
+      }
+    ],
+    "dumbbell_side_lateral": [
+      {
+        "set no.": 1,
+        "reps": 12,
+        "weight": "24 kg"
+      },
+      {
+        "set no.": 2,
+        "reps": 12,
+        "weight": "24 kg"
+      },
+      {
+        "set no.": 3,
+        "reps": 12,
+        "weight": "24 kg"
+      }
+    ],
+    "dumbbell_rear_lateral_raise": [
+      {
+        "set no.": 1,
+        "reps": 12,
+        "weight": "16 kg"
+      },
+      {
+        "set no.": 2,
+        "reps": 12,
+        "weight": "16 kg"
+      },
+      {
+        "set no.": 3,
+        "reps": 12,
+        "weight": "16 kg"
+      }
+    ],
+    "barbell_curl": [
+      {
+        "set no.": 1,
+        "reps": 10,
+        "weight": "40 kg"
+      },
+      {
+        "set no.": 2,
+        "reps": 7,
+        "weight": "40 kg"
+      }
+    ]
+  }
+}

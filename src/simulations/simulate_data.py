@@ -54,7 +54,7 @@ class SimulateWorkout:
 
     def simulate_sets_reps_weight(self) -> dict:
         """Simulate data for sets, reps and weight."""
-        mapping = {}
+        mapping: dict = {}
         for exercise in self.simulate_exercises():
             no_of_sets = random.randint(1, 6)
             for k, weight_range in exercise.items():

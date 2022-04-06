@@ -59,12 +59,12 @@ class SimulateWorkout:
             no_of_sets = random.randint(1, 6)
             for k, weight_range in exercise.items():
                 mapping[k] = []
-                for set in range(1, no_of_sets + 1):
+                for actual_set in range(1, no_of_sets + 1):
                     actual_reps = random.randint(1, 10)
                     actual_weight = self.high_reps_low_weight(weight_range, actual_reps)
                     mapping[k].append(
                         {
-                            "set no.": set,
+                            "set no.": actual_set,
                             "reps": actual_reps,
                             "weight": actual_weight,
                         }
@@ -91,9 +91,7 @@ class SimulateWorkout:
             json.dump(self.format_data(), f)
 
 
-def get_dates(
-    number_of_workouts: int, start: datetime, periods: int
-) -> typing.List[str]:
+def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[str]:
     """Get list of dates."""
     datelist = pd.date_range(start, periods=periods).tolist()
     datelist = [date.strftime("%Y-%m-%d") for date in datelist]

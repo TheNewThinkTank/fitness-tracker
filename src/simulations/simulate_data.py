@@ -4,7 +4,6 @@ Author: Gustav Collin Rasmussen
 Purpose: Simulate weight-training data
 """
 
-import typing
 import numpy as np  # type: ignore
 import json
 import pathlib

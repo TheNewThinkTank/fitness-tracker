@@ -33,9 +33,6 @@ table = (
     else db.table(data["simulated_weight_table"])
 )
 
-# db = TinyDB("../data/db.json")
-# log = db.table("log")
-
 
 @app.get("/dates/{date}")
 async def get_workout_description(date: str):

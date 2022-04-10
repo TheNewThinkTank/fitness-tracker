@@ -82,15 +82,15 @@ jobs:
       #     pipenv run test -v
       #     pipenv run test -k "test_training and not test_simulation"
 
-  # docs:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     # - uses: ammaraskar/sphinx-action@master
-  #     #   with:
-  #     #     docs-folder: "docs/"
-  #     - uses: ammaraskar/sphinx-problem-matcher@master
-  #     - name: Build Sphinx docs
-  #       run: |
-  #         make dirhtml
-  #         sed -i 's/url_root="#"/url_root=""/' _build/dirhtml/index.html || true
+      # docs:
+      #   runs-on: ubuntu-latest
+      #   steps:
+      #     - uses: actions/checkout@v2
+      #     # - uses: ammaraskar/sphinx-action@master
+      #     #   with:
+      #     #     docs-folder: "docs/"
+      #     - uses: ammaraskar/sphinx-problem-matcher@master
+      #     - name: Build Sphinx docs
+      #       run: |
+      #         make dirhtml
+      #         sed -i 's/url_root="#"/url_root=""/' _build/dirhtml/index.html || true

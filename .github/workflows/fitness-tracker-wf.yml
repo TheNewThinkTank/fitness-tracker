@@ -41,19 +41,23 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install flake8 mypy
+          pip install flake8 mypy yamllint
 
       - name: Lint with flake8
         # continue-on-error: true
         run: |
           flake8 --ignore=E402,E501 .
 
-      - name: mypy
+      - name: Static type checks with mypy
         run: |
           mypy src/
 
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
+
+      - name: yamllint
+        run: |
+          yamllint .
 
       # - name: Run test suite
       #   run: |

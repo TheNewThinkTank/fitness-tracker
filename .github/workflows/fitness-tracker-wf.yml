@@ -59,10 +59,10 @@ jobs:
       # - name: yamllint
       #   run: |
       #     yamllint .
-      - name: "Yamllint"
+      - name: yamllint workout_programs
         uses: karancode/yamllint-github-action@master
         with:
-          yamllint_file_or_dir: "."
+          yamllint_file_or_dir: "./workout_programs.yml" # "."
           yamllint_strict: false
           yamllint_comment: true
         # env:

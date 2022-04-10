@@ -62,11 +62,7 @@ jobs:
       - name: yamllint workout_programs
         uses: karancode/yamllint-github-action@master
         with:
-          yamllint_file_or_dir: "./workout_programs.yml" # "."
-          yamllint_strict: false
-          yamllint_comment: true
-        # env:
-        #   GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          yamllint_file_or_dir: "./workout_programs.yml"
 
       # - name: Run test suite
       #   run: |

@@ -62,10 +62,10 @@ jobs:
         with:
           yamllint_file_or_dir: "./workout_programs.yml"
 
-      - name: yamllint .github/workflows/fitness-tracker-wf.yml
-        uses: karancode/yamllint-github-action@master
-        with:
-          yamllint_file_or_dir: "./.github/workflows/fitness-tracker-wf.yml"
+      # - name: yamllint .github/workflows/fitness-tracker-wf.yml
+      #   uses: karancode/yamllint-github-action@master
+      #   with:
+      #     yamllint_file_or_dir: "./.github/workflows/fitness-tracker-wf.yml"
 
       # - name: yamllint .github/workflows/simulation-wf.yml
       #   uses: karancode/yamllint-github-action@master

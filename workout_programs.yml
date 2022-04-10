@@ -1,12 +1,15 @@
 ---
-"program_1": ["legs", "chest", "back_and_biceps", "shoulder_and_abs"]
-"start": 2021-12-11
-"end": 2022-03-19
-"number_of_program_iterations": 10
-"number_of_workouts": 40
+programs:
+  program_1:
+    splits: [legs, chest, back_and_biceps, shoulder_and_abs]
+    start: 2021-12-11
+    end: 2022-03-19
+    program_iterations: 10
+    number_of_workouts: 40
 
-"program_2": ["push", "pull", "legs"]
-"start": 2022-03-26
-"end": 2022-MM-DD
-"number_of_program_iterations": 10
-"number_of_workouts": 30
+  program_2:
+    splits: [push, pull, legs]
+    start: 2022-03-26
+    end: 2022-MM-DD
+    program_iterations: 10
+    number_of_workouts: 30

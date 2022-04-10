@@ -41,7 +41,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install flake8 mypy yamllint
+          pip install flake8 mypy # yamllint
 
       - name: Lint with flake8
         # continue-on-error: true
@@ -55,9 +55,17 @@ jobs:
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
 
-      - name: yamllint
-        run: |
-          yamllint .
+      # - name: yamllint
+      #   run: |
+      #     yamllint .
+      - name: "Yamllint"
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: "."
+          yamllint_strict: false
+          yamllint_comment: true
+        # env:
+        #   GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Run test suite
       #   run: |

@@ -64,6 +64,11 @@ jobs:
         with:
           yamllint_file_or_dir: "./workout_programs.yml"
 
+      - name: yamllint .github/workflows
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: "./.github/workflows"
+
       # - name: Run test suite
       #   run: |
       #     pipenv run test -v

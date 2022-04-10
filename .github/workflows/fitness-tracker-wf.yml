@@ -6,8 +6,6 @@ on:
     branches:
       - main
       - feature/models
-    # paths-ignore:
-    #   - "src/simulations/**"
 
 jobs:
   Run-Linting-And-Unit-Tests:
@@ -69,15 +67,15 @@ jobs:
         with:
           yamllint_file_or_dir: "./.github/workflows/fitness-tracker-wf.yml"
 
-      - name: yamllint .github/workflows/simulation-wf.yml
-        uses: karancode/yamllint-github-action@master
-        with:
-          yamllint_file_or_dir: "./.github/workflows/simulation-wf.yml"
+      # - name: yamllint .github/workflows/simulation-wf.yml
+      #   uses: karancode/yamllint-github-action@master
+      #   with:
+      #     yamllint_file_or_dir: "./.github/workflows/simulation-wf.yml"
 
-      - name: yamllint .github/workflows/test-wf.yml
-        uses: karancode/yamllint-github-action@master
-        with:
-          yamllint_file_or_dir: "./.github/workflows/test-wf.yml"
+      # - name: yamllint .github/workflows/test-wf.yml
+      #   uses: karancode/yamllint-github-action@master
+      #   with:
+      #     yamllint_file_or_dir: "./.github/workflows/test-wf.yml"
 
       # - name: Run test suite
       #   run: |

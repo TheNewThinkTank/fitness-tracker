@@ -1,1 +1,1959 @@
-{"weight_training_log": {"1": {"date": "2021-12-11", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 8, "weight": "70 kg"}, {"set no.": 2, "reps": 8, "weight": "80 kg"}, {"set no.": 3, "reps": 5, "weight": "90 kg"}, {"set no.": 4, "reps": 5, "weight": "90 kg"}], "deadlift": [{"set no.": 1, "reps": 8, "weight": "70 kg"}, {"set no.": 2, "reps": 8, "weight": "80 kg"}, {"set no.": 3, "reps": 5, "weight": "90 kg"}, {"set no.": 4, "reps": 5, "weight": "90 kg"}], "legpress": [{"set no.": 1, "reps": 8, "weight": "90 kg"}, {"set no.": 2, "reps": 8, "weight": "90 kg"}], "leg_extention": [{"set no.": 1, "reps": 15, "weight": "64 kg"}, {"set no.": 2, "reps": 12, "weight": "73 kg"}, {"set no.": 3, "reps": 10, "weight": "73 kg"}, {"set no.": 4, "reps": 15, "weight": "64 kg"}], "seated_calf_raise": [{"set no.": 1, "reps": 12, "weight": "82 kg"}, {"set no.": 2, "reps": 12, "weight": "82 kg"}, {"set no.": 3, "reps": 15, "weight": "82 kg"}, {"set no.": 4, "reps": 15, "weight": "82 kg"}], "lunge": [{"set no.": 1, "reps": 14, "weight": "0 kg"}, {"set no.": 2, "reps": 14, "weight": "0 kg"}, {"set no.": 3, "reps": 14, "weight": "0 kg"}, {"set no.": 4, "reps": 14, "weight": "0 kg"}, {"set no.": 5, "reps": 14, "weight": "0 kg"}]}}, "2": {"date": "2021-12-13", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 5, "weight": "70 kg"}, {"set no.": 2, "reps": 5, "weight": "70 kg"}, {"set no.": 3, "reps": 12, "weight": "60 kg"}], "cable_crossover": [{"set no.": 1, "reps": 15, "weight": "36 kg"}, {"set no.": 2, "reps": 12, "weight": "46 kg"}, {"set no.": 3, "reps": 10, "weight": "54 kg"}], "incline_dumbbell_press": [{"set no.": 1, "reps": 2, "weight": "52 kg"}, {"set no.": 2, "reps": 8, "weight": "36 kg"}, {"set no.": 3, "reps": 12, "weight": "32 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 12, "weight": "22 kg"}, {"set no.": 2, "reps": 9, "weight": "22 kg"}, {"set no.": 3, "reps": 10, "weight": "18 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 12, "weight": "36 kg"}, {"set no.": 2, "reps": 10, "weight": "36 kg"}, {"set no.": 3, "reps": 10, "weight": "36 kg"}]}}, "3": {"date": "2021-12-15", "split": "back_and_biceps", "exercises": {"pullup_wide_grip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 6, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "dead_row": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 10, "weight": "40 kg"}], "lat_pulldown_with_twist": [{"set no.": 1, "reps": 10, "weight": "45 kg"}, {"set no.": 2, "reps": 10, "weight": "45 kg"}], "high_single_arm_cable_row": [{"set no.": 1, "reps": 10, "weight": "32 kg"}, {"set no.": 2, "reps": 10, "weight": "32 kg"}], "face_pull": [{"set no.": 1, "reps": 10, "weight": "9 kg"}, {"set no.": 2, "reps": 10, "weight": "14 kg"}], "dumbbell_pullover": [{"set no.": 1, "reps": 10, "weight": "24 kg"}, {"set no.": 2, "reps": 5, "weight": "24 kg"}], "lat_pulldown": [{"set no.": 1, "reps": 12, "weight": "32 kg"}, {"set no.": 2, "reps": 12, "weight": "36 kg"}], "diverging_low_row": [{"set no.": 1, "reps": 12, "weight": "45 kg"}, {"set no.": 2, "reps": 12, "weight": "45 kg"}], "EZ_bar_curl": [{"set no.": 1, "reps": 7, "weight": "40 kg"}, {"set no.": 2, "reps": 10, "weight": "30 kg"}]}}, "4": {"date": "2021-12-16", "split": "shoulders_and_abs", "exercises": {"cable_extention": [{"set no.": 1, "reps": 12, "weight": "9 kg"}, {"set no.": 2, "reps": 10, "weight": "14 kg"}, {"set no.": 3, "reps": 9, "weight": "18 kg"}], "dumbbell_front_lateral": [{"set no.": 1, "reps": 10, "weight": "8 kg"}, {"set no.": 2, "reps": 8, "weight": "8 kg"}, {"set no.": 3, "reps": 8, "weight": "6 kg"}], "seated_rear_dumbbell_lateral": [{"set no.": 1, "reps": 10, "weight": "4 kg"}, {"set no.": 2, "reps": 10, "weight": "4 kg"}, {"set no.": 3, "reps": 12, "weight": "4 kg"}], "pre_exhaust_barbell_shrug": [{"set no.": 1, "reps": 12, "weight": "40 kg"}, {"set no.": 2, "reps": 6, "weight": "40 kg"}, {"set no.": 3, "reps": 6, "weight": "40 kg"}], "toe_to_bar": [{"set no.": 1, "reps": 8, "weight": "0 kg"}, {"set no.": 2, "reps": 8, "weight": "0 kg"}]}}, "5": {"date": "2021-12-25", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 5, "weight": "80 kg"}, {"set no.": 2, "reps": 5, "weight": "80 kg"}, {"set no.": 3, "reps": 5, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "60 kg"}, {"set no.": 2, "reps": 5, "weight": "60 kg"}, {"set no.": 3, "reps": 5, "weight": "60 kg"}, {"set no.": 4, "reps": 5, "weight": "60 kg"}], "legpress": [{"set no.": 1, "reps": 12, "weight": "70 kg"}, {"set no.": 2, "reps": 10, "weight": "90 kg"}, {"set no.": 3, "reps": 10, "weight": "120 kg"}, {"set no.": 4, "reps": 10, "weight": "140 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 10, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 8, "weight": "50 kg"}], "walking_barbell_lunge": [{"set no.": 1, "reps": 20, "weight": "40 kg"}, {"set no.": 2, "reps": 20, "weight": "40 kg"}]}}, "6": {"date": "2021-12-26", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 5, "weight": "70 kg"}, {"set no.": 2, "reps": 5, "weight": "70 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}], "cable_crossover": [{"set no.": 1, "reps": 12, "weight": "44 kg"}, {"set no.": 2, "reps": 10, "weight": "44 kg"}, {"set no.": 3, "reps": 10, "weight": "44 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 12, "weight": "18 kg"}, {"set no.": 2, "reps": 12, "weight": "18 kg"}, {"set no.": 3, "reps": 12, "weight": "18 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 12, "weight": "36 kg"}, {"set no.": 2, "reps": 10, "weight": "36 kg"}, {"set no.": 3, "reps": 12, "weight": "36 kg"}], "incline_barbell_press": [{"set no.": 1, "reps": 8, "weight": "40 kg"}, {"set no.": 2, "reps": 5, "weight": "50 kg"}, {"set no.": 3, "reps": 5, "weight": "50 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "dumbbell_pullover": [{"set no.": 1, "reps": 8, "weight": "22 kg"}, {"set no.": 2, "reps": 8, "weight": "22 kg"}, {"set no.": 3, "reps": 8, "weight": "22 kg"}]}}, "7": {"date": "2021-12-28", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "seated_row": [{"set no.": 1, "reps": 10, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 10, "weight": "50 kg"}], "diverging_seated_row": [{"set no.": 1, "reps": 12, "weight": "40 kg"}, {"set no.": 2, "reps": 12, "weight": "40 kg"}, {"set no.": 3, "reps": 12, "weight": "40 kg"}, {"set no.": 4, "reps": 12, "weight": "40 kg"}], "diverging_pulldown": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 10, "weight": "50 kg"}], "face_pull": [{"set no.": 1, "reps": 10, "weight": "9 kg"}, {"set no.": 2, "reps": 10, "weight": "11 kg"}, {"set no.": 3, "reps": 10, "weight": "13 kg"}, {"set no.": 4, "reps": 10, "weight": "15 kg"}], "EZ_bar_curl": [{"set no.": 1, "reps": 8, "weight": "30 kg"}, {"set no.": 2, "reps": 8, "weight": "30 kg"}]}}, "8": {"date": "2021-12-29", "split": "shoulders_and_abs", "exercises": {"arnold_press": [{"set no.": 1, "reps": 10, "weight": "28 kg"}, {"set no.": 2, "reps": 10, "weight": "32 kg"}, {"set no.": 3, "reps": 10, "weight": "32 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 12, "weight": "11 kg"}, {"set no.": 2, "reps": 12, "weight": "13 kg"}, {"set no.": 3, "reps": 10, "weight": "13 kg"}, {"set no.": 4, "reps": 10, "weight": "15 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 10, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "20 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 5, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}, {"set no.": 4, "reps": 10, "weight": "8 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "4 kg"}, {"set no.": 2, "reps": 12, "weight": "8 kg"}, {"set no.": 3, "reps": 12, "weight": "8 kg"}], "dumbbell_shrug": [{"set no.": 1, "reps": 12, "weight": "48 kg"}, {"set no.": 2, "reps": 12, "weight": "48 kg"}, {"set no.": 3, "reps": 12, "weight": "48 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 24, "weight": "0 kg"}, {"set no.": 2, "reps": 20, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 15, "weight": "0 kg"}, {"set no.": 2, "reps": 15, "weight": "0 kg"}, {"set no.": 3, "reps": 15, "weight": "0 kg"}]}}, "9": {"date": "2022-01-01", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 5, "weight": "80 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 5, "weight": "90 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "80 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 5, "weight": "90 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "legpress": [{"set no.": 1, "reps": 10, "weight": "150 kg"}, {"set no.": 2, "reps": 10, "weight": "150 kg"}, {"set no.": 3, "reps": 10, "weight": "150 kg"}, {"set no.": 4, "reps": 10, "weight": "150 kg"}], "prone_leg_curl": [{"set no.": 1, "reps": 8, "weight": "41 kg"}, {"set no.": 2, "reps": 8, "weight": "41 kg"}, {"set no.": 3, "reps": 8, "weight": "41 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 12, "weight": "50 kg"}, {"set no.": 3, "reps": 12, "weight": "50 kg"}], "barbell_lunge": [{"set no.": 1, "reps": 4, "weight": "60 kg"}, {"set no.": 2, "reps": 8, "weight": "40 kg"}, {"set no.": 3, "reps": 14, "weight": "40 kg"}]}}, "10": {"date": "2022-01-03", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 5, "weight": "70 kg"}, {"set no.": 2, "reps": 5, "weight": "70 kg"}, {"set no.": 3, "reps": 5, "weight": "70 kg"}, {"set no.": 4, "reps": 1, "weight": "80 kg"}], "barbell_incline_press": [{"set no.": 1, "reps": 4, "weight": "60 kg"}, {"set no.": 2, "reps": 6, "weight": "50 kg"}, {"set no.": 3, "reps": 6, "weight": "50 kg"}, {"set no.": 4, "reps": 5, "weight": "50 kg"}], "cable_crossover": [{"set no.": 1, "reps": 12, "weight": "54 kg"}, {"set no.": 2, "reps": 10, "weight": "54 kg"}, {"set no.": 3, "reps": 8, "weight": "54 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 12, "weight": "28 kg"}, {"set no.": 2, "reps": 10, "weight": "36 kg"}, {"set no.": 3, "reps": 10, "weight": "36 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 7, "weight": "28 kg"}, {"set no.": 2, "reps": 10, "weight": "18 kg"}, {"set no.": 3, "reps": 12, "weight": "18 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}]}}, "11": {"date": "2022-01-05", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "seated_row": [{"set no.": 1, "reps": 10, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 10, "weight": "50 kg"}], "diverging_seated_row": [{"set no.": 1, "reps": 12, "weight": "40 kg"}, {"set no.": 2, "reps": 12, "weight": "40 kg"}, {"set no.": 3, "reps": 12, "weight": "40 kg"}, {"set no.": 4, "reps": 12, "weight": "40 kg"}], "diverging_pulldown": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 10, "weight": "50 kg"}], "face_pull": [{"set no.": 1, "reps": 10, "weight": "14 kg"}, {"set no.": 2, "reps": 10, "weight": "16 kg"}, {"set no.": 3, "reps": 10, "weight": "18 kg"}, {"set no.": 4, "reps": 10, "weight": "20 kg"}], "dumbbell_curl": [{"set no.": 1, "reps": 6, "weight": "32 kg"}, {"set no.": 2, "reps": 6, "weight": "32 kg"}]}}, "12": {"date": "2022-01-06", "split": "shoulders_and_abs", "exercises": {"military_press": [{"set no.": 1, "reps": 10, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "35 kg"}, {"set no.": 3, "reps": 8, "weight": "35 kg"}, {"set no.": 4, "reps": 8, "weight": "35 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 12, "weight": "16 kg"}, {"set no.": 2, "reps": 10, "weight": "16 kg"}, {"set no.": 3, "reps": 10, "weight": "16 kg"}, {"set no.": 4, "reps": 10, "weight": "16 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 12, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "20 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "12 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}, {"set no.": 4, "reps": 10, "weight": "12 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "12 kg"}, {"set no.": 2, "reps": 8, "weight": "12 kg"}, {"set no.": 3, "reps": 12, "weight": "12 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 12, "weight": "45 kg"}, {"set no.": 2, "reps": 12, "weight": "45 kg"}, {"set no.": 3, "reps": 12, "weight": "45 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 24, "weight": "0 kg"}, {"set no.": 2, "reps": 20, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 16, "weight": "0 kg"}, {"set no.": 2, "reps": 16, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}]}}, "13": {"date": "2022-01-15", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 3, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 5, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "100 kg"}, {"set no.": 3, "reps": 5, "weight": "100 kg"}, {"set no.": 4, "reps": 5, "weight": "100 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 12, "weight": "50 kg"}, {"set no.": 3, "reps": 12, "weight": "50 kg"}], "leg_extention": [{"set no.": 1, "reps": 10, "weight": "70 kg"}, {"set no.": 2, "reps": 7, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}], "hack_squat": [{"set no.": 1, "reps": 15, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "70 kg"}]}}, "14": {"date": "2022-01-16", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 2, "weight": "80 kg"}, {"set no.": 2, "reps": 6, "weight": "70 kg"}, {"set no.": 3, "reps": 4, "weight": "70 kg"}, {"set no.": 4, "reps": 10, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 5, "weight": "52 kg"}, {"set no.": 2, "reps": 5, "weight": "48 kg"}, {"set no.": 3, "reps": 5, "weight": "44 kg"}, {"set no.": 4, "reps": 5, "weight": "40 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "cable_crossover": [{"set no.": 1, "reps": 12, "weight": "54 kg"}, {"set no.": 2, "reps": 8, "weight": "54 kg"}, {"set no.": 3, "reps": 6, "weight": "54 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 10, "weight": "36 kg"}, {"set no.": 2, "reps": 10, "weight": "28 kg"}, {"set no.": 3, "reps": 8, "weight": "28 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 7, "weight": "28 kg"}, {"set no.": 2, "reps": 12, "weight": "18 kg"}, {"set no.": 3, "reps": 12, "weight": "18 kg"}]}}, "15": {"date": "2022-01-23", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "seated_row": [{"set no.": 1, "reps": 10, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 10, "weight": "50 kg"}], "diverging_pulldown": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 8, "weight": "70 kg"}, {"set no.": 3, "reps": 8, "weight": "70 kg"}, {"set no.": 4, "reps": 8, "weight": "70 kg"}], "diverging_seated_row": [{"set no.": 1, "reps": 10, "weight": "60 kg"}, {"set no.": 2, "reps": 10, "weight": "60 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}, {"set no.": 4, "reps": 8, "weight": "60 kg"}], "face_pull": [{"set no.": 1, "reps": 10, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "23 kg"}, {"set no.": 3, "reps": 10, "weight": "27 kg"}, {"set no.": 4, "reps": 10, "weight": "32 kg"}], "barbell_curl": [{"set no.": 1, "reps": 10, "weight": "35 kg"}, {"set no.": 2, "reps": 6, "weight": "35 kg"}]}}, "16": {"date": "2022-01-25", "split": "shoulders_and_abs", "exercises": {"military_press": [{"set no.": 1, "reps": 10, "weight": "35 kg"}, {"set no.": 2, "reps": 8, "weight": "35 kg"}, {"set no.": 3, "reps": 6, "weight": "35 kg"}, {"set no.": 4, "reps": 5, "weight": "35 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 12, "weight": "16 kg"}, {"set no.": 2, "reps": 10, "weight": "16 kg"}, {"set no.": 3, "reps": 10, "weight": "16 kg"}, {"set no.": 4, "reps": 10, "weight": "16 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 12, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "20 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "12 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}, {"set no.": 4, "reps": 10, "weight": "12 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "12 kg"}, {"set no.": 2, "reps": 12, "weight": "12 kg"}, {"set no.": 3, "reps": 12, "weight": "12 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 12, "weight": "45 kg"}, {"set no.": 2, "reps": 12, "weight": "45 kg"}, {"set no.": 3, "reps": 12, "weight": "45 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 30, "weight": "0 kg"}, {"set no.": 2, "reps": 30, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 17, "weight": "0 kg"}, {"set no.": 2, "reps": 17, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}]}}, "17": {"date": "2022-01-27", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 3, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 5, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "70 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "100 kg"}, {"set no.": 3, "reps": 5, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "leg_extention": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "60 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 10, "weight": "60 kg"}, {"set no.": 2, "reps": 8, "weight": "60 kg"}, {"set no.": 3, "reps": 10, "weight": "40 kg"}, {"set no.": 4, "reps": 9, "weight": "40 kg"}], "barbell_lunge": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 10, "weight": "40 kg"}]}}, "18": {"date": "2022-01-29", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 2, "weight": "80 kg"}, {"set no.": 2, "reps": 5, "weight": "70 kg"}, {"set no.": 3, "reps": 5, "weight": "65 kg"}, {"set no.": 4, "reps": 8, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 5, "weight": "52 kg"}, {"set no.": 2, "reps": 5, "weight": "48 kg"}, {"set no.": 3, "reps": 5, "weight": "44 kg"}, {"set no.": 4, "reps": 5, "weight": "40 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "cable_crossover": [{"set no.": 1, "reps": 12, "weight": "46 kg"}, {"set no.": 2, "reps": 12, "weight": "46 kg"}, {"set no.": 3, "reps": 10, "weight": "46 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 6, "weight": "28 kg"}, {"set no.": 2, "reps": 10, "weight": "18 kg"}, {"set no.": 3, "reps": 10, "weight": "18 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 12, "weight": "36 kg"}, {"set no.": 2, "reps": 10, "weight": "36 kg"}, {"set no.": 3, "reps": 10, "weight": "28 kg"}]}}, "19": {"date": "2022-01-30", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "seated_row": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "54 kg"}, {"set no.": 3, "reps": 8, "weight": "59 kg"}, {"set no.": 4, "reps": 10, "weight": "54 kg"}], "diverging_seated_row": [{"set no.": 1, "reps": 10, "weight": "70 kg"}, {"set no.": 2, "reps": 8, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}, {"set no.": 4, "reps": 10, "weight": "60 kg"}], "lat_pulldown": [{"set no.": 1, "reps": 8, "weight": "68 kg"}, {"set no.": 2, "reps": 8, "weight": "64 kg"}, {"set no.": 3, "reps": 8, "weight": "59 kg"}, {"set no.": 4, "reps": 8, "weight": "54 kg"}], "face_pull": [{"set no.": 1, "reps": 10, "weight": "32 kg"}, {"set no.": 2, "reps": 10, "weight": "36 kg"}, {"set no.": 3, "reps": 10, "weight": "36 kg"}, {"set no.": 4, "reps": 10, "weight": "36 kg"}], "barbell_curl": [{"set no.": 1, "reps": 8, "weight": "35 kg"}, {"set no.": 2, "reps": 6, "weight": "35 kg"}]}}, "20": {"date": "2022-02-03", "split": "shoulders", "exercises": {"military_press": [{"set no.": 1, "reps": 12, "weight": "35 kg"}, {"set no.": 2, "reps": 8, "weight": "35 kg"}, {"set no.": 3, "reps": 8, "weight": "35 kg"}, {"set no.": 4, "reps": 6, "weight": "35 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 10, "weight": "10 kg"}, {"set no.": 2, "reps": 12, "weight": "7.5 kg"}, {"set no.": 3, "reps": 12, "weight": "7.5 kg"}, {"set no.": 4, "reps": 10, "weight": "7.5 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 12, "weight": "18 kg"}, {"set no.": 2, "reps": 10, "weight": "18 kg"}, {"set no.": 3, "reps": 10, "weight": "18 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "12 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 8, "weight": "12 kg"}, {"set no.": 4, "reps": 8, "weight": "12 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "12 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 12, "weight": "45 kg"}, {"set no.": 2, "reps": 12, "weight": "45 kg"}, {"set no.": 3, "reps": 12, "weight": "45 kg"}]}}, "21": {"date": "2022-02-05", "split": "legs_and_abs", "exercises": {"squat": [{"set no.": 1, "reps": 3, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 5, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 5, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "70 kg"}], "leg_extention": [{"set no.": 1, "reps": 15, "weight": "73 kg"}, {"set no.": 2, "reps": 12, "weight": "73 kg"}, {"set no.": 3, "reps": 10, "weight": "73 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 10, "weight": "60 kg"}, {"set no.": 2, "reps": 10, "weight": "60 kg"}, {"set no.": 3, "reps": 12, "weight": "40 kg"}, {"set no.": 4, "reps": 12, "weight": "40 kg"}], "legpress": [{"set no.": 1, "reps": 10, "weight": "150 kg"}, {"set no.": 2, "reps": 10, "weight": "150 kg"}, {"set no.": 3, "reps": 10, "weight": "150 kg"}, {"set no.": 4, "reps": 10, "weight": "150 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 30, "weight": "0 kg"}, {"set no.": 2, "reps": 20, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 16, "weight": "0 kg"}, {"set no.": 2, "reps": 15, "weight": "0 kg"}, {"set no.": 3, "reps": 15, "weight": "0 kg"}]}}, "22": {"date": "2022-02-08", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 2, "weight": "80 kg"}, {"set no.": 2, "reps": 3, "weight": "70 kg"}, {"set no.": 3, "reps": 5, "weight": "60 kg"}, {"set no.": 4, "reps": 5, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 8, "weight": "50 kg"}, {"set no.": 2, "reps": 6, "weight": "50 kg"}, {"set no.": 3, "reps": 8, "weight": "44 kg"}, {"set no.": 4, "reps": 5, "weight": "44 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "dumbbell_flys": [{"set no.": 1, "reps": 8, "weight": "25 kg"}, {"set no.": 2, "reps": 8, "weight": "25 kg"}, {"set no.": 3, "reps": 8, "weight": "25 kg"}], "dumbbell_incline_flys": [{"set no.": 1, "reps": 10, "weight": "20 kg"}, {"set no.": 2, "reps": 8, "weight": "20 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "dumbbell_decline_flys": [{"set no.": 1, "reps": 8, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "20 kg"}, {"set no.": 3, "reps": 8, "weight": "20 kg"}]}}, "23": {"date": "2022-02-08", "workout_number": "2", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "seated_row": [{"set no.": 1, "reps": 10, "weight": "52 kg"}, {"set no.": 2, "reps": 10, "weight": "52 kg"}, {"set no.": 3, "reps": 10, "weight": "45 kg"}, {"set no.": 4, "reps": 10, "weight": "45 kg"}], "lat_pulldown": [{"set no.": 1, "reps": 10, "weight": "66 kg"}, {"set no.": 2, "reps": 10, "weight": "66 kg"}, {"set no.": 3, "reps": 10, "weight": "66 kg"}, {"set no.": 4, "reps": 10, "weight": "66 kg"}], "face_pull": [{"set no.": 1, "reps": 10, "weight": "36 kg"}, {"set no.": 2, "reps": 10, "weight": "36 kg"}, {"set no.": 3, "reps": 10, "weight": "36 kg"}, {"set no.": 4, "reps": 10, "weight": "36 kg"}], "barbell_curl": [{"set no.": 1, "reps": 8, "weight": "35 kg"}, {"set no.": 2, "reps": 8, "weight": "25 kg"}]}}, "24": {"date": "2022-02-11", "split": "shoulders_and_abs", "exercises": {"arnold_press": [{"set no.": 1, "reps": 8, "weight": "34 kg"}, {"set no.": 2, "reps": 8, "weight": "34 kg"}, {"set no.": 3, "reps": 8, "weight": "30 kg"}, {"set no.": 4, "reps": 8, "weight": "30 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 10, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "20 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}, {"set no.": 4, "reps": 10, "weight": "20 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "14 kg"}, {"set no.": 2, "reps": 10, "weight": "14 kg"}, {"set no.": 3, "reps": 10, "weight": "10 kg"}, {"set no.": 4, "reps": 10, "weight": "10 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "10 kg"}, {"set no.": 2, "reps": 10, "weight": "10 kg"}, {"set no.": 3, "reps": 10, "weight": "10 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 15, "weight": "45 kg"}, {"set no.": 2, "reps": 15, "weight": "45 kg"}, {"set no.": 3, "reps": 15, "weight": "45 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 30, "weight": "0 kg"}, {"set no.": 2, "reps": 30, "weight": "0 kg"}, {"set no.": 3, "reps": 26, "weight": "0 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 20, "weight": "0 kg"}, {"set no.": 2, "reps": 20, "weight": "0 kg"}, {"set no.": 3, "reps": 30, "weight": "0 kg"}]}}, "25": {"date": "2022-02-12", "split": "legs", "note": "calves skipped due to fatigue from mountain trekking", "exercises": {"squat": [{"set no.": 1, "reps": 3, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 8, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 5, "weight": "80 kg"}, {"set no.": 4, "reps": 5, "weight": "80 kg"}], "leg_extention": [{"set no.": 1, "reps": 15, "weight": "73 kg"}, {"set no.": 2, "reps": 15, "weight": "73 kg"}, {"set no.": 3, "reps": 14, "weight": "109 kg"}, {"set no.": 4, "reps": 14, "weight": "109 kg"}], "back_extention": [{"set no.": 1, "reps": 12, "weight": "0 kg"}, {"set no.": 2, "reps": 12, "weight": "0 kg"}, {"set no.": 3, "reps": 12, "weight": "0 kg"}]}}, "26": {"date": "2022-02-15", "gym": "Novo BA", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 2, "weight": "80 kg"}, {"set no.": 2, "reps": 5, "weight": "70 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}, {"set no.": 4, "reps": 5, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 5, "weight": "52 kg"}, {"set no.": 2, "reps": 5, "weight": "48 kg"}, {"set no.": 3, "reps": 5, "weight": "44 kg"}, {"set no.": 4, "reps": 5, "weight": "40 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "cable_crossover": [{"set no.": 1, "reps": 8, "weight": "30 kg"}, {"set no.": 2, "reps": 8, "weight": "25 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 8, "weight": "20 kg"}, {"set no.": 2, "reps": 8, "weight": "20 kg"}, {"set no.": 3, "reps": 8, "weight": "20 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 5, "weight": "15 kg"}, {"set no.": 2, "reps": 10, "weight": "10 kg"}, {"set no.": 3, "reps": 14, "weight": "5 kg"}]}}, "27": {"date": "2022-02-16", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "diverging_seated_row": [{"set no.": 1, "reps": 10, "weight": "60 kg"}, {"set no.": 2, "reps": 10, "weight": "70 kg"}, {"set no.": 3, "reps": 9, "weight": "70 kg"}, {"set no.": 4, "reps": 8, "weight": "70 kg"}], "diverging_pulldown": [{"set no.": 1, "reps": 10, "weight": "60 kg"}, {"set no.": 2, "reps": 10, "weight": "60 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}, {"set no.": 4, "reps": 10, "weight": "60 kg"}], "seated_row": [{"set no.": 1, "reps": 6, "weight": "68 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 10, "weight": "50 kg"}], "barbell_curl": [{"set no.": 1, "reps": 6, "weight": "35 kg"}, {"set no.": 2, "reps": 6, "weight": "35 kg"}]}}, "28": {"date": "2022-02-18", "split": "shoulders_and_abs", "exercises": {"arnold_press": [{"set no.": 1, "reps": 12, "weight": "32 kg"}, {"set no.": 2, "reps": 10, "weight": "32 kg"}, {"set no.": 3, "reps": 6, "weight": "36 kg"}, {"set no.": 4, "reps": 6, "weight": "36 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 10, "weight": "18 kg"}, {"set no.": 2, "reps": 12, "weight": "14 kg"}, {"set no.": 3, "reps": 12, "weight": "14 kg"}, {"set no.": 4, "reps": 12, "weight": "14 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "12 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}, {"set no.": 4, "reps": 10, "weight": "12 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "12 kg"}, {"set no.": 2, "reps": 12, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 15, "weight": "55 kg"}, {"set no.": 2, "reps": 15, "weight": "55 kg"}, {"set no.": 3, "reps": 15, "weight": "55 kg"}], "face_pull": [{"set no.": 1, "reps": 12, "weight": "32 kg"}, {"set no.": 2, "reps": 12, "weight": "32 kg"}, {"set no.": 3, "reps": 12, "weight": "32 kg"}, {"set no.": 4, "reps": 12, "weight": "32 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 32, "weight": "0 kg"}, {"set no.": 2, "reps": 26, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 20, "weight": "0 kg"}, {"set no.": 2, "reps": 15, "weight": "0 kg"}, {"set no.": 3, "reps": 15, "weight": "0 kg"}]}}, "29": {"date": "2022-02-26", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 3, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 8, "weight": "80 kg"}, {"set no.": 4, "reps": 10, "weight": "70 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "100 kg"}, {"set no.": 3, "reps": 5, "weight": "100 kg"}, {"set no.": 4, "reps": 5, "weight": "100 kg"}], "diverging_leg_extention": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 12, "weight": "50 kg"}, {"set no.": 3, "reps": 12, "weight": "50 kg"}, {"set no.": 4, "reps": 12, "weight": "50 kg"}], "legpress": [{"set no.": 1, "reps": 12, "weight": "150 kg"}, {"set no.": 2, "reps": 10, "weight": "150 kg"}, {"set no.": 3, "reps": 8, "weight": "150 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 10, "weight": "70 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}], "barbell_lunge": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 10, "weight": "40 kg"}]}}, "30": {"date": "2022-02-27", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 2, "weight": "80 kg"}, {"set no.": 2, "reps": 5, "weight": "70 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}, {"set no.": 4, "reps": 8, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 8, "weight": "48 kg"}, {"set no.": 2, "reps": 8, "weight": "40 kg"}, {"set no.": 3, "reps": 8, "weight": "40 kg"}, {"set no.": 4, "reps": 6, "weight": "40 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "cable_crossover": [{"set no.": 1, "reps": 12, "weight": "36 kg"}, {"set no.": 2, "reps": 10, "weight": "46 kg"}, {"set no.": 3, "reps": 8, "weight": "54 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 12, "weight": "36 kg"}, {"set no.": 2, "reps": 8, "weight": "40 kg"}, {"set no.": 3, "reps": 8, "weight": "40 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 8, "weight": "22 kg"}, {"set no.": 2, "reps": 10, "weight": "18 kg"}, {"set no.": 3, "reps": 10, "weight": "18 kg"}]}}, "31": {"date": "2022-03-02", "gym": "BA", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "seated_row": [{"set no.": 1, "reps": 6, "weight": "70 kg"}, {"set no.": 2, "reps": 6, "weight": "65 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}, {"set no.": 4, "reps": 10, "weight": "55 kg"}], "lat_pulldown": [{"set no.": 1, "reps": 6, "weight": "70 kg"}, {"set no.": 2, "reps": 6, "weight": "65 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}, {"set no.": 4, "reps": 10, "weight": "55 kg"}], "face_pull": [{"set no.": 1, "reps": 8, "weight": "25 kg"}, {"set no.": 2, "reps": 8, "weight": "20 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}, {"set no.": 4, "reps": 10, "weight": "20 kg"}], "barbell_curl": [{"set no.": 1, "reps": 8, "weight": "35 kg"}, {"set no.": 2, "reps": 5, "weight": "35 kg"}]}}, "32": {"date": "2022-03-03", "split": "shoulders_and_abs", "gym": "BA", "exercises": {"arnold_press": [{"set no.": 1, "reps": 8, "weight": "40 kg"}, {"set no.": 2, "reps": 7, "weight": "40 kg"}, {"set no.": 3, "reps": 6, "weight": "40 kg"}, {"set no.": 4, "reps": 5, "weight": "40 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 6, "weight": "24 kg"}, {"set no.": 2, "reps": 10, "weight": "20 kg"}, {"set no.": 3, "reps": 8, "weight": "18 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 8, "weight": "12 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "12 kg"}, {"set no.": 2, "reps": 10, "weight": "12 kg"}, {"set no.": 3, "reps": 10, "weight": "12 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 10, "weight": "7.5 kg"}, {"set no.": 2, "reps": 10, "weight": "7.5 kg"}, {"set no.": 3, "reps": 10, "weight": "7.5 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 15, "weight": "50 kg"}, {"set no.": 2, "reps": 12, "weight": "60 kg"}, {"set no.": 3, "reps": 12, "weight": "60 kg"}], "toe_to_bar": [{"set no.": 1, "reps": 10, "weight": "0 kg"}, {"set no.": 2, "reps": 10, "weight": "0 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 26, "weight": "0 kg"}, {"set no.": 2, "reps": 20, "weight": "0 kg"}]}}, "33": {"date": "2022-03-05", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 4, "weight": "100 kg"}, {"set no.": 3, "reps": 6, "weight": "90 kg"}, {"set no.": 4, "reps": 6, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 6, "weight": "100 kg"}, {"set no.": 3, "reps": 5, "weight": "100 kg"}, {"set no.": 4, "reps": 5, "weight": "100 kg"}], "legpress": [{"set no.": 1, "reps": 12, "weight": "150 kg"}, {"set no.": 2, "reps": 12, "weight": "150 kg"}, {"set no.": 3, "reps": 12, "weight": "150 kg"}, {"set no.": 4, "reps": 12, "weight": "150 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 12, "weight": "60 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 8, "weight": "50 kg"}], "seated_calf_raise": [{"set no.": 1, "reps": 8, "weight": "30 kg"}, {"set no.": 2, "reps": 12, "weight": "20 kg"}, {"set no.": 3, "reps": 12, "weight": "20 kg"}], "leg_extention": [{"set no.": 1, "reps": 15, "weight": "77 kg"}, {"set no.": 2, "reps": 10, "weight": "82 kg"}, {"set no.": 3, "reps": 8, "weight": "82 kg"}], "barbell_lunge": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 10, "weight": "40 kg"}]}}, "34": {"date": "2022-03-07", "split": "chest", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 4, "weight": "80 kg"}, {"set no.": 2, "reps": 6, "weight": "70 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}, {"set no.": 4, "reps": 8, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 5, "weight": "52 kg"}, {"set no.": 2, "reps": 12, "weight": "24 kg"}, {"set no.": 3, "reps": 5, "weight": "44 kg"}, {"set no.": 4, "reps": 8, "weight": "36 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "dumbbell_flys": [{"set no.": 1, "reps": 8, "weight": "28 kg"}, {"set no.": 2, "reps": 6, "weight": "28 kg"}, {"set no.": 3, "reps": 8, "weight": "24 kg"}], "dumbbell_incline_flys": [{"set no.": 1, "reps": 8, "weight": "20 kg"}, {"set no.": 2, "reps": 8, "weight": "18 kg"}, {"set no.": 3, "reps": 8, "weight": "16 kg"}], "dumbbell_front_raise": [{"set no.": 1, "reps": 10, "weight": "10 kg"}, {"set no.": 2, "reps": 8, "weight": "10 kg"}, {"set no.": 3, "reps": 10, "weight": "10 kg"}]}}, "35": {"date": "2022-03-11", "gym": "BA", "split": "back_and_biceps", "exercises": {"wide_grip_pullup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "seated_row": [{"set no.": 1, "reps": 8, "weight": "70 kg"}, {"set no.": 2, "reps": 8, "weight": "65 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}, {"set no.": 4, "reps": 8, "weight": "55 kg"}], "lat_pulldown": [{"set no.": 1, "reps": 8, "weight": "70 kg"}, {"set no.": 2, "reps": 8, "weight": "65 kg"}, {"set no.": 3, "reps": 8, "weight": "60 kg"}, {"set no.": 4, "reps": 10, "weight": "55 kg"}], "face_pull": [{"set no.": 1, "reps": 10, "weight": "25 kg"}, {"set no.": 2, "reps": 10, "weight": "22.5 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "barbell_curl": [{"set no.": 1, "reps": 8, "weight": "35 kg"}, {"set no.": 2, "reps": 8, "weight": "35 kg"}], "machine_reverse_fly": [{"set no.": 1, "reps": 12, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "30 kg"}]}}, "36": {"date": "2022-03-12", "split": "shoulders_and_abs", "exercises": {"standing_barbell_military_press": [{"set no.": 1, "reps": 8, "weight": "35 kg"}, {"set no.": 2, "reps": 6, "weight": "40 kg"}, {"set no.": 3, "reps": 6, "weight": "40 kg"}, {"set no.": 4, "reps": 6, "weight": "40 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 8, "weight": "24 kg"}, {"set no.": 2, "reps": 10, "weight": "24 kg"}, {"set no.": 3, "reps": 8, "weight": "24 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "12 kg"}, {"set no.": 2, "reps": 8, "weight": "16 kg"}, {"set no.": 3, "reps": 8, "weight": "16 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "12 kg"}, {"set no.": 2, "reps": 12, "weight": "12 kg"}, {"set no.": 3, "reps": 12, "weight": "12 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 12, "weight": "14 kg"}, {"set no.": 2, "reps": 10, "weight": "18 kg"}, {"set no.": 3, "reps": 12, "weight": "18 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 15, "weight": "55 kg"}, {"set no.": 2, "reps": 15, "weight": "55 kg"}, {"set no.": 3, "reps": 15, "weight": "55 kg"}, {"set no.": 4, "reps": 15, "weight": "55 kg"}], "toe_to_bar": [{"set no.": 1, "reps": 10, "weight": "0 kg"}, {"set no.": 2, "reps": 10, "weight": "0 kg"}, {"set no.": 3, "reps": 10, "weight": "0 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 20, "weight": "0 kg"}, {"set no.": 2, "reps": 20, "weight": "0 kg"}, {"set no.": 3, "reps": 20, "weight": "0 kg"}]}}, "37": {"date": "2022-03-14", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 5, "weight": "90 kg"}, {"set no.": 3, "reps": 8, "weight": "80 kg"}, {"set no.": 4, "reps": 8, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 5, "weight": "100 kg"}, {"set no.": 2, "reps": 10, "weight": "100 kg"}, {"set no.": 3, "reps": 12, "weight": "100 kg"}, {"set no.": 4, "reps": 5, "weight": "100 kg"}], "leg_extention": [{"set no.": 1, "reps": 12, "weight": "79 kg"}, {"set no.": 2, "reps": 13, "weight": "84 kg"}, {"set no.": 3, "reps": 8, "weight": "88 kg"}, {"set no.": 4, "reps": 10, "weight": "75 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 10, "weight": "70 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}, {"set no.": 4, "reps": 12, "weight": "50 kg"}], "seated_calf_raise": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 10, "weight": "40 kg"}], "walking_kettlebell_lunge": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 10, "weight": "40 kg"}]}}, "38": {"date": "2022-03-15", "split": "chest", "gym": "BA", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 2, "weight": "80 kg"}, {"set no.": 2, "reps": 5, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}, {"set no.": 4, "reps": 7, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 6, "weight": "52 kg"}, {"set no.": 2, "reps": 6, "weight": "48 kg"}, {"set no.": 3, "reps": 6, "weight": "44 kg"}, {"set no.": 4, "reps": 8, "weight": "40 kg"}], "dip": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}, {"set no.": 3, "reps": 5, "weight": "0 kg"}], "cable_crossover": [{"set no.": 1, "reps": 10, "weight": "30 kg"}, {"set no.": 2, "reps": 10, "weight": "25 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "cable_crossover_high_low": [{"set no.": 1, "reps": 12, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "20 kg"}, {"set no.": 3, "reps": 10, "weight": "20 kg"}], "cable_crossover_low_high": [{"set no.": 1, "reps": 8, "weight": "15 kg"}, {"set no.": 2, "reps": 12, "weight": "10 kg"}, {"set no.": 3, "reps": 15, "weight": "10 kg"}]}}, "39": {"date": "2022-03-17", "gym": "BA", "split": "back_and_biceps", "exercises": {"lat_pulldown": [{"set no.": 1, "reps": 12, "weight": "40 kg"}, {"set no.": 2, "reps": 12, "weight": "40 kg"}, {"set no.": 3, "reps": 12, "weight": "40 kg"}, {"set no.": 4, "reps": 12, "weight": "40 kg"}], "seated_row": [{"set no.": 1, "reps": 12, "weight": "35 kg"}, {"set no.": 2, "reps": 12, "weight": "35 kg"}, {"set no.": 3, "reps": 12, "weight": "35 kg"}, {"set no.": 4, "reps": 12, "weight": "35 kg"}, {"set no.": 5, "reps": 6, "weight": "80 kg"}], "face_pull": [{"set no.": 1, "reps": 12, "weight": "7.5 kg"}, {"set no.": 2, "reps": 12, "weight": "7.5 kg"}, {"set no.": 3, "reps": 12, "weight": "7.5 kg"}, {"set no.": 4, "reps": 12, "weight": "7.5 kg"}], "one_arm_dumbbell_row": [{"set no.": 1, "reps": 12, "weight": "12 kg"}, {"set no.": 2, "reps": 12, "weight": "12 kg"}, {"set no.": 3, "reps": 12, "weight": "12 kg"}, {"set no.": 4, "reps": 12, "weight": "12 kg"}], "chinup": [{"set no.": 1, "reps": 5, "weight": "0 kg"}, {"set no.": 2, "reps": 5, "weight": "0 kg"}], "barbell_curl": [{"set no.": 1, "reps": 6, "weight": "40 kg"}, {"set no.": 2, "reps": 6, "weight": "40 kg"}]}}, "40": {"date": "2022-03-19", "split": "shoulders_and_abs", "exercises": {"standing_barbell_military_press": [{"set no.": 1, "reps": 8, "weight": "40 kg"}, {"set no.": 2, "reps": 6, "weight": "40 kg"}, {"set no.": 3, "reps": 6, "weight": "40 kg"}, {"set no.": 4, "reps": 6, "weight": "40 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 12, "weight": "24 kg"}, {"set no.": 2, "reps": 12, "weight": "24 kg"}, {"set no.": 3, "reps": 12, "weight": "24 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 6, "weight": "20 kg"}, {"set no.": 2, "reps": 10, "weight": "16 kg"}, {"set no.": 3, "reps": 10, "weight": "16 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "16 kg"}, {"set no.": 2, "reps": 12, "weight": "16 kg"}, {"set no.": 3, "reps": 12, "weight": "16 kg"}], "cable_side_lateral": [{"set no.": 1, "reps": 12, "weight": "14 kg"}, {"set no.": 2, "reps": 10, "weight": "18 kg"}, {"set no.": 3, "reps": 10, "weight": "14 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 15, "weight": "55 kg"}, {"set no.": 2, "reps": 15, "weight": "55 kg"}, {"set no.": 3, "reps": 15, "weight": "55 kg"}, {"set no.": 4, "reps": 15, "weight": "55 kg"}], "toe_to_bar": [{"set no.": 1, "reps": 10, "weight": "0 kg"}, {"set no.": 2, "reps": 10, "weight": "0 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 30, "weight": "0 kg"}, {"set no.": 2, "reps": 30, "weight": "0 kg"}]}}, "41": {"date": "2022-03-26", "split": "push", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 8, "weight": "80 kg"}, {"set no.": 2, "reps": 6, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 6, "weight": "56 kg"}, {"set no.": 2, "reps": 8, "weight": "52 kg"}, {"set no.": 3, "reps": 7, "weight": "48 kg"}], "standing_barbell_military_press": [{"set no.": 1, "reps": 7, "weight": "40 kg"}, {"set no.": 2, "reps": 5, "weight": "40 kg"}, {"set no.": 3, "reps": 10, "weight": "25 kg"}], "dumbbell_flys": [{"set no.": 1, "reps": 10, "weight": "32 kg"}, {"set no.": 2, "reps": 9, "weight": "32 kg"}, {"set no.": 3, "reps": 10, "weight": "32 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 10, "weight": "20 kg"}, {"set no.": 2, "reps": 12, "weight": "16 kg"}, {"set no.": 3, "reps": 12, "weight": "16 kg"}], "french_press": [{"set no.": 1, "reps": 10, "weight": "22 kg"}, {"set no.": 2, "reps": 10, "weight": "22 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 30, "weight": "0 kg"}, {"set no.": 2, "reps": 22, "weight": "0 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 24, "weight": "0 kg"}, {"set no.": 2, "reps": 20, "weight": "0 kg"}]}}, "42": {"date": "2022-03-27", "split": "pull", "exercises": {"seated_row": [{"set no.": 1, "reps": 5, "weight": "86 kg"}, {"set no.": 2, "reps": 7, "weight": "77 kg"}, {"set no.": 3, "reps": 10, "weight": "68 kg"}], "lat_pulldown": [{"set no.": 1, "reps": 5, "weight": "86 kg"}, {"set no.": 2, "reps": 7, "weight": "77 kg"}, {"set no.": 3, "reps": 10, "weight": "68 kg"}], "face_pull": [{"set no.": 1, "reps": 12, "weight": "32 kg"}, {"set no.": 2, "reps": 12, "weight": "36 kg"}, {"set no.": 3, "reps": 12, "weight": "41 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 15, "weight": "55 kg"}, {"set no.": 2, "reps": 15, "weight": "55 kg"}, {"set no.": 3, "reps": 15, "weight": "55 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 12, "weight": "24 kg"}, {"set no.": 2, "reps": 12, "weight": "24 kg"}, {"set no.": 3, "reps": 12, "weight": "24 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "16 kg"}, {"set no.": 2, "reps": 12, "weight": "16 kg"}, {"set no.": 3, "reps": 12, "weight": "16 kg"}], "barbell_curl": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 8, "weight": "40 kg"}]}}, "43": {"date": "2022-03-29", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 6, "weight": "100 kg"}, {"set no.": 2, "reps": 6, "weight": "90 kg"}, {"set no.": 3, "reps": 8, "weight": "80 kg"}, {"set no.": 4, "reps": 8, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 6, "weight": "120 kg"}, {"set no.": 2, "reps": 6, "weight": "100 kg"}, {"set no.": 3, "reps": 10, "weight": "80 kg"}, {"set no.": 4, "reps": 10, "weight": "80 kg"}], "diverging_leg_extention": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 12, "weight": "50 kg"}, {"set no.": 3, "reps": 12, "weight": "50 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 12, "weight": "50 kg"}, {"set no.": 2, "reps": 10, "weight": "50 kg"}, {"set no.": 3, "reps": 10, "weight": "50 kg"}], "seated_calf_raise": [{"set no.": 1, "reps": 12, "weight": "30 kg"}, {"set no.": 2, "reps": 12, "weight": "30 kg"}], "barbell_lunge": [{"set no.": 1, "reps": 7, "weight": "40 kg"}, {"set no.": 2, "reps": 7, "weight": "40 kg"}]}}, "44": {"date": "2022-04-02", "split": "push", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 4, "weight": "80 kg"}, {"set no.": 2, "reps": 8, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 5, "weight": "56 kg"}, {"set no.": 2, "reps": 6, "weight": "52 kg"}, {"set no.": 3, "reps": 8, "weight": "48 kg"}], "standing_barbell_military_press": [{"set no.": 1, "reps": 8, "weight": "40 kg"}, {"set no.": 2, "reps": 5, "weight": "40 kg"}, {"set no.": 3, "reps": 5, "weight": "40 kg"}], "dumbbell_flys": [{"set no.": 1, "reps": 12, "weight": "32 kg"}, {"set no.": 2, "reps": 10, "weight": "32 kg"}, {"set no.": 3, "reps": 9, "weight": "32 kg"}], "dumbbell_front_lateral_raise": [{"set no.": 1, "reps": 8, "weight": "20 kg"}, {"set no.": 2, "reps": 6, "weight": "20 kg"}, {"set no.": 3, "reps": 8, "weight": "16 kg"}], "french_press": [{"set no.": 1, "reps": 12, "weight": "22 kg"}, {"set no.": 2, "reps": 12, "weight": "24 kg"}], "swiss_ball_crunch": [{"set no.": 1, "reps": 30, "weight": "0 kg"}, {"set no.": 2, "reps": 25, "weight": "0 kg"}], "toe_to_bar": [{"set no.": 1, "reps": 10, "weight": "0 kg"}, {"set no.": 2, "reps": 8, "weight": "0 kg"}], "twisting_leg_raise": [{"set no.": 1, "reps": 20, "weight": "0 kg"}, {"set no.": 2, "reps": 16, "weight": "0 kg"}]}}, "45": {"date": "2022-04-03", "split": "pull", "exercises": {"seated_row": [{"set no.": 1, "reps": 6, "weight": "86 kg"}, {"set no.": 2, "reps": 10, "weight": "77 kg"}, {"set no.": 3, "reps": 12, "weight": "68 kg"}], "lat_pulldown": [{"set no.": 1, "reps": 6, "weight": "86 kg"}, {"set no.": 2, "reps": 8, "weight": "77 kg"}, {"set no.": 3, "reps": 10, "weight": "68 kg"}], "face_pull": [{"set no.": 1, "reps": 12, "weight": "41 kg"}, {"set no.": 2, "reps": 12, "weight": "41 kg"}, {"set no.": 3, "reps": 12, "weight": "41 kg"}], "barbell_shrug": [{"set no.": 1, "reps": 15, "weight": "55 kg"}, {"set no.": 2, "reps": 15, "weight": "55 kg"}, {"set no.": 3, "reps": 15, "weight": "55 kg"}], "dumbbell_side_lateral": [{"set no.": 1, "reps": 12, "weight": "24 kg"}, {"set no.": 2, "reps": 12, "weight": "24 kg"}, {"set no.": 3, "reps": 12, "weight": "24 kg"}], "dumbbell_rear_lateral_raise": [{"set no.": 1, "reps": 12, "weight": "16 kg"}, {"set no.": 2, "reps": 12, "weight": "16 kg"}, {"set no.": 3, "reps": 12, "weight": "16 kg"}], "barbell_curl": [{"set no.": 1, "reps": 10, "weight": "40 kg"}, {"set no.": 2, "reps": 7, "weight": "40 kg"}]}}, "46": {"date": "2022-04-11", "split": "legs", "exercises": {"squat": [{"set no.": 1, "reps": 2, "weight": "60 kg"}, {"set no.": 2, "reps": 6, "weight": "100 kg"}, {"set no.": 3, "reps": 8, "weight": "80 kg"}], "deadlift": [{"set no.": 1, "reps": 6, "weight": "130 kg"}, {"set no.": 2, "reps": 6, "weight": "110 kg"}, {"set no.": 3, "reps": 10, "weight": "70 kg"}], "leg_extention": [{"set no.": 1, "reps": 12, "weight": "86 kg"}, {"set no.": 2, "reps": 10, "weight": "91 kg"}, {"set no.": 3, "reps": 10, "weight": "91 kg"}], "standing_calf_raise": [{"set no.": 1, "reps": 10, "weight": "70 kg"}, {"set no.": 2, "reps": 10, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "70 kg"}], "seated_calf_raise": [{"set no.": 1, "reps": 15, "weight": "30 kg"}, {"set no.": 2, "reps": 15, "weight": "30 kg"}, {"set no.": 3, "reps": 15, "weight": "30 kg"}], "barbell_lunge": [{"set no.": 1, "reps": 5, "weight": "40 kg"}, {"set no.": 2, "reps": 5, "weight": "40 kg"}]}}, "47": {"date": "2022-04-13", "split": "push", "exercises": {"barbell_bench_press": [{"set no.": 1, "reps": 4, "weight": "80 kg"}, {"set no.": 2, "reps": 8, "weight": "70 kg"}, {"set no.": 3, "reps": 10, "weight": "60 kg"}], "dumbbell_incline_press": [{"set no.": 1, "reps": 5, "weight": "60 kg"}, {"set no.": 2, "reps": 10, "weight": "48 kg"}, {"set no.": 3, "reps": 8, "weight": "48 kg"}], "standing_barbell_military_press": [{"set no.": 1, "reps": 5, "weight": "40 kg"}, {"set no.": 2, "reps": 4, "weight": "40 kg"}, {"set no.": 3, "reps": 3, "weight": "40 kg"}], "dumbbell_flys": [{"set no.": 1, "reps": 12, "weight": "32 kg"}, {"set no.": 2, "reps": 12, "weight": "32 kg"}, {"set no.": 3, "reps": 12, "weight": "32 kg"}], "dumbbell_incline_front_lateral_raise": [{"set no.": 1, "reps": 8, "weight": "12 kg"}, {"set no.": 2, "reps": 8, "weight": "12 kg"}, {"set no.": 3, "reps": 6, "weight": "12 kg"}], "french_press": [{"set no.": 1, "reps": 12, "weight": "24 kg"}, {"set no.": 2, "reps": 12, "weight": "24 kg"}]}}}, "disciplines_log": {"1": {"date": "2021-12-30", "discipline": "vinyasa_yoga", "duration": "1 hour"}, "2": {"date": "2022-01-25", "discipline": "acro_yoga", "duration": "2 hours"}, "3": {"date": "2022-02-07", "discipline": "mountain_trekking", "duration": "5 hours", "location": "Gibraltar"}, "4": {"date": "2022-02-10", "discipline": "mountain_trekking", "duration": "2 hours", "location": "Ceuta, Morocco"}, "5": {"date": "2022-02-11", "discipline": "mountain_trekking", "duration": "2 hours", "location": "Gibraltar"}, "6": {"date": "2022-02-20", "discipline": "bouldering", "duration": "1 hour", "location": "Copenhagen Boulders"}, "7": {"date": "2022-02-25", "discipline": "badminton", "duration": "2 hours", "note": "Both single and double practice"}, "8": {"date": "2022-03-20", "discipline": "power walking", "duration": "4 hours"}, "9": {"date": "2022-03-21", "discipline": "boxing", "duration": "1.25 hours", "note": "sparring, focus pads and heavy bag"}, "10": {"date": "2022-03-23", "discipline": "boxing", "duration": "1.25 hours", "note": "focus pads and heavy bag"}, "11": {"date": "2022-03-24", "discipline": "football", "duration": "2 hours", "event": "DM&A offsite, Koege"}, "12": {"date": "2022-03-26", "discipline": "hatha_yoga", "duration": "1 hour"}}}
+{
+  "weight_training_log": {
+    "1": {
+      "date": "2021-12-11",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 8, "weight": "70 kg" },
+          { "set no.": 2, "reps": 8, "weight": "80 kg" },
+          { "set no.": 3, "reps": 5, "weight": "90 kg" },
+          { "set no.": 4, "reps": 5, "weight": "90 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 8, "weight": "70 kg" },
+          { "set no.": 2, "reps": 8, "weight": "80 kg" },
+          { "set no.": 3, "reps": 5, "weight": "90 kg" },
+          { "set no.": 4, "reps": 5, "weight": "90 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 8, "weight": "90 kg" },
+          { "set no.": 2, "reps": 8, "weight": "90 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 15, "weight": "64 kg" },
+          { "set no.": 2, "reps": 12, "weight": "73 kg" },
+          { "set no.": 3, "reps": 10, "weight": "73 kg" },
+          { "set no.": 4, "reps": 15, "weight": "64 kg" }
+        ],
+        "seated_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "82 kg" },
+          { "set no.": 2, "reps": 12, "weight": "82 kg" },
+          { "set no.": 3, "reps": 15, "weight": "82 kg" },
+          { "set no.": 4, "reps": 15, "weight": "82 kg" }
+        ],
+        "lunge": [
+          { "set no.": 1, "reps": 14, "weight": "0 kg" },
+          { "set no.": 2, "reps": 14, "weight": "0 kg" },
+          { "set no.": 3, "reps": 14, "weight": "0 kg" },
+          { "set no.": 4, "reps": 14, "weight": "0 kg" },
+          { "set no.": 5, "reps": 14, "weight": "0 kg" }
+        ]
+      }
+    },
+    "2": {
+      "date": "2021-12-13",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 5, "weight": "70 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 12, "weight": "60 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 15, "weight": "36 kg" },
+          { "set no.": 2, "reps": 12, "weight": "46 kg" },
+          { "set no.": 3, "reps": 10, "weight": "54 kg" }
+        ],
+        "incline_dumbbell_press": [
+          { "set no.": 1, "reps": 2, "weight": "52 kg" },
+          { "set no.": 2, "reps": 8, "weight": "36 kg" },
+          { "set no.": 3, "reps": 12, "weight": "32 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 12, "weight": "22 kg" },
+          { "set no.": 2, "reps": 9, "weight": "22 kg" },
+          { "set no.": 3, "reps": 10, "weight": "18 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 12, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "36 kg" },
+          { "set no.": 3, "reps": 10, "weight": "36 kg" }
+        ]
+      }
+    },
+    "3": {
+      "date": "2021-12-15",
+      "split": "back_and_biceps",
+      "exercises": {
+        "pullup_wide_grip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 6, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "dead_row": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 10, "weight": "40 kg" }
+        ],
+        "lat_pulldown_with_twist": [
+          { "set no.": 1, "reps": 10, "weight": "45 kg" },
+          { "set no.": 2, "reps": 10, "weight": "45 kg" }
+        ],
+        "high_single_arm_cable_row": [
+          { "set no.": 1, "reps": 10, "weight": "32 kg" },
+          { "set no.": 2, "reps": 10, "weight": "32 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "9 kg" },
+          { "set no.": 2, "reps": 10, "weight": "14 kg" }
+        ],
+        "dumbbell_pullover": [
+          { "set no.": 1, "reps": 10, "weight": "24 kg" },
+          { "set no.": 2, "reps": 5, "weight": "24 kg" }
+        ],
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 12, "weight": "36 kg" }
+        ],
+        "diverging_low_row": [
+          { "set no.": 1, "reps": 12, "weight": "45 kg" },
+          { "set no.": 2, "reps": 12, "weight": "45 kg" }
+        ],
+        "EZ_bar_curl": [
+          { "set no.": 1, "reps": 7, "weight": "40 kg" },
+          { "set no.": 2, "reps": 10, "weight": "30 kg" }
+        ]
+      }
+    },
+    "4": {
+      "date": "2021-12-16",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "cable_extention": [
+          { "set no.": 1, "reps": 12, "weight": "9 kg" },
+          { "set no.": 2, "reps": 10, "weight": "14 kg" },
+          { "set no.": 3, "reps": 9, "weight": "18 kg" }
+        ],
+        "dumbbell_front_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "8 kg" },
+          { "set no.": 2, "reps": 8, "weight": "8 kg" },
+          { "set no.": 3, "reps": 8, "weight": "6 kg" }
+        ],
+        "seated_rear_dumbbell_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "4 kg" },
+          { "set no.": 2, "reps": 10, "weight": "4 kg" },
+          { "set no.": 3, "reps": 12, "weight": "4 kg" }
+        ],
+        "pre_exhaust_barbell_shrug": [
+          { "set no.": 1, "reps": 12, "weight": "40 kg" },
+          { "set no.": 2, "reps": 6, "weight": "40 kg" },
+          { "set no.": 3, "reps": 6, "weight": "40 kg" }
+        ],
+        "toe_to_bar": [
+          { "set no.": 1, "reps": 8, "weight": "0 kg" },
+          { "set no.": 2, "reps": 8, "weight": "0 kg" }
+        ]
+      }
+    },
+    "5": {
+      "date": "2021-12-25",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 5, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "80 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "60 kg" },
+          { "set no.": 2, "reps": 5, "weight": "60 kg" },
+          { "set no.": 3, "reps": 5, "weight": "60 kg" },
+          { "set no.": 4, "reps": 5, "weight": "60 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 12, "weight": "70 kg" },
+          { "set no.": 2, "reps": 10, "weight": "90 kg" },
+          { "set no.": 3, "reps": 10, "weight": "120 kg" },
+          { "set no.": 4, "reps": 10, "weight": "140 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 10, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 8, "weight": "50 kg" }
+        ],
+        "walking_barbell_lunge": [
+          { "set no.": 1, "reps": 20, "weight": "40 kg" },
+          { "set no.": 2, "reps": 20, "weight": "40 kg" }
+        ]
+      }
+    },
+    "6": {
+      "date": "2021-12-26",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 5, "weight": "70 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 12, "weight": "44 kg" },
+          { "set no.": 2, "reps": 10, "weight": "44 kg" },
+          { "set no.": 3, "reps": 10, "weight": "44 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 12, "weight": "18 kg" },
+          { "set no.": 2, "reps": 12, "weight": "18 kg" },
+          { "set no.": 3, "reps": 12, "weight": "18 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 12, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "36 kg" },
+          { "set no.": 3, "reps": 12, "weight": "36 kg" }
+        ],
+        "incline_barbell_press": [
+          { "set no.": 1, "reps": 8, "weight": "40 kg" },
+          { "set no.": 2, "reps": 5, "weight": "50 kg" },
+          { "set no.": 3, "reps": 5, "weight": "50 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "dumbbell_pullover": [
+          { "set no.": 1, "reps": 8, "weight": "22 kg" },
+          { "set no.": 2, "reps": 8, "weight": "22 kg" },
+          { "set no.": 3, "reps": 8, "weight": "22 kg" }
+        ]
+      }
+    },
+    "7": {
+      "date": "2021-12-28",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "diverging_seated_row": [
+          { "set no.": 1, "reps": 12, "weight": "40 kg" },
+          { "set no.": 2, "reps": 12, "weight": "40 kg" },
+          { "set no.": 3, "reps": 12, "weight": "40 kg" },
+          { "set no.": 4, "reps": 12, "weight": "40 kg" }
+        ],
+        "diverging_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "9 kg" },
+          { "set no.": 2, "reps": 10, "weight": "11 kg" },
+          { "set no.": 3, "reps": 10, "weight": "13 kg" },
+          { "set no.": 4, "reps": 10, "weight": "15 kg" }
+        ],
+        "EZ_bar_curl": [
+          { "set no.": 1, "reps": 8, "weight": "30 kg" },
+          { "set no.": 2, "reps": 8, "weight": "30 kg" }
+        ]
+      }
+    },
+    "8": {
+      "date": "2021-12-29",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "arnold_press": [
+          { "set no.": 1, "reps": 10, "weight": "28 kg" },
+          { "set no.": 2, "reps": 10, "weight": "32 kg" },
+          { "set no.": 3, "reps": 10, "weight": "32 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "11 kg" },
+          { "set no.": 2, "reps": 12, "weight": "13 kg" },
+          { "set no.": 3, "reps": 10, "weight": "13 kg" },
+          { "set no.": 4, "reps": 10, "weight": "15 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "20 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 5, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" },
+          { "set no.": 4, "reps": 10, "weight": "8 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "4 kg" },
+          { "set no.": 2, "reps": 12, "weight": "8 kg" },
+          { "set no.": 3, "reps": 12, "weight": "8 kg" }
+        ],
+        "dumbbell_shrug": [
+          { "set no.": 1, "reps": 12, "weight": "48 kg" },
+          { "set no.": 2, "reps": 12, "weight": "48 kg" },
+          { "set no.": 3, "reps": 12, "weight": "48 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 24, "weight": "0 kg" },
+          { "set no.": 2, "reps": 20, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 15, "weight": "0 kg" },
+          { "set no.": 2, "reps": 15, "weight": "0 kg" },
+          { "set no.": 3, "reps": 15, "weight": "0 kg" }
+        ]
+      }
+    },
+    "9": {
+      "date": "2022-01-01",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 5, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "90 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "90 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 10, "weight": "150 kg" },
+          { "set no.": 2, "reps": 10, "weight": "150 kg" },
+          { "set no.": 3, "reps": 10, "weight": "150 kg" },
+          { "set no.": 4, "reps": 10, "weight": "150 kg" }
+        ],
+        "prone_leg_curl": [
+          { "set no.": 1, "reps": 8, "weight": "41 kg" },
+          { "set no.": 2, "reps": 8, "weight": "41 kg" },
+          { "set no.": 3, "reps": 8, "weight": "41 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 12, "weight": "50 kg" },
+          { "set no.": 3, "reps": 12, "weight": "50 kg" }
+        ],
+        "barbell_lunge": [
+          { "set no.": 1, "reps": 4, "weight": "60 kg" },
+          { "set no.": 2, "reps": 8, "weight": "40 kg" },
+          { "set no.": 3, "reps": 14, "weight": "40 kg" }
+        ]
+      }
+    },
+    "10": {
+      "date": "2022-01-03",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 5, "weight": "70 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 5, "weight": "70 kg" },
+          { "set no.": 4, "reps": 1, "weight": "80 kg" }
+        ],
+        "barbell_incline_press": [
+          { "set no.": 1, "reps": 4, "weight": "60 kg" },
+          { "set no.": 2, "reps": 6, "weight": "50 kg" },
+          { "set no.": 3, "reps": 6, "weight": "50 kg" },
+          { "set no.": 4, "reps": 5, "weight": "50 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 12, "weight": "54 kg" },
+          { "set no.": 2, "reps": 10, "weight": "54 kg" },
+          { "set no.": 3, "reps": 8, "weight": "54 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 12, "weight": "28 kg" },
+          { "set no.": 2, "reps": 10, "weight": "36 kg" },
+          { "set no.": 3, "reps": 10, "weight": "36 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 7, "weight": "28 kg" },
+          { "set no.": 2, "reps": 10, "weight": "18 kg" },
+          { "set no.": 3, "reps": 12, "weight": "18 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ]
+      }
+    },
+    "11": {
+      "date": "2022-01-05",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "diverging_seated_row": [
+          { "set no.": 1, "reps": 12, "weight": "40 kg" },
+          { "set no.": 2, "reps": 12, "weight": "40 kg" },
+          { "set no.": 3, "reps": 12, "weight": "40 kg" },
+          { "set no.": 4, "reps": 12, "weight": "40 kg" }
+        ],
+        "diverging_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "14 kg" },
+          { "set no.": 2, "reps": 10, "weight": "16 kg" },
+          { "set no.": 3, "reps": 10, "weight": "18 kg" },
+          { "set no.": 4, "reps": 10, "weight": "20 kg" }
+        ],
+        "dumbbell_curl": [
+          { "set no.": 1, "reps": 6, "weight": "32 kg" },
+          { "set no.": 2, "reps": 6, "weight": "32 kg" }
+        ]
+      }
+    },
+    "12": {
+      "date": "2022-01-06",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "military_press": [
+          { "set no.": 1, "reps": 10, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "35 kg" },
+          { "set no.": 3, "reps": 8, "weight": "35 kg" },
+          { "set no.": 4, "reps": 8, "weight": "35 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "16 kg" },
+          { "set no.": 2, "reps": 10, "weight": "16 kg" },
+          { "set no.": 3, "reps": 10, "weight": "16 kg" },
+          { "set no.": 4, "reps": 10, "weight": "16 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "20 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" },
+          { "set no.": 4, "reps": 10, "weight": "12 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 8, "weight": "12 kg" },
+          { "set no.": 3, "reps": 12, "weight": "12 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 12, "weight": "45 kg" },
+          { "set no.": 2, "reps": 12, "weight": "45 kg" },
+          { "set no.": 3, "reps": 12, "weight": "45 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 24, "weight": "0 kg" },
+          { "set no.": 2, "reps": 20, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 16, "weight": "0 kg" },
+          { "set no.": 2, "reps": 16, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ]
+      }
+    },
+    "13": {
+      "date": "2022-01-15",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 3, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "100 kg" },
+          { "set no.": 3, "reps": 5, "weight": "100 kg" },
+          { "set no.": 4, "reps": 5, "weight": "100 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 12, "weight": "50 kg" },
+          { "set no.": 3, "reps": 12, "weight": "50 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 10, "weight": "70 kg" },
+          { "set no.": 2, "reps": 7, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" }
+        ],
+        "hack_squat": [
+          { "set no.": 1, "reps": 15, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "70 kg" }
+        ]
+      }
+    },
+    "14": {
+      "date": "2022-01-16",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 2, "weight": "80 kg" },
+          { "set no.": 2, "reps": 6, "weight": "70 kg" },
+          { "set no.": 3, "reps": 4, "weight": "70 kg" },
+          { "set no.": 4, "reps": 10, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 5, "weight": "52 kg" },
+          { "set no.": 2, "reps": 5, "weight": "48 kg" },
+          { "set no.": 3, "reps": 5, "weight": "44 kg" },
+          { "set no.": 4, "reps": 5, "weight": "40 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 12, "weight": "54 kg" },
+          { "set no.": 2, "reps": 8, "weight": "54 kg" },
+          { "set no.": 3, "reps": 6, "weight": "54 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 10, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "28 kg" },
+          { "set no.": 3, "reps": 8, "weight": "28 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 7, "weight": "28 kg" },
+          { "set no.": 2, "reps": 12, "weight": "18 kg" },
+          { "set no.": 3, "reps": 12, "weight": "18 kg" }
+        ]
+      }
+    },
+    "15": {
+      "date": "2022-01-23",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [{ "set no.": 1, "reps": 5, "weight": "0 kg" }],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "diverging_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 8, "weight": "70 kg" },
+          { "set no.": 3, "reps": 8, "weight": "70 kg" },
+          { "set no.": 4, "reps": 8, "weight": "70 kg" }
+        ],
+        "diverging_seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "60 kg" },
+          { "set no.": 2, "reps": 10, "weight": "60 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" },
+          { "set no.": 4, "reps": 8, "weight": "60 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "23 kg" },
+          { "set no.": 3, "reps": 10, "weight": "27 kg" },
+          { "set no.": 4, "reps": 10, "weight": "32 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 10, "weight": "35 kg" },
+          { "set no.": 2, "reps": 6, "weight": "35 kg" }
+        ]
+      }
+    },
+    "16": {
+      "date": "2022-01-25",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "military_press": [
+          { "set no.": 1, "reps": 10, "weight": "35 kg" },
+          { "set no.": 2, "reps": 8, "weight": "35 kg" },
+          { "set no.": 3, "reps": 6, "weight": "35 kg" },
+          { "set no.": 4, "reps": 5, "weight": "35 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "16 kg" },
+          { "set no.": 2, "reps": 10, "weight": "16 kg" },
+          { "set no.": 3, "reps": 10, "weight": "16 kg" },
+          { "set no.": 4, "reps": 10, "weight": "16 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "20 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" },
+          { "set no.": 4, "reps": 10, "weight": "12 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 12, "weight": "12 kg" },
+          { "set no.": 3, "reps": 12, "weight": "12 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 12, "weight": "45 kg" },
+          { "set no.": 2, "reps": 12, "weight": "45 kg" },
+          { "set no.": 3, "reps": 12, "weight": "45 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 30, "weight": "0 kg" },
+          { "set no.": 2, "reps": 30, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 17, "weight": "0 kg" },
+          { "set no.": 2, "reps": 17, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ]
+      }
+    },
+    "17": {
+      "date": "2022-01-27",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 3, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "70 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "100 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "60 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 10, "weight": "60 kg" },
+          { "set no.": 2, "reps": 8, "weight": "60 kg" },
+          { "set no.": 3, "reps": 10, "weight": "40 kg" },
+          { "set no.": 4, "reps": 9, "weight": "40 kg" }
+        ],
+        "barbell_lunge": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 10, "weight": "40 kg" }
+        ]
+      }
+    },
+    "18": {
+      "date": "2022-01-29",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 2, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 5, "weight": "65 kg" },
+          { "set no.": 4, "reps": 8, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 5, "weight": "52 kg" },
+          { "set no.": 2, "reps": 5, "weight": "48 kg" },
+          { "set no.": 3, "reps": 5, "weight": "44 kg" },
+          { "set no.": 4, "reps": 5, "weight": "40 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 12, "weight": "46 kg" },
+          { "set no.": 2, "reps": 12, "weight": "46 kg" },
+          { "set no.": 3, "reps": 10, "weight": "46 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 6, "weight": "28 kg" },
+          { "set no.": 2, "reps": 10, "weight": "18 kg" },
+          { "set no.": 3, "reps": 10, "weight": "18 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 12, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "36 kg" },
+          { "set no.": 3, "reps": 10, "weight": "28 kg" }
+        ]
+      }
+    },
+    "19": {
+      "date": "2022-01-30",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "54 kg" },
+          { "set no.": 3, "reps": 8, "weight": "59 kg" },
+          { "set no.": 4, "reps": 10, "weight": "54 kg" }
+        ],
+        "diverging_seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "70 kg" },
+          { "set no.": 2, "reps": 8, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" },
+          { "set no.": 4, "reps": 10, "weight": "60 kg" }
+        ],
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 8, "weight": "68 kg" },
+          { "set no.": 2, "reps": 8, "weight": "64 kg" },
+          { "set no.": 3, "reps": 8, "weight": "59 kg" },
+          { "set no.": 4, "reps": 8, "weight": "54 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "32 kg" },
+          { "set no.": 2, "reps": 10, "weight": "36 kg" },
+          { "set no.": 3, "reps": 10, "weight": "36 kg" },
+          { "set no.": 4, "reps": 10, "weight": "36 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 8, "weight": "35 kg" },
+          { "set no.": 2, "reps": 6, "weight": "35 kg" }
+        ]
+      }
+    },
+    "20": {
+      "date": "2022-02-03",
+      "split": "shoulders",
+      "exercises": {
+        "military_press": [
+          { "set no.": 1, "reps": 12, "weight": "35 kg" },
+          { "set no.": 2, "reps": 8, "weight": "35 kg" },
+          { "set no.": 3, "reps": 8, "weight": "35 kg" },
+          { "set no.": 4, "reps": 6, "weight": "35 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "10 kg" },
+          { "set no.": 2, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 3, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 4, "reps": 10, "weight": "7.5 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "18 kg" },
+          { "set no.": 2, "reps": 10, "weight": "18 kg" },
+          { "set no.": 3, "reps": 10, "weight": "18 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 8, "weight": "12 kg" },
+          { "set no.": 4, "reps": 8, "weight": "12 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 12, "weight": "45 kg" },
+          { "set no.": 2, "reps": 12, "weight": "45 kg" },
+          { "set no.": 3, "reps": 12, "weight": "45 kg" }
+        ]
+      }
+    },
+    "21": {
+      "date": "2022-02-05",
+      "split": "legs_and_abs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 3, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "70 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 15, "weight": "73 kg" },
+          { "set no.": 2, "reps": 12, "weight": "73 kg" },
+          { "set no.": 3, "reps": 10, "weight": "73 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 10, "weight": "60 kg" },
+          { "set no.": 2, "reps": 10, "weight": "60 kg" },
+          { "set no.": 3, "reps": 12, "weight": "40 kg" },
+          { "set no.": 4, "reps": 12, "weight": "40 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 10, "weight": "150 kg" },
+          { "set no.": 2, "reps": 10, "weight": "150 kg" },
+          { "set no.": 3, "reps": 10, "weight": "150 kg" },
+          { "set no.": 4, "reps": 10, "weight": "150 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 30, "weight": "0 kg" },
+          { "set no.": 2, "reps": 20, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 16, "weight": "0 kg" },
+          { "set no.": 2, "reps": 15, "weight": "0 kg" },
+          { "set no.": 3, "reps": 15, "weight": "0 kg" }
+        ]
+      }
+    },
+    "22": {
+      "date": "2022-02-08",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 2, "weight": "80 kg" },
+          { "set no.": 2, "reps": 3, "weight": "70 kg" },
+          { "set no.": 3, "reps": 5, "weight": "60 kg" },
+          { "set no.": 4, "reps": 5, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 8, "weight": "50 kg" },
+          { "set no.": 2, "reps": 6, "weight": "50 kg" },
+          { "set no.": 3, "reps": 8, "weight": "44 kg" },
+          { "set no.": 4, "reps": 5, "weight": "44 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "dumbbell_flys": [
+          { "set no.": 1, "reps": 8, "weight": "25 kg" },
+          { "set no.": 2, "reps": 8, "weight": "25 kg" },
+          { "set no.": 3, "reps": 8, "weight": "25 kg" }
+        ],
+        "dumbbell_incline_flys": [
+          { "set no.": 1, "reps": 10, "weight": "20 kg" },
+          { "set no.": 2, "reps": 8, "weight": "20 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "dumbbell_decline_flys": [
+          { "set no.": 1, "reps": 8, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "20 kg" },
+          { "set no.": 3, "reps": 8, "weight": "20 kg" }
+        ]
+      }
+    },
+    "23": {
+      "date": "2022-02-08",
+      "workout_number": "2",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "52 kg" },
+          { "set no.": 2, "reps": 10, "weight": "52 kg" },
+          { "set no.": 3, "reps": 10, "weight": "45 kg" },
+          { "set no.": 4, "reps": 10, "weight": "45 kg" }
+        ],
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 10, "weight": "66 kg" },
+          { "set no.": 2, "reps": 10, "weight": "66 kg" },
+          { "set no.": 3, "reps": 10, "weight": "66 kg" },
+          { "set no.": 4, "reps": 10, "weight": "66 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "36 kg" },
+          { "set no.": 3, "reps": 10, "weight": "36 kg" },
+          { "set no.": 4, "reps": 10, "weight": "36 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 8, "weight": "35 kg" },
+          { "set no.": 2, "reps": 8, "weight": "25 kg" }
+        ]
+      }
+    },
+    "24": {
+      "date": "2022-02-11",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "arnold_press": [
+          { "set no.": 1, "reps": 8, "weight": "34 kg" },
+          { "set no.": 2, "reps": 8, "weight": "34 kg" },
+          { "set no.": 3, "reps": 8, "weight": "30 kg" },
+          { "set no.": 4, "reps": 8, "weight": "30 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "20 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" },
+          { "set no.": 4, "reps": 10, "weight": "20 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "14 kg" },
+          { "set no.": 2, "reps": 10, "weight": "14 kg" },
+          { "set no.": 3, "reps": 10, "weight": "10 kg" },
+          { "set no.": 4, "reps": 10, "weight": "10 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "10 kg" },
+          { "set no.": 2, "reps": 10, "weight": "10 kg" },
+          { "set no.": 3, "reps": 10, "weight": "10 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "45 kg" },
+          { "set no.": 2, "reps": 15, "weight": "45 kg" },
+          { "set no.": 3, "reps": 15, "weight": "45 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 30, "weight": "0 kg" },
+          { "set no.": 2, "reps": 30, "weight": "0 kg" },
+          { "set no.": 3, "reps": 26, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 20, "weight": "0 kg" },
+          { "set no.": 2, "reps": 20, "weight": "0 kg" },
+          { "set no.": 3, "reps": 30, "weight": "0 kg" }
+        ]
+      }
+    },
+    "25": {
+      "date": "2022-02-12",
+      "split": "legs",
+      "note": "calves skipped due to fatigue from mountain trekking",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 3, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 8, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 5, "weight": "80 kg" },
+          { "set no.": 4, "reps": 5, "weight": "80 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 15, "weight": "73 kg" },
+          { "set no.": 2, "reps": 15, "weight": "73 kg" },
+          { "set no.": 3, "reps": 14, "weight": "109 kg" },
+          { "set no.": 4, "reps": 14, "weight": "109 kg" }
+        ],
+        "back_extention": [
+          { "set no.": 1, "reps": 12, "weight": "0 kg" },
+          { "set no.": 2, "reps": 12, "weight": "0 kg" },
+          { "set no.": 3, "reps": 12, "weight": "0 kg" }
+        ]
+      }
+    },
+    "26": {
+      "date": "2022-02-15",
+      "gym": "Novo BA",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 2, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" },
+          { "set no.": 4, "reps": 5, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 5, "weight": "52 kg" },
+          { "set no.": 2, "reps": 5, "weight": "48 kg" },
+          { "set no.": 3, "reps": 5, "weight": "44 kg" },
+          { "set no.": 4, "reps": 5, "weight": "40 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 8, "weight": "30 kg" },
+          { "set no.": 2, "reps": 8, "weight": "25 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 8, "weight": "20 kg" },
+          { "set no.": 2, "reps": 8, "weight": "20 kg" },
+          { "set no.": 3, "reps": 8, "weight": "20 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 5, "weight": "15 kg" },
+          { "set no.": 2, "reps": 10, "weight": "10 kg" },
+          { "set no.": 3, "reps": 14, "weight": "5 kg" }
+        ]
+      }
+    },
+    "27": {
+      "date": "2022-02-16",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "diverging_seated_row": [
+          { "set no.": 1, "reps": 10, "weight": "60 kg" },
+          { "set no.": 2, "reps": 10, "weight": "70 kg" },
+          { "set no.": 3, "reps": 9, "weight": "70 kg" },
+          { "set no.": 4, "reps": 8, "weight": "70 kg" }
+        ],
+        "diverging_pulldown": [
+          { "set no.": 1, "reps": 10, "weight": "60 kg" },
+          { "set no.": 2, "reps": 10, "weight": "60 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" },
+          { "set no.": 4, "reps": 10, "weight": "60 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 6, "weight": "68 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 10, "weight": "50 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 6, "weight": "35 kg" },
+          { "set no.": 2, "reps": 6, "weight": "35 kg" }
+        ]
+      }
+    },
+    "28": {
+      "date": "2022-02-18",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "arnold_press": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 10, "weight": "32 kg" },
+          { "set no.": 3, "reps": 6, "weight": "36 kg" },
+          { "set no.": 4, "reps": 6, "weight": "36 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "18 kg" },
+          { "set no.": 2, "reps": 12, "weight": "14 kg" },
+          { "set no.": 3, "reps": 12, "weight": "14 kg" },
+          { "set no.": 4, "reps": 12, "weight": "14 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" },
+          { "set no.": 4, "reps": 10, "weight": "12 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 12, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "55 kg" },
+          { "set no.": 2, "reps": 15, "weight": "55 kg" },
+          { "set no.": 3, "reps": 15, "weight": "55 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 12, "weight": "32 kg" },
+          { "set no.": 3, "reps": 12, "weight": "32 kg" },
+          { "set no.": 4, "reps": 12, "weight": "32 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 32, "weight": "0 kg" },
+          { "set no.": 2, "reps": 26, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 20, "weight": "0 kg" },
+          { "set no.": 2, "reps": 15, "weight": "0 kg" },
+          { "set no.": 3, "reps": 15, "weight": "0 kg" }
+        ]
+      }
+    },
+    "29": {
+      "date": "2022-02-26",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 3, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 8, "weight": "80 kg" },
+          { "set no.": 4, "reps": 10, "weight": "70 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "100 kg" },
+          { "set no.": 3, "reps": 5, "weight": "100 kg" },
+          { "set no.": 4, "reps": 5, "weight": "100 kg" }
+        ],
+        "diverging_leg_extention": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 12, "weight": "50 kg" },
+          { "set no.": 3, "reps": 12, "weight": "50 kg" },
+          { "set no.": 4, "reps": 12, "weight": "50 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 12, "weight": "150 kg" },
+          { "set no.": 2, "reps": 10, "weight": "150 kg" },
+          { "set no.": 3, "reps": 8, "weight": "150 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 10, "weight": "70 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" }
+        ],
+        "barbell_lunge": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 10, "weight": "40 kg" }
+        ]
+      }
+    },
+    "30": {
+      "date": "2022-02-27",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 2, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" },
+          { "set no.": 4, "reps": 8, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 8, "weight": "48 kg" },
+          { "set no.": 2, "reps": 8, "weight": "40 kg" },
+          { "set no.": 3, "reps": 8, "weight": "40 kg" },
+          { "set no.": 4, "reps": 6, "weight": "40 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 12, "weight": "36 kg" },
+          { "set no.": 2, "reps": 10, "weight": "46 kg" },
+          { "set no.": 3, "reps": 8, "weight": "54 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 12, "weight": "36 kg" },
+          { "set no.": 2, "reps": 8, "weight": "40 kg" },
+          { "set no.": 3, "reps": 8, "weight": "40 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 8, "weight": "22 kg" },
+          { "set no.": 2, "reps": 10, "weight": "18 kg" },
+          { "set no.": 3, "reps": 10, "weight": "18 kg" }
+        ]
+      }
+    },
+    "31": {
+      "date": "2022-03-02",
+      "gym": "BA",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 6, "weight": "70 kg" },
+          { "set no.": 2, "reps": 6, "weight": "65 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" },
+          { "set no.": 4, "reps": 10, "weight": "55 kg" }
+        ],
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 6, "weight": "70 kg" },
+          { "set no.": 2, "reps": 6, "weight": "65 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" },
+          { "set no.": 4, "reps": 10, "weight": "55 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 8, "weight": "25 kg" },
+          { "set no.": 2, "reps": 8, "weight": "20 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" },
+          { "set no.": 4, "reps": 10, "weight": "20 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 8, "weight": "35 kg" },
+          { "set no.": 2, "reps": 5, "weight": "35 kg" }
+        ]
+      }
+    },
+    "32": {
+      "date": "2022-03-03",
+      "split": "shoulders_and_abs",
+      "gym": "BA",
+      "exercises": {
+        "arnold_press": [
+          { "set no.": 1, "reps": 8, "weight": "40 kg" },
+          { "set no.": 2, "reps": 7, "weight": "40 kg" },
+          { "set no.": 3, "reps": 6, "weight": "40 kg" },
+          { "set no.": 4, "reps": 5, "weight": "40 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 6, "weight": "24 kg" },
+          { "set no.": 2, "reps": 10, "weight": "20 kg" },
+          { "set no.": 3, "reps": 8, "weight": "18 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 8, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "12 kg" },
+          { "set no.": 2, "reps": 10, "weight": "12 kg" },
+          { "set no.": 3, "reps": 10, "weight": "12 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 10, "weight": "7.5 kg" },
+          { "set no.": 2, "reps": 10, "weight": "7.5 kg" },
+          { "set no.": 3, "reps": 10, "weight": "7.5 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "50 kg" },
+          { "set no.": 2, "reps": 12, "weight": "60 kg" },
+          { "set no.": 3, "reps": 12, "weight": "60 kg" }
+        ],
+        "toe_to_bar": [
+          { "set no.": 1, "reps": 10, "weight": "0 kg" },
+          { "set no.": 2, "reps": 10, "weight": "0 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 26, "weight": "0 kg" },
+          { "set no.": 2, "reps": 20, "weight": "0 kg" }
+        ]
+      }
+    },
+    "33": {
+      "date": "2022-03-05",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 4, "weight": "100 kg" },
+          { "set no.": 3, "reps": 6, "weight": "90 kg" },
+          { "set no.": 4, "reps": 6, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 6, "weight": "100 kg" },
+          { "set no.": 3, "reps": 5, "weight": "100 kg" },
+          { "set no.": 4, "reps": 5, "weight": "100 kg" }
+        ],
+        "legpress": [
+          { "set no.": 1, "reps": 12, "weight": "150 kg" },
+          { "set no.": 2, "reps": 12, "weight": "150 kg" },
+          { "set no.": 3, "reps": 12, "weight": "150 kg" },
+          { "set no.": 4, "reps": 12, "weight": "150 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "60 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 8, "weight": "50 kg" }
+        ],
+        "seated_calf_raise": [
+          { "set no.": 1, "reps": 8, "weight": "30 kg" },
+          { "set no.": 2, "reps": 12, "weight": "20 kg" },
+          { "set no.": 3, "reps": 12, "weight": "20 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 15, "weight": "77 kg" },
+          { "set no.": 2, "reps": 10, "weight": "82 kg" },
+          { "set no.": 3, "reps": 8, "weight": "82 kg" }
+        ],
+        "barbell_lunge": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 10, "weight": "40 kg" }
+        ]
+      }
+    },
+    "34": {
+      "date": "2022-03-07",
+      "split": "chest",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 4, "weight": "80 kg" },
+          { "set no.": 2, "reps": 6, "weight": "70 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" },
+          { "set no.": 4, "reps": 8, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 5, "weight": "52 kg" },
+          { "set no.": 2, "reps": 12, "weight": "24 kg" },
+          { "set no.": 3, "reps": 5, "weight": "44 kg" },
+          { "set no.": 4, "reps": 8, "weight": "36 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "dumbbell_flys": [
+          { "set no.": 1, "reps": 8, "weight": "28 kg" },
+          { "set no.": 2, "reps": 6, "weight": "28 kg" },
+          { "set no.": 3, "reps": 8, "weight": "24 kg" }
+        ],
+        "dumbbell_incline_flys": [
+          { "set no.": 1, "reps": 8, "weight": "20 kg" },
+          { "set no.": 2, "reps": 8, "weight": "18 kg" },
+          { "set no.": 3, "reps": 8, "weight": "16 kg" }
+        ],
+        "dumbbell_front_raise": [
+          { "set no.": 1, "reps": 10, "weight": "10 kg" },
+          { "set no.": 2, "reps": 8, "weight": "10 kg" },
+          { "set no.": 3, "reps": 10, "weight": "10 kg" }
+        ]
+      }
+    },
+    "35": {
+      "date": "2022-03-11",
+      "gym": "BA",
+      "split": "back_and_biceps",
+      "exercises": {
+        "wide_grip_pullup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 8, "weight": "70 kg" },
+          { "set no.": 2, "reps": 8, "weight": "65 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" },
+          { "set no.": 4, "reps": 8, "weight": "55 kg" }
+        ],
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 8, "weight": "70 kg" },
+          { "set no.": 2, "reps": 8, "weight": "65 kg" },
+          { "set no.": 3, "reps": 8, "weight": "60 kg" },
+          { "set no.": 4, "reps": 10, "weight": "55 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 10, "weight": "25 kg" },
+          { "set no.": 2, "reps": 10, "weight": "22.5 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 8, "weight": "35 kg" },
+          { "set no.": 2, "reps": 8, "weight": "35 kg" }
+        ],
+        "machine_reverse_fly": [
+          { "set no.": 1, "reps": 12, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "30 kg" }
+        ]
+      }
+    },
+    "36": {
+      "date": "2022-03-12",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "standing_barbell_military_press": [
+          { "set no.": 1, "reps": 8, "weight": "35 kg" },
+          { "set no.": 2, "reps": 6, "weight": "40 kg" },
+          { "set no.": 3, "reps": 6, "weight": "40 kg" },
+          { "set no.": 4, "reps": 6, "weight": "40 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 8, "weight": "24 kg" },
+          { "set no.": 2, "reps": 10, "weight": "24 kg" },
+          { "set no.": 3, "reps": 8, "weight": "24 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "12 kg" },
+          { "set no.": 2, "reps": 8, "weight": "16 kg" },
+          { "set no.": 3, "reps": 8, "weight": "16 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 12, "weight": "12 kg" },
+          { "set no.": 3, "reps": 12, "weight": "12 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "14 kg" },
+          { "set no.": 2, "reps": 10, "weight": "18 kg" },
+          { "set no.": 3, "reps": 12, "weight": "18 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "55 kg" },
+          { "set no.": 2, "reps": 15, "weight": "55 kg" },
+          { "set no.": 3, "reps": 15, "weight": "55 kg" },
+          { "set no.": 4, "reps": 15, "weight": "55 kg" }
+        ],
+        "toe_to_bar": [
+          { "set no.": 1, "reps": 10, "weight": "0 kg" },
+          { "set no.": 2, "reps": 10, "weight": "0 kg" },
+          { "set no.": 3, "reps": 10, "weight": "0 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 20, "weight": "0 kg" },
+          { "set no.": 2, "reps": 20, "weight": "0 kg" },
+          { "set no.": 3, "reps": 20, "weight": "0 kg" }
+        ]
+      }
+    },
+    "37": {
+      "date": "2022-03-14",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 5, "weight": "90 kg" },
+          { "set no.": 3, "reps": 8, "weight": "80 kg" },
+          { "set no.": 4, "reps": 8, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 5, "weight": "100 kg" },
+          { "set no.": 2, "reps": 10, "weight": "100 kg" },
+          { "set no.": 3, "reps": 12, "weight": "100 kg" },
+          { "set no.": 4, "reps": 5, "weight": "100 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 12, "weight": "79 kg" },
+          { "set no.": 2, "reps": 13, "weight": "84 kg" },
+          { "set no.": 3, "reps": 8, "weight": "88 kg" },
+          { "set no.": 4, "reps": 10, "weight": "75 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 10, "weight": "70 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" },
+          { "set no.": 4, "reps": 12, "weight": "50 kg" }
+        ],
+        "seated_calf_raise": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 10, "weight": "40 kg" }
+        ],
+        "walking_kettlebell_lunge": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 10, "weight": "40 kg" }
+        ]
+      }
+    },
+    "38": {
+      "date": "2022-03-15",
+      "split": "chest",
+      "gym": "BA",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 2, "weight": "80 kg" },
+          { "set no.": 2, "reps": 5, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" },
+          { "set no.": 4, "reps": 7, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 6, "weight": "52 kg" },
+          { "set no.": 2, "reps": 6, "weight": "48 kg" },
+          { "set no.": 3, "reps": 6, "weight": "44 kg" },
+          { "set no.": 4, "reps": 8, "weight": "40 kg" }
+        ],
+        "dip": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" },
+          { "set no.": 3, "reps": 5, "weight": "0 kg" }
+        ],
+        "cable_crossover": [
+          { "set no.": 1, "reps": 10, "weight": "30 kg" },
+          { "set no.": 2, "reps": 10, "weight": "25 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "cable_crossover_high_low": [
+          { "set no.": 1, "reps": 12, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "20 kg" },
+          { "set no.": 3, "reps": 10, "weight": "20 kg" }
+        ],
+        "cable_crossover_low_high": [
+          { "set no.": 1, "reps": 8, "weight": "15 kg" },
+          { "set no.": 2, "reps": 12, "weight": "10 kg" },
+          { "set no.": 3, "reps": 15, "weight": "10 kg" }
+        ]
+      }
+    },
+    "39": {
+      "date": "2022-03-17",
+      "gym": "BA",
+      "split": "back_and_biceps",
+      "exercises": {
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 12, "weight": "40 kg" },
+          { "set no.": 2, "reps": 12, "weight": "40 kg" },
+          { "set no.": 3, "reps": 12, "weight": "40 kg" },
+          { "set no.": 4, "reps": 12, "weight": "40 kg" }
+        ],
+        "seated_row": [
+          { "set no.": 1, "reps": 12, "weight": "35 kg" },
+          { "set no.": 2, "reps": 12, "weight": "35 kg" },
+          { "set no.": 3, "reps": 12, "weight": "35 kg" },
+          { "set no.": 4, "reps": 12, "weight": "35 kg" },
+          { "set no.": 5, "reps": 6, "weight": "80 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 2, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 3, "reps": 12, "weight": "7.5 kg" },
+          { "set no.": 4, "reps": 12, "weight": "7.5 kg" }
+        ],
+        "one_arm_dumbbell_row": [
+          { "set no.": 1, "reps": 12, "weight": "12 kg" },
+          { "set no.": 2, "reps": 12, "weight": "12 kg" },
+          { "set no.": 3, "reps": 12, "weight": "12 kg" },
+          { "set no.": 4, "reps": 12, "weight": "12 kg" }
+        ],
+        "chinup": [
+          { "set no.": 1, "reps": 5, "weight": "0 kg" },
+          { "set no.": 2, "reps": 5, "weight": "0 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 6, "weight": "40 kg" },
+          { "set no.": 2, "reps": 6, "weight": "40 kg" }
+        ]
+      }
+    },
+    "40": {
+      "date": "2022-03-19",
+      "split": "shoulders_and_abs",
+      "exercises": {
+        "standing_barbell_military_press": [
+          { "set no.": 1, "reps": 8, "weight": "40 kg" },
+          { "set no.": 2, "reps": 6, "weight": "40 kg" },
+          { "set no.": 3, "reps": 6, "weight": "40 kg" },
+          { "set no.": 4, "reps": 6, "weight": "40 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "24 kg" },
+          { "set no.": 2, "reps": 12, "weight": "24 kg" },
+          { "set no.": 3, "reps": 12, "weight": "24 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 6, "weight": "20 kg" },
+          { "set no.": 2, "reps": 10, "weight": "16 kg" },
+          { "set no.": 3, "reps": 10, "weight": "16 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "16 kg" },
+          { "set no.": 2, "reps": 12, "weight": "16 kg" },
+          { "set no.": 3, "reps": 12, "weight": "16 kg" }
+        ],
+        "cable_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "14 kg" },
+          { "set no.": 2, "reps": 10, "weight": "18 kg" },
+          { "set no.": 3, "reps": 10, "weight": "14 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "55 kg" },
+          { "set no.": 2, "reps": 15, "weight": "55 kg" },
+          { "set no.": 3, "reps": 15, "weight": "55 kg" },
+          { "set no.": 4, "reps": 15, "weight": "55 kg" }
+        ],
+        "toe_to_bar": [
+          { "set no.": 1, "reps": 10, "weight": "0 kg" },
+          { "set no.": 2, "reps": 10, "weight": "0 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 30, "weight": "0 kg" },
+          { "set no.": 2, "reps": 30, "weight": "0 kg" }
+        ]
+      }
+    },
+    "41": {
+      "date": "2022-03-26",
+      "split": "push",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 8, "weight": "80 kg" },
+          { "set no.": 2, "reps": 6, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 6, "weight": "56 kg" },
+          { "set no.": 2, "reps": 8, "weight": "52 kg" },
+          { "set no.": 3, "reps": 7, "weight": "48 kg" }
+        ],
+        "standing_barbell_military_press": [
+          { "set no.": 1, "reps": 7, "weight": "40 kg" },
+          { "set no.": 2, "reps": 5, "weight": "40 kg" },
+          { "set no.": 3, "reps": 10, "weight": "25 kg" }
+        ],
+        "dumbbell_flys": [
+          { "set no.": 1, "reps": 10, "weight": "32 kg" },
+          { "set no.": 2, "reps": 9, "weight": "32 kg" },
+          { "set no.": 3, "reps": 10, "weight": "32 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 10, "weight": "20 kg" },
+          { "set no.": 2, "reps": 12, "weight": "16 kg" },
+          { "set no.": 3, "reps": 12, "weight": "16 kg" }
+        ],
+        "french_press": [
+          { "set no.": 1, "reps": 10, "weight": "22 kg" },
+          { "set no.": 2, "reps": 10, "weight": "22 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 30, "weight": "0 kg" },
+          { "set no.": 2, "reps": 22, "weight": "0 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 24, "weight": "0 kg" },
+          { "set no.": 2, "reps": 20, "weight": "0 kg" }
+        ]
+      }
+    },
+    "42": {
+      "date": "2022-03-27",
+      "split": "pull",
+      "exercises": {
+        "seated_row": [
+          { "set no.": 1, "reps": 5, "weight": "86 kg" },
+          { "set no.": 2, "reps": 7, "weight": "77 kg" },
+          { "set no.": 3, "reps": 10, "weight": "68 kg" }
+        ],
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 5, "weight": "86 kg" },
+          { "set no.": 2, "reps": 7, "weight": "77 kg" },
+          { "set no.": 3, "reps": 10, "weight": "68 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 12, "weight": "36 kg" },
+          { "set no.": 3, "reps": 12, "weight": "41 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "55 kg" },
+          { "set no.": 2, "reps": 15, "weight": "55 kg" },
+          { "set no.": 3, "reps": 15, "weight": "55 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "24 kg" },
+          { "set no.": 2, "reps": 12, "weight": "24 kg" },
+          { "set no.": 3, "reps": 12, "weight": "24 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "16 kg" },
+          { "set no.": 2, "reps": 12, "weight": "16 kg" },
+          { "set no.": 3, "reps": 12, "weight": "16 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 8, "weight": "40 kg" }
+        ]
+      }
+    },
+    "43": {
+      "date": "2022-03-29",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 6, "weight": "100 kg" },
+          { "set no.": 2, "reps": 6, "weight": "90 kg" },
+          { "set no.": 3, "reps": 8, "weight": "80 kg" },
+          { "set no.": 4, "reps": 8, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 6, "weight": "120 kg" },
+          { "set no.": 2, "reps": 6, "weight": "100 kg" },
+          { "set no.": 3, "reps": 10, "weight": "80 kg" },
+          { "set no.": 4, "reps": 10, "weight": "80 kg" }
+        ],
+        "diverging_leg_extention": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 12, "weight": "50 kg" },
+          { "set no.": 3, "reps": 12, "weight": "50 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "50 kg" },
+          { "set no.": 2, "reps": 10, "weight": "50 kg" },
+          { "set no.": 3, "reps": 10, "weight": "50 kg" }
+        ],
+        "seated_calf_raise": [
+          { "set no.": 1, "reps": 12, "weight": "30 kg" },
+          { "set no.": 2, "reps": 12, "weight": "30 kg" }
+        ],
+        "barbell_lunge": [
+          { "set no.": 1, "reps": 7, "weight": "40 kg" },
+          { "set no.": 2, "reps": 7, "weight": "40 kg" }
+        ]
+      }
+    },
+    "44": {
+      "date": "2022-04-02",
+      "split": "push",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 4, "weight": "80 kg" },
+          { "set no.": 2, "reps": 8, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 5, "weight": "56 kg" },
+          { "set no.": 2, "reps": 6, "weight": "52 kg" },
+          { "set no.": 3, "reps": 8, "weight": "48 kg" }
+        ],
+        "standing_barbell_military_press": [
+          { "set no.": 1, "reps": 8, "weight": "40 kg" },
+          { "set no.": 2, "reps": 5, "weight": "40 kg" },
+          { "set no.": 3, "reps": 5, "weight": "40 kg" }
+        ],
+        "dumbbell_flys": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 10, "weight": "32 kg" },
+          { "set no.": 3, "reps": 9, "weight": "32 kg" }
+        ],
+        "dumbbell_front_lateral_raise": [
+          { "set no.": 1, "reps": 8, "weight": "20 kg" },
+          { "set no.": 2, "reps": 6, "weight": "20 kg" },
+          { "set no.": 3, "reps": 8, "weight": "16 kg" }
+        ],
+        "french_press": [
+          { "set no.": 1, "reps": 12, "weight": "22 kg" },
+          { "set no.": 2, "reps": 12, "weight": "24 kg" }
+        ],
+        "swiss_ball_crunch": [
+          { "set no.": 1, "reps": 30, "weight": "0 kg" },
+          { "set no.": 2, "reps": 25, "weight": "0 kg" }
+        ],
+        "toe_to_bar": [
+          { "set no.": 1, "reps": 10, "weight": "0 kg" },
+          { "set no.": 2, "reps": 8, "weight": "0 kg" }
+        ],
+        "twisting_leg_raise": [
+          { "set no.": 1, "reps": 20, "weight": "0 kg" },
+          { "set no.": 2, "reps": 16, "weight": "0 kg" }
+        ]
+      }
+    },
+    "45": {
+      "date": "2022-04-03",
+      "split": "pull",
+      "exercises": {
+        "seated_row": [
+          { "set no.": 1, "reps": 6, "weight": "86 kg" },
+          { "set no.": 2, "reps": 10, "weight": "77 kg" },
+          { "set no.": 3, "reps": 12, "weight": "68 kg" }
+        ],
+        "lat_pulldown": [
+          { "set no.": 1, "reps": 6, "weight": "86 kg" },
+          { "set no.": 2, "reps": 8, "weight": "77 kg" },
+          { "set no.": 3, "reps": 10, "weight": "68 kg" }
+        ],
+        "face_pull": [
+          { "set no.": 1, "reps": 12, "weight": "41 kg" },
+          { "set no.": 2, "reps": 12, "weight": "41 kg" },
+          { "set no.": 3, "reps": 12, "weight": "41 kg" }
+        ],
+        "barbell_shrug": [
+          { "set no.": 1, "reps": 15, "weight": "55 kg" },
+          { "set no.": 2, "reps": 15, "weight": "55 kg" },
+          { "set no.": 3, "reps": 15, "weight": "55 kg" }
+        ],
+        "dumbbell_side_lateral": [
+          { "set no.": 1, "reps": 12, "weight": "24 kg" },
+          { "set no.": 2, "reps": 12, "weight": "24 kg" },
+          { "set no.": 3, "reps": 12, "weight": "24 kg" }
+        ],
+        "dumbbell_rear_lateral_raise": [
+          { "set no.": 1, "reps": 12, "weight": "16 kg" },
+          { "set no.": 2, "reps": 12, "weight": "16 kg" },
+          { "set no.": 3, "reps": 12, "weight": "16 kg" }
+        ],
+        "barbell_curl": [
+          { "set no.": 1, "reps": 10, "weight": "40 kg" },
+          { "set no.": 2, "reps": 7, "weight": "40 kg" }
+        ]
+      }
+    },
+    "46": {
+      "date": "2022-04-11",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          { "set no.": 1, "reps": 2, "weight": "60 kg" },
+          { "set no.": 2, "reps": 6, "weight": "100 kg" },
+          { "set no.": 3, "reps": 8, "weight": "80 kg" }
+        ],
+        "deadlift": [
+          { "set no.": 1, "reps": 6, "weight": "130 kg" },
+          { "set no.": 2, "reps": 6, "weight": "110 kg" },
+          { "set no.": 3, "reps": 10, "weight": "70 kg" }
+        ],
+        "leg_extention": [
+          { "set no.": 1, "reps": 12, "weight": "86 kg" },
+          { "set no.": 2, "reps": 10, "weight": "91 kg" },
+          { "set no.": 3, "reps": 10, "weight": "91 kg" }
+        ],
+        "standing_calf_raise": [
+          { "set no.": 1, "reps": 10, "weight": "70 kg" },
+          { "set no.": 2, "reps": 10, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "70 kg" }
+        ],
+        "seated_calf_raise": [
+          { "set no.": 1, "reps": 15, "weight": "30 kg" },
+          { "set no.": 2, "reps": 15, "weight": "30 kg" },
+          { "set no.": 3, "reps": 15, "weight": "30 kg" }
+        ],
+        "barbell_lunge": [
+          { "set no.": 1, "reps": 5, "weight": "40 kg" },
+          { "set no.": 2, "reps": 5, "weight": "40 kg" }
+        ]
+      }
+    },
+    "47": {
+      "date": "2022-04-13",
+      "split": "push",
+      "exercises": {
+        "barbell_bench_press": [
+          { "set no.": 1, "reps": 4, "weight": "80 kg" },
+          { "set no.": 2, "reps": 8, "weight": "70 kg" },
+          { "set no.": 3, "reps": 10, "weight": "60 kg" }
+        ],
+        "dumbbell_incline_press": [
+          { "set no.": 1, "reps": 5, "weight": "60 kg" },
+          { "set no.": 2, "reps": 10, "weight": "48 kg" },
+          { "set no.": 3, "reps": 8, "weight": "48 kg" }
+        ],
+        "standing_barbell_military_press": [
+          { "set no.": 1, "reps": 5, "weight": "40 kg" },
+          { "set no.": 2, "reps": 4, "weight": "40 kg" },
+          { "set no.": 3, "reps": 3, "weight": "40 kg" }
+        ],
+        "dumbbell_flys": [
+          { "set no.": 1, "reps": 12, "weight": "32 kg" },
+          { "set no.": 2, "reps": 12, "weight": "32 kg" },
+          { "set no.": 3, "reps": 12, "weight": "32 kg" }
+        ],
+        "dumbbell_incline_front_lateral_raise": [
+          { "set no.": 1, "reps": 8, "weight": "12 kg" },
+          { "set no.": 2, "reps": 8, "weight": "12 kg" },
+          { "set no.": 3, "reps": 6, "weight": "12 kg" }
+        ],
+        "french_press": [
+          { "set no.": 1, "reps": 12, "weight": "24 kg" },
+          { "set no.": 2, "reps": 12, "weight": "24 kg" }
+        ]
+      }
+    }
+  },
+  "disciplines_log": {
+    "1": {
+      "date": "2021-12-30",
+      "discipline": "vinyasa_yoga",
+      "duration": "1 hour"
+    },
+    "2": {
+      "date": "2022-01-25",
+      "discipline": "acro_yoga",
+      "duration": "2 hours"
+    },
+    "3": {
+      "date": "2022-02-07",
+      "discipline": "mountain_trekking",
+      "duration": "5 hours",
+      "location": "Gibraltar"
+    },
+    "4": {
+      "date": "2022-02-10",
+      "discipline": "mountain_trekking",
+      "duration": "2 hours",
+      "location": "Ceuta, Morocco"
+    },
+    "5": {
+      "date": "2022-02-11",
+      "discipline": "mountain_trekking",
+      "duration": "2 hours",
+      "location": "Gibraltar"
+    },
+    "6": {
+      "date": "2022-02-20",
+      "discipline": "bouldering",
+      "duration": "1 hour",
+      "location": "Copenhagen Boulders"
+    },
+    "7": {
+      "date": "2022-02-25",
+      "discipline": "badminton",
+      "duration": "2 hours",
+      "note": "Both single and double practice"
+    },
+    "8": {
+      "date": "2022-03-20",
+      "discipline": "power walking",
+      "duration": "4 hours"
+    },
+    "9": {
+      "date": "2022-03-21",
+      "discipline": "boxing",
+      "duration": "1.25 hours",
+      "note": "sparring, focus pads and heavy bag"
+    },
+    "10": {
+      "date": "2022-03-23",
+      "discipline": "boxing",
+      "duration": "1.25 hours",
+      "note": "focus pads and heavy bag"
+    },
+    "11": {
+      "date": "2022-03-24",
+      "discipline": "football",
+      "duration": "2 hours",
+      "event": "DM&A offsite, Koege"
+    },
+    "12": {
+      "date": "2022-03-26",
+      "discipline": "hatha_yoga",
+      "duration": "1 hour"
+    }
+  }
+}

@@ -1954,6 +1954,12 @@
       "date": "2022-03-26",
       "discipline": "hatha_yoga",
       "duration": "1 hour"
+    },
+    "13": {
+      "date": "2022-04-15",
+      "discipline": "boxing",
+      "duration": "1.5 hours",
+      "note": "cardio & sparring 1st hour, then 30 min core & strength"
     }
   }
 }

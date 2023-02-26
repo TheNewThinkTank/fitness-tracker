@@ -1,0 +1,62 @@
+---
+legs:
+  - squat
+  - front_squat
+  - bulgarian_split_squat
+  - deadlift
+  - sumo_deadlift
+  - legpress
+  - bb_lunge
+  - leg_extention
+  - leg_curl
+  - standing_calf_raise
+  - seated_calf_raise
+
+chest:
+  - bb_bench_press
+  - db_fly
+  - bb_incline_press
+  - db_incline_press
+  - cable_crossover
+  - db_pullover
+  - dip
+
+back:
+  - lat_pulldown
+  - bent_over_row
+  - seated_row
+  - chinup
+  - reverse_grip_chinup
+  - pullup
+  - face_pull
+  - bb_shrug
+
+shoulders:
+  - db_side_laterals
+  - db_front_laterals
+  - db_incline_front_lateral_raise
+  - db_rear_laterals
+  - db_reverse_flys
+  - standing_bb_military_press
+  - db_military_press
+  - cable_crossover
+  - arnold_press
+
+arms:
+  - bb_curl
+  - hammer_curl
+  - ezbar_pronated_curl
+  - close_grip_bench_press
+  - skull_crusher
+  - french_press
+  - cable_triceps_extention
+  - forearm_cable_supination
+  - hanging
+
+abs:
+  - crunch
+  - side_jackknife
+  - toe_to_bar
+  - leg_raise
+  - hanging_leg_raise
+  - reverse_crunch

@@ -1,0 +1,40 @@
+{
+  "weight_training_log": {
+    "1": {
+      "date": "2021-12-11",
+      "split": "legs",
+      "exercises": {
+        "squat": [
+          {
+            "set_number": 1,
+            "reps": 8,
+            "weight": "70.25 kg"
+          },
+          {
+            "set_number": 2,
+            "reps": 10,
+            "weight": "80 kg"
+          }
+        ]
+      }
+    },
+    "2": {
+      "date": "2021-12-13",
+      "split": "chest",
+      "exercises": {
+        "deadlift": [
+          {
+            "set_number": 1,
+            "reps": 8,
+            "weight": "70 kg"
+          },
+          {
+            "set_number": 2,
+            "reps": 8,
+            "weight": "80 kg"
+          }
+        ]
+      }
+    }
+  }
+}

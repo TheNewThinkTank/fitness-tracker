@@ -1,0 +1,5 @@
+__pycache__
+.mypy_cache
+local_assets
+node_modules
+.vscode

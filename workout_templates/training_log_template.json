@@ -1,0 +1,35 @@
+{
+  "date": "YYYY-MM-DD",
+  "split": "musclegroup",
+  "exercises": {
+    "exercise 1": [
+      {
+        "set_number": 1,
+        "reps": null,
+        "weight": "value kg"
+      },
+      {
+        "set_number": 2,
+        "reps": null,
+        "weight": "value kg"
+      },
+      {
+        "set_number": 3,
+        "reps": null,
+        "weight": "value kg"
+      }
+    ],
+    "exercise 2": [
+      {
+        "set_number": 1,
+        "reps": null,
+        "weight": "value kg"
+      },
+      {
+        "set_number": 2,
+        "reps": null,
+        "weight": "value kg"
+      }
+    ]
+  }
+}

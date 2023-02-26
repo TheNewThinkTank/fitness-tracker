@@ -1,0 +1,12 @@
+---
+reps: repetitions
+db: dumbbell
+bb: barbell
+1RM: 1 repetition maximum
+Volume: |
+  For a given exercise performed during a given workout,
+  the product of total number of sets,
+  weight (assuming the same weight is used throughout the exercise)
+  and reps (assuming the same number of reps is used throughout the exercise)
+BMI: Body Mass Index
+VO2-Max: ""

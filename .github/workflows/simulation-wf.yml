@@ -1,0 +1,51 @@
+---
+name: Fitness Tracker Simulation Workflow
+
+on:
+  push:
+    branches:
+      - feature/simulations
+    paths:
+      - "src/simulations/**"
+      - "test/test_simulation.py"
+      - ".github/workflows/simulation-wf.yml"
+
+jobs:
+  Run-Linting-And-Unit-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10" # "3.x"
+
+      # - name: Install pipenv
+      #   run: |
+      #     python -m pip install --upgrade pipenv wheel
+      # - id: cache-pipenv
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ~/.local/share/virtualenvs
+      #     key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+
+      # - name: Install dependencies
+      #   if: steps.cache-pipenv.outputs.cache-hit != 'true'
+      #   run: |
+      #     pipenv install --deploy --dev
+
+      - name: Lint simulations with flake8
+        continue-on-error: true
+        run: |
+          # pip install flake8
+          flake8 --ignore=E402,E501 src/simulations
+
+      # - name: install pyyaml and pandas
+      #   run: |
+      #     pipenv install pyyaml pandas
+
+      - name: Run (simulations) test suite
+        run: |
+          pipenv run test -k "test_simulation and not test_training" -v

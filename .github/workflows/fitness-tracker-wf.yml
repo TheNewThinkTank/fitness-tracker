@@ -1,0 +1,119 @@
+---
+name: Fitness Tracker Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Run-Linting-And-Unit-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11 # 3.10.9
+          cache: pip
+
+      - name: Install poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install Dependencies
+        run: poetry install
+
+      - name: Check poetry version
+        run: poetry --version
+
+      # - name: Lint with flake8
+      #   run: poetry run flake8 --ignore=E402,E501,F401 .
+
+      - name: Lint with ruff
+        run: poetry run ruff --ignore=F401,E402,E501,E999 .
+
+      # - name: Static type checks with mypy
+      #   run: poetry run mypy src/ --exclude '/site-packages/'
+
+      - name: mypy src/combined_metrics
+        run: poetry run mypy src/combined_metrics
+
+      - name: mypy src/CRUD
+        run: poetry run mypy src/CRUD
+
+      - name: mypy src/helpers
+        run: poetry run mypy src/helpers
+
+      - name: mypy src/model
+        run: poetry run mypy src/model
+
+      # - name: mypy src/simulations
+      #   run: poetry run mypy src/simulations
+
+      - name: wily build and rank
+        run: |
+          poetry run wily build src
+          poetry run wily rank src
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+
+      - name: yamllint workout_programs
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: "./workout_programs.yml"
+
+      # - name: Run pytest
+      #   run: poetry run pytest --durations=10 test/test_model.py
+
+      # - name: BDD with Behave
+      #   run: poetry run behave
+
+      # - name: Generate coverage report
+      #   run: |
+      #     poetry run pytest --cov=./ --cov-report=xml
+
+      # - uses: codecov/codecov-action@v3
+      #   with:
+      #     # files: ./coverage1.xml,./coverage2.xml  # optional
+      #     # flags: unittests  # optional
+      #     name: codecov-umbrella # optional
+      #     # fail_ci_if_error: true
+      #     verbose: true
+
+      - uses: rojopolis/spellcheck-github-actions@0.27.0
+        name: Spellcheck
+        with:
+          config_path: config/.spellcheck.yml
+          source_files: README.md # workout_programs.md
+          task_name: Markdown
+
+  # Deploy-to-AWS-ECR:
+  #   needs: Run-Linting-And-Unit-Tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out repository code
+  #       uses: actions/checkout@v2
+
+  #     - name: Configure AWS credentials
+  #     uses: aws-actions/configure-aws-credentials@v1
+  #      with:
+  #        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #        aws-region: eu-central-1
+
+  #    - name: Login to AWS ECR
+  #      id: login-ecr
+  #      uses: aws-actions/amazon-ecr-login@v1
+
+  #    - name: Build, tag, and push image to Amazon ECR
+  #      env:
+  #        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+  #        ECR_REPOSITORY: fitness-tracker
+  #        IMAGE_TAG: ft-image
+  #      run: |
+  #        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+  #        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG

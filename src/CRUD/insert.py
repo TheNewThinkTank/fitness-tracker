@@ -12,7 +12,7 @@ import json
 import os
 import pathlib
 import sys
-import yaml
+import yaml  # type: ignore
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))

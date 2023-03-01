@@ -12,6 +12,7 @@ import json
 import os
 import pathlib
 import sys
+import yaml
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
@@ -70,7 +71,27 @@ def insert_specific_log(date: str, table, workout_number: int = 1) -> None:
 
     YEAR, MONTH = lookup.get_year_and_month(date)
     athlete = "gustav_rasmussen"
-    base_path = f"data/{athlete}/log_archive/JSON/{YEAR}/{MONTH}/*training_log_{date}"
+
+    with open("local_assets/private_config.json", "r") as private_config:
+        DATA = json.load(private_config)
+        USER = DATA["user"]
+        EMAIL = DATA["email"]
+
+    athlete = "gustav_rasmussen"
+    user = USER
+    email = EMAIL
+
+    with open("config.yml", "r") as rf:
+        DATA = yaml.load(rf, Loader=yaml.FullLoader)
+
+    base_path = (
+        DATA["google_drive_data_path"]
+        .replace("<ATHLETE>", athlete)
+        .replace("<USER>", user)
+        .replace("<EMAIL>", email)
+    )
+
+    base_path += f"/{athlete}/log_archive/JSON/{YEAR}/{MONTH}/*training_log_{date}"
 
     if workout_number > 1:
         base_path += f"_{workout_number}"

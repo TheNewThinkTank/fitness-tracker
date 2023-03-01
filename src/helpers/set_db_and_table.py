@@ -21,6 +21,15 @@ def set_db_and_table(
 ):
     """."""
 
+    with open("local_assets/private_config.json", "r") as private_config:
+        DATA = json.load(private_config)
+        USER = DATA["user"]
+        EMAIL = DATA["email"]
+
+    athlete = "gustav_rasmussen"
+    user = USER
+    email = EMAIL
+
     with open("config.yml", "r") as rf:
         DATA = yaml.load(rf, Loader=yaml.FullLoader)
 

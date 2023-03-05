@@ -80,11 +80,11 @@ sp2 <- ggplot(df2, aes(reps, one_rep_max)) +
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
 
-sp3 <- ggplot(df3, aes(weight, inverse_one_rep_max)) + 
+sp3 <- ggplot(df3, aes(weight, inverse_one_rep_max)) +
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
 
-sp4 <- ggplot(df4, aes(reps, inverse_one_rep_max)) + 
+sp4 <- ggplot(df4, aes(reps, inverse_one_rep_max)) +
   geom_point(aes(color = variable)) +
   scale_color_manual(values = c("darkred", "steelblue"))
 

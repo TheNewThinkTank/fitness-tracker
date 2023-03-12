@@ -3,3 +3,4 @@ __pycache__
 local_assets
 node_modules
 .vscode
+poetry.lock

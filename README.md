@@ -11,6 +11,9 @@ Full stack fitness tracking application using TinyDB and FastAPI.
 Add weight-training logs continuously to db.json and query the data through the browser.
 Visually inspect your progression through dates and exercises
 
+## Architecture Diagram
+![architecture](img/architecture.png)
+
 ## Getting started
 
 First, clone the project:<br>

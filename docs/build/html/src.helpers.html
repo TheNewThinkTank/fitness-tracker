@@ -1,1010 +1,292 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="generator"
-      content="Docutils 0.17.1: http://docutils.sourceforge.net/"
-    />
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      src.helpers package &mdash; Fitness-Tracker 0.0.1 documentation
-    </title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <!--[if lt IE 9]>
-      <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
-
-    <script
-      data-url_root="./"
-      id="documentation_options"
-      src="_static/documentation_options.js"
-    ></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.helpers package &mdash; Fitness-Tracker 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link
-      rel="next"
-      title="src.simulations package"
-      href="src.simulations.html"
-    />
-    <link rel="prev" title="src.CRUD package" href="src.CRUD.html" />
-  </head>
+    <link rel="next" title="src.simulations package" href="src.simulations.html" />
+    <link rel="prev" title="src.CRUD package" href="src.CRUD.html" /> 
+</head>
 
-  <body class="wy-body-for-nav">
-    <div class="wy-grid-for-nav">
-      <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-        <div class="wy-side-scroll">
-          <div class="wy-side-nav-search">
-            <a href="index.html" class="icon icon-home"> Fitness-Tracker </a>
-            <div role="search">
-              <form
-                id="rtd-search-form"
-                class="wy-form"
-                action="search.html"
-                method="get"
-              >
-                <input type="text" name="q" placeholder="Search docs" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-            </div>
-          </div>
-          <div
-            class="wy-menu wy-menu-vertical"
-            data-spy="affix"
-            role="navigation"
-            aria-label="Navigation menu"
-          >
-            <p class="caption" role="heading">
-              <span class="caption-text">Contents:</span>
-            </p>
-            <ul class="current">
-              <li class="toctree-l1 current">
-                <a class="reference internal" href="modules.html">src</a>
-                <ul class="current">
-                  <li class="toctree-l2 current">
-                    <a class="reference internal" href="src.html"
-                      >src package</a
-                    >
-                    <ul class="current">
-                      <li class="toctree-l3 current">
-                        <a
-                          class="reference internal"
-                          href="src.html#subpackages"
-                          >Subpackages</a
-                        >
-                        <ul class="current">
-                          <li class="toctree-l4">
-                            <a class="reference internal" href="src.CRUD.html"
-                              >src.CRUD package</a
-                            >
-                          </li>
-                          <li class="toctree-l4 current">
-                            <a class="current reference internal" href="#"
-                              >src.helpers package</a
-                            >
-                          </li>
-                          <li class="toctree-l4">
-                            <a
-                              class="reference internal"
-                              href="src.simulations.html"
-                              >src.simulations package</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="toctree-l3">
-                        <a class="reference internal" href="src.html#submodules"
-                          >Submodules</a
-                        >
-                      </li>
-                      <li class="toctree-l3">
-                        <a
-                          class="reference internal"
-                          href="src.html#src-main-module"
-                          >src.main module</a
-                        >
-                      </li>
-                      <li class="toctree-l3">
-                        <a
-                          class="reference internal"
-                          href="src.html#module-src.plot"
-                          >src.plot module</a
-                        >
-                      </li>
-                      <li class="toctree-l3">
-                        <a class="reference internal" href="src.html#module-src"
-                          >Module contents</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="src.CRUD.html">src.CRUD package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">src.helpers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.simulations.html">src.simulations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#src-main-module">src.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.plot">src.plot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-        <nav class="wy-nav-top" aria-label="Mobile navigation menu">
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Fitness-Tracker</a>
-        </nav>
+      </nav>
 
-        <div class="wy-nav-content">
-          <div class="rst-content">
-            <div role="navigation" aria-label="Page navigation">
-              <ul class="wy-breadcrumbs">
-                <li>
-                  <a href="index.html" class="icon icon-home"></a> &raquo;
-                </li>
-                <li><a href="modules.html">src</a> &raquo;</li>
-                <li><a href="src.html">src package</a> &raquo;</li>
-                <li>src.helpers package</li>
-                <li class="wy-breadcrumbs-aside">
-                  <a href="_sources/src.helpers.rst.txt" rel="nofollow">
-                    View page source</a
-                  >
-                </li>
-              </ul>
-              <hr />
-            </div>
-            <div
-              role="main"
-              class="document"
-              itemscope="itemscope"
-              itemtype="http://schema.org/Article"
-            >
-              <div itemprop="articleBody">
-                <section id="src-helpers-package">
-                  <h1>
-                    src.helpers package<a
-                      class="headerlink"
-                      href="#src-helpers-package"
-                      title="Permalink to this headline"
-                      ></a
-                    >
-                  </h1>
-                  <section id="submodules">
-                    <h2>
-                      Submodules<a
-                        class="headerlink"
-                        href="#submodules"
-                        title="Permalink to this headline"
-                        ></a
-                      >
-                    </h2>
-                  </section>
-                  <section id="module-src.helpers.cleanup">
-                    <span id="src-helpers-cleanup-module"></span>
-                    <h2>
-                      src.helpers.cleanup module<a
-                        class="headerlink"
-                        href="#module-src.helpers.cleanup"
-                        title="Permalink to this headline"
-                        ></a
-                      >
-                    </h2>
-                    <p>
-                      Date: 2021-12-25 Author: Gustav Collin Rasmussen Purpose:
-                      empty specified folder or file
-                    </p>
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.cleanup.cleanup"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre">src.helpers.cleanup.</span></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">cleanup</span></span
-                        ><span class="sig-paren">(</span
-                        ><em class="sig-param"
-                          ><span class="n"><span class="pre">path</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"
-                            ><span class="pre">str</span></span
-                          ></em
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">None</span></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.cleanup.cleanup"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>Empty all files in path.</p>
-                        <dl class="field-list simple">
-                          <dt class="field-odd">Parameters</dt>
-                          <dd class="field-odd">
-                            <p>
-                              <strong>path</strong> (<em>str</em>) –
-                              _description_
-                            </p>
-                          </dd>
-                        </dl>
-                      </dd>
-                    </dl>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+          <li class="breadcrumb-item"><a href="src.html">src package</a></li>
+      <li class="breadcrumb-item active">src.helpers package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.helpers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-helpers-package">
+<h1>src.helpers package<a class="headerlink" href="#src-helpers-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-src.helpers.cleanup">
+<span id="src-helpers-cleanup-module"></span><h2>src.helpers.cleanup module<a class="headerlink" href="#module-src.helpers.cleanup" title="Permalink to this heading"></a></h2>
+<p>Date: 2021-12-25
+Purpose: empty specified folder or file</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.cleanup.cleanup">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.cleanup.</span></span><span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.helpers.cleanup.cleanup" title="Permalink to this definition"></a></dt>
+<dd><p>Empty all files in path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – _description_</p>
+</dd>
+</dl>
+</dd></dl>
 
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.cleanup.empty_file"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre">src.helpers.cleanup.</span></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">empty_file</span></span
-                        ><span class="sig-paren">(</span
-                        ><em class="sig-param"
-                          ><span class="n"
-                            ><span class="pre">file_path</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"
-                            ><span class="pre">str</span></span
-                          ></em
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">None</span></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.cleanup.empty_file"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>Empty content in file.</p>
-                        <dl class="field-list simple">
-                          <dt class="field-odd">Parameters</dt>
-                          <dd class="field-odd">
-                            <p>
-                              <strong>file_path</strong> (<em>str</em>) –
-                              _description_
-                            </p>
-                          </dd>
-                        </dl>
-                      </dd>
-                    </dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.cleanup.empty_file">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.cleanup.</span></span><span class="sig-name descname"><span class="pre">empty_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.helpers.cleanup.empty_file" title="Permalink to this definition"></a></dt>
+<dd><p>Empty content in file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – _description_</p>
+</dd>
+</dl>
+</dd></dl>
 
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.cleanup.main"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre">src.helpers.cleanup.</span></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">main</span></span
-                        ><span class="sig-paren">(</span
-                        ><em class="sig-param"
-                          ><span class="n"><span class="pre">path</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"
-                            ><span class="pre">str</span></span
-                          ></em
-                        >,
-                        <em class="sig-param"
-                          ><span class="n"
-                            ><span class="pre">file_path</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"
-                            ><span class="pre">str</span></span
-                          ></em
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">None</span></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.cleanup.main"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>_summary_</p>
-                        <dl class="field-list simple">
-                          <dt class="field-odd">Parameters</dt>
-                          <dd class="field-odd">
-                            <ul class="simple">
-                              <li>
-                                <p>
-                                  <strong>path</strong> (<em>str</em>) –
-                                  _description_
-                                </p>
-                              </li>
-                              <li>
-                                <p>
-                                  <strong>file_path</strong> (<em>str</em>) –
-                                  _description_
-                                </p>
-                              </li>
-                            </ul>
-                          </dd>
-                        </dl>
-                      </dd>
-                    </dl>
-                  </section>
-                  <section id="module-src.helpers.get_exercises">
-                    <span id="src-helpers-get-exercises-module"></span>
-                    <h2>
-                      src.helpers.get_exercises module<a
-                        class="headerlink"
-                        href="#module-src.helpers.get_exercises"
-                        title="Permalink to this headline"
-                        ></a
-                      >
-                    </h2>
-                    <p>
-                      Date: 2022-05-02 Author: Gustav Collin Rasmussen Purpose:
-                      Get all exercises available for a given musclegroup
-                    </p>
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.get_exercises.get_available_exercises"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre"
-                            >src.helpers.get_exercises.</span
-                          ></span
-                        ><span class="sig-name descname"
-                          ><span class="pre"
-                            >get_available_exercises</span
-                          ></span
-                        ><span class="sig-paren">(</span
-                        ><em class="sig-param"
-                          ><span class="n"
-                            ><span class="pre">training_catalogue</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"
-                            ><span class="pre">str</span></span
-                          ></em
-                        >,
-                        <em class="sig-param"
-                          ><span class="n"><span class="pre">split</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"
-                            ><span class="pre">str</span></span
-                          ></em
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">list</span
-                            ><span class="p"><span class="pre">[</span></span
-                            ><span class="pre">str</span
-                            ><span class="p"
-                              ><span class="pre">]</span></span
-                            ></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.get_exercises.get_available_exercises"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>Fetch musclegroup-exercises catalogue.</p>
-                        <dl class="field-list simple">
-                          <dt class="field-odd">Parameters</dt>
-                          <dd class="field-odd">
-                            <ul class="simple">
-                              <li>
-                                <p>
-                                  <strong>training_catalogue</strong>
-                                  (<em>str</em>) – Exercises available for each
-                                  musclegroup
-                                </p>
-                              </li>
-                              <li>
-                                <p>
-                                  <strong>split</strong> (<em>str</em>) – Name
-                                  of musclegroup
-                                </p>
-                              </li>
-                            </ul>
-                          </dd>
-                          <dt class="field-even">Returns</dt>
-                          <dd class="field-even">
-                            <p>
-                              A list of available exercises for a given split /
-                              musclegroup
-                            </p>
-                          </dd>
-                          <dt class="field-odd">Return type</dt>
-                          <dd class="field-odd"><p>list</p></dd>
-                        </dl>
-                      </dd>
-                    </dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.cleanup.main">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.cleanup.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.helpers.cleanup.main" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – _description_</p></li>
+<li><p><strong>file_path</strong> (<em>str</em>) – _description_</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.get_exercises.main"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre"
-                            >src.helpers.get_exercises.</span
-                          ></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">main</span></span
-                        ><span class="sig-paren">(</span
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">None</span></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.get_exercises.main"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd><p>_summary_</p></dd>
-                    </dl>
-                  </section>
-                  <section id="module-src.helpers.json2csv">
-                    <span id="src-helpers-json2csv-module"></span>
-                    <h2>
-                      src.helpers.json2csv module<a
-                        class="headerlink"
-                        href="#module-src.helpers.json2csv"
-                        title="Permalink to this headline"
-                        ></a
-                      >
-                    </h2>
-                    <p>Date: 2022-02-21 Author: Gustav Collin Rasmussen</p>
-                    <p>
-                      Purpose: flatten nested JSON data into csv format, for the
-                      great expectations framework to process.
-                    </p>
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.json2csv.json2csv"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre">src.helpers.json2csv.</span></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">json2csv</span></span
-                        ><span class="sig-paren">(</span
-                        ><em class="sig-param"
-                          ><span class="n"><span class="pre">infile</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"
-                            ><span class="pre">str</span></span
-                          ></em
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">None</span></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.json2csv.json2csv"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>
-                          Read nested JSON file, flatten it, apply additional
-                          transformations, and write results to csv format
-                        </p>
-                        <dl class="field-list simple">
-                          <dt class="field-odd">Parameters</dt>
-                          <dd class="field-odd">
-                            <p>
-                              <strong>infile</strong> (<em>str</em>) –
-                              _description_
-                            </p>
-                          </dd>
-                        </dl>
-                      </dd>
-                    </dl>
+</section>
+<section id="module-src.helpers.get_exercises">
+<span id="src-helpers-get-exercises-module"></span><h2>src.helpers.get_exercises module<a class="headerlink" href="#module-src.helpers.get_exercises" title="Permalink to this heading"></a></h2>
+<p>Date: 2022-05-02
+Purpose: Get all exercises available for a given musclegroup</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.get_exercises.get_available_exercises">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.get_exercises.</span></span><span class="sig-name descname"><span class="pre">get_available_exercises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_catalogue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.helpers.get_exercises.get_available_exercises" title="Permalink to this definition"></a></dt>
+<dd><p>Fetch musclegroup-exercises catalogue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>training_catalogue</strong> (<em>str</em>) – Exercises available for each musclegroup</p></li>
+<li><p><strong>split</strong> (<em>str</em>) – Name of musclegroup</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of available exercises for a given split / musclegroup</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.json2csv.main"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre">src.helpers.json2csv.</span></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">main</span></span
-                        ><span class="sig-paren">(</span
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">None</span></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.json2csv.main"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>
-                          Convert all JSON files inside nested folders to CSV
-                        </p>
-                      </dd>
-                    </dl>
-                  </section>
-                  <section id="module-src.helpers.lookup">
-                    <span id="src-helpers-lookup-module"></span>
-                    <h2>
-                      src.helpers.lookup module<a
-                        class="headerlink"
-                        href="#module-src.helpers.lookup"
-                        title="Permalink to this headline"
-                        ></a
-                      >
-                    </h2>
-                    <p>
-                      Convert month names from strings to integer
-                      representations
-                    </p>
-                    <dl class="py class">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.lookup.Months"
-                      >
-                        <em class="property"
-                          ><span class="pre">class</span
-                          ><span class="w"> </span></em
-                        ><span class="sig-prename descclassname"
-                          ><span class="pre">src.helpers.lookup.</span></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">Months</span></span
-                        ><span class="sig-paren">(</span
-                        ><em class="sig-param"
-                          ><span class="n"
-                            ><span class="pre">value</span></span
-                          ></em
-                        ><span class="sig-paren">)</span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.lookup.Months"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>
-                          Bases:
-                          <code
-                            class="xref py py-class docutils literal notranslate"
-                            ><span class="pre">enum.Enum</span></code
-                          >
-                        </p>
-                        <p>An enumeration.</p>
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.APRIL"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">APRIL</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">4</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.APRIL"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.get_exercises.main">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.get_exercises.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.helpers.get_exercises.main" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+</dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.AUGUST"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">AUGUST</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">8</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.AUGUST"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+</section>
+<section id="src-helpers-json2csv-module">
+<h2>src.helpers.json2csv module<a class="headerlink" href="#src-helpers-json2csv-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-src.helpers.lookup">
+<span id="src-helpers-lookup-module"></span><h2>src.helpers.lookup module<a class="headerlink" href="#module-src.helpers.lookup" title="Permalink to this heading"></a></h2>
+<p>Convert month names from strings to integer representations</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.helpers.lookup.</span></span><span class="sig-name descname"><span class="pre">Months</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.helpers.lookup.Months" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.APRIL">
+<span class="sig-name descname"><span class="pre">APRIL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#src.helpers.lookup.Months.APRIL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.DECEMBER"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">DECEMBER</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">12</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.DECEMBER"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.AUGUST">
+<span class="sig-name descname"><span class="pre">AUGUST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#src.helpers.lookup.Months.AUGUST" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.FEBRUARY"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">FEBRUARY</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">2</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.FEBRUARY"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.DECEMBER">
+<span class="sig-name descname"><span class="pre">DECEMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#src.helpers.lookup.Months.DECEMBER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.JANUARY"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">JANUARY</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">1</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.JANUARY"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.FEBRUARY">
+<span class="sig-name descname"><span class="pre">FEBRUARY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#src.helpers.lookup.Months.FEBRUARY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.JULY"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">JULY</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">7</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.JULY"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.JANUARY">
+<span class="sig-name descname"><span class="pre">JANUARY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#src.helpers.lookup.Months.JANUARY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.JUNE"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">JUNE</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">6</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.JUNE"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.JULY">
+<span class="sig-name descname"><span class="pre">JULY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#src.helpers.lookup.Months.JULY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.MARCH"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">MARCH</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">3</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.MARCH"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.JUNE">
+<span class="sig-name descname"><span class="pre">JUNE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#src.helpers.lookup.Months.JUNE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.MAY"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">MAY</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">5</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.MAY"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.MARCH">
+<span class="sig-name descname"><span class="pre">MARCH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#src.helpers.lookup.Months.MARCH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.NOVEMBER"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">NOVEMBER</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">11</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.NOVEMBER"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.MAY">
+<span class="sig-name descname"><span class="pre">MAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#src.helpers.lookup.Months.MAY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.OCTOBER"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">OCTOBER</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">10</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.OCTOBER"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.NOVEMBER">
+<span class="sig-name descname"><span class="pre">NOVEMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#src.helpers.lookup.Months.NOVEMBER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                        <dl class="py attribute">
-                          <dt
-                            class="sig sig-object py"
-                            id="src.helpers.lookup.Months.SEPTEMBER"
-                          >
-                            <span class="sig-name descname"
-                              ><span class="pre">SEPTEMBER</span></span
-                            ><em class="property"
-                              ><span class="w"> </span
-                              ><span class="p"><span class="pre">=</span></span
-                              ><span class="w"> </span
-                              ><span class="pre">9</span></em
-                            ><a
-                              class="headerlink"
-                              href="#src.helpers.lookup.Months.SEPTEMBER"
-                              title="Permalink to this definition"
-                              ></a
-                            >
-                          </dt>
-                          <dd></dd>
-                        </dl>
-                      </dd>
-                    </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.OCTOBER">
+<span class="sig-name descname"><span class="pre">OCTOBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#src.helpers.lookup.Months.OCTOBER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-                    <dl class="py function">
-                      <dt
-                        class="sig sig-object py"
-                        id="src.helpers.lookup.get_year_and_month"
-                      >
-                        <span class="sig-prename descclassname"
-                          ><span class="pre">src.helpers.lookup.</span></span
-                        ><span class="sig-name descname"
-                          ><span class="pre">get_year_and_month</span></span
-                        ><span class="sig-paren">(</span
-                        ><em class="sig-param"
-                          ><span class="n"><span class="pre">date</span></span
-                          ><span class="p"><span class="pre">:</span></span
-                          ><span class="w"> </span
-                          ><span class="n"><span class="pre">str</span></span
-                          ><span class="w"> </span
-                          ><span class="o"><span class="pre">=</span></span
-                          ><span class="w"> </span
-                          ><span class="default_value"
-                            ><span class="pre">'2022-06-27'</span></span
-                          ></em
-                        ><span class="sig-paren">)</span>
-                        <span class="sig-return"
-                          ><span class="sig-return-icon">&#x2192;</span>
-                          <span class="sig-return-typehint"
-                            ><span class="pre">tuple</span
-                            ><span class="p"><span class="pre">[</span></span
-                            ><span class="pre">str</span
-                            ><span class="p"><span class="pre">,</span></span
-                            ><span class="w"> </span><span class="pre">str</span
-                            ><span class="p"
-                              ><span class="pre">]</span></span
-                            ></span
-                          ></span
-                        ><a
-                          class="headerlink"
-                          href="#src.helpers.lookup.get_year_and_month"
-                          title="Permalink to this definition"
-                          ></a
-                        >
-                      </dt>
-                      <dd>
-                        <p>_summary_</p>
-                        <dl class="field-list simple">
-                          <dt class="field-odd">Parameters</dt>
-                          <dd class="field-odd">
-                            <p>
-                              <strong>date</strong> (<em>str</em><em>, </em
-                              ><em>optional</em>) – _description_, defaults to
-                              “2022-06-27”
-                            </p>
-                          </dd>
-                          <dt class="field-even">Returns</dt>
-                          <dd class="field-even"><p>_description_</p></dd>
-                          <dt class="field-odd">Return type</dt>
-                          <dd class="field-odd"><p>tuple[str, str]</p></dd>
-                        </dl>
-                      </dd>
-                    </dl>
-                  </section>
-                  <section id="module-src.helpers">
-                    <span id="module-contents"></span>
-                    <h2>
-                      Module contents<a
-                        class="headerlink"
-                        href="#module-src.helpers"
-                        title="Permalink to this headline"
-                        ></a
-                      >
-                    </h2>
-                  </section>
-                </section>
-              </div>
-            </div>
-            <footer>
-              <div
-                class="rst-footer-buttons"
-                role="navigation"
-                aria-label="Footer"
-              >
-                <a
-                  href="src.CRUD.html"
-                  class="btn btn-neutral float-left"
-                  title="src.CRUD package"
-                  accesskey="p"
-                  rel="prev"
-                  ><span
-                    class="fa fa-arrow-circle-left"
-                    aria-hidden="true"
-                  ></span>
-                  Previous</a
-                >
-                <a
-                  href="src.simulations.html"
-                  class="btn btn-neutral float-right"
-                  title="src.simulations package"
-                  accesskey="n"
-                  rel="next"
-                  >Next
-                  <span
-                    class="fa fa-arrow-circle-right"
-                    aria-hidden="true"
-                  ></span
-                ></a>
-              </div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.helpers.lookup.Months.SEPTEMBER">
+<span class="sig-name descname"><span class="pre">SEPTEMBER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#src.helpers.lookup.Months.SEPTEMBER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
-              <hr />
+</dd></dl>
 
-              <div role="contentinfo">
-                <p>&#169; Copyright 2022, Gustav Collin Rasmussen.</p>
-              </div>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.lookup.get_year_and_month">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.lookup.</span></span><span class="sig-name descname"><span class="pre">get_year_and_month</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'2022-06-27'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#src.helpers.lookup.get_year_and_month" title="Permalink to this definition"></a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to “2022-06-27”</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
 
-              Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using
-              a
-              <a href="https://github.com/readthedocs/sphinx_rtd_theme"
-                >theme</a
-              >
-              provided by <a href="https://readthedocs.org">Read the Docs</a>.
-            </footer>
+</section>
+<section id="module-src.helpers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.helpers" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
           </div>
-        </div>
-      </section>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="src.CRUD.html" class="btn btn-neutral float-left" title="src.CRUD package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="src.simulations.html" class="btn btn-neutral float-right" title="src.simulations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-    <script>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Collin Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
       jQuery(function () {
-        SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.Navigation.enable(true);
       });
-    </script>
-  </body>
+  </script> 
+
+</body>
 </html>

@@ -180,21 +180,15 @@ for specified split(s) and exercise</p>
 <span class="sig-prename descclassname"><span class="pre">src.model.model.</span></span><span class="sig-name descname"><span class="pre">one_rep_max_estimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'acsm'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/src/model/model.html#one_rep_max_estimator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.model.one_rep_max_estimator" title="Permalink to this definition"></a></dt>
 <dd><p>acsm_1rm, epley or brzycki formulas
 are used to implement the 1RM estimation</p>
-<div class="math notranslate nohighlight">
-\[\]</div>
-<p>[ x^n + y^n = z^n ]</p>
 <p>ACSM 1RM formula</p>
 <div class="math notranslate nohighlight">
-\[\]</div>
-<p><cite>\frac{w}{\frac{100 - r \cdot 2.5}{100}}</cite></p>
+\[\frac{w}{\frac{100 - r \cdot 2.5}{100}}\]</div>
 <p>Epley 1RM formula</p>
 <div class="math notranslate nohighlight">
-\[\]</div>
-<p>w\cdot\frac{1+r}{30}}</p>
+\[w \cdot \frac{1 + r}{30}\]</div>
 <p>Brzycki 1RM formula</p>
 <div class="math notranslate nohighlight">
-\[\]</div>
-<p>w \cdot \frac{36}{37 - r}</p>
+\[w \cdot \frac{36}{37 - r}\]</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

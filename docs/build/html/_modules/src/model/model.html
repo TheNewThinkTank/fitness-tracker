@@ -153,26 +153,23 @@
 
 
 <div class="viewcode-block" id="one_rep_max_estimator"><a class="viewcode-back" href="../../../src.model.html#src.model.model.one_rep_max_estimator">[docs]</a><span class="k">def</span> <span class="nf">one_rep_max_estimator</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;acsm&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;acsm_1rm, epley or brzycki formulas</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;acsm_1rm, epley or brzycki formulas</span>
 <span class="sd">    are used to implement the 1RM estimation</span>
-
-<span class="sd">    .. math::</span>
-<span class="sd">    \[ x^n + y^n = z^n \]</span>
 
 <span class="sd">    ACSM 1RM formula</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">    `\\frac{w}{\\frac{100 - r \\cdot 2.5}{100}}`</span>
+<span class="sd">        \\frac{w}{\\frac{100 - r \\cdot 2.5}{100}}</span>
 
 <span class="sd">    Epley 1RM formula</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">    w\\cdot\\frac{1+r}{30}}</span>
+<span class="sd">        w \\cdot \\frac{1 + r}{30}</span>
 
 <span class="sd">    Brzycki 1RM formula</span>
 
 <span class="sd">    .. math::</span>
-<span class="sd">    w \\cdot \\frac{36}{37 - r}</span>
+<span class="sd">        w \\cdot \\frac{36}{37 - r}</span>
 
 <span class="sd">    :param df: _description_</span>
 <span class="sd">    :type df: pd.DataFrame</span>

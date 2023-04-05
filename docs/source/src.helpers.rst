@@ -20,10 +20,10 @@ src.helpers.get\_exercises module
    :undoc-members:
    :show-inheritance:
 
-src.helpers.json2csv module
----------------------------
+src.helpers.json_to_csv module
+------------------------------
 
-.. automodule:: src.helpers.json2csv
+.. automodule:: src.helpers.json_to_csv
    :members:
    :undoc-members:
    :show-inheritance:

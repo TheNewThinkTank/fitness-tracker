@@ -26,7 +26,7 @@ copyright = "2022, Gustav Collin Rasmussen"
 author = "Gustav Collin Rasmussen"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.1"
+release = "0.1.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -37,6 +37,9 @@ release = "0.0.1"
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.mathjax",
+    'sphinx.ext.todo',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.ifconfig',
     # "sphinx_markdown_builder",
     ]
 
@@ -61,4 +64,6 @@ html_theme = "sphinx_rtd_theme"  # 'alabaster'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+html_static_path = [
+    # "_static",
+    ]

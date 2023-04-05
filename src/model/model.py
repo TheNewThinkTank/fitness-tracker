@@ -89,15 +89,15 @@ def one_rep_max_estimator(df: pd.DataFrame, formula="acsm") -> pd.DataFrame:
 
     ACSM 1RM formula
     .. math::
-        \frac{w}{\frac{100 - r \cdot 2.5}{100}}
+        \\frac{w}{\\frac{100 - r \\cdot 2.5}{100}}
 
     Epley 1RM formula
     .. math::
-        w \cdot \frac{1 + r}{30}}
+        w \\cdot \\frac{1 + r}{30}}
 
     Brzycki 1RM formula
     .. math::
-        w \cdot \frac{36}{37 - r}
+        w \\cdot \\frac{36}{37 - r}
 
     :param df: _description_
     :type df: pd.DataFrame

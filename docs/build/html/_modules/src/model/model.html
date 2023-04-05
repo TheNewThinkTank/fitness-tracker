@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.model.model &mdash; Fitness-Tracker 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fitness-Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.model.model</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.model.model</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Date: 2021-12-21</span>
+<span class="sd">Purpose: read workout data and calculate 1RM and training volume.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;get_df&quot;</span><span class="p">,</span> <span class="s2">&quot;get_weight&quot;</span><span class="p">,</span> <span class="s2">&quot;calc_volume&quot;</span><span class="p">,</span> <span class="s2">&quot;one_rep_max_estimator&quot;</span><span class="p">,</span> <span class="s2">&quot;get_data&quot;</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Gustav Collin Rasmussen&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># type: ignore</span>
+
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">helpers.set_db_and_table</span> <span class="kn">import</span> <span class="n">set_db_and_table</span>  <span class="c1"># type: ignore</span>
+
+
+<div class="viewcode-block" id="get_df"><a class="viewcode-back" href="../../../src.model.html#src.model.model.get_df">[docs]</a><span class="k">def</span> <span class="nf">get_df</span><span class="p">(</span>
+    <span class="n">log</span><span class="p">,</span>
+    <span class="n">splits</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chest&quot;</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;chest_and_back&quot;</span><span class="p">],</span>
+    <span class="n">exercise</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;barbell_bench_press&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return one consolidated Pandas dataframe containing workout date and training data</span>
+<span class="sd">    for specified split(s) and exercise</span>
+
+<span class="sd">    :param log: _description_</span>
+<span class="sd">    :type log: _type_</span>
+<span class="sd">    :param splits: _description_, defaults to [&quot;chest&quot;, &quot;push&quot;, &quot;chest_and_back&quot;]</span>
+<span class="sd">    :type splits: list, optional</span>
+<span class="sd">    :param exercise: _description_, defaults to &quot;barbell_bench_press&quot;</span>
+<span class="sd">    :type exercise: str, optional</span>
+<span class="sd">    :return: _description_</span>
+<span class="sd">    :rtype: pd.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">log</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">splits</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">exercise</span> <span class="ow">in</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;exercises&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;exercises&quot;</span><span class="p">][</span><span class="n">exercise</span><span class="p">])</span>
+                <span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span>
+                <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_weight"><a class="viewcode-back" href="../../../src.model.html#src.model.model.get_weight">[docs]</a><span class="k">def</span> <span class="nf">get_weight</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">    :param df: _description_</span>
+<span class="sd">    :type df: pd.DataFrame</span>
+<span class="sd">    :return: _description_</span>
+<span class="sd">    :rtype: pd.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; kg&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calc_volume"><a class="viewcode-back" href="../../../src.model.html#src.model.model.calc_volume">[docs]</a><span class="k">def</span> <span class="nf">calc_volume</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;sets times reps times load</span>
+
+<span class="sd">    :param df: _description_</span>
+<span class="sd">    :type df: pd.DataFrame</span>
+<span class="sd">    :return: _description_</span>
+<span class="sd">    :rtype: pd.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">num_of_sets_df</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)[[</span><span class="s2">&quot;set_number&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+    <span class="n">reps_df</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)[[</span><span class="s2">&quot;reps&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+
+    <span class="n">df_copy</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_weight</span><span class="p">(</span><span class="n">df_copy</span><span class="p">)</span>
+
+    <span class="n">weight_df</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)[[</span><span class="s2">&quot;weight&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+
+    <span class="n">df_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">num_of_sets_df</span><span class="p">,</span> <span class="n">reps_df</span><span class="p">,</span> <span class="n">weight_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_res</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_res</span><span class="p">[</span><span class="s2">&quot;set_number&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df_res</span><span class="p">[</span><span class="s2">&quot;reps&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df_res</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df_res</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;set_number&quot;</span><span class="p">,</span> <span class="s2">&quot;reps&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="one_rep_max_estimator"><a class="viewcode-back" href="../../../src.model.html#src.model.model.one_rep_max_estimator">[docs]</a><span class="k">def</span> <span class="nf">one_rep_max_estimator</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;acsm&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;acsm_1rm, epley or brzycki formulas</span>
+<span class="sd">    are used to implement the 1RM estimation</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">    \[ x^n + y^n = z^n \]</span>
+
+<span class="sd">    ACSM 1RM formula</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">    `\\frac{w}{\\frac{100 - r \\cdot 2.5}{100}}`</span>
+
+<span class="sd">    Epley 1RM formula</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">    w\\cdot\\frac{1+r}{30}}</span>
+
+<span class="sd">    Brzycki 1RM formula</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">    w \\cdot \\frac{36}{37 - r}</span>
+
+<span class="sd">    :param df: _description_</span>
+<span class="sd">    :type df: pd.DataFrame</span>
+<span class="sd">    :param formula: _description_, defaults to &quot;acsm&quot;</span>
+<span class="sd">    :type formula: str, optional</span>
+<span class="sd">    :return: _description_</span>
+<span class="sd">    :rtype: pd.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">acsm_1rm</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The ACSM (American College of Sports Medicine) protocol</span>
+
+<span class="sd">        :param w: weight</span>
+<span class="sd">        :type w: _type_</span>
+<span class="sd">        :param r: repetitions</span>
+<span class="sd">        :type r: _type_</span>
+<span class="sd">        :return: 1 RM</span>
+<span class="sd">        :rtype: _type_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Assert denominator is not zero</span>
+        <span class="c1"># if not (((100 - r * 2.5) / 100) != 0).all():</span>
+        <span class="c1">#     sys.exit(&quot;The denominator is Zero&quot;)</span>
+        <span class="k">return</span> <span class="n">w</span> <span class="o">/</span> <span class="p">((</span><span class="mi">100</span> <span class="o">-</span> <span class="n">r</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">epley_1rm</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="c1"># Assert r is positive</span>
+        <span class="c1"># if not (r &gt; 1).all():</span>
+        <span class="c1">#     sys.exit(&quot;There was less than 1 repetition&quot;)</span>
+        <span class="k">return</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">brzycki_1rm</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="c1"># Assert r is within reasonable range</span>
+        <span class="c1"># if not (1 &lt; r &lt; 20).all():</span>
+        <span class="c1">#     sys.exit(&quot;Repetitions are out of valid range (2-19)&quot;)</span>
+        <span class="k">return</span> <span class="n">w</span> <span class="o">*</span> <span class="mi">36</span> <span class="o">/</span> <span class="p">(</span><span class="mi">37</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span>
+
+    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">match</span> <span class="n">formula</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;acsm&quot;</span><span class="p">:</span>
+            <span class="n">df_copy</span><span class="p">[</span><span class="s2">&quot;1RM&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acsm_1rm</span><span class="p">(</span><span class="n">get_weight</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;reps&quot;</span><span class="p">])</span>
+        <span class="k">case</span> <span class="s2">&quot;epley&quot;</span><span class="p">:</span>
+            <span class="n">df_copy</span><span class="p">[</span><span class="s2">&quot;1RM&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epley_1rm</span><span class="p">(</span><span class="n">get_weight</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;reps&quot;</span><span class="p">])</span>
+        <span class="k">case</span> <span class="s2">&quot;brzycki&quot;</span><span class="p">:</span>
+            <span class="n">df_copy</span><span class="p">[</span><span class="s2">&quot;1RM&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">brzycki_1rm</span><span class="p">(</span><span class="n">get_weight</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;reps&quot;</span><span class="p">])</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Invalid formula&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)[[</span><span class="s2">&quot;1RM&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_data"><a class="viewcode-back" href="../../../src.model.html#src.model.model.get_data">[docs]</a><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">y_col</span><span class="o">=</span><span class="s2">&quot;1RM&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get workout-timestamps and 1RM estimates</span>
+
+<span class="sd">    :param df: Pandas dataframe with workout-timestamps</span>
+<span class="sd">        and either 1RM estimates or volume</span>
+<span class="sd">    :type df: pd.DataFrame</span>
+<span class="sd">    :param y_col: String signifying whether to use 1RM estimates or volume</span>
+<span class="sd">    :type y_col: str</span>
+<span class="sd">    :return: workout-timestamps and either 1RM estimates or volume</span>
+<span class="sd">    :rtype: tuple[list[float], list[float]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">date_strs</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># workout-dates</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">date_strs</span><span class="p">]</span>
+
+    <span class="k">match</span> <span class="n">y_col</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;1RM&quot;</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;1RM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># max 1RM estimate in kg</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+        <span class="k">case</span> <span class="s2">&quot;volume&quot;</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># volume in kg</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span></div>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prepare dfs, calc 1RM and do linear regression.&quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">logging</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Final</span>
+
+    <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;logs/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(name)-12s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;%m-</span><span class="si">%d</span><span class="s2"> %H:%M&quot;</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;logs/model.log&quot;</span><span class="p">,</span>
+        <span class="n">filemode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">console</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(name)-12s</span><span class="s2">: </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Running </span><span class="si">%s</span><span class="s2"> ...&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="vm">__file__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]))</span>
+    <span class="n">logger1</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;model.area1&quot;</span><span class="p">)</span>
+    <span class="n">logger2</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;model.area2&quot;</span><span class="p">)</span>
+
+    <span class="n">DATA_MODELS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;real&quot;</span><span class="p">,</span> <span class="s2">&quot;simulated&quot;</span><span class="p">]</span>
+    <span class="n">FORMULAS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;acsm&quot;</span><span class="p">,</span> <span class="s2">&quot;epley&quot;</span><span class="p">,</span> <span class="s2">&quot;brzycki&quot;</span><span class="p">]</span>
+    <span class="n">datatype</span> <span class="o">=</span> <span class="n">DATA_MODELS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">_EXERCISE</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;squat&quot;</span>
+    <span class="n">_SPLITS</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;legs_and_abs&quot;</span><span class="p">]</span>
+    <span class="n">db</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">set_db_and_table</span><span class="p">(</span><span class="n">datatype</span><span class="p">)</span>
+
+    <span class="n">logger1</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;data_model: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">datatype</span><span class="p">)</span>
+    <span class="n">logger1</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;db: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+    <span class="n">logger1</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;table: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+
+    <span class="n">workout_timestamps</span><span class="p">,</span> <span class="n">one_rm_estimates</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span>
+        <span class="n">one_rep_max_estimator</span><span class="p">(</span>
+            <span class="n">get_df</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">splits</span><span class="o">=</span><span class="n">_SPLITS</span><span class="p">,</span> <span class="n">exercise</span><span class="o">=</span><span class="n">_EXERCISE</span><span class="p">),</span>
+            <span class="n">formula</span><span class="o">=</span><span class="n">FORMULAS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">workout_timestamps</span><span class="p">,</span> <span class="n">volume</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span>
+        <span class="n">calc_volume</span><span class="p">(</span><span class="n">get_df</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">splits</span><span class="o">=</span><span class="n">_SPLITS</span><span class="p">,</span> <span class="n">exercise</span><span class="o">=</span><span class="n">_EXERCISE</span><span class="p">)),</span>
+        <span class="n">y_col</span><span class="o">=</span><span class="s2">&quot;volume&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">logger2</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Exercise: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">_EXERCISE</span><span class="p">)</span>
+    <span class="n">logger2</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Workout timestamps: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">workout_timestamps</span><span class="p">)</span>
+    <span class="n">logger2</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;1 RM estimates: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">one_rm_estimates</span><span class="p">)</span>
+    <span class="n">logger2</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Volume: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Collin Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

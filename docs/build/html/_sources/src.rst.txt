@@ -7,8 +7,10 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   src.combined_metrics
    src.CRUD
    src.helpers
+   src.model
    src.simulations
 
 Submodules

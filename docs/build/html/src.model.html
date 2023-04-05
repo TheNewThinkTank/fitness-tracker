@@ -177,52 +177,37 @@ for specified split(s) and exercise</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.model.model.one_rep_max_estimator">
 <span class="sig-prename descclassname"><span class="pre">src.model.model.</span></span><span class="sig-name descname"><span class="pre">one_rep_max_estimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'acsm'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#src.model.model.one_rep_max_estimator" title="Permalink to this definition"></a></dt>
-<dd><dl>
-<dt>acsm_1rm, epley or brzycki formulas</dt><dd><p>are used to implement the 1RM estimation</p>
+<dd><p>acsm_1rm, epley or brzycki formulas
+are used to implement the 1RM estimation</p>
 <p>ACSM 1RM formula
 .. math:</p>
-</dd>
-</dl>
-<p>rac{w}{
-rac{100 - r cdot 2.5}{100}}</p>
-<blockquote>
-<div><p>Epley 1RM formula
-.. math:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> \<span class="n">cdot</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">frac</span><span class="p">{</span><span class="n">w</span><span class="p">}{</span>\<span class="n">frac</span><span class="p">{</span><span class="mi">100</span> <span class="o">-</span> <span class="n">r</span> \<span class="n">cdot</span> <span class="mf">2.5</span><span class="p">}{</span><span class="mi">100</span><span class="p">}}</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>rac{1 + r}{30}}</p>
-<blockquote>
-<div><p>Brzycki 1RM formula
+<p>Epley 1RM formula
 .. math:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> \<span class="n">cdot</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> \<span class="n">cdot</span> \<span class="n">frac</span><span class="p">{</span><span class="mi">1</span> <span class="o">+</span> <span class="n">r</span><span class="p">}{</span><span class="mi">30</span><span class="p">}}</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>rac{36}{37 - r}</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param df<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
+<p>Brzycki 1RM formula
+.. math:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> \<span class="n">cdot</span> \<span class="n">frac</span><span class="p">{</span><span class="mi">36</span><span class="p">}{</span><span class="mi">37</span> <span class="o">-</span> <span class="n">r</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – _description_</p></li>
+<li><p><strong>formula</strong> (<em>str</em><em>, </em><em>optional</em>) – _description_, defaults to “acsm”</p></li>
+</ul>
 </dd>
-<dt class="field-even">type df<span class="colon">:</span></dt>
-<dd class="field-even"><p>pd.DataFrame</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
 </dd>
-<dt class="field-odd">param formula<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_, defaults to “acsm”</p>
-</dd>
-<dt class="field-even">type formula<span class="colon">:</span></dt>
-<dd class="field-even"><p>str, optional</p>
-</dd>
-<dt class="field-odd">return<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
-</dd>
-<dt class="field-even">rtype<span class="colon">:</span></dt>
-<dd class="field-even"><p>pd.DataFrame</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 </section>

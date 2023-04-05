@@ -165,8 +165,35 @@ Purpose: Get all exercises available for a given musclegroup</p>
 </dd></dl>
 
 </section>
-<section id="src-helpers-json2csv-module">
-<h2>src.helpers.json2csv module<a class="headerlink" href="#src-helpers-json2csv-module" title="Permalink to this heading"></a></h2>
+<section id="module-src.helpers.json_to_csv">
+<span id="src-helpers-json-to-csv-module"></span><h2>src.helpers.json_to_csv module<a class="headerlink" href="#module-src.helpers.json_to_csv" title="Permalink to this heading"></a></h2>
+<p>Date: 2022-02-21
+Purpose: flatten nested JSON data into csv format,
+for the great expectations framework to process.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.json_to_csv.df_to_csv">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.json_to_csv.</span></span><span class="sig-name descname"><span class="pre">df_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.helpers.json_to_csv.df_to_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Flatten data, apply additional transformations,
+and write results to csv format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>infile</strong> (<em>str</em>) – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.json_to_csv.get_exercise_data">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.json_to_csv.</span></span><span class="sig-name descname"><span class="pre">get_exercise_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#src.helpers.json_to_csv.get_exercise_data" title="Permalink to this definition"></a></dt>
+<dd><p>Read nested JSON file into dataframe.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.helpers.json_to_csv.main">
+<span class="sig-prename descclassname"><span class="pre">src.helpers.json_to_csv.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#src.helpers.json_to_csv.main" title="Permalink to this definition"></a></dt>
+<dd><p>Convert all JSON files inside nested folders to CSV</p>
+</dd></dl>
+
 </section>
 <section id="module-src.helpers.lookup">
 <span id="src-helpers-lookup-module"></span><h2>src.helpers.lookup module<a class="headerlink" href="#module-src.helpers.lookup" title="Permalink to this heading"></a></h2>

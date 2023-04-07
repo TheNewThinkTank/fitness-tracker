@@ -45,7 +45,14 @@ def main() -> None:
     workout_date = dates[0]
     progress = 10
 
-    simulated_workout = WorkoutSimulator(workout_date, progress)
+    TRAINING_CATALOGUE: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
+    OUTPUT_DIR: str = "data/simulated/"
+
+    simulated_workout = WorkoutSimulator(workout_date,
+                                         progress,
+                                         TRAINING_CATALOGUE,
+                                         OUTPUT_DIR,
+                                         )
 
     simulated_exercises = simulated_workout.simulate_exercises()
     print(type(simulated_exercises))

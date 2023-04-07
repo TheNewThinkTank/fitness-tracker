@@ -10,26 +10,27 @@ import numpy as np
 class WorkoutSimulator:
     """Simulate a workout"""
 
-    splits: list[str] = ["back", "chest", "legs", "shoulders"]
-    training_catalogue: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
-    output_dir: str = "data/simulated/"
+    # available_splits = ["back", "chest", "legs", "shoulders"] # Define list of available muscle groups
 
-    def __init__(self, workout_date: str, progress: int) -> None:
+    def __init__(self, workout_date: str, progress: int, training_catalogue: str, output_dir: str) -> None:
         self.workout_date: str = workout_date
         self.progress: int = progress
-        self.split: str = random.choice(self.splits)
+        self.training_catalogue: str = training_catalogue
+        self.output_dir: str = output_dir
+        self.split: str = random.choice(["back", "chest", "legs", "shoulders"])
 
-    def get_available_exercises(self) -> list[dict[str, list[int]]]:
+    def get_available_exercises(self, split: str) -> list[dict[str, list[int]]]:
         """Fetch musclegroup-exercises catalogue, with weight-ranges.
 
-        :return: _description_
+        :return: List of available exercises for the given muscle group
         :rtype: list[dict]
         """
 
         with open(self.training_catalogue, "r") as rf:
             available_exercises: dict[str, list[dict[str, list[int]]]] = yaml.safe_load(rf)
 
-        return available_exercises[self.split]
+        return available_exercises[split]
+
 
     def simulate_exercises(self) -> list[dict[str, list[int]]]:
         """Simulate data for exercises.
@@ -38,7 +39,7 @@ class WorkoutSimulator:
         :rtype: list[dict]
         """
 
-        available_exercises: list[dict[str, list[int]]] = self.get_available_exercises()
+        available_exercises: list[dict[str, list[int]]] = self.get_available_exercises(self.split)
         random.shuffle(available_exercises)
 
         return available_exercises[:random.randint(2, 6)]

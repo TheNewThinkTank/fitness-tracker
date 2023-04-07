@@ -4,6 +4,7 @@ import random
 import pathlib
 import json
 import yaml
+import numpy as np
 
 
 class WorkoutSimulator:
@@ -14,11 +15,11 @@ class WorkoutSimulator:
     output_dir: str = "data/simulated/"
 
     def __init__(self, workout_date: str, progress: int) -> None:
-        self.workout_date = workout_date
-        self.progress = progress
-        self.split = random.choice(self.splits)
+        self.workout_date: str = workout_date
+        self.progress: int = progress
+        self.split: str = random.choice(self.splits)
 
-    def get_available_exercises(self) -> list[dict]:
+    def get_available_exercises(self) -> list[dict[str, list[int]]]:
         """Fetch musclegroup-exercises catalogue, with weight-ranges.
 
         :return: _description_
@@ -26,22 +27,23 @@ class WorkoutSimulator:
         """
 
         with open(self.training_catalogue, "r") as rf:
-            available_exercises = yaml.safe_load(rf)  # yaml.load(rf, Loader=yaml.FullLoader)
+            available_exercises: dict[str, list[dict[str, list[int]]]] = yaml.safe_load(rf)
 
         return available_exercises[self.split]
 
-    def simulate_exercises(self) -> list[dict]:
+    def simulate_exercises(self) -> list[dict[str, list[int]]]:
         """Simulate data for exercises.
 
         :return: _description_
         :rtype: list[dict]
         """
 
-        random.shuffle(self.get_available_exercises())
+        available_exercises: list[dict[str, list[int]]] = self.get_available_exercises()
+        random.shuffle(available_exercises)
 
-        return self.get_available_exercises()[:random.randint(2, 6)]
+        return available_exercises[:random.randint(2, 6)]
 
-    def high_reps_low_weight(self, weight_range, actual_reps) -> str:
+    def calculate_weight(self, weight_range, actual_reps) -> str:
         """Simulate that higher reps leads to lower weights.
         choose weight from inverted 1RM estimate plus randomised progression.
 
@@ -53,12 +55,11 @@ class WorkoutSimulator:
         :rtype: str
         """
 
-        weight_choice = weight_range[-1] * ((100 - actual_reps * 2.5) / 100) + np.log10(
+        weight_choice: float = weight_range[-1] * ((100 - actual_reps * 2.5) / 100) + np.log10(
             self.progress
         )
 
         # print(weight_range, actual_reps, self.progress, weight_choice)
-
         return f"{weight_choice:.2f} kg"
 
     def simulate_sets_reps_weight(self) -> dict:
@@ -75,7 +76,7 @@ class WorkoutSimulator:
                 mapping[k] = []
                 for actual_set in range(1, no_of_sets + 1):
                     actual_reps = random.randint(1, 10)
-                    actual_weight = self.high_reps_low_weight(weight_range, actual_reps)
+                    actual_weight = self.calculate_weight(weight_range, actual_reps)
                     mapping[k].append(
                         {
                             "set_number": actual_set,

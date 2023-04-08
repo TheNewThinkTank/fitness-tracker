@@ -136,10 +136,24 @@ class WorkoutSimulator:
     def write_data(self) -> None:
         """Insert simulated, formatted data into JSON file."""
 
-        date = self.format_data()["date"]
+        try:
+            date = self.format_data()["date"]
+        except KeyError as e:
+            print(f"Error: {e} not found in data")
+            return
+
         p = pathlib.Path(self.output_dir)
-        p.mkdir(parents=True, exist_ok=True)
+        try:
+            p.mkdir(parents=True, exist_ok=True)
+        except OSError as e:
+            print(f"Error: {e}")
+            return
+
         fn = f"simulated_training_log_{date}.json"
         filepath = p / fn
-        with filepath.open("w", encoding="utf-8") as f:
-            json.dump(self.format_data(), f)
+        try:
+            with filepath.open("w", encoding="utf-8") as f:
+                json.dump(self.format_data(), f, indent=4)
+        except IOError as e:
+            print(f"Error: {e}")
+            return

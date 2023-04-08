@@ -47,7 +47,7 @@ class WorkoutSimulator:
 
         return available_exercises[split]
 
-    def simulate_exercises(self) -> list[dict[str, list[int]]]:
+    def select_random_exercises(self) -> list[dict[str, list[int]]]:
         """Simulate data for exercises.
 
         :return: _description_
@@ -86,7 +86,7 @@ class WorkoutSimulator:
         """
 
         exercise_mapping = {}
-        for exercise in self.simulate_exercises():
+        for exercise in self.select_random_exercises():
             for exercise_name, weight_range in exercise.items():
                 exercise_mapping[exercise_name] = weight_range
 

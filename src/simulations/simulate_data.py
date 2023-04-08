@@ -6,13 +6,9 @@ Purpose: Simulate weight-training data
 __author__ = "Gustav Collin Rasmussen"
 
 from datetime import datetime
-# import json
-# import numpy as np  # type: ignore
-# import pathlib
 import random
 
 import pandas as pd  # type: ignore
-# import yaml  # type: ignore
 
 from workout_simulator import WorkoutSimulator
 

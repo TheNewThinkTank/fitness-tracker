@@ -2,16 +2,34 @@
 
 import os
 from pathlib import Path
-
 from faker import Faker
 
 fake = Faker()  # Faker("it_IT")  # default: en_US
 
-for _ in range(2):
+NUM_ATHLETES = 2
+DATA_DIR = "data"
+
+
+def generate_athlete() -> str:
+    """."""
     athlete = fake.name().replace(" ", "_").lower()
     print(athlete)
-    Path(f"data/{athlete}").mkdir(parents=True, exist_ok=True)
+    Path(os.path.join(DATA_DIR, athlete)).mkdir(parents=True, exist_ok=True)
 
-    if not os.listdir(f"data/{athlete}"):
-        print(f"data/{athlete} is empty! Creating .gitkeep ...")
-        open(f"data/{athlete}/.gitkeep", "w", encoding="utf8")
+    athlete_dir = os.path.join(DATA_DIR, athlete)
+    if not os.listdir(athlete_dir):
+        print(f"{athlete_dir} is empty! Creating .gitkeep ...")
+        with open(os.path.join(athlete_dir, ".gitkeep"), "w", encoding="utf8") as f:
+            pass
+
+    return athlete
+
+
+def main():
+    """."""
+    for _ in range(NUM_ATHLETES):
+        generate_athlete()
+
+
+if __name__ == "__main__":
+    main()

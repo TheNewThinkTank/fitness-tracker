@@ -54,7 +54,7 @@ def main() -> None:
                                          OUTPUT_DIR,
                                          )
 
-    simulated_exercises = simulated_workout.simulate_exercises()
+    simulated_exercises = simulated_workout.select_random_exercises()
     print(type(simulated_exercises))
     print(simulated_exercises)
 

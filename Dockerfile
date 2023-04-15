@@ -1,4 +1,4 @@
-FROM python:3.10 as requirements-stage
+FROM python:3.11 as requirements-stage
 
 WORKDIR /tmp
 
@@ -8,7 +8,7 @@ COPY ./pyproject.toml ./poetry.lock* /tmp/
 
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
-FROM python:3.10
+FROM python:3.11
 
 WORKDIR /code
 
@@ -17,8 +17,13 @@ COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./src /code/src
-COPY ./data /code/data
-COPY config.json /code/config.json
+
+COPY ["/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/", "/code/data"]
+# COPY ./data /code/data
+
+COPY config.yml /code/config.yml
+# COPY config.json /code/config.json
+
 # COPY ./app /code/app
 
 CMD ["python", "src/main.py"]

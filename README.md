@@ -122,7 +122,7 @@ and last leg workout of program 2 for three selected exercises.<br>
 ### Similar projects
 If you liked this fitness tracker then you might also be interested in
 the [Dojo](https://gitlab.com/sports-tracking/dojo) martial arts project
-which can be found on Gitlab and is a Rust & TypeScript based general purpose martial arts desktop application
+which can be found on GitLab and is a Rust & TypeScript based general purpose martial arts desktop application
 
 <!--
 ## Upcoming features

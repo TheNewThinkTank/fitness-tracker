@@ -113,6 +113,13 @@ and last leg workout of program 2 for three selected exercises.<br>
 - [bench_press](https://www.youtube.com/watch?v=wT9kr8FA5tw&ab_channel=GustavCollinRasmussen)
 - [leg_extention](https://www.youtube.com/watch?v=49hEuDi79AI&ab_channel=GustavCollinRasmussen)
 
+### Strava activities
+
+<!-- <iframe height='454' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/77134512/latest-rides/0d0147f3e94a11a3d7f73b41ce73e1cfc0d9f557'></iframe> -->
+
+[latest-runs](https://www.strava.com/athletes/77134512/latest-rides/0d0147f3e94a11a3d7f73b41ce73e1cfc0d9f557)
+
+
 <!--
 ## Upcoming features
 - deploy and host containerized app on Raspberry Pi

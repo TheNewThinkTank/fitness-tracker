@@ -119,6 +119,10 @@ and last leg workout of program 2 for three selected exercises.<br>
 
 [latest-runs](https://www.strava.com/athletes/77134512/latest-rides/0d0147f3e94a11a3d7f73b41ce73e1cfc0d9f557)
 
+### Similar projects
+If you liked this fitness tracker then you might also be interested in
+the [Dojo](https://gitlab.com/sports-tracking/dojo) martial arts project
+which can be found on Gitlab and is a Rust & TypeScript based general purpose martial arts desktop application
 
 <!--
 ## Upcoming features

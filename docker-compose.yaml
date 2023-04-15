@@ -8,6 +8,7 @@ services:
       - 8080:80
     volumes:
       - .:/code  # .:/scr  # .:/app
+      - /Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data:/app/data
 
 # CLI command, 1.st time: docker-compose up --build
 # CLI command, without image building: docker-compose up

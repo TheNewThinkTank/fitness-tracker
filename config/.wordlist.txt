@@ -3,10 +3,12 @@ BDD
 Brzycki
 CLI
 deadlift
+Dojo
 Epley
 Expections
 extention
 FastAPI
+GitLab
 html
 http
 https
@@ -22,5 +24,6 @@ Seaborn
 Strava
 TinyDB
 trendlines
+TypeScript
 Vlog
 VO

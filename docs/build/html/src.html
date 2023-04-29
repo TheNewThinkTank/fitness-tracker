@@ -12,6 +12,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -120,6 +123,7 @@
 <li class="toctree-l3"><a class="reference internal" href="src.CRUD.html#src.CRUD.read.get_all"><code class="docutils literal notranslate"><span class="pre">get_all()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.CRUD.html#src.CRUD.read.get_dates"><code class="docutils literal notranslate"><span class="pre">get_dates()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.CRUD.html#src.CRUD.read.get_dates_and_muscle_groups"><code class="docutils literal notranslate"><span class="pre">get_dates_and_muscle_groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.CRUD.html#src.CRUD.read.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.CRUD.html#src.CRUD.read.show_exercise"><code class="docutils literal notranslate"><span class="pre">show_exercise()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.CRUD.html#src.CRUD.read.show_exercises"><code class="docutils literal notranslate"><span class="pre">show_exercises()</span></code></a></li>
 </ul>
@@ -188,7 +192,20 @@
 <li class="toctree-l3"><a class="reference internal" href="src.helpers.html#src.helpers.lookup.get_year_and_month"><code class="docutils literal notranslate"><span class="pre">get_year_and_month()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="src.helpers.html#src-helpers-validate-module">src.helpers.validate module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src.helpers.html#module-src.helpers.validate">src.helpers.validate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="src.helpers.html#src.helpers.validate.ExercisesFormatError"><code class="docutils literal notranslate"><span class="pre">ExercisesFormatError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.helpers.html#src.helpers.validate.Workout"><code class="docutils literal notranslate"><span class="pre">Workout</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="src.helpers.html#src.helpers.validate.Workout.date"><code class="docutils literal notranslate"><span class="pre">Workout.date</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.helpers.html#src.helpers.validate.Workout.exercise_valid"><code class="docutils literal notranslate"><span class="pre">Workout.exercise_valid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.helpers.html#src.helpers.validate.Workout.exercises"><code class="docutils literal notranslate"><span class="pre">Workout.exercises</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.helpers.html#src.helpers.validate.Workout.gym"><code class="docutils literal notranslate"><span class="pre">Workout.gym</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.helpers.html#src.helpers.validate.Workout.note"><code class="docutils literal notranslate"><span class="pre">Workout.note</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.helpers.html#src.helpers.validate.Workout.split"><code class="docutils literal notranslate"><span class="pre">Workout.split</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.helpers.html#src.helpers.validate.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="src.helpers.html#module-src.helpers">Module contents</a></li>
 </ul>
 </li>
@@ -199,6 +216,7 @@
 <li class="toctree-l3"><a class="reference internal" href="src.model.html#src.model.model.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.model.html#src.model.model.get_df"><code class="docutils literal notranslate"><span class="pre">get_df()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.model.html#src.model.model.get_weight"><code class="docutils literal notranslate"><span class="pre">get_weight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.model.html#src.model.model.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.model.html#src.model.model.one_rep_max_estimator"><code class="docutils literal notranslate"><span class="pre">one_rep_max_estimator()</span></code></a></li>
 </ul>
 </li>
@@ -209,21 +227,6 @@
 <li class="toctree-l1"><a class="reference internal" href="src.simulations.html">src.simulations package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="src.simulations.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src.simulations.html#module-src.simulations.simulate_data">src.simulations.simulate_data module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.format_data"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.format_data()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.get_available_exercises"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.get_available_exercises()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.high_reps_low_weight"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.high_reps_low_weight()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.output_dir"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.output_dir</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.progress"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.progress</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.simulate_exercises"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.simulate_exercises()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.simulate_sets_reps_weight"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.simulate_sets_reps_weight()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.split"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.split</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.splits"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.splits</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.training_catalogue"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.training_catalogue</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.workout_date"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.workout_date</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.write_data"><code class="docutils literal notranslate"><span class="pre">SimulateWorkout.write_data()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.get_dates"><code class="docutils literal notranslate"><span class="pre">get_dates()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="src.simulations.html#src.simulations.simulate_data.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 </ul>

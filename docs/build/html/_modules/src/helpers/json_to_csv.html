@@ -11,6 +11,9 @@
   <![endif]-->
   
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -83,7 +86,13 @@
 
 
 <div class="viewcode-block" id="get_exercise_data"><a class="viewcode-back" href="../../../src.helpers.html#src.helpers.json_to_csv.get_exercise_data">[docs]</a><span class="k">def</span> <span class="nf">get_exercise_data</span><span class="p">(</span><span class="n">infile</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read nested JSON file into dataframe.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read nested JSON file into dataframe.</span>
+
+<span class="sd">    :param infile: _description_</span>
+<span class="sd">    :type infile: str</span>
+<span class="sd">    :return: _description_</span>
+<span class="sd">    :rtype: pd.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
         <span class="n">json_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span>
@@ -109,6 +118,8 @@
 
 <span class="sd">    :param infile: _description_</span>
 <span class="sd">    :type infile: str</span>
+<span class="sd">    :param df: _description_</span>
+<span class="sd">    :type df: pd.DataFrame</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">col_order</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="s2">&quot;exercise&quot;</span><span class="p">,</span> <span class="s2">&quot;set_number&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;reps&quot;</span><span class="p">]</span>

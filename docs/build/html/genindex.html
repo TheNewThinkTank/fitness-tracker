@@ -11,6 +11,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -75,13 +78,11 @@
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
- | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#J"><strong>J</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
- | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -122,6 +123,8 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src.helpers.html#src.helpers.validate.Workout.date">date (src.helpers.validate.Workout attribute)</a>
+</li>
       <li><a href="src.helpers.html#src.helpers.lookup.Months.DECEMBER">DECEMBER (src.helpers.lookup.Months attribute)</a>
 </li>
   </ul></td>
@@ -138,6 +141,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src.helpers.html#src.helpers.cleanup.empty_file">empty_file() (in module src.helpers.cleanup)</a>
 </li>
+      <li><a href="src.helpers.html#src.helpers.validate.Workout.exercise_valid">exercise_valid() (src.helpers.validate.Workout class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src.helpers.html#src.helpers.validate.Workout.exercises">exercises (src.helpers.validate.Workout attribute)</a>
+</li>
+      <li><a href="src.helpers.html#src.helpers.validate.ExercisesFormatError">ExercisesFormatError</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -145,10 +156,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src.helpers.html#src.helpers.lookup.Months.FEBRUARY">FEBRUARY (src.helpers.lookup.Months attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.format_data">format_data() (src.simulations.simulate_data.SimulateWorkout method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -159,11 +166,7 @@
       <li><a href="src.CRUD.html#src.CRUD.read.get_all">get_all() (in module src.CRUD.read)</a>
 </li>
       <li><a href="src.helpers.html#src.helpers.get_exercises.get_available_exercises">get_available_exercises() (in module src.helpers.get_exercises)</a>
-
-      <ul>
-        <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.get_available_exercises">(src.simulations.simulate_data.SimulateWorkout method)</a>
 </li>
-      </ul></li>
       <li><a href="src.model.html#src.model.model.get_data">get_data() (in module src.model.model)</a>
 
       <ul>
@@ -176,10 +179,10 @@
         <li><a href="src.simulations.html#src.simulations.simulate_data.get_dates">(in module src.simulations.simulate_data)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src.CRUD.html#src.CRUD.read.get_dates_and_muscle_groups">get_dates_and_muscle_groups() (in module src.CRUD.read)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src.model.html#src.model.model.get_df">get_df() (in module src.model.model)</a>
 </li>
       <li><a href="src.helpers.html#src.helpers.json_to_csv.get_exercise_data">get_exercise_data() (in module src.helpers.json_to_csv)</a>
@@ -192,13 +195,7 @@
 </li>
       <li><a href="src.helpers.html#src.helpers.get_year_and_week.get_year_and_week">get_year_and_week() (in module src.helpers.get_year_and_week)</a>
 </li>
-  </ul></td>
-</tr></table>
-
-<h2 id="H">H</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.high_reps_low_weight">high_reps_low_weight() (src.simulations.simulate_data.SimulateWorkout method)</a>
+      <li><a href="src.helpers.html#src.helpers.validate.Workout.gym">gym (src.helpers.validate.Workout attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -237,6 +234,8 @@
       <li><a href="src.CRUD.html#src.CRUD.insert.main">main() (in module src.CRUD.insert)</a>
 
       <ul>
+        <li><a href="src.CRUD.html#src.CRUD.read.main">(in module src.CRUD.read)</a>
+</li>
         <li><a href="src.helpers.html#src.helpers.analyze_stats.main">(in module src.helpers.analyze_stats)</a>
 </li>
         <li><a href="src.helpers.html#src.helpers.cleanup.main">(in module src.helpers.cleanup)</a>
@@ -248,6 +247,10 @@
         <li><a href="src.helpers.html#src.helpers.get_year_and_week.main">(in module src.helpers.get_year_and_week)</a>
 </li>
         <li><a href="src.helpers.html#src.helpers.json_to_csv.main">(in module src.helpers.json_to_csv)</a>
+</li>
+        <li><a href="src.helpers.html#src.helpers.validate.main">(in module src.helpers.validate)</a>
+</li>
+        <li><a href="src.model.html#src.model.model.main">(in module src.model.model)</a>
 </li>
         <li><a href="src.html#src.plot.main">(in module src.plot)</a>
 </li>
@@ -290,6 +293,8 @@
 </li>
         <li><a href="src.helpers.html#module-src.helpers.lookup">src.helpers.lookup</a>
 </li>
+        <li><a href="src.helpers.html#module-src.helpers.validate">src.helpers.validate</a>
+</li>
         <li><a href="src.model.html#module-src.model">src.model</a>
 </li>
         <li><a href="src.model.html#module-src.model.model">src.model.model</a>
@@ -311,6 +316,10 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src.helpers.html#src.helpers.validate.Workout.note">note (src.helpers.validate.Workout attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src.helpers.html#src.helpers.lookup.Months.NOVEMBER">NOVEMBER (src.helpers.lookup.Months attribute)</a>
 </li>
   </ul></td>
@@ -324,16 +333,6 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src.model.html#src.model.model.one_rep_max_estimator">one_rep_max_estimator() (in module src.model.model)</a>
-</li>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.output_dir">output_dir (src.simulations.simulate_data.SimulateWorkout attribute)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.progress">progress (src.simulations.simulate_data.SimulateWorkout attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -355,15 +354,7 @@
 </li>
       <li><a href="src.CRUD.html#src.CRUD.read.show_exercises">show_exercises() (in module src.CRUD.read)</a>
 </li>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.simulate_exercises">simulate_exercises() (src.simulations.simulate_data.SimulateWorkout method)</a>
-</li>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.simulate_sets_reps_weight">simulate_sets_reps_weight() (src.simulations.simulate_data.SimulateWorkout method)</a>
-</li>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout">SimulateWorkout (class in src.simulations.simulate_data)</a>
-</li>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.split">split (src.simulations.simulate_data.SimulateWorkout attribute)</a>
-</li>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.splits">splits (src.simulations.simulate_data.SimulateWorkout attribute)</a>
+      <li><a href="src.helpers.html#src.helpers.validate.Workout.split">split (src.helpers.validate.Workout attribute)</a>
 </li>
       <li>
     src
@@ -421,8 +412,6 @@
         <li><a href="src.helpers.html#module-src.helpers.analyze_stats">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     src.helpers.cleanup
 
@@ -430,6 +419,8 @@
         <li><a href="src.helpers.html#module-src.helpers.cleanup">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     src.helpers.get_exercises
 
@@ -463,6 +454,13 @@
 
       <ul>
         <li><a href="src.helpers.html#module-src.helpers.lookup">module</a>
+</li>
+      </ul></li>
+      <li>
+    src.helpers.validate
+
+      <ul>
+        <li><a href="src.helpers.html#module-src.helpers.validate">module</a>
 </li>
       </ul></li>
       <li>
@@ -508,12 +506,10 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.training_catalogue">training_catalogue (src.simulations.simulate_data.SimulateWorkout attribute)</a>
+      <li><a href="src.CRUD.html#src.CRUD.update.truncate_table">truncate_table() (in module src.CRUD.update)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src.CRUD.html#src.CRUD.update.truncate_table">truncate_table() (in module src.CRUD.update)</a>
-</li>
       <li><a href="src.helpers.html#src.helpers.analyze_stats.txt_to_df">txt_to_df() (in module src.helpers.analyze_stats)</a>
 </li>
   </ul></td>
@@ -530,11 +526,7 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.workout_date">workout_date (src.simulations.simulate_data.SimulateWorkout attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src.simulations.html#src.simulations.simulate_data.SimulateWorkout.write_data">write_data() (src.simulations.simulate_data.SimulateWorkout method)</a>
+      <li><a href="src.helpers.html#src.helpers.validate.Workout">Workout (class in src.helpers.validate)</a>
 </li>
   </ul></td>
 </tr></table>

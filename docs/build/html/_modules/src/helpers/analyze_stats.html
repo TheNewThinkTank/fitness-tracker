@@ -11,6 +11,9 @@
   <![endif]-->
   
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -79,13 +82,26 @@
 
 
 <div class="viewcode-block" id="stats_to_txt"><a class="viewcode-back" href="../../../src.helpers.html#src.helpers.analyze_stats.stats_to_txt">[docs]</a><span class="k">def</span> <span class="nf">stats_to_txt</span><span class="p">(</span><span class="n">infile</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">outfile</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">    :param infile: _description_</span>
+<span class="sd">    :type infile: str</span>
+<span class="sd">    :param outfile: _description_</span>
+<span class="sd">    :type outfile: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
         <span class="n">stats</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">)</span>
         <span class="n">stats</span><span class="o">.</span><span class="n">strip_dirs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s2">&quot;cumtime&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="txt_to_df"><a class="viewcode-back" href="../../../src.helpers.html#src.helpers.analyze_stats.txt_to_df">[docs]</a><span class="k">def</span> <span class="nf">txt_to_df</span><span class="p">(</span><span class="n">infile</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># -&gt; pd.DataFrame:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">    :param infile: _description_</span>
+<span class="sd">    :type infile: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
         <span class="n">lines</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
         <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">removesuffix</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
@@ -110,7 +126,8 @@
 
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../src.helpers.html#src.helpers.analyze_stats.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">infile</span> <span class="o">=</span> <span class="s2">&quot;stats/get_workout_duration.stats&quot;</span>
     <span class="n">outfile</span> <span class="o">=</span> <span class="s2">&quot;stats/get_workout_duration_report.txt&quot;</span>
 

@@ -12,6 +12,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -101,7 +104,7 @@ Purpose: read workout data and calculate 1RM and training volume.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.model.model.calc_volume">
 <span class="sig-prename descclassname"><span class="pre">src.model.model.</span></span><span class="sig-name descname"><span class="pre">calc_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/src/model/model.html#calc_volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.model.calc_volume" title="Permalink to this definition"></a></dt>
-<dd><p>sets times reps times load</p>
+<dd><p>sets times reps times load.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – _description_</p>
@@ -118,7 +121,7 @@ Purpose: read workout data and calculate 1RM and training volume.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.model.model.get_data">
 <span class="sig-prename descclassname"><span class="pre">src.model.model.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'1RM'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/model/model.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.model.get_data" title="Permalink to this definition"></a></dt>
-<dd><p>Get workout-timestamps and 1RM estimates</p>
+<dd><p>Get workout-timestamps and 1RM estimates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -176,10 +179,16 @@ for specified split(s) and exercise</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="src.model.model.main">
+<span class="sig-prename descclassname"><span class="pre">src.model.model.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/model/model.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.model.main" title="Permalink to this definition"></a></dt>
+<dd><p>Prepare dfs, calc 1RM and do linear regression.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="src.model.model.one_rep_max_estimator">
 <span class="sig-prename descclassname"><span class="pre">src.model.model.</span></span><span class="sig-name descname"><span class="pre">one_rep_max_estimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'acsm'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/src/model/model.html#one_rep_max_estimator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.model.model.one_rep_max_estimator" title="Permalink to this definition"></a></dt>
 <dd><p>acsm_1rm, epley or brzycki formulas
-are used to implement the 1RM estimation</p>
+are used to implement the 1RM estimation.</p>
 <p>ACSM 1RM formula</p>
 <div class="math notranslate nohighlight">
 \[\frac{w}{\frac{100 - r \cdot 2.5}{100}}\]</div>

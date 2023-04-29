@@ -11,6 +11,9 @@
   <![endif]-->
   
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -75,115 +78,11 @@
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Gustav Collin Rasmussen&quot;</span>
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># type: ignore</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># type: ignore</span>
-<span class="kn">import</span> <span class="nn">yaml</span>  <span class="c1"># type: ignore</span>
 
-
-<div class="viewcode-block" id="SimulateWorkout"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.SimulateWorkout">[docs]</a><span class="k">class</span> <span class="nc">SimulateWorkout</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate a workout&quot;&quot;&quot;</span>
-
-    <span class="vm">__slots__</span> <span class="o">=</span> <span class="s2">&quot;workout_date&quot;</span><span class="p">,</span> <span class="s2">&quot;progress&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span>
-
-    <span class="n">splits</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;back&quot;</span><span class="p">,</span> <span class="s2">&quot;chest&quot;</span><span class="p">,</span> <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;shoulders&quot;</span><span class="p">]</span>
-    <span class="n">training_catalogue</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;src/simulations/muscles_and_exercises_weight_ranges.yaml&quot;</span>
-    <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;data/simulated/&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">workout_date</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">progress</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">workout_date</span> <span class="o">=</span> <span class="n">workout_date</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">progress</span> <span class="o">=</span> <span class="n">progress</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">split</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">splits</span><span class="p">)</span>
-
-<div class="viewcode-block" id="SimulateWorkout.get_available_exercises"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.SimulateWorkout.get_available_exercises">[docs]</a>    <span class="k">def</span> <span class="nf">get_available_exercises</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fetch musclegroup-exercises catalogue, with weight-ranges.</span>
-
-<span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: list[dict]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_catalogue</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">rf</span><span class="p">:</span>
-            <span class="n">available_exercises</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">available_exercises</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">]</span></div>
-
-<div class="viewcode-block" id="SimulateWorkout.simulate_exercises"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.SimulateWorkout.simulate_exercises">[docs]</a>    <span class="k">def</span> <span class="nf">simulate_exercises</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate data for exercises.</span>
-
-<span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: list[dict]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_available_exercises</span><span class="p">(),</span> <span class="n">k</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span></div>
-
-<div class="viewcode-block" id="SimulateWorkout.high_reps_low_weight"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.SimulateWorkout.high_reps_low_weight">[docs]</a>    <span class="k">def</span> <span class="nf">high_reps_low_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight_range</span><span class="p">,</span> <span class="n">actual_reps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate that higher reps leads to lower weights.</span>
-<span class="sd">        choose weight from inverted 1RM estimate plus randomised progression.</span>
-
-<span class="sd">        :param weight_range: _description_</span>
-<span class="sd">        :type weight_range: _type_</span>
-<span class="sd">        :param actual_reps: _description_</span>
-<span class="sd">        :type actual_reps: _type_</span>
-<span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">weight_choice</span> <span class="o">=</span> <span class="n">weight_range</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">((</span><span class="mi">100</span> <span class="o">-</span> <span class="n">actual_reps</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">progress</span>
-        <span class="p">)</span>
-
-        <span class="c1"># print(weight_range, actual_reps, self.progress, weight_choice)</span>
-
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">weight_choice</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> kg&quot;</span></div>
-
-<div class="viewcode-block" id="SimulateWorkout.simulate_sets_reps_weight"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.SimulateWorkout.simulate_sets_reps_weight">[docs]</a>    <span class="k">def</span> <span class="nf">simulate_sets_reps_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate data for sets, reps and weight.</span>
-
-<span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: dict</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">exercise</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulate_exercises</span><span class="p">():</span>
-            <span class="n">no_of_sets</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">weight_range</span> <span class="ow">in</span> <span class="n">exercise</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="n">mapping</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="k">for</span> <span class="n">actual_set</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">no_of_sets</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-                    <span class="n">actual_reps</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-                    <span class="n">actual_weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">high_reps_low_weight</span><span class="p">(</span><span class="n">weight_range</span><span class="p">,</span> <span class="n">actual_reps</span><span class="p">)</span>
-                    <span class="n">mapping</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                        <span class="p">{</span>
-                            <span class="s2">&quot;set_number&quot;</span><span class="p">:</span> <span class="n">actual_set</span><span class="p">,</span>
-                            <span class="s2">&quot;reps&quot;</span><span class="p">:</span> <span class="n">actual_reps</span><span class="p">,</span>
-                            <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="n">actual_weight</span><span class="p">,</span>
-                        <span class="p">}</span>
-                    <span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">mapping</span></div>
-
-<div class="viewcode-block" id="SimulateWorkout.format_data"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.SimulateWorkout.format_data">[docs]</a>    <span class="k">def</span> <span class="nf">format_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Prepare data format for JSON file.</span>
-
-<span class="sd">        :return: _description_</span>
-<span class="sd">        :rtype: dict</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">workout_date</span><span class="p">,</span>
-            <span class="s2">&quot;split&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">,</span>
-            <span class="s2">&quot;exercises&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">simulate_sets_reps_weight</span><span class="p">(),</span>
-        <span class="p">}</span></div>
-
-<div class="viewcode-block" id="SimulateWorkout.write_data"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.SimulateWorkout.write_data">[docs]</a>    <span class="k">def</span> <span class="nf">write_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Insert simulated, formatted data into JSON file.&quot;&quot;&quot;</span>
-
-        <span class="n">date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_data</span><span class="p">()[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">)</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">fn</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;simulated_training_log_</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">.json&quot;</span>
-        <span class="n">filepath</span> <span class="o">=</span> <span class="n">p</span> <span class="o">/</span> <span class="n">fn</span>
-        <span class="k">with</span> <span class="n">filepath</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">format_data</span><span class="p">(),</span> <span class="n">f</span><span class="p">)</span></div></div>
+<span class="kn">from</span> <span class="nn">workout_simulator</span> <span class="kn">import</span> <span class="n">WorkoutSimulator</span>
 
 
 <div class="viewcode-block" id="get_dates"><a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.get_dates">[docs]</a><span class="k">def</span> <span class="nf">get_dates</span><span class="p">(</span><span class="n">number_of_workouts</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">periods</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
@@ -214,9 +113,16 @@
     <span class="n">workout_date</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">progress</span> <span class="o">=</span> <span class="mi">10</span>
 
-    <span class="n">simulated_workout</span> <span class="o">=</span> <span class="n">SimulateWorkout</span><span class="p">(</span><span class="n">workout_date</span><span class="p">,</span> <span class="n">progress</span><span class="p">)</span>
+    <span class="n">TRAINING_CATALOGUE</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;src/simulations/muscles_and_exercises_weight_ranges.yaml&quot;</span>
+    <span class="n">OUTPUT_DIR</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;data/simulated/&quot;</span>
 
-    <span class="n">simulated_exercises</span> <span class="o">=</span> <span class="n">simulated_workout</span><span class="o">.</span><span class="n">simulate_exercises</span><span class="p">()</span>
+    <span class="n">simulated_workout</span> <span class="o">=</span> <span class="n">WorkoutSimulator</span><span class="p">(</span><span class="n">workout_date</span><span class="p">,</span>
+                                         <span class="n">progress</span><span class="p">,</span>
+                                         <span class="n">TRAINING_CATALOGUE</span><span class="p">,</span>
+                                         <span class="n">OUTPUT_DIR</span><span class="p">,</span>
+                                         <span class="p">)</span>
+
+    <span class="n">simulated_exercises</span> <span class="o">=</span> <span class="n">simulated_workout</span><span class="o">.</span><span class="n">select_random_exercises</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">simulated_exercises</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">simulated_exercises</span><span class="p">)</span>
 
@@ -230,7 +136,7 @@
 <span class="sd">    progress = 10  # to simulate higher weight per set across workouts</span>
 <span class="sd">    for workout in range(number_of_workouts):</span>
 <span class="sd">        workout_date = dates[workout]</span>
-<span class="sd">        simulated_workout = SimulateWorkout(workout_date, progress)</span>
+<span class="sd">        simulated_workout = WorkoutSimulator(workout_date, progress)</span>
 
 <span class="sd">        # actual_reps = random.randint(1, 10)</span>
 <span class="sd">        # weight_range = [50, 90]</span>

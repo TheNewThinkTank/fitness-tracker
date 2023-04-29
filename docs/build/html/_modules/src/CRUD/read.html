@@ -11,6 +11,9 @@
   <![endif]-->
   
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -73,15 +76,6 @@
 <span class="sd">https://tinydb.readthedocs.io/en/latest/getting-started.html</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;get_dates&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;get_dates_and_muscle_groups&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;show_exercises&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;get_all&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;describe_workout&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;show_exercise&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;analyze_workout&quot;</span><span class="p">,</span>
-<span class="p">]</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Gustav Collin Rasmussen&quot;</span>
 <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.0&quot;</span>
 
@@ -205,8 +199,9 @@
     <span class="k">return</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;exercises&quot;</span><span class="p">][</span><span class="n">exercise</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span></div>
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../src.CRUD.html#src.CRUD.read.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;_summary_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">datamodels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;real&quot;</span><span class="p">,</span> <span class="s2">&quot;simulated&quot;</span><span class="p">]</span>
     <span class="n">datatype</span> <span class="o">=</span> <span class="n">datamodels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -220,7 +215,7 @@
     <span class="c1"># print(show_exercises(table, _WORKOUT_DATE))</span>
     <span class="c1"># print(get_all(table))</span>
     <span class="c1"># print(describe_workout(table, _WORKOUT_DATE))</span>
-    <span class="n">show_exercise</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">_EXERCISE</span><span class="p">,</span> <span class="n">_WORKOUT_DATE</span><span class="p">)</span>
+    <span class="n">show_exercise</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">_EXERCISE</span><span class="p">,</span> <span class="n">_WORKOUT_DATE</span><span class="p">)</span></div>
     <span class="c1"># print(analyze_workout(table, _EXERCISE))</span>
 
 

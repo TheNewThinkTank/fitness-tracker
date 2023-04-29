@@ -12,6 +12,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -96,126 +99,6 @@
 <span id="src-simulations-simulate-data-module"></span><h2>src.simulations.simulate_data module<a class="headerlink" href="#module-src.simulations.simulate_data" title="Permalink to this heading"></a></h2>
 <p>Date: 2021-12-20
 Purpose: Simulate weight-training data</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.simulations.simulate_data.</span></span><span class="sig-name descname"><span class="pre">SimulateWorkout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workout_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#SimulateWorkout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Simulate a workout</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.format_data">
-<span class="sig-name descname"><span class="pre">format_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#SimulateWorkout.format_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.format_data" title="Permalink to this definition"></a></dt>
-<dd><p>Prepare data format for JSON file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.get_available_exercises">
-<span class="sig-name descname"><span class="pre">get_available_exercises</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#SimulateWorkout.get_available_exercises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.get_available_exercises" title="Permalink to this definition"></a></dt>
-<dd><p>Fetch musclegroup-exercises catalogue, with weight-ranges.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[dict]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.high_reps_low_weight">
-<span class="sig-name descname"><span class="pre">high_reps_low_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_reps</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#SimulateWorkout.high_reps_low_weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.high_reps_low_weight" title="Permalink to this definition"></a></dt>
-<dd><p>Simulate that higher reps leads to lower weights.
-choose weight from inverted 1RM estimate plus randomised progression.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>weight_range</strong> (<em>_type_</em>) – _description_</p></li>
-<li><p><strong>actual_reps</strong> (<em>_type_</em>) – _description_</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>_description_</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.output_dir">
-<span class="sig-name descname"><span class="pre">output_dir</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'data/simulated/'</span></em><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.output_dir" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.progress">
-<span class="sig-name descname"><span class="pre">progress</span></span><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.progress" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.simulate_exercises">
-<span class="sig-name descname"><span class="pre">simulate_exercises</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#SimulateWorkout.simulate_exercises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.simulate_exercises" title="Permalink to this definition"></a></dt>
-<dd><p>Simulate data for exercises.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[dict]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.simulate_sets_reps_weight">
-<span class="sig-name descname"><span class="pre">simulate_sets_reps_weight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#SimulateWorkout.simulate_sets_reps_weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.simulate_sets_reps_weight" title="Permalink to this definition"></a></dt>
-<dd><p>Simulate data for sets, reps and weight.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>_description_</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.split">
-<span class="sig-name descname"><span class="pre">split</span></span><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.split" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.splits">
-<span class="sig-name descname"><span class="pre">splits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['back',</span> <span class="pre">'chest',</span> <span class="pre">'legs',</span> <span class="pre">'shoulders']</span></em><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.splits" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.training_catalogue">
-<span class="sig-name descname"><span class="pre">training_catalogue</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'src/simulations/muscles_and_exercises_weight_ranges.yaml'</span></em><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.training_catalogue" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.workout_date">
-<span class="sig-name descname"><span class="pre">workout_date</span></span><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.workout_date" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="src.simulations.simulate_data.SimulateWorkout.write_data">
-<span class="sig-name descname"><span class="pre">write_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#SimulateWorkout.write_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.SimulateWorkout.write_data" title="Permalink to this definition"></a></dt>
-<dd><p>Insert simulated, formatted data into JSON file.</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="src.simulations.simulate_data.get_dates">
 <span class="sig-prename descclassname"><span class="pre">src.simulations.simulate_data.</span></span><span class="sig-name descname"><span class="pre">get_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_workouts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">periods</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/simulations/simulate_data.html#get_dates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.simulations.simulate_data.get_dates" title="Permalink to this definition"></a></dt>

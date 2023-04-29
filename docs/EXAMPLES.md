@@ -17,7 +17,7 @@ VO2-Max: `55.21923 mL/kg/min`<br>
 
 | workout_duration                                                | workout_frequency                                                |
 | --------------------------------------------------------------- | ---------------------------------------------------------------- |
-| <img src="../img/workout_duration.png" width="400" height="300" /> | <img src="img/workout_frequency.png" width="400" height="300" /> |
+| <img src="../img/workout_duration.png" width="400" height="300" /> | <img src="../img/workout_frequency.png" width="400" height="300" /> |
 
 Below: workout-date vs training volume (product between sets, reps and weight)<br>
 for different training programs, together with their regression fits/trendlines<br>
@@ -25,16 +25,16 @@ using 68% confidence intervals. (Each program is shown in the legend)
 
 | barbell_bench_press_volume                                                              | squat_volume                                                              |
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| <img src="img/real_fitted_data_barbell_bench_press_gvt.png" width="400" height="400" /> | <img src="img/real_fitted_data_squat_gvt.png" width="400" height="400" /> |
+| <img src="../img/real_fitted_data_barbell_bench_press_gvt.png" width="400" height="400" /> | <img src="../img/real_fitted_data_squat_gvt.png" width="400" height="400" /> |
 
 Below: key exercises for overall strength indications.<br>
 Each figure displays workout-date vs 1-rep-max estimate for different training programs,<br>
 together with their regression fits/trendlines using 68% confidence intervals.<br>
 (Each program is shown in the legend)
 
-|            ![fitted_data_deadlift](img/real_fitted_data_deadlift_splines.png)            |      ![fitted_data_squat](img/real_fitted_data_squat_splines.png)      |
+|            ![fitted_data_deadlift](../img/real_fitted_data_deadlift_splines.png)            |      ![fitted_data_squat](../img/real_fitted_data_squat_splines.png)      |
 | :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| ![fitted_data_barbell_bench_press](img/real_fitted_data_barbell_bench_press_splines.png) | ![fitted_data_seated_row](img/real_fitted_data_seated_row_splines.png) |
+| ![fitted_data_barbell_bench_press](../img/real_fitted_data_barbell_bench_press_splines.png) | ![fitted_data_seated_row](../img/real_fitted_data_seated_row_splines.png) |
 
 <!-- Below: comparison between first leg workout of program 1
 and last leg workout of program 2 for three selected exercises.<br>

@@ -14,7 +14,13 @@ import pandas as pd  # type: ignore
 
 
 def get_exercise_data(infile: str) -> pd.DataFrame:
-    """Read nested JSON file into dataframe."""
+    """Read nested JSON file into dataframe.
+
+    :param infile: _description_
+    :type infile: str
+    :return: _description_
+    :rtype: pd.DataFrame
+    """
 
     with open(infile, "r") as rf:
         json_dict = json.load(rf)
@@ -40,6 +46,8 @@ def df_to_csv(infile: str, df: pd.DataFrame) -> None:
 
     :param infile: _description_
     :type infile: str
+    :param df: _description_
+    :type df: pd.DataFrame
     """
 
     col_order = ["date", "split", "exercise", "set_number", "weight", "reps"]

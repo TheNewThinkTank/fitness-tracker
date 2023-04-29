@@ -11,7 +11,12 @@ DATA_DIR = "data"
 
 
 def generate_athlete() -> str:
-    """."""
+    """_summary_
+
+    :return: _description_
+    :rtype: str
+    """
+
     athlete = fake.name().replace(" ", "_").lower()
     print(athlete)
     Path(os.path.join(DATA_DIR, athlete)).mkdir(parents=True, exist_ok=True)
@@ -26,7 +31,9 @@ def generate_athlete() -> str:
 
 
 def main():
-    """."""
+    """_summary_
+    """
+
     for _ in range(NUM_ATHLETES):
         generate_athlete()
 

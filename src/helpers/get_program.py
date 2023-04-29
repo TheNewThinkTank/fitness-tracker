@@ -5,7 +5,13 @@ import yaml  # type: ignore
 
 
 def get_pgm_from_date(workout_date):
-    """."""
+    """_summary_
+
+    :param workout_date: _description_
+    :type workout_date: _type_
+    :return: _description_
+    :rtype: _type_
+    """
 
     programs = []
 
@@ -37,6 +43,9 @@ def get_pgm_from_date(workout_date):
 
 
 def main():
+    """_summary_
+    """
+
     workout_date = "2022-01-01"
     print(get_pgm_from_date(workout_date))
 

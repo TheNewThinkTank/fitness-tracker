@@ -29,6 +29,16 @@ with open(file) as rf:
 
 
 def get_workout_duration(start_time, end_time):
+    """_summary_
+
+    :param start_time: _description_
+    :type start_time: _type_
+    :param end_time: _description_
+    :type end_time: _type_
+    :return: _description_
+    :rtype: _type_
+    """
+
     start_time_object = dt.strptime(start_time, "%H:%M")
     end_time_object = dt.strptime(end_time, "%H:%M")
 
@@ -39,6 +49,12 @@ def get_workout_duration(start_time, end_time):
 
 
 def get_all_durations():
+    """_summary_
+
+    :return: _description_
+    :rtype: _type_
+    """
+
     date_and_duration = {}
 
     for workout_number in data:
@@ -56,6 +72,9 @@ def get_all_durations():
 
 
 def main():
+    """_summary_
+    """
+
     profiler = cProfile.Profile()
     profiler.enable()
 

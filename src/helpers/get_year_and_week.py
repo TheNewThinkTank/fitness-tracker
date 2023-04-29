@@ -1,10 +1,17 @@
-"""."""
+"""_summary_
+"""
 
 import datetime
 
 
 def get_year_and_week(date_str):
-    """."""
+    """_summary_
+
+    :param date_str: _description_
+    :type date_str: _type_
+    :return: _description_
+    :rtype: _type_
+    """
 
     dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
 
@@ -17,6 +24,9 @@ def get_year_and_week(date_str):
 
 
 def main():
+    """_summary_
+    """
+
     test_dates = ["2022-10-29", "2022-10-30", "2021-01-01"]
     date_str = test_dates[-1]
     year, week = get_year_and_week(date_str)

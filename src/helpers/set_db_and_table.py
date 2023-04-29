@@ -19,7 +19,19 @@ def set_db_and_table(
     user="somebody",
     email="somebody@gmail.com",
 ):
-    """."""
+    """_summary_
+
+    :param datatype: _description_
+    :type datatype: _type_
+    :param athlete: _description_, defaults to "somebody"
+    :type athlete: str, optional
+    :param user: _description_, defaults to "somebody"
+    :type user: str, optional
+    :param email: _description_, defaults to "somebody@gmail.com"
+    :type email: str, optional
+    :return: _description_
+    :rtype: _type_
+    """
 
     with open("local_assets/private_config.json", "r") as private_config:
         DATA = json.load(private_config)

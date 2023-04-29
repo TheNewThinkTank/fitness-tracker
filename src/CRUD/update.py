@@ -13,7 +13,11 @@ from helpers.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def update_table(table) -> None:
-    """_summary_"""
+    """_summary_
+
+    :param table: _description_
+    :type table: _type_
+    """
 
     Workout = Query()
     # Exercise = Query()

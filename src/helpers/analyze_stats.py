@@ -10,13 +10,26 @@ import pstats
 
 
 def stats_to_txt(infile: str, outfile: str) -> None:
+    """_summary_
+
+    :param infile: _description_
+    :type infile: str
+    :param outfile: _description_
+    :type outfile: str
+    """
+
     with open(outfile, "w") as stream:
         stats = pstats.Stats(infile, stream=stream)
         stats.strip_dirs().sort_stats("cumtime").print_stats()
 
 
 def txt_to_df(infile: str):  # -> pd.DataFrame:
-    """."""
+    """_summary_
+
+    :param infile: _description_
+    :type infile: str
+    """
+
     with open(infile, "r") as rf:
         lines = rf.readlines()
         lines = [line.removesuffix("\n") for line in lines]
@@ -41,7 +54,8 @@ def txt_to_df(infile: str):  # -> pd.DataFrame:
 
 
 def main():
-
+    """_summary_
+    """
     infile = "stats/get_workout_duration.stats"
     outfile = "stats/get_workout_duration_report.txt"
 

@@ -1,4 +1,5 @@
-"""."""
+"""_summary_
+"""
 
 import random
 import pathlib
@@ -38,6 +39,8 @@ class WorkoutSimulator:
     def get_available_exercises(self, split: str) -> list[dict[str, list[int]]]:
         """Fetch musclegroup-exercises catalogue, with weight-ranges.
 
+        :param split: _description_
+        :type split: str
         :return: List of available exercises for the given muscle group
         :rtype: list[dict[str, list[int]]]
         """
@@ -134,7 +137,8 @@ class WorkoutSimulator:
         }
 
     def write_data(self) -> None:
-        """Insert simulated, formatted data into JSON file."""
+        """Insert simulated, formatted data into JSON file.
+        """
 
         try:
             date = self.format_data()["date"]

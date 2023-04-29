@@ -4,15 +4,6 @@ Purpose: Store and analyze weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-__all__ = [
-    "get_dates",
-    "get_dates_and_muscle_groups",
-    "show_exercises",
-    "get_all",
-    "describe_workout",
-    "show_exercise",
-    "analyze_workout",
-]
 __author__ = "Gustav Collin Rasmussen"
 __version__ = "0.1.0"
 
@@ -137,7 +128,8 @@ def analyze_workout(table, exercise: str) -> list:
 
 
 def main() -> None:
-    """_summary_"""
+    """_summary_
+    """
 
     datamodels = ["real", "simulated"]
     datatype = datamodels[0]

@@ -3,10 +3,10 @@ Date: 2021-12-27
 Purpose: Plot weight-training data with fit
 """
 
-__all__ = ["create_1rm_plots", "create_volume_plots"]
 __author__ = "Gustav Collin Rasmussen"
 __version__ = "0.1.0"
 
+import argparse
 import os
 import sys
 from datetime import datetime
@@ -102,8 +102,6 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
 def main() -> None:
     """Get data and create figure."""
-
-    import argparse
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--datatype", type=str, required=True)  # real/simulated

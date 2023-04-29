@@ -3,14 +3,15 @@ Date: 2021-12-21
 Purpose: read workout data and calculate 1RM and training volume.
 """
 
-__all__ = ["get_df", "get_weight", "calc_volume", "one_rep_max_estimator", "get_data"]
 __author__ = "Gustav Collin Rasmussen"
 __version__ = "0.1.0"
 
+from datetime import datetime
+import logging
 import os
 import pathlib
 import sys
-from datetime import datetime
+from typing import Final
 
 import pandas as pd  # type: ignore
 
@@ -57,11 +58,12 @@ def get_weight(df: pd.DataFrame) -> pd.DataFrame:
     :return: _description_
     :rtype: pd.DataFrame
     """
+
     return df["weight"].str.strip(" kg").astype(float)
 
 
 def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
-    """sets times reps times load
+    """sets times reps times load.
 
     :param df: _description_
     :type df: pd.DataFrame
@@ -85,7 +87,7 @@ def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
 
 def one_rep_max_estimator(df: pd.DataFrame, formula="acsm") -> pd.DataFrame:
     """acsm_1rm, epley or brzycki formulas
-    are used to implement the 1RM estimation
+    are used to implement the 1RM estimation.
 
     ACSM 1RM formula
 
@@ -153,7 +155,7 @@ def one_rep_max_estimator(df: pd.DataFrame, formula="acsm") -> pd.DataFrame:
 
 
 def get_data(df, y_col="1RM") -> tuple[list[float], list[float]]:
-    """Get workout-timestamps and 1RM estimates
+    """Get workout-timestamps and 1RM estimates.
 
     :param df: Pandas dataframe with workout-timestamps
         and either 1RM estimates or volume
@@ -181,8 +183,6 @@ def get_data(df, y_col="1RM") -> tuple[list[float], list[float]]:
 
 def main() -> None:
     """Prepare dfs, calc 1RM and do linear regression."""
-    import logging
-    from typing import Final
 
     pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
     logging.basicConfig(

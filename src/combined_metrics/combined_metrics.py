@@ -3,7 +3,6 @@ Date: 2022-09-16
 Purpose: read workout data and calculate combined metrics.
 """
 
-__all__ = ["get_total_volume", "plot_frequency"]
 __author__ = "Gustav Collin Rasmussen"
 __version__ = "0.1.0"
 
@@ -27,7 +26,14 @@ from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
 
 
 def get_total_volume(table) -> list[tuple[str, int]]:
-    """."""
+    """_summary_
+
+    :param table: _description_
+    :type table: _type_
+    :return: _description_
+    :rtype: list[tuple[str, int]]
+    """
+
     date_and_volume = []
     for item in table:
         total_volume = 0
@@ -47,7 +53,11 @@ def get_total_volume(table) -> list[tuple[str, int]]:
 
 
 def plot_frequency(table):
-    """."""
+    """_summary_
+
+    :param table: _description_
+    :type table: _type_
+    """
 
     df = pd.DataFrame()
     for item in table:
@@ -98,6 +108,12 @@ def plot_frequency(table):
 
 
 def plot_duration(table):
+    """_summary_
+
+    :param table: _description_
+    :type table: _type_
+    """
+
     date_and_duration = get_all_durations()
     date_and_volume = get_total_volume(table)
     volumes = [d_v[1] for d_v in date_and_volume if d_v[0] in date_and_duration.keys()]
@@ -132,6 +148,12 @@ def plot_duration(table):
 
 
 def plot_duration_volume_1rm(table):
+    """_summary_
+
+    :param table: _description_
+    :type table: _type_
+    """
+
     date_and_duration = get_all_durations()
     date_and_volume = get_total_volume(table)
     dates = date_and_duration.keys()
@@ -187,6 +209,9 @@ def plot_duration_volume_1rm(table):
 
 
 def main() -> None:
+    """_summary_
+    """
+
     datatype = "real"
     _, table, _ = set_db_and_table(datatype)
 

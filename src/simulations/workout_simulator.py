@@ -1,6 +1,7 @@
 """_summary_
 """
 
+from dataclasses import dataclass, field
 import json
 import pathlib
 import random
@@ -9,19 +10,15 @@ import numpy as np
 import yaml
 
 
+@dataclass
 class ExerciseSelector:
     """_summary_
     """
 
-    def __init__(self, training_catalogue: str) -> None:
-        """_summary_
-
-        :param training_catalogue: Path to YAML file with available exercises and weight ranges
-        :type training_catalogue: str
-        """
-
-        self.training_catalogue: str = training_catalogue
-        self.split: str = random.choice(["back", "chest", "legs", "shoulders"])
+    # Path to YAML file with available exercises and weight ranges
+    training_catalogue: str
+    split: str = random.choice(["back", "chest", "legs", "shoulders"])
+    exercises: float = field(init=False)
 
     def _get_available_exercises(self, split: str) -> list[dict[str, list[int]]]:
         """Fetch musclegroup-exercises catalogue, with weight-ranges.
@@ -49,25 +46,18 @@ class ExerciseSelector:
 
         return available_exercises[:random.randint(2, 6)]
 
+    def __post_init__(self):
+        self.exercises = self.select_random_exercises()
 
+
+@dataclass
 class WorkoutSimulator:
     """Simulate a workout"""
 
-    def __init__(self, exercises: list, progress: int) -> None:
-        """_summary_
-
-        :param exercises: _description_
-        :type exercises: list
-        :param progress: Progress made since the last workout
-        :type progress: int
-        :raises ValueError: _description_
-        """
-
-        # Validate input
-        if progress < 0:
-            raise ValueError("Progress must be greater than or equal to zero")
-        self.progress: int = progress
-        self.exercises: list = exercises
+    exercises: list
+    progress: int  # Progress made since the last workout
+    exercise_mapping: dict = field(init=False)
+    workout_data: dict = field(init=False)
 
     def _calculate_weight(self, weight_range, actual_reps) -> str:
         """Simulate that higher reps leads to lower weights.
@@ -102,7 +92,7 @@ class WorkoutSimulator:
 
         return exercise_mapping
 
-    def simulate_workout_data(self, exercise_mapping: dict) -> dict:
+    def simulate_workout_data(self) -> dict:
         """Simulate data for sets, reps and weight for given exercises.
 
         :param exercise_mapping: A dictionary mapping exercise names to weight ranges.
@@ -113,7 +103,7 @@ class WorkoutSimulator:
 
         workout_data = {}
 
-        for exercise_name, weight_range in exercise_mapping.items():
+        for exercise_name, weight_range in self.exercise_mapping.items():
             no_of_sets = random.randint(1, 6)
             workout_data[exercise_name] = []
             for actual_set in range(1, no_of_sets + 1):
@@ -129,6 +119,14 @@ class WorkoutSimulator:
                 )
 
         return workout_data
+    
+    def __post_init__(self):
+        # Validate input
+        if self.progress < 0:
+            raise ValueError("Progress must be greater than or equal to zero")
+
+        self.exercise_mapping = self.generate_exercise_mapping()
+        self.workout_data = self.simulate_workout_data()
 
 
 class WorkoutFormatter:
@@ -206,33 +204,26 @@ def main():
     from pprint import pprint as pp
 
     TRAINING_CATALOGUE: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
-    OUTPUT_DIR: str = "data/simulated/"
-    WORKOUT_DATE: str = "2023-01-01"
+    # OUTPUT_DIR: str = "data/simulated/"
+    # WORKOUT_DATE: str = "2023-01-01"
 
     selection = ExerciseSelector(TRAINING_CATALOGUE)
 
-    SPLIT = selection.split
-    exercises = selection.select_random_exercises()
-
     simulated_workout = WorkoutSimulator(
-        exercises=exercises,
+        exercises=selection.exercises,
         progress=10,
         )
-    
-    mapping = simulated_workout.generate_exercise_mapping()
-    # print(mapping)
-    data = simulated_workout.simulate_workout_data(mapping)
-    # pp(data)
 
-    formatter = WorkoutFormatter(
-        workout_date=WORKOUT_DATE,
-        output_dir=OUTPUT_DIR,
-        data=data,
-        split=SPLIT,
-    )
+    pp(simulated_workout.workout_data)
 
-    pp(formatter.format_data())
+    # formatter = WorkoutFormatter(
+    #     workout_date=WORKOUT_DATE,
+    #     output_dir=OUTPUT_DIR,
+    #     data=data,
+    #     split=selection.split,
+    # )
 
+    # pp(formatter.format_data())
     # formatter.write_data()
 
 

@@ -135,7 +135,7 @@ class WorkoutFormatter:
     """_summary_
     """
 
-    def __init__(self, workout_date: str, output_dir: str) -> None:
+    def __init__(self, workout_date: str, output_dir: str, data: dict, split: str) -> None:
         """_summary_
 
         :param workout_date: Date of the workout in "YYYY-MM-DD" format
@@ -156,6 +156,8 @@ class WorkoutFormatter:
         
         self.workout_date: str = workout_date
         self.output_dir: str = output_dir
+        self.data: dict = data
+        self.split: dict = split
 
     def format_data(self) -> dict:
         """Prepare data format for JSON file.
@@ -167,7 +169,7 @@ class WorkoutFormatter:
         return {
             "date": self.workout_date,
             "split": self.split,
-            "exercises": self.simulate_workout_data(),
+            "exercises": self.data,
         }
 
     def write_data(self) -> None:
@@ -205,10 +207,11 @@ def main():
 
     TRAINING_CATALOGUE: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
     OUTPUT_DIR: str = "data/simulated/"
+    WORKOUT_DATE: str = "2023-01-01"
 
     selection = ExerciseSelector(TRAINING_CATALOGUE)
 
-    print(selection.split)
+    SPLIT = selection.split
     exercises = selection.select_random_exercises()
 
     simulated_workout = WorkoutSimulator(
@@ -221,7 +224,16 @@ def main():
     data = simulated_workout.simulate_workout_data(mapping)
     # pp(data)
 
-    WorkoutFormatter
+    formatter = WorkoutFormatter(
+        workout_date=WORKOUT_DATE,
+        output_dir=OUTPUT_DIR,
+        data=data,
+        split=SPLIT,
+    )
+
+    pp(formatter.format_data())
+
+    # formatter.write_data()
 
 
 if __name__ == "__main__":

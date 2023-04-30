@@ -5,8 +5,8 @@ Purpose: Simulate weight-training data
 
 __author__ = "Gustav Collin Rasmussen"
 
-from datetime import datetime
 import random
+from datetime import datetime
 
 import pandas as pd  # type: ignore
 

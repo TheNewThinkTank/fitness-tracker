@@ -1,42 +1,29 @@
 """_summary_
 """
 
-import random
-import pathlib
 import json
-import yaml
+import pathlib
+import random
+
 import numpy as np
+import yaml
 
 
-class WorkoutSimulator:
-    """Simulate a workout"""
+class ExerciseSelector:
+    """_summary_
+    """
 
-    def __init__(self, workout_date: str, progress: int, training_catalogue: str, output_dir: str) -> None:
-        """
-        :param workout_date: Date of the workout in "YYYY-MM-DD" format
-        :param progress: Progress made since the last workout
+    def __init__(self, training_catalogue: str) -> None:
+        """_summary_
+
         :param training_catalogue: Path to YAML file with available exercises and weight ranges
-        :param output_dir: Path to directory to output the simulated workout JSON file
+        :type training_catalogue: str
         """
-        # Validate input
-        try:
-            assert len(workout_date) == 10
-            int(workout_date[:4])
-            int(workout_date[5:7])
-            int(workout_date[8:10])
-        except AssertionError:
-            raise ValueError("Invalid workout date")
-        if progress < 0:
-            raise ValueError("Progress must be greater than or equal to zero")
-        
-        
-        self.workout_date: str = workout_date
-        self.progress: int = progress
+
         self.training_catalogue: str = training_catalogue
-        self.output_dir: str = output_dir
         self.split: str = random.choice(["back", "chest", "legs", "shoulders"])
 
-    def get_available_exercises(self, split: str) -> list[dict[str, list[int]]]:
+    def _get_available_exercises(self, split: str) -> list[dict[str, list[int]]]:
         """Fetch musclegroup-exercises catalogue, with weight-ranges.
 
         :param split: _description_
@@ -57,12 +44,32 @@ class WorkoutSimulator:
         :rtype: list[dict[str, list[int]]]
         """
 
-        available_exercises: list[dict[str, list[int]]] = self.get_available_exercises(self.split)
+        available_exercises: list[dict[str, list[int]]] = self._get_available_exercises(self.split)
         random.shuffle(available_exercises)
 
         return available_exercises[:random.randint(2, 6)]
 
-    def calculate_weight(self, weight_range, actual_reps) -> str:
+
+class WorkoutSimulator:
+    """Simulate a workout"""
+
+    def __init__(self, exercises: list, progress: int) -> None:
+        """_summary_
+
+        :param exercises: _description_
+        :type exercises: list
+        :param progress: Progress made since the last workout
+        :type progress: int
+        :raises ValueError: _description_
+        """
+
+        # Validate input
+        if progress < 0:
+            raise ValueError("Progress must be greater than or equal to zero")
+        self.progress: int = progress
+        self.exercises: list = exercises
+
+    def _calculate_weight(self, weight_range, actual_reps) -> str:
         """Simulate that higher reps leads to lower weights.
         choose weight from inverted 1RM estimate plus randomised progression.
 
@@ -89,7 +96,7 @@ class WorkoutSimulator:
         """
 
         exercise_mapping = {}
-        for exercise in self.select_random_exercises():
+        for exercise in self.exercises:
             for exercise_name, weight_range in exercise.items():
                 exercise_mapping[exercise_name] = weight_range
 
@@ -111,7 +118,7 @@ class WorkoutSimulator:
             workout_data[exercise_name] = []
             for actual_set in range(1, no_of_sets + 1):
                 actual_reps = random.randint(1, 10)
-                actual_weight = self.calculate_weight(weight_range, actual_reps)
+                actual_weight = self._calculate_weight(weight_range, actual_reps)
 
                 workout_data[exercise_name].append(
                     {
@@ -122,6 +129,33 @@ class WorkoutSimulator:
                 )
 
         return workout_data
+
+
+class WorkoutFormatter:
+    """_summary_
+    """
+
+    def __init__(self, workout_date: str, output_dir: str) -> None:
+        """_summary_
+
+        :param workout_date: Date of the workout in "YYYY-MM-DD" format
+        :type workout_date: str
+        :param output_dir: Path to directory to output the simulated workout JSON file
+        :type output_dir: str
+        :raises ValueError: _description_
+        """
+
+        # Validate input
+        try:
+            assert len(workout_date) == 10
+            int(workout_date[:4])
+            int(workout_date[5:7])
+            int(workout_date[8:10])
+        except AssertionError:
+            raise ValueError("Invalid workout date")
+        
+        self.workout_date: str = workout_date
+        self.output_dir: str = output_dir
 
     def format_data(self) -> dict:
         """Prepare data format for JSON file.
@@ -161,3 +195,34 @@ class WorkoutSimulator:
         except IOError as e:
             print(f"Error: {e}")
             return
+
+
+def main():
+    """_summary_
+    """
+
+    from pprint import pprint as pp
+
+    TRAINING_CATALOGUE: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
+    OUTPUT_DIR: str = "data/simulated/"
+
+    selection = ExerciseSelector(TRAINING_CATALOGUE)
+
+    print(selection.split)
+    exercises = selection.select_random_exercises()
+
+    simulated_workout = WorkoutSimulator(
+        exercises=exercises,
+        progress=10,
+        )
+    
+    mapping = simulated_workout.generate_exercise_mapping()
+    # print(mapping)
+    data = simulated_workout.simulate_workout_data(mapping)
+    # pp(data)
+
+    WorkoutFormatter
+
+
+if __name__ == "__main__":
+    main()

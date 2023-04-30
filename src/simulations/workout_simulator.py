@@ -129,33 +129,25 @@ class WorkoutSimulator:
         self.workout_data = self.simulate_workout_data()
 
 
+@dataclass
 class WorkoutFormatter:
     """_summary_
     """
 
-    def __init__(self, workout_date: str, output_dir: str, data: dict, split: str) -> None:
-        """_summary_
+    workout_date: str  # Date of the workout in "YYYY-MM-DD" format
+    output_dir: str  # Path to directory to output the simulated workout JSON file
+    data: dict
+    split: str
 
-        :param workout_date: Date of the workout in "YYYY-MM-DD" format
-        :type workout_date: str
-        :param output_dir: Path to directory to output the simulated workout JSON file
-        :type output_dir: str
-        :raises ValueError: _description_
-        """
-
+    def __post_init__(self):
         # Validate input
         try:
-            assert len(workout_date) == 10
-            int(workout_date[:4])
-            int(workout_date[5:7])
-            int(workout_date[8:10])
+            assert len(self.workout_date) == 10
+            int(self.workout_date[:4])
+            int(self.workout_date[5:7])
+            int(self.workout_date[8:10])
         except AssertionError:
             raise ValueError("Invalid workout date")
-        
-        self.workout_date: str = workout_date
-        self.output_dir: str = output_dir
-        self.data: dict = data
-        self.split: dict = split
 
     def format_data(self) -> dict:
         """Prepare data format for JSON file.

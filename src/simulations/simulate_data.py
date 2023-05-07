@@ -10,7 +10,7 @@ from datetime import datetime
 
 import pandas as pd  # type: ignore
 
-from workout_simulator import WorkoutSimulator
+from workout_simulator import WorkoutSimulator  # type: ignore
 
 
 def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[str]:

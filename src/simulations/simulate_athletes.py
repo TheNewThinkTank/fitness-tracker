@@ -25,7 +25,7 @@ def generate_athlete() -> str:
     if not os.listdir(athlete_dir):
         print(f"{athlete_dir} is empty! Creating .gitkeep ...")
         with open(os.path.join(athlete_dir, ".gitkeep"), "w", encoding="utf8") as f:
-            pass
+            f.write()
 
     return athlete
 

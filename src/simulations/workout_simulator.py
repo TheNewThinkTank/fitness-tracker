@@ -119,7 +119,7 @@ class WorkoutSimulator:
                 )
 
         return workout_data
-    
+
     def __post_init__(self):
         # Validate input
         if self.progress < 0:
@@ -201,10 +201,7 @@ def main():
 
     selection = ExerciseSelector(TRAINING_CATALOGUE)
 
-    simulated_workout = WorkoutSimulator(
-        exercises=selection.exercises,
-        progress=10,
-        )
+    simulated_workout = WorkoutSimulator(exercises=selection.exercises, progress=10)
 
     pp(simulated_workout.workout_data)
 

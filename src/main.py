@@ -27,36 +27,44 @@ db, table, _ = set_db_and_table(datatype="real")
 app = FastAPI()
 db, table, _ = set_db_and_table(datatype="real")
 
+
 def get_dates(table: str) -> List[str]:
     """Returns a list of all workout dates in the table."""
     return CRUD.read.get_dates(table)
+
 
 def get_dates_and_muscle_groups(table: str) -> Dict[str, List[str]]:
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
     return CRUD.read.get_dates_and_muscle_groups(table)
 
+
 def describe_workout(table: str, date: str) -> Dict[str, str]:
     """Returns a dictionary describing the workout for the given date."""
     return CRUD.read.describe_workout(table, date)
 
+
 def show_exercise(table: str, exercise: str, date: str) -> List[str]:
     """Returns a list of sets and reps for the given exercise and date."""
     return CRUD.read.show_exercise(table, exercise, date)
+
 
 @app.get("/")
 async def main_page() -> Response:
     """Returns a greeting message for the application."""
     return Response("Hello, athlete. Welcome to your tracker!")
 
+
 @app.get("/dates")
 async def get_all_dates() -> List[str]:
     """Returns a list of all workout dates."""
     return get_dates(table)
 
+
 @app.get("/dates_and_splits")
 async def get_dates_and_splits() -> Dict[str, List[str]]:
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
     return get_dates_and_muscle_groups(table)
+
 
 @app.get("/dates/{date}")
 async def get_workout_description(date: str) -> Dict[str, str]:
@@ -65,10 +73,12 @@ async def get_workout_description(date: str) -> Dict[str, str]:
         raise HTTPException(status_code=404, detail="Workout date not found")
     return describe_workout(table, date)
 
+
 @app.get("/{date}/exercises/{exercise}")
 async def get_exercise_info(exercise: str, date: str) -> List[str]:
     """Returns a list of sets and reps for the given exercise and date."""
     return show_exercise(table, exercise, date)
+
 
 # @app.get("/")
 # async def main_page() -> Response:

@@ -8,7 +8,7 @@
 WORKOUT_DATE=$(date +%F)  # '2023-01-19'  # 2022-03-02,2022-03-03
 # TRAINING_PROGRAM='nfp'  # 'gvt'
 
-python3 src/CRUD/insert.py --datatype real --dates "$WORKOUT_DATE"  # --workout_number 2
+# python3 src/CRUD/insert.py --datatype real --dates "$WORKOUT_DATE"  # --workout_number 2
 echo 'data inserted in database. Preparing figures ..'
 python3 src/combined_metrics/combined_metrics.py
 open img/workout_frequency.png

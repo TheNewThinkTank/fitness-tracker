@@ -7,7 +7,7 @@ import pathlib
 import random
 
 import numpy as np
-import yaml
+import yaml  # type: ignore
 
 
 @dataclass
@@ -101,7 +101,7 @@ class WorkoutSimulator:
         :rtype: dict
         """
 
-        workout_data = {}
+        workout_data: dict[str, dict] = {}
 
         for exercise_name, weight_range in self.exercise_mapping.items():
             no_of_sets = random.randint(1, 6)
@@ -189,7 +189,7 @@ class WorkoutFormatter:
             return
 
 
-def main():
+def main() -> None:
     """_summary_
     """
 

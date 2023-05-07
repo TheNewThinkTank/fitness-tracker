@@ -45,7 +45,7 @@ jobs:
         run: poetry --version
 
       - name: Lint with flake8
-        run: poetry run flake8 --ignore=E402,E501,F401 .
+        run: poetry run flake8 --ignore=E123,E126,E402,E501,F401 .
 
       - name: Lint with ruff
         run: poetry run ruff --ignore=F401,F841,E402,E501,E999 .

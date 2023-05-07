@@ -105,7 +105,7 @@ class WorkoutSimulator:
 
         for exercise_name, weight_range in self.exercise_mapping.items():
             no_of_sets = random.randint(1, 6)
-            workout_data[exercise_name]: list = []
+            workout_data[exercise_name] = []
             for actual_set in range(1, no_of_sets + 1):
                 actual_reps = random.randint(1, 10)
                 actual_weight = self._calculate_weight(weight_range, actual_reps)

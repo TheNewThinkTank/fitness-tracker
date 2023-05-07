@@ -9,46 +9,64 @@ on:
 jobs:
   Run-Linting-And-Unit-Tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.10, 3.11]
+
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.2
 
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: ${{ matrix.python-version }}  # 3.11
           cache: pip
 
       - name: Install poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
 
+      - name: Cache poetry dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: ${{ runner.os }}-poetry-
+
       - name: Install Dependencies
         run: poetry install
+
+      - name: Cache mypy dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/mypy
+          key: ${{ runner.os }}-mypy-${{ hashFiles('**/mypy.ini') }}
+          restore-keys: ${{ runner.os }}-mypy-
 
       - name: Check poetry version
         run: poetry --version
 
-      # - name: Lint with flake8
-      #   run: poetry run flake8 --ignore=E402,E501,F401 .
+      - name: Lint with flake8
+        run: poetry run flake8 --ignore=E402,E501,F401 .
 
       - name: Lint with ruff
         run: poetry run ruff --ignore=F401,F841,E402,E501,E999 .
 
-      # - name: Static type checks with mypy
-      #   run: poetry run mypy src/ --exclude '/site-packages/'
+      - name: Static type checks with mypy
+        run: poetry run mypy src/ --exclude '/site-packages/'
 
-      - name: mypy src/combined_metrics
-        run: poetry run mypy src/combined_metrics
+      # - name: mypy src/combined_metrics
+      #   run: poetry run mypy src/combined_metrics
 
-      - name: mypy src/CRUD
-        run: poetry run mypy src/CRUD
+      # - name: mypy src/CRUD
+      #   run: poetry run mypy src/CRUD
 
-      - name: mypy src/helpers
-        run: poetry run mypy src/helpers
+      # - name: mypy src/helpers
+      #   run: poetry run mypy src/helpers
 
-      - name: mypy src/model
-        run: poetry run mypy src/model
+      # - name: mypy src/model
+      #   run: poetry run mypy src/model
 
       # - name: mypy src/simulations
       #   run: poetry run mypy src/simulations

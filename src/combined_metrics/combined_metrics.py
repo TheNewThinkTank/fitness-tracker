@@ -21,6 +21,7 @@ import seaborn as sns  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 from helpers.get_year_and_week import get_year_and_week  # type: ignore
 from helpers.get_workout_duration import get_all_durations  # type: ignore
+from helpers.get_bodyweight import get_bw  # type: ignore
 
 from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
 
@@ -34,7 +35,7 @@ def get_total_volume(table) -> list[tuple[str, int]]:
     :rtype: list[tuple[str, int]]
     """
 
-    bodyweight = "80"
+    bodyweight = str(get_bw())  # "80"
     date_and_volume = []
     for item in table:
         total_volume = 0

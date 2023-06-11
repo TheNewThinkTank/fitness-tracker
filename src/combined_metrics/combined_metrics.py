@@ -34,6 +34,7 @@ def get_total_volume(table) -> list[tuple[str, int]]:
     :rtype: list[tuple[str, int]]
     """
 
+    bodyweight = "80"
     date_and_volume = []
     for item in table:
         total_volume = 0
@@ -43,7 +44,10 @@ def get_total_volume(table) -> list[tuple[str, int]]:
             volume_partial = []
             for s in item["exercises"][exercise]:
                 if s["weight"][:-3] != "0":
-                    volume_partial.append(s["reps"] * float(s["weight"][:-3]))
+
+                    weight = eval(s["weight"][:-3].replace("BODYWEIGHT", bodyweight))
+
+                    volume_partial.append(s["reps"] * weight)
                 else:
                     volume_partial.append(s["reps"] * 1)
             total_volume += number_of_sets * max(volume_partial)

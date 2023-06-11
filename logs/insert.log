@@ -1,5 +1,5 @@
-05-28 22:26 root         INFO     Running ./src/CRUD/insert.py ...
-05-28 22:26 root         INFO     datatype: real
-05-28 22:26 root         DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=149']>
-05-28 22:26 root         DEBUG    table: <Table name='weight_training_log', total=149, storage=<tinydb.storages.JSONStorage object at 0x101763090>>
-05-28 22:26 root         INFO     workout date(s): 2023-05-25
+06-11 18:21 root         INFO     Running ./src/CRUD/insert.py ...
+06-11 18:21 root         INFO     datatype: real
+06-11 18:21 root         DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=150']>
+06-11 18:21 root         DEBUG    table: <Table name='weight_training_log', total=150, storage=<tinydb.storages.JSONStorage object at 0x1013926d0>>
+06-11 18:21 root         INFO     workout date(s): 2023-06-11

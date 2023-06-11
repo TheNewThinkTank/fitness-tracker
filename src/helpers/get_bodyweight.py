@@ -1,7 +1,7 @@
 """_summary_
 """
 
-import pandas as pd
+import pandas as pd  # type: ignore
 
 
 def get_bw():

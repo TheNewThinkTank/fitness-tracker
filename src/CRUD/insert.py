@@ -99,6 +99,8 @@ def insert_specific_log(date: str, table, workout_number: int = 1) -> None:
     full_path = base_path + ".json"
     log_path = glob.glob(full_path)
 
+    # print(f"{log_path = }")
+
     insert_log(table, log_path)
 
 

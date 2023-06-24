@@ -12,6 +12,8 @@ import yaml  # type: ignore
 
 from tinydb import TinyDB  # type: ignore
 
+from custom_storage import YAMLStorage
+
 
 def set_db_and_table(
     datatype,
@@ -56,14 +58,16 @@ def set_db_and_table(
             DATA["real_workout_database"]
             .replace("<ATHLETE>", athlete)
             .replace("<USER>", user)
-            .replace("<EMAIL>", email)
+            .replace("<EMAIL>", email),
+            storage=YAMLStorage
         )
         if datatype == "real"
         else TinyDB(
             DATA["simulated_workout_database"],
-            sort_keys=True,
-            indent=4,
-            separators=(",", ": "),
+            storage=YAMLStorage
+            # sort_keys=True,
+            # indent=4,
+            # separators=(",", ": "),
         )
     )
     table = (

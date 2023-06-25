@@ -14,5 +14,6 @@ def json_to_yaml(in_file: str) -> None:
 
 
 if __name__ == "__main__":
-    in_file = "/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/JSON/2023/June/test.json"
+    # in_file = "/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/JSON/2023/June/test.json"
+    in_file = "/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/db.json"
     json_to_yaml(in_file)

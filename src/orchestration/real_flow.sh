@@ -5,7 +5,7 @@
 # Author: Gustav Collin Rasmussen
 # Purpose: BASH workflow that inserts data in database.
 
-WORKOUT_DATE='2023-06-23'  # $(date +%F)  # '2023-01-19'  # 2022-03-02,2022-03-03
+WORKOUT_DATE='2023-06-21,2023-06-23'  # $(date +%F)  # '2023-01-19'  # 2022-03-02,2022-03-03
 # TRAINING_PROGRAM='nfp'  # 'gvt'
 
 # --workout_number 2

@@ -1,6 +1,7 @@
 import yaml  # type: ignore
 
 from tinydb import TinyDB  # type: ignore
+from tinydb.storages import Storage  # type: ignore
 
 
 class YAMLStorage(Storage):

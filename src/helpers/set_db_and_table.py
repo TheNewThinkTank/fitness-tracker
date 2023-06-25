@@ -12,7 +12,7 @@ import yaml  # type: ignore
 
 from tinydb import TinyDB  # type: ignore
 
-from custom_storage import YAMLStorage
+from custom_storage import YAMLStorage  # type: ignore
 
 
 def set_db_and_table(

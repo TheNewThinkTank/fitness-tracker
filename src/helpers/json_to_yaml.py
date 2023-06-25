@@ -1,5 +1,5 @@
 import json
-import yaml
+import yaml  # type: ignore
 
 
 def json_to_yaml(in_file: str) -> None:

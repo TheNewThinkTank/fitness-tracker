@@ -217,7 +217,18 @@ def main() -> None:
     """_summary_
     """
 
-    datatype = "real"
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--file_format", type=str, default='json')
+    parser.add_argument("--datatype", type=str, default="real")
+    args = parser.parse_args()
+    file_format = args.file_format  # json or yml
+    print(file_format)
+
+    datatype = args.datatype  # real/simulated
+
+    # datatype = "real"
     _, table, _ = set_db_and_table(datatype)
 
     plot_frequency(table)

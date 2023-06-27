@@ -21,8 +21,8 @@ from helpers import lookup  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def insert_log(table, log_path: pathlib.Path | list) -> None:
-    """Store training log: log_path in database table.
+def insert_log(table, log_path: pathlib.Path | list, file_format: str) -> None:
+    """Store, file_format training log: log_path in database table.
 
     :param table: A TinyDB table
     :type table: TinyDB table
@@ -31,14 +31,22 @@ def insert_log(table, log_path: pathlib.Path | list) -> None:
     :type log_path: str
     """
 
+    assert log_path
+
     if isinstance(log_path, str):
         with open(log_path) as rf:
-            json_content = json.load(rf)
+            if file_format == 'json':
+                content = json.load(rf)
+            elif file_format == 'yml':
+                content = yaml.safe_load(rf)
     elif isinstance(log_path, list):
         with open(*log_path) as rf:
-            json_content = json.load(rf)
+            if file_format == 'json':
+                content = json.load(rf)
+            elif file_format == 'yml':
+                content = yaml.safe_load(rf)
 
-    table.insert(json_content)
+    table.insert(content)
 
 
 def insert_all_logs(table, folderpath: str) -> None:
@@ -54,16 +62,18 @@ def insert_all_logs(table, folderpath: str) -> None:
     p = pathlib.Path(folderpath)
     all_files = os.listdir(p)
     for f in all_files:
-        insert_log(table, p / f)
+        insert_log(table, p / f, file_format)
 
 
-def insert_specific_log(date: str, table, workout_number: int = 1) -> None:
+def insert_specific_log(date: str, table, file_format: str, workout_number: int = 1) -> None:
     """Store a specific training log in database.
 
     :param date: string of date in format YYYY-MM-DD
     :type date: str
     :param table: A TinyDB table
     :type table: TinyDB table
+    :param file_format: file extention, e.g. json or yml
+    :type file_format: str
     :param workout_number: unique identifier of the workout on a given day,
         in case of multiple workouts. Defaults to 1
     :type workout_number: int, optional
@@ -91,17 +101,17 @@ def insert_specific_log(date: str, table, workout_number: int = 1) -> None:
         .replace("<EMAIL>", email)
     )
 
+    # TODO: add f"/{athlete}/log_archive/YAML/" path to Google Drive
     base_path += f"/{athlete}/log_archive/JSON/{YEAR}/{MONTH}/*training_log_{date}"
 
     if workout_number > 1:
         base_path += f"_{workout_number}"
 
-    full_path = base_path + ".json"
+    full_path = base_path + '.' + file_format  # "json" "yml"
     log_path = glob.glob(full_path)
 
     # print(f"{log_path = }")
-
-    insert_log(table, log_path)
+    insert_log(table, log_path, file_format)
 
 
 def main() -> None:
@@ -111,10 +121,15 @@ def main() -> None:
     import logging
 
     parser = argparse.ArgumentParser()
+
+    parser.add_argument("--file_format", type=str, default='json')
     parser.add_argument("--datatype", type=str, required=True)
     parser.add_argument("--dates", type=str)
     parser.add_argument("--workout_number", type=int)
+
     args = parser.parse_args()
+
+    file_format = args.file_format  # json or yml
     datatype = args.datatype  # real/simulated
     dates = args.dates  # 2022-02-03,2022-02-05
     workout_number = args.workout_number
@@ -144,9 +159,9 @@ def main() -> None:
         logging.info("workout date(s): %s", dates)
         for date in dates.split(","):
             if args.workout_number is None:
-                insert_specific_log(date, table)
+                insert_specific_log(date, table, file_format)
             else:
-                insert_specific_log(date, table, workout_number)
+                insert_specific_log(date, table, file_format, workout_number)
                 logging.info("workout number: %s", workout_number)
 
     elif datatype == "simulated":

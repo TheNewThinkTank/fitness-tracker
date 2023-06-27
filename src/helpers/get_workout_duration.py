@@ -25,7 +25,8 @@ file = (
 )
 
 with open(file) as rf:
-    data = json.load(rf)["weight_training_log"]
+    data = yaml.safe_load(rf)["weight_training_log"]
+    # data = json.load(rf)["weight_training_log"]
 
 
 def get_workout_duration(start_time, end_time):

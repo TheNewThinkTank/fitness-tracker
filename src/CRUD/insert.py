@@ -49,7 +49,7 @@ def insert_log(table, log_path: pathlib.Path | list, file_format: str) -> None:
     table.insert(content)
 
 
-def insert_all_logs(table, folderpath: str) -> None:
+def insert_all_logs(table, folderpath: str, file_format: str) -> None:
     """Store all training logs in database.
 
     :param table: A TinyDB table
@@ -165,7 +165,7 @@ def main() -> None:
                 logging.info("workout number: %s", workout_number)
 
     elif datatype == "simulated":
-        insert_all_logs(table, "data/simulated/")
+        insert_all_logs(table, "data/simulated/", file_format)
 
     else:
         logging.error("Unsupported value for datatype: %s", datatype)

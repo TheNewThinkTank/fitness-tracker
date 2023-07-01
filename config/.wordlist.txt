@@ -29,5 +29,6 @@ Streamlit
 TinyDB
 trendlines
 TypeScript
+Ventura
 Vlog
 VO

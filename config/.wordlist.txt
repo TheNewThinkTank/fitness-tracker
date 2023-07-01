@@ -18,6 +18,7 @@ io
 json
 KPI
 localhost
+macOS
 MacOS
 musclegroups
 Pytest

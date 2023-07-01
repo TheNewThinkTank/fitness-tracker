@@ -89,3 +89,9 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 - Identify musclegroups and exercises with best or worst progression
 - Add cardio tracking (integrate app with Strava)
 -->
+
+### Known Issues
+* Google Drive on MacOS spontaneously switches local mounting point between
+`/Users/<USER>/Google Drive/` and
+`/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/` 
+* Mounting directories directly from Google Drive is not supported by Docker Compose. Docker Compose can only mount directories that are accessible on the local filesystem.

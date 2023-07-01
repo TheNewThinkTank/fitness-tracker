@@ -104,13 +104,12 @@ def insert_specific_log(date: str, table, file_format: str, workout_number: int 
         .replace("<EMAIL>", email)
     )
 
-    # TODO: add f"/{athlete}/log_archive/YAML/" path to Google Drive
-    base_path += f"/{athlete}/log_archive/JSON/{YEAR}/{MONTH}/*training_log_{date}"
+    base_path += f"/{athlete}/log_archive/{file_format.upper()}/{YEAR}/{MONTH}/*training_log_{date}"
 
     if workout_number > 1:
         base_path += f"_{workout_number}"
 
-    full_path = base_path + '.' + file_format  # "json" "yml"
+    full_path = base_path + '.' + file_format  # json or yml
     log_path = glob.glob(full_path)
 
     print(f"{full_path = }")

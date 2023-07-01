@@ -1,7 +1,7 @@
 ---
 
-google_drive_data_path: "/Users/<USER>/Google Drive/My Drive/DATA/fitness-tracker-data"
-# google_drive_data_path: "/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/My Drive/DATA/fitness-tracker-data"
+# google_drive_data_path: "/Users/<USER>/Google Drive/My Drive/DATA/fitness-tracker-data"
+google_drive_data_path: "/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/My Drive/DATA/fitness-tracker-data"
 real_workout_database: "<GOOGLE_DRIVE_DATA_PATH>/<ATHLETE>/db.yml"  # "<GOOGLE_DRIVE_DATA_PATH>/<ATHLETE>/db.json"
 real_disciplines_database: "<GOOGLE_DRIVE_DATA_PATH>/<ATHLETE>/real_disciplines.json"
 simulated_workout_database: "<GOOGLE_DRIVE_DATA_PATH>/sim_db.yml"  # "<GOOGLE_DRIVE_DATA_PATH>/sim_db.json"

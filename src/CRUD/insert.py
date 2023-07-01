@@ -31,7 +31,8 @@ def insert_log(table, log_path: pathlib.Path | list, file_format: str) -> None:
     :type log_path: str
     """
 
-    assert log_path
+    # assert log_path
+    print(f"{log_path = }")
 
     if isinstance(log_path, str):
         with open(log_path) as rf:
@@ -58,6 +59,8 @@ def insert_all_logs(table, folderpath: str, file_format: str) -> None:
         from where each file will be inserted into the table
     :type folderpath: str
     """
+
+    print(f"{folderpath = }")
 
     p = pathlib.Path(folderpath)
     all_files = os.listdir(p)
@@ -110,7 +113,9 @@ def insert_specific_log(date: str, table, file_format: str, workout_number: int 
     full_path = base_path + '.' + file_format  # "json" "yml"
     log_path = glob.glob(full_path)
 
-    # print(f"{log_path = }")
+    print(f"{full_path = }")
+    print(f"{log_path = }")
+
     insert_log(table, log_path, file_format)
 
 

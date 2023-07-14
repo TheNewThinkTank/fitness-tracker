@@ -2,6 +2,7 @@ import cProfile
 import datetime
 from datetime import datetime as dt
 import json
+# from pprint import pprint as pp
 import yaml  # type: ignore
 
 with open("local_assets/private_config.json", "r") as private_config:
@@ -68,6 +69,8 @@ def get_all_durations():
             # timezone = data[workout_number]["timezone"]
 
             date_and_duration[date] = duration
+    
+    # pp(date_and_duration)
 
     return date_and_duration
 

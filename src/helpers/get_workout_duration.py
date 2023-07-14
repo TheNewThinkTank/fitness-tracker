@@ -69,7 +69,7 @@ def get_all_durations():
             # timezone = data[workout_number]["timezone"]
 
             date_and_duration[date] = duration
-    
+
     # pp(date_and_duration)
 
     return date_and_duration

@@ -15,6 +15,7 @@ http
 https
 img
 io
+JS
 json
 KPI
 localhost
@@ -29,6 +30,8 @@ Streamlit
 TinyDB
 trendlines
 TypeScript
+TODOs
 Ventura
 Vlog
 VO
+YAML

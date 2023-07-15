@@ -81,7 +81,6 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 - deploy and host containerized app on Raspberry Pi
 - Add muscle groups to log file name
 - ML models (Scikit Learn)
-- YAML-support
 - Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
 - Dashboard
 - Add key exercises (benchpress, squat, deadlift) to dashboard
@@ -89,6 +88,10 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 - Identify musclegroups and exercises with best or worst progression
 - Add cardio tracking (integrate app with Strava)
 -->
+
+### TODOs
+- [ ] quality control for TS and JS
+- [x] YAML support
 
 ### Known Issues
 * Google Drive on macOS Ventura 13.4.1 spontaneously switches local mounting point between

@@ -12,34 +12,34 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.11
-          cache: pip
+          # cache: pip
 
       - name: Install poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
 
-      - name: Cache poetry dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: ${{ runner.os }}-poetry-
+      # - name: Cache poetry dependencies
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: ~/.cache/pypoetry/virtualenvs
+      #     key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+      #     restore-keys: ${{ runner.os }}-poetry-
 
       - name: Install Dependencies
         run: poetry install
 
-      - name: Cache mypy dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/mypy
-          key: ${{ runner.os }}-mypy-${{ hashFiles('**/mypy.ini') }}
-          restore-keys: ${{ runner.os }}-mypy-
+      # - name: Cache mypy dependencies
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: ~/.cache/mypy
+      #     key: ${{ runner.os }}-mypy-${{ hashFiles('**/mypy.ini') }}
+      #     restore-keys: ${{ runner.os }}-mypy-
 
       - name: Check poetry version
         run: poetry --version

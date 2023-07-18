@@ -77,9 +77,11 @@ jobs:
         uses: ludeeus/action-shellcheck@master
 
       - name: yamllint workout_programs
-        uses: karancode/yamllint-github-action@master
+        # uses: karancode/yamllint-github-action@master
+        uses: ibiqlik/action-yamllint@v3
         with:
-          yamllint_file_or_dir: "./workout_programs.yml"
+          # yamllint_file_or_dir: "./workout_programs.yml"
+          file_or_dir: "./workout_programs.yml"
 
       # - name: Run pytest
       #   run: poetry run pytest --durations=10 test/test_model.py

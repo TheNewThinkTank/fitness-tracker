@@ -48,6 +48,7 @@ and last leg workout of program 2 for three selected exercises.<br>
 - [squat](https://www.youtube.com/watch?v=ig90_zeug54&ab_channel=GustavCollinRasmussen)
 - [bench_press](https://www.youtube.com/watch?v=wT9kr8FA5tw&ab_channel=GustavCollinRasmussen)
 - [leg_extention](https://www.youtube.com/watch?v=49hEuDi79AI&ab_channel=GustavCollinRasmussen)
+- [skull_crusher](https://www.youtube.com/watch?v=85UbTjWuQig&ab_channel=GustavCollinRasmussen)
 
 ### Strava activities
 

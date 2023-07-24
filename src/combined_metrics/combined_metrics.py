@@ -23,7 +23,7 @@ from helpers.set_db_and_table import set_db_and_table  # type: ignore
 from helpers.get_year_and_week import get_year_and_week  # type: ignore
 from helpers.get_workout_duration import get_all_durations  # type: ignore
 from helpers.get_volume import get_total_volume  # type: ignore
-from helpers.lookup import get_year_and_month  # , Months  # type: ignore
+from helpers.lookup import get_year_and_month  # type: ignore
 
 from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
 

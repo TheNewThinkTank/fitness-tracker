@@ -206,12 +206,12 @@ def main() -> None:
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--file_format", type=str, default='json')
+    # parser.add_argument("--file_format", type=str, default='json')
     parser.add_argument("--year_to_plot", type=str, default='2023')
     parser.add_argument("--month_to_plot", type=str, default='July')
     parser.add_argument("--datatype", type=str, default="real")
     args = parser.parse_args()
-    file_format = args.file_format  # json or yml
+    # file_format = args.file_format  # json or yml
     # print(file_format)
     datatype = args.datatype  # real/simulated
 

@@ -23,6 +23,7 @@ from helpers.set_db_and_table import set_db_and_table  # type: ignore
 from helpers.get_year_and_week import get_year_and_week  # type: ignore
 from helpers.get_workout_duration import get_all_durations  # type: ignore
 from helpers.get_volume import get_total_volume  # type: ignore
+from helpers.lookup import get_year_and_month  # , Months  # type: ignore
 
 from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
 
@@ -82,21 +83,34 @@ def plot_frequency(table):
     plt.clf()
 
 
-def plot_duration(table):
+def plot_duration(table, year_to_plot, month_to_plot):
     """_summary_
 
     :param table: _description_
     :type table: _type_
     """
 
-    date_and_duration = get_all_durations()
+    _date_and_duration = get_all_durations()
+    # pp(_date_and_duration)
+    date_and_duration = dict()
+    for date, duration in _date_and_duration.items():
+        YEAR, MONTH = get_year_and_month(date)
+        if YEAR == year_to_plot and MONTH == month_to_plot:
+            # print(YEAR, MONTH)
+            date_and_duration[date] = duration
+    # pp(date_and_duration)
+
     date_and_volume = get_total_volume(table)
     volumes = [d_v[1] for d_v in date_and_volume if d_v[0] in date_and_duration.keys()]
+
     date_and_duration = {
         dt.strptime(k, "%Y-%m-%d").date(): v for k, v in date_and_duration.items()
     }
     dates = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
+
+    # pp(date_and_duration)
+    # pp(date_and_volume)
 
     norm = plt.Normalize(min(volumes), max(volumes))
     sm = plt.cm.ScalarMappable(cmap="Reds", norm=norm)
@@ -104,9 +118,6 @@ def plot_duration(table):
 
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
     plt.gca().xaxis.set_major_locator(mdates.DayLocator())
-
-    pp(date_and_duration)
-    pp(date_and_volume)
 
     ax = sns.scatterplot(x=dates, y=durations, hue=volumes, palette="Reds", s=100)
     plt.plot(dates, durations, zorder=0, c="brown")
@@ -118,11 +129,11 @@ def plot_duration(table):
     plt.grid()
     plt.xlabel("workout date", fontsize=15)
     plt.ylabel("duration [minutes]", fontsize=15)
-    plt.title("Duration and total volume [kg]", fontsize=20)
+    plt.title(f"Duration and total volume [kg] ({month_to_plot} {year_to_plot})", fontsize=17)
     plt.xticks(dates, dates)
 
     # plt.show()
-    plt.savefig("img/workout_duration.png")
+    plt.savefig(f"img/workout_duration_{month_to_plot}_{year_to_plot}.png")
     plt.clf()
 
 
@@ -138,6 +149,7 @@ def plot_duration_volume_1rm(table):
     dates = date_and_duration.keys()
     _SPLITS = [
         "push",
+        "full_body",
         # "legs",
         # "legs_and_abs",
     ]
@@ -195,19 +207,23 @@ def main() -> None:
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--file_format", type=str, default='json')
+    parser.add_argument("--year_to_plot", type=str, default='2023')
+    parser.add_argument("--month_to_plot", type=str, default='July')
     parser.add_argument("--datatype", type=str, default="real")
     args = parser.parse_args()
     file_format = args.file_format  # json or yml
-    print(file_format)
-
+    # print(file_format)
     datatype = args.datatype  # real/simulated
+
+    year_to_plot = args.year_to_plot
+    month_to_plot = args.month_to_plot
 
     # datatype = "real"
     _, table, _ = set_db_and_table(datatype)
 
     plot_frequency(table)
-    plot_duration(table)
-    plot_duration_volume_1rm(table)
+    plot_duration(table, year_to_plot, month_to_plot)
+    # plot_duration_volume_1rm(table)
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ YEAR_TO_PLOT="2023"
 
 MONTHS=("January" "February" "March" "April" "May" "June" "July")
 
-for month in ${MONTHS[@]}; do
+for month in "${MONTHS[@]}"; do
     echo "$month"
 
     MONTH_TO_PLOT="$month"  # "July"

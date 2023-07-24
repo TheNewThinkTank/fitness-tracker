@@ -17,7 +17,7 @@ VO2-Max: `55.21923 mL/kg/min`<br>
 
 | workout_duration                                                | workout_frequency                                                |
 | --------------------------------------------------------------- | ---------------------------------------------------------------- |
-| <img src="img/workout_duration.png" width="400" height="300" /> | <img src="img/workout_frequency.png" width="400" height="300" /> |
+| <img src="img/workout_duration_July_2023.png" width="400" height="300" /> | <img src="img/workout_frequency.png" width="400" height="300" /> |
 
 Below: workout-date vs training volume (product between sets, reps and weight)<br>
 for different training programs, together with their regression fits/trendlines<br>

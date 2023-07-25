@@ -66,7 +66,7 @@ make html
 
 ## Examples
 
-[training plots etc.](EXAMPLES.md)
+[training plots etc.](examples/EXAMPLES.md)
 
 ### Similar projects
 If you liked this fitness tracker then you might also be interested in

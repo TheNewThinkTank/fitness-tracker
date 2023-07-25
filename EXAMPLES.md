@@ -15,9 +15,24 @@ VO2-Max: `55.21923 mL/kg/min`<br>
   <img src="https://github.com/TheNewThinkTank/Fitness-Tracker/blob/main/img/workout_frequency.png" />
 </p> -->
 
-| workout_duration                                                | workout_frequency                                                |
+<p style="text-align: center;">Weekly workout frequency</p>
+
+![workout_frequency](img/workout_frequency.png)
+
+
+<p style="text-align: center;">workout duration and volume</p>
+
+<a style="text-align: center;">[January 2023](img/workout_duration_January_2023.png)<br>
+<a style="text-align: center;">[February 2023](img/workout_duration_February_2023.png)<br>
+<a style="text-align: center;">[March 2023](img/workout_duration_March_2023.png)<br>
+<a style="text-align: center;">[April 2023](img/workout_duration_April_2023.png)<br>
+<a style="text-align: center;">[May 2023](img/workout_duration_May_2023.png)<br>
+<a style="text-align: center;">[June 2023](img/workout_duration_June_2023.png)<br>
+<a style="text-align: center;">[July 2023](img/workout_duration_July_2023.png)
+
+<!-- | workout_duration                                                | workout_frequency                                                |
 | --------------------------------------------------------------- | ---------------------------------------------------------------- |
-| <img src="img/workout_duration_July_2023.png" width="400" height="300" /> | <img src="img/workout_frequency.png" width="400" height="300" /> |
+| <img src="img/workout_duration_July_2023.png" width="400" height="300" /> | <img src="img/workout_frequency.png" width="400" height="300" /> | -->
 
 Below: workout-date vs training volume (product between sets, reps and weight)<br>
 for different training programs, together with their regression fits/trendlines<br>

@@ -23,7 +23,7 @@ fi
 
 echo "Data inserted in database. Preparing figures..."
 
-if ! python3 ./src/combined_metrics/combined_metrics.py --file_format "$FILE_FORMAT" --year_to_plot "$YEAR_TO_PLOT" --month_to_plot "$MONTH_TO_PLOT"; then
+if ! python3 ./src/combined_metrics/combined_metrics.py --year_to_plot "$YEAR_TO_PLOT" --month_to_plot "$MONTH_TO_PLOT"; then
     echo "Error: Failed to prepare figures."
     exit 1
 fi

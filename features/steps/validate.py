@@ -28,4 +28,4 @@ def when_lookup(context):
 @Then("It should conform to the pydantic Workout class validation")
 def then_results(context):
     workouts: list[Workout] = [Workout(**item) for item in context.data.values()]
-    assert type(workouts[0].exercises) == dict
+    assert isinstance(type(workouts[0].exercises), dict)

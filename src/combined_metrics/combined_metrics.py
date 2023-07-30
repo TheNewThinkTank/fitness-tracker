@@ -83,11 +83,15 @@ def plot_frequency(table):
     plt.clf()
 
 
-def plot_duration(table, year_to_plot, month_to_plot):
+def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     """_summary_
 
     :param table: _description_
     :type table: _type_
+    :param year_to_plot: _description_
+    :type year_to_plot: str
+    :param month_to_plot: _description_
+    :type month_to_plot: str
     """
 
     _date_and_duration = get_all_durations()

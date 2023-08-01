@@ -9,7 +9,7 @@
 WORKOUT_DATE=$(date +%F)  # '2023-01-19'  # 2022-03-02,2022-03-03
 
 YEAR_TO_PLOT="2023"
-MONTH_TO_PLOT="July"
+MONTH_TO_PLOT="August"
 
 # TRAINING_PROGRAM='nfp'  # 'gvt'
 FILE_FORMAT='yml'  # default is json

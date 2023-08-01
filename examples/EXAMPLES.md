@@ -22,13 +22,17 @@ VO2-Max: `55.21923 mL/kg/min`<br>
 
 <p style="text-align: center;">Workout duration and volume</p>
 
-<a style="text-align: center;">[January 2023](../img/workout_duration_January_2023.png)<br>
-<a style="text-align: center;">[February 2023](../img/workout_duration_February_2023.png)<br>
-<a style="text-align: center;">[March 2023](../img/workout_duration_March_2023.png)<br>
-<a style="text-align: center;">[April 2023](../img/workout_duration_April_2023.png)<br>
-<a style="text-align: center;">[May 2023](../img/workout_duration_May_2023.png)<br>
-<a style="text-align: center;">[June 2023](../img/workout_duration_June_2023.png)<br>
-<a style="text-align: center;">[July 2023](../img/workout_duration_July_2023.png)
+#### 2023:
+
+
+- <a style="text-align: center;">[August](../img/workout_duration_August_2023.png)<br>
+- <a style="text-align: center;">[July](../img/workout_duration_July_2023.png)<br>
+- <a style="text-align: center;">[June](../img/workout_duration_June_2023.png)<br>
+- <a style="text-align: center;">[May](../img/workout_duration_May_2023.png)<br>
+- <a style="text-align: center;">[April](../img/workout_duration_April_2023.png)<br>
+- <a style="text-align: center;">[March](../img/workout_duration_March_2023.png)<br>
+- <a style="text-align: center;">[February](../img/workout_duration_February_2023.png)<br>
+- <a style="text-align: center;">[January](../img/workout_duration_January_2023.png)<br>
 
 <!-- | workout_duration                                                | workout_frequency                                                |
 | --------------------------------------------------------------- | ---------------------------------------------------------------- |

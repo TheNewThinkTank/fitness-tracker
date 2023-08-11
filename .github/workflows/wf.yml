@@ -20,22 +20,27 @@ jobs:
           python-version: 3.11
           cache: pip
 
-      - name: Install poetry
+      - name: Install and cache poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
+        if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Cache poetry dependencies
-        uses: actions/cache@v2
+        id: cache
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pypoetry/virtualenvs
           key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
           restore-keys: ${{ runner.os }}-poetry-
 
-      - name: Install Dependencies
+      - name: Install dependencies with poetry
         run: poetry install
+        env:
+          POETRY_VIRTUALENVS_IN_PROJECT: true
+        if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Cache mypy dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.cache/mypy
           key: ${{ runner.os }}-mypy-${{ hashFiles('**/mypy.ini') }}
@@ -99,7 +104,7 @@ jobs:
       #     # fail_ci_if_error: true
       #     verbose: true
 
-      - uses: rojopolis/spellcheck-github-actions@0.27.0
+      - uses: rojopolis/spellcheck-github-actions@0.33.1
         name: Spellcheck
         with:
           config_path: config/.spellcheck.yml

@@ -5,3 +5,4 @@ node_modules
 .vscode
 poetry.lock
 .DS_Store
+.venv

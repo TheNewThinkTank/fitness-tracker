@@ -8,7 +8,7 @@ on:
       - feature/test
 
 jobs:
-  Run-Linting-And-Unit-Tests:
+  qualify_code:
     runs-on: ubuntu-latest
     steps:
       - name: Install Poetry
@@ -18,7 +18,7 @@ jobs:
       #   uses: dschep/install-poetry-action@v1.2
 
       - name: Cache Poetry virtualenv
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         id: cache
         with:
           path: ~/.virtualenvs

@@ -21,8 +21,7 @@ jobs:
           cache: pip
 
       - name: Install and cache poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
+        run: make install-poetry
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Cache poetry dependencies
@@ -50,13 +49,13 @@ jobs:
         run: poetry --version
 
       - name: Lint with flake8
-        run: poetry run flake8 --ignore=E123,E126,E402,E501,F401 .
+        run: make lint-flake8
 
       - name: Lint with ruff
-        run: poetry run ruff --ignore=F401,F841,E402,E501,E999 .
+        run: make lint-ruff
 
       - name: Static type checks with mypy
-        run: poetry run mypy src/ --exclude '/site-packages/'
+        run: make static-type-checks
 
       # - name: mypy src/combined_metrics
       #   run: poetry run mypy src/combined_metrics
@@ -74,9 +73,7 @@ jobs:
       #   run: poetry run mypy src/simulations
 
       - name: wily build and rank
-        run: |
-          poetry run wily build src
-          poetry run wily rank src
+        run: make wily-build-and-rank
 
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master

@@ -94,7 +94,7 @@ jobs:
           task_name: Markdown
 
       - name: Pydantic data validation
-        run: poetry run src/helpers/validate.py
+        run: poetry run python src/helpers/validate.py
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code

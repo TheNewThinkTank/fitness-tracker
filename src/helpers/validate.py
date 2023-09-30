@@ -2,6 +2,7 @@
 """
 
 import json
+import os
 from pprint import pprint as pp
 import re
 from typing import Optional
@@ -114,7 +115,12 @@ def main() -> None:
     with open("./config.yml", "r") as rf:
         DATA = yaml.safe_load(rf)
 
-    google_drive_data_path = DATA["google_drive_data_path"]
+    EMAIL = os.environ["EMAIL"]
+    google_drive_data_path = (
+        DATA["google_drive_data_path"]
+        .replace("<USER>", "gustavcollinrasmussen")
+        .replace("<EMAIL>", EMAIL)
+    )
     # DATA = json.load(open(file="./config.json", encoding="utf-8"))
 
     file = (

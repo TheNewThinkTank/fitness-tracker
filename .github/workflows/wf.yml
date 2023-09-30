@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+env:
+  EMAIL: ${{ secrets.EMAIL }}
+
 jobs:
   qualify_code:
     runs-on: ubuntu-latest

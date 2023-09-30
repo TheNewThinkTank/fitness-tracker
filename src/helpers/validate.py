@@ -123,7 +123,6 @@ def main() -> None:
     google_drive_data_path = (
         DATA["google_drive_data_path"]
         .replace("<USER>", "gustavcollinrasmussen")
-        # .replace("<EMAIL>", "gcr84@hotmail.com")
     )
 
     # DATA = json.load(open(file="./config.json", encoding="utf-8"))

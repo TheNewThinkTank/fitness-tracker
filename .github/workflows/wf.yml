@@ -57,21 +57,6 @@ jobs:
       - name: Static type checks with mypy
         run: make static-type-checks
 
-      # - name: mypy src/combined_metrics
-      #   run: poetry run mypy src/combined_metrics
-
-      # - name: mypy src/CRUD
-      #   run: poetry run mypy src/CRUD
-
-      # - name: mypy src/helpers
-      #   run: poetry run mypy src/helpers
-
-      # - name: mypy src/model
-      #   run: poetry run mypy src/model
-
-      # - name: mypy src/simulations
-      #   run: poetry run mypy src/simulations
-
       - name: wily build and rank
         run: make wily-build-and-rank
 
@@ -101,22 +86,25 @@ jobs:
       #     # fail_ci_if_error: true
       #     verbose: true
 
-      - uses: rojopolis/spellcheck-github-actions@0.33.1
+      - uses: rojopolis/spellcheck-github-actions@0.34.0
         name: Spellcheck
         with:
           config_path: config/.spellcheck.yml
           source_files: README.md # workout_programs.md
           task_name: Markdown
 
-  # Deploy-to-AWS-ECR:
+      - name: Pydantic data validation
+        run: poetry run src/helpers/validate.py
+
+  # deploy_to_AWS_ECR:
   #   needs: qualify_code
   #   runs-on: ubuntu-latest
   #   steps:
   #     - name: Check out repository code
-  #       uses: actions/checkout@v2
+  #       uses: actions/checkout@v3
 
   #     - name: Configure AWS credentials
-  #     uses: aws-actions/configure-aws-credentials@v3
+  #     uses: aws-actions/configure-aws-credentials@v4
   #      with:
   #        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
   #        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

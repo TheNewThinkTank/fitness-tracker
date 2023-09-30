@@ -1,6 +1,7 @@
 backend
 BDD
 Brzycki
+CEST
 CLI
 deadlift
 Dojo

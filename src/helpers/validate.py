@@ -5,7 +5,7 @@ import json
 from pprint import pprint as pp
 import re
 from typing import Optional
-import yaml
+import yaml  # type: ignore
 
 import pydantic
 

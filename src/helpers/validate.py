@@ -5,6 +5,7 @@ import json
 from pprint import pprint as pp
 import re
 from typing import Optional
+import yaml
 
 import pydantic
 
@@ -27,7 +28,7 @@ class Workout(pydantic.BaseModel):
     gym: Optional[str]
     note: Optional[str]  # example in workout 25
 
-    @pydantic.validator("exercises")
+    @pydantic.field_validator("exercises")
     @classmethod
     def exercise_valid(cls, value) -> None:
         """Validator to check whether exercises are valid"""
@@ -110,8 +111,10 @@ class Workout(pydantic.BaseModel):
 def main() -> None:
     """Main function."""
 
-    # Read data from a JSON file
-    DATA = json.load(open(file="./config.json", encoding="utf-8"))
+    with open("./config.yml", 'r') as rf:
+        DATA = yaml.safe_load(rf)
+    # DATA = json.load(open(file="./config.json", encoding="utf-8"))
+
     file = DATA["real_workout_database"].replace("<ATHLETE>", "gustav_rasmussen")
     with open(file) as rf:
         data = json.load(rf)["weight_training_log"]

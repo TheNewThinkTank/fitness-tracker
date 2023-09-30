@@ -111,11 +111,17 @@ class Workout(pydantic.BaseModel):
 def main() -> None:
     """Main function."""
 
-    with open("./config.yml", 'r') as rf:
+    with open("./config.yml", "r") as rf:
         DATA = yaml.safe_load(rf)
+
+    google_drive_data_path = DATA["google_drive_data_path"]
     # DATA = json.load(open(file="./config.json", encoding="utf-8"))
 
-    file = DATA["real_workout_database"].replace("<ATHLETE>", "gustav_rasmussen")
+    file = (
+        DATA["real_workout_database"]
+        .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
+        .replace("<ATHLETE>", "gustav_rasmussen")
+    )
     with open(file) as rf:
         data = json.load(rf)["weight_training_log"]
         # print(data["1"]["date"])

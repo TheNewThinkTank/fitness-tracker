@@ -1,8 +1,9 @@
 """_summary_
 """
 
+import argparse
 import json
-import os
+# import os
 from pprint import pprint as pp
 import re
 from typing import Optional
@@ -112,15 +113,21 @@ class Workout(pydantic.BaseModel):
 def main() -> None:
     """Main function."""
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--email", type=str)
+    args = parser.parse_args()
+    email = args.email
+
     with open("./config.yml", "r") as rf:
         DATA = yaml.safe_load(rf)
 
-    EMAIL = os.environ["EMAIL"]
+    # EMAIL = os.environ["EMAIL"]
     google_drive_data_path = (
         DATA["google_drive_data_path"]
         .replace("<USER>", "gustavcollinrasmussen")
-        .replace("<EMAIL>", EMAIL)
+        .replace("<EMAIL>", email)
     )
+
     # DATA = json.load(open(file="./config.json", encoding="utf-8"))
 
     file = (
@@ -128,6 +135,7 @@ def main() -> None:
         .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
         .replace("<ATHLETE>", "gustav_rasmussen")
     )
+
     with open(file) as rf:
         data = json.load(rf)["weight_training_log"]
         # print(data["1"]["date"])

@@ -6,8 +6,8 @@ on:
     branches:
       - main
 
-env:
-  EMAIL: ${{ secrets.EMAIL }}
+# env:
+#   EMAIL: ${{ secrets.EMAIL }}
 
 jobs:
   qualify_code:

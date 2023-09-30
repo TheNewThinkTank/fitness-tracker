@@ -39,7 +39,6 @@ jobs:
       - name: Lint simulations with flake8
         continue-on-error: true
         run: |
-          # pip install flake8
           flake8 --ignore=E402,E501 src/simulations
 
       # - name: install pyyaml and pandas

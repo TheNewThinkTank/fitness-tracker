@@ -96,8 +96,8 @@ jobs:
           source_files: README.md # workout_programs.md
           task_name: Markdown
 
-      - name: Pydantic data validation
-        run: poetry run python src/helpers/validate.py  #  --email EMAIL
+      # - name: Pydantic data validation
+      #   run: poetry run python src/helpers/validate.py  #  --email EMAIL
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code

@@ -3,7 +3,7 @@
 
 # import argparse
 import json
-import os
+# import os
 from pprint import pprint as pp
 import re
 from typing import Optional
@@ -125,7 +125,7 @@ def main() -> None:
     google_drive_data_path = (
         DATA["google_drive_data_path"]
         .replace("<USER>", "gustavcollinrasmussen")
-        .replace("<EMAIL>", os.environ["EMAIL"])
+        .replace("<EMAIL>", "gcr84@hotmail.com")  # os.environ["EMAIL"])
     )
 
     # DATA = json.load(open(file="./config.json", encoding="utf-8"))

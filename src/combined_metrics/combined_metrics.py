@@ -15,6 +15,8 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.dates as mdates  # type: ignore
+import matplotlib.cm as cm  # type: ignore
+import matplotlib.colors as mcolors  # type: ignore
 import pandas as pd  # type: ignore
 from pprint import pprint as pp
 import seaborn as sns  # type: ignore
@@ -116,8 +118,8 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     # pp(date_and_duration)
     # pp(date_and_volume)
 
-    norm = plt.Normalize(min(volumes), max(volumes))
-    sm = plt.cm.ScalarMappable(cmap="Reds", norm=norm)
+    norm = mcolors.Normalize(min(volumes), max(volumes))
+    sm = cm.ScalarMappable(cmap="Reds", norm=norm)
     sm.set_array([])
 
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
@@ -128,7 +130,8 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     plt.gcf().autofmt_xdate()
 
     ax.get_legend().remove()
-    ax.figure.colorbar(sm)
+
+    cbar = plt.colorbar(sm, ax=ax)
 
     plt.grid()
     plt.xlabel("workout date", fontsize=15)

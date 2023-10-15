@@ -131,7 +131,7 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
 
     ax.get_legend().remove()
 
-    cbar = plt.colorbar(sm, ax=ax)
+    plt.colorbar(sm, ax=ax)
 
     plt.grid()
     plt.xlabel("workout date", fontsize=15)

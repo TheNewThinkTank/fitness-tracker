@@ -4,7 +4,7 @@
 # Author: Gustav Collin Rasmussen
 # Purpose: BASH workflow that inserts data in database.
 
-WORKOUT_DATE='2023-10-20'  # $(date +%F)  # '2023-01-19'  # 2022-03-02,2022-03-03
+WORKOUT_DATE=$(date +%F)  # '2023-01-19'  # 2022-03-02,2022-03-03
 YEAR_TO_PLOT=$(date +%Y)  # "2023"
 MONTH_TO_PLOT=$(date +%B)  # "August"
 # TRAINING_PROGRAM='nfp'  # 'gvt'

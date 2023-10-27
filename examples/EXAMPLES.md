@@ -24,6 +24,7 @@ VO2-Max: `55.21923 mL/kg/min`<br>
 
 #### 2023:
 
+- <a style="text-align: center;">[October](../img/workout_duration_October_2023.png)<br>
 - <a style="text-align: center;">[September](../img/workout_duration_September_2023.png)<br>
 - <a style="text-align: center;">[August](../img/workout_duration_August_2023.png)<br>
 - <a style="text-align: center;">[July](../img/workout_duration_July_2023.png)<br>

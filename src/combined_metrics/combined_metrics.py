@@ -20,6 +20,7 @@ import matplotlib.colors as mcolors  # type: ignore
 import pandas as pd  # type: ignore
 from pprint import pprint as pp
 import seaborn as sns  # type: ignore
+from icecream import ic  # type: ignore
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 from helpers.get_year_and_week import get_year_and_week  # type: ignore
@@ -115,8 +116,12 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     dates = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
 
-    # pp(date_and_duration)
-    # pp(date_and_volume)
+    ic(dates)
+    ic(durations)
+    ic(volumes)
+
+    pp(date_and_duration)
+    pp(date_and_volume)
 
     norm = mcolors.Normalize(min(volumes), max(volumes))
     sm = cm.ScalarMappable(cmap="Reds", norm=norm)

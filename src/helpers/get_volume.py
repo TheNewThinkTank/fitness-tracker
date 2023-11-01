@@ -11,6 +11,17 @@ from helpers.set_db_and_table import set_db_and_table  # type: ignore
 # from set_db_and_table import set_db_and_table  # type: ignore
 
 
+def get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar):
+
+    weight = eval(
+        s["weight"][:-3].replace("BODYWEIGHT",
+                            bodyweight).replace("Sidea_9012_Olympic_Hex_Bar",
+                                                Sidea_9012_Olympic_Hex_Bar)
+    )
+
+    return weight
+
+
 def get_total_volume(table) -> list[tuple[str, int]]:
     """_summary_
 
@@ -21,29 +32,20 @@ def get_total_volume(table) -> list[tuple[str, int]]:
     """
 
     bodyweight = str(get_bw())  # "80"
+    Sidea_9012_Olympic_Hex_Bar = "31"
     date_and_volume = []
-
     for item in table:
         total_volume = 0
-
         for exercise in item["exercises"].keys():
-
             number_of_sets = len(item["exercises"][exercise])
             volume_partial = []
-
             for s in item["exercises"][exercise]:
-
                 if s["weight"][:-3] != "0":
-
-                    weight = eval(s["weight"][:-3].replace("BODYWEIGHT", bodyweight))
-
+                    weight = get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar)
                     volume_partial.append(s["reps"] * weight)
-
                 else:
                     volume_partial.append(s["reps"] * 1)
-
             total_volume += number_of_sets * max(volume_partial)
-
         date_and_volume.append((item["date"], total_volume))
     return date_and_volume
 

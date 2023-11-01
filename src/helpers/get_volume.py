@@ -3,20 +3,21 @@ _summary_
 """
 
 from pprint import pprint as pp
+
 # from src.helpers.get_bodyweight import get_bw  # type: ignore
 # from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 from helpers.get_bodyweight import get_bw  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
+
 # from get_bodyweight import get_bw  # type: ignore
 # from set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar):
-
     weight = eval(
-        s["weight"][:-3].replace("BODYWEIGHT",
-                            bodyweight).replace("Sidea_9012_Olympic_Hex_Bar",
-                                                Sidea_9012_Olympic_Hex_Bar)
+        s["weight"][:-3]
+        .replace("BODYWEIGHT", bodyweight)
+        .replace("Sidea_9012_Olympic_Hex_Bar", Sidea_9012_Olympic_Hex_Bar)
     )
 
     return weight
@@ -51,8 +52,7 @@ def get_total_volume(table) -> list[tuple[str, int]]:
 
 
 def main():
-    """_summary_
-    """
+    """_summary_"""
 
     datatype = "real"
     _, table, _ = set_db_and_table(datatype)

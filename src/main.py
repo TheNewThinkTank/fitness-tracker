@@ -12,8 +12,6 @@ visit URL: http://127.0.0.1:8000/docs
 __author__ = "Gustav Collin Rasmussen"
 __version__ = "0.1.0"
 
-from typing import Dict, List
-
 from fastapi import FastAPI, HTTPException, Response  # type: ignore
 
 # import uvicorn  # type: ignore
@@ -28,22 +26,22 @@ app = FastAPI()
 db, table, _ = set_db_and_table(datatype="real")
 
 
-def get_dates(table: str) -> List[str]:
+def get_dates(table: str) -> list[str]:
     """Returns a list of all workout dates in the table."""
     return CRUD.read.get_dates(table)
 
 
-def get_dates_and_muscle_groups(table: str) -> Dict[str, List[str]]:
+def get_dates_and_muscle_groups(table: str) -> dict[str, list[str]]:
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
     return CRUD.read.get_dates_and_muscle_groups(table)
 
 
-def describe_workout(table: str, date: str) -> Dict[str, str]:
+def describe_workout(table: str, date: str) -> dict[str, str]:
     """Returns a dictionary describing the workout for the given date."""
     return CRUD.read.describe_workout(table, date)
 
 
-def show_exercise(table: str, exercise: str, date: str) -> List[str]:
+def show_exercise(table: str, exercise: str, date: str) -> list[str]:
     """Returns a list of sets and reps for the given exercise and date."""
     return CRUD.read.show_exercise(table, exercise, date)
 
@@ -55,19 +53,19 @@ async def main_page() -> Response:
 
 
 @app.get("/dates")
-async def get_all_dates() -> List[str]:
+async def get_all_dates() -> list[str]:
     """Returns a list of all workout dates."""
     return get_dates(table)
 
 
 @app.get("/dates_and_splits")
-async def get_dates_and_splits() -> Dict[str, List[str]]:
+async def get_dates_and_splits() -> dict[str, list[str]]:
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
     return get_dates_and_muscle_groups(table)
 
 
 @app.get("/dates/{date}")
-async def get_workout_description(date: str) -> Dict[str, str]:
+async def get_workout_description(date: str) -> dict[str, str]:
     """Returns a dictionary describing the workout for the given date."""
     if date not in get_dates(table):
         raise HTTPException(status_code=404, detail="Workout date not found")
@@ -75,7 +73,7 @@ async def get_workout_description(date: str) -> Dict[str, str]:
 
 
 @app.get("/{date}/exercises/{exercise}")
-async def get_exercise_info(exercise: str, date: str) -> List[str]:
+async def get_exercise_info(exercise: str, date: str) -> list[str]:
     """Returns a list of sets and reps for the given exercise and date."""
     return show_exercise(table, exercise, date)
 

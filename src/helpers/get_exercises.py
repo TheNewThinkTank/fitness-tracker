@@ -37,7 +37,7 @@ def main() -> None:
         # "shoulders",
     ]
 
-    _, training_catalogue = set_db_and_table(datatype="real")
+    _, _, training_catalogue = set_db_and_table(datatype="real")
 
     for split in splits:
         print(get_available_exercises(training_catalogue, split))

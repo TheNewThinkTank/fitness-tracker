@@ -38,5 +38,9 @@ def get_year_and_month(date: str = "2022-06-27") -> tuple[str, str]:
     return YEAR, MONTH
 
 
-if __name__ == "__main__":
+def main() -> None:
     print(get_year_and_month())
+
+
+if __name__ == "__main__":
+    main()

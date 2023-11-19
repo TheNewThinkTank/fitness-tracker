@@ -100,29 +100,17 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     plt.clf()  # clear figure before next plot
 
 
-def main() -> None:
-    """Get data and create figure."""
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--datatype", type=str, required=True)  # real/simulated
-    parser.add_argument("--pgm", type=str, required=True)  # 1rm/gvt
-
-    args = parser.parse_args()
-
-    datatype = args.datatype
-    pgm = args.pgm
-
-    _, table, _ = set_db_and_table(datatype)
+def get_split(pgm: str) -> list[tuple[list, str]]:
 
     splits_and_key_exercises_1rm = [
-        (["chest", "push"], "barbell_bench_press"),
+        (["chest", "push"], "bb_bench_press"),
         (["back", "pull"], "seated_row"),
         (["legs"], "squat"),
         (["legs"], "deadlift"),
     ]
 
     splits_and_key_exercises_gvt = [
-        (["chest", "push", "chest_and_back"], "barbell_bench_press"),
+        (["chest", "push", "chest_and_back"], "bb_bench_press"),
         (["legs", "legs_and_abs"], "squat"),
     ]
 
@@ -131,7 +119,12 @@ def main() -> None:
         "gvt": splits_and_key_exercises_gvt,
     }
 
-    for splits, exercise in split_selector[pgm]:
+    return split_selector[pgm]
+
+
+def make_plots(pgm, split_selection, table, datatype):
+
+    for splits, exercise in split_selection:
         df = get_df(table, splits, exercise)
 
         match pgm:
@@ -145,6 +138,22 @@ def main() -> None:
                 create_volume_plots(datatype, x, y, exercise)
             case _:
                 raise ValueError
+
+
+def main() -> None:
+    """Get data and create figure."""
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--datatype", type=str, required=True)  # real/simulated
+    parser.add_argument("--pgm", type=str, required=True)  # 1rm/gvt
+    args = parser.parse_args()
+    datatype = args.datatype
+    pgm = args.pgm
+    _, table, _ = set_db_and_table(datatype)
+
+    split_selection = get_split(pgm)
+
+    make_plots(pgm, split_selection, table, datatype)
 
 
 if __name__ == "__main__":

@@ -10,9 +10,12 @@ __version__ = "0.1.0"
 import glob
 import json
 import os
-import pathlib
+from pathlib import Path
 import sys
+from typing import Union
 import yaml  # type: ignore
+
+from tinydb import table  # , TinyDB
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
@@ -21,33 +24,35 @@ from helpers import lookup  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def insert_log(table, log_path: pathlib.Path | list, file_format: str) -> None:
-    """Store, file_format training log: log_path in database table.
+def insert_log(table: table.Table,
+               log_path: Union[str, Path, list],
+               file_format: str) -> None:
+    """Store training log from log_path in database table.
 
     :param table: A TinyDB table
     :type table: TinyDB table
-    :param log_path: A path to the workout log file
+    :param log_path: A path to the workout log file or a list of paths
         that will be inserted into the table
-    :type log_path: str
+    :type log_path: Union[str, Path, list]
+    :param file_format: Format of the log file ('json' or 'yml')
+    :type file_format: str
     """
 
-    # assert log_path
-    print(f"{log_path = }")
+    if isinstance(log_path, list):
+        log_paths = log_path
+    else:
+        log_paths = [log_path]
 
-    if isinstance(log_path, str):
-        with open(log_path) as rf:
-            if file_format == 'json':
-                content = json.load(rf)
-            elif file_format == 'yml':
-                content = yaml.safe_load(rf)
-    elif isinstance(log_path, list):
-        with open(*log_path) as rf:
-            if file_format == 'json':
-                content = json.load(rf)
-            elif file_format == 'yml':
-                content = yaml.safe_load(rf)
+    content = []
 
-    table.insert(content)
+    for path in log_paths:
+        with open(path) as rf:
+            if file_format == 'json':
+                content.extend(json.load(rf))
+            elif file_format == 'yml':
+                content.extend(yaml.safe_load(rf))
+
+    table.insert_multiple(content)
 
 
 def insert_all_logs(table, folderpath: str, file_format: str) -> None:
@@ -62,13 +67,16 @@ def insert_all_logs(table, folderpath: str, file_format: str) -> None:
 
     print(f"{folderpath = }")
 
-    p = pathlib.Path(folderpath)
+    p = Path(folderpath)
     all_files = os.listdir(p)
     for f in all_files:
         insert_log(table, p / f, file_format)
 
 
-def insert_specific_log(date: str, table, file_format: str, workout_number: int = 1) -> None:
+def insert_specific_log(date: str,
+                        table,
+                        file_format: str,
+                        workout_number: int = 1) -> None:
     """Store a specific training log in database.
 
     :param date: string of date in format YYYY-MM-DD
@@ -90,18 +98,14 @@ def insert_specific_log(date: str, table, file_format: str, workout_number: int 
         USER = DATA["user"]
         EMAIL = DATA["email"]
 
-    athlete = "gustav_rasmussen"
-    user = USER
-    email = EMAIL
-
     with open("config.yml", "r") as rf:
         DATA = yaml.load(rf, Loader=yaml.FullLoader)
 
     base_path = (
         DATA["google_drive_data_path"]
         .replace("<ATHLETE>", athlete)
-        .replace("<USER>", user)
-        .replace("<EMAIL>", email)
+        .replace("<USER>", USER)
+        .replace("<EMAIL>", EMAIL)
     )
 
     base_path += f"/{athlete}/log_archive/{file_format.upper()}/{YEAR}/{MONTH}/*training_log_{date}"
@@ -138,7 +142,7 @@ def main() -> None:
     dates = args.dates  # 2022-02-03,2022-02-05
     workout_number = args.workout_number
 
-    pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
+    Path("logs/").mkdir(parents=True, exist_ok=True)
     logging.basicConfig(
         level=logging.DEBUG,
         format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s",

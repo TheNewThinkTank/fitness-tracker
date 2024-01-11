@@ -9,6 +9,7 @@ __version__ = "0.1.0"
 
 import json
 import yaml  # type: ignore
+from datetime import datetime
 
 from tinydb import TinyDB  # type: ignore
 
@@ -20,6 +21,7 @@ def set_db_and_table(
     athlete="somebody",
     user="somebody",
     email="somebody@gmail.com",
+    year=datetime.now().year
 ):
     """_summary_
 
@@ -58,7 +60,8 @@ def set_db_and_table(
             DATA["real_workout_database"]
             .replace("<ATHLETE>", athlete)
             .replace("<USER>", user)
-            .replace("<EMAIL>", email),
+            .replace("<EMAIL>", email)
+            .replace("<YEAR>", year),
             storage=YAMLStorage
         )
         if datatype == "real"
@@ -92,5 +95,6 @@ if __name__ == "__main__":
             athlete="gustav_rasmussen",
             user=USER,
             email=EMAIL,
+            # year="2021"
         )
     )

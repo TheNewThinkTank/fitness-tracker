@@ -68,7 +68,7 @@ def get_all(table) -> list[dict]:
     return table.all()
 
 
-def describe_workout(log, date: str) -> dict:
+def describe_workout(log, date: str) -> dict | None:
     """Simple summary statistics for each exercise
 
     :param log: _description_
@@ -79,14 +79,21 @@ def describe_workout(log, date: str) -> dict:
     :rtype: dict
     """
 
-    d = {}
-    for item in log:
-        if item["date"] == date:
-            d["Date of workout"] = date
+    # d = {}
+    # for item in log:
+    #     if item["date"] == date:
+    #         d["Date of workout"] = date
 
-            for k, v in item["exercises"].items():
-                d[k] = f"{len(v)} sets"
-    return d
+    #         for k, v in item["exercises"].items():
+    #             d[k] = f"{len(v)} sets"
+    # return d
+
+    workout_data = next((item for item in log if item["date"] == date), None)
+    if not workout_data:
+        return None
+    result = {"Date of workout": date}
+    result.update({k: f"{len(v)} sets" for k, v in workout_data["exercises"].items()})
+    return result
 
 
 def show_exercise(log, exercise: str, date: str) -> list:
@@ -102,11 +109,15 @@ def show_exercise(log, exercise: str, date: str) -> list:
     :rtype: list
     """
 
+    # for item in log:
+    #     if item["date"] == date:
+    #         for k, v in item["exercises"].items():
+    #             if k == exercise:
+    #                 return v
+    # return []
     for item in log:
         if item["date"] == date:
-            for k, v in item["exercises"].items():
-                if k == exercise:
-                    return v
+            return item["exercises"].get(exercise, [])
     return []
 
 

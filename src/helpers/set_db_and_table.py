@@ -61,7 +61,7 @@ def set_db_and_table(
             .replace("<ATHLETE>", athlete)
             .replace("<USER>", user)
             .replace("<EMAIL>", email)
-            .replace("<YEAR>", year),
+            .replace("<YEAR>", str(year)),
             storage=YAMLStorage
         )
         if datatype == "real"

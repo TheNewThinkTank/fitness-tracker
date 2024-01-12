@@ -5,6 +5,8 @@ import json
 # from pprint import pprint as pp
 import yaml  # type: ignore
 
+year=str(datetime.datetime.now().year)
+
 with open("local_assets/private_config.json", "r") as private_config:
     DATA = json.load(private_config)
     USER = DATA["user"]
@@ -23,6 +25,7 @@ file = (
     .replace("<USER>", USER)
     .replace("<ATHLETE>", "gustav_rasmussen")
     .replace("<EMAIL>", EMAIL)
+    .replace("<YEAR>", year)
 )
 
 with open(file) as rf:

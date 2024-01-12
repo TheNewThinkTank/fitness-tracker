@@ -20,6 +20,8 @@ from tinydb import table  # , TinyDB
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
+from icecream import ic
+
 from helpers import lookup  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 
@@ -38,21 +40,23 @@ def insert_log(table: table.Table,
     :type file_format: str
     """
 
-    if isinstance(log_path, list):
-        log_paths = log_path
-    else:
-        log_paths = [log_path]
+    # assert log_path
+    print(f"{log_path = }")
 
-    content = []
-
-    for path in log_paths:
-        with open(path) as rf:
+    if isinstance(log_path, str):
+        with open(log_path) as rf:
             if file_format == 'json':
-                content.extend(json.load(rf))
+                content = json.load(rf)
             elif file_format == 'yml':
-                content.extend(yaml.safe_load(rf))
+                content = yaml.safe_load(rf)
+    elif isinstance(log_path, list):
+        with open(*log_path) as rf:
+            if file_format == 'json':
+                content = json.load(rf)
+            elif file_format == 'yml':
+                content = yaml.safe_load(rf)
 
-    table.insert_multiple(content)
+    table.insert(content)
 
 
 def insert_all_logs(table, folderpath: str, file_format: str) -> None:
@@ -158,6 +162,7 @@ def main() -> None:
     logging.info("Running %s ...", "/".join(__file__.split("/")[-4:]))
 
     db, table, _ = set_db_and_table(datatype)
+    ic(db)
 
     logging.info("datatype: %s", datatype)
     logging.debug("db: %s", db)

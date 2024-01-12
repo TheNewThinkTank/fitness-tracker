@@ -1,5 +1,5 @@
-01-11 20:14 root         INFO     Running ./src/CRUD/insert.py ...
-01-11 20:14 root         INFO     datatype: real
-01-11 20:14 root         DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=188']>
-01-11 20:14 root         DEBUG    table: <Table name='weight_training_log', total=188, storage=<custom_storage.YAMLStorage object at 0x104fd7290>>
-01-11 20:14 root         INFO     workout date(s): 2024-01-10
+01-12 21:31 root         INFO     Running ./src/CRUD/insert.py ...
+01-12 21:31 root         INFO     datatype: real
+01-12 21:31 root         DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=2']>
+01-12 21:31 root         DEBUG    table: <Table name='weight_training_log', total=2, storage=<custom_storage.YAMLStorage object at 0x102ace890>>
+01-12 21:31 root         INFO     workout date(s): 2024-01-12

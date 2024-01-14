@@ -39,7 +39,12 @@ def plot_frequency(table):
     """
 
     df = pd.DataFrame()
+    year = str(dt.now().year)
     for item in table:
+
+        if not item["date"].startswith(year):
+            continue
+
         year, week = get_year_and_week(item["date"])
         df_tmp = pd.DataFrame({"year": year, "week": week, "workouts": 0}, index=[0])
         df = pd.concat(
@@ -61,6 +66,8 @@ def plot_frequency(table):
 
     freq_format = mdates.DateFormatter("%Y week %U")
     ax.xaxis.set_major_formatter(freq_format)
+    # TODO: trim xaxis to remove areas without data points
+
     ax.get_legend().remove()
     plt.yticks(res_df["workouts"], res_df["workouts"])
 
@@ -77,11 +84,12 @@ def plot_frequency(table):
     # plt.tight_layout()
     # sns.histplot(data=res_df, x="week", y="workouts", binwidth=1, kde=True, hue="year")
 
-    plt.title("Workout Frequency", fontsize=20)
     plt.xlabel("workout week", fontsize=15)
     plt.ylabel("weekly workouts", fontsize=15)
     plt.grid()
-    plt.savefig("img/workout_frequency.png")
+
+    plt.title(f"{year} Workout Frequency", fontsize=20)
+    plt.savefig(f"img/{year}_workout_frequency.png")
     # plt.show()
     plt.clf()
 

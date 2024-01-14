@@ -27,7 +27,8 @@ fi
 # python3 src/model/plot_model.py --datatype real --pgm $TRAINING_PROGRAM
 
 open_images() {
-  open ./img/workout_frequency.png
+  open ./img/"$YEAR_TO_PLOT"_workout_frequency.png
+  # open ./img/workout_frequency.png
   # open ./img/workout_duration.png
   open ./img/workout_duration_"$MONTH_TO_PLOT"_"$YEAR_TO_PLOT".png
   # open ./img/workout_duration_volume_1rm_bb_bench_press.png

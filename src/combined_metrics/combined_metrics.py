@@ -31,66 +31,69 @@ from helpers.lookup import get_year_and_month  # type: ignore
 from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
 
 
-def plot_frequency(table):
-    """_summary_
-
-    :param table: _description_
-    :type table: _type_
-    """
-
+def get_frequency_data(table, year_to_plot: str) -> pd.DataFrame:
     df = pd.DataFrame()
-    year = str(dt.now().year)
+    # year = year_to_plot  # "2021"  # str(dt.now().year)
     for item in table:
 
-        if not item["date"].startswith(year):
+        if not item["date"].startswith(year_to_plot):
             continue
 
         year, week = get_year_and_week(item["date"])
-        df_tmp = pd.DataFrame({"year": year, "week": week, "workouts": 0}, index=[0])
+
+        # ic(year)
+        # ic(week)
+
+        df_tmp = pd.DataFrame(
+            {"year": year,
+             "week": week,
+             "workouts": 0
+             },
+            index=[0]
+            )
         df = pd.concat(
             [df, df_tmp],
             ignore_index=True,
         )
     res = df.groupby(["year", "week"]).size()
     res_df = res.to_frame(name="workouts").reset_index()
-    print(res_df)
     res_df["date"] = pd.to_datetime(
         res_df.assign(day=1, month=1)[["year", "month", "day"]]
     ) + pd.to_timedelta(res_df.week * 7, unit="days")
-    # print(res_df)
+    return res_df
 
-    fig, ax = plt.subplots()
-    # plt.style.use("seaborn-v0_8")
-    res_df.plot(x="date", y="workouts", marker="o", ax=ax)
-    # bar = sns.barplot(data=res_df, x="date", y="workouts", ax=ax)
+
+def plot_frequency(table, year_to_plot: str) -> None:
+    """_summary_
+
+    :param table: _description_
+    :type table: _type_
+    """
+
+    res_df = get_frequency_data(table, year_to_plot)
+    ic(res_df)
+
+    _, ax = plt.subplots()
+    res_df['date'] = pd.to_datetime(res_df['date'])
+    plt.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
+
+    ax.xaxis.set_major_locator(mdates.WeekdayLocator())
 
     freq_format = mdates.DateFormatter("%Y week %U")
     ax.xaxis.set_major_formatter(freq_format)
-    # TODO: trim xaxis to remove areas without data points
-
-    ax.get_legend().remove()
+    plt.xticks(rotation=45)
+    # ax.get_legend().remove()
     plt.yticks(res_df["workouts"], res_df["workouts"])
-
-    # ax.bar(res_df["date"], res_df["workouts"])
-    # sns.barplot(data=res_df, x="date", y="workouts")
-    # plt.xticks(res_df["date"], rotation=90)
-
-    # for item in bar.get_xticklabels():
-    #     item.set_rotation(45)
-    # plt.xticks(rotation=70)
-
-    # plt.plot_date(res_df["date"], res_df["workouts"], linestyle="solid")
-    # plt.gcf().autofmt_xdate()
-    # plt.tight_layout()
-    # sns.histplot(data=res_df, x="week", y="workouts", binwidth=1, kde=True, hue="year")
-
     plt.xlabel("workout week", fontsize=15)
     plt.ylabel("weekly workouts", fontsize=15)
-    plt.grid()
-
-    plt.title(f"{year} Workout Frequency", fontsize=20)
-    plt.savefig(f"img/{year}_workout_frequency.png")
-    # plt.show()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.subplots_adjust(top=0.9)
+    # Adjust x-axis limits to shift data points to the left
+    plt.xlim(res_df['date'].iloc[0] - pd.to_timedelta(3, unit='d'), res_df['date'].iloc[-1] + pd.to_timedelta(3, unit='d'))
+    plt.title(f"{year_to_plot} Workout Frequency", fontsize=20)
+    plt.savefig(f"img/{year_to_plot}_workout_frequency.png")
+    plt.show()
     plt.clf()
 
 
@@ -239,9 +242,12 @@ def main() -> None:
     month_to_plot = args.month_to_plot
 
     # datatype = "real"
-    _, table, _ = set_db_and_table(datatype)
 
-    plot_frequency(table)
+    # year = dt.strptime(year_to_plot, "%Y")
+
+    _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
+
+    plot_frequency(table, year_to_plot)
     plot_duration(table, year_to_plot, month_to_plot)
     # plot_duration_volume_1rm(table)
 

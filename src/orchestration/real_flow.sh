@@ -12,12 +12,12 @@ FILE_FORMAT='yml'  # default is json
 
 # --workout_number 2
 
-# if ! python3 ./src/CRUD/insert.py --file_format "$FILE_FORMAT" --datatype real --dates "$WORKOUT_DATE"; then
-#     echo "Error: Failed to insert data in database."
-#     exit 1
-# fi
+if ! python3 ./src/CRUD/insert.py --file_format "$FILE_FORMAT" --datatype real --dates "$WORKOUT_DATE"; then
+    echo "Error: Failed to insert data in database."
+    exit 1
+fi
 
-# echo "Data inserted in database. Preparing figures..."
+echo "Data inserted in database. Preparing figures..."
 
 if ! python3 ./src/combined_metrics/combined_metrics.py --year_to_plot "$YEAR_TO_PLOT" --month_to_plot "$MONTH_TO_PLOT"; then
     echo "Error: Failed to prepare figures."

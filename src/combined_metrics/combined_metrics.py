@@ -74,25 +74,34 @@ def plot_frequency(table, year_to_plot: str) -> None:
     ic(res_df)
 
     _, ax = plt.subplots()
-    res_df['date'] = pd.to_datetime(res_df['date'])
+
+    # res_df['date'] = pd.to_datetime(res_df['date'])
     plt.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
 
     ax.xaxis.set_major_locator(mdates.WeekdayLocator())
+    # ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y week %U"))
 
-    freq_format = mdates.DateFormatter("%Y week %U")
-    ax.xaxis.set_major_formatter(freq_format)
-    plt.xticks(rotation=45)
+    # plt.xticks(rotation=45)
+    plt.xticks(rotation=45, ha='right')
+    # ticks = [res_df['date'].iloc[0], res_df['date'].iloc[-1]]
+    # plt.xticks(ticks, rotation=45, ha='right')
+
     # ax.get_legend().remove()
     plt.yticks(res_df["workouts"], res_df["workouts"])
     plt.xlabel("workout week", fontsize=15)
     plt.ylabel("weekly workouts", fontsize=15)
     plt.grid(True)
+
     plt.tight_layout()
     plt.subplots_adjust(top=0.9)
+
     # Adjust x-axis limits to shift data points to the left
-    plt.xlim(res_df['date'].iloc[0] - pd.to_timedelta(3, unit='d'), res_df['date'].iloc[-1] + pd.to_timedelta(3, unit='d'))
+    plt.xlim(res_df['date'].iloc[0] - pd.to_timedelta(3, unit='d'),
+             res_df['date'].iloc[-1] + pd.to_timedelta(3, unit='d')
+             )
     plt.title(f"{year_to_plot} Workout Frequency", fontsize=20)
-    plt.savefig(f"img/{year_to_plot}_workout_frequency.png")
+    # plt.savefig(f"img/{year_to_plot}_workout_frequency.png")
     plt.show()
     plt.clf()
 

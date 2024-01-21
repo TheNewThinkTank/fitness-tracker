@@ -15,12 +15,24 @@ VO2-Max: `55.21923 mL/kg/min`<br>
   <img src="https://github.com/TheNewThinkTank/Fitness-Tracker/blob/main/img/workout_frequency.png" />
 </p> -->
 
+## Frequency
+
+Below: Annual weekly workout frequency.<br>
+Each figure displays week vs number of workouts during that week.
+
+|            ![2024_workout_frequency](../img/2024_workout_frequency.png)            |      ![2023_workout_frequency](../img/2023_workout_frequency.png)      |
+| :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: |
+| ![2022_workout_frequency](../img/2022_workout_frequency.png) | ![2021_workout_frequency](../img/2021_workout_frequency.png) |
+
+
 <p style="text-align: center;">Weekly workout frequency</p>
 
 ![workout_frequency](../img/workout_frequency.png)
 
+## Duration and volume
+<!-- <p style="text-align: center;">Workout duration and volume</p> -->
 
-<p style="text-align: center;">Workout duration and volume</p>
+![January_2024](../img/workout_duration_January_2024.png)
 
 #### 2023:
 
@@ -41,11 +53,15 @@ VO2-Max: `55.21923 mL/kg/min`<br>
 | --------------------------------------------------------------- | ---------------------------------------------------------------- |
 | <img src="img/workout_duration_July_2023.png" width="400" height="300" /> | <img src="img/workout_frequency.png" width="400" height="300" /> | -->
 
-<p style="text-align: center;">Workout volume</p>
+## Volume
+
+<!-- <p style="text-align: center;">Workout volume</p> -->
 
 [Volume plots](VOLUME.md)
 
-<p style="text-align: center;">Strength estimation</p>
+## Strength
+
+<!-- <p style="text-align: center;">Strength estimation</p> -->
 
 [Strength plots](STRENGTH.md)
 

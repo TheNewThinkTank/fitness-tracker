@@ -3,9 +3,6 @@ Date: 2022-09-16
 Purpose: read workout data and calculate combined metrics.
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 from datetime import datetime as dt
 import os
 import sys
@@ -23,44 +20,11 @@ import seaborn as sns  # type: ignore
 from icecream import ic  # type: ignore
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
-from helpers.get_year_and_week import get_year_and_week  # type: ignore
 from helpers.get_workout_duration import get_all_durations  # type: ignore
 from helpers.get_volume import get_total_volume  # type: ignore
 from helpers.lookup import get_year_and_month  # type: ignore
-
 from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
-
-
-def get_frequency_data(table, year_to_plot: str) -> pd.DataFrame:
-    df = pd.DataFrame()
-    # year = year_to_plot  # "2021"  # str(dt.now().year)
-    for item in table:
-
-        if not item["date"].startswith(year_to_plot):
-            continue
-
-        year, week = get_year_and_week(item["date"])
-
-        # ic(year)
-        # ic(week)
-
-        df_tmp = pd.DataFrame(
-            {"year": year,
-             "week": week,
-             "workouts": 0
-             },
-            index=[0]
-            )
-        df = pd.concat(
-            [df, df_tmp],
-            ignore_index=True,
-        )
-    res = df.groupby(["year", "week"]).size()
-    res_df = res.to_frame(name="workouts").reset_index()
-    res_df["date"] = pd.to_datetime(
-        res_df.assign(day=1, month=1)[["year", "month", "day"]]
-    ) + pd.to_timedelta(res_df.week * 7, unit="days")
-    return res_df
+from get_frequency_data import get_frequency_data
 
 
 def plot_frequency(table, year_to_plot: str) -> None:
@@ -71,38 +35,35 @@ def plot_frequency(table, year_to_plot: str) -> None:
     """
 
     res_df = get_frequency_data(table, year_to_plot)
-    ic(res_df)
+    # res_df['date'] = pd.to_datetime(res_df['date'])
+    # ic(res_df)
 
     _, ax = plt.subplots()
 
-    # res_df['date'] = pd.to_datetime(res_df['date'])
-    plt.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
+    ax.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
 
-    ax.xaxis.set_major_locator(mdates.WeekdayLocator())
-    # ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+    ax.xaxis.set_major_locator(mdates.WeekdayLocator())  # mdates.AutoDateLocator()
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y week %U"))
 
-    # plt.xticks(rotation=45)
-    plt.xticks(rotation=45, ha='right')
-    # ticks = [res_df['date'].iloc[0], res_df['date'].iloc[-1]]
-    # plt.xticks(ticks, rotation=45, ha='right')
+    ticks = [res_df['date'].iloc[i] for i in range(len(res_df['date']))]
+
+    plt.xticks(ticks, rotation=45, ha='right')
+    # plt.xticks(rotation=45, ha='right')
 
     # ax.get_legend().remove()
     plt.yticks(res_df["workouts"], res_df["workouts"])
     plt.xlabel("workout week", fontsize=15)
     plt.ylabel("weekly workouts", fontsize=15)
     plt.grid(True)
-
     plt.tight_layout()
     plt.subplots_adjust(top=0.9)
-
     # Adjust x-axis limits to shift data points to the left
     plt.xlim(res_df['date'].iloc[0] - pd.to_timedelta(3, unit='d'),
              res_df['date'].iloc[-1] + pd.to_timedelta(3, unit='d')
              )
     plt.title(f"{year_to_plot} Workout Frequency", fontsize=20)
-    # plt.savefig(f"img/{year_to_plot}_workout_frequency.png")
-    plt.show()
+    plt.savefig(f"img/{year_to_plot}_workout_frequency.png")
+    # plt.show()
     plt.clf()
 
 
@@ -117,7 +78,8 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     :type month_to_plot: str
     """
 
-    _date_and_duration = get_all_durations()
+    _date_and_duration = get_all_durations(year_to_plot)
+    # ic(_date_and_duration)
     # pp(_date_and_duration)
     date_and_duration = dict()
     for date, duration in _date_and_duration.items():
@@ -125,9 +87,13 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
         if YEAR == year_to_plot and MONTH == month_to_plot:
             # print(YEAR, MONTH)
             date_and_duration[date] = duration
-    # pp(date_and_duration)
+    pp(date_and_duration)
 
     date_and_volume = get_total_volume(table)
+
+    # ic(date_and_volume)
+    # ic(date_and_duration)
+
     volumes = [d_v[1] for d_v in date_and_volume if d_v[0] in date_and_duration.keys()]
 
     date_and_duration = {
@@ -136,12 +102,12 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     dates = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
 
-    ic(dates)
-    ic(durations)
-    ic(volumes)
+    # ic(dates)
+    # ic(durations)
+    # ic(volumes)
 
-    pp(date_and_duration)
-    pp(date_and_volume)
+    # pp(date_and_duration)
+    # pp(date_and_volume)
 
     norm = mcolors.Normalize(min(volumes), max(volumes))
     sm = cm.ScalarMappable(cmap="Reds", norm=norm)
@@ -236,23 +202,14 @@ def main() -> None:
     """
 
     import argparse
-
     parser = argparse.ArgumentParser()
-    # parser.add_argument("--file_format", type=str, default='json')
     parser.add_argument("--year_to_plot", type=str, default='2023')
     parser.add_argument("--month_to_plot", type=str, default='July')
     parser.add_argument("--datatype", type=str, default="real")
     args = parser.parse_args()
-    # file_format = args.file_format  # json or yml
-    # print(file_format)
-    datatype = args.datatype  # real/simulated
-
+    datatype = args.datatype
     year_to_plot = args.year_to_plot
     month_to_plot = args.month_to_plot
-
-    # datatype = "real"
-
-    # year = dt.strptime(year_to_plot, "%Y")
 
     _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
 

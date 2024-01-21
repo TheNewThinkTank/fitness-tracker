@@ -24,7 +24,7 @@ from helpers.get_workout_duration import get_all_durations  # type: ignore
 from helpers.get_volume import get_total_volume  # type: ignore
 from helpers.lookup import get_year_and_month  # type: ignore
 from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
-from get_frequency_data import get_frequency_data
+from get_frequency_data import get_frequency_data  # type: ignore
 
 
 def plot_frequency(table, year_to_plot: str) -> None:

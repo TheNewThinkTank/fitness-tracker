@@ -41,6 +41,7 @@ def plot_frequency(table, year_to_plot: str) -> None:
     _, ax = plt.subplots()
 
     ax.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
+    # ax = sns.scatterplot(x=res_df['date'], y=res_df['workouts'])  # , palette="Reds", s=100)
 
     ax.xaxis.set_major_locator(mdates.WeekdayLocator())  # mdates.AutoDateLocator()
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y week %U"))

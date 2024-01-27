@@ -3,9 +3,6 @@ Date: 2021-12-19
 Purpose: Plot weight-training data
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 from typing import Any
 
 import matplotlib.pyplot as plt  # type: ignore

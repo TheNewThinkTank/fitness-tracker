@@ -22,9 +22,6 @@ from helpers.set_db_and_table import set_db_and_table  # type: ignore
 app = FastAPI()
 db, table, _ = set_db_and_table(datatype="real")
 
-app = FastAPI()
-db, table, _ = set_db_and_table(datatype="real")
-
 
 def get_dates(table: str) -> list[str]:
     """Returns a list of all workout dates in the table."""

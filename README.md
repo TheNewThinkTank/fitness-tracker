@@ -105,5 +105,5 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 * Google Drive on macOS Ventura 13.4.1 spontaneously switches local mounting point between
 `/Users/<USER>/Google Drive/` and
 `/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/`, or fails to sign in.<br>
-[Fix](tech_support/macos_ventura_google_drive.md)
+[Fix](known_issues/macos_ventura_google_drive.md)
 * Mounting directories directly from Google Drive is not supported by Docker Compose. Docker Compose can only mount directories that are accessible on the local filesystem.

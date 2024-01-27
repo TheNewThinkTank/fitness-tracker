@@ -111,6 +111,11 @@ class Workout(pydantic.BaseModel):
 def main() -> None:
     """Main function."""
 
+    # TODO: make USER dynamic
+    # TODO: make ATHLETE dynamic
+    user = "gustavcollinrasmussen"
+    athlete = "gustav_rasmussen"
+
     # parser = argparse.ArgumentParser()
     # parser.add_argument("--email", type=str)
     # args = parser.parse_args()
@@ -122,7 +127,7 @@ def main() -> None:
     # EMAIL = os.environ["EMAIL"]
     google_drive_data_path = (
         DATA["google_drive_data_path"]
-        .replace("<USER>", "gustavcollinrasmussen")
+        .replace("<USER>", user)
     )
 
     # DATA = json.load(open(file="./config.json", encoding="utf-8"))
@@ -130,7 +135,7 @@ def main() -> None:
     file = (
         DATA["real_workout_database"]
         .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
-        .replace("<ATHLETE>", "gustav_rasmussen")
+        .replace("<ATHLETE>", athlete)
     )
 
     with open(file) as rf:

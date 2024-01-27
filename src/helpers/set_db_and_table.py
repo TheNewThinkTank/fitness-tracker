@@ -3,10 +3,6 @@ Date: 2021-12-27
 Purpose: Set db and table depending on datatype (real/simulated)
 """
 
-__all__ = ["set_db_and_table"]
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 import json
 import yaml  # type: ignore
 from datetime import datetime
@@ -42,7 +38,7 @@ def set_db_and_table(
         USER = DATA["user"]
         EMAIL = DATA["email"]
 
-    athlete = "gustav_rasmussen"
+    athlete = "gustav_rasmussen"  # TODO: make athlete dynamic
     user = USER
     email = EMAIL
 
@@ -92,7 +88,7 @@ if __name__ == "__main__":
     print(
         set_db_and_table(
             datatype="real",
-            athlete="gustav_rasmussen",
+            athlete="gustav_rasmussen",  # TODO: make athlete dynamic
             user=USER,
             email=EMAIL,
             # year="2021"

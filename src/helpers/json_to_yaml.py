@@ -17,8 +17,14 @@ def json_to_yaml(in_file: str) -> None:
 
 
 def main():
-    # in_file = "/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/JSON/2023/June/test.json"
-    in_file = "/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/db.json"
+    # TODO: make user and athlete dynamic
+    user = "gustavcollinrasmussen"
+    athlete = "gustav_rasmussen"
+    data_path = f"/Users/{user}/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/{athlete}"
+
+    # in_file = data_path + f"/log_archive/JSON/2023/June/test.json"
+    in_file = data_path + "/db.json"
+
     json_to_yaml(in_file)
 
 

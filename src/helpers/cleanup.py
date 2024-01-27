@@ -3,9 +3,6 @@ Date: 2021-12-25
 Purpose: empty specified folder or file
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 import os
 import pathlib
 import sys

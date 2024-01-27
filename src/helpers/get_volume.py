@@ -40,12 +40,13 @@ def get_total_volume(table) -> list[tuple[str, int]]:
         for exercise in item["exercises"].keys():
             number_of_sets = len(item["exercises"][exercise])
             volume_partial = []
+
             for s in item["exercises"][exercise]:
+                weight = 1
                 if s["weight"][:-3] != "0":
                     weight = get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar)
-                    volume_partial.append(s["reps"] * weight)
-                else:
-                    volume_partial.append(s["reps"] * 1)
+                volume_partial.append(s["reps"] * weight)
+
             total_volume += number_of_sets * max(volume_partial)
         date_and_volume.append((item["date"], total_volume))
     return date_and_volume

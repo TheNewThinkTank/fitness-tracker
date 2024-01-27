@@ -4,9 +4,6 @@ Purpose: flatten nested JSON data into csv format,
 for the great expectations framework to process.
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 import json
 from pathlib import Path
 

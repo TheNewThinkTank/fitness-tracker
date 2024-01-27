@@ -3,9 +3,6 @@ Date: 2022-05-02
 Purpose: Get all exercises available for a given musclegroup
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 import yaml  # type: ignore
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore

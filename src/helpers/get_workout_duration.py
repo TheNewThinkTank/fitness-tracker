@@ -20,14 +20,15 @@ def get_data(year):
         DATA = yaml.load(rf, Loader=yaml.FullLoader)
 
     DATA = {
-        d: DATA[d].replace("<GOOGLE_DRIVE_DATA_PATH>", DATA["google_drive_data_path"])
+        d: DATA[d].replace("<GOOGLE_DRIVE_DATA_PATH>",
+                           DATA["google_drive_data_path"])
         for d in DATA
     }
 
     file = (
         DATA["real_workout_database"]
         .replace("<USER>", USER)
-        .replace("<ATHLETE>", "gustav_rasmussen")
+        .replace("<ATHLETE>", "gustav_rasmussen")  # TODO: make ATHLETE dynamic
         .replace("<EMAIL>", EMAIL)
         .replace("<YEAR>", year)
     )

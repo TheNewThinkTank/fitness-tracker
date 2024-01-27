@@ -29,5 +29,10 @@ class YAMLStorage(Storage):
 
 
 if __name__ == "__main__":
-    test_path = "/Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/db.yml"
+    # TODO: make USER dynamic
+    # TODO: make ATHLETE dynamic
+    user = "gustavcollinrasmussen"
+    athlete = "gustav_rasmussen"
+
+    test_path = f"/Users/{user}/Google Drive/My Drive/DATA/fitness-tracker-data/{athlete}/db.yml"
     db = TinyDB(test_path, storage=YAMLStorage)

@@ -3,10 +3,6 @@ Date: 2022-07-01
 Purpose: Update or delete weight-training data
 """
 
-__all__ = ["update_table", "remove_from_table", "truncate_table"]
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 from tinydb import Query  # type: ignore
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore

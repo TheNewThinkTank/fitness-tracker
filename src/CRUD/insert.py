@@ -4,9 +4,6 @@ Purpose: Store weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 import glob
 import json
 import os

@@ -17,7 +17,8 @@ def set_db_and_table(
     athlete="somebody",
     user="somebody",
     email="somebody@gmail.com",
-    year=datetime.now().year
+    year=datetime.now().year,
+    env="prd"  # "dev"
 ):
     """_summary_
 
@@ -29,9 +30,21 @@ def set_db_and_table(
     :type user: str, optional
     :param email: _description_, defaults to "somebody@gmail.com"
     :type email: str, optional
+    :param year: _description_, defaults to datetime.now().year
+    :type year: _type_, optional
+    :param env: _description_, defaults to "prd"#"dev"
+    :type env: str, optional
     :return: _description_
     :rtype: _type_
     """
+
+    if env != "prd":
+
+        db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
+        table = (db.table("weight_training_log"))
+        training_catalogue = "src/helpers/muscles_and_exercises.yaml"
+
+        return db, table, training_catalogue
 
     with open("local_assets/private_config.json", "r") as private_config:
         DATA = json.load(private_config)

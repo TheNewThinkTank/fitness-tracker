@@ -4,10 +4,13 @@ Purpose: Store and analyze weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
+import os
+import sys
 
 from tinydb import Query  # type: ignore
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 
@@ -83,11 +86,12 @@ def describe_workout(log, date: str) -> dict | None:
     # for item in log:
     #     if item["date"] == date:
     #         d["Date of workout"] = date
-
     #         for k, v in item["exercises"].items():
     #             d[k] = f"{len(v)} sets"
     # return d
 
+    # TODO: check if below works when workout date contains multiple workouts.
+    # TODO: otherwise, use code above
     workout_data = next((item for item in log if item["date"] == date), None)
     if not workout_data:
         return None
@@ -109,12 +113,6 @@ def show_exercise(log, exercise: str, date: str) -> list:
     :rtype: list
     """
 
-    # for item in log:
-    #     if item["date"] == date:
-    #         for k, v in item["exercises"].items():
-    #             if k == exercise:
-    #                 return v
-    # return []
     for item in log:
         if item["date"] == date:
             return item["exercises"].get(exercise, [])
@@ -142,19 +140,22 @@ def main() -> None:
     """_summary_
     """
 
+    from pprint import pprint as pp
+
     datamodels = ["real", "simulated"]
     datatype = datamodels[0]
     _EXERCISE = "squat"
-    _WORKOUT_DATE = "2021-12-11"
+    _WORKOUT_DATE = "2024-01-27"  # "2021-12-11"
 
-    _, table, _ = set_db_and_table(datatype)
+    # _, table, _ = set_db_and_table(datatype)
+    _, table, _ = set_db_and_table(datatype, env="dev")
 
     # dates_and_muscle_groups = get_dates_and_muscle_groups(table)
-    # print(dates_and_muscle_groups)
-    # print(show_exercises(table, _WORKOUT_DATE))
-    # print(get_all(table))
-    # print(describe_workout(table, _WORKOUT_DATE))
-    show_exercise(table, _EXERCISE, _WORKOUT_DATE)
+    # pp(dates_and_muscle_groups)
+    # pp(show_exercises(table, _WORKOUT_DATE))
+    # pp(get_all(table))
+    # pp(describe_workout(table, _WORKOUT_DATE))
+    # pp(show_exercise(table, _EXERCISE, _WORKOUT_DATE))
     # print(analyze_workout(table, _EXERCISE))
 
 

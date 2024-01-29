@@ -6,3 +6,4 @@ node_modules
 poetry.lock
 .DS_Store
 .venv
+data/

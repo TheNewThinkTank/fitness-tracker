@@ -14,7 +14,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def update_table(table) -> None:
+def update_table(table):
     """_summary_
 
     :param table: _description_

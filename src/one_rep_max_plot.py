@@ -7,14 +7,19 @@ Purpose: Plots of popular 1-repetition-maximum formulas
 import os
 import sys
 
-import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
+import matplotlib.pyplot as plt  # type: ignore
+import pandas as pd  # type: ignore
+import seaborn as sns  # type: ignore
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from src.one_rep_max_calc import epley, brzycki, epley_inverted, brzycki_inverted
+from src.one_rep_max_calc import (
+    epley,
+    brzycki,
+    epley_inverted,
+    brzycki_inverted
+    )  # type: ignore
 
 ###### evaluate 1rm formulas at 5 reps for varying weights ######
 weight = range(10, 60, 10)

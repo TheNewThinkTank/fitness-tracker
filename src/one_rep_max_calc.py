@@ -4,7 +4,7 @@ Author: Gustav Collin Rasmussen
 Purpose: Definition of popular 1-repetition-maximum formulas
 """
 
-import numpy as np
+import numpy as np  # type: ignore
 
 
 def epley(weight, reps):

@@ -1,49 +1,20 @@
 """
 Date: 2024-02-10
 Author: Gustav Collin Rasmussen
-Purpose: Definition and exploration of popular 1-repetition-maximum formulas
+Purpose: Plots of popular 1-repetition-maximum formulas
 """
 
+import os
+import sys
+
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import seaborn as sns
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-def epley(w, r):
-    """_summary_
-
-    :param w: _description_
-    :type w: _type_
-    :param r: _description_
-    :type r: _type_
-    :return: _description_
-    :rtype: _type_
-    """
-
-    # results = []
-    # for r in reps_range:
-    #     assert r > 1
-    #     results.append(w * (1 + r / 30))
-    # return results
-
-    assert r > 1
-    return w * (1 + r / 30)
-
-
-
-def brzycki(w, r):
-    return w * 36 / (37 - r)
-
-
-def epley_inverted(one_rm, r, progression):
-    assert r > 1
-    return np.log10(progression) * one_rm / (1 + r / 30)
-
-
-def brzycki_inverted(one_rm, r, progression):
-    return np.log10(progression) * one_rm * (37 - r) / 36
-
+from src.one_rep_max_calc import epley, brzycki, epley_inverted, brzycki_inverted
 
 ###### evaluate 1rm formulas at 5 reps for varying weights ######
 weight = range(10, 60, 10)
@@ -99,37 +70,35 @@ df4 = df4.melt(id_vars='reps', var_name='variable', value_name='inverse_one_rep_
 
 ################## plots ##################
 
-plt.figure(figsize=(10, 8))
-sns.scatterplot(data=df1, x='weight', y='one_rep_max', hue='variable', palette=['darkred', 'steelblue'])
-plt.title('Constant reps (5)')
-plt.xlabel('Weight')
-plt.ylabel('One Rep Max')
-plt.legend(title='Variable')
-plt.show()
+fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
+
+# Plot 1
+sns.scatterplot(data=df1, x='weight', y='one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[0, 0])
+axes[0, 0].set_title('Constant reps (5)')
+axes[0, 0].set_xlabel('Weight')
+axes[0, 0].set_ylabel('One Rep Max')
+axes[0, 0].legend(title='Variable')
 
 # Plot 2
-plt.figure(figsize=(10, 8))
-sns.scatterplot(data=df2, x='reps', y='one_rep_max', hue='variable', palette=['darkred', 'steelblue'])
-plt.title('Constant weight (70 kg)')
-plt.xlabel('Reps')
-plt.ylabel('One Rep Max')
-plt.legend(title='Variable')
-plt.show()
+sns.scatterplot(data=df2, x='reps', y='one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[0, 1])
+axes[0, 1].set_title('Constant weight (70 kg)')
+axes[0, 1].set_xlabel('Reps')
+axes[0, 1].set_ylabel('One Rep Max')
+axes[0, 1].legend(title='Variable')
 
 # Plot 3
-plt.figure(figsize=(10, 8))
-sns.scatterplot(data=df3, x='weight', y='inverse_one_rep_max', hue='variable', palette=['darkred', 'steelblue'])
-plt.title('Constant reps (5)')
-plt.xlabel('Weight')
-plt.ylabel('Inverse One Rep Max')
-plt.legend(title='Variable')
-plt.show()
+sns.scatterplot(data=df3, x='weight', y='inverse_one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[1, 0])
+axes[1, 0].set_title('Constant reps (5)')
+axes[1, 0].set_xlabel('Weight')
+axes[1, 0].set_ylabel('Inverse One Rep Max')
+axes[1, 0].legend(title='Variable')
 
 # Plot 4
-plt.figure(figsize=(10, 8))
-sns.scatterplot(data=df4, x='reps', y='inverse_one_rep_max', hue='variable', palette=['darkred', 'steelblue'])
-plt.title('Constant weight (70 kg)')
-plt.xlabel('Reps')
-plt.ylabel('Inverse One Rep Max')
-plt.legend(title='Variable')
+sns.scatterplot(data=df4, x='reps', y='inverse_one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[1, 1])
+axes[1, 1].set_title('Constant weight (70 kg)')
+axes[1, 1].set_xlabel('Reps')
+axes[1, 1].set_ylabel('Inverse One Rep Max')
+axes[1, 1].legend(title='Variable')
+
+plt.tight_layout()
 plt.show()

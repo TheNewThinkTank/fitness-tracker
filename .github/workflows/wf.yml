@@ -48,9 +48,6 @@ jobs:
       - name: Check poetry version
         run: poetry --version
 
-      # - name: Lint with flake8
-      #   run: make lint-flake8
-
       # - name: Format with Ruff
       #   run: poetry ruff format .
 

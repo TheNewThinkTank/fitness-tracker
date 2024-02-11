@@ -99,7 +99,7 @@ def insert_specific_log(date: str,
         USER = DATA["user"]
         EMAIL = DATA["email"]
 
-    with open("config.yml", "r") as rf:
+    with open("config/config.yml", "r") as rf:
         DATA = yaml.load(rf, Loader=yaml.FullLoader)
 
     base_path = (

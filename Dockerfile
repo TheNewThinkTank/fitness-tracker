@@ -22,7 +22,7 @@ COPY ./src /code/src
 COPY ["/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/", "/code/data"]
 # COPY ./data /code/data
 
-COPY config.yml /code/config.yml
+COPY config/config.yml /code/config.yml
 # COPY config.json /code/config.json
 
 # COPY ./app /code/app

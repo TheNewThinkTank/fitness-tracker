@@ -121,7 +121,7 @@ def main() -> None:
     # args = parser.parse_args()
     # email = args.email
 
-    with open("./config.yml", "r") as rf:
+    with open("./config/config.yml", "r") as rf:
         DATA = yaml.safe_load(rf)
 
     # EMAIL = os.environ["EMAIL"]

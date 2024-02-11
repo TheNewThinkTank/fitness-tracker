@@ -21,7 +21,7 @@ jobs:
           cache: pip
 
       - name: Install and cache poetry
-        run: make install-poetry
+        run: make -f config/Makefile install-poetry
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Cache poetry dependencies
@@ -52,13 +52,13 @@ jobs:
       #   run: poetry ruff format .
 
       - name: Lint with ruff
-        run: make lint-ruff
+        run: make -f config/Makefile lint-ruff
 
       - name: Static type checks with mypy
-        run: make static-type-checks
+        run: make -f config/Makefile static-type-checks
 
       - name: wily build and rank
-        run: make wily-build-and-rank
+        run: make -f config/Makefile wily-build-and-rank
 
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master

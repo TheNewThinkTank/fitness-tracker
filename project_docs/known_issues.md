@@ -1,4 +1,8 @@
-# Fix Google Drive not mounting / signing in on macOS Ventura 13.3
+# Known Issues
+
+## Issue: Google Drive not mounting / signing in on macOS Ventura 13.3
+
+### Fix
 
 * hit `Command + Shift + G`, to open a `Go to Folder` window
 * copy and paste path: `~/Library/Application Support/` and hit Enter / Click the Go button

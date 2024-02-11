@@ -89,10 +89,10 @@ jobs:
       #     # fail_ci_if_error: true
       #     verbose: true
 
-      - uses: rojopolis/spellcheck-github-actions@0.35.0
+      - uses: rojopolis/spellcheck-github-actions@0.36.0
         name: Spellcheck
         with:
-          config_path: config/.spellcheck.yml
+          config_path: config/spellcheck/.spellcheck.yml
           source_files: README.md # workout_programs.md
           task_name: Markdown
 

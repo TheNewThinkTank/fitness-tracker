@@ -69,7 +69,7 @@ jobs:
       - name: yamllint workout_programs
         uses: ibiqlik/action-yamllint@v3
         with:
-          file_or_dir: "./workout_programs.yml"
+          file_or_dir: "./project_docs/workout_programs.yml"
 
       # - name: Run pytest
       #   run: poetry run pytest --durations=10 test/test_model.py

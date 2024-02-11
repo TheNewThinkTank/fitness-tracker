@@ -1,8 +1,0 @@
-# setup: https://jozef.io/r300-language-server-setup/
-
-R
-install.packages('languageserversetup', repos='http://cran.us.r-project.org')
-languageserversetup::languageserver_install()
-languageserversetup::languageserver_add_to_rprofile()
-install.packages('jsonlite', repos='http://cran.us.r-project.org')
-install.packages('tidyverse', repos='http://cran.us.r-project.org')

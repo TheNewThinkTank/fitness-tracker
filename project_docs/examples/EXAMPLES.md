@@ -12,19 +12,15 @@ VO2-Max: `55.21923 mL/kg/min`<br>
 Below: Annual weekly workout frequency.<br>
 Each figure displays week vs number of workouts during that week.
 
-|            ![2024_workout_frequency](../../img/2024_workout_frequency.png)            |      ![2023_workout_frequency](../../img/2023_workout_frequency.png)      |
-| :--------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: |
+| ![2024_workout_frequency](../../img/2024_workout_frequency.png) | ![2023_workout_frequency](../../img/2023_workout_frequency.png) |
+| :----------: | :------: |
 | ![2022_workout_frequency](../../img/2022_workout_frequency.png) | ![2021_workout_frequency](../../img/2021_workout_frequency.png) |
-
-
-<p style="text-align: center;">Weekly workout frequency</p>
-
-![workout_frequency](../../img/workout_frequency.png)
 
 ## Duration and volume
 <!-- <p style="text-align: center;">Workout duration and volume</p> -->
 
-![January_2024](../../img/workout_duration_January_2024.png)
+| ![January_2024](../../img/workout_duration_January_2024.png) | ![February_2024](../../img/workout_duration_February_2024.png) |
+| :----------: | :------: |
 
 #### 2023:
 

@@ -51,7 +51,7 @@ programs:
       hammer-curl, pronated-ez-curl, skull-crusher, forearm-cable-supination,
       chinup, incline-db-press
     start: 2022-10-01
-    end: 2022-10-31
+    end: 2022-11-04
     program_iterations: 10
     number_of_workouts: 30
 
@@ -62,8 +62,8 @@ programs:
       Focus on strength.
       Heavy sets of 2-8 reps for key exercises
       (deadlift, squat, benchpress, seated_row)
-    start: 2022-MM-DD
-    end: YYYY-MM-DD
+    start: 2023-01-07
+    end: 2023-05-25
     program_iterations: 5
     number_of_workouts: 15
 
@@ -73,11 +73,31 @@ programs:
     description: |
       Standard full-body program.
     start: 2023-06-11
-    end: 2023-MM-DD
+    end: 2023-09-21
     program_iterations: 15
     number_of_workouts: 15
 
   program_7:
+    name: PPL
+    splits: [push, pull, legs]
+    description: |
+      similar as program_5
+    start: 2023-09-25
+    end: 2024-02-25
+    program_iterations: 5
+    number_of_workouts: 
+
+  program_8:
+    name: PPL
+    splits: [push, pull, legs]
+    description: |
+      similar as program_5
+    start: 2024-03-03
+    end: 2024-MM-DD
+    program_iterations: 5
+    number_of_workouts: 15
+
+  program_X:
     name: ToBeDesided
     splits: [ToBeDesided]
     description: |

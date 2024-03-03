@@ -85,7 +85,7 @@ programs:
     start: 2023-09-25
     end: 2024-02-25
     program_iterations: 5
-    number_of_workouts: 
+    number_of_workouts: x
 
   program_8:
     name: PPL

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "yaml-language-server": "^1.14.0"
+  }
+}

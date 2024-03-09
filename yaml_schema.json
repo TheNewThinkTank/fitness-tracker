@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "format": "date"
+      },
+      "start_time": {
+        "type": "string",
+        "format": "time",
+        "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+      },
+      "end_time": {
+        "type": "string",
+        "format": "time",
+        "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+      },
+      "timezone": {
+        "type": "string"
+      },
+      "split": {
+        "type": "string",
+        "enum": ["pull", "push", "legs", "full_body", "other"]
+      },
+      "gym": {
+        "type": "string"
+      },
+      "warmup": {
+        "type": "string"
+      },
+      "exercises": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "sets": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "set_number": {
+                    "type": "integer"
+                  },
+                  "reps": {
+                    "type": "integer"
+                  },
+                  "weight": {
+                    "type": "string"
+                  }
+                },
+                "required": ["set_number", "reps", "weight"]
+              }
+            }
+          },
+          "required": ["name", "sets"]
+        }
+      }
+    },
+    "required": ["date", "start_time", "end_time", "timezone", "split", "gym", "warmup", "exercises"]
+  }
+  

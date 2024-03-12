@@ -1,4 +1,8 @@
-#!/opt/homebrew/bin/bash
+#!/usr/bin/env bash
+
+# #!/opt/homebrew/bin/bash
+
+set -euo pipefail
 
 # Date: 2022-01-21
 # Author: Gustav Collin Rasmussen

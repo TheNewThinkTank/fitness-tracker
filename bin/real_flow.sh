@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# #!/opt/homebrew/bin/bash
-
 set -euo pipefail
 
 # Date: 2022-01-21
@@ -9,7 +7,7 @@ set -euo pipefail
 # Purpose: BASH workflow that inserts data in database.
 # datatype values: real/simulated
 
-WORKOUT_DATE=$(date +%F)  # '2024-02-23'  # 2022-03-02,2022-03-03
+WORKOUT_DATE='2024-03-27'  # $(date +%F)  # '2024-02-23'  # 2022-03-02,2022-03-03
 YEAR_TO_PLOT=$(date +%Y)  # "2024"
 MONTH_TO_PLOT=$(date +%B)  # "August"
 # TRAINING_PROGRAM='nfp'  # 'gvt'

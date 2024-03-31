@@ -2,6 +2,16 @@
 
 ppl: &ppl_anchor [push, pull, legs]
 
+program: &program_anchor
+  name: PPL
+  splits: *ppl_anchor
+  description: |
+    default workout program using PPL (Push, Pull, Legs) split.
+  start: YYYY-MM-DD
+  end: YYYY-MM-DD
+  program_iterations: 10
+  number_of_workouts: 30
+
 programs:
   program_1:
     name: 4-SPLIT
@@ -16,16 +26,13 @@ programs:
     number_of_workouts: 40
 
   program_2:
-    name: PPL
-    splits: *ppl_anchor  # [push, pull, legs]
+    <<: *program_anchor
     description: |
       Focus on strength.
       Heavy sets of 2-8 reps for key exercises
       (deadlift, squat, benchpress, seated_row)
     start: 2022-03-26
     end: 2022-06-27
-    program_iterations: 10
-    number_of_workouts: 30
 
   program_3:
     name: GVT

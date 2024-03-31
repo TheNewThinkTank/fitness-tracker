@@ -1,4 +1,7 @@
 ---
+
+ppl: &ppl_anchor [push, pull, legs]
+
 programs:
   program_1:
     name: 4-SPLIT
@@ -14,7 +17,7 @@ programs:
 
   program_2:
     name: PPL
-    splits: [push, pull, legs]
+    splits: *ppl_anchor  # [push, pull, legs]
     description: |
       Focus on strength.
       Heavy sets of 2-8 reps for key exercises
@@ -57,7 +60,7 @@ programs:
 
   program_5:
     name: PPL
-    splits: [push, pull, legs]
+    splits: *ppl_anchor
     description: |
       Focus on strength.
       Heavy sets of 2-8 reps for key exercises
@@ -79,7 +82,7 @@ programs:
 
   program_7:
     name: PPL
-    splits: [push, pull, legs]
+    splits: *ppl_anchor
     description: |
       similar as program_5
     start: 2023-09-25
@@ -89,7 +92,7 @@ programs:
 
   program_8:
     name: PPL
-    splits: [push, pull, legs]
+    splits: *ppl_anchor
     description: |
       similar as program_5
     start: 2024-03-03

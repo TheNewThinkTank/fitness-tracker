@@ -2,6 +2,7 @@
 reps: repetitions
 db: dumbbell
 bb: barbell
+kb: kettlebell
 1RM: 1 repetition maximum
 Volume: |
   For a given exercise performed during a given workout,
@@ -9,4 +10,7 @@ Volume: |
   weight (assuming the same weight is used throughout the exercise)
   and reps (assuming the same number of reps is used throughout the exercise)
 BMI: Body Mass Index
-VO2-Max: ""
+VO2-Max: |
+  maximum rate of oxygen consumption attainable during physical exertion.
+  V for volume, O2 for oxygen, and Max for maximum
+  and usually normalized per kilogram of body mass

@@ -3,9 +3,6 @@ Date: 2021-12-21
 Purpose: read workout data and calculate 1RM and training volume.
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 from datetime import datetime
 import logging
 import os

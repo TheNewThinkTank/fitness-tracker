@@ -23,8 +23,11 @@ class Workout(pydantic.BaseModel):
     """Represents a Workout from a JSON file."""
 
     date: str
+    start: str
+    end: str
     split: str
     exercises: dict
+    warmup: Optional[str]
     gym: Optional[str]
     note: Optional[str]  # example in workout 25
 

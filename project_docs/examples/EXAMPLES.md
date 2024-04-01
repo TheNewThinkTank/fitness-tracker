@@ -21,6 +21,7 @@ Each figure displays week vs number of workouts during that week.
 
 | ![January_2024](../../img/workout_duration_January_2024.png) | ![February_2024](../../img/workout_duration_February_2024.png) |
 | :----------: | :------: |
+| ![March_2024](../../img/workout_duration_March_2024.png) | ![April_2024](../../img/workout_duration_April_2024.png) |
 
 #### 2023:
 

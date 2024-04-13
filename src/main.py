@@ -9,13 +9,8 @@ cd src && uvicorn main:app --reload
 visit URL: http://127.0.0.1:8000/docs
 """
 
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
-
 from fastapi import FastAPI, HTTPException, Response  # type: ignore
-
 # import uvicorn  # type: ignore
-
 import CRUD.read  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 

@@ -31,13 +31,13 @@ async def get_dates() -> list[str]:
 
 
 @app.get("/dates_and_splits")
-async def get_dates_and_splits() -> dict[str, list[str]]:
+async def get_dates_and_splits():  # -> dict[str, list[str]]:
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
     return CRUD.read.get_dates_and_muscle_groups(table)
 
 
 @app.get("/dates/{date}")
-async def describe_workout(date: str) -> dict[str, str]:
+async def describe_workout(date: str):  # -> dict[str, str]:
     """Returns a dictionary describing the workout for the given date."""
     if date not in CRUD.read.get_dates(table):
         raise HTTPException(status_code=404, detail="Workout date not found")

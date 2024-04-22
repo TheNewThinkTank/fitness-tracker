@@ -5,9 +5,10 @@ Purpose: Definition of popular 1-repetition-maximum formulas
 """
 
 import numpy as np  # type: ignore
+import one_rep_max
 
 
-def epley(weight, reps):
+def epley_1rm(weight, reps):
     results = []
 
     if isinstance(weight, (int, float)):
@@ -27,11 +28,11 @@ def epley(weight, reps):
     for w_val in w_values:
         for r in reps_values:
             assert r > 1
-            results.append(w_val * (1 + r / 30))
+            results.append(one_rep_max.epley(w_val, r))  # w_val * (1 + r / 30))
     return results
 
 
-def brzycki(weight, reps):
+def brzycki_1rm(weight, reps):
     results = []
 
     if isinstance(weight, (int, float)):
@@ -51,7 +52,7 @@ def brzycki(weight, reps):
     for w_val in w_values:
         for r in reps_values:
             assert r > 1
-            results.append(w_val * 36 / (37 - r))
+            results.append(one_rep_max.brzycki(w_val, r))  # w_val * 36 / (37 - r))
     return results
 
 

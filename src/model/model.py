@@ -16,6 +16,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
+import one_rep_max
 
 
 def get_df(
@@ -47,7 +48,7 @@ def get_df(
     return pd.concat(frames)
 
 
-def get_weight(df: pd.DataFrame) -> pd.DataFrame:
+def get_weight(df: pd.DataFrame) -> pd.Series[float]:
     """_summary_
 
     :param df: _description_
@@ -109,42 +110,42 @@ def one_rep_max_estimator(df: pd.DataFrame, formula="acsm") -> pd.DataFrame:
     :rtype: pd.DataFrame
     """
 
-    def acsm_1rm(w: float, r: int) -> float:
-        """The ACSM (American College of Sports Medicine) protocol
+    # def acsm_1rm(w: float, r: int) -> float:
+    #     """The ACSM (American College of Sports Medicine) protocol
 
-        :param w: weight
-        :type w: _type_
-        :param r: repetitions
-        :type r: _type_
-        :return: 1 RM
-        :rtype: _type_
-        """
-        # Assert denominator is not zero
-        # if not (((100 - r * 2.5) / 100) != 0).all():
-        #     sys.exit("The denominator is Zero")
-        return w / ((100 - r * 2.5) / 100)
+    #     :param w: weight
+    #     :type w: _type_
+    #     :param r: repetitions
+    #     :type r: _type_
+    #     :return: 1 RM
+    #     :rtype: _type_
+    #     """
+    #     # Assert denominator is not zero
+    #     # if not (((100 - r * 2.5) / 100) != 0).all():
+    #     #     sys.exit("The denominator is Zero")
+    #     return w / ((100 - r * 2.5) / 100)
 
-    def epley_1rm(w: float, r: int) -> float:
-        # Assert r is positive
-        # if not (r > 1).all():
-        #     sys.exit("There was less than 1 repetition")
-        return w * (1 + r / 30)
+    # def epley_1rm(w: float, r: int) -> float:
+    #     # Assert r is positive
+    #     # if not (r > 1).all():
+    #     #     sys.exit("There was less than 1 repetition")
+    #     return w * (1 + r / 30)
 
-    def brzycki_1rm(w: float, r: int) -> float:
-        # Assert r is within reasonable range
-        # if not (1 < r < 20).all():
-        #     sys.exit("Repetitions are out of valid range (2-19)")
-        return w * 36 / (37 - r)
+    # def brzycki_1rm(w: float, r: int) -> float:
+    #     # Assert r is within reasonable range
+    #     # if not (1 < r < 20).all():
+    #     #     sys.exit("Repetitions are out of valid range (2-19)")
+    #     return w * 36 / (37 - r)
 
     df_copy = df.copy()
 
     match formula:
         case "acsm":
-            df_copy["1RM"] = acsm_1rm(get_weight(df), df["reps"])
+            df_copy["1RM"] = one_rep_max.acsm(get_weight(df), df["reps"])
         case "epley":
-            df_copy["1RM"] = epley_1rm(get_weight(df), df["reps"])
+            df_copy["1RM"] = one_rep_max.epley(get_weight(df), df["reps"])
         case "brzycki":
-            df_copy["1RM"] = brzycki_1rm(get_weight(df), df["reps"])
+            df_copy["1RM"] = one_rep_max.brzycki(get_weight(df), df["reps"])
         case _:
             sys.exit("Invalid formula")
 

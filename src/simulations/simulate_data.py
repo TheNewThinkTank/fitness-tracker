@@ -3,13 +3,9 @@ Date: 2021-12-20
 Purpose: Simulate weight-training data
 """
 
-__author__ = "Gustav Collin Rasmussen"
-
 import random
 from datetime import datetime
-
 import pandas as pd  # type: ignore
-
 from workout_simulator import WorkoutSimulator  # type: ignore
 
 

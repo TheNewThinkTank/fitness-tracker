@@ -5,7 +5,7 @@ Purpose: Definition of popular 1-repetition-maximum formulas
 """
 
 import numpy as np  # type: ignore
-import one_rep_max
+import one_rep_max  # type: ignore
 
 
 def epley_1rm(weight, reps):

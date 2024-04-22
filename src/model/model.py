@@ -16,7 +16,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
-import one_rep_max
+import one_rep_max  # type: ignore
 
 
 def get_df(

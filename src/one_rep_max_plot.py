@@ -15,8 +15,8 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from src.one_rep_max_calc import (
-    epley,
-    brzycki,
+    epley_1rm,
+    brzycki_1rm,
     epley_inverted,
     brzycki_inverted
     )  # type: ignore
@@ -27,8 +27,8 @@ weight = range(10, 60, 10)
 one_rm_constant_reps_df = pd.DataFrame(
     {
         "weight": weight,
-        "epley_1rm": epley(weight, 5),
-        "brzycki_1rm": brzycki(weight, 5)
+        "epley_1rm": epley_1rm(weight, 5),
+        "brzycki_1rm": brzycki_1rm(weight, 5)
      }
 )
 
@@ -41,8 +41,8 @@ reps = range(2, 10)
 one_rm_constant_weight_df = pd.DataFrame(
     {
         "reps": reps,
-        "epley_1rm": epley(70, reps),
-        "brzycki_1rm": brzycki(70, reps)
+        "epley_1rm": epley_1rm(70, reps),
+        "brzycki_1rm": brzycki_1rm(70, reps)
     }
 )
 

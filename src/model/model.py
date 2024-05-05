@@ -48,7 +48,7 @@ def get_df(
     return pd.concat(frames)
 
 
-def get_weight(df: pd.DataFrame) -> pd.Series[float]:
+def get_weight(df: pd.DataFrame) -> pd.Series:
     """_summary_
 
     :param df: _description_

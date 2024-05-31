@@ -13,7 +13,7 @@ from fastapi import FastAPI, HTTPException, Response  # type: ignore
 # import uvicorn  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from src.helpers.custom_storage import YAMLStorage  # type: ignore
-import src.CRUD.read as read  # type: ignore
+import src.crud.read as read  # type: ignore
 from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 
 app = FastAPI()

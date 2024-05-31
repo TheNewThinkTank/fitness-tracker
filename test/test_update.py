@@ -2,7 +2,7 @@
 from tinydb import TinyDB
 
 from context import src
-from src.CRUD.update import update_table, remove_from_table, truncate_table
+from src.crud.update import update_table, remove_from_table, truncate_table
 
 
 def setup():

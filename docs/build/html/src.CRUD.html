@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>src.CRUD package &mdash; Fitness-Tracker 0.1.0 documentation</title>
+  <title>src.crud package &mdash; Fitness-Tracker 0.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -49,7 +49,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="src.combined_metrics.html">src.combined_metrics package</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">src.CRUD package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">src.crud package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="src.helpers.html">src.helpers package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="src.model.html">src.model package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="src.simulations.html">src.simulations package</a></li>
@@ -81,9 +81,9 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html">src</a></li>
           <li class="breadcrumb-item"><a href="src.html">src package</a></li>
-      <li class="breadcrumb-item active">src.CRUD package</li>
+      <li class="breadcrumb-item active">src.crud package</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/src.CRUD.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/src.crud.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -92,18 +92,18 @@
            <div itemprop="articleBody">
              
   <section id="src-crud-package">
-<h1>src.CRUD package<a class="headerlink" href="#src-crud-package" title="Permalink to this heading"></a></h1>
+<h1>src.crud package<a class="headerlink" href="#src-crud-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
-<section id="module-src.CRUD.insert">
-<span id="src-crud-insert-module"></span><h2>src.CRUD.insert module<a class="headerlink" href="#module-src.CRUD.insert" title="Permalink to this heading"></a></h2>
+<section id="module-src.crud.insert">
+<span id="src-crud-insert-module"></span><h2>src.crud.insert module<a class="headerlink" href="#module-src.crud.insert" title="Permalink to this heading"></a></h2>
 <p>Date: 2021-12-13
 Purpose: Store weight-training data
 <a class="reference external" href="https://tinydb.readthedocs.io/en/latest/getting-started.html">https://tinydb.readthedocs.io/en/latest/getting-started.html</a></p>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.insert.insert_all_logs">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">insert_all_logs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/insert.html#insert_all_logs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.insert.insert_all_logs" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.insert.insert_all_logs">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">insert_all_logs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#insert_all_logs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.insert_all_logs" title="Permalink to this definition"></a></dt>
 <dd><p>Store all training logs in database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -117,8 +117,8 @@ from where each file will be inserted into the table</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.insert.insert_log">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">insert_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/insert.html#insert_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.insert.insert_log" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.insert.insert_log">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">insert_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#insert_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.insert_log" title="Permalink to this definition"></a></dt>
 <dd><p>Store training log: log_path in database table.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -132,8 +132,8 @@ that will be inserted into the table</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.insert.insert_specific_log">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">insert_specific_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workout_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/insert.html#insert_specific_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.insert.insert_specific_log" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.insert.insert_specific_log">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">insert_specific_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workout_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#insert_specific_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.insert_specific_log" title="Permalink to this definition"></a></dt>
 <dd><p>Store a specific training log in database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -148,20 +148,20 @@ in case of multiple workouts. Defaults to 1</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.insert.main">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.insert.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/insert.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.insert.main" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.insert.main">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.main" title="Permalink to this definition"></a></dt>
 <dd><p>Insert all simulated- or 1 or more real training logs</p>
 </dd></dl>
 
 </section>
-<section id="module-src.CRUD.read">
-<span id="src-crud-read-module"></span><h2>src.CRUD.read module<a class="headerlink" href="#module-src.CRUD.read" title="Permalink to this heading"></a></h2>
+<section id="module-src.crud.read">
+<span id="src-crud-read-module"></span><h2>src.crud.read module<a class="headerlink" href="#module-src.crud.read" title="Permalink to this heading"></a></h2>
 <p>Date: 2021-12-11
 Purpose: Store and analyze weight-training data
 <a class="reference external" href="https://tinydb.readthedocs.io/en/latest/getting-started.html">https://tinydb.readthedocs.io/en/latest/getting-started.html</a></p>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.analyze_workout">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">analyze_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#analyze_workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.analyze_workout" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.analyze_workout">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">analyze_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#analyze_workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.analyze_workout" title="Permalink to this definition"></a></dt>
 <dd><p>Deeper analysis of workout</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -180,8 +180,8 @@ Purpose: Store and analyze weight-training data
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.describe_workout">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">describe_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#describe_workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.describe_workout" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.describe_workout">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">describe_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#describe_workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.describe_workout" title="Permalink to this definition"></a></dt>
 <dd><p>Simple summary statistics for each exercise</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -200,8 +200,8 @@ Purpose: Store and analyze weight-training data
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.get_all">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.get_all" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.get_all">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.get_all" title="Permalink to this definition"></a></dt>
 <dd><p>get all documents</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -217,8 +217,8 @@ Purpose: Store and analyze weight-training data
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.get_dates">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">get_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#get_dates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.get_dates" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.get_dates">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">get_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#get_dates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.get_dates" title="Permalink to this definition"></a></dt>
 <dd><p>Get all workout dates</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -234,8 +234,8 @@ Purpose: Store and analyze weight-training data
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.get_dates_and_muscle_groups">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">get_dates_and_muscle_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#get_dates_and_muscle_groups"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.get_dates_and_muscle_groups" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.get_dates_and_muscle_groups">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">get_dates_and_muscle_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#get_dates_and_muscle_groups"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.get_dates_and_muscle_groups" title="Permalink to this definition"></a></dt>
 <dd><p>Returns all workout dates with their corresponding muscle groups.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -251,14 +251,14 @@ Purpose: Store and analyze weight-training data
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.main">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.main" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.main">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.main" title="Permalink to this definition"></a></dt>
 <dd><p>_summary_</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.show_exercise">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">show_exercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#show_exercise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.show_exercise" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.show_exercise">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">show_exercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#show_exercise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.show_exercise" title="Permalink to this definition"></a></dt>
 <dd><p>Show detailed data for selected exercise</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -278,8 +278,8 @@ Purpose: Store and analyze weight-training data
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.read.show_exercises">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.read.</span></span><span class="sig-name descname"><span class="pre">show_exercises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/CRUD/read.html#show_exercises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.read.show_exercises" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.read.show_exercises">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">show_exercises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#show_exercises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.show_exercises" title="Permalink to this definition"></a></dt>
 <dd><p>Show all exercises for given workout date</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -298,13 +298,13 @@ Purpose: Store and analyze weight-training data
 </dd></dl>
 
 </section>
-<section id="module-src.CRUD.update">
-<span id="src-crud-update-module"></span><h2>src.CRUD.update module<a class="headerlink" href="#module-src.CRUD.update" title="Permalink to this heading"></a></h2>
+<section id="module-src.crud.update">
+<span id="src-crud-update-module"></span><h2>src.crud.update module<a class="headerlink" href="#module-src.crud.update" title="Permalink to this heading"></a></h2>
 <p>Date: 2022-07-01
 Purpose: Update or delete weight-training data</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.update.remove_from_table">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.update.</span></span><span class="sig-name descname"><span class="pre">remove_from_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/update.html#remove_from_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.update.remove_from_table" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.update.remove_from_table">
+<span class="sig-prename descclassname"><span class="pre">src.crud.update.</span></span><span class="sig-name descname"><span class="pre">remove_from_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/update.html#remove_from_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.update.remove_from_table" title="Permalink to this definition"></a></dt>
 <dd><p>_summary_</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -314,8 +314,8 @@ Purpose: Update or delete weight-training data</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.update.truncate_table">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.update.</span></span><span class="sig-name descname"><span class="pre">truncate_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/update.html#truncate_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.update.truncate_table" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.update.truncate_table">
+<span class="sig-prename descclassname"><span class="pre">src.crud.update.</span></span><span class="sig-name descname"><span class="pre">truncate_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/update.html#truncate_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.update.truncate_table" title="Permalink to this definition"></a></dt>
 <dd><p>truncate table</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -325,8 +325,8 @@ Purpose: Update or delete weight-training data</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="src.CRUD.update.update_table">
-<span class="sig-prename descclassname"><span class="pre">src.CRUD.update.</span></span><span class="sig-name descname"><span class="pre">update_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/CRUD/update.html#update_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.CRUD.update.update_table" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="src.crud.update.update_table">
+<span class="sig-prename descclassname"><span class="pre">src.crud.update.</span></span><span class="sig-name descname"><span class="pre">update_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/update.html#update_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.update.update_table" title="Permalink to this definition"></a></dt>
 <dd><p>_summary_</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -336,8 +336,8 @@ Purpose: Update or delete weight-training data</p>
 </dd></dl>
 
 </section>
-<section id="module-src.CRUD">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.CRUD" title="Permalink to this heading"></a></h2>
+<section id="module-src.crud">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.crud" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

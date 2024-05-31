@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>src.CRUD.insert &mdash; Fitness-Tracker 0.1.0 documentation</title>
+  <title>src.crud.insert &mdash; Fitness-Tracker 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -60,7 +60,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">src.CRUD.insert</li>
+      <li class="breadcrumb-item active">src.crud.insert</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -69,7 +69,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for src.CRUD.insert</h1><div class="highlight"><pre>
+  <h1>Source code for src.crud.insert</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Date: 2021-12-13</span>
 <span class="sd">Purpose: Store weight-training data</span>
@@ -93,7 +93,7 @@
 <span class="kn">from</span> <span class="nn">helpers.set_db_and_table</span> <span class="kn">import</span> <span class="n">set_db_and_table</span>  <span class="c1"># type: ignore</span>
 
 
-<div class="viewcode-block" id="insert_log"><a class="viewcode-back" href="../../../src.CRUD.html#src.CRUD.insert.insert_log">[docs]</a><span class="k">def</span> <span class="nf">insert_log</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">log_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="insert_log"><a class="viewcode-back" href="../../../src.crud.html#src.crud.insert.insert_log">[docs]</a><span class="k">def</span> <span class="nf">insert_log</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">log_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span> <span class="o">|</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Store training log: log_path in database table.</span>
 
 <span class="sd">    :param table: A TinyDB table</span>
@@ -113,7 +113,7 @@
     <span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">json_content</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="insert_all_logs"><a class="viewcode-back" href="../../../src.CRUD.html#src.CRUD.insert.insert_all_logs">[docs]</a><span class="k">def</span> <span class="nf">insert_all_logs</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">folderpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="insert_all_logs"><a class="viewcode-back" href="../../../src.crud.html#src.crud.insert.insert_all_logs">[docs]</a><span class="k">def</span> <span class="nf">insert_all_logs</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">folderpath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Store all training logs in database.</span>
 
 <span class="sd">    :param table: A TinyDB table</span>
@@ -129,7 +129,7 @@
         <span class="n">insert_log</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">p</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="insert_specific_log"><a class="viewcode-back" href="../../../src.CRUD.html#src.CRUD.insert.insert_specific_log">[docs]</a><span class="k">def</span> <span class="nf">insert_specific_log</span><span class="p">(</span><span class="n">date</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">workout_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="insert_specific_log"><a class="viewcode-back" href="../../../src.crud.html#src.crud.insert.insert_specific_log">[docs]</a><span class="k">def</span> <span class="nf">insert_specific_log</span><span class="p">(</span><span class="n">date</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">workout_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Store a specific training log in database.</span>
 
 <span class="sd">    :param date: string of date in format YYYY-MM-DD</span>
@@ -174,7 +174,7 @@
     <span class="n">insert_log</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">log_path</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../src.CRUD.html#src.CRUD.insert.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../../src.crud.html#src.crud.insert.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Insert all simulated- or 1 or more real training logs&quot;&quot;&quot;</span>
 
     <span class="kn">import</span> <span class="nn">argparse</span>

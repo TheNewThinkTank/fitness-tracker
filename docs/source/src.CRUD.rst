@@ -1,29 +1,29 @@
-src.CRUD package
+src.crud package
 ================
 
 Submodules
 ----------
 
-src.CRUD.insert module
+src.crud.insert module
 ----------------------
 
-.. automodule:: src.CRUD.insert
+.. automodule:: src.crud.insert
    :members:
    :undoc-members:
    :show-inheritance:
 
-src.CRUD.read module
+src.crud.read module
 --------------------
 
-.. automodule:: src.CRUD.read
+.. automodule:: src.crud.read
    :members:
    :undoc-members:
    :show-inheritance:
 
-src.CRUD.update module
+src.crud.update module
 ----------------------
 
-.. automodule:: src.CRUD.update
+.. automodule:: src.crud.update
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ src.CRUD.update module
 Module contents
 ---------------
 
-.. automodule:: src.CRUD
+.. automodule:: src.crud
    :members:
    :undoc-members:
    :show-inheritance:

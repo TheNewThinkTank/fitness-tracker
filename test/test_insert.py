@@ -2,7 +2,7 @@
 from tinydb import TinyDB
 
 from context import src
-from src.CRUD.insert import insert_log  # , insert_specific_log
+from src.crud.insert import insert_log  # , insert_specific_log
 
 
 def setup():

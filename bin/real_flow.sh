@@ -17,7 +17,7 @@ FILE_FORMAT='yml'  # default is json
 
 # echo "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
 
-if ! python3 ./src/CRUD/insert.py --file_format "$FILE_FORMAT" --datatype real --dates "$WORKOUT_DATE"; then
+if ! python3 ./src/crud/insert.py --file_format "$FILE_FORMAT" --datatype real --dates "$WORKOUT_DATE"; then
     echo "Error: Failed to insert data in database."
     exit 1
 fi

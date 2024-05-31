@@ -5,9 +5,9 @@ data/log_archive/CSV
 data/log_archive/YAML
 src/orchestration
 src/simulations
-src/CRUD/__init__.py
-src/CRUD/__pycache__
-src/CRUD/insert.py
+src/crud/__init__.py
+src/crud/__pycache__
+src/crud/insert.py
 src/1rm.r
 src/local_r_setup.txt
 src/plot.py

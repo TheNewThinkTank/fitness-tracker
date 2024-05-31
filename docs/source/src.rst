@@ -8,7 +8,7 @@ Subpackages
    :maxdepth: 4
 
    src.combined_metrics
-   src.CRUD
+   src.crud
    src.helpers
    src.model
    src.simulations

@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt  # type: ignore
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 
-from CRUD.read import show_exercise  # type: ignore
+from crud.read import show_exercise  # type: ignore
 from helpers.get_exercises import get_available_exercises  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 

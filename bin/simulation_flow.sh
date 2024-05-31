@@ -10,7 +10,7 @@ NUMBER_OF_WORKOUTS=100
 # echo 'cleanup complete'
 python3 src/simulations/simulate_data.py $NUMBER_OF_WORKOUTS
 # echo 'simulations complete'
-python3 src/CRUD/insert.py --datatype simulated
+python3 src/crud/insert.py --datatype simulated
 # echo 'simulations inserted in database. Preparing figures ..'
 # python3 src/model/plot_model.py --datatype simulated
 # open img/fitted_data_barbell_bench_press.png

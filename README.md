@@ -68,7 +68,7 @@ make html
 
 ## Examples
 
-[training plots etc.](project_docs/examples/EXAMPLES.md)
+[training plots etc.](docs/project_docs/examples/EXAMPLES.md)
 
 ### Similar projects
 If you liked this fitness tracker then you might also be interested in
@@ -106,5 +106,5 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 * Google Drive on macOS Ventura 13.4.1 spontaneously switches local mounting point between
 `/Users/<USER>/Google Drive/` and
 `/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/`, or fails to sign in.<br>
-[Fix](known_issues/macos_ventura_google_drive.md)
+[Fix](docs/project_docs/known_issues/macos_ventura_google_drive.md)
 * Mounting directories directly from Google Drive is not supported by Docker Compose. Docker Compose can only mount directories that are accessible on the local filesystem.

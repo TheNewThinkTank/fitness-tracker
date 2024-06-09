@@ -1,4 +1,5 @@
 site_name: fitness-tracker - Full stack fitness tracking application using TinyDB and FastAPI
+docs_dir: docs/project_docs
 theme:
   name: material
   features:

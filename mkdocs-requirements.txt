@@ -1,0 +1,5 @@
+# Dependencies for doc generation
+mkdocs
+mkdocs-awesome-pages-plugin
+mkdocs-git-authors-plugin
+mkdocs-material[imaging]

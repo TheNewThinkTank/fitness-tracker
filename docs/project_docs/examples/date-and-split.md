@@ -1,5 +1,23 @@
 # Date and split
 
+
+<table>
+<tr><th>2024</th><th>2023</th></tr>
+<tr><td>
+
+|Table 1| Middle | Table 2|
+|--|--|--|
+|a| not b|and c |
+
+</td><td>
+
+|b|1|2|3| 
+|--|--|--|--|
+|a|s|d|f|
+
+</td></tr> </table>
+
+
 ## 2024
 
 | Date         | Split    |

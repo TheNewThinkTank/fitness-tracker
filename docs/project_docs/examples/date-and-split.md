@@ -5,15 +5,15 @@
 <tr><th>2024</th><th>2023</th></tr>
 <tr><td>
 
-|Table 1| Middle | Table 2|
-|--|--|--|
-|a| not b|and c |
+| 2024-01-07 | push |
+|--|--|
+|a| and c |
 
 </td><td>
 
-|b|1|2|3| 
-|--|--|--|--|
-|a|s|d|f|
+|b|1|2|
+|--|--|--|
+|a|s|d|
 
 </td></tr> </table>
 

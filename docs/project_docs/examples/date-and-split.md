@@ -1,23 +1,39 @@
 # Date and split
 
-
 <table>
-<tr><th>2024</th><th>2023</th></tr>
-<tr><td>
+<tr>
+<th>2024</th>
+<th>2023</th>
+</tr>
+<tr>
+<td>
 
-| Date         | Split    |
-| :----------: | :------: |
-| 2024-01-07   | push     |
+| Date       | Split  |
+|:----------:|:------:|
+| 2024-01-07 | push   |
 
-</td><td>
+</td>
+<td>
 
-| Date         | Split    |
-| :----------: | :------: |
-| 2023-MM-DD   | split    |
+| Date       | Split  |
+|:----------:|:------:|
+| 2023-MM-DD | split  |
 
-</td></tr>
+</td>
+</tr>
 </table>
 
+
+<details>
+
+  <summary>2024</summary>
+
+  | Date     |    Split |
+  | -------- | -------- |
+  | Row 1    | Row 1    |
+  | Row 2    | Row 2    |
+  
+</details>
 
 ## 2024
 

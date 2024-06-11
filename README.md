@@ -15,7 +15,7 @@ Add weight-training logs continuously to db.json and query the data through the 
 Visually inspect your progression through dates and exercises
 
 ## Architecture Diagram
-![architecture](img/architecture.png)
+![architecture](docs/project_docs/img/architecture.png)
 
 ## Getting started
 

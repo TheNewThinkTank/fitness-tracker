@@ -7,9 +7,9 @@
     name: 4-SPLIT<br>
     splits: [legs, chest, back_and_biceps, shoulder_and_abs]<br>
     description:<br>
-      Focus on strength.<br>
-      Heavy sets of 2-8 reps for key exercises<br>
-      (deadlift, squat, benchpress, seated_row)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Focus on strength.<br>
+      &nbsp;&nbsp;&nbsp;Heavy sets of 2-8 reps for key exercises<br>
+      &nbsp;&nbsp;(deadlift, squat, benchpress, seated_row)<br>
     start: 2021-12-11<br>
     end: 2022-03-19<br>
     program_iterations: 10<br>

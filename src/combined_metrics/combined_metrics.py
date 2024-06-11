@@ -26,6 +26,8 @@ from helpers.lookup import get_year_and_month  # type: ignore
 from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
 from get_frequency_data import get_frequency_data  # type: ignore
 
+IMG_PATH = './docs/project_docs/img/'
+
 
 def plot_frequency(table, year_to_plot: str) -> None:
     """_summary_
@@ -63,7 +65,7 @@ def plot_frequency(table, year_to_plot: str) -> None:
              res_df['date'].iloc[-1] + pd.to_timedelta(3, unit='d')
              )
     plt.title(f"{year_to_plot} Workout Frequency", fontsize=20)
-    plt.savefig(f"img/{year_to_plot}_workout_frequency.png")
+    plt.savefig(f"{IMG_PATH}{year_to_plot}_workout_frequency.png")
     # plt.show()
     plt.clf()
 
@@ -132,7 +134,7 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     plt.xticks(dates, dates)
 
     # plt.show()
-    plt.savefig(f"img/workout_duration_{month_to_plot}_{year_to_plot}.png")
+    plt.savefig(f"{IMG_PATH}workout_duration_{month_to_plot}_{year_to_plot}.png")
     plt.clf()
 
 
@@ -194,7 +196,7 @@ def plot_duration_volume_1rm(table):
     plt.xticks(dates, dates)
 
     # plt.show()
-    plt.savefig(f"img/workout_duration_volume_1rm_{EXERCISE}.png")
+    plt.savefig(f"{IMG_PATH}workout_duration_volume_1rm_{EXERCISE}.png")
     plt.clf()
 
 

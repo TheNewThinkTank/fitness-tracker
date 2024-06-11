@@ -4,40 +4,34 @@
 
   <summary>program_1</summary>
 
-  name: 4-SPLIT
-  splits: [legs, chest, back_and_biceps, shoulder_and_abs]
-  description:
-    Focus on strength.
-    Heavy sets of 2-8 reps for key exercises
-    (deadlift, squat, benchpress, seated_row)
-  start: 2021-12-11
-  end: 2022-03-19
-  program_iterations: 10
-  number_of_workouts: 40
+    name: 4-SPLIT
+    splits: [legs, chest, back_and_biceps, shoulder_and_abs]
+    description:
+      Focus on strength.
+      Heavy sets of 2-8 reps for key exercises
+      (deadlift, squat, benchpress, seated_row)
+    start: 2021-12-11
+    end: 2022-03-19
+    program_iterations: 10
+    number_of_workouts: 40
   
 </details>
 
-<!-- program_1:
-  name: 4-SPLIT
-  splits: [legs, chest, back_and_biceps, shoulder_and_abs]
-  description: |
-    Focus on strength.
-    Heavy sets of 2-8 reps for key exercises
-    (deadlift, squat, benchpress, seated_row)
-  start: 2021-12-11
-  end: 2022-03-19
-  program_iterations: 10
-  number_of_workouts: 40 -->
+<details>
 
-program_2:
-  name: PPL
-  splits: [push, pull, legs]
-  description: |
-    Focus on strength.
-    Heavy sets of 2-8 reps for key exercises
-    (deadlift, squat, benchpress, seated_row)
-  start: 2022-03-26
-  end: 2022-06-27
+  <summary>program_1</summary>
+
+    program_2:
+      name: PPL
+      splits: [push, pull, legs]
+      description: |
+        Focus on strength.
+        Heavy sets of 2-8 reps for key exercises
+        (deadlift, squat, benchpress, seated_row)
+      start: 2022-03-26
+      end: 2022-06-27
+
+</details>
 
 program_3:
   name: GVT

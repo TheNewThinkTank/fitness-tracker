@@ -12,10 +12,11 @@ YEAR_TO_PLOT=$(date +%Y)  # "2024"
 MONTH_TO_PLOT=$(date +%B)  # "August"
 # TRAINING_PROGRAM='nfp'  # 'gvt'
 FILE_FORMAT='yml'  # default is json
+IMG_PATH='./docs/project_docs/img/'
 
 # --workout_number 2
 
-# echo "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
+echo "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
 
 if ! python3 ./src/crud/insert.py --file_format "$FILE_FORMAT" --datatype real --dates "$WORKOUT_DATE"; then
     echo "Error: Failed to insert data in database."
@@ -32,17 +33,17 @@ fi
 # python3 src/model/plot_model.py --datatype real --pgm $TRAINING_PROGRAM
 
 open_images() {
-  open ./img/"$YEAR_TO_PLOT"_workout_frequency.png
-  # open ./img/workout_frequency.png
-  # open ./img/workout_duration.png
-  open ./img/workout_duration_"$MONTH_TO_PLOT"_"$YEAR_TO_PLOT".png
-  # open ./img/workout_duration_volume_1rm_bb_bench_press.png
-  # open img/real_fitted_data_squat_${TRAINING_PROGRAM}.png
-  # open img/real_fitted_data_barbell_bench_press_${TRAINING_PROGRAM}.png
-  # open img/real_fitted_data_squat_splines.png
-  # open img/real_fitted_data_deadlift_splines.png
-  # open img/real_fitted_data_seated_row_splines.png
-  # open img/real_fitted_data_barbell_bench_press_splines.png
+  open "$IMG_PATH""$YEAR_TO_PLOT"_workout_frequency.png
+  # open "$IMG_PATH"workout_frequency.png
+  # open "$IMG_PATH"workout_duration.png
+  open "$IMG_PATH"workout_duration_"$MONTH_TO_PLOT"_"$YEAR_TO_PLOT".png
+  # open "$IMG_PATH"workout_duration_volume_1rm_bb_bench_press.png
+  # open "$IMG_PATH"real_fitted_data_squat_${TRAINING_PROGRAM}.png
+  # open "$IMG_PATH"real_fitted_data_barbell_bench_press_${TRAINING_PROGRAM}.png
+  # open "$IMG_PATH"real_fitted_data_squat_splines.png
+  # open "$IMG_PATH"real_fitted_data_deadlift_splines.png
+  # open "$IMG_PATH"real_fitted_data_seated_row_splines.png
+  # open "$IMG_PATH"real_fitted_data_barbell_bench_press_splines.png
 }
 
 if ! open_images; then

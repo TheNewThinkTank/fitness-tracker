@@ -4,49 +4,63 @@ set -euo pipefail
 
 # Date: 2022-01-21
 # Author: Gustav Collin Rasmussen
-# Purpose: BASH workflow that inserts data in database.
+# Purpose: BASH workflow that inserts data into a database and prepares figures.
+
 # datatype values: real/simulated
 
+# Constants
+IMG_PATH='./docs/project_docs/img/'
+
+# Functions
+log() {
+  echo "$(date +'%Y-%m-%d %H:%M:%S') - $1"
+}
+
+insert_data() {
+  local file_format=$1
+  local workout_date=$2
+  if ! python3 ./src/crud/insert.py --file_format "$file_format" --datatype real --dates "$workout_date"; then
+    log "Error: Failed to insert data in database."
+    exit 1
+  fi
+  log "Data inserted in database."
+}
+
+prepare_figures() {
+  local year=$1
+  local month=$2
+  if ! python3 ./src/combined_metrics/combined_metrics.py --year_to_plot "$year" --month_to_plot "$month"; then
+    log "Error: Failed to prepare figures."
+    exit 1
+  fi
+  log "Figures prepared successfully."
+}
+
+open_images() {
+  local year=$1
+  local month=$2
+  open "${IMG_PATH}${year}_workout_frequency.png"
+  open "${IMG_PATH}workout_duration_${month}_${year}.png"
+}
+
+# Main script
 WORKOUT_DATE=$(date +%F)  # '2024-02-23'  # 2022-03-02,2022-03-03
 YEAR_TO_PLOT=$(date +%Y)  # "2024"
 MONTH_TO_PLOT=$(date +%B)  # "August"
 # TRAINING_PROGRAM='nfp'  # 'gvt'
 FILE_FORMAT='yml'  # default is json
-IMG_PATH='./docs/project_docs/img/'
 
 # --workout_number 2
 
-echo "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
+log "Workflow started"
+log "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
 
-if ! python3 ./src/crud/insert.py --file_format "$FILE_FORMAT" --datatype real --dates "$WORKOUT_DATE"; then
-    echo "Error: Failed to insert data in database."
-    exit 1
+insert_data "$FILE_FORMAT" "$WORKOUT_DATE"
+prepare_figures "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
+
+if ! open_images "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"; then
+  log "Error: Failed to open images."
+  exit 1
 fi
 
-echo "Data inserted in database. Preparing figures..."
-
-if ! python3 ./src/combined_metrics/combined_metrics.py --year_to_plot "$YEAR_TO_PLOT" --month_to_plot "$MONTH_TO_PLOT"; then
-    echo "Error: Failed to prepare figures."
-    exit 1
-fi
-
-# python3 src/model/plot_model.py --datatype real --pgm $TRAINING_PROGRAM
-
-open_images() {
-  open "$IMG_PATH""$YEAR_TO_PLOT"_workout_frequency.png
-  # open "$IMG_PATH"workout_frequency.png
-  # open "$IMG_PATH"workout_duration.png
-  open "$IMG_PATH"workout_duration_"$MONTH_TO_PLOT"_"$YEAR_TO_PLOT".png
-  # open "$IMG_PATH"workout_duration_volume_1rm_bb_bench_press.png
-  # open "$IMG_PATH"real_fitted_data_squat_${TRAINING_PROGRAM}.png
-  # open "$IMG_PATH"real_fitted_data_barbell_bench_press_${TRAINING_PROGRAM}.png
-  # open "$IMG_PATH"real_fitted_data_squat_splines.png
-  # open "$IMG_PATH"real_fitted_data_deadlift_splines.png
-  # open "$IMG_PATH"real_fitted_data_seated_row_splines.png
-  # open "$IMG_PATH"real_fitted_data_barbell_bench_press_splines.png
-}
-
-if ! open_images; then
-    echo "Error: Failed to open images."
-    exit 1
-fi
+log "Workflow completed successfully"

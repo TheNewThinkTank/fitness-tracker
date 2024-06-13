@@ -37,6 +37,7 @@ TODO: reverse sorting of dates, should be latest first.
     | 2024-05-05   | legs     |
     | 2024-06-08   | push     |
     | 2024-06-11   | pull     |
+    | 2024-06-13   | legs     |
 
 </details>
 

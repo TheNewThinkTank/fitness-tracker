@@ -8,6 +8,7 @@ import os
 import sys
 
 import matplotlib.pyplot as plt  # type: ignore
+import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 
@@ -78,6 +79,8 @@ df4 = df4.melt(id_vars='reps', var_name='variable', value_name='inverse_one_rep_
 fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
 
 # Plot 1
+if not isinstance(axes, np.ndarray):
+    axes = np.array([axes])
 sns.scatterplot(data=df1, x='weight', y='one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[0, 0])
 axes[0, 0].set_title('Constant reps (5)')
 axes[0, 0].set_xlabel('Weight')

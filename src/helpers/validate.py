@@ -63,7 +63,15 @@ class Workout(pydantic.BaseModel):
                         f"and value: {training_set['weight']}",
                     )
 
-                result = re.match(r"\d{1,3}(?:\.\d{1,2})?\skg$", training_set["weight"])
+                regex = re.compile(
+                    r"""
+                    \d{1,3}  # 1 to 3 digits
+                    (?:\.\d{1,2})?  # optional non-capture group of dot and 1-2 digits
+                    \skg$  # ends with ' kg'
+                    """, re.VERBOSE
+                    )
+
+                result = re.match(regex, training_set["weight"])
 
                 if result is None:
                     raise ExercisesFormatError(

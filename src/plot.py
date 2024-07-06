@@ -6,6 +6,7 @@ Purpose: Plot weight-training data
 from typing import Any
 
 import matplotlib.pyplot as plt  # type: ignore
+import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 
@@ -76,12 +77,20 @@ def create_barplots(dfs: dict, date: str) -> None:
     match len(dfs):
         case 3:
             print("3 exercises to plot")
-            f, (ax1, ax2, ax3) = plt.subplots(len(dfs), 1, figsize=(11, 9), sharex=True)
+            f, axes = plt.subplots(len(dfs), 1, figsize=(11, 9), sharex=True)
+            # Ensure axes is an iterable array even if it's a single Axes object
+            if not isinstance(axes, np.ndarray):
+                axes = np.array([axes])
+            ax1, ax2, ax3 = axes
         case 4:
             print("4 exercises to plot")
-            f, (ax1, ax2, ax3, ax4) = plt.subplots(
+            f, axes = plt.subplots(
                 len(dfs), 1, figsize=(11, 9), sharex=True
             )
+            if not isinstance(axes, np.ndarray):
+                axes = np.array([axes])
+            ax1, ax2, ax3, ax4 = axes
+
             sns.barplot(
                 x=values[3]["set_number"],
                 y=values[3]["reps"],

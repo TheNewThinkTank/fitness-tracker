@@ -12,4 +12,4 @@ services:
 
 # CLI command, 1.st time: docker-compose up --build
 # CLI command, without image building: docker-compose up
-# Then visit: http://localhost:8080/
+# Then visit: http://localhost:8080

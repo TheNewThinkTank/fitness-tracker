@@ -25,16 +25,16 @@ training_catalogue = "src/helpers/muscles_and_exercises.yaml"
 # db, table, _ = set_db_and_table(datatype="real")
 
 
-@app.get("/data")
-async def get_data():
-    """Show data"""
-    return [*table]  # Response(f"table data: {table}")
-
-
 @app.get("/")
 async def main_page() -> Response:
     """Returns a greeting message for the application."""
     return Response("Hello, athlete. Welcome to your tracker!")
+
+
+@app.get("/data")
+async def get_data():
+    """Show data"""
+    return [*table]  # Response(f"table data: {table}")
 
 
 @app.get("/dates")
@@ -58,7 +58,7 @@ async def describe_workout(date: str):  # -> dict[str, str]:
 
 
 @app.get("/{date}/exercises/{exercise}")
-async def show_exercise(exercise: str, date: str) -> list[str]:
+async def show_exercise(exercise: str, date: str) -> list[dict]:
     """Returns a list of sets and reps for the given exercise and date."""
     return read.show_exercise(table, exercise, date)
 

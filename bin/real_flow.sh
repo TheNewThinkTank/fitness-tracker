@@ -6,8 +6,6 @@ set -euo pipefail
 # Author: Gustav Collin Rasmussen
 # Purpose: BASH workflow that inserts data into a database and prepares figures.
 
-# datatype values: real/simulated
-
 # Constants
 IMG_PATH='./docs/project_docs/img/'
 
@@ -43,14 +41,31 @@ open_images() {
   open "${IMG_PATH}workout_duration_${month}_${year}.png"
 }
 
-# Main script
-WORKOUT_DATE=$(date +%F)  # '2024-02-23'  # 2022-03-02,2022-03-03
-YEAR_TO_PLOT=$(date +%Y)  # "2024"
-MONTH_TO_PLOT=$(date +%B)  # "August"
-# TRAINING_PROGRAM='nfp'  # 'gvt'
-FILE_FORMAT='yml'  # default is json
+# Default values
+WORKOUT_DATE=$(date +%F)
+YEAR_TO_PLOT=$(date +%Y)
+MONTH_TO_PLOT=$(date +%B)
+FILE_FORMAT='yml'
 
-# --workout_number 2
+# Parse command-line arguments
+while getopts ":d:f:" opt; do
+  case ${opt} in
+    d )
+      WORKOUT_DATE=$OPTARG
+      ;;
+    f )
+      FILE_FORMAT=$OPTARG
+      ;;
+    \? )
+      echo "Invalid option: -$OPTARG" 1>&2
+      exit 1
+      ;;
+    : )
+      echo "Invalid option: -$OPTARG requires an argument" 1>&2
+      exit 1
+      ;;
+  esac
+done
 
 log "Workflow started"
 log "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"

@@ -17,7 +17,7 @@
 | Chinup           | 3    |
 | BB Bent Row      | 3    |
 | Lat Pulldown     | 3    |
-| hex_shrug        | 3    |
+| Hex Shrug        | 3    |
 | DB Side Laterals | 3    |
 | BB Curl          | 2    |
 

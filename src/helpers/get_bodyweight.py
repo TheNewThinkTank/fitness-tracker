@@ -12,7 +12,6 @@ def get_bw():
     """
 
     url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPN6RmIAL_8-1x87e48ZkPs2ItSCRp33LxjbeWb7B6WdAZGEX6F_sll70oy58X-abor5xbA2Qt4ZQz/pub?output=csv"
-
     df = pd.read_csv(url)
 
     return df["BODYWEIGHT_KG"].values[-1]

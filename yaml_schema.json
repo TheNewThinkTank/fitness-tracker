@@ -1,63 +1,56 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
       "date": {
-        "type": "string",
-        "format": "date"
+          "type": "string",
+          "format": "date"
       },
       "start_time": {
-        "type": "string",
-        "format": "HH:MM"
+          "type": "string",
+          "format": "HH:MM"
       },
       "end_time": {
-        "type": "string",
-        "format": "HH:MM"
+          "type": "string",
+          "format": "HH:MM"
       },
       "timezone": {
-        "type": "string"
+          "type": "string"
       },
       "split": {
-        "type": "string",
-        "enum": ["pull", "push", "legs", "full_body", "other"]
+          "type": "string",
+          "enum": ["pull", "push", "legs", "full_body", "other"]
       },
       "gym": {
-        "type": "string"
+          "type": "string"
       },
       "warmup": {
-        "type": "string"
+          "type": "string"
       },
       "exercises": {
-        "type": "array",
-        "items": {
           "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "sets": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "set_number": {
-                    "type": "integer"
-                  },
-                  "reps": {
-                    "type": "integer"
-                  },
-                  "weight": {
-                    "type": "string"
+          "patternProperties": {
+              "^[a-zA-Z0-9_]+$": {
+                  "type": "array",
+                  "items": {
+                      "type": "object",
+                      "properties": {
+                          "set_number": {
+                              "type": "integer"
+                          },
+                          "reps": {
+                              "type": "integer"
+                          },
+                          "weight": {
+                              "type": "string"
+                          }
+                      },
+                      "required": ["set_number", "reps", "weight"]
                   }
-                },
-                "required": ["set_number", "reps", "weight"]
               }
-            }
           },
-          "required": ["name", "sets"]
-        }
+          "additionalProperties": false
       }
-    },
-    "required": ["date", "start_time", "end_time", "timezone", "split", "gym", "warmup", "exercises"]
-  }
-  
+  },
+  "required": ["date", "start_time", "end_time", "timezone", "split", "gym", "warmup", "exercises"]
+}

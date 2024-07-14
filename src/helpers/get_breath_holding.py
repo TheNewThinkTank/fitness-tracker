@@ -50,7 +50,7 @@ def main():
     # Add labels and title
     plt.xlabel('Set Number')
     plt.ylabel('Duration (Seconds)')
-    plt.title('Breath holding 2024-07-13')
+    plt.title('Breath holding')
 
     # Show plot
     # plt.show()

@@ -20,11 +20,9 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY local_assets/private_config.json /code/local_assets/private_config.json
 COPY ./src /code/src
 
-# COPY ["/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data/", "/code/data"]
 COPY ./data /code/data
 
-COPY config/config.yml /code/config/config.yml
-# COPY config.json /code/config.json
+COPY .config/config.yml /code/.config/config.yml
 
 # COPY ./app /code/app
 

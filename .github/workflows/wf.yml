@@ -21,7 +21,7 @@ jobs:
           cache: pip
 
       - name: Install and cache poetry
-        run: make -f config/Makefile install-poetry
+        run: make -f .config/Makefile install-poetry
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Cache poetry dependencies
@@ -52,13 +52,13 @@ jobs:
       #   run: poetry ruff format .
 
       - name: Lint with ruff
-        run: make -f config/Makefile lint-ruff
+        run: make -f .config/Makefile lint-ruff
 
       - name: Static type checks with mypy
-        run: make -f config/Makefile static-type-checks
+        run: make -f .config/Makefile static-type-checks
 
       - name: wily build and rank
-        run: make -f config/Makefile wily-build-and-rank
+        run: make -f .config/Makefile wily-build-and-rank
 
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
@@ -89,7 +89,7 @@ jobs:
       - uses: rojopolis/spellcheck-github-actions@0.36.0
         name: Spellcheck
         with:
-          config_path: config/.spellcheck.yml
+          config_path: .config/.spellcheck.yml
           source_files: README.md # workout_programs.md
           task_name: Markdown
 

@@ -1,6 +1,7 @@
 """_summary_
 """
 
+import datetime
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
@@ -33,8 +34,10 @@ def get_breath_holding():
     return df[["DATE", "SET-NUMBER", "DURATION (MM:SS)"]].dropna()  # df[""].values[-1]
 
 
-def main():
-    df = get_breath_holding()
+def make_figure(df):
+    print(df)
+
+    today = datetime.datetime.now().date()
 
     # Convert 'DURATION (HH:MM)' to seconds
     df['DURATION (MM:SS)'] = df['DURATION (MM:SS)'].apply(lambda x: int(x.split(':')[0]) * 60 + int(x.split(':')[1]))
@@ -42,20 +45,29 @@ def main():
     # Rename column for clarity
     df = df.rename(columns={'DURATION (MM:SS)': 'DURATION (Seconds)'})
 
-    # Create Seaborn barplot
+    # Compute min, max, and mean duration for each date
+    summary_df = df.groupby('DATE')['DURATION (Seconds)'].agg(['min', 'max', 'mean']).reset_index()
+
     plt.figure(figsize=(12, 6))
-    # sns.barplot(x='SET-NUMBER', y='DURATION (Seconds)', data=df)
-    sns.barplot(x='SET-NUMBER', y='DURATION (Seconds)', hue='DATE', data=df)
+    sns.barplot(x='DATE', y='mean', data=summary_df, color='skyblue', capsize=0.2)
+    plt.errorbar(
+        x=summary_df['DATE'],
+        y=summary_df['mean'],
+        yerr=[summary_df['mean'] - summary_df['min'],
+              summary_df['max'] - summary_df['mean']],
+              fmt='none',
+              c='black'
+        )
 
     # Add labels and title
     plt.xlabel('Set Number')
     plt.ylabel('Duration (Seconds)')
-    plt.title('Breath holding')
+    plt.title('Min, Max, and Mean Breath holding')
 
     # Show plot
     # plt.show()
-    plt.savefig("docs/project_docs/img/breathholding/2024-07-14.png")
+    plt.savefig(f"docs/project_docs/img/breathholding/{today}.png")
 
 
 if __name__ == "__main__":
-    main()
+    make_figure(get_breath_holding())

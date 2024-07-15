@@ -1,3 +1,3 @@
 # Breath holding
 
-![2024-07-14](../img/breathholding/2024-07-14.png)
+![2024-07-15](../img/breathholding/2024-07-15.png)

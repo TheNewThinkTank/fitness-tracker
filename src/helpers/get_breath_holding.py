@@ -40,13 +40,17 @@ def make_figure(df):
     today = datetime.datetime.now().date()
 
     # Convert 'DURATION (HH:MM)' to seconds
-    df['DURATION (MM:SS)'] = df['DURATION (MM:SS)'].apply(lambda x: int(x.split(':')[0]) * 60 + int(x.split(':')[1]))
+    df['DURATION (MM:SS)'] = df['DURATION (MM:SS)'].apply(
+        lambda x: int(x.split(':')[0]) * 60 + int(x.split(':')[1])
+        )
 
     # Rename column for clarity
     df = df.rename(columns={'DURATION (MM:SS)': 'DURATION (Seconds)'})
 
     # Compute min, max, and mean duration for each date
-    summary_df = df.groupby('DATE')['DURATION (Seconds)'].agg(['min', 'max', 'mean']).reset_index()
+    summary_df = df.groupby('DATE')['DURATION (Seconds)'].agg(
+        ['min', 'max', 'mean']
+        ).reset_index()
 
     plt.figure(figsize=(12, 6))
     sns.barplot(x='DATE', y='mean', data=summary_df, color='skyblue', capsize=0.2)
@@ -59,12 +63,10 @@ def make_figure(df):
               c='black'
         )
 
-    # Add labels and title
     plt.xlabel('Set Number')
     plt.ylabel('Duration (Seconds)')
     plt.title('Min, Max, and Mean Breath holding')
 
-    # Show plot
     # plt.show()
     plt.savefig(f"docs/project_docs/img/breathholding/{today}.png")
 

@@ -1,6 +1,7 @@
 ![commit activity](https://img.shields.io/github/commit-activity/m/TheNewThinkTank/fitness-tracker)
 ![CI](https://github.com/TheNewThinkTank/fitness-tracker/actions/workflows/wf.yml/badge.svg)
 [![GitHub repo size](https://img.shields.io/github/repo-size/TheNewThinkTank/fitness-tracker?style=flat&logo=github&logoColor=whitesmoke&label=Repo%20Size)](https://github.com/TheNewThinkTank/fitness-tracker/archive/refs/heads/main.zip)
+
 # Fitness-Tracker
 
 [![Documentation Status](https://readthedocs.org/projects/fitness-tracker/badge/?version=latest)](https://fitness-tracker.readthedocs.io/en/latest/?badge=latest)
@@ -71,6 +72,7 @@ make html
 [training plots etc.](docs/project_docs/examples/EXAMPLES.md)
 
 ### Similar projects
+
 If you liked this fitness tracker then you might also be interested in
 the [workout-generator](https://github.com/TheNewThinkTank/workout-generator) Django project,<br>
 the [nutrition-planner](https://github.com/TheNewThinkTank/nutrition-planner) Streamlit project, with associated development guide:<br>
@@ -96,6 +98,8 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 -->
 
 ### TODOs
+
+- [ ] add quantitative flexibility measurements / estimations
 - [ ] quality control for TS and JS
 - [ ] timezone check; check stated timezone in workout logs are consistent with the definition:
       CEST spans from the last Sunday in March to the last Sunday in October.
@@ -103,6 +107,7 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 - [x] YAML support
 
 ### Known Issues
+
 * Google Drive on macOS Ventura 13.4.1 spontaneously switches local mounting point between
 `/Users/<USER>/Google Drive/` and
 `/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/`, or fails to sign in.<br>

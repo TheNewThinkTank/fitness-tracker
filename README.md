@@ -26,8 +26,8 @@ First, clone the project:<br>
 ### Upload your workouts
 
 - Add your workout log to the `data` folder under the correct workout date
-- Edit `bin/real_flow.sh`: Specify the `WORKOUT_DATE` and `TRAINING_PROGRAM` values
-- Execute `./bin/real_flow.sh` which will insert your log(s) into the TinyDB database
+- Edit `bin/fitcli.sh`: Specify the `WORKOUT_DATE` and `TRAINING_PROGRAM` values
+- Execute `./bin/fitcli.sh` which will insert your log(s) into the TinyDB database
 
 ### Analyze your data
 

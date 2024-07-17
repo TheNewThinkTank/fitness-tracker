@@ -1,6 +1,34 @@
 # Workout Programs Detail
 
-## Push
+## Program 9
+
+### 
+
+| Exercise           | Sets |
+| ------------------ | ---- |
+| foo                | x    |
+
+### 
+
+| Exercise           | Sets |
+| ------------------ | ---- |
+| foo                | x    |
+
+### 
+
+| Exercise           | Sets |
+| ------------------ | ---- |
+| foo                | x    |
+
+### 
+
+| Exercise           | Sets |
+| ------------------ | ---- |
+| foo                | x    |
+
+## Program 8
+
+### Push
 
 | Exercise           | Sets |
 | ------------------ | ---- |
@@ -10,7 +38,7 @@
 | Military Press     | 3    |
 | Cable French Press | 2    |
 
-## Pull
+### Pull
 
 | Exercise         | Sets |
 | ---------------- | ---- |
@@ -21,7 +49,7 @@
 | DB Side Laterals | 3    |
 | BB Curl          | 2    |
 
-## Legs
+### Legs
 
 | Exercise        | Sets |
 | --------------- | ---- |

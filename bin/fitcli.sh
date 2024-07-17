@@ -6,7 +6,6 @@ set -euo pipefail
 # Author: Gustav Collin Rasmussen
 # Purpose: BASH workflow that inserts data into a database and prepares figures.
 
-# shellcheck source=./fitcli.conf
 CONFIG_FILE="./fitcli.conf"
 
 # Functions
@@ -72,6 +71,7 @@ check_dependencies() {
 
 load_config() {
   if [[ -f "$CONFIG_FILE" ]]; then
+    # shellcheck disable=SC1090
     source "$CONFIG_FILE"
   else
     log "Configuration file $CONFIG_FILE not found. Using default values."

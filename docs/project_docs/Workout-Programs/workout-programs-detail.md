@@ -2,29 +2,37 @@
 
 ## Program 9
 
-### 
+### Chest
+
+| Exercise                    | Sets |
+| --------------------------- | ---- |
+| Bench Press                 | 3    |
+| Incline DB Press            | 3    |
+| DB/machine Flys             | 3    |
+| Cable low-to-high Crossover | 3    |
+| DB Pullover                 | 3    |
+
+### Back
 
 | Exercise           | Sets |
 | ------------------ | ---- |
 | foo                | x    |
 
-### 
+### Shoulder, Arms, Core, Abs and Calf
 
 | Exercise           | Sets |
 | ------------------ | ---- |
 | foo                | x    |
 
-### 
+### Legs
 
-| Exercise           | Sets |
-| ------------------ | ---- |
-| foo                | x    |
-
-### 
-
-| Exercise           | Sets |
-| ------------------ | ---- |
-| foo                | x    |
+| Exercise        | Sets |
+| --------------- | ---- |
+| Squat           | 3    |
+| Deadlift        | 3    |
+| Leg Press       | 3    |
+| Leg Extention   | 3    |
+| Lying Leg Curl  | 3    |
 
 ## Program 8
 

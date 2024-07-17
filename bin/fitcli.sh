@@ -6,7 +6,7 @@ set -euo pipefail
 # Author: Gustav Collin Rasmussen
 # Purpose: BASH workflow that inserts data into a database and prepares figures.
 
-CONFIG_FILE="./fitcli.conf"
+CONFIG_FILE=".config/fitcli.conf"
 
 # Functions
 log() {
@@ -84,7 +84,7 @@ YEAR_TO_PLOT=$(date +%Y)
 MONTH_TO_PLOT=$(date +%B)
 FILE_FORMAT='yml'
 CONFIG_FILE='./fitcli.conf'
-LOG_FILE='./fitcli.log'
+LOG_FILE='logs/fitcli.log'
 IMG_PATH='./docs/project_docs/img/'
 SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
 

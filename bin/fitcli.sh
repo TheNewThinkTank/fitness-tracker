@@ -6,7 +6,7 @@ set -euo pipefail
 # Author: Gustav Collin Rasmussen
 # Purpose: BASH workflow that inserts data into a database and prepares figures.
 
-# Configuration file
+# shellcheck source=./fitcli.conf
 CONFIG_FILE="./fitcli.conf"
 
 # Functions

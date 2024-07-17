@@ -103,16 +103,18 @@ programs:
     description: |
       similar as program_5
     start: 2024-03-03
-    end: 2024-MM-DD
-    program_iterations: 5
-    number_of_workouts: 15
+    end: 2024-07-17
+    program_iterations: 9
+    number_of_workouts: 27
 
-  program_X:
-    name: ToBeDesided
-    splits: [ToBeDesided]
+  program_9:
+    name: 4-SPLIT
+    splits: [legs, chest, back, shoulder_arm_core_abs_calf]
     description: |
-      ToBeDesided. Ideas: kettlebell, kaatsu, trx, crossfit
-    start: YYYY-MM-DD
-    end: YYYY-MM-DD
-    program_iterations: 10
-    number_of_workouts: 30
+      Focus on strength.
+      Heavy sets of 2-8 reps for key exercises
+      (deadlift, squat, benchpress, seated_row)
+    start: 2024-07-DD
+    end: 2024-MM-DD
+    program_iterations: TODO
+    number_of_workouts: TODO

@@ -18,7 +18,7 @@
 | ------------------ | ---- |
 | foo                | x    |
 
-### Shoulder, Arms, Core, Abs and Calf
+### Shoulder, Arms, Core and Calf
 
 | Exercise           | Sets |
 | ------------------ | ---- |

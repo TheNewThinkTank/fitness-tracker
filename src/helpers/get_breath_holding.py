@@ -63,7 +63,7 @@ def make_figure(df):
               c='black'
         )
 
-    plt.xlabel('Set Number')
+    plt.xlabel('Date')
     plt.ylabel('Duration (Seconds)')
     plt.title('Min, Max, and Mean Breath holding')
 

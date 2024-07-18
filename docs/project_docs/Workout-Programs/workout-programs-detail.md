@@ -9,7 +9,7 @@
 | Bench Press                 | 3    |
 | Incline DB Press            | 3    |
 | DB/machine Flys             | 3    |
-| Cable low-to-high Crossover | 3    |
+| Cable low-to-high Flys      | 3    |
 | DB Pullover                 | 3    |
 
 ### Back

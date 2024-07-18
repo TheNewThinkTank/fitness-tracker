@@ -19,7 +19,16 @@
       },
       "split": {
           "type": "string",
-          "enum": ["pull", "push", "legs", "full_body", "other"]
+          "enum": [
+            "chest",
+            "back",
+            "shoulder_arms_core_calf",
+            "pull",
+            "push",
+            "legs",
+            "full_body",
+            "other"
+        ]
       },
       "gym": {
           "type": "string"

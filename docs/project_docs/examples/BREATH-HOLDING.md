@@ -1,6 +1,6 @@
 # Breath holding
 
-![2024-07-18](../img/breathholding/2024-07-18.png)
+![2024-07-19](../img/breathholding/2024-07-19.png)
 
 Each bar represents breath holds on a given date.
 The bar height is the mean duration of that date's breath holds,

@@ -14,15 +14,25 @@
 
 ### Back
 
-| Exercise           | Sets |
-| ------------------ | ---- |
-| foo                | x    |
+| Exercise         | Sets |
+| ---------------- | ---- |
+| Chinup           | 3    |
+| Seated Row       | 3    |
+| Lat Pulldown     | 3    |
+| Back Extentions  | 3    |
+| Hex Shrug        | 3    |
 
 ### Shoulder, Arms, Core and Calf
 
 | Exercise           | Sets |
 | ------------------ | ---- |
-| foo                | x    |
+| Military Press     | 3    |
+| DB Side Laterals   | 3    |
+| Cable Rear Lateral | 3    |
+| DB Curl            | 2    |
+| Cable Frensh Press | 2    |
+| Seated Calf Raise  | 3    |
+| Swiss Ball Crunch  | 3    |
 
 ### Legs
 

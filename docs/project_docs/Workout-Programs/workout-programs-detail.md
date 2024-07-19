@@ -30,7 +30,7 @@
 | DB Side Laterals   | 3    |
 | Cable Rear Lateral | 3    |
 | DB Curl            | 2    |
-| Cable Frensh Press | 2    |
+| Cable French Press | 2    |
 | Seated Calf Raise  | 3    |
 | Swiss Ball Crunch  | 3    |
 

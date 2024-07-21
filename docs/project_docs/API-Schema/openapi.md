@@ -16,20 +16,20 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="fastapi">FastAPI v0.1.0</h1>
+<!-- <h1 id="fastapi">FastAPI v0.1.0</h1> -->
+# FastAPI v0.1.0
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-<h1 id="fastapi-default">Default</h1>
+<!-- <h1 id="fastapi-default">Default</h1> -->
+## Default
 
 ## Main Page
 
-<a id="opIdmain_page__get"></a>
-
+<!-- <a id="opIdmain_page__get"></a> -->
 > Code samples
 
 ```javascript
-
 const headers = {
   'Accept':'application/json'
 };
@@ -45,19 +45,16 @@ fetch('/',
 }).then(function(body) {
     console.log(body);
 });
-
 ```
 
 ```python
 import requests
+
 headers = {
   'Accept': 'application/json'
 }
-
 r = requests.get('/', headers = headers)
-
 print(r.json())
-
 ```
 
 `GET /`
@@ -65,20 +62,21 @@ print(r.json())
 Returns a greeting message for the application.
 
 > Example responses
-
 > 200 Response
 
 ```json
 null
 ```
 
-<h3 id="main-page-responses">Responses</h3>
+<!-- <h3 id="main-page-responses">Responses</h3> -->
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|Inline|
 
-<h3 id="main-page-responseschema">Response Schema</h3>
+<!-- <h3 id="main-page-responseschema">Response Schema</h3> -->
+### Response Schema
 
 <aside class="success">
 This operation does not require authentication
@@ -86,12 +84,11 @@ This operation does not require authentication
 
 ## Get Data
 
-<a id="opIdget_data_data_get"></a>
+<!-- <a id="opIdget_data_data_get"></a> -->
 
 > Code samples
 
 ```javascript
-
 const headers = {
   'Accept':'application/json'
 };
@@ -99,7 +96,6 @@ const headers = {
 fetch('/data',
 {
   method: 'GET',
-
   headers: headers
 })
 .then(function(res) {
@@ -107,19 +103,16 @@ fetch('/data',
 }).then(function(body) {
     console.log(body);
 });
-
 ```
 
 ```python
 import requests
+
 headers = {
   'Accept': 'application/json'
 }
-
 r = requests.get('/data', headers = headers)
-
 print(r.json())
-
 ```
 
 `GET /data`
@@ -127,41 +120,38 @@ print(r.json())
 Show data
 
 > Example responses
-
 > 200 Response
 
 ```json
 null
 ```
 
-<h3 id="get-data-responses">Responses</h3>
+<!-- <h3 id="get-data-responses">Responses</h3> -->
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|Inline|
 
-<h3 id="get-data-responseschema">Response Schema</h3>
-
+<!-- <h3 id="get-data-responseschema">Response Schema</h3> -->
+<!-- ### Response Schema
 <aside class="success">
 This operation does not require authentication
-</aside>
+</aside> -->
 
 ## Get Dates
 
-<a id="opIdget_dates_dates_get"></a>
+<!-- <a id="opIdget_dates_dates_get"></a> -->
 
 > Code samples
 
 ```javascript
-
 const headers = {
   'Accept':'application/json'
 };
-
 fetch('/dates',
 {
   method: 'GET',
-
   headers: headers
 })
 .then(function(res) {
@@ -169,19 +159,16 @@ fetch('/dates',
 }).then(function(body) {
     console.log(body);
 });
-
 ```
 
 ```python
 import requests
+
 headers = {
   'Accept': 'application/json'
 }
-
 r = requests.get('/dates', headers = headers)
-
 print(r.json())
-
 ```
 
 `GET /dates`
@@ -189,7 +176,6 @@ print(r.json())
 Returns a list of all workout dates.
 
 > Example responses
-
 > 200 Response
 
 ```json
@@ -198,13 +184,15 @@ Returns a list of all workout dates.
 ]
 ```
 
-<h3 id="get-dates-responses">Responses</h3>
+<!-- <h3 id="get-dates-responses">Responses</h3> -->
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|Inline|
 
-<h3 id="get-dates-responseschema">Response Schema</h3>
+<!-- <h3 id="get-dates-responseschema">Response Schema</h3> -->
+### Response Schema
 
 Status Code **200**
 
@@ -214,26 +202,23 @@ Status Code **200**
 |---|---|---|---|---|
 |Response Get Dates Dates Get|[string]|false|none|none|
 
-<aside class="success">
+<!-- <aside class="success">
 This operation does not require authentication
-</aside>
+</aside> -->
 
 ## Get Dates And Splits
 
-<a id="opIdget_dates_and_splits_dates_and_splits_get"></a>
+<!-- <a id="opIdget_dates_and_splits_dates_and_splits_get"></a> -->
 
 > Code samples
 
 ```javascript
-
 const headers = {
   'Accept':'application/json'
 };
-
 fetch('/dates_and_splits',
 {
   method: 'GET',
-
   headers: headers
 })
 .then(function(res) {
@@ -241,19 +226,16 @@ fetch('/dates_and_splits',
 }).then(function(body) {
     console.log(body);
 });
-
 ```
 
 ```python
 import requests
+
 headers = {
   'Accept': 'application/json'
 }
-
 r = requests.get('/dates_and_splits', headers = headers)
-
 print(r.json())
-
 ```
 
 `GET /dates_and_splits`
@@ -261,41 +243,39 @@ print(r.json())
 Returns a dictionary of workout dates and their corresponding muscle groups.
 
 > Example responses
-
 > 200 Response
 
 ```json
 null
 ```
 
-<h3 id="get-dates-and-splits-responses">Responses</h3>
+<!-- <h3 id="get-dates-and-splits-responses">Responses</h3> -->
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|Inline|
 
-<h3 id="get-dates-and-splits-responseschema">Response Schema</h3>
+<!-- <h3 id="get-dates-and-splits-responseschema">Response Schema</h3> -->
+### Response Schema
 
-<aside class="success">
+<!-- <aside class="success">
 This operation does not require authentication
-</aside>
+</aside> -->
 
 ## Describe Workout
 
-<a id="opIddescribe_workout_dates__date__get"></a>
+<!-- <a id="opIddescribe_workout_dates__date__get"></a> -->
 
 > Code samples
 
 ```javascript
-
 const headers = {
   'Accept':'application/json'
 };
-
 fetch('/dates/{date}',
 {
   method: 'GET',
-
   headers: headers
 })
 .then(function(res) {
@@ -303,68 +283,64 @@ fetch('/dates/{date}',
 }).then(function(body) {
     console.log(body);
 });
-
 ```
 
 ```python
 import requests
+
 headers = {
   'Accept': 'application/json'
 }
-
 r = requests.get('/dates/{date}', headers = headers)
-
 print(r.json())
-
 ```
 
 `GET /dates/{date}`
 
 Returns a dictionary describing the workout for the given date.
 
-<h3 id="describe-workout-parameters">Parameters</h3>
+<!-- <h3 id="describe-workout-parameters">Parameters</h3> -->
+### Parameters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |date|path|string|true|none|
 
 > Example responses
-
 > 200 Response
 
 ```json
 null
 ```
 
-<h3 id="describe-workout-responses">Responses</h3>
+<!-- <h3 id="describe-workout-responses">Responses</h3> -->
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|Inline|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Validation Error|[HTTPValidationError](#schemahttpvalidationerror)|
 
-<h3 id="describe-workout-responseschema">Response Schema</h3>
+<!-- <h3 id="describe-workout-responseschema">Response Schema</h3> -->
+### Response Schema
 
-<aside class="success">
+<!-- <aside class="success">
 This operation does not require authentication
-</aside>
+</aside> -->
 
 ## Show Exercise
 
-<a id="opIdshow_exercise__date__exercises__exercise__get"></a>
+<!-- <a id="opIdshow_exercise__date__exercises__exercise__get"></a> -->
 
 > Code samples
 
 ```javascript
-
 const headers = {
   'Accept':'application/json'
 };
-
 fetch('/{date}/exercises/{exercise}',
 {
   method: 'GET',
-
   headers: headers
 })
 .then(function(res) {
@@ -372,26 +348,24 @@ fetch('/{date}/exercises/{exercise}',
 }).then(function(body) {
     console.log(body);
 });
-
 ```
 
 ```python
 import requests
+
 headers = {
   'Accept': 'application/json'
 }
-
 r = requests.get('/{date}/exercises/{exercise}', headers = headers)
-
 print(r.json())
-
 ```
 
 `GET /{date}/exercises/{exercise}`
 
 Returns a list of sets and reps for the given exercise and date.
 
-<h3 id="show-exercise-parameters">Parameters</h3>
+<!-- <h3 id="show-exercise-parameters">Parameters</h3> -->
+### Parameters
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -399,7 +373,6 @@ Returns a list of sets and reps for the given exercise and date.
 |date|path|string|true|none|
 
 > Example responses
-
 > 200 Response
 
 ```json
@@ -408,14 +381,16 @@ Returns a list of sets and reps for the given exercise and date.
 ]
 ```
 
-<h3 id="show-exercise-responses">Responses</h3>
+<!-- <h3 id="show-exercise-responses">Responses</h3> -->
+### Responses
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful Response|Inline|
 |422|[Unprocessable Entity](https://tools.ietf.org/html/rfc2518#section-10.3)|Validation Error|[HTTPValidationError](#schemahttpvalidationerror)|
 
-<h3 id="show-exercise-responseschema">Response Schema</h3>
+<!-- <h3 id="show-exercise-responseschema">Response Schema</h3> -->
+### Response Schema
 
 Status Code **200**
 
@@ -425,18 +400,19 @@ Status Code **200**
 |---|---|---|---|---|
 |Response Show Exercise  Date  Exercises  Exercise  Get|[object]|false|none|none|
 
-<aside class="success">
+<!-- <aside class="success">
 This operation does not require authentication
-</aside>
+</aside> -->
 
 # Schemas
 
-<h2 id="tocS_HTTPValidationError">HTTPValidationError</h2>
+<!-- <h2 id="tocS_HTTPValidationError">HTTPValidationError</h2> -->
+## HTTPValidationError
 <!-- backwards compatibility -->
-<a id="schemahttpvalidationerror"></a>
+<!-- <a id="schemahttpvalidationerror"></a>
 <a id="schema_HTTPValidationError"></a>
 <a id="tocShttpvalidationerror"></a>
-<a id="tocshttpvalidationerror"></a>
+<a id="tocshttpvalidationerror"></a> -->
 
 ```json
 {
@@ -450,7 +426,6 @@ This operation does not require authentication
     }
   ]
 }
-
 ```
 
 HTTPValidationError
@@ -461,12 +436,13 @@ HTTPValidationError
 |---|---|---|---|---|
 |detail|[[ValidationError](#schemavalidationerror)]|false|none|none|
 
-<h2 id="tocS_ValidationError">ValidationError</h2>
+<!-- <h2 id="tocS_ValidationError">ValidationError</h2> -->
+## ValidationError
 <!-- backwards compatibility -->
-<a id="schemavalidationerror"></a>
+<!-- <a id="schemavalidationerror"></a>
 <a id="schema_ValidationError"></a>
 <a id="tocSvalidationerror"></a>
-<a id="tocsvalidationerror"></a>
+<a id="tocsvalidationerror"></a> -->
 
 ```json
 {
@@ -476,7 +452,6 @@ HTTPValidationError
   "msg": "string",
   "type": "string"
 }
-
 ```
 
 ValidationError
@@ -505,4 +480,3 @@ continued
 |---|---|---|---|---|
 |msg|string|true|none|none|
 |type|string|true|none|none|
-

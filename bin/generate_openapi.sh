@@ -15,7 +15,7 @@ sleep 5  # Give the server time to start
 mkdir -p docs/schema
 
 # Fetch the OpenAPI JSON and format it
-curl http://127.0.0.1:8000/openapi.json | jq . > docs/schema/openapi.json
+curl http://127.0.0.1:8000/openapi.json | jq . > docs/project_docs/API-Schema/openapi.json
 
 # Kill the server
 kill $PID

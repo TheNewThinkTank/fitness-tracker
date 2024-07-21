@@ -3,7 +3,7 @@
 set -e
 
 # Start the FastAPI application
-uvicorn src.main:app --host 127.0.0.1 --port 8000 &
+poetry run uvicorn src.main:app --host 127.0.0.1 --port 8000 &
 # uvicorn src.main:app --host 0.0.0.0 --port 80
 PID=$!
 sleep 5  # Give the server time to start

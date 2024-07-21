@@ -30,3 +30,7 @@ curl -v "http://127.0.0.1:$PORT/openapi.yaml" -o docs/project_docs/API-Schema/op
 
 # Kill the server
 kill $PID
+
+# npm install -g widdershins
+# cd docs/project_docs/API-Schema
+# widdershins openapi.json -o openapi.md --summary --language_tabs 'javascript' 'python'

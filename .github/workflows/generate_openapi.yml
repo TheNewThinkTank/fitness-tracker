@@ -30,6 +30,9 @@ jobs:
           make -f .config/Makefile install-poetry
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Set GITHUB_ENV
+        run: echo 'export PATH="$HOME/.local/bin:$PATH"' >> $GITHUB_ENV
+
       - name: Cache poetry dependencies
         id: cache
         uses: actions/cache@v4

@@ -23,6 +23,7 @@ localhost
 macOS
 MacOS
 musclegroups
+OpenAPI
 Pytest
 readthedocs
 Seaborn
@@ -35,4 +36,5 @@ TODOs
 Ventura
 Vlog
 VO
+wf
 YAML

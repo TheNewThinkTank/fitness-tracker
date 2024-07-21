@@ -16,6 +16,9 @@ from src.helpers.custom_storage import YAMLStorage  # type: ignore
 import src.crud.read as read  # type: ignore
 from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 
+from fastapi.openapi.utils import get_openapi  # type: ignore
+import yaml  # type: ignore
+
 app = FastAPI()
 
 year = 2024
@@ -61,6 +64,18 @@ async def describe_workout(date: str):  # -> dict[str, str]:
 async def show_exercise(exercise: str, date: str) -> list[dict]:
     """Returns a list of sets and reps for the given exercise and date."""
     return read.show_exercise(table, exercise, date)
+
+
+@app.get("/openapi.yaml", include_in_schema=False)
+async def get_openapi_yaml():
+    openapi_schema = get_openapi(
+        title="Your API Title",
+        version="0.1.0",
+        description="Your API Description",
+        routes=app.routes,
+    )
+    yaml_data = yaml.safe_dump(openapi_schema, sort_keys=False)
+    return Response(content=yaml_data, media_type="application/x-yaml")
 
 
 # if __name__ == "__main__":

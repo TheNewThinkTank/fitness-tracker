@@ -2,15 +2,6 @@ name: Generate OpenAPI JSON
 
 on:
   workflow_dispatch:
-  #   push:
-  #     branches:
-  #       - main
-  #   pull_request:
-  #     branches:
-  #       - main
-
-# env:
-#   FITNESS_TRACKER_GITHUB_ACCESS_TOKEN: ${{ secrets.FITNESS_TRACKER_GITHUB_ACCESS_TOKEN }}
 
 jobs:
   generate-openapi:
@@ -30,8 +21,8 @@ jobs:
           make -f .config/Makefile install-poetry
         if: steps.cache.outputs.cache-hit != 'true'
 
-      - name: Set GITHUB_ENV
-        run: echo 'export PATH="$HOME/.local/bin:$PATH"' >> $GITHUB_ENV
+      # - name: Set GITHUB_ENV
+      #   run: echo 'export PATH="$HOME/.local/bin:$PATH"' >> $GITHUB_ENV
 
       - name: Cache poetry dependencies
         id: cache

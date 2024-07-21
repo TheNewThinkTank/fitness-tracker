@@ -2,8 +2,7 @@
 # coding styles between different editors and IDEs
 # editorconfig.org
 
-# root = true
-
+root = false  # true
 
 [*]
 end_of_line = lf

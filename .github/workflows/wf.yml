@@ -86,7 +86,7 @@ jobs:
       #     # fail_ci_if_error: true
       #     verbose: true
 
-      - uses: rojopolis/spellcheck-github-actions@0.36.0
+      - uses: rojopolis/spellcheck-github-actions@0.40.0
         name: Spellcheck
         with:
           config_path: .config/.spellcheck.yml

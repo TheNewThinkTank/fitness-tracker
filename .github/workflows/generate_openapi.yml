@@ -27,7 +27,7 @@ jobs:
 
       - name: Install and cache poetry
         run: |
-          make install-poetry
+          make -f .config/Makefile install-poetry
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Cache poetry dependencies
@@ -44,10 +44,13 @@ jobs:
           POETRY_VIRTUALENVS_IN_PROJECT: true
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
       - name: Run OpenAPI generation script
         run: |
           # chmod +x bin/generate_openapi.sh
-          ./bin/generate_openapi.sh
+          poetry run ./bin/generate_openapi.sh
 
       - name: Commit and push changes
         run: |

@@ -3,7 +3,7 @@
 set -e
 
 # Add the src directory to the Python path
-export PYTHONPATH=$(pwd)/src
+# export PYTHONPATH=$(pwd)/src
 
 # Start the FastAPI application
 poetry run uvicorn src.main:app --host 127.0.0.1 --port 8000 &

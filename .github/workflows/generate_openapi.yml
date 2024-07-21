@@ -51,8 +51,12 @@ jobs:
         run: sudo apt-get install -y jq
 
       - name: Run OpenAPI generation script
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src  # Set the PYTHONPATH
         run: |
-          # chmod +x bin/generate_openapi.sh
+          # Ensure the script is executable
+          chmod +x bin/generate_openapi.sh
+          # Run the script within the Poetry environment
           poetry run ./bin/generate_openapi.sh
 
       - name: Commit and push changes

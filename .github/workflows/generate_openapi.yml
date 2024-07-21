@@ -25,10 +25,24 @@ jobs:
         with:
           python-version: '3.x'
 
-    #   - name: Install dependencies
-    #     run: |
-    #       python -m pip install --upgrade pip
-    #       pip install -r requirements.txt
+      - name: Install and cache poetry
+        run: |
+          make install-poetry
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Cache poetry dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: ${{ runner.os }}-poetry-
+
+      - name: Install dependencies with poetry
+        run: poetry install
+        env:
+          POETRY_VIRTUALENVS_IN_PROJECT: true
+        if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Run OpenAPI generation script
         run: |

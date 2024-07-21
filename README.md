@@ -99,6 +99,7 @@ which can be found on GitLab and is a Rust & TypeScript based general purpose ma
 
 ### TODOs
 
+- [ ] Fix OpenAPI wf
 - [ ] add quantitative flexibility measurements / estimations
 - [ ] quality control for TS and JS
 - [ ] timezone check; check stated timezone in workout logs are consistent with the definition:

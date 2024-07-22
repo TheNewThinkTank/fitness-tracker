@@ -28,6 +28,7 @@ watchfiles = "^0.21.0"
 wily = "^1.25"
 yamllint = "^1.32.0"
 icecream = "^2.1.3"
+scipy = "^1.14.0"
 
 [tool.poetry.dev-dependencies]
 

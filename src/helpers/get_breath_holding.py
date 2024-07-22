@@ -5,6 +5,8 @@ import datetime
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
+import matplotlib.colors as mcolors  # type: ignore
+from scipy.stats import linregress  # type: ignore
 
 
 def get_breath_holding():
@@ -19,23 +21,29 @@ def get_breath_holding():
 
     df = pd.read_csv(url)
 
-    cols = [
-        "DATE",
-        "SET-NUMBER",
-        "START-TIME (HH:MM)",
-        "DURATION (MM:SS)",
-        "FROM-INHALE",
-        "CONTROLLED-HYPERVENTILATION",
-        "TIMEZONE",
-        "LOCATION",
-        "NOTES",
-    ]
+    # cols = [
+    #     "DATE",
+    #     "SET-NUMBER",
+    #     "START-TIME (HH:MM)",
+    #     "DURATION (MM:SS)",
+    #     "FROM-INHALE",
+    #     "CONTROLLED-HYPERVENTILATION",
+    #     "TIMEZONE",
+    #     "LOCATION",
+    #     "NOTES",
+    # ]
 
-    return df[["DATE", "SET-NUMBER", "DURATION (MM:SS)"]].dropna()  # df[""].values[-1]
+    return df[["DATE", "SET-NUMBER", "DURATION (MM:SS)"]].dropna()
 
 
 def make_figure(df):
-    print(df)
+    """_summary_
+
+    :param df: _description_
+    :type df: _type_
+    """
+
+    # print(df)
 
     today = datetime.datetime.now().date()
 
@@ -52,6 +60,9 @@ def make_figure(df):
         ['min', 'max', 'mean']
         ).reset_index()
 
+    # Convert dates to ordinal for regression
+    summary_df['DATE_ORD'] = pd.to_datetime(summary_df['DATE']).map(pd.Timestamp.toordinal)
+
     plt.figure(figsize=(12, 6))
     sns.barplot(x='DATE', y='mean', data=summary_df, color='skyblue', capsize=0.2)
     plt.errorbar(
@@ -63,9 +74,24 @@ def make_figure(df):
               c='black'
         )
 
+    # Linear regression for trend line
+    slope, intercept, r_value, p_value, std_err = linregress(
+        summary_df['DATE_ORD'], summary_df['mean']
+        )
+    trend_line = intercept + slope * summary_df['DATE_ORD']
+
+    # Plot trend line
+    plt.plot(summary_df['DATE'], trend_line, color=mcolors.TABLEAU_COLORS['tab:blue'], label='Trend Line')
+
+    # Rotate x-axis labels
+    plt.xticks(rotation=45, ha='right')
+
     plt.xlabel('Date')
     plt.ylabel('Duration (Seconds)')
     plt.title('Min, Max, and Mean Breath holding')
+
+    plt.legend()
+    plt.tight_layout()
 
     # plt.show()
     plt.savefig(f"docs/project_docs/img/breathholding/{today}.png")

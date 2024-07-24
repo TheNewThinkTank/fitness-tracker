@@ -9,7 +9,7 @@ and consider consulting
 [this book](https://books.google.dk/books/about/Breatheology.html?id=q3OJZwEACAAJ&source=kp_book_description&redir_esc=y)
 for effective breathing exercises 
 
-![2024-07-23](../img/breathholding/2024-07-23.png)
+![2024-07-24](../img/breathholding/2024-07-24.png)
 
 Each bar represents breath holds on a given date.
 The bar height is the mean duration of that date's breath holds,

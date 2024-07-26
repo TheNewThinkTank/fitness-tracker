@@ -44,7 +44,7 @@
     | Leg Extention   | 3    |
     | Lying Leg Curl  | 3    |
 
-=== Program 8
+=== "Program 8"
 
     Push
 

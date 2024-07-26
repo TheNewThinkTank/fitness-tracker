@@ -69,7 +69,7 @@ make html
 
 ## Examples
 
-[training plots etc.](docs/project_docs/examples/EXAMPLES.md)
+[training plots etc.](docs/project_docs/gallery/gallery.md)
 
 ### Similar projects
 

@@ -5,7 +5,7 @@ See examples for each type of analysis below.</b><br>
 
 Data and analysis for athlete: `gustav_rasmussen`<br>
 
-VO2-Max: `55.21923 mL/kg/min`<br>
+VO2-Max :heart: `55.21923 mL/kg/min`<br>
 
 ## Frequency
 

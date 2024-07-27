@@ -35,23 +35,23 @@ To get started, follow the instructions in the examples section.
       start by checking that workout logs timezone data for November -> February are not CEST
 
 !!! tip "Similar projects"
- If you liked this fitness tracker then you might also be interested in
- the [workout-generator](https://github.com/TheNewThinkTank/workout-generator) Django project,<br>
- the [nutrition-planner](https://github.com/TheNewThinkTank/nutrition-planner) Streamlit project, with associated development guide:<br>
- [medium](https://medium.com/@GustavCollinRasmussen/build-a-nutrition-app-on-streamlit-8c4f01229989),<br>
- the [athlete](https://github.com/TheNewThinkTank/athlete) project,<br>
- or the [Dojo](https://gitlab.com/sports-tracking/dojo) martial arts project
- which can be found on GitLab and is a Rust & TypeScript based general purpose martial arts desktop application
+    If you liked this fitness tracker then you might also be interested in
+    the [workout-generator](https://github.com/TheNewThinkTank/workout-generator) Django project,<br>
+    the [nutrition-planner](https://github.com/TheNewThinkTank/nutrition-planner) Streamlit project, with associated development guide:<br>
+    [medium](https://medium.com/@GustavCollinRasmussen/build-a-nutrition-app-on-streamlit-8c4f01229989),<br>
+    the [athlete](https://github.com/TheNewThinkTank/athlete) project,<br>
+    or the [Dojo](https://gitlab.com/sports-tracking/dojo) martial arts project
+    which can be found on GitLab and is a Rust & TypeScript based general purpose martial arts desktop application
 
 !!! note "Upcoming features"
-  - download db.yml and run python analysys and plotting code on it,
-    using: https://github.com/marketplace/actions/interact-with-google-drive
-  - deploy and host containerized app on Raspberry Pi
-  - Add muscle groups to log file name
-  - ML models (Scikit Learn)
-  - Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
-  - Dashboard
-  - Add key exercises (benchpress, squat, deadlift) to dashboard
-  - Hosting on PyPi (automated deploy with GitHub Actions)
-  - Identify musclegroups and exercises with best or worst progression
-  - Add cardio tracking (integrate app with Strava)
+    - download db.yml and run python analysys and plotting code on it,
+      using: https://github.com/marketplace/actions/interact-with-google-drive
+    - deploy and host containerized app on Raspberry Pi
+    - Add muscle groups to log file name
+    - ML models (Scikit Learn)
+    - Bodily strength-ratio tracking (determine baseline, ideal-ranges, and compare the two)
+    - Dashboard
+    - Add key exercises (benchpress, squat, deadlift) to dashboard
+    - Hosting on PyPi (automated deploy with GitHub Actions)
+    - Identify musclegroups and exercises with best or worst progression
+    - Add cardio tracking (integrate app with Strava)

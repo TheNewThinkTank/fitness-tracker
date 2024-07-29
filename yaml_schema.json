@@ -22,7 +22,7 @@
           "enum": [
             "chest",
             "back",
-            "shoulder_arms_core_calf",
+            "arms_abs_calf",
             "pull",
             "push",
             "legs",

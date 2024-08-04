@@ -1,3 +1,4 @@
+version: "2.29.1"
 
 services:
   app:
@@ -6,10 +7,6 @@ services:
     command: uvicorn src.main:app --host 0.0.0.0 --port 80 --reload  # "python src/main.py"
     ports:
       - 8080:80
+    profiles: [dev]
     # volumes:
       # - .:/code  # .:/scr  # .:/app
-      # - /Library/CloudStorage/GoogleDrive-gcr84@hotmail.com/My Drive/DATA/fitness-tracker-data:/app/data
-
-# CLI command, 1.st time: docker-compose up --build
-# CLI command, without image building: docker-compose up
-# Then visit: http://localhost:8080

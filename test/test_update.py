@@ -2,7 +2,7 @@
 from tinydb import TinyDB
 
 from context import src
-from src.crud.update import update_table, remove_from_table, truncate_table
+from src.crud.update import search_table, remove_from_table, truncate_table
 
 
 def setup():
@@ -11,10 +11,10 @@ def setup():
     return test_table
 
 
-def test_update_table():
+def test_search_table():
     # TODO: assert update
     test_table = setup()
-    update_table(test_table)
+    search_table(test_table)
     # assert
     # teardown()
 

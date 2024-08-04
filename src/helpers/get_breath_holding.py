@@ -93,9 +93,10 @@ def make_figure(df):
     plt.legend()
     plt.tight_layout()
 
-    # plt.show()
-    plt.savefig(f"docs/project_docs/img/breathholding/{today}.png")
+    plt.show()
+    # plt.savefig(f"docs/project_docs/img/breathholding/{today}.png")
 
 
 if __name__ == "__main__":
-    make_figure(get_breath_holding())
+    print(get_breath_holding())
+    # make_figure(get_breath_holding())

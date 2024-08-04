@@ -1,11 +1,10 @@
 # Gallery
 
 <b>You can analyze your weight training workouts both in term of 1RM, or volume.
-See examples for each type of analysis below.</b><br>
-
+See examples for each type of analysis below.</b><br><br>
 Data and analysis for athlete: `gustav_rasmussen`<br>
 
-VO2-Max :heart: `55.21923 mL/kg/min`<br>
+**VO2-Max** :heart: `55.21923 mL/kg/min`<br>
 
 ## Frequency
 
@@ -17,13 +16,12 @@ Each figure displays week vs number of workouts during that week.
 | ![2022_workout_frequency](../img/2022_workout_frequency.png) | ![2021_workout_frequency](../img/2021_workout_frequency.png) |
 
 ## Duration and volume
-<!-- <p style="text-align: center;">Workout duration and volume</p> -->
 
 | ![January_2024](../img/workout_duration_January_2024.png) | ![February_2024](../img/workout_duration_February_2024.png) |
 | :----------: | :------: |
 | ![March_2024](../img/workout_duration_March_2024.png) | ![April_2024](../img/workout_duration_April_2024.png) |
 | ![May_2024](../img/workout_duration_May_2024.png) | ![June_2024](../img/workout_duration_June_2024.png) |
-| ![July_2024](../img/workout_duration_July_2024.png) |  |
+| ![July_2024](../img/workout_duration_July_2024.png) | ![August_2024](../img/workout_duration_August_2024.png) |
 
 #### 2023:
 

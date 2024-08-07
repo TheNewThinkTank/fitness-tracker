@@ -14,8 +14,18 @@ log() {
 }
 
 validate_date() {
-  date -d "$1" +"%Y-%m-%d" > /dev/null 2>&1
+  local input_date="$1"
+  echo "Validating date: $input_date"
+  
+  if date -j -f "%Y-%m-%d" "$input_date" > /dev/null 2>&1; then
+    echo "Date is valid."
+    return 0
+  else
+    echo "Date is invalid."
+    return 1
+  fi
 }
+
 
 validate_file_format() {
   local format=$1

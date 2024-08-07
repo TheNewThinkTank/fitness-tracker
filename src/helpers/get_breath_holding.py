@@ -8,6 +8,58 @@ import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from scipy.stats import linregress  # type: ignore
 
+import gspread
+from google.oauth2.service_account import Credentials
+
+scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+creds = Credentials.from_service_account_file("local_assets/credentials.json", scopes=scopes)
+client = gspread.authorize(creds)
+
+sheet_id = "1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4"
+workbook = client.open_by_key(sheet_id)
+
+# worksheet = sh.get_worksheet(0)
+# worksheet = sh.worksheet("2024-07")  # "2024-08"
+
+# sheets = workbook.worksheets()
+# print(sheets)
+
+# values = [
+#     ["Name", "Price", "Quantity"],
+#     ["Basketball", 29.99, 1],
+#     ["Jeans", 39.99, 4],
+#     ["Soap", 7.99, 3],
+# ]
+
+sheets = map(lambda x: x.title, workbook.worksheets())
+# print(list(sheets))
+
+sheet = workbook.worksheet("2024-08")
+# sheet.update_title("August 2024")
+# sheet.update_cell(1, 1, "new value")
+
+# value = sheet.acell("A1").value
+# value = sheet.cell(1, 1).value
+# print(value)
+
+# cell = sheet.find("2024-08-03")
+# print(cell.row, cell.col)
+
+# new_worksheet_name = "Values"
+
+# if new_worksheet_name in sheets:
+#     sheet = workbook.worksheet(new_worksheet_name)
+# else:
+#     sheet = workbook.add_worksheet(new_worksheet_name, rows=10, cols=10)
+
+# sheet.clear()
+# sheet.update(f"A1:C{len(values)}", values)
+# sheet.update_cell(len(values) + 1, 2, "=sum(B2:B4)")
+# sheet.update_cell(len(values) + 1, 3, "=sum(C2:C4)")
+# sheet.format("A1:C1", {"textFormat": {"bold": True}})
+
+
+
 
 def get_breath_holding():
     """_summary_
@@ -98,5 +150,6 @@ def make_figure(df):
 
 
 if __name__ == "__main__":
-    print(get_breath_holding())
+    # print(get_breath_holding())
     # make_figure(get_breath_holding())
+    ...

@@ -5,11 +5,14 @@
 - Staalen
 - BIG
 - Søborg
+- Gasværksvej
 
 ## NN
 
 - MA
 - LP
+- BA
+- SØ
 
 ## SATS
 
@@ -18,4 +21,4 @@
 
 ## Independent
 
-Vesterbronx
+- Vesterbronx

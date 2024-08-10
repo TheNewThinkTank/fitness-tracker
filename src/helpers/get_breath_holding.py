@@ -11,15 +11,24 @@ from scipy.stats import linregress  # type: ignore
 import gspread
 from google.oauth2.service_account import Credentials
 
+today = datetime.datetime.now().date()
+this_year = today.year
+this_month = today.month
+sheet_title = f"{this_year}-{this_month:02}"
+
 scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-creds = Credentials.from_service_account_file("local_assets/credentials.json", scopes=scopes)
+creds = Credentials.from_service_account_file(
+    "local_assets/credentials.json",
+    scopes=scopes
+    )
 client = gspread.authorize(creds)
 
 sheet_id = "1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4"
 workbook = client.open_by_key(sheet_id)
 
 # worksheet = sh.get_worksheet(0)
-# worksheet = sh.worksheet("2024-07")  # "2024-08"
+# worksheet = sh.worksheet(sheet_title)
+sheet = workbook.worksheet(sheet_title)
 
 # sheets = workbook.worksheets()
 # print(sheets)
@@ -31,10 +40,9 @@ workbook = client.open_by_key(sheet_id)
 #     ["Soap", 7.99, 3],
 # ]
 
-sheets = map(lambda x: x.title, workbook.worksheets())
+# sheets = map(lambda x: x.title, workbook.worksheets())
 # print(list(sheets))
 
-sheet = workbook.worksheet("2024-08")
 # sheet.update_title("August 2024")
 # sheet.update_cell(1, 1, "new value")
 
@@ -59,8 +67,6 @@ sheet = workbook.worksheet("2024-08")
 # sheet.format("A1:C1", {"textFormat": {"bold": True}})
 
 
-
-
 def get_breath_holding():
     """_summary_
 
@@ -68,10 +74,12 @@ def get_breath_holding():
     :rtype: _type_
     """
 
-    base_url = "https://docs.google.com/spreadsheets"
-    url = base_url + "/d/e/2PACX-1vRqzqJPhFMBBrMw3710Q1Ws2eUTqVDUTpNdXqxneW2otr_4xfgVYWLxrIH8NDJOeBbs8Pq4ZLs76eEi/pub?output=csv"
+    # base_url = "https://docs.google.com/spreadsheets"
+    # url = base_url + "/d/e/2PACX-1vRqzqJPhFMBBrMw3710Q1Ws2eUTqVDUTpNdXqxneW2otr_4xfgVYWLxrIH8NDJOeBbs8Pq4ZLs76eEi/pub?output=csv"
 
-    df = pd.read_csv(url)
+    data = sheet.get_all_records()
+    df = pd.DataFrame(data)  # pd.read_csv(url)
+    df = df[["DATE", "SET-NUMBER", "DURATION (MM:SS)"]].dropna()
 
     # cols = [
     #     "DATE",
@@ -85,7 +93,7 @@ def get_breath_holding():
     #     "NOTES",
     # ]
 
-    return df[["DATE", "SET-NUMBER", "DURATION (MM:SS)"]].dropna()
+    return df
 
 
 def make_figure(df):
@@ -94,10 +102,6 @@ def make_figure(df):
     :param df: _description_
     :type df: _type_
     """
-
-    # print(df)
-
-    today = datetime.datetime.now().date()
 
     # Convert 'DURATION (HH:MM)' to seconds
     df['DURATION (MM:SS)'] = df['DURATION (MM:SS)'].apply(
@@ -140,16 +144,15 @@ def make_figure(df):
 
     plt.xlabel('Date')
     plt.ylabel('Duration (Seconds)')
-    plt.title('Min, Max, and Mean Breath holding')
+    plt.title(f'Min, Max, and Mean Breath holding - {sheet_title}')
 
     plt.legend()
     plt.tight_layout()
 
-    plt.show()
-    # plt.savefig(f"docs/project_docs/img/breathholding/{today}.png")
+    # plt.show()
+    plt.savefig(f"docs/project_docs/img/breathholding/{sheet_title}.png")
 
 
 if __name__ == "__main__":
     # print(get_breath_holding())
-    # make_figure(get_breath_holding())
-    ...
+    make_figure(get_breath_holding())

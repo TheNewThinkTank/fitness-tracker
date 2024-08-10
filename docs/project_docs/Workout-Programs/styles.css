@@ -1,0 +1,195 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.program {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #4CAF50;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.session-details {
+    /* text-align: center; */
+    /* margin-bottom: 20px; */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e7f4e4;
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping of items */
+    justify-content: space-between; /* Space between columns */
+    margin: 20px 0; /* Add some margin to separate this section from others */
+}
+
+.session-details .detail-item {
+    /*
+    display: inline-block;
+    font-size: 1.2em;
+    */
+    flex: 1 0 30%; /* Allow each item to take up to 30% of the container */
+    margin-bottom: 10px; /* Space between rows */
+    text-align: left; /* Left-align the text labels */
+}
+
+.detail-item strong {
+    color: #333;
+}
+
+.detail-item span {
+    background-color: #fff;
+    padding: 3px 5px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.session-details .detail-item span {
+    /*
+    width: 300px;
+    margin-left: 10px;
+    */
+    display: inline-block;
+    width: 100%; /* Take full width of the detail item */
+    border-bottom: 1px solid #000; /* Adds an underline for visibility */
+    padding: 2px 5px;
+    text-align: center; /* Center the text inside the box */
+}
+
+h2 {
+    color: #ff9800;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 1.2em;
+    margin: 10px 0;
+    padding: 5px;
+    background-color: #e7f4e4;
+    border-left: 5px solid #4CAF50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: translateX(10px);
+}
+
+.symbol {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+[contenteditable="true"] {
+    background-color: #e7f4e4;
+    border-radius: 4px;
+    padding: 4px;
+    outline: none;
+}
+
+@media print {
+    body {
+        color: #000;
+    }
+
+    .program {
+        border: 2px solid #000;
+        background-color: #fff;
+        box-shadow: none;
+    }
+
+    h1 {
+        color: #000;
+    }
+
+    .session-details {
+        background-color: #fff;
+        border: 1px solid #000;
+    }
+
+    .session-details .detail-item span {
+        font-size: 14px; /* Adjust based on your preference */
+    }
+
+    h2 {
+        color: #000;
+        border-color: #000;
+    }
+
+    h3 {
+        color: #000;
+    }
+
+    li {
+        background-color: #fff;
+        border-left-color: #000;
+    }
+
+    table, thead th, tbody td {
+        border-color: #000;
+    }
+
+    .symbol {
+        color: #000;
+    }
+
+    [contenteditable="true"] {
+        background-color: #fff;
+    }
+}

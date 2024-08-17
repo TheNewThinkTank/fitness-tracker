@@ -7,6 +7,29 @@ import random
 from datetime import datetime
 import pandas as pd  # type: ignore
 from workout_simulator import WorkoutSimulator  # type: ignore
+from typing import Generator
+from pprint import pprint as pp
+
+
+def generate_dates(start: datetime, periods: int) -> Generator:
+    """Generate dates lazily."""
+    for date in pd.date_range(start, periods=periods):
+        yield date.strftime("%Y-%m-%d")
+
+
+def reservoir_sample(generator, k: int):
+    """Select k random elements from the generator using reservoir sampling."""
+    reservoir = []
+    
+    for i, element in enumerate(generator):
+        if i < k:
+            reservoir.append(element)
+        else:
+            j = random.randint(0, i)
+            if j < k:
+                reservoir[j] = element
+
+    return reservoir
 
 
 def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[str]:
@@ -22,33 +45,41 @@ def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[st
     :rtype: list[str]
     """
 
-    datelist = pd.date_range(start, periods=periods).tolist()
-    datelist = [date.strftime("%Y-%m-%d") for date in datelist]
+    # date_generator = generate_dates(start, periods)
+    # all_dates = list(date_generator)  # Convert the generator to a list
+    # return random.sample(all_dates, k=number_of_workouts)
 
-    return random.sample(datelist, k=number_of_workouts)
+    # datelist = pd.date_range(start, periods=periods).tolist()
+    # datelist = [date.strftime("%Y-%m-%d") for date in datelist]
+    # return random.sample(datelist, k=number_of_workouts)
+
+    date_generator = generate_dates(start, periods)
+    return reservoir_sample(date_generator, number_of_workouts)
 
 
 def main() -> None:
     """Simulate specified number of workouts and insert their data into JSON files."""
 
-    number_of_workouts = 1  # int(sys.argv[1])  # 3 * 365
-    dates = get_dates(number_of_workouts, datetime(2018, 1, 1), 4 * 365)
+    number_of_workouts = 10  # 1  # or you could use: int(sys.argv[1])  # Example: 3 * 365
+    start_date = datetime(2018, 1, 1)  # Start date for generating dates
+    periods = 4 * 365  # Number of days to generate
+    # Get random workout dates
+    dates = get_dates(number_of_workouts, start_date, periods)
+    dates_sorted = sorted(dates)
+    pp(dates_sorted)
 
-    workout_date = dates[0]
-    progress = 10
-
-    TRAINING_CATALOGUE: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
-    OUTPUT_DIR: str = "data/simulated/"
-
-    simulated_workout = WorkoutSimulator(workout_date,
-                                         progress,
-                                         TRAINING_CATALOGUE,
-                                         OUTPUT_DIR,
-                                         )
-
-    simulated_exercises = simulated_workout.select_random_exercises()
-    print(type(simulated_exercises))
-    print(simulated_exercises)
+    # workout_date = dates[0]
+    # progress = 10
+    # TRAINING_CATALOGUE: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
+    # OUTPUT_DIR: str = "data/simulated/"
+    # simulated_workout = WorkoutSimulator(workout_date,
+    #                                      progress,
+    #                                      TRAINING_CATALOGUE,
+    #                                      OUTPUT_DIR,
+    #                                      )
+    # simulated_exercises = simulated_workout.select_random_exercises()
+    # print(type(simulated_exercises))
+    # print(simulated_exercises)
 
     # actual_reps = random.randint(1, 10)
     # weight_range = [50, 90]

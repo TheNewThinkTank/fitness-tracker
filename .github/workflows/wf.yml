@@ -68,6 +68,9 @@ jobs:
         with:
           file_or_dir: "./docs/project_docs/Workout-Programs/workout_programs.yml"
 
+      - name: Set up working directory
+        run: cd /home/runner/work/fitness-tracker/fitness-tracker
+
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
 

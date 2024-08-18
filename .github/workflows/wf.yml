@@ -68,6 +68,9 @@ jobs:
         with:
           file_or_dir: "./docs/project_docs/Workout-Programs/workout_programs.yml"
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
+
       # - name: Run pytest
       #   run: poetry run pytest --durations=10 test/test_model.py
 
@@ -80,11 +83,8 @@ jobs:
 
       - uses: codecov/codecov-action@v4
         with:
-          # fail_ci_if_error: true # optional (default = false)
-          # files: ./coverage1.xml,./coverage2.xml # optional
-          # flags: unittests # optional
           name: codecov-umbrella # optional
-          token: ${{ secrets.CODECOV_TOKEN }}  # required
+          token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true # optional (default = false)
           codecov_yml_path: .config/codecov.yml
 

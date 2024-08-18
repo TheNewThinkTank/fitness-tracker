@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from scipy.stats import linregress  # type: ignore
 
-from google_sheet import get_sheet
+from google_sheet import get_sheet  # type: ignore
 
 today = datetime.datetime.now().date()
 this_year = today.year

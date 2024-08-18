@@ -2,7 +2,7 @@
 """
 
 import pandas as pd  # type: ignore
-from google_sheet import get_sheet
+from google_sheet import get_sheet  # type: ignore
 
 sheet = get_sheet(
     sheet_id="1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs",

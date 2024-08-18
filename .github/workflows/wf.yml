@@ -85,6 +85,14 @@ jobs:
       #     name: codecov-umbrella # optional
       #     # fail_ci_if_error: true
       #     verbose: true
+      - uses: codecov/codecov-action@v4
+        with:
+          # fail_ci_if_error: true # optional (default = false)
+          # files: ./coverage1.xml,./coverage2.xml # optional
+          # flags: unittests # optional
+          name: codecov-umbrella # optional
+          token: ${{ secrets.CODECOV_TOKEN }}  # required
+          verbose: true # optional (default = false)
 
       - uses: rojopolis/spellcheck-github-actions@0.40.0
         name: Spellcheck

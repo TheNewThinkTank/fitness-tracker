@@ -2,6 +2,12 @@
 """
 
 import pandas as pd  # type: ignore
+from google_sheet import get_sheet
+
+sheet = get_sheet(
+    sheet_id="1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs",
+    sheet_title="2023-2024"
+    )
 
 
 def get_bw():
@@ -18,4 +24,5 @@ def get_bw():
 
 
 if __name__ == "__main__":
-    print(get_bw())
+    # print(get_bw())
+    print(sheet)

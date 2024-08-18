@@ -29,9 +29,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 ### Fixed
+
+## [0.0.2] - YYYY-MM-DD
+
+### Added
+
+- src/helpers/google_sheets module for interacting with google sheets
+
+### Changed
+
+- src/helpers/get_bodyweight.py: uses new google_sheets module
+
 -->
 
-## [0.0.1] - 2024-08-05
+## [0.0.1] - 2024-08-17
 
 ### Added
 

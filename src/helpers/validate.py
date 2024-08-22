@@ -5,9 +5,11 @@ import json
 from pprint import pprint as pp
 import re
 from typing import Optional
+import os
 import yaml  # type: ignore
 
 import pydantic
+from dotenv import load_dotenv
 
 
 class ExercisesFormatError(Exception):
@@ -127,18 +129,21 @@ def main() -> None:
     user = "gustavcollinrasmussen"
     athlete = "gustav_rasmussen"
 
+    load_dotenv()
+    email = os.environ["EMAIL"]
+
     # parser = argparse.ArgumentParser()
     # parser.add_argument("--email", type=str)
     # args = parser.parse_args()
     # email = args.email
 
-    with open("./config/config.yml", "r") as rf:
+    with open("./.config/config.yml", "r") as rf:
         DATA = yaml.safe_load(rf)
 
-    # EMAIL = os.environ["EMAIL"]
     google_drive_data_path = (
         DATA["google_drive_data_path"]
         .replace("<USER>", user)
+        .replace("<EMAIL>", email)
     )
 
     # DATA = json.load(open(file="./config.json", encoding="utf-8"))

@@ -2,7 +2,7 @@
 # import pytest
 from datetime import datetime, timedelta
 
-from context import src
+from test.conftest import src
 from src.simulations.simulate_data import (
     generate_dates,
     reservoir_sample,

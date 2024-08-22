@@ -1,7 +1,7 @@
 
 from tinydb import TinyDB
 
-from context import src
+from test.conftest import src
 from src.crud.insert import insert_log  # , insert_specific_log
 
 

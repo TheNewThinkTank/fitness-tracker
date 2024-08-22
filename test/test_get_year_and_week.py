@@ -1,6 +1,6 @@
 import datetime
 
-from context import src
+from test.conftest import src
 from src.helpers.get_year_and_week import get_year_and_week
 
 

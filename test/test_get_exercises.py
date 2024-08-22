@@ -1,5 +1,5 @@
 
-from context import src
+from test.conftest import src
 from src.helpers.get_exercises import get_available_exercises
 from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 

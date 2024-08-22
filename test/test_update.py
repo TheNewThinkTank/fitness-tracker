@@ -1,7 +1,7 @@
 
 from tinydb import TinyDB
 
-from context import src
+from test.conftest import src
 from src.crud.update import search_table, remove_from_table, truncate_table
 
 

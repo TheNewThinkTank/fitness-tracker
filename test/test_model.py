@@ -4,7 +4,7 @@ unit test suite for model
 
 import pytest
 
-from context import src
+from test.conftest import src
 from src.model.model import get_df, one_rep_max_estimator, get_data
 from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 

@@ -1,4 +1,4 @@
-from context import src
+from test.conftest import src
 from src.helpers.get_workout_duration import get_workout_duration
 
 

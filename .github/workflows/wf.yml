@@ -68,8 +68,11 @@ jobs:
         with:
           file_or_dir: "./docs/project_docs/Workout-Programs/workout_programs.yml"
 
-      - name: Set up working directory
-        run: cd /home/runner/work/fitness-tracker/fitness-tracker
+      - name: Check working directory
+        run: pwd
+
+      # - name: Set up working directory
+      #   run: cd /home/runner/work/fitness-tracker/fitness-tracker
 
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
@@ -80,16 +83,19 @@ jobs:
       # - name: BDD with Behave
       #   run: poetry run behave
 
-      - name: Generate coverage report
-        run: |
-          poetry run pytest --cov=./ --cov-report=xml
+      # - name: Generate coverage report
+      #   run: |
+      #     poetry run pytest --cov=./ --cov-report=xml
+
+      - name: run tests and generate coverage
+        run: make -f .config/Makefile run-tests-and-coverage
 
       - uses: codecov/codecov-action@v4
         with:
-          name: codecov-umbrella # optional
+          # name: codecov-umbrella # optional
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true # optional (default = false)
-          # codecov_yml_path: .config/codecov.yml
+          codecov_yml_path: .config/codecov.yml
 
       - uses: rojopolis/spellcheck-github-actions@0.40.0
         name: Spellcheck

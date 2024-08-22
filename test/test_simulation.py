@@ -4,7 +4,7 @@ unit test suite for simulations
 
 import pytest
 
-from context import src
+from test.conftest import src
 from src.simulations.workout_simulator import (
     ExerciseSelector,
     WorkoutSimulator,

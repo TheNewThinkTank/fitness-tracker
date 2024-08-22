@@ -1,7 +1,7 @@
 
 import pandas as pd  # type: ignore
 
-from context import src
+from test.conftest import src
 from src.helpers.json_to_csv import get_exercise_data  # , df_to_csv
 
 

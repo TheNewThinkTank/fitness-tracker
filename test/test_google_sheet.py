@@ -4,7 +4,7 @@ from unittest.mock import patch, Mock
 
 import gspread
 
-from context import src
+from test.conftest import src
 from src.helpers.google_sheet import get_sheet
 
 

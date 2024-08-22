@@ -1,7 +1,7 @@
 import json
 from pprint import pprint as pp
 
-from context import src
+from test.conftest import src
 from src.helpers.validate import Workout
 
 

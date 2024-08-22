@@ -2,7 +2,7 @@
 unit test suite for src folder
 """
 
-from context import src
+from test.conftest import src
 from src.crud.read import show_exercises
 from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 

@@ -1,6 +1,6 @@
-# Welcome to Fitness-Tracker contributing guide <!-- omit in toc -->
+# Welcome to fitness-tracker contributing guide <!-- omit in toc -->
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [github.com/TheNewThinkTank/Fitness-Tracker](https://github.com/TheNewThinkTank/Fitness-Tracker) :sparkles:.
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [github.com/TheNewThinkTank/fitness-tracker](https://github.com/TheNewThinkTank/fitness-tracker) :sparkles:.
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 

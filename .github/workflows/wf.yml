@@ -74,8 +74,13 @@ jobs:
       # - name: Set up working directory
       #   run: cd /home/runner/work/fitness-tracker/fitness-tracker
 
-      - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
+      # - name: Set PYTHONPATH
+      #   run: echo "PYTHONPATH=/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
+
+      - name: Set working directory
+        run: |
+          cd /home/runner/work/fitness-tracker/fitness-tracker
+          echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
 
       # - name: Run pytest
       #   run: poetry run pytest --durations=10 test/test_model.py

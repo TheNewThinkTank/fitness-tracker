@@ -46,6 +46,7 @@ def set_db_and_table(
 
         return db, table, training_catalogue
 
+    # TODO: use dotenv below, instead of local_assets
     with open("local_assets/private_config.json", "r") as private_config:
         DATA = json.load(private_config)
         USER = DATA["user"]

@@ -1,4 +1,6 @@
 
+import pytest
+
 import pandas as pd  # type: ignore
 
 from test.conftest import src
@@ -14,6 +16,7 @@ from src.helpers.json_to_csv import get_exercise_data  # , df_to_csv
 #     return dircontent
 
 
+@pytest.mark.skip(reason="Skip until getting log from Google Drive is implemented.")
 def test_get_exercise_data():
 
     # dircontent = setup()

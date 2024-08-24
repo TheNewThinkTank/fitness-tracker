@@ -14,7 +14,10 @@ def get_pgm_from_date(workout_date):
     """
 
     programs = []
-    workout_programs = "docs/project_docs/workout-programs/workout_programs.yml"
+
+    with open(".config/config.yml", 'r') as rf:
+        DATA = yaml.safe_load(rf)
+    workout_programs = DATA["workout_programs"]
 
     with open(workout_programs, "r") as rf:
         available_programs = yaml.load(rf, Loader=yaml.FullLoader)

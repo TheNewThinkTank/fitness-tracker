@@ -3,10 +3,12 @@ Date: 2021-12-27
 Purpose: Set db and table depending on datatype (real/simulated)
 """
 
-import json
-import yaml  # type: ignore
 from datetime import datetime
+import json
+import os
 
+from dotenv import load_dotenv
+import yaml  # type: ignore
 from tinydb import TinyDB  # type: ignore
 
 from custom_storage import YAMLStorage  # type: ignore
@@ -46,15 +48,15 @@ def set_db_and_table(
 
         return db, table, training_catalogue
 
-    # TODO: use dotenv below, instead of local_assets
-    with open("local_assets/private_config.json", "r") as private_config:
-        DATA = json.load(private_config)
-        USER = DATA["user"]
-        EMAIL = DATA["email"]
+    # with open("local_assets/private_config.json", "r") as private_config:
+    #     DATA = json.load(private_config)
+    #     USER = DATA["user"]
+    #     EMAIL = DATA["email"]
+    load_dotenv()
+    user = os.environ["USER"]
+    email = os.environ["EMAIL"]
 
     athlete = "gustav_rasmussen"  # TODO: make athlete dynamic
-    user = USER
-    email = EMAIL
 
     with open(".config/config.yml", "r") as rf:
         DATA = yaml.load(rf, Loader=yaml.FullLoader)

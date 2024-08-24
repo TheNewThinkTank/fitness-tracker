@@ -96,6 +96,7 @@ jobs:
         run: make -f .config/Makefile run-tests-and-coverage
         env:
           EMAIL: ${{ secrets.EMAIL }}
+          USER: ${{ secrets.USER }}
 
       - uses: codecov/codecov-action@v4
         with:

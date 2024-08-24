@@ -13,29 +13,38 @@ from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 
 pytestmark = pytest.mark.skip(reason="Skip module until PermissionError is fixed")
 
-datatype = "real"
-db, table_2021, _ = set_db_and_table(
-    datatype,
-    year=datetime.strptime("2021", "%Y").year
-    )
-db, table_2022, _ = set_db_and_table(
-    datatype,
-    year=datetime.strptime("2022", "%Y").year
-    )
+
+def setup():
+    datatype = "real"
+    _, table_2021, _ = set_db_and_table(
+        datatype,
+        year=datetime.strptime("2021", "%Y").year
+        )
+    _, table_2022, _ = set_db_and_table(
+        datatype,
+        year=datetime.strptime("2022", "%Y").year
+        )
+    return table_2021, table_2022
 
 
+@pytest.mark.skip(reason="Skip until PermissionError is fixed")
 @pytest.mark.parametrize(
     "test_input_split,test_input_exercise",
     [("legs", "squat")],  # , ('chest', 'pullover')],
 )
 def test_get_df(test_input_split, test_input_exercise):
     """Verify that dataframe has more than 2 entries."""
+    table_2021, _ = setup()
     df = get_df(table_2021, test_input_split, test_input_exercise)
     assert len(df) > 2
 
 
+@pytest.mark.skip(reason="Skip until PermissionError is fixed")
 def test_one_rep_max_estimator():
     """Verify that 1RM has progression."""
+
+    table_2021, table_2022 = setup()
+
     df_2021 = get_df(table_2021, "legs", "squat")
     df_1rm_2021 = one_rep_max_estimator(df_2021)
 
@@ -54,10 +63,14 @@ def test_one_rep_max_estimator():
     assert value_2021 <= value_2022
 
 
+@pytest.mark.skip(reason="Skip until PermissionError is fixed")
 def test_get_data():
     """Verify that the correct lists (timestamps and 1RM estimates) are returned,
     for real training data from program_1
     """
+
+    table_2021, _ = setup()
+
     df = get_df(table_2021, "legs", "squat")
     df_1rm = one_rep_max_estimator(df)
     x, y = get_data(df_1rm)

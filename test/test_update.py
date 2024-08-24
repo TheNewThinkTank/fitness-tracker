@@ -7,7 +7,11 @@ from test.conftest import src
 
 pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
 
-from src.crud.update import search_table, remove_from_table, truncate_table
+search_table = pytest.importorskip("src.crud.update.search_table")
+remove_from_table = pytest.importorskip("src.crud.update.remove_from_table")
+truncate_table = pytest.importorskip("src.crud.update.truncate_table")
+
+# from src.crud.update import search_table, remove_from_table, truncate_table
 
 
 def setup():

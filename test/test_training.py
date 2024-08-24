@@ -2,11 +2,16 @@
 unit test suite for src folder
 """
 
+from datetime import datetime
+
 from test.conftest import src
 from src.crud.read import show_exercises
 from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
 
-_, table, _ = set_db_and_table(datatype="real")
+_, table, _ = set_db_and_table(
+    datatype="real",
+    year=datetime.strptime("2021", "%Y").year
+    )
 
 
 def test_show_exercises():

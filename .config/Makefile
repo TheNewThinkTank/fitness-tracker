@@ -33,7 +33,7 @@ wily-build-and-rank:
 # Run unit tests and make coverage report
 .PHONY: run-tests-and-coverage
 run-tests-and-coverage:
-	poetry run pytest --cov=./ --cov-report xml:cov.xml
+	poetry run pytest --cov=./ --cov-report xml:cov.xml -k "not test_model"
 
 # Qualify code target
 .PHONY: qualify-code

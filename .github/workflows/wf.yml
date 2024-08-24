@@ -92,6 +92,14 @@ jobs:
       #   run: |
       #     poetry run pytest --cov=./ --cov-report=xml
 
+      - name: Check folders
+        run: |
+          pwd
+          ls
+          ls -ll docs
+          ls -ll docs/project_docs
+          ls -ll docs/project_docs/workout-programs
+
       - name: run tests and generate coverage
         run: make -f .config/Makefile run-tests-and-coverage
         env:

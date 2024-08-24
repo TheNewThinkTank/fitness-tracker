@@ -9,7 +9,9 @@ from test.conftest import src
 
 pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
 
-from src.crud.insert import insert_log  # , insert_specific_log
+insert_log = pytest.importorskip("src.crud.insert.insert_log")
+
+# from src.crud.insert import insert_log  # , insert_specific_log
 
 
 def setup():

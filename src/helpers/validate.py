@@ -50,7 +50,7 @@ class Workout(pydantic.BaseModel):
                 )
 
             for training_set in exercise:
-                if not set(training_set.keys()) == {"set_number", "reps", "weight"}:
+                if not all(x in set(training_set.keys()) for x in {"set_number", "reps", "weight"}):
                     raise ExercisesFormatError(
                         value=value,
                         message="Each set should have: 'set_number', 'reps' and 'weight'.\n"
@@ -67,7 +67,7 @@ class Workout(pydantic.BaseModel):
 
                 regex = re.compile(
                     r"""
-                    \d{1,3}  # 1 to 3 digits
+                    BODYWEIGHT|\d{1,3}  # 1 to 3 digits
                     (?:\.\d{1,2})?  # optional non-capture group of dot and 1-2 digits
                     \skg$  # ends with ' kg'
                     """, re.VERBOSE

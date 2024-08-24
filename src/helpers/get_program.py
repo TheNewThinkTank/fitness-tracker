@@ -1,6 +1,8 @@
 """."""
 
 import datetime
+from pathlib import Path
+
 import yaml  # type: ignore
 
 
@@ -17,7 +19,12 @@ def get_pgm_from_date(workout_date):
 
     with open(".config/config.yml", 'r') as rf:
         DATA = yaml.safe_load(rf)
+
     workout_programs = DATA["workout_programs"]
+
+    # current_path = Path(__file__).resolve().parent
+    cwd = Path.cwd()
+    workout_programs = cwd / workout_programs
 
     with open(workout_programs, "r") as rf:
         available_programs = yaml.load(rf, Loader=yaml.FullLoader)

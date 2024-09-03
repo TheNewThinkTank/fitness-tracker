@@ -7,4 +7,12 @@
 
 # Fitness-Tracker
 
+<!--
+![logo](docs/project_docs/img/thumbnails/logo.jpg)
+-->
+
+<p align="center">
+  <img src="docs/project_docs/img/thumbnails/logo.jpg" width="400"/>
+</p>
+
 [website](https://thenewthinktank.github.io/fitness-tracker/)

@@ -7,10 +7,6 @@
 
 # Fitness-Tracker
 
-<!--
-![logo](docs/project_docs/img/thumbnails/logo.jpg)
--->
-
 <p align="center">
   <img src="docs/project_docs/img/thumbnails/logo.png" width="400"/>
 </p>

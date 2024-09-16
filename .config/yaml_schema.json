@@ -15,11 +15,7 @@
           "format": "HH:MM"
       },
       "timezone": {
-          "type": "string",
-          "enum": [
-            "CET",
-            "CEST"
-          ]
+          "type": "string"
       },
       "split": {
           "type": "string",

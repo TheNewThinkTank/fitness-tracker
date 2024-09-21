@@ -34,6 +34,10 @@ async def main_page() -> Response:
     return Response("Hello, athlete. Welcome to your tracker!")
 
 
+def greet(name: str) -> None:
+    ...
+
+
 @app.get("/data")
 async def get_data():
     """Show data"""

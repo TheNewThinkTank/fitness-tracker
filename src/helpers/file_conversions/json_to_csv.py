@@ -1,7 +1,7 @@
 """
 Date: 2022-02-21
 Purpose: flatten nested JSON data into csv format,
-for the great expectations framework to process.
+e.g. for the great expectations framework to process.
 """
 
 import json

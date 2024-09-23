@@ -128,35 +128,22 @@ def main() -> None:
 
     import argparse
     import logging
+    from helpers.logger_config import setup_logger, log_running_file
+
+    setup_logger(log_file="insert.log")
+    log_running_file(__file__)
 
     parser = argparse.ArgumentParser()
-
     parser.add_argument("--file_format", type=str, default='json')
     parser.add_argument("--datatype", type=str, required=True)
     parser.add_argument("--dates", type=str)
     parser.add_argument("--workout_number", type=int)
-
     args = parser.parse_args()
 
     file_format = args.file_format  # json or yml
     datatype = args.datatype  # real/simulated
     dates = args.dates  # 2022-02-03,2022-02-05
     workout_number = args.workout_number
-
-    Path("logs/").mkdir(parents=True, exist_ok=True)
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
-        datefmt="%m-%d %H:%M",
-        filename="logs/insert.log",
-        filemode="w",
-    )
-    console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
-    formatter = logging.Formatter("%(name)-12s: %(levelname)-8s %(message)s")
-    console.setFormatter(formatter)
-    logging.getLogger("").addHandler(console)
-    logging.info("Running %s ...", "/".join(__file__.split("/")[-4:]))
 
     db, table, _ = set_db_and_table(datatype)
     ic(db)

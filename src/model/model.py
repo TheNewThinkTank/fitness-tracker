@@ -6,7 +6,7 @@ Purpose: read workout data and calculate 1RM and training volume.
 from datetime import datetime
 import logging
 import os
-import pathlib
+# import pathlib
 import sys
 from typing import Final
 
@@ -182,21 +182,11 @@ def get_data(df, y_col="1RM") -> tuple[list[float], list[float]]:
 def main() -> None:
     """Prepare dfs, calc 1RM and do linear regression."""
 
-    pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
-        datefmt="%m-%d %H:%M",
-        filename="logs/model.log",
-        filemode="w",
-    )
+    from helpers.logger_config import setup_logger, log_running_file
 
-    console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
-    formatter = logging.Formatter("%(name)-12s: %(levelname)-8s %(message)s")
-    console.setFormatter(formatter)
-    logging.getLogger("").addHandler(console)
-    logging.info("Running %s ...", "/".join(__file__.split("/")[-4:]))
+    setup_logger(log_file="model.log")
+    log_running_file(__file__)
+
     logger1 = logging.getLogger("model.area1")
     logger2 = logging.getLogger("model.area2")
 

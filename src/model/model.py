@@ -182,7 +182,7 @@ def get_data(df, y_col="1RM") -> tuple[list[float], list[float]]:
 def main() -> None:
     """Prepare dfs, calc 1RM and do linear regression."""
 
-    from helpers.logger_config import setup_logger, log_running_file
+    from helpers.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="model.log")
     log_running_file(__file__)

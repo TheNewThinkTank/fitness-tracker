@@ -128,7 +128,7 @@ def main() -> None:
 
     import argparse
     import logging
-    from helpers.logger_config import setup_logger, log_running_file
+    from helpers.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="insert.log")
     log_running_file(__file__)

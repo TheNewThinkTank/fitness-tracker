@@ -15,7 +15,7 @@ import seaborn as sns  # type: ignore
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from one_rep_max import EpleyStrategy, BrzyckiStrategy
+from one_rep_max import EpleyStrategy, BrzyckiStrategy  # type: ignore
 from src.one_rep_max_calc import OneRepMaxCalculator, EpleyInvertedStrategy, BrzyckiInvertedStrategy, InvertedCalculator  # type: ignore
 
 ###### evaluate 1rm formulas at 5 reps for varying weights ######

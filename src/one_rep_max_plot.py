@@ -15,21 +15,22 @@ import seaborn as sns  # type: ignore
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from src.one_rep_max_calc import (
-    epley_1rm,
-    brzycki_1rm,
-    epley_inverted,
-    brzycki_inverted
-    )  # type: ignore
+from one_rep_max import EpleyStrategy, BrzyckiStrategy
+from src.one_rep_max_calc import OneRepMaxCalculator, EpleyInvertedStrategy, BrzyckiInvertedStrategy, InvertedCalculator  # type: ignore
 
 ###### evaluate 1rm formulas at 5 reps for varying weights ######
 weight = range(10, 60, 10)
 
+epley_calculator = OneRepMaxCalculator(EpleyStrategy())
+brzycki_calculator = OneRepMaxCalculator(BrzyckiStrategy())
+epley_inverted_calculator = InvertedCalculator(EpleyInvertedStrategy())
+brzycki_inverted_calculator = InvertedCalculator(BrzyckiInvertedStrategy())
+
 one_rm_constant_reps_df = pd.DataFrame(
     {
         "weight": weight,
-        "epley_1rm": epley_1rm(weight, 5),
-        "brzycki_1rm": brzycki_1rm(weight, 5)
+        "epley_1rm": epley_calculator.calculate(weight, 5),
+        "brzycki_1rm": brzycki_calculator.calculate(weight, 5)
      }
 )
 
@@ -42,8 +43,8 @@ reps = range(2, 10)
 one_rm_constant_weight_df = pd.DataFrame(
     {
         "reps": reps,
-        "epley_1rm": epley_1rm(70, reps),
-        "brzycki_1rm": brzycki_1rm(70, reps)
+        "epley_1rm": epley_calculator.calculate(70, reps),
+        "brzycki_1rm": brzycki_calculator.calculate(70, reps)
     }
 )
 
@@ -54,8 +55,8 @@ df2 = df2.melt(id_vars='reps', var_name='variable', value_name='one_rep_max')
 inverse_one_rm_constant_reps_df = pd.DataFrame(
     {
         "weight": weight,
-        "epley_inverted": epley_inverted(weight, 5, 10),
-        "brzycki_inverted": brzycki_inverted(weight, 5, 10)
+        "epley_inverted": epley_inverted_calculator.calculate(weight, 5, 10),
+        "brzycki_inverted": brzycki_inverted_calculator.calculate(weight, 5, 10)
     }
 )
 
@@ -66,8 +67,8 @@ df3 = df3.melt(id_vars='weight', var_name='variable', value_name='inverse_one_re
 inverse_one_rm_constant_weight_df = pd.DataFrame(
     {
         "reps": reps,
-        "epley_inverted": epley_inverted(70, reps, 10),
-        "brzycki_inverted": brzycki_inverted(70, reps, 10)
+        "epley_inverted": epley_inverted_calculator.calculate(70, reps, 10),
+        "brzycki_inverted": brzycki_inverted_calculator.calculate(70, reps, 10)
     }
 )
 

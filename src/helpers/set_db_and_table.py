@@ -85,11 +85,9 @@ def set_db_and_table(
             # separators=(",", ": "),
         )
     )
-    table = (
-        db.table(DATA["real_weight_table"])
-        if datatype == "real"
-        else db.table(DATA["simulated_weight_table"])
-    )
+
+    table = db.table(DATA[f"{datatype}_weight_table"])
+
     training_catalogue = DATA["training_catalogue"]
 
     return db, table, training_catalogue

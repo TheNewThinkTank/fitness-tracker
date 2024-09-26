@@ -1,17 +1,26 @@
 
-
-def epley(weight, reps):
-    # Assert r is positive
-    return weight * (1 + reps / 30)
+from abc import ABC, abstractmethod
 
 
-def brzycki(weight, reps):
-    # Assert r is within range 1 to 20
-    return weight * 36 / (37 - reps)
+class OneRepMaxStrategy(ABC):
+    @abstractmethod
+    def calculate(self, weight, reps):
+        pass
 
 
-def acsm(weight, reps):
-    # Assert denominator is not zero
-    # if ((100 - reps * 2.5) / 100) == 0:
-    #     sys.exit("The denominator is Zero")
-    return weight / ((100 - reps * 2.5) / 100)
+class EpleyStrategy(OneRepMaxStrategy):
+    def calculate(self, weight, reps):
+        return weight * (1 + reps / 30)
+
+
+class BrzyckiStrategy(OneRepMaxStrategy):
+    def calculate(self, weight, reps):
+        return weight * 36 / (37 - reps)
+
+
+class AcsmStrategy(OneRepMaxStrategy):
+    def calculate(self, weight, reps):
+        denominator = (100 - reps * 2.5) / 100
+        if denominator == 0:
+            raise ValueError("The denominator is zero in ACSM formula")
+        return weight / denominator

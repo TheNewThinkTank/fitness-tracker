@@ -5,116 +5,63 @@ Purpose: Definition of popular 1-repetition-maximum formulas
 """
 
 import numpy as np  # type: ignore
-import one_rep_max  # type: ignore
+from one_rep_max import OneRepMaxStrategy, EpleyStrategy, BrzyckiStrategy, AcsmStrategy  # type: ignore
 
 
-def epley_1rm(weight, reps):
-    results = []
-
-    if isinstance(weight, (int, float)):
-        w_values = [weight]  # Convert to list for consistency
-    elif isinstance(weight, range):
-        w_values = list(weight)
-    else:
+def validate_inputs(weight, reps):
+    if not isinstance(weight, (int, float, range)):
         raise TypeError("Invalid type for 'weight'. Expected int, float, or range.")
-
-    if isinstance(reps, (int, float)):
-        reps_values = [reps]  # Convert to list for consistency
-    elif isinstance(reps, range):
-        reps_values = list(reps)
-    else:
+    if not isinstance(reps, (int, float, range)):
         raise TypeError("Invalid type for 'reps'. Expected int, float, or range.")
-
-    for w_val in w_values:
-        for r in reps_values:
-            assert r > 1
-            results.append(one_rep_max.epley(w_val, r))  # w_val * (1 + r / 30))
-    return results
+    return list(weight) if isinstance(weight, range) else [weight], \
+           list(reps) if isinstance(reps, range) else [reps]
 
 
-def brzycki_1rm(weight, reps):
-    results = []
+class OneRepMaxCalculator:
+    def __init__(self, strategy):
+        self.strategy = strategy
 
-    if isinstance(weight, (int, float)):
-        w_values = [weight]  # Convert to list for consistency
-    elif isinstance(weight, range):
-        w_values = list(weight)
-    else:
-        raise TypeError("Invalid type for 'weight'. Expected int, float, or range.")
-
-    if isinstance(reps, (int, float)):
-        reps_values = [reps]  # Convert to list for consistency
-    elif isinstance(reps, range):
-        reps_values = list(reps)
-    else:
-        raise TypeError("Invalid type for 'reps'. Expected int, float, or range.")
-
-    for w_val in w_values:
-        for r in reps_values:
-            assert r > 1
-            results.append(one_rep_max.brzycki(w_val, r))  # w_val * 36 / (37 - r))
-    return results
+    def calculate(self, weight, reps):
+        weights, repetitions = validate_inputs(weight, reps)
+        results = []
+        for w in weights:
+            for r in repetitions:
+                if r > 1:  # Ensure valid reps
+                    results.append(self.strategy.calculate(w, r))
+        return results
 
 
-def epley_inverted(one_rm, reps, progression):
-    results = []
-
-    if isinstance(one_rm, (int, float)):
-        one_rm_values = [one_rm]  # Convert to list for consistency
-    elif isinstance(one_rm, range):
-        one_rm_values = list(one_rm)
-    else:
-        raise TypeError("Invalid type for 'one_rm'. Expected int, float, or range.")
-
-    if isinstance(reps, (int, float)):
-        reps_values = [reps]  # Convert to list for consistency
-    elif isinstance(reps, range):
-        reps_values = list(reps)
-    else:
-        raise TypeError("Invalid type for 'reps'. Expected int, float, or range.")
-
-    if isinstance(progression, (int, float)):
-        progression_values = [progression]  # Convert to list for consistency
-    elif isinstance(progression, range):
-        progression_values = list(progression)
-    else:
-        raise TypeError("Invalid type for 'progression'. Expected int, float, or range.")
-
-    for one_rm_val in one_rm_values:
-        for r in reps_values:
-            assert r > 1
-            for prog in progression_values:
-                results.append(np.log10(prog) * one_rm_val / (1 + r / 30))
-    return results
+class EpleyInvertedStrategy(OneRepMaxStrategy):
+    def calculate(self, one_rm, reps, progression):
+        return np.log10(progression) * one_rm / (1 + reps / 30)
 
 
-def brzycki_inverted(one_rm, reps, progression):
-    results = []
+class BrzyckiInvertedStrategy(OneRepMaxStrategy):
+    def calculate(self, one_rm, reps, progression):
+        return np.log10(progression) * one_rm * (37 - reps) / 36
 
-    if isinstance(one_rm, (int, float)):
-        one_rm_values = [one_rm]  # Convert to list for consistency
-    elif isinstance(one_rm, range):
-        one_rm_values = list(one_rm)
-    else:
-        raise TypeError("Invalid type for 'one_rm'. Expected int, float, or range.")
 
-    if isinstance(reps, (int, float)):
-        reps_values = [reps]  # Convert to list for consistency
-    elif isinstance(reps, range):
-        reps_values = list(reps)
-    else:
-        raise TypeError("Invalid type for 'reps'. Expected int, float, or range.")
+class InvertedCalculator:
+    def __init__(self, strategy):
+        self.strategy = strategy
 
-    if isinstance(progression, (int, float)):
-        progression_values = [progression]  # Convert to list for consistency
-    elif isinstance(progression, range):
-        progression_values = list(progression)
-    else:
-        raise TypeError("Invalid type for 'progression'. Expected int, float, or range.")
+    def calculate(self, one_rm, reps, progression):
+        one_rm_values, reps_values = validate_inputs(one_rm, reps)
+        progression_values = [progression] if isinstance(progression, (int, float)) else list(progression)
 
-    for one_rm_val in one_rm_values:
-        for r in reps_values:
-            assert r > 1
-            for prog in progression_values:
-                results.append(np.log10(prog) * one_rm_val * (37 - r) / 36)
-    return results
+        results = []
+        for one_rm_val in one_rm_values:
+            for r in reps_values:
+                if r > 1:  # Ensure valid reps
+                    for prog in progression_values:
+                        results.append(self.strategy.calculate(one_rm_val, r, prog))
+        return results
+
+
+if __name__ == "__main__":
+    # Example usage
+    epley_calculator = OneRepMaxCalculator(EpleyStrategy())
+    brzycki_calculator = OneRepMaxCalculator(BrzyckiStrategy())
+
+    epley_results = epley_calculator.calculate(100, 10)
+    brzycki_results = brzycki_calculator.calculate(100, 10)

@@ -86,3 +86,13 @@
 2024-09-16 23:37:15 - Data inserted in database.
 2024-09-16 23:37:21 - Figures prepared successfully.
 2024-09-16 23:37:22 - Workflow completed successfully
+2024-09-26 01:01:08 - Configuration file ./fitcli.conf not found. Using default values.
+2024-09-26 01:01:08 - Workflow started
+2024-09-26 01:01:08 - Workout date: 2024-09-22, File format: yml
+2024-09-26 01:01:09 - Data inserted in database.
+2024-09-26 01:02:25 - Error: Failed to prepare figures.
+2024-09-26 14:00:12 - Configuration file ./fitcli.conf not found. Using default values.
+2024-09-26 14:00:12 - Workflow started
+2024-09-26 14:00:12 - Workout date: 2024-09-22, File format: yml
+2024-09-26 14:00:19 - Figures prepared successfully.
+2024-09-26 14:00:20 - Workflow completed successfully

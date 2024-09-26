@@ -5,7 +5,10 @@ Purpose: Definition of popular 1-repetition-maximum formulas
 """
 
 import numpy as np  # type: ignore
-from one_rep_max import OneRepMaxStrategy, EpleyStrategy, BrzyckiStrategy, AcsmStrategy  # type: ignore
+from one_rep_max import (
+    OneRepMaxStrategy,
+    EpleyStrategy,
+    BrzyckiStrategy)  # type: ignore
 
 
 def validate_inputs(weight, reps):

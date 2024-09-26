@@ -16,7 +16,11 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from one_rep_max import EpleyStrategy, BrzyckiStrategy  # type: ignore
-from src.one_rep_max_calc import OneRepMaxCalculator, EpleyInvertedStrategy, BrzyckiInvertedStrategy, InvertedCalculator  # type: ignore
+from src.one_rep_max_calc import (
+    OneRepMaxCalculator,
+    EpleyInvertedStrategy,
+    BrzyckiInvertedStrategy,
+    InvertedCalculator)  # type: ignore
 
 ###### evaluate 1rm formulas at 5 reps for varying weights ######
 weight = range(10, 60, 10)
@@ -82,28 +86,56 @@ fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
 # Plot 1
 if not isinstance(axes, np.ndarray):
     axes = np.array([axes])
-sns.scatterplot(data=df1, x='weight', y='one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[0, 0])
+sns.scatterplot(
+    data=df1,
+    x='weight',
+    y='one_rep_max',
+    hue='variable',
+    palette=['darkred', 'steelblue'],
+    ax=axes[0, 0]
+    )
 axes[0, 0].set_title('Constant reps (5)')
 axes[0, 0].set_xlabel('Weight')
 axes[0, 0].set_ylabel('One Rep Max')
 axes[0, 0].legend(title='Variable')
 
 # Plot 2
-sns.scatterplot(data=df2, x='reps', y='one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[0, 1])
+sns.scatterplot(
+    data=df2,
+    x='reps',
+    y='one_rep_max',
+    hue='variable',
+    palette=['darkred', 'steelblue'],
+    ax=axes[0, 1]
+    )
 axes[0, 1].set_title('Constant weight (70 kg)')
 axes[0, 1].set_xlabel('Reps')
 axes[0, 1].set_ylabel('One Rep Max')
 axes[0, 1].legend(title='Variable')
 
 # Plot 3
-sns.scatterplot(data=df3, x='weight', y='inverse_one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[1, 0])
+sns.scatterplot(
+    data=df3,
+    x='weight',
+    y='inverse_one_rep_max',
+    hue='variable',
+    palette=['darkred', 'steelblue'],
+    ax=axes[1, 0]
+    )
 axes[1, 0].set_title('Constant reps (5)')
 axes[1, 0].set_xlabel('Weight')
 axes[1, 0].set_ylabel('Inverse One Rep Max')
 axes[1, 0].legend(title='Variable')
 
 # Plot 4
-sns.scatterplot(data=df4, x='reps', y='inverse_one_rep_max', hue='variable', palette=['darkred', 'steelblue'], ax=axes[1, 1])
+sns.scatterplot(
+    data=df4,
+    x='reps',
+    y='inverse_one_rep_max',
+    hue='variable',
+    palette=['darkred', 'steelblue'],
+    ax=axes[1, 1]
+    )
 axes[1, 1].set_title('Constant weight (70 kg)')
 axes[1, 1].set_xlabel('Reps')
 axes[1, 1].set_ylabel('Inverse One Rep Max')

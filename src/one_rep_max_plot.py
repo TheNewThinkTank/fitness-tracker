@@ -16,11 +16,12 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from one_rep_max import EpleyStrategy, BrzyckiStrategy  # type: ignore
-from src.one_rep_max_calc import (
+from src.one_rep_max_calc import (  # type: ignore
     OneRepMaxCalculator,
     EpleyInvertedStrategy,
     BrzyckiInvertedStrategy,
-    InvertedCalculator)  # type: ignore
+    InvertedCalculator
+    )
 
 ###### evaluate 1rm formulas at 5 reps for varying weights ######
 weight = range(10, 60, 10)

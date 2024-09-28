@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import random
 import numpy as np
-import yaml
+import yaml  # type: ignore
 
 
 class ExerciseRepository:
@@ -53,8 +53,8 @@ class WorkoutSimulator:
     def generate_exercise_mapping(self) -> dict:
         return {exercise_name: weight_range for exercise in self.exercises for exercise_name, weight_range in exercise.items()}
 
-    def simulate_workout_data(self) -> dict:
-        workout_data = {}
+    def simulate_workout_data(self) -> dict[str, list[dict[str, str | int]]]:
+        workout_data: dict[str, list[dict[str, str | int]]] = {}
         for exercise_name, weight_range in self.exercise_mapping.items():
             no_of_sets = random.randint(1, 6)
             workout_data[exercise_name] = []

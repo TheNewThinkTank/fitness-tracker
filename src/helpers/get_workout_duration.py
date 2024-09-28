@@ -20,8 +20,10 @@ def get_data(year):
         DATA = yaml.load(rf, Loader=yaml.FullLoader)
 
     DATA = {
-        d: DATA[d].replace("<GOOGLE_DRIVE_DATA_PATH>",
-                           DATA["google_drive_data_path"])
+        d: DATA[d].replace(
+            "<GOOGLE_DRIVE_DATA_PATH>",
+            DATA["google_drive_data_path"]
+            )
         for d in DATA
     }
 

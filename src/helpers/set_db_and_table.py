@@ -5,20 +5,17 @@ Purpose: Set db and table depending on datatype (real/simulated)
 
 from datetime import datetime
 import json
-import os
-
-from dotenv import load_dotenv
 import yaml  # type: ignore
 from tinydb import TinyDB  # type: ignore
-
 from custom_storage import YAMLStorage  # type: ignore
+from config_loader import ConfigLoader  # type: ignore
 
 
 def set_db_and_table(
     datatype,
     athlete="somebody",
-    user="somebody",
-    email="somebody@gmail.com",
+    # user="somebody",
+    # email="somebody@gmail.com",
     year=datetime.now().year,
     env="prd"  # "dev"
 ):
@@ -48,13 +45,16 @@ def set_db_and_table(
 
         return db, table, training_catalogue
 
-    # with open("local_assets/private_config.json", "r") as private_config:
-    #     DATA = json.load(private_config)
-    #     USER = DATA["user"]
-    #     EMAIL = DATA["email"]
-    load_dotenv()
-    user = os.environ["USER"]
-    email = os.environ["EMAIL"]
+    # load_dotenv()
+    # user = os.environ["USER"]
+    # email = os.environ["EMAIL"]
+    env_vars = ConfigLoader.load_env_variables()
+    # config = ConfigLoader.load_config(
+    #     env_vars["user"],
+    #     env_vars["email"],
+    #     "./.config/config.yml"
+    #     )
+    # file = config["real_workout_database"].replace("<ATHLETE>", athlete)
 
     athlete = "gustav_rasmussen"  # TODO: make athlete dynamic
 
@@ -71,8 +71,8 @@ def set_db_and_table(
         TinyDB(
             DATA["real_workout_database"]
             .replace("<ATHLETE>", athlete)
-            .replace("<USER>", user)
-            .replace("<EMAIL>", email)
+            .replace("<USER>", env_vars["user"])
+            .replace("<EMAIL>", env_vars["email"])
             .replace("<YEAR>", str(year)),
             storage=YAMLStorage
         )
@@ -95,15 +95,15 @@ def set_db_and_table(
 def main():
     with open("local_assets/private_config.json", "r") as private_config:
         DATA = json.load(private_config)
-        USER = DATA["user"]
-        EMAIL = DATA["email"]
+        # USER = DATA["user"]
+        # EMAIL = DATA["email"]
 
     print(
         set_db_and_table(
             datatype="real",
             athlete="gustav_rasmussen",  # TODO: make athlete dynamic
-            user=USER,
-            email=EMAIL,
+            # user=USER,
+            # email=EMAIL,
             # year="2021"
         )
     )

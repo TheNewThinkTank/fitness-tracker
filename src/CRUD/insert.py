@@ -109,7 +109,10 @@ def insert_specific_log(date: str,
         .replace("<EMAIL>", EMAIL)
     )
 
-    base_path += f"/{athlete}/log_archive/{file_format.upper()}/{YEAR}/{MONTH}/*training_log_{date}"
+    base_path += (
+        f"/{athlete}/log_archive/{file_format.upper()}/"
+        f"{YEAR}/{MONTH}/*training_log_{date}"
+    )
 
     if workout_number > 1:
         base_path += f"_{workout_number}"

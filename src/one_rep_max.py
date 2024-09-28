@@ -1,26 +1,49 @@
+"""acsm_1rm, epley or brzycki formulas
+are used to implement the 1RM estimation.
+
+ACSM 1RM formula
+
+.. math::
+    \\frac{w}{\\frac{100 - r \\cdot 2.5}{100}}
+
+Epley 1RM formula
+
+.. math::
+    w \\cdot \\frac{1 + r}{30}
+
+Brzycki 1RM formula
+
+.. math::
+    w \\cdot \\frac{36}{37 - r}
+
+"""
 
 from abc import ABC, abstractmethod
+import numpy as np
 
 
 class OneRepMaxStrategy(ABC):
     @abstractmethod
-    def calculate(self, weight, reps):
+    def estimate(self, weight, reps):
         pass
 
 
 class EpleyStrategy(OneRepMaxStrategy):
-    def calculate(self, weight, reps):
+    def estimate(self, weight, reps):
         return weight * (1 + reps / 30)
 
 
 class BrzyckiStrategy(OneRepMaxStrategy):
-    def calculate(self, weight, reps):
+    def estimate(self, weight, reps):
         return weight * 36 / (37 - reps)
 
 
-class AcsmStrategy(OneRepMaxStrategy):
-    def calculate(self, weight, reps):
+class ACSMStrategy(OneRepMaxStrategy):
+    def estimate(self, weight, reps):
         denominator = (100 - reps * 2.5) / 100
-        if denominator == 0:
-            raise ValueError("The denominator is zero in ACSM formula")
+        # Check if denominator has any zeros
+        if np.any(denominator == 0):
+            raise ValueError(
+                "denominator is zero in ACSM formula for one or more entries."
+                )
         return weight / denominator

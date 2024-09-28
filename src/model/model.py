@@ -6,7 +6,6 @@ Purpose: read workout data and calculate 1RM and training volume.
 from datetime import datetime
 import logging
 import os
-# import pathlib
 import sys
 from typing import Final
 
@@ -16,7 +15,12 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
-import one_rep_max  # type: ignore
+from one_rep_max import (  # type: ignore
+    ACSMStrategy,
+    EpleyStrategy,
+    BrzyckiStrategy
+    )
+from one_rep_max_calc import OneRepMaxCalculator  # type: ignore
 
 
 def get_df(
@@ -72,11 +76,8 @@ def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
     df_copy = df.copy()
     num_of_sets_df = df_copy.groupby("date")[["set_number"]].agg("max")
     reps_df = df_copy.groupby("date")[["reps"]].agg("max")
-
     df_copy["weight"] = get_weight(df_copy)
-
     weight_df = df_copy.groupby("date")[["weight"]].agg("max")
-
     df_res = pd.concat([num_of_sets_df, reps_df, weight_df], axis=1)
     df_res["volume"] = df_res["set_number"] * df_res["reps"] * df_res["weight"]
 
@@ -84,71 +85,38 @@ def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def one_rep_max_estimator(df: pd.DataFrame, formula="acsm") -> pd.DataFrame:
-    """acsm_1rm, epley or brzycki formulas
-    are used to implement the 1RM estimation.
+    """Estimates 1RM using ACSM, Epley, or Brzycki formulas.
 
-    ACSM 1RM formula
-
-    .. math::
-        \\frac{w}{\\frac{100 - r \\cdot 2.5}{100}}
-
-    Epley 1RM formula
-
-    .. math::
-        w \\cdot \\frac{1 + r}{30}
-
-    Brzycki 1RM formula
-
-    .. math::
-        w \\cdot \\frac{36}{37 - r}
-
-    :param df: _description_
+    :param df: DataFrame containing weight and reps data
     :type df: pd.DataFrame
-    :param formula: _description_, defaults to "acsm"
+    :param formula: Formula to use ('acsm', 'epley', or 'brzycki'), defaults to "acsm"
     :type formula: str, optional
-    :return: _description_
+    :return: DataFrame with estimated 1RM per date
     :rtype: pd.DataFrame
     """
-
-    # def acsm_1rm(w: float, r: int) -> float:
-    #     """The ACSM (American College of Sports Medicine) protocol
-
-    #     :param w: weight
-    #     :type w: _type_
-    #     :param r: repetitions
-    #     :type r: _type_
-    #     :return: 1 RM
-    #     :rtype: _type_
-    #     """
-    #     # Assert denominator is not zero
-    #     # if not (((100 - r * 2.5) / 100) != 0).all():
-    #     #     sys.exit("The denominator is Zero")
-    #     return w / ((100 - r * 2.5) / 100)
-
-    # def epley_1rm(w: float, r: int) -> float:
-    #     # Assert r is positive
-    #     # if not (r > 1).all():
-    #     #     sys.exit("There was less than 1 repetition")
-    #     return w * (1 + r / 30)
-
-    # def brzycki_1rm(w: float, r: int) -> float:
-    #     # Assert r is within reasonable range
-    #     # if not (1 < r < 20).all():
-    #     #     sys.exit("Repetitions are out of valid range (2-19)")
-    #     return w * 36 / (37 - r)
-
     df_copy = df.copy()
 
-    match formula:
+    # Define strategies based on the input formula
+    match formula.lower():
         case "acsm":
-            df_copy["1RM"] = one_rep_max.acsm(get_weight(df), df["reps"])
+            strategy = ACSMStrategy()
         case "epley":
-            df_copy["1RM"] = one_rep_max.epley(get_weight(df), df["reps"])
+            strategy = EpleyStrategy()
         case "brzycki":
-            df_copy["1RM"] = one_rep_max.brzycki(get_weight(df), df["reps"])
+            strategy = BrzyckiStrategy()
         case _:
-            sys.exit("Invalid formula")
+            sys.exit("Invalid formula. Use 'acsm', 'epley', or 'brzycki'.")
 
+    # Initialize calculator with the selected strategy
+    calculator = OneRepMaxCalculator(strategy)
+
+    # Vectorized calculation for the whole DataFrame
+    weights = get_weight(df_copy)
+    reps = df_copy['reps']  # .astype(int)
+
+    df_copy["1RM"] = calculator.calculate(weights, reps)
+
+    # Return the max 1RM per date
     return df_copy.groupby("date")[["1RM"]].agg("max")
 
 

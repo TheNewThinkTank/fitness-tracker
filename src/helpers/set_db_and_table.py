@@ -87,7 +87,6 @@ def set_db_and_table(
     )
 
     table = db.table(DATA[f"{datatype}_weight_table"])
-
     training_catalogue = DATA["training_catalogue"]
 
     return db, table, training_catalogue

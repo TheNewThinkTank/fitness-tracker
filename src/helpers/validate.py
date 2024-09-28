@@ -47,11 +47,11 @@ class WorkoutValidator:
     def validate_exercises(value: dict) -> None:
         """Validator to check whether exercises are valid."""
         if not value:
-            raise ExercisesFormatError(value=value, message="There must be at least 1 exercise.")
+            raise ExercisesFormatError(value=str(value), message="There must be at least 1 exercise.")
 
         for exercise in value.values():
             if not exercise:
-                raise ExercisesFormatError(value=value, message="There must be at least 1 set.")
+                raise ExercisesFormatError(value=str(value), message="There must be at least 1 set.")
             for training_set in exercise:
                 WorkoutValidator._validate_training_set(training_set)
 
@@ -63,33 +63,33 @@ class WorkoutValidator:
         required_fields = {"set_number", "reps", "weight"}
         if not all(x in set(training_set.keys()) for x in required_fields):
             raise ExercisesFormatError(
-                value=training_set,
+                value=str(training_set),
                 message=f"Each set should have: {required_fields}. Got: {set(training_set.keys())}",
             )
 
         if not isinstance(training_set["weight"], str):
             raise ExercisesFormatError(
-                value=training_set,
+                value=str(training_set),
                 message=f"The weight must be a string. Got type: {type(training_set['weight'])}",
             )
 
         regex = re.compile(r"BODYWEIGHT|\d{1,3}(?:\.\d{1,2})?\skg$", re.VERBOSE)
         if not re.match(regex, training_set["weight"]):
             raise ExercisesFormatError(
-                value=training_set,
+                value=str(training_set),
                 message=f"Weight must match regex: \\d{{1,3}}(?:\\.\\d{{1,2}})?\\skg$. Got: {training_set['weight']}",
             )
 
         for field in ["set_number", "reps"]:
             if not isinstance(training_set[field], int):
                 raise ExercisesFormatError(
-                    value=training_set,
+                    value=str(training_set),
                     message=f"The {field} must be an integer. Got type: {type(training_set[field])}",
                 )
 
         if not 1 <= training_set["reps"] <= 100:
             raise ExercisesFormatError(
-                value=training_set,
+                value=str(training_set),
                 message=f"The 'reps' value must be between 1 and 100. Got: {training_set['reps']}",
             )
 
@@ -99,13 +99,13 @@ class WorkoutValidator:
         training_sets = [s["set_number"] for s in exercise]
         if training_sets[0] != 1:
             raise ExercisesFormatError(
-                value=training_sets,
+                value=str(training_sets),
                 message=f"The first 'set_number' value must be 1. Got: {training_sets[0]}",
             )
 
         if not all(x == y - 1 for x, y in zip(training_sets, training_sets[1:])):
             raise ExercisesFormatError(
-                value=training_sets,
+                value=str(training_sets),
                 message=f"'set_number' must be monotonically increasing. Got: {training_sets}",
             )
 

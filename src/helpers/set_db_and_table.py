@@ -93,7 +93,7 @@ def set_db_and_table(
     return db, table, training_catalogue
 
 
-if __name__ == "__main__":
+def main():
     with open("local_assets/private_config.json", "r") as private_config:
         DATA = json.load(private_config)
         USER = DATA["user"]
@@ -108,3 +108,7 @@ if __name__ == "__main__":
             # year="2021"
         )
     )
+
+
+if __name__ == "__main__":
+    main()

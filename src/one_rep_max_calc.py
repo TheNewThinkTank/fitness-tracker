@@ -5,6 +5,7 @@ Purpose: Definition of popular 1-repetition-maximum formulas
 """
 
 import numpy as np  # type: ignore
+import pandas as pd  # type: ignore
 from one_rep_max import (  # type: ignore
     OneRepMaxStrategy,
     EpleyStrategy,
@@ -12,36 +13,38 @@ from one_rep_max import (  # type: ignore
     )
 
 
-def validate_inputs(weight, reps):
-    if not isinstance(weight, (int, float, range)):
-        raise TypeError("Invalid type for 'weight'. Expected int, float, or range.")
-    if not isinstance(reps, (int, float, range)):
-        raise TypeError("Invalid type for 'reps'. Expected int, float, or range.")
-    return list(weight) if isinstance(weight, range) else [weight], \
-           list(reps) if isinstance(reps, range) else [reps]
-
-
 class OneRepMaxCalculator:
     def __init__(self, strategy):
         self.strategy = strategy
 
     def calculate(self, weight, reps):
-        weights, repetitions = validate_inputs(weight, reps)
-        results = []
-        for w in weights:
-            for r in repetitions:
-                if r > 1:  # Ensure valid reps
-                    results.append(self.strategy.calculate(w, r))
-        return results
+        weight, reps = self.validate_inputs(weight, reps)
+        return self.strategy.estimate(weight, reps)
+
+    @staticmethod
+    def validate_inputs(weight, reps):
+        """Ensure that inputs are either scalars,
+        or vectorized types (Pandas Series, NumPy arrays)."""
+        weight_is_vectorized = isinstance(weight, (pd.Series, np.ndarray))
+        reps_is_vectorized = isinstance(reps, (pd.Series, np.ndarray))
+
+        # Check if both are vectorized
+        if weight_is_vectorized and reps_is_vectorized:
+            if weight.shape != reps.shape:
+                raise ValueError("Weight and reps must have the same shape when vectorized.")
+        elif not (np.isscalar(weight) or np.isscalar(reps)):
+            raise TypeError("Invalid input types. Expected both weight and reps to be either scalars or vectorized.")
+        
+        return weight, reps
 
 
 class EpleyInvertedStrategy(OneRepMaxStrategy):
-    def calculate(self, one_rm, reps, progression):
+    def estimate(self, one_rm, reps, progression):
         return np.log10(progression) * one_rm / (1 + reps / 30)
 
 
 class BrzyckiInvertedStrategy(OneRepMaxStrategy):
-    def calculate(self, one_rm, reps, progression):
+    def estimate(self, one_rm, reps, progression):
         return np.log10(progression) * one_rm * (37 - reps) / 36
 
 
@@ -50,22 +53,34 @@ class InvertedCalculator:
         self.strategy = strategy
 
     def calculate(self, one_rm, reps, progression):
-        one_rm_values, reps_values = validate_inputs(one_rm, reps)
-        progression_values = [progression] if isinstance(progression, (int, float)) else list(progression)
+        one_rm, reps, progression = self.validate_inputs(one_rm, reps, progression)
+        return self.strategy.estimate(one_rm, reps, progression)
 
-        results = []
-        for one_rm_val in one_rm_values:
-            for r in reps_values:
-                if r > 1:  # Ensure valid reps
-                    for prog in progression_values:
-                        results.append(self.strategy.calculate(one_rm_val, r, prog))
-        return results
+    @staticmethod
+    def validate_inputs(one_rm, reps, progression):
+        """Ensure that inputs are either scalars or Pandas Series."""
+        if isinstance(one_rm, (pd.Series, np.ndarray)) and isinstance(reps, (pd.Series, np.ndarray)):
+            if one_rm.shape != reps.shape:
+                raise ValueError("One RM and reps must have the same shape when using vectors.")
+        elif isinstance(one_rm, (int, float)) and isinstance(reps, (int, float)):
+            pass  # Single values are acceptable
+        else:
+            raise TypeError("Invalid input types. Expected both one_rm and reps to be either scalars or pandas Series.")
+        
+        if not isinstance(progression, (pd.Series, np.ndarray)):
+            progression = np.array(progression)  # Convert scalar to array for consistent operations
+
+        return one_rm, reps, progression
 
 
-if __name__ == "__main__":
+def main():
     # Example usage
     epley_calculator = OneRepMaxCalculator(EpleyStrategy())
     brzycki_calculator = OneRepMaxCalculator(BrzyckiStrategy())
-
     epley_results = epley_calculator.calculate(100, 10)
     brzycki_results = brzycki_calculator.calculate(100, 10)
+    print(epley_results, brzycki_results)
+
+
+if __name__ == "__main__":
+    main()

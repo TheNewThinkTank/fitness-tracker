@@ -1,9 +1,9 @@
-09-23 13:39 root         INFO     Logger initialized
-09-23 13:39 root         INFO     Running fitness-tracker/src/model/model.py ...
-09-23 13:39 model.area1  INFO     data_model: real
-09-23 13:39 model.area1  DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=52']>
-09-23 13:39 model.area1  DEBUG    table: <Table name='weight_training_log', total=52, storage=<custom_storage.YAMLStorage object at 0x12e569e10>>
-09-23 13:39 model.area2  INFO     Exercise: squat
-09-23 13:39 model.area2  INFO     Workout timestamps: [1704992400.0, 1706288400.0, 1708189200.0, 1708794000.0, 1709917200.0, 1711213200.0, 1711731600.0, 1712854800.0, 1714842000.0, 1718211600.0, 1720198800.0, 1720630800.0, 1721149200.0, 1722358800.0, 1723222800.0, 1725728400.0]
-09-23 13:39 model.area2  INFO     1 RM estimates: [87.5, 87.5, 87.5, 93.33, 87.5, 120.0, 85.71, 81.25, 80.0, 85.71, 87.5, 50.0, 87.5, 68.75, 120.0, 75.0]
-09-23 13:39 model.area2  INFO     Volume: [1680.0, 1680.0, 1680.0, 2100.0, 1680.0, 3240.0, 2160.0, 1560.0, 1800.0, 2160.0, 1680.0, 960.0, 1680.0, 1650.0, 2700.0, 1620.0]
+09-28 10:45 root         INFO     Logger initialized
+09-28 10:45 root         INFO     Running fitness-tracker/src/model/model.py ...
+09-28 10:45 model.area1  INFO     data_model: real
+09-28 10:45 model.area1  DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=53']>
+09-28 10:45 model.area1  DEBUG    table: <Table name='weight_training_log', total=53, storage=<custom_storage.YAMLStorage object at 0x152912310>>
+09-28 10:45 model.area2  INFO     Exercise: squat
+09-28 10:45 model.area2  INFO     Workout timestamps: [1705014000.0, 1706310000.0, 1708210800.0, 1708815600.0, 1709938800.0, 1711234800.0, 1711753200.0, 1712872800.0, 1714860000.0, 1718229600.0, 1720216800.0, 1720648800.0, 1721167200.0, 1722376800.0, 1723240800.0, 1725746400.0]
+09-28 10:45 model.area2  INFO     1 RM estimates: [87.5, 87.5, 87.5, 93.33, 87.5, 120.0, 85.71, 81.25, 80.0, 85.71, 87.5, 50.0, 87.5, 68.75, 120.0, 75.0]
+09-28 10:45 model.area2  INFO     Volume: [1680.0, 1680.0, 1680.0, 2100.0, 1680.0, 3240.0, 2160.0, 1560.0, 1800.0, 2160.0, 1680.0, 960.0, 1680.0, 1650.0, 2700.0, 1620.0]

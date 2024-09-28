@@ -15,6 +15,38 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
 
 
+def get_bw_workouts(table):
+    """get workouts where BODYWEIGHT was used
+    """
+    Workout = Query()
+    results = []
+    # Iterate over all entries in the table
+    for entry in table.all():
+        exercises = entry.get('exercises', {})
+        # Check each exercise for BODYWEIGHT in weights
+        for exercise, sets in exercises.items():
+            for set_info in sets:
+                if 'weight' in set_info and 'BODYWEIGHT' in set_info['weight']:
+                    results.append(entry)  # Add the entire entry
+    return results
+
+
+def search_for_exercise(table, exercise: str="assisted_pullup"):
+    """_summary_
+
+    :param table: _description_
+    :type table: _type_
+    """
+
+    results = []
+    # Iterate over all entries in the table
+    for entry in table.all():
+        exercises = entry.get('exercises', {})
+        if exercise in exercises:
+            results.append(exercises)
+    return results
+
+
 def get_dates(table) -> list[str]:
     """Get all workout dates
 
@@ -149,6 +181,9 @@ def main() -> None:
 
     # _, table, _ = set_db_and_table(datatype)
     _, table, _ = set_db_and_table(datatype, env="dev")
+
+    # pp(search_for_exercise(table))
+    # pp(get_bw_workouts(table))
 
     # dates_and_muscle_groups = get_dates_and_muscle_groups(table)
     # pp(dates_and_muscle_groups)

@@ -1,219 +1,129 @@
-"""_summary_
-"""
-
+from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 import json
-import pathlib
+from pathlib import Path
 import random
-
 import numpy as np
-import yaml  # type: ignore
+import yaml
+
+
+class ExerciseRepository:
+    """Handles the loading of exercises from a YAML file."""
+
+    def __init__(self, training_catalogue: str):
+        self.training_catalogue = training_catalogue
+
+    def get_exercises(self, split: str) -> list[dict[str, list[int]]]:
+        with open(self.training_catalogue, "r") as rf:
+            available_exercises = yaml.safe_load(rf)
+        return available_exercises[split]
 
 
 @dataclass
 class ExerciseSelector:
-    """_summary_
-    """
-
-    # Path to YAML file with available exercises and weight ranges
-    training_catalogue: str
-    split: str = random.choice(["back", "chest", "legs", "shoulders"])
+    """Selects random exercises from the repository."""
+    repository: ExerciseRepository
+    split: str = field(default_factory=lambda: random.choice(["back", "chest", "legs", "shoulders"]))
     exercises: list = field(init=False)
-
-    def _get_available_exercises(self, split: str) -> list[dict[str, list[int]]]:
-        """Fetch musclegroup-exercises catalogue, with weight-ranges.
-
-        :param split: _description_
-        :type split: str
-        :return: List of available exercises for the given muscle group
-        :rtype: list[dict[str, list[int]]]
-        """
-
-        with open(self.training_catalogue, "r") as rf:
-            available_exercises: dict[str, list[dict[str, list[int]]]] = yaml.safe_load(rf)
-
-        return available_exercises[split]
-
-    def select_random_exercises(self) -> list[dict[str, list[int]]]:
-        """Simulate data for exercises.
-
-        :return: _description_
-        :rtype: list[dict[str, list[int]]]
-        """
-
-        available_exercises: list[dict[str, list[int]]] = self._get_available_exercises(self.split)
-        random.shuffle(available_exercises)
-
-        return available_exercises[:random.randint(2, 6)]
 
     def __post_init__(self):
         self.exercises = self.select_random_exercises()
 
+    def select_random_exercises(self) -> list[dict[str, list[int]]]:
+        available_exercises = self.repository.get_exercises(self.split)
+        random.shuffle(available_exercises)
+        return available_exercises[:random.randint(2, 6)]
 
-@dataclass
+
 class WorkoutSimulator:
-    """Simulate a workout"""
+    """Simulates a workout based on selected exercises."""
 
-    exercises: list
-    progress: int  # Progress made since the last workout
-    exercise_mapping: dict = field(init=False)
-    workout_data: dict = field(init=False)
+    def __init__(self, exercises: list, progress: int):
+        if progress < 0:
+            raise ValueError("Progress must be greater than or equal to zero")
+        self.exercises = exercises
+        self.progress = progress
+        self.exercise_mapping = self.generate_exercise_mapping()
+        self.workout_data = self.simulate_workout_data()
 
     def _calculate_weight(self, weight_range, actual_reps) -> str:
-        """Simulate that higher reps leads to lower weights.
-        choose weight from inverted 1RM estimate plus randomised progression.
-
-        :param weight_range: _description_
-        :type weight_range: _type_
-        :param actual_reps: _description_
-        :type actual_reps: _type_
-        :return: _description_
-        :rtype: str
-        """
-
-        weight_choice: float = weight_range[-1] * ((100 - actual_reps * 2.5) / 100) + np.log10(
-            self.progress
-        )
-
-        # print(weight_range, actual_reps, self.progress, weight_choice)
+        weight_choice = weight_range[-1] * ((100 - actual_reps * 2.5) / 100) + np.log10(self.progress)
         return f"{weight_choice:.2f} kg"
 
     def generate_exercise_mapping(self) -> dict:
-        """Generate a mapping of exercises to weight ranges.
-
-        :return: A dictionary mapping exercise names to weight ranges.
-        :rtype: dict
-        """
-
-        exercise_mapping = {}
-        for exercise in self.exercises:
-            for exercise_name, weight_range in exercise.items():
-                exercise_mapping[exercise_name] = weight_range
-
-        return exercise_mapping
+        return {exercise_name: weight_range for exercise in self.exercises for exercise_name, weight_range in exercise.items()}
 
     def simulate_workout_data(self) -> dict:
-        """Simulate data for sets, reps and weight for given exercises.
-
-        :param exercise_mapping: A dictionary mapping exercise names to weight ranges.
-        :type exercise_mapping: dict
-        :return: A dictionary mapping exercise names to a list of sets, reps and weights.
-        :rtype: dict
-        """
-
-        workout_data: dict[str, list] = {}
-
+        workout_data = {}
         for exercise_name, weight_range in self.exercise_mapping.items():
             no_of_sets = random.randint(1, 6)
             workout_data[exercise_name] = []
             for actual_set in range(1, no_of_sets + 1):
                 actual_reps = random.randint(1, 10)
                 actual_weight = self._calculate_weight(weight_range, actual_reps)
-
-                workout_data[exercise_name].append(
-                    {
-                        "set_number": actual_set,
-                        "reps": actual_reps,
-                        "weight": actual_weight,
-                    }
-                )
-
+                workout_data[exercise_name].append({"set_number": actual_set, "reps": actual_reps, "weight": actual_weight})
         return workout_data
 
-    def __post_init__(self):
-        # Validate input
-        if self.progress < 0:
-            raise ValueError("Progress must be greater than or equal to zero")
 
-        self.exercise_mapping = self.generate_exercise_mapping()
-        self.workout_data = self.simulate_workout_data()
+class DataFormatter(ABC):
+    """Abstract base class for formatting data."""
+    @abstractmethod
+    def format_data(self) -> dict:
+        pass
+
+    @abstractmethod
+    def write_data(self) -> None:
+        pass
 
 
-@dataclass
-class WorkoutFormatter:
-    """_summary_
-    """
+# @dataclass
+class JSONWorkoutFormatter(DataFormatter):
 
-    workout_date: str  # Date of the workout in "YYYY-MM-DD" format
-    output_dir: str  # Path to directory to output the simulated workout JSON file
-    data: dict
-    split: str
-
-    def __post_init__(self):
-        # Validate input
-        try:
-            assert len(self.workout_date) == 10
-            int(self.workout_date[:4])
-            int(self.workout_date[5:7])
-            int(self.workout_date[8:10])
-        except AssertionError:
-            raise ValueError("Invalid workout date")
+    def __init__(self, workout_date: str, output_dir: str, data: dict, split: str):
+        self.workout_date = workout_date
+        self.output_dir = Path(output_dir)  # Convert to Path object
+        self.data = data
+        self.split = split
 
     def format_data(self) -> dict:
-        """Prepare data format for JSON file.
-
-        :return: _description_
-        :rtype: dict
-        """
-
         return {
             "date": self.workout_date,
             "split": self.split,
             "exercises": self.data,
         }
 
-    def write_data(self) -> None:
-        """Insert simulated, formatted data into JSON file.
-        """
+    def write_data(self):
+        # Ensure the output directory exists
+        self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        try:
-            date = self.format_data()["date"]
-        except KeyError as e:
-            print(f"Error: {e} not found in data")
-            return
+        # Construct the file path
+        filepath = self.output_dir / f"simulated_training_log_{self.workout_date}.json"
+        
+        # Debug print statement
+        print(f"Writing data to: {filepath}")
 
-        p = pathlib.Path(self.output_dir)
-        try:
-            p.mkdir(parents=True, exist_ok=True)
-        except OSError as e:
-            print(f"Error: {e}")
-            return
-
-        fn = f"simulated_training_log_{date}.json"
-        filepath = p / fn
-        try:
-            with filepath.open("w", encoding="utf-8") as f:
-                json.dump(self.format_data(), f, indent=4)
-        except IOError as e:
-            print(f"Error: {e}")
-            return
+        # Write the data to the JSON file
+        with filepath.open("w", encoding="utf-8") as f:
+            json.dump(self.format_data(), f, ensure_ascii=False, indent=4)
 
 
 def main() -> None:
-    """_summary_
-    """
-
     from pprint import pprint as pp
 
-    TRAINING_CATALOGUE: str = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
-    # OUTPUT_DIR: str = "data/simulated/"
-    # WORKOUT_DATE: str = "2023-01-01"
-
-    selection = ExerciseSelector(TRAINING_CATALOGUE)
-
+    TRAINING_CATALOGUE = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
+    selection = ExerciseSelector(ExerciseRepository(TRAINING_CATALOGUE))
     simulated_workout = WorkoutSimulator(exercises=selection.exercises, progress=10)
 
     pp(simulated_workout.workout_data)
 
-    # formatter = WorkoutFormatter(
-    #     workout_date=WORKOUT_DATE,
-    #     output_dir=OUTPUT_DIR,
-    #     data=data,
-    #     split=selection.split,
-    # )
-
-    # pp(formatter.format_data())
-    # formatter.write_data()
+    # You can now easily change the formatter or add new ones
+    formatter = JSONWorkoutFormatter(
+        workout_date="2023-01-01",
+        output_dir="data/simulated/",
+        data=simulated_workout.workout_data,
+        split=selection.split,
+    )
+    formatter.write_data()
 
 
 if __name__ == "__main__":

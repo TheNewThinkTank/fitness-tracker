@@ -40,7 +40,7 @@ def filter_exercises_with_whitespace(workout_data):
     return filtered_exercises
 
 
-def remove_whitespace_from_exercise_names(table) -> None:
+def clean_exercise_names(table) -> None:
     workout_data = table.all()
     for workout in workout_data:
         new_exercises = {}
@@ -71,7 +71,7 @@ def main() -> None:
     # pp(workout_data)
     # pp(filter_exercises_with_whitespace(workout_data))
     # print("##########")
-    remove_whitespace_from_exercise_names(table)
+    clean_exercise_names(table)
     # print("##########")
     # pp(filter_exercises_with_whitespace(workout_data))
 

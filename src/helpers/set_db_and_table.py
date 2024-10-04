@@ -12,101 +12,51 @@ from config_loader import ConfigLoader  # type: ignore
 
 
 def set_db_and_table(
-    datatype,
-    athlete="somebody",
-    # user="somebody",
-    # email="somebody@gmail.com",
-    year=datetime.now().year,
-    env="prd"  # "dev"
+    datatype, 
+    athlete=None, 
+    year=None, 
+    env="prd"  # dev
 ):
-    """_summary_
+    """Set up database and table based on datatype (real/simulated)."""
 
-    :param datatype: _description_
-    :type datatype: _type_
-    :param athlete: _description_, defaults to "somebody"
-    :type athlete: str, optional
-    :param user: _description_, defaults to "somebody"
-    :type user: str, optional
-    :param email: _description_, defaults to "somebody@gmail.com"
-    :type email: str, optional
-    :param year: _description_, defaults to datetime.now().year
-    :type year: _type_, optional
-    :param env: _description_, defaults to "prd"#"dev"
-    :type env: str, optional
-    :return: _description_
-    :rtype: _type_
-    """
+    if not athlete:
+        athlete = ConfigLoader.load_env_variables()["athlete"]
 
-    if env != "prd":
+    if not year:
+        year = datetime.now().year
 
-        db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
-        table = (db.table("weight_training_log"))
-        training_catalogue = "src/helpers/muscles_and_exercises.yaml"
-
-        return db, table, training_catalogue
-
-    # load_dotenv()
-    # user = os.environ["USER"]
-    # email = os.environ["EMAIL"]
-    env_vars = ConfigLoader.load_env_variables()
-    # config = ConfigLoader.load_config(
-    #     env_vars["user"],
-    #     env_vars["email"],
-    #     "./.config/config.yml"
-    #     )
-    # file = config["real_workout_database"].replace("<ATHLETE>", athlete)
-
-    athlete = "gustav_rasmussen"  # TODO: make athlete dynamic
-
-    with open(".config/config.yml", "r") as rf:
-        DATA = yaml.load(rf, Loader=yaml.FullLoader)
-
-    DATA = {
-        d: DATA[d].replace("<GOOGLE_DRIVE_DATA_PATH>", DATA["google_drive_data_path"])
-        for d in DATA
-    }
-
-    # db = TinyDB('db.json', sort_keys=True, indent=4, separators=(',', ': '))
-    db = (
-        TinyDB(
-            DATA["real_workout_database"]
-            .replace("<ATHLETE>", athlete)
-            .replace("<USER>", env_vars["user"])
-            .replace("<EMAIL>", env_vars["email"])
-            .replace("<YEAR>", str(year)),
-            storage=YAMLStorage
-        )
-        if datatype == "real"
-        else TinyDB(
-            DATA["simulated_workout_database"],
-            storage=YAMLStorage
-            # sort_keys=True,
-            # indent=4,
-            # separators=(",", ": "),
-        )
+    config = ConfigLoader.load_config(
+        athlete=athlete,
+        user=ConfigLoader.load_env_variables()["user"],
+        email=ConfigLoader.load_env_variables()["email"],
     )
 
-    table = db.table(DATA[f"{datatype}_weight_table"])
-    training_catalogue = DATA["training_catalogue"]
+    if env != "prd":
+        db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
+        table = db.table("weight_training_log")
+        training_catalogue = "src/helpers/muscles_and_exercises.yaml"
+        return db, table, training_catalogue
+
+    db_path = (
+        config["real_workout_database"]
+        .replace("<ATHLETE>", athlete)
+        .replace("<YEAR>", str(year))
+    ) if datatype == "real" else config["simulated_workout_database"]
+
+    db = TinyDB(db_path, storage=YAMLStorage)
+    table = db.table(config[f"{datatype}_weight_table"])
+    training_catalogue = config["training_catalogue"]
 
     return db, table, training_catalogue
 
 
 def main():
-    with open("local_assets/private_config.json", "r") as private_config:
-        DATA = json.load(private_config)
-        # USER = DATA["user"]
-        # EMAIL = DATA["email"]
-
-    print(
-        set_db_and_table(
-            datatype="real",
-            athlete="gustav_rasmussen",  # TODO: make athlete dynamic
-            # user=USER,
-            # email=EMAIL,
-            # year="2021"
-        )
+    db, table, training_catalogue = set_db_and_table(
+        datatype="real",
+        # athlete="gustav_rasmussen",
+        year="2021"
     )
+    print(db, table, training_catalogue)
 
 
 if __name__ == "__main__":

@@ -11,6 +11,24 @@ from custom_storage import YAMLStorage  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
 
 
+class TinyDBSingleton:
+    _instance = None
+
+    def __new__(cls, db_path, storage=YAMLStorage):
+        if cls._instance is None:
+            cls._instance = super(TinyDBSingleton, cls).__new__(cls)
+            cls._instance.db = TinyDB(db_path, storage=storage)
+        return cls._instance
+
+    def get_db(self):
+        return self.db
+
+    def close(self):
+        if self._instance:
+            self.db.close()  # Close the db file, this ensures no further writes.
+            TinyDBSingleton._instance = None  # Reset the instance
+
+
 def set_db_and_table(
     datatype, 
     athlete=None, 
@@ -43,7 +61,11 @@ def set_db_and_table(
         .replace("<YEAR>", str(year))
     ) if datatype == "real" else config["simulated_workout_database"]
 
-    db = TinyDB(db_path, storage=YAMLStorage)
+    db_singleton = TinyDBSingleton(db_path)
+    db = db_singleton.get_db()
+    # table = db.table("weight_training_log")
+    # return db, table
+    # db = TinyDB(db_path, storage=YAMLStorage)
     table = db.table(config[f"{datatype}_weight_table"])
     training_catalogue = config["training_catalogue"]
 
@@ -57,6 +79,10 @@ def main():
         year="2021"
     )
     print(db, table, training_catalogue)
+
+    # At the end, make sure to close the database
+    db_singleton = TinyDBSingleton("dummy_path")  # Create a dummy instance just to close
+    db_singleton.close()
 
 
 if __name__ == "__main__":

@@ -41,6 +41,9 @@
       "warmup": {
           "type": "string"
       },
+      "cooldown": {
+        "type": "string"
+    },
       "exercises": {
           "type": "object",
           "patternProperties": {

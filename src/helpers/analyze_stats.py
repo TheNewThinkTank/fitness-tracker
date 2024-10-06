@@ -33,10 +33,9 @@ def txt_to_df(infile: str) -> pd.DataFrame:
         lines = rf.readlines()
         lines = [line.removesuffix("\n") for line in lines]
     header = lines[6].split()
-    data = lines[7:]
-    # print(header, data[0])
-    # Split the data into columns and clean up
-    data = [line.split() for line in data]
+
+    data: list[list[str]] = [line.split() for line in lines[7:]]
+
     data = [d for d in data if len(d) == len(header)]  # Ensure data aligns with header length
     # Convert to DataFrame
     df = pd.DataFrame(data=data, columns=header)

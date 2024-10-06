@@ -29,8 +29,14 @@ python3 src/helpers/get_breath_holding.py
 
 ./fitcli.sh
 ./fitcli.sh -d 2024-03-03 -f json
+```
 
-# Update docs
+### Update Sphinx docs
+
+If you modify the project source code, you might like to update the technical docs (using Sphinx).
+This can be done locally as follows:
+
+```BASH
 cd docs
 make clean
 sphinx-apidoc -o ./source ../src

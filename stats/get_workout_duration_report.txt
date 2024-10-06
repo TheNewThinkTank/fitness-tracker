@@ -1,243 +1,359 @@
-Sat Jan 21 13:14:46 2023    stats/get_workout_duration.stats
+Sun Oct  6 17:10:28 2024    stats/get_workout_duration.stats
 
-         3109 function calls (3026 primitive calls) in 0.005 seconds
+         1235664 function calls (1227009 primitive calls) in 0.362 seconds
 
    Ordered by: cumulative time
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-        1    0.000    0.000    0.005    0.005 get_workout_duration.py:19(get_all_durations)
-        2    0.000    0.000    0.005    0.003 get_workout_duration.py:13(get_workout_duration)
-        4    0.000    0.000    0.005    0.001 {built-in method strptime}
-      4/1    0.000    0.000    0.005    0.005 <frozen importlib._bootstrap>:1167(_find_and_load)
-      4/1    0.000    0.000    0.005    0.005 <frozen importlib._bootstrap>:1122(_find_and_load_unlocked)
-      4/1    0.000    0.000    0.004    0.004 <frozen importlib._bootstrap>:666(_load_unlocked)
-      3/1    0.000    0.000    0.004    0.004 <frozen importlib._bootstrap_external>:934(exec_module)
-      8/2    0.000    0.000    0.004    0.002 <frozen importlib._bootstrap>:233(_call_with_frames_removed)
-      3/1    0.000    0.000    0.004    0.004 {built-in method builtins.exec}
-        1    0.000    0.000    0.004    0.004 _strptime.py:1(<module>)
-       10    0.000    0.000    0.002    0.000 __init__.py:225(compile)
+        1    0.000    0.000    0.361    0.361 get_workout_duration.py:72(get_all_durations)
+        1    0.000    0.000    0.357    0.357 get_workout_duration.py:20(get_data)
+        1    0.000    0.000    0.357    0.357 __init__.py:117(safe_load)
+        1    0.000    0.000    0.357    0.357 __init__.py:74(load)
+        1    0.000    0.000    0.357    0.357 constructor.py:47(get_single_data)
+        1    0.000    0.000    0.339    0.339 composer.py:29(get_single_node)
+        1    0.000    0.000    0.339    0.339 composer.py:50(compose_document)
+   7503/1    0.009    0.000    0.339    0.339 composer.py:63(compose_node)
+    962/1    0.004    0.000    0.339    0.339 composer.py:117(compose_mapping_node)
+    22663    0.008    0.000    0.309    0.000 parser.py:94(check_event)
+      296    0.001    0.000    0.281    0.001 composer.py:99(compose_sequence_node)
+    57442    0.026    0.000    0.247    0.000 scanner.py:113(check_token)
+    10423    0.014    0.000    0.174    0.000 scanner.py:156(fetch_more_tokens)
+     3325    0.003    0.000    0.135    0.000 parser.py:446(parse_block_mapping_value)
+     4287    0.004    0.000    0.119    0.000 parser.py:427(parse_block_mapping_key)
+     6018    0.003    0.000    0.108    0.000 scanner.py:668(fetch_plain)
+     6018    0.022    0.000    0.097    0.000 scanner.py:1270(scan_plain)
+     7503    0.014    0.000    0.073    0.000 parser.py:273(parse_node)
+     6650    0.002    0.000    0.065    0.000 parser.py:270(parse_block_node_or_indentless_sequence)
+    92597    0.032    0.000    0.058    0.000 scanner.py:145(need_more_tokens)
+     1148    0.001    0.000    0.044    0.000 parser.py:402(parse_indentless_sequence_entry)
+     7059    0.015    0.000    0.043    0.000 scanner.py:1311(scan_plain_spaces)
+    48384    0.034    0.000    0.037    0.000 reader.py:99(forward)
+    10423    0.008    0.000    0.021    0.000 scanner.py:752(scan_to_next_token)
+   175882    0.021    0.000    0.021    0.000 reader.py:87(peek)
+    95900    0.019    0.000    0.019    0.000 scanner.py:279(stale_possible_simple_keys)
+        1    0.000    0.000    0.017    0.017 constructor.py:54(construct_document)
+    15673    0.006    0.000    0.017    0.000 scanner.py:135(get_token)
+1924/1815    0.000    0.000    0.016    0.000 constructor.py:410(construct_yaml_map)
+    26174    0.011    0.000    0.015    0.000 reader.py:114(get_mark)
+     3325    0.007    0.000    0.015    0.000 scanner.py:545(fetch_value)
+      962    0.000    0.000    0.015    0.000 constructor.py:215(construct_mapping)
+      962    0.001    0.000    0.015    0.000 parser.py:422(parse_block_mapping_first_key)
+      962    0.002    0.000    0.013    0.000 constructor.py:132(construct_mapping)
+     6245    0.005    0.000    0.013    0.000 composer.py:88(compose_scalar_node)
+     7503    0.006    0.000    0.012    0.000 constructor.py:67(construct_object)
+      853    0.000    0.000    0.011    0.000 parser.py:264(parse_block_node)
+    85477    0.009    0.000    0.009    0.000 scanner.py:264(next_possible_simple_key)
+    13748    0.004    0.000    0.009    0.000 scanner.py:1416(scan_line_break)
+    20410    0.007    0.000    0.008    0.000 reader.py:94(prefix)
+     9059    0.002    0.000    0.008    0.000 scanner.py:125(peek_token)
+     6245    0.004    0.000    0.007    0.000 scanner.py:295(save_possible_simple_key)
+   121954    0.006    0.000    0.007    0.000 {built-in method builtins.isinstance}
+     7503    0.005    0.000    0.007    0.000 resolver.py:143(resolve)
+    26174    0.005    0.000    0.005    0.000 error.py:6(__init__)
+       54    0.000    0.000    0.004    0.000 get_workout_duration.py:52(get_workout_duration)
+      108    0.000    0.000    0.004    0.000 {built-in method strptime}
+76943/76924    0.003    0.000    0.003    0.000 {built-in method builtins.len}
+     6245    0.002    0.000    0.003    0.000 constructor.py:173(construct_scalar)
+     4541    0.001    0.000    0.003    0.000 constructor.py:402(construct_yaml_str)
+      4/1    0.000    0.000    0.003    0.003 <frozen importlib._bootstrap>:1167(_find_and_load)
+      852    0.001    0.000    0.003    0.000 scanner.py:484(fetch_block_entry)
+      4/1    0.000    0.000    0.003    0.003 <frozen importlib._bootstrap>:1122(_find_and_load_unlocked)
+      4/1    0.000    0.000    0.003    0.003 <frozen importlib._bootstrap>:666(_load_unlocked)
+      3/1    0.000    0.000    0.003    0.003 <frozen importlib._bootstrap_external>:934(exec_module)
+    10424    0.002    0.000    0.003    0.000 scanner.py:325(unwind_indent)
+      226    0.000    0.000    0.003    0.000 scanner.py:651(fetch_single)
+      227    0.000    0.000    0.003    0.000 scanner.py:657(fetch_flow_scalar)
+     1704    0.001    0.000    0.002    0.000 constructor.py:237(construct_yaml_int)
+      227    0.000    0.000    0.002    0.000 scanner.py:1134(scan_flow_scalar)
+    37595    0.002    0.000    0.002    0.000 {method 'append' of 'list' objects}
+      8/2    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap>:233(_call_with_frames_removed)
+      3/1    0.000    0.000    0.002    0.002 {built-in method builtins.exec}
+        1    0.000    0.000    0.002    0.002 _strptime.py:1(<module>)
+     6018    0.001    0.000    0.002    0.000 scanner.py:731(check_plain)
+    25100    0.002    0.000    0.002    0.000 {method 'pop' of 'list' objects}
+        3    0.000    0.000    0.002    0.001 <frozen importlib._bootstrap_external>:1007(get_code)
+      592    0.000    0.000    0.002    0.000 constructor.py:405(construct_yaml_seq)
+      296    0.000    0.000    0.002    0.000 constructor.py:124(construct_sequence)
+      296    0.000    0.000    0.001    0.000 constructor.py:129(<listcomp>)
+        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:1127(get_data)
+     6245    0.001    0.000    0.001    0.000 tokens.py:98(__init__)
+     6245    0.001    0.000    0.001    0.000 events.py:65(__init__)
+        3    0.001    0.000    0.001    0.000 {method 'read' of '_io.BufferedReader' objects}
+      228    0.000    0.000    0.001    0.000 scanner.py:1185(scan_flow_scalar_non_spaces)
+      962    0.001    0.000    0.001    0.000 constructor.py:180(flatten_mapping)
+     5853    0.001    0.000    0.001    0.000 {method 'match' of 're.Pattern' objects}
+     8765    0.001    0.000    0.001    0.000 parser.py:114(get_event)
+     3325    0.001    0.000    0.001    0.000 scanner.py:721(check_value)
+       28    0.000    0.000    0.001    0.000 reader.py:146(update)
+     6245    0.001    0.000    0.001    0.000 nodes.py:27(__init__)
+     6245    0.001    0.000    0.001    0.000 constructor.py:117(construct_scalar)
+     9427    0.001    0.000    0.001    0.000 tokens.py:3(__init__)
+       18    0.000    0.000    0.001    0.000 reader.py:177(update_raw)
+       18    0.001    0.000    0.001    0.000 {method 'read' of '_io.TextIOWrapper' objects}
+      108    0.000    0.000    0.001    0.000 _strptime.py:565(_strptime_datetime)
+      108    0.000    0.000    0.001    0.000 _strptime.py:309(_strptime)
+     7503    0.001    0.000    0.001    0.000 parser.py:107(peek_event)
+    12396    0.001    0.000    0.001    0.000 {method 'get' of 'dict' objects}
+     4177    0.001    0.000    0.001    0.000 scanner.py:349(add_indent)
+     3325    0.001    0.000    0.001    0.000 scanner.py:38(__init__)
+     7503    0.001    0.000    0.001    0.000 resolver.py:114(ascend_resolver)
+     7503    0.001    0.000    0.001    0.000 resolver.py:91(descend_resolver)
+     3325    0.000    0.000    0.001    0.000 <frozen abc>:117(__instancecheck__)
+       10    0.000    0.000    0.001    0.000 __init__.py:225(compile)
        10    0.000    0.000    0.001    0.000 __init__.py:272(_compile)
+    10340    0.001    0.000    0.001    0.000 {method 'extend' of 'list' objects}
         4    0.000    0.000    0.001    0.000 _compiler.py:738(compile)
-        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:1007(get_code)
-        1    0.000    0.000    0.001    0.001 locale.py:1(<module>)
-        1    0.000    0.000    0.001    0.001 _strptime.py:173(__init__)
-        3    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap_external>:727(_compile_bytecode)
-        3    0.001    0.000    0.001    0.000 {built-in method marshal.loads}
-        4    0.000    0.000    0.001    0.000 _parser.py:970(parse)
-     10/4    0.000    0.000    0.001    0.000 _parser.py:447(_parse_sub)
-     13/4    0.000    0.000    0.001    0.000 _parser.py:507(_parse)
-        4    0.000    0.000    0.001    0.000 _strptime.py:565(_strptime_datetime)
-        4    0.000    0.000    0.001    0.000 _strptime.py:309(_strptime)
-        4    0.000    0.000    0.001    0.000 _strptime.py:238(pattern)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1056(_find_spec)
+     4178    0.001    0.000    0.001    0.000 scanner.py:312(remove_possible_simple_key)
+        1    0.000    0.000    0.000    0.000 locale.py:1(<module>)
+     6292    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 _strptime.py:173(__init__)
+        4    0.000    0.000    0.000    0.000 _parser.py:970(parse)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:727(_compile_bytecode)
+        3    0.000    0.000    0.000    0.000 {built-in method marshal.loads}
+     10/4    0.000    0.000    0.000    0.000 _parser.py:447(_parse_sub)
+      852    0.000    0.000    0.000    0.000 scanner.py:706(check_block_entry)
+     4288    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+       17    0.000    0.000    0.000    0.000 reader.py:138(check_printable)
+     13/4    0.000    0.000    0.000    0.000 _parser.py:507(_parse)
+     1258    0.000    0.000    0.000    0.000 events.py:22(__init__)
+       17    0.000    0.000    0.000    0.000 {method 'search' of 're.Pattern' objects}
+     3411    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+     1258    0.000    0.000    0.000    0.000 nodes.py:36(__init__)
+        1    0.000    0.000    0.000    0.000 loader.py:33(__init__)
+     3325    0.000    0.000    0.000    0.000 {built-in method _abc._abc_instancecheck}
+     1258    0.000    0.000    0.000    0.000 {built-in method builtins.next}
+        1    0.000    0.000    0.000    0.000 reader.py:59(__init__)
+        1    0.000    0.000    0.000    0.000 reader.py:122(determine_encoding)
         4    0.000    0.000    0.000    0.000 _compiler.py:571(_code)
+        4    0.000    0.000    0.000    0.000 _strptime.py:238(pattern)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1056(_find_spec)
         1    0.000    0.000    0.000    0.000 _strptime.py:261(compile)
-        1    0.000    0.000    0.000    0.000 _strptime.py:49(__init__)
+      110    0.000    0.000    0.000    0.000 _strptime.py:26(_getlang)
+     1259    0.000    0.000    0.000    0.000 events.py:5(__init__)
+      110    0.000    0.000    0.000    0.000 locale.py:593(getlocale)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1496(find_spec)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1464(_get_spec)
      18/4    0.000    0.000    0.000    0.000 _compiler.py:37(_compile)
+        1    0.000    0.000    0.000    0.000 _strptime.py:49(__init__)
         6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1604(find_spec)
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1127(get_data)
-        1    0.000    0.000    0.000    0.000 calendar.py:1(<module>)
+     1816    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
        12    0.000    0.000    0.000    0.000 {built-in method builtins.__build_class__}
-       92    0.000    0.000    0.000    0.000 _parser.py:252(get)
+        1    0.000    0.000    0.000    0.000 calendar.py:1(<module>)
+      110    0.000    0.000    0.000    0.000 locale.py:479(_parse_localename)
+      852    0.000    0.000    0.000    0.000 scanner.py:690(check_document_start)
+      963    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 parser.py:139(parse_implicit_document_start)
+       54    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+      110    0.000    0.000    0.000    0.000 locale.py:396(normalize)
         4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:566(module_from_spec)
-        3    0.000    0.000    0.000    0.000 {built-in method io.open_code}
-       12    0.000    0.000    0.000    0.000 _compiler.py:241(_optimize_charset)
-       38    0.000    0.000    0.000    0.000 {method 'strftime' of 'datetime.date' objects}
-       12    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:140(_path_stat)
         4    0.000    0.000    0.000    0.000 _compiler.py:509(_compile_info)
-        1    0.000    0.000    0.000    0.000 _strptime.py:88(__calc_month)
-       12    0.000    0.000    0.000    0.000 {built-in method posix.stat}
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:493(_init_module_attrs)
+       12    0.000    0.000    0.000    0.000 _compiler.py:241(_optimize_charset)
+        3    0.000    0.000    0.000    0.000 {built-in method io.open_code}
         6    0.000    0.000    0.000    0.000 _strptime.py:219(__seqToRE)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:493(_init_module_attrs)
+       38    0.000    0.000    0.000    0.000 {method 'strftime' of 'datetime.date' objects}
+        1    0.000    0.000    0.000    0.000 _strptime.py:88(__calc_month)
+        1    0.000    0.000    0.000    0.000 {built-in method io.open}
+        1    0.000    0.000    0.000    0.000 scanner.py:654(fetch_double)
+       12    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:140(_path_stat)
+       92    0.000    0.000    0.000    0.000 _parser.py:252(get)
         1    0.000    0.000    0.000    0.000 _strptime.py:80(__calc_weekday)
-       47    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
         8    0.000    0.000    0.000    0.000 {method 'sub' of 're.Pattern' objects}
-       26    0.000    0.000    0.000    0.000 calendar.py:60(__getitem__)
-       14    0.000    0.000    0.000    0.000 calendar.py:79(__getitem__)
-        3    0.000    0.000    0.000    0.000 {method 'read' of '_io.BufferedReader' objects}
+       12    0.000    0.000    0.000    0.000 {built-in method posix.stat}
        50    0.000    0.000    0.000    0.000 _strptime.py:234(<genexpr>)
        33    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:126(_path_join)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:169(__enter__)
+       26    0.000    0.000    0.000    0.000 calendar.py:60(__getitem__)
         6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:437(cache_from_source)
       140    0.000    0.000    0.000    0.000 _parser.py:231(__next)
-        1    0.000    0.000    0.000    0.000 _strptime.py:83(<listcomp>)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:169(__enter__)
      23/9    0.000    0.000    0.000    0.000 _parser.py:172(getwidth)
+       14    0.000    0.000    0.000    0.000 calendar.py:79(__getitem__)
         8    0.000    0.000    0.000    0.000 __init__.py:315(_subx)
         6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:392(cached)
         1    0.000    0.000    0.000    0.000 _strptime.py:107(__calc_date_time)
-        1    0.000    0.000    0.000    0.000 _strptime.py:90(<listcomp>)
-       44    0.000    0.000    0.000    0.000 __init__.py:253(escape)
-       82    0.000    0.000    0.000    0.000 _parser.py:162(__getitem__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:642(_classify_pyc)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:567(_get_cached)
-        1    0.000    0.000    0.000    0.000 _strptime.py:91(<listcomp>)
-        2    0.000    0.000    0.000    0.000 __init__.py:305(_compile_repl)
-        5    0.000    0.000    0.000    0.000 _parser.py:94(closegroup)
-        6    0.000    0.000    0.000    0.000 _strptime.py:26(_getlang)
-        2    0.000    0.000    0.000    0.000 {built-in method builtins.print}
-  251/232    0.000    0.000    0.000    0.000 {built-in method builtins.len}
-        8    0.000    0.000    0.000    0.000 enum.py:1483(__and__)
-      242    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
-        6    0.000    0.000    0.000    0.000 locale.py:593(getlocale)
-       33    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:128(<listcomp>)
+       82    0.000    0.000    0.000    0.000 _parser.py:162(__getitem__)
+       11    0.000    0.000    0.000    0.000 <frozen codecs>:319(decode)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1599(_get_spec)
+        5    0.000    0.000    0.000    0.000 _parser.py:94(closegroup)
+        1    0.000    0.000    0.000    0.000 _strptime.py:83(<listcomp>)
+        2    0.000    0.000    0.000    0.000 __init__.py:305(_compile_repl)
+       44    0.000    0.000    0.000    0.000 __init__.py:253(escape)
+        4    0.000    0.000    0.000    0.000 {method '__exit__' of '_io._IOBase' objects}
+        1    0.000    0.000    0.000    0.000 _strptime.py:90(<listcomp>)
+        1    0.000    0.000    0.000    0.000 _strptime.py:91(<listcomp>)
+        8    0.000    0.000    0.000    0.000 enum.py:1504(__and__)
         4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:179(_get_module_lock)
-        4    0.000    0.000    0.000    0.000 _compiler.py:384(_mk_bitmap)
         1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:780(exec_module)
+        1    0.000    0.000    0.000    0.000 {built-in method _imp.exec_builtin}
+        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:84(_unpack_uint32)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:778(spec_from_file_location)
+       33    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:128(<listcomp>)
        84    0.000    0.000    0.000    0.000 _parser.py:247(match)
         2    0.000    0.000    0.000    0.000 _parser.py:997(parse_template)
-      280    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
-        1    0.000    0.000    0.000    0.000 {built-in method _imp.exec_builtin}
+        4    0.000    0.000    0.000    0.000 _compiler.py:384(_mk_bitmap)
+      110    0.000    0.000    0.000    0.000 {built-in method _locale.setlocale}
         1    0.000    0.000    0.000    0.000 _strptime.py:84(<listcomp>)
-       33    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
-        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:132(_path_split)
+       11    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+       34    0.000    0.000    0.000    0.000 {built-in method builtins.getattr}
+      108    0.000    0.000    0.000    0.000 {method 'groupdict' of 're.Match' objects}
         4    0.000    0.000    0.000    0.000 __init__.py:89(find_spec)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:159(_path_isfile)
-        6    0.000    0.000    0.000    0.000 locale.py:479(_parse_localename)
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1146(path_stats)
+        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:132(_path_split)
+      217    0.000    0.000    0.000    0.000 {method 'toordinal' of 'datetime.date' objects}
        12    0.000    0.000    0.000    0.000 _compiler.py:214(_compile_charset)
-       44    0.000    0.000    0.000    0.000 {method 'translate' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:357(__init__)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:150(_path_is_mode_type)
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:778(spec_from_file_location)
-        8    0.000    0.000    0.000    0.000 enum.py:669(__call__)
-      111    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
-        4    0.000    0.000    0.000    0.000 _compiler.py:386(<listcomp>)
-        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:772(create_module)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:748(find_spec)
-        5    0.000    0.000    0.000    0.000 _parser.py:82(opengroup)
-        6    0.000    0.000    0.000    0.000 _parser.py:444(_uniq)
-       11    0.000    0.000    0.000    0.000 {built-in method builtins.max}
-        1    0.000    0.000    0.000    0.000 calendar.py:52(_localized_month)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:173(__exit__)
-       26    0.000    0.000    0.000    0.000 _parser.py:284(tell)
         7    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
-        6    0.000    0.000    0.000    0.000 _parser.py:222(__init__)
-       33    0.000    0.000    0.000    0.000 _parser.py:158(__len__)
-        4    0.000    0.000    0.000    0.000 _parser.py:265(getuntil)
-       14    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1032(__exit__)
+      116    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.lock' objects}
+      157    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
       6/4    0.000    0.000    0.000    0.000 _compiler.py:434(_get_literal_prefix)
-       25    0.000    0.000    0.000    0.000 _parser.py:170(append)
-        8    0.000    0.000    0.000    0.000 {built-in method time.strftime}
+       44    0.000    0.000    0.000    0.000 {method 'translate' of 'str' objects}
+        5    0.000    0.000    0.000    0.000 _parser.py:82(opengroup)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:748(find_spec)
+        4    0.000    0.000    0.000    0.000 _parser.py:265(getuntil)
+        8    0.000    0.000    0.000    0.000 enum.py:691(__call__)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:173(__exit__)
+        4    0.000    0.000    0.000    0.000 _compiler.py:386(<listcomp>)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1146(path_stats)
+       11    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+       33    0.000    0.000    0.000    0.000 _parser.py:158(__len__)
+        6    0.000    0.000    0.000    0.000 _parser.py:222(__init__)
+       26    0.000    0.000    0.000    0.000 _parser.py:284(tell)
         4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:100(acquire)
-        7    0.000    0.000    0.000    0.000 _parser.py:367(_escape)
-        1    0.000    0.000    0.000    0.000 {built-in method _imp.create_builtin}
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:642(_classify_pyc)
-        3    0.000    0.000    0.000    0.000 {method '__exit__' of '_io._IOBase' objects}
-        6    0.000    0.000    0.000    0.000 locale.py:396(normalize)
-       45    0.000    0.000    0.000    0.000 {built-in method builtins.min}
-       37    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:244(_verbose_message)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:71(__init__)
-        3    0.000    0.000    0.000    0.000 _compiler.py:465(_get_charset_prefix)
-        1    0.000    0.000    0.000    0.000 functools.py:35(update_wrapper)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:125(release)
-        1    0.000    0.000    0.000    0.000 calendar.py:54(<listcomp>)
-        5    0.000    0.000    0.000    0.000 _parser.py:307(_class_escape)
-        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:84(_unpack_uint32)
-       22    0.000    0.000    0.000    0.000 {built-in method _imp.release_lock}
-        1    0.000    0.000    0.000    0.000 _strptime.py:95(__calc_am_pm)
-       34    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+        6    0.000    0.000    0.000    0.000 _parser.py:444(_uniq)
+      108    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 parser.py:127(parse_stream_start)
+       25    0.000    0.000    0.000    0.000 _parser.py:170(append)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:675(_validate_timestamp_pyc)
-       48    0.000    0.000    0.000    0.000 {method 'get' of 'dict' objects}
+        5    0.000    0.000    0.000    0.000 _parser.py:307(_class_escape)
+        8    0.000    0.000    0.000    0.000 {built-in method time.strftime}
+        3    0.000    0.000    0.000    0.000 _compiler.py:465(_get_charset_prefix)
+        7    0.000    0.000    0.000    0.000 _parser.py:367(_escape)
+       37    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:244(_verbose_message)
+       54    0.000    0.000    0.000    0.000 {built-in method builtins.round}
+        1    0.000    0.000    0.000    0.000 scanner.py:48(__init__)
+        1    0.000    0.000    0.000    0.000 calendar.py:52(_localized_month)
+        1    0.000    0.000    0.000    0.000 functools.py:35(update_wrapper)
+      108    0.000    0.000    0.000    0.000 {method 'weekday' of 'datetime.date' objects}
+       45    0.000    0.000    0.000    0.000 {built-in method builtins.min}
+        1    0.000    0.000    0.000    0.000 {built-in method now}
+      108    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:125(release)
         1    0.000    0.000    0.000    0.000 _strptime.py:152(__calc_timezone)
-       72    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 scanner.py:371(fetch_stream_end)
+       34    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:71(__init__)
+       18    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1032(__exit__)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:772(create_module)
        18    0.000    0.000    0.000    0.000 _parser.py:79(groups)
-        6    0.000    0.000    0.000    0.000 {built-in method fromkeys}
-       53    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
-       12    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:134(<genexpr>)
+        1    0.000    0.000    0.000    0.000 scanner.py:359(fetch_stream_start)
         4    0.000    0.000    0.000    0.000 _compiler.py:396(_simple)
+       12    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:134(<genexpr>)
+       18    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1028(__enter__)
+       72    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
         4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:198(cb)
        19    0.000    0.000    0.000    0.000 _parser.py:109(__init__)
-       18    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
-       14    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1028(__enter__)
-        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:422(spec_from_loader)
+        1    0.000    0.000    0.000    0.000 calendar.py:54(<listcomp>)
+        1    0.000    0.000    0.000    0.000 _strptime.py:95(__calc_am_pm)
         3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:922(find_spec)
-       44    0.000    0.000    0.000    0.000 {method 'setdefault' of 'dict' objects}
-       51    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
-        8    0.000    0.000    0.000    0.000 _compiler.py:568(isstring)
-        4    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
-        9    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
-        1    0.000    0.000    0.000    0.000 calendar.py:71(_localized_day)
-        8    0.000    0.000    0.000    0.000 enum.py:1074(__new__)
-        4    0.000    0.000    0.000    0.000 _parser.py:295(checkgroupname)
-        1    0.000    0.000    0.000    0.000 {built-in method time.tzset}
-        1    0.000    0.000    0.000    0.000 calendar.py:150(Calendar)
-        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:67(_relax_case)
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:599(_check_name_wrapper)
-        6    0.000    0.000    0.000    0.000 {built-in method _locale.setlocale}
-       20    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:180(_path_isabs)
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1209(_handle_fromlist)
-        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1421(_path_importer_cache)
-       22    0.000    0.000    0.000    0.000 {built-in method _imp.acquire_lock}
-       15    0.000    0.000    0.000    0.000 {method 'index' of 'str' objects}
-        1    0.000    0.000    0.000    0.000 calendar.py:412(HTMLCalendar)
+        1    0.000    0.000    0.000    0.000 {built-in method _imp.create_builtin}
+        1    0.000    0.000    0.000    0.000 parser.py:159(parse_document_start)
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:422(spec_from_loader)
+        1    0.000    0.000    0.000    0.000 parser.py:190(parse_document_end)
+        6    0.000    0.000    0.000    0.000 {built-in method fromkeys}
+        1    0.000    0.000    0.000    0.000 scanner.py:1228(scan_flow_scalar_spaces)
+       18    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
         4    0.000    0.000    0.000    0.000 {built-in method builtins.locals}
+       44    0.000    0.000    0.000    0.000 {method 'setdefault' of 'dict' objects}
+        8    0.000    0.000    0.000    0.000 _compiler.py:568(isstring)
+        1    0.000    0.000    0.000    0.000 calendar.py:71(_localized_day)
+        1    0.000    0.000    0.000    0.000 {built-in method time.tzset}
+        8    0.000    0.000    0.000    0.000 enum.py:1096(__new__)
+        6    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:67(_relax_case)
+       51    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
+        9    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1421(_path_importer_cache)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:599(_check_name_wrapper)
+        4    0.000    0.000    0.000    0.000 _parser.py:295(checkgroupname)
+       15    0.000    0.000    0.000    0.000 {method 'index' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1209(_handle_fromlist)
+       20    0.000    0.000    0.000    0.000 {method 'rpartition' of 'str' objects}
         4    0.000    0.000    0.000    0.000 _parser.py:954(fix_flags)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:357(__init__)
         4    0.000    0.000    0.000    0.000 {built-in method _sre.compile}
+        9    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+       26    0.000    0.000    0.000    0.000 {built-in method _imp.release_lock}
         4    0.000    0.000    0.000    0.000 {built-in method _imp.is_builtin}
-        9    0.000    0.000    0.000    0.000 {method 'toordinal' of 'datetime.date' objects}
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:405(parent)
-       12    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.lock' objects}
-        1    0.000    0.000    0.000    0.000 _strptime.py:170(TimeRE)
-        4    0.000    0.000    0.000    0.000 {method 'match' of 're.Pattern' objects}
-        1    0.000    0.000    0.000    0.000 _parser.py:1006(addgroup)
-        9    0.000    0.000    0.000    0.000 _compiler.py:31(_combine_flags)
-        1    0.000    0.000    0.000    0.000 calendar.py:74(<listcomp>)
-        4    0.000    0.000    0.000    0.000 _parser.py:73(__init__)
+        1    0.000    0.000    0.000    0.000 calendar.py:150(Calendar)
+        4    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
         6    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:48(_new_module)
+       26    0.000    0.000    0.000    0.000 {built-in method _imp.acquire_lock}
+       11    0.000    0.000    0.000    0.000 <frozen codecs>:331(getstate)
+        9    0.000    0.000    0.000    0.000 _compiler.py:31(_combine_flags)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:405(parent)
+        1    0.000    0.000    0.000    0.000 calendar.py:74(<listcomp>)
+        1    0.000    0.000    0.000    0.000 _parser.py:1006(addgroup)
         9    0.000    0.000    0.000    0.000 _compiler.py:426(_get_iscased)
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1097(__init__)
-        9    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
-        9    0.000    0.000    0.000    0.000 {built-in method from_bytes}
-        3    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
-        8    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
-        1    0.000    0.000    0.000    0.000 calendar.py:295(TextCalendar)
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:165(__init__)
+        1    0.000    0.000    0.000    0.000 parser.py:89(dispose)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:180(_path_isabs)
+        1    0.000    0.000    0.000    0.000 <frozen codecs>:309(__init__)
+        4    0.000    0.000    0.000    0.000 _parser.py:73(__init__)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:48(_new_module)
+        1    0.000    0.000    0.000    0.000 calendar.py:412(HTMLCalendar)
         4    0.000    0.000    0.000    0.000 {method 'translate' of 'bytearray' objects}
-        4    0.000    0.000    0.000    0.000 {method 'groupdict' of 're.Match' objects}
+        4    0.000    0.000    0.000    0.000 _virtualenv.py:51(find_spec)
+        9    0.000    0.000    0.000    0.000 {built-in method from_bytes}
+        1    0.000    0.000    0.000    0.000 calendar.py:295(TextCalendar)
         1    0.000    0.000    0.000    0.000 _compiler.py:405(_generate_overlap_table)
-        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:254(_requires_builtin_wrapper)
         3    0.000    0.000    0.000    0.000 {built-in method _imp.find_frozen}
-        1    0.000    0.000    0.000    0.000 _strptime.py:30(LocaleTime)
-        1    0.000    0.000    0.000    0.000 functools.py:65(wraps)
-        9    0.000    0.000    0.000    0.000 {built-in method posix.fspath}
-        1    0.000    0.000    0.000    0.000 enum.py:188(__get__)
+        1    0.000    0.000    0.000    0.000 constructor.py:24(__init__)
+        1    0.000    0.000    0.000    0.000 enum.py:192(__get__)
         5    0.000    0.000    0.000    0.000 _strptime.py:210(<genexpr>)
-        3    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+        1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:254(_requires_builtin_wrapper)
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:165(__init__)
         1    0.000    0.000    0.000    0.000 _strptime.py:128(<listcomp>)
-        6    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
         4    0.000    0.000    0.000    0.000 _parser.py:166(__setitem__)
         1    0.000    0.000    0.000    0.000 calendar.py:156(__init__)
-        4    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 _strptime.py:170(TimeRE)
+        1    0.000    0.000    0.000    0.000 _strptime.py:30(LocaleTime)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1097(__init__)
+        3    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
         4    0.000    0.000    0.000    0.000 {built-in method builtins.setattr}
-        4    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
-        3    0.000    0.000    0.000    0.000 {built-in method _imp._fix_co_filename}
+        1    0.000    0.000    0.000    0.000 functools.py:65(wraps)
         1    0.000    0.000    0.000    0.000 calendar.py:573(LocaleTextCalendar)
         3    0.000    0.000    0.000    0.000 {built-in method builtins.any}
-        4    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        4    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+        9    0.000    0.000    0.000    0.000 {built-in method posix.fspath}
+        6    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 parser.py:81(__init__)
+        3    0.000    0.000    0.000    0.000 {built-in method _imp._fix_co_filename}
+        4    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
         1    0.000    0.000    0.000    0.000 calendar.py:594(LocaleHTMLCalendar)
-        4    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
-        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:413(has_location)
         2    0.000    0.000    0.000    0.000 calendar.py:76(__init__)
-        4    0.000    0.000    0.000    0.000 {method 'weekday' of 'datetime.date' objects}
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1122(get_filename)
+        3    0.000    0.000    0.000    0.000 {built-in method _sre.unicode_iscased}
+        1    0.000    0.000    0.000    0.000 <frozen codecs>:260(__init__)
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.chr}
         1    0.000    0.000    0.000    0.000 calendar.py:26(IllegalMonthError)
         1    0.000    0.000    0.000    0.000 calendar.py:548(different_locale)
-        3    0.000    0.000    0.000    0.000 {built-in method _sre.unicode_iscased}
+        4    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:413(has_location)
         4    0.000    0.000    0.000    0.000 __init__.py:96(<lambda>)
-        1    0.000    0.000    0.000    0.000 calendar.py:33(IllegalWeekdayError)
-        2    0.000    0.000    0.000    0.000 {built-in method builtins.chr}
-        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:931(create_module)
         2    0.000    0.000    0.000    0.000 calendar.py:57(__init__)
-        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
-        1    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
-        2    0.000    0.000    0.000    0.000 calendar.py:55(<lambda>)
-        1    0.000    0.000    0.000    0.000 enum.py:1226(value)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:1122(get_filename)
+        1    0.000    0.000    0.000    0.000 events.py:46(__init__)
+        1    0.000    0.000    0.000    0.000 calendar.py:33(IllegalWeekdayError)
+        3    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap_external>:931(create_module)
+        1    0.000    0.000    0.000    0.000 events.py:55(__init__)
+        1    0.000    0.000    0.000    0.000 resolver.py:21(__init__)
         1    0.000    0.000    0.000    0.000 calendar.py:162(setfirstweekday)
-        1    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 tokens.py:33(__init__)
+        1    0.000    0.000    0.000    0.000 events.py:37(__init__)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
         2    0.000    0.000    0.000    0.000 {built-in method builtins.globals}
+        1    0.000    0.000    0.000    0.000 composer.py:13(__init__)
         1    0.000    0.000    0.000    0.000 {method '__getitem__' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 enum.py:1248(value)
+        2    0.000    0.000    0.000    0.000 calendar.py:55(<lambda>)
         1    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:797(is_package)
+
+

@@ -2,12 +2,11 @@
 _summary_
 """
 
-import cProfile
 import datetime
 from datetime import datetime as dt
-import json
 import yaml  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
+from profiling_utils import profile  # type: ignore
 
 env_vars = ConfigLoader.load_env_variables()
 config = ConfigLoader.load_config(
@@ -44,6 +43,7 @@ def get_workout_duration(start_time, end_time):
     return duration_minutes
 
 
+@profile
 def get_all_durations(year):
     """_summary_
 
@@ -74,17 +74,10 @@ def main():
     """_summary_
     """
 
-    profiler = cProfile.Profile()
-    profiler.enable()
-
     year = str(datetime.datetime.now().year)
     date_and_duration = get_all_durations(year)
-
     for date, duration in date_and_duration.items():
         print(date, duration)
-
-    profiler.disable()
-    profiler.dump_stats("stats/get_workout_duration.stats")
 
 
 if __name__ == "__main__":

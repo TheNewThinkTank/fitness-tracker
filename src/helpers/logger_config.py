@@ -23,7 +23,6 @@ def setup_logger(log_file: str = "insert.log", log_dir: str = "logs/"):
 
     # Add console handler to the root logger
     logging.getLogger("").addHandler(console)
-
     logging.info("Logger initialized")
 
 

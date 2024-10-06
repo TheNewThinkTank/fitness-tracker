@@ -10,15 +10,12 @@ from scipy.stats import linregress  # type: ignore
 
 from google_sheet import get_sheet  # type: ignore
 
-today = datetime.datetime.now().date()
-this_year = today.year
-this_month = today.month
-sheet_title = f"{this_year}-{this_month:02}"
 
-sheet = get_sheet(
-    sheet_id="1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4",
-    sheet_title=sheet_title
-    )
+def get_sheet_title():
+    today = datetime.datetime.now().date()
+    this_year = today.year
+    this_month = today.month
+    return f"{this_year}-{this_month:02}"
 
 
 def get_breath_holding():
@@ -28,24 +25,15 @@ def get_breath_holding():
     :rtype: _type_
     """
 
-    # base_url = "https://docs.google.com/spreadsheets"
-    # url = base_url + "/d/e/2PACX-1vRqzqJPhFMBBrMw3710Q1Ws2eUTqVDUTpNdXqxneW2otr_4xfgVYWLxrIH8NDJOeBbs8Pq4ZLs76eEi/pub?output=csv"
+    sheet_title = get_sheet_title()
+    sheet = get_sheet(
+        sheet_id="1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4",
+        sheet_title=sheet_title
+    )
 
     data = sheet.get_all_records()
-    df = pd.DataFrame(data)  # pd.read_csv(url)
+    df = pd.DataFrame(data)
     df = df[["DATE", "SET-NUMBER", "DURATION (MM:SS)"]].dropna()
-
-    # cols = [
-    #     "DATE",
-    #     "SET-NUMBER",
-    #     "START-TIME (HH:MM)",
-    #     "DURATION (MM:SS)",
-    #     "FROM-INHALE",
-    #     "CONTROLLED-HYPERVENTILATION",
-    #     "TIMEZONE",
-    #     "LOCATION",
-    #     "NOTES",
-    # ]
 
     return df
 
@@ -56,6 +44,8 @@ def make_figure(df):
     :param df: _description_
     :type df: _type_
     """
+
+    sheet_title = get_sheet_title()
 
     # Convert 'DURATION (HH:MM)' to seconds
     df['DURATION (MM:SS)'] = df['DURATION (MM:SS)'].apply(
@@ -90,23 +80,22 @@ def make_figure(df):
         )
     trend_line = intercept + slope * summary_df['DATE_ORD']
 
-    # Plot trend line
     plt.plot(summary_df['DATE'], trend_line, color=mcolors.TABLEAU_COLORS['tab:blue'], label='Trend Line')
-
-    # Rotate x-axis labels
     plt.xticks(rotation=45, ha='right')
-
     plt.xlabel('Date')
     plt.ylabel('Duration (Seconds)')
     plt.title(f'Min, Max, and Mean Breath holding - {sheet_title}')
-
     plt.legend()
     plt.tight_layout()
-
     # plt.show()
     plt.savefig(f"docs/project_docs/img/breathholding/{sheet_title}.png")
 
 
+def main():
+    df = get_breath_holding()
+    # print(df)
+    make_figure(df)
+
+
 if __name__ == "__main__":
-    # print(get_breath_holding())
-    make_figure(get_breath_holding())
+    main()

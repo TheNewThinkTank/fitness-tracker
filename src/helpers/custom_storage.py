@@ -28,7 +28,7 @@ class YAMLStorage(Storage):
         self._handle.close()
 
 
-if __name__ == "__main__":
+def main():
     # TODO: make USER dynamic
     # TODO: make ATHLETE dynamic
     user = "gustavcollinrasmussen"
@@ -36,3 +36,8 @@ if __name__ == "__main__":
 
     test_path = f"/Users/{user}/Google Drive/My Drive/DATA/fitness-tracker-data/{athlete}/db.yml"
     db = TinyDB(test_path, storage=YAMLStorage)
+    print(db)
+
+
+if __name__ == "__main__":
+    main()

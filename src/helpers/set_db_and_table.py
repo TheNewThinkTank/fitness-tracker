@@ -37,16 +37,18 @@ def set_db_and_table(
 ):
     """Set up database and table based on datatype (real/simulated)."""
 
+    env_vars = ConfigLoader.load_env_variables()
+
     if not athlete:
-        athlete = ConfigLoader.load_env_variables()["athlete"]
+        athlete = env_vars["athlete"]
 
     if not year:
         year = datetime.now().year
 
     config = ConfigLoader.load_config(
         athlete=athlete,
-        user=ConfigLoader.load_env_variables()["user"],
-        email=ConfigLoader.load_env_variables()["email"],
+        user=env_vars["user"],
+        email=env_vars["email"],
     )
 
     if env != "prd":
@@ -64,7 +66,6 @@ def set_db_and_table(
     db_singleton = TinyDBSingleton(db_path)
     db = db_singleton.get_db()
     # table = db.table("weight_training_log")
-    # return db, table
     # db = TinyDB(db_path, storage=YAMLStorage)
     table = db.table(config[f"{datatype}_weight_table"])
     training_catalogue = config["training_catalogue"]

@@ -8,18 +8,19 @@ import yaml  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
 from profiling_utils import profile  # type: ignore
 
-env_vars = ConfigLoader.load_env_variables()
-config = ConfigLoader.load_config(
-    athlete=env_vars["athlete"],
-    user=env_vars["user"],
-    email=env_vars["email"],
-)
-
 
 def get_data(year):
+    env_vars = ConfigLoader.load_env_variables()
+    config = ConfigLoader.load_config(
+        athlete=env_vars["athlete"],
+        user=env_vars["user"],
+        email=env_vars["email"],
+    )
+
     file = config["real_workout_database"].replace("<YEAR>", year)
     with open(file) as rf:
         data = yaml.safe_load(rf)["weight_training_log"]
+
     return data
 
 

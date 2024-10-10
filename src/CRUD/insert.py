@@ -21,6 +21,7 @@ from icecream import ic  # type: ignore
 
 from helpers import lookup  # type: ignore
 from helpers.set_db_and_table import set_db_and_table  # type: ignore
+from helpers.config_loader import ConfigLoader  # type: ignore
 
 
 def insert_log(table: table.Table,
@@ -91,13 +92,14 @@ def insert_specific_log(date: str,
     :type workout_number: int, optional
     """
 
-    YEAR, MONTH = lookup.get_year_and_month(date)
-    athlete = "gustav_rasmussen"
+    env_vars = ConfigLoader.load_env_variables()
+    athlete=env_vars["athlete"]
+    user=env_vars["user"]
+    email=env_vars["email"]
 
-    with open("local_assets/private_config.json", "r") as private_config:
-        DATA = json.load(private_config)
-        USER = DATA["user"]
-        EMAIL = DATA["email"]
+    ic(athlete, user, email)
+
+    YEAR, MONTH = lookup.get_year_and_month(date)
 
     with open(".config/config.yml", "r") as rf:
         DATA = yaml.load(rf, Loader=yaml.FullLoader)
@@ -105,8 +107,8 @@ def insert_specific_log(date: str,
     base_path = (
         DATA["google_drive_data_path"]
         .replace("<ATHLETE>", athlete)
-        .replace("<USER>", USER)
-        .replace("<EMAIL>", EMAIL)
+        .replace("<USER>", user)
+        .replace("<EMAIL>", email)
     )
 
     base_path += (

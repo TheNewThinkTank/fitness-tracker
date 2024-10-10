@@ -113,3 +113,29 @@
 2024-10-07 22:24:30 - Data inserted in database.
 2024-10-07 22:24:36 - Figures prepared successfully.
 2024-10-07 22:24:36 - Workflow completed successfully
+2024-10-10 22:12:54 - Configuration file ./fitcli.conf not found. Using default values.
+2024-10-10 22:12:54 - Workflow started
+2024-10-10 22:12:54 - Workout date: 2024-10-10, File format: yml
+2024-10-10 22:12:54 - Error: Failed to insert data in database.
+2024-10-10 22:16:26 - Configuration file ./fitcli.conf not found. Using default values.
+2024-10-10 22:16:26 - Workflow started
+2024-10-10 22:16:26 - Workout date: 2024-10-10, File format: yml
+2024-10-10 22:16:26 - Error: Failed to insert data in database.
+2024-10-10 22:22:50 - Configuration file ./fitcli.conf not found. Using default values.
+2024-10-10 22:22:50 - Workflow started
+2024-10-10 22:22:50 - Workout date: 2024-10-10, File format: yml
+2024-10-10 22:22:50 - Error: Failed to insert data in database.
+2024-10-10 22:28:15 - Configuration file ./fitcli.conf not found. Using default values.
+2024-10-10 22:28:15 - Workflow started
+2024-10-10 22:28:15 - Workout date: 2024-10-10, File format: yml
+2024-10-10 22:28:15 - Error: Failed to insert data in database.
+2024-10-10 22:30:57 - Configuration file ./fitcli.conf not found. Using default values.
+2024-10-10 22:30:57 - Workflow started
+2024-10-10 22:30:57 - Workout date: 2024-10-10, File format: yml
+2024-10-10 22:30:58 - Error: Failed to insert data in database.
+2024-10-10 23:00:47 - Configuration file ./fitcli.conf not found. Using default values.
+2024-10-10 23:00:47 - Workflow started
+2024-10-10 23:00:47 - Workout date: 2024-10-10, File format: yml
+2024-10-10 23:00:48 - Data inserted in database.
+2024-10-10 23:00:55 - Figures prepared successfully.
+2024-10-10 23:00:55 - Workflow completed successfully

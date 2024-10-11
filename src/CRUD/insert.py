@@ -93,26 +93,31 @@ def insert_specific_log(date: str,
     """
 
     env_vars = ConfigLoader.load_env_variables()
-    athlete=env_vars["athlete"]
-    user=env_vars["user"]
-    email=env_vars["email"]
-
-    ic(athlete, user, email)
+    # athlete=env_vars["athlete"]
+    # user=env_vars["user"]
+    # email=env_vars["email"]
+    # ic(athlete, user, email)
+    config = ConfigLoader.load_config(
+        athlete=env_vars["athlete"],
+        user=env_vars["user"],
+        email=env_vars["email"],
+    )
 
     YEAR, MONTH = lookup.get_year_and_month(date)
 
-    with open(".config/config.yml", "r") as rf:
-        DATA = yaml.load(rf, Loader=yaml.FullLoader)
+    # with open(".config/config.yml", "r") as rf:
+    #     DATA = yaml.load(rf, Loader=yaml.FullLoader)
+    # base_path = (
+    #     DATA["google_drive_data_path"]
+    #     # .replace("<ATHLETE>", athlete)
+    #     .replace("<USER>", user)
+    #     .replace("<EMAIL>", email)
+    # )
 
-    base_path = (
-        DATA["google_drive_data_path"]
-        .replace("<ATHLETE>", athlete)
-        .replace("<USER>", user)
-        .replace("<EMAIL>", email)
-    )
+    base_path = config["google_drive_data_path"]
 
     base_path += (
-        f"/{athlete}/log_archive/{file_format.upper()}/"
+        f"/{env_vars['athlete']}/log_archive/{file_format.upper()}/"
         f"{YEAR}/{MONTH}/*training_log_{date}"
     )
 

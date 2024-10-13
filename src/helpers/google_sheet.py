@@ -72,8 +72,12 @@ def update_sheet() -> None:
     return
 
 
-if __name__ == "__main__":
+def main():
     # example: BODYWEIGHT sheet
     sheet_id = "1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs"
     sheet_title = "2023-2024"
     print(get_sheet(sheet_id, sheet_title))
+
+
+if __name__ == "__main__":
+    main()

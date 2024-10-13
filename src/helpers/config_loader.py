@@ -27,20 +27,25 @@ class ConfigLoader:
         """Loads configuration from a YAML file and replaces placeholders."""
         with open(file_path, "r") as rf:
             data = yaml.safe_load(rf)
+
             google_drive_data_path = (
                 data["google_drive_data_path"]
                 .replace("<USER>", user)
                 .replace("<EMAIL>", email)
             )
+
+            data["google_drive_data_path"] = google_drive_data_path
+
             data["real_workout_database"] = (
                 data["real_workout_database"]
                 .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
                 .replace("<ATHLETE>", athlete)
             )
+
         return data
 
 
-if __name__ == "__main__":
+def main():
     from pprint import pprint as pp
 
     env_vars = ConfigLoader.load_env_variables()
@@ -52,6 +57,9 @@ if __name__ == "__main__":
         "./.config/config.yml"
     )
 
-    file = config["real_workout_database"]
-
+    # file = config["real_workout_database"]
     pp(config)
+
+
+if __name__ == "__main__":
+    main()

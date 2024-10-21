@@ -5,7 +5,7 @@ Purpose: Get all exercises available for a given musclegroup
 
 import yaml  # type: ignore
 
-from helpers.set_db_and_table import set_db_and_table  # type: ignore
+from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_available_exercises(training_catalogue: str, split: str) -> list[str]:

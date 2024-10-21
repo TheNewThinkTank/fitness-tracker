@@ -7,7 +7,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from src.model.model import get_df  # get_data, one_rep_max_estimator
-from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 db, table, _ = set_db_and_table(datatype="real", athlete="gustav_rasmussen")
 

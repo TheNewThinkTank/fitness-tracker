@@ -1,5 +1,5 @@
 from test.conftest import src
-from src.helpers.lookup import get_year_and_month
+from src.utils.lookup import get_year_and_month
 
 
 def test_get_year_and_month():

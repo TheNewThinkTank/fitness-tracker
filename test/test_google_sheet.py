@@ -5,7 +5,7 @@ from unittest.mock import patch, Mock
 import gspread
 
 from test.conftest import src
-from src.helpers.google_sheet import get_sheet
+from src.utils.google_sheet import get_sheet
 
 
 @patch('src.helpers.google_sheet.gspread.authorize')

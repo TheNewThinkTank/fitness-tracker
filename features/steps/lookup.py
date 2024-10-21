@@ -9,7 +9,7 @@ from behave import Given, When, Then
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from src.helpers.lookup import get_year_and_month
+from src.utils.lookup import get_year_and_month
 
 
 @Given("A valid workout-date as string")

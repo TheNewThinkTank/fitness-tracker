@@ -3,8 +3,8 @@ _summary_
 """
 
 from pprint import pprint as pp
-from helpers.get_bodyweight import get_bw  # type: ignore
-from helpers.set_db_and_table import set_db_and_table  # type: ignore
+from utils.get_bodyweight import get_bw  # type: ignore
+from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar):

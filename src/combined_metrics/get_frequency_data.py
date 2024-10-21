@@ -4,7 +4,7 @@ Purpose: Prepare workout frequency data for plotting
 """
 
 import pandas as pd  # type: ignore
-from helpers.get_year_and_week import get_year_and_week  # type: ignore
+from utils.get_year_and_week import get_year_and_week  # type: ignore
 
 
 def get_frequency_data(table, year_to_plot: str) -> pd.DataFrame:

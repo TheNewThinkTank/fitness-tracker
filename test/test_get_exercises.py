@@ -2,8 +2,8 @@
 import pytest
 
 from test.conftest import src
-from src.helpers.get_exercises import get_available_exercises
-from src.helpers.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.get_exercises import get_available_exercises
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 @pytest.mark.skip(reason="Skip until PermissionError is fixed")

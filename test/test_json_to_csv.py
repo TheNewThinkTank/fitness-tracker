@@ -4,7 +4,7 @@ import pytest
 import pandas as pd  # type: ignore
 
 from test.conftest import src
-from src.helpers.file_conversions.json_to_csv import get_exercise_data  # , df_to_csv
+from src.utils.file_conversions.json_to_csv import get_exercise_data  # , df_to_csv
 
 
 # def setup():

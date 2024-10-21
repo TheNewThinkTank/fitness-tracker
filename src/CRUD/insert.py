@@ -19,9 +19,9 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from icecream import ic  # type: ignore
 
-from helpers import lookup  # type: ignore
-from helpers.set_db_and_table import set_db_and_table  # type: ignore
-from helpers.config_loader import ConfigLoader  # type: ignore
+from utils import lookup  # type: ignore
+from utils.set_db_and_table import set_db_and_table  # type: ignore
+from utils.config_loader import ConfigLoader  # type: ignore
 
 
 def insert_log(table: table.Table,
@@ -126,7 +126,7 @@ def main() -> None:
 
     import argparse
     import logging
-    from helpers.logger_config import setup_logger, log_running_file  # type: ignore
+    from utils.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="insert.log")
     log_running_file(__file__)

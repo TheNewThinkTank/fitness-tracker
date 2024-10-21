@@ -6,7 +6,7 @@
 
 NUMBER_OF_WORKOUTS=100
 
-# python3 src/helpers/cleanup.py data/simulated/ data/sim_db.json
+# python3 src/utils/cleanup.py data/simulated/ data/sim_db.json
 # echo 'cleanup complete'
 python3 src/simulations/simulate_data.py $NUMBER_OF_WORKOUTS
 # echo 'simulations complete'

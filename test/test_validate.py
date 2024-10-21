@@ -40,7 +40,7 @@ def setup():
     return data
 
 
-@pytest.mark.skip(reason="Skip until src/helpers/validate is updated.")
+@pytest.mark.skip(reason="Skip until src/utils/validate is updated.")
 def test_workout():
     data = setup()
     workouts: list[Workout] = [Workout(**item) for item in data.values()]

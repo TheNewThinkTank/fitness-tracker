@@ -45,8 +45,8 @@ def test_get_sheet_invalid_sheet():
     sheet_id = "test_sheet_id"
     sheet_title = "invalid_sheet_title"
 
-    with patch('src.helpers.google_sheet.gspread.authorize') as mock_authorize:
-        with patch('src.helpers.google_sheet.Credentials.from_service_account_file') as mock_from_service_account_file:
+    with patch('src.utils.google_sheet.gspread.authorize') as mock_authorize:
+        with patch('src.utils.google_sheet.Credentials.from_service_account_file') as mock_from_service_account_file:
             mock_creds = Mock()
             mock_client = Mock()
             mock_workbook = Mock()

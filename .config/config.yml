@@ -11,7 +11,7 @@ simulated_workout_database: "<GOOGLE_DRIVE_DATA_PATH>/sim_db.yml"  # "<GOOGLE_DR
 real_weight_table: "weight_training_log"
 real_disciplines_table: "disciplines_log"
 simulated_weight_table: "weight_training_log"
-training_catalogue: "src/helpers/muscles_and_exercises.yaml"
+training_catalogue: "src/utils/muscles_and_exercises.yaml"
 
 # workout_programs: "docs/project_docs/workout-programs/workout_programs.yml"
 workout_programs: "docs/project_docs/Workout-Programs/workout_programs.yml"

@@ -100,7 +100,7 @@ if __name__ == "__main__":
 # stats.print_callers("get_workout_duration.py:13")
 
 # generate profile for snakeviz
-# python3 -m cProfile -o stats/get_workout_duration.prof src/helpers/get_workout_duration.py
+# python3 -m cProfile -o stats/get_workout_duration.prof src/utils/get_workout_duration.py
 
 # start SnakeViz from the command line
 # snakeviz "stats/get_workout_duration.prof"

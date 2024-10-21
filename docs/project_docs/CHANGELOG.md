@@ -34,11 +34,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- src/helpers/google_sheets module for interacting with google sheets
+- src/utils/google_sheets module for interacting with google sheets
 
 ### Changed
 
-- src/helpers/get_bodyweight.py: uses new google_sheets module
+- src/utils/get_bodyweight.py: uses new google_sheets module
 
 -->
 

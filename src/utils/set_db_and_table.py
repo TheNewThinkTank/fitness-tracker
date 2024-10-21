@@ -54,7 +54,7 @@ def set_db_and_table(
     if env != "prd":
         db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
         table = db.table("weight_training_log")
-        training_catalogue = "src/helpers/muscles_and_exercises.yaml"
+        training_catalogue = "src/utils/muscles_and_exercises.yaml"
         return db, table, training_catalogue
 
     db_path = (

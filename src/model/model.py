@@ -14,7 +14,7 @@ import pandas as pd  # type: ignore
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from helpers.set_db_and_table import set_db_and_table  # type: ignore
+from utils.set_db_and_table import set_db_and_table  # type: ignore
 from one_rep_max import (  # type: ignore
     ACSMStrategy,
     EpleyStrategy,
@@ -150,7 +150,7 @@ def get_data(df, y_col="1RM") -> tuple[list[float], list[float]]:
 def main() -> None:
     """Prepare dfs, calc 1RM and do linear regression."""
 
-    from helpers.logger_config import setup_logger, log_running_file  # type: ignore
+    from utils.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="model.log")
     log_running_file(__file__)

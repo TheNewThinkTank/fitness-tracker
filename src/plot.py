@@ -11,8 +11,8 @@ import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 
 from crud.read import show_exercise  # type: ignore
-from helpers.get_exercises import get_available_exercises  # type: ignore
-from helpers.set_db_and_table import set_db_and_table  # type: ignore
+from utils.get_exercises import get_available_exercises  # type: ignore
+from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_data(date: str, split: str) -> dict[str, pd.DataFrame] | dict:

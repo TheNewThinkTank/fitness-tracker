@@ -1,7 +1,7 @@
 import datetime
 
 from test.conftest import src
-from src.helpers.get_year_and_week import get_year_and_week
+from src.utils.get_year_and_week import get_year_and_week
 
 
 def test_get_year_and_week():

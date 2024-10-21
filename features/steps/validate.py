@@ -11,7 +11,7 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from src.helpers.validate import Workout
+from src.utils.validate import Workout
 
 
 @Given("A JSON file with test data")

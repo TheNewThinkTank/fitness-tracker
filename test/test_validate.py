@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import yaml
 
 from test.conftest import src
-from src.helpers.validate import Workout
+from src.utils.validate import Workout
 
 load_dotenv()
 email = os.environ["EMAIL"]

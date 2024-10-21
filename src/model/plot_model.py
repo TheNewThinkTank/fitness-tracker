@@ -19,7 +19,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from model import get_data, get_df, one_rep_max_estimator, calc_volume  # type: ignore
-from helpers.set_db_and_table import set_db_and_table  # type: ignore
+from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:

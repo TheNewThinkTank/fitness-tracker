@@ -8,19 +8,19 @@ from test.conftest import src
 from src.utils.google_sheet import get_sheet
 
 
-@patch('src.helpers.google_sheet.gspread.authorize')
-@patch('src.helpers.google_sheet.Credentials.from_service_account_file')
+@patch('src.utils.google_sheet.gspread.authorize')
+@patch('src.utils.google_sheet.Credentials.from_service_account_file')
 def test_get_sheet_success(mock_from_service_account_file, mock_authorize):
     # Arrange
     sheet_id = "test_sheet_id"
     sheet_title = "test_sheet_title"
-    
+
     # Mocking the credentials and gspread client
     mock_creds = Mock()
     mock_client = Mock()
     mock_workbook = Mock()
     mock_sheet = Mock()
-    
+
     mock_from_service_account_file.return_value = mock_creds
     mock_authorize.return_value = mock_client
     mock_client.open_by_key.return_value = mock_workbook
@@ -28,7 +28,7 @@ def test_get_sheet_success(mock_from_service_account_file, mock_authorize):
 
     # Act
     result = get_sheet(sheet_id, sheet_title)
-    
+
     # Assert
     mock_from_service_account_file.assert_called_once_with(
         "local_assets/credentials.json",

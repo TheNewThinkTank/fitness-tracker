@@ -6,7 +6,7 @@ Purpose: Simulate weight-training data
 import random
 from datetime import datetime
 import pandas as pd  # type: ignore
-from workout_simulator import WorkoutSimulator  # type: ignore
+# from workout_simulator import WorkoutSimulator  # type: ignore
 from typing import Generator
 from pprint import pprint as pp
 

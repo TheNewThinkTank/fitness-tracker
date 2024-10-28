@@ -24,7 +24,7 @@ def get_bw_workouts(table):
     for entry in table.all():
         exercises = entry.get('exercises', {})
         # Check each exercise for BODYWEIGHT in weights
-        for exercise, sets in exercises.items():
+        for _, sets in exercises.items():
             for set_info in sets:
                 if 'weight' in set_info and 'BODYWEIGHT' in set_info['weight']:
                     results.append(entry)  # Add the entire entry

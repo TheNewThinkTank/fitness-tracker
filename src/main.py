@@ -22,6 +22,7 @@ import yaml  # type: ignore
 app = FastAPI()
 
 year = 2024
+# TODO: use singleton for db and table
 db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
 table = (db.table("weight_training_log"))
 training_catalogue = "src/utils/muscles_and_exercises.yaml"

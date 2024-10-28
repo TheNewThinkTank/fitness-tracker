@@ -4,8 +4,6 @@ Purpose: Set db and table depending on datatype (real/simulated)
 """
 
 from datetime import datetime
-import json
-import yaml  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from custom_storage import YAMLStorage  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
@@ -65,8 +63,6 @@ def set_db_and_table(
 
     db_singleton = TinyDBSingleton(db_path)
     db = db_singleton.get_db()
-    # table = db.table("weight_training_log")
-    # db = TinyDB(db_path, storage=YAMLStorage)
     table = db.table(config[f"{datatype}_weight_table"])
     training_catalogue = config["training_catalogue"]
 
@@ -76,7 +72,6 @@ def set_db_and_table(
 def main():
     db, table, training_catalogue = set_db_and_table(
         datatype="real",
-        # athlete="gustav_rasmussen",
         year="2021"
     )
     print(db, table, training_catalogue)

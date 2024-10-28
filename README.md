@@ -12,3 +12,35 @@
 </p>
 
 [website](https://thenewthinktank.github.io/fitness-tracker/)
+
+<!-- 
+TODOs:
+
+create Python package(s) containing reusable code,
+place it/them in seperate repos.
+publish it/them to PyPI.
+
+Code candidates:
+
+file_utils package:
+- src/utils/file_conversions/json_to_yaml.py
+- src/utils/cleanup.py
+
+profiling_utils package:
+- src/utils/profiling/profiling_utils.py
+- src/utils/profiling/analyze_stats.py
+
+datetime_utils package:
+- src/utils/get_year_and_week.py
+- src/utils/lookup.py
+
+
+- src/simulations/simulate_athletes.py
+- src/simulations/simulate_data.py
+
+auth_utils package:
+- src/utils/google_sheet.py
+
+- src/utils/logger_config.py
+
+-->

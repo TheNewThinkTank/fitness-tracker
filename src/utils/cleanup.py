@@ -29,7 +29,7 @@ def empty_file(file_path: str) -> None:
     open(file_path, "w").close()
 
 
-def main(path: str, file_path: str) -> None:
+def main() -> None:
     """_summary_
 
     :param path: _description_
@@ -37,11 +37,13 @@ def main(path: str, file_path: str) -> None:
     :param file_path: _description_
     :type file_path: str
     """
+
+    path: str = sys.argv[1]
+    file_path: str = sys.argv[2]
+
     cleanup(path)
     empty_file(file_path)
 
 
 if __name__ == "__main__":
-    path: str = sys.argv[1]
-    file_path: str = sys.argv[2]
-    main(path, file_path)
+    main()

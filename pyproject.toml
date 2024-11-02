@@ -36,6 +36,7 @@ gspread = "^6.1.2"
 python-dotenv = "^1.0.1"
 orjson = "^3.10.11"
 profiling-tools = "^0.0.4"
+file-convertion-tools = "^0.0.8"
 
 [tool.poetry.dev-dependencies]
 

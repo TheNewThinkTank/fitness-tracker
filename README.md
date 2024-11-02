@@ -27,8 +27,8 @@
   - - - src/utils/cleanup.py
 
   - - profiling_utils package:
-  - - - src/utils/profiling/profiling_utils.py
-  - - - src/utils/profiling/analyze_stats.py
+  - - - src/utils/profiling/profiling_utils.py -> done
+  - - - src/utils/profiling/analyze_stats.py -> done
 
   - - datetime_utils package:
   - - - src/utils/get_year_and_week.py

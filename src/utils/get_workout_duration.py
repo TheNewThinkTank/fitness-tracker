@@ -6,7 +6,7 @@ import datetime
 from datetime import datetime as dt
 import yaml  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
-from profiling.profiling_utils import profile  # type: ignore
+from profiling_tools.profiling_utils import profile  # type: ignore
 
 
 def get_data(year):

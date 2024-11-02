@@ -1,19 +1,7 @@
 """_summary_
 """
 
-import json
-import yaml  # type: ignore
-
-
-def json_to_yaml(in_file: str) -> None:
-    """Create YAML file from JSON file, without sorting keys alphabetically.
-
-    :param in_file: absolute path to JSON file
-    :type in_file: str
-    """
-
-    with open(in_file, 'r') as rf, open(in_file.replace('json', 'yml'), "w") as wf:
-        yaml.dump(json.load(rf), wf, sort_keys=False)
+from file_convertion_tools.json_to_yaml import json_to_yaml  # type: ignore
 
 
 def main():

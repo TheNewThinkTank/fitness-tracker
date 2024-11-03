@@ -18,8 +18,8 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from icecream import ic  # type: ignore
-
-from utils import lookup  # type: ignore
+from datetime_tools.lookup import get_year_and_month  # type: ignore
+# from utils import lookup  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 from utils.config_loader import ConfigLoader  # type: ignore
 
@@ -100,7 +100,7 @@ def insert_specific_log(date: str,
         email=env_vars["email"],
     )
 
-    YEAR, MONTH = lookup.get_year_and_month(date)
+    YEAR, MONTH = get_year_and_month(date)
 
     base_path = config["google_drive_data_path"]
 

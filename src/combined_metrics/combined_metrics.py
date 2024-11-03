@@ -22,8 +22,8 @@ from icecream import ic  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 from utils.get_workout_duration import get_all_durations  # type: ignore
 from utils.get_volume import get_total_volume  # type: ignore
-from utils.lookup import get_year_and_month  # type: ignore
-from model.model import get_data, one_rep_max_estimator, get_df  # type: ignore
+from datetime_tools.lookup import get_year_and_month  # type: ignore
+from model.model import one_rep_max_estimator, get_df #, get_data  # type: ignore
 from get_frequency_data import get_frequency_data  # type: ignore
 
 IMG_PATH = './docs/project_docs/img/'

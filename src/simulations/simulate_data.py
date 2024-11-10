@@ -5,16 +5,9 @@ Purpose: Simulate weight-training data
 
 import random
 from datetime import datetime
-import pandas as pd  # type: ignore
 # from workout_simulator import WorkoutSimulator  # type: ignore
-from typing import Generator
 from pprint import pprint as pp
-
-
-def generate_dates(start: datetime, periods: int) -> Generator:
-    """Generate dates lazily."""
-    for date in pd.date_range(start, periods=periods):
-        yield date.strftime("%Y-%m-%d")
+from datetime_tools.generate_days import generate_dates
 
 
 def reservoir_sample(generator, k: int):
@@ -44,14 +37,6 @@ def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[st
     :return: _description_
     :rtype: list[str]
     """
-
-    # date_generator = generate_dates(start, periods)
-    # all_dates = list(date_generator)  # Convert the generator to a list
-    # return random.sample(all_dates, k=number_of_workouts)
-
-    # datelist = pd.date_range(start, periods=periods).tolist()
-    # datelist = [date.strftime("%Y-%m-%d") for date in datelist]
-    # return random.sample(datelist, k=number_of_workouts)
 
     date_generator = generate_dates(start, periods)
     return reservoir_sample(date_generator, number_of_workouts)

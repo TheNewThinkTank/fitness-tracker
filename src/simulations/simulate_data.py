@@ -7,7 +7,7 @@ import random
 from datetime import datetime
 # from workout_simulator import WorkoutSimulator  # type: ignore
 from pprint import pprint as pp
-from datetime_tools.generate_days import generate_dates
+from datetime_tools.generate_days import generate_dates  # type: ignore
 
 
 def reservoir_sample(generator, k: int):

@@ -3,26 +3,11 @@ Date: 2021-12-20
 Purpose: Simulate weight-training data
 """
 
-import random
 from datetime import datetime
 # from workout_simulator import WorkoutSimulator  # type: ignore
 from pprint import pprint as pp
 from datetime_tools.generate_days import generate_dates  # type: ignore
-
-
-def reservoir_sample(generator, k: int):
-    """Select k random elements from the generator using reservoir sampling."""
-    reservoir = []
-    
-    for i, element in enumerate(generator):
-        if i < k:
-            reservoir.append(element)
-        else:
-            j = random.randint(0, i)
-            if j < k:
-                reservoir[j] = element
-
-    return reservoir
+from algo_lib.sampling.reservoir_sample import reservoir_sample  # type: ignore
 
 
 def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[str]:

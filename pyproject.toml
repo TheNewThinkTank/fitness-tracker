@@ -8,7 +8,7 @@ authors = ["Gustav Collin Rasmussen"]
 athleteprofiler = "^0.1.1"
 behave = "^1.2.6"
 fastapi = "^0.103"
-Faker = "^19.10"
+faker = "^33.1.0"
 flake8 = "^6.1"
 matplotlib = "^3.8.0"
 mypy = "^1.6"
@@ -38,7 +38,7 @@ profiling-tools = "^0.0.4"
 file-convertion-tools = "^0.0.8"
 datetime-convertion-tools = "^0.0.7"
 numpy = "^2.1.3"
-algo-library = "^0.0.5"
+algo-library = "^0.0.6"
 
 [tool.poetry.dev-dependencies]
 

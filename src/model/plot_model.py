@@ -10,16 +10,15 @@ import argparse
 import os
 import sys
 from datetime import datetime
-
 # from pprint import pprint as pp
 import matplotlib.pyplot as plt  # type: ignore
 import seaborn as sns  # type: ignore
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-
 from model import get_data, get_df, one_rep_max_estimator, calc_volume  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
+
+IMG_PATH = './docs/project_docs/img/'
 
 
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
@@ -61,7 +60,7 @@ def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     plt.xticks(rotation=45)
     ax.set_ylabel("1 RM estimates [kg]", fontsize=20)
     ax.legend(loc="lower right", fontsize=20)
-    plt.savefig(f"img/{datatype}_fitted_data_{exercise}_splines.png")
+    plt.savefig(f"{IMG_PATH}{datatype}_fitted_data_{exercise}_splines.png")
     plt.clf()  # clear figure before next plot
 
 
@@ -96,7 +95,7 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     plt.xticks(rotation=45)
     ax.set_ylabel("Volume [kg]", fontsize=20)
     ax.legend(loc="lower right", fontsize=20)
-    plt.savefig(f"img/{datatype}_fitted_data_{exercise}_gvt.png")
+    plt.savefig(f"{IMG_PATH}{datatype}_fitted_data_{exercise}_gvt.png")
     plt.clf()  # clear figure before next plot
 
 

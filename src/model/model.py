@@ -8,12 +8,9 @@ import logging
 import os
 import sys
 from typing import Final
-
 import pandas as pd  # type: ignore
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 from one_rep_max import (  # type: ignore
     ACSMStrategy,
@@ -28,8 +25,9 @@ def get_df(
     splits: list[str] = ["chest", "push", "chest_and_back"],
     exercise: str = "barbell_bench_press",
 ) -> pd.DataFrame:
-    """Return one consolidated Pandas dataframe containing workout date and training data
-    for specified split(s) and exercise
+    """Return one consolidated Pandas dataframe,
+    containing workout date and training data,
+    for specified split(s) and exercise.
 
     :param log: _description_
     :type log: _type_

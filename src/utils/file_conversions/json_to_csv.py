@@ -6,7 +6,6 @@ e.g. for the great expectations framework to process.
 
 import json
 from pathlib import Path
-
 import pandas as pd  # type: ignore
 
 

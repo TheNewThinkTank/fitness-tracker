@@ -6,15 +6,12 @@ Purpose: Plots of popular 1-repetition-maximum formulas
 
 import os
 import sys
-
 import matplotlib.pyplot as plt  # type: ignore
 import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-
 from one_rep_max import EpleyStrategy, BrzyckiStrategy  # type: ignore
 from src.one_rep_max_calc import (  # type: ignore
     OneRepMaxCalculator,

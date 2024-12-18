@@ -15,7 +15,6 @@ from tinydb import TinyDB  # type: ignore
 from src.utils.custom_storage import YAMLStorage  # type: ignore
 import src.crud.read as read  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-
 from fastapi.openapi.utils import get_openapi  # type: ignore
 import yaml  # type: ignore
 

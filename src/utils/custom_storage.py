@@ -1,7 +1,10 @@
-import yaml  # type: ignore
+"""_summary_
+"""
 
+import yaml  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from tinydb.storages import Storage, touch  # type: ignore
+from config_loader import ConfigLoader  # type: ignore
 
 
 class YAMLStorage(Storage):
@@ -29,12 +32,19 @@ class YAMLStorage(Storage):
 
 
 def main():
-    # TODO: make USER dynamic
-    # TODO: make ATHLETE dynamic
-    user = "gustavcollinrasmussen"
-    athlete = "gustav_rasmussen"
 
-    test_path = f"/Users/{user}/Google Drive/My Drive/DATA/fitness-tracker-data/{athlete}/db.yml"
+    env_vars = ConfigLoader.load_env_variables()
+
+    config = ConfigLoader.load_config(
+        athlete=env_vars["athlete"],
+        user=env_vars["user"],
+        email=env_vars["email"],
+    )
+
+    in_file_name = "/db.yml"
+
+    test_path = f'{config["google_drive_data_path"]}/{env_vars["athlete"]}{in_file_name}'
+
     db = TinyDB(test_path, storage=YAMLStorage)
     print(db)
 

@@ -19,6 +19,7 @@ def main():
 
     in_file = f'{config["google_drive_data_path"]}/{env_vars["athlete"]}{in_file_name}'
 
+    # TODO: test that below command works
     json_to_yaml(in_file)
 
 

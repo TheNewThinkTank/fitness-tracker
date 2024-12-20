@@ -19,7 +19,9 @@
           "enum": [
             "CET",
             "CEST",
-            "ICT"
+            "ICT",
+            "GMT",
+            "BST"
           ]
       },
       "split": {

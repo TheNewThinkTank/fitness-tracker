@@ -111,15 +111,19 @@ IMG_PATH='./docs/project_docs/img/'
 SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
 
 # Parse command-line arguments
+WORKOUT_DATES=()  # Initialize an array for multiple dates
 while getopts ":d:f:c:h" opt; do
   case ${opt} in
     d )
-      if validate_date "$OPTARG"; then
-        WORKOUT_DATE=$OPTARG
-      else
-        log "Error: Invalid date format. Expected YYYY-MM-DD."
-        exit 1
-      fi
+      IFS=',' read -r -a input_dates <<< "$OPTARG"
+      for date in "${input_dates[@]}"; do
+        if validate_date "$date"; then
+          WORKOUT_DATES+=("$date")
+        else
+          log "Error: Invalid date format. Expected YYYY-MM-DD."
+          exit 1
+        fi
+      done
       ;;
     f )
       if validate_file_format "$OPTARG"; then
@@ -149,6 +153,11 @@ while getopts ":d:f:c:h" opt; do
   esac
 done
 
+# Default to today's date if none provided
+if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
+  WORKOUT_DATES=($(date +%F))
+fi
+
 # Load configuration
 load_config
 
@@ -158,7 +167,13 @@ check_dependencies
 log "Workflow started"
 log "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
 
-insert_data "$FILE_FORMAT" "$WORKOUT_DATE"
+# insert_data "$FILE_FORMAT" "$WORKOUT_DATE"
+# Process each date
+for workout_date in "${WORKOUT_DATES[@]}"; do
+  log "Processing for date: $workout_date"
+  insert_data "$FILE_FORMAT" "$workout_date"
+done
+
 prepare_figures "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
 open_images "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
 

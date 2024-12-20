@@ -3,7 +3,6 @@
 set -euo pipefail
 
 # Date: 2022-01-21
-# Author: Gustav Collin Rasmussen
 # Purpose: BASH workflow that inserts data into a database and prepares figures.
 
 CONFIG_FILE=".config/fitcli.conf"
@@ -37,7 +36,6 @@ validate_date() {
     fi
   fi
 }
-
 
 validate_file_format() {
   local format=$1
@@ -100,81 +98,91 @@ load_config() {
   fi
 }
 
-# Default values
-WORKOUT_DATE=$(date +%F)
-YEAR_TO_PLOT=$(date +%Y)
-MONTH_TO_PLOT=$(date +%B)
-FILE_FORMAT='yml'
-CONFIG_FILE='./fitcli.conf'
-LOG_FILE='logs/fitcli.log'
-IMG_PATH='./docs/project_docs/img/'
-SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
+# Main function for script execution
+main() {
+  # Code to be executed when the script is run directly
 
-# Parse command-line arguments
-WORKOUT_DATES=()  # Initialize an array for multiple dates
-while getopts ":d:f:c:h" opt; do
-  case ${opt} in
-    d )
-      IFS=',' read -r -a input_dates <<< "$OPTARG"
-      for date in "${input_dates[@]}"; do
-        if validate_date "$date"; then
-          WORKOUT_DATES+=("$date")
+  # Default values
+  WORKOUT_DATE=$(date +%F)
+  YEAR_TO_PLOT=$(date +%Y)
+  MONTH_TO_PLOT=$(date +%B)
+  FILE_FORMAT='yml'
+  CONFIG_FILE='./fitcli.conf'
+  LOG_FILE='logs/fitcli.log'
+  IMG_PATH='./docs/project_docs/img/'
+  SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
+
+  # Parse command-line arguments
+  WORKOUT_DATES=()  # Initialize an array for multiple dates
+  while getopts ":d:f:c:h" opt; do
+    case ${opt} in
+      d )
+        IFS=',' read -r -a input_dates <<< "$OPTARG"
+        for date in "${input_dates[@]}"; do
+          if validate_date "$date"; then
+            WORKOUT_DATES+=("$date")
+          else
+            log "Error: Invalid date format. Expected YYYY-MM-DD."
+            exit 1
+          fi
+        done
+        ;;
+      f )
+        if validate_file_format "$OPTARG"; then
+          FILE_FORMAT=$OPTARG
         else
-          log "Error: Invalid date format. Expected YYYY-MM-DD."
+          log "Error: Unsupported file format. Supported formats: ${SUPPORTED_FILE_FORMATS[*]}"
           exit 1
         fi
-      done
-      ;;
-    f )
-      if validate_file_format "$OPTARG"; then
-        FILE_FORMAT=$OPTARG
-      else
-        log "Error: Unsupported file format. Supported formats: ${SUPPORTED_FILE_FORMATS[*]}"
+        ;;
+      c )
+        CONFIG_FILE=$OPTARG
+        ;;
+      h )
+        show_help
+        exit 0
+        ;;
+      \? )
+        log "Invalid option: -$OPTARG"
+        show_help
         exit 1
-      fi
-      ;;
-    c )
-      CONFIG_FILE=$OPTARG
-      ;;
-    h )
-      show_help
-      exit 0
-      ;;
-    \? )
-      log "Invalid option: -$OPTARG"
-      show_help
-      exit 1
-      ;;
-    : )
-      log "Invalid option: -$OPTARG requires an argument"
-      show_help
-      exit 1
-      ;;
-  esac
-done
+        ;;
+      : )
+        log "Invalid option: -$OPTARG requires an argument"
+        show_help
+        exit 1
+        ;;
+    esac
+  done
 
-# Default to today's date if none provided
-if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
-  WORKOUT_DATES=($(date +%F))
+  # Default to today's date if none provided
+  if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
+    WORKOUT_DATES=($(date +%F))
+  fi
+
+  # Load configuration
+  load_config
+
+  # Check dependencies
+  check_dependencies
+
+  log "Workflow started"
+  log "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
+
+  # insert_data "$FILE_FORMAT" "$WORKOUT_DATE"
+  # Process each date
+  for workout_date in "${WORKOUT_DATES[@]}"; do
+    log "Processing for date: $workout_date"
+    insert_data "$FILE_FORMAT" "$workout_date"
+  done
+
+  prepare_figures "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
+  open_images "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
+
+  log "Workflow completed successfully"
+}
+
+# Execute main if the script is run directly
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+  main "$@"
 fi
-
-# Load configuration
-load_config
-
-# Check dependencies
-check_dependencies
-
-log "Workflow started"
-log "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
-
-# insert_data "$FILE_FORMAT" "$WORKOUT_DATE"
-# Process each date
-for workout_date in "${WORKOUT_DATES[@]}"; do
-  log "Processing for date: $workout_date"
-  insert_data "$FILE_FORMAT" "$workout_date"
-done
-
-prepare_figures "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
-open_images "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
-
-log "Workflow completed successfully"

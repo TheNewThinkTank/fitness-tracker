@@ -156,8 +156,11 @@ main() {
   done
 
   # Default to today's date if none provided
+  # if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
+  #   WORKOUT_DATES=($(date +%F))
+  # fi
   if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
-    WORKOUT_DATES=($(date +%F))
+    mapfile -t WORKOUT_DATES < <(date +%F)
   fi
 
   # Load configuration

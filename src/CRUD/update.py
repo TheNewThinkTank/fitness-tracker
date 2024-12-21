@@ -4,7 +4,7 @@ Purpose: Update or delete weight-training data
 """
 
 import os
-from pprint import pprint as pp
+# from pprint import pprint as pp
 import re
 import sys
 from icecream import ic  # type: ignore
@@ -23,6 +23,7 @@ def filter_exercises_with_whitespace(workout_data):
     :return: _description_
     :rtype: _type_
     """
+
     filtered_exercises = []
     for workout in workout_data:
         exercises_with_whitespace = [
@@ -40,20 +41,42 @@ def filter_exercises_with_whitespace(workout_data):
     return filtered_exercises
 
 
+def clean_exercise_name(exercise: str) -> str:
+    """_summary_
+
+    :param exercise: _description_
+    :type exercise: str
+    :return: _description_
+    :rtype: str
+    """
+    # TODO: fix below
+    # Replace spaces with underscores if there isn't an underscore before or after
+    cleaned_exercise_name = re.sub(r'(?<!_) (?!_)', '_', exercise)
+    # If there is an underscore before or after, remove the space
+    # cleaned_exercise_name = re.sub(r'(?<=_) | |(?=_)', '', cleaned_exercise_name)
+    cleaned_exercise_name = re.sub(r'(?<=_) +| +(?=_)', '', cleaned_exercise_name)
+
+    return cleaned_exercise_name
+
+
 def clean_exercise_names(table) -> None:
+    """Cleans the names of exercises by replacing spaces with underscores
+    and updating the database.
+
+    :param table: The database table containing workout data.
+    :type table: _type_
+    """
     workout_data = table.all()
+    updates = []
     for workout in workout_data:
-        new_exercises = {}
-        for exercise in workout['exercises']:
-            # Replace spaces with underscores if there isn't an underscore before or after
-            cleaned_exercise_name = re.sub(r'(?<!_) (?!_)', '_', exercise)
-            # If there is an underscore before or after, remove the space
-            cleaned_exercise_name = re.sub(r'(?<=_) | |(?=_)', '', cleaned_exercise_name)
-
-            new_exercises[cleaned_exercise_name] = workout['exercises'][exercise]
+        new_exercises = {
+            clean_exercise_name(exercise): details
+            for exercise, details in workout['exercises'].items()
+            }
         workout['exercises'] = new_exercises
-
-        table.update(workout, Query().date == workout['date'])
+        # table.update(workout, Query().date == workout['date'])
+        updates.append(workout)
+    table.update_multiple(updates)
 
 
 def main() -> None:
@@ -62,7 +85,7 @@ def main() -> None:
     datamodels = ["real", "simulated"]
     datatype = datamodels[0]
 
-    db, table, _ = set_db_and_table(
+    _, table, _ = set_db_and_table(
         datatype,
         env="dev"
         )

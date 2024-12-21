@@ -53,7 +53,11 @@ async def get_dates() -> list[str]:
 @app.get("/dates_and_splits")
 async def get_dates_and_splits():  # -> dict[str, list[str]]:
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
-    return read.get_dates_and_muscle_groups(table)
+    try:
+        return read.get_dates_and_muscle_groups(table)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 
 @app.get("/dates/{date}")

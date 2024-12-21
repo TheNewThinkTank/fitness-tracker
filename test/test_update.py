@@ -1,17 +1,15 @@
 
 from tinydb import TinyDB
-
 import pytest
-
 from test.conftest import src
 
-pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
+# pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
 
-search_table = pytest.importorskip("src.crud.update.search_table")
-remove_from_table = pytest.importorskip("src.crud.update.remove_from_table")
-truncate_table = pytest.importorskip("src.crud.update.truncate_table")
-
-# from src.crud.update import search_table, remove_from_table, truncate_table
+from src.crud.update import (  # type: ignore
+    # filter_exercises_with_whitespace,
+    clean_exercise_name,
+    # clean_exercise_names
+)
 
 
 def setup():
@@ -20,28 +18,11 @@ def setup():
     return test_table
 
 
-@pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
-def test_search_table():
-    # TODO: assert update
-    test_table = setup()
-    search_table(test_table)
-    # assert
-    # teardown()
-
-
-@pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
-def test_remove_from_table():
-    # TODO: assert removal
-    test_table = setup()
-    remove_from_table(test_table)
-
-
-@pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
-def test_truncate_table():
-    test_table = setup()
-    truncate_table(test_table)
-    assert test_table.all() == []
-
-
-def teardown():
-    ...
+def test_clean_exercise_name():
+    assert clean_exercise_name("bench press") == "bench_press"
+    assert clean_exercise_name("bench  press") == "bench_press"
+    assert clean_exercise_name("bench_press") == "bench_press"
+    assert clean_exercise_name("bench_ press") == "bench_press"
+    assert clean_exercise_name("bench press_") == "bench_press_"
+    assert clean_exercise_name("bench_  press") == "bench_press"
+    assert clean_exercise_name("bench  _  press") == "bench_press"

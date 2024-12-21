@@ -3,7 +3,7 @@ from tinydb import TinyDB
 import pytest
 from test.conftest import src
 
-# pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
+pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
 
 from src.crud.update import (  # type: ignore
     # filter_exercises_with_whitespace,

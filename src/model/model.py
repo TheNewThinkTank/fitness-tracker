@@ -1,5 +1,4 @@
 """
-Date: 2021-12-21
 Purpose: read workout data and calculate 1RM and training volume.
 """
 

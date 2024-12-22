@@ -1,9 +1,9 @@
 """
-Date: 2021-12-27
 Purpose: Set db and table depending on datatype (real/simulated)
 """
 
 from datetime import datetime
+import os
 from tinydb import TinyDB  # type: ignore
 from custom_storage import YAMLStorage  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
@@ -13,6 +13,8 @@ class TinyDBSingleton:
     _instance = None
 
     def __new__(cls, db_path, storage=YAMLStorage):
+        # Ensure the directory for db_path exists
+        os.makedirs(os.path.dirname(db_path), exist_ok=True)
         if cls._instance is None:
             cls._instance = super(TinyDBSingleton, cls).__new__(cls)
             cls._instance.db = TinyDB(db_path, storage=storage)

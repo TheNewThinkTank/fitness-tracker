@@ -105,15 +105,12 @@ jobs:
       #     EMAIL: ${{ secrets.EMAIL }}
       #     USER: ${{ secrets.USER }}
 
-      # - uses: codecov/codecov-action@v4
-      #   with:
-      #     # name: codecov-umbrella # optional
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     verbose: true # optional (default = false)
-      #     codecov_yml_path: .config/codecov.yml
-
       - name: Run tests
         run: poetry run pytest --cov --cov-report=xml
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          USER: ${{ secrets.USER }}
+          ATHLETE: ${{ secrets.ATHLETE }}
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4
@@ -121,6 +118,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: TheNewThinkTank/fitness-tracker
           codecov_yml_path: .config/codecov.yml
+          # verbose: true # optional (default = false)
 
       - uses: rojopolis/spellcheck-github-actions@0.40.0
         name: Spellcheck

@@ -1,7 +1,5 @@
 """
-Date: 2024-02-10
-Author: Gustav Collin Rasmussen
-Purpose: Definition of popular 1-repetition-maximum formulas
+Definition of popular 1-repetition-maximum formulas
 """
 
 import numpy as np  # type: ignore
@@ -11,6 +9,31 @@ from one_rep_max import (  # type: ignore
     EpleyStrategy,
     BrzyckiStrategy
     )
+
+
+# class OneRepMaxCalculator:
+#     def __init__(self, strategy):
+#         self.strategy = strategy
+
+#     def calculate(self, weight, reps):
+#         weight, reps = self.validate_inputs(weight, reps)
+#         return self.strategy.estimate(weight, reps)
+
+#     @staticmethod
+#     def validate_inputs(weight, reps):
+#         """Ensure that inputs are either scalars,
+#         or vectorized types (Pandas Series, NumPy arrays)."""
+#         weight_is_vectorized = isinstance(weight, (pd.Series, np.ndarray))
+#         reps_is_vectorized = isinstance(reps, (pd.Series, np.ndarray))
+
+#         # Check if both are vectorized
+#         if weight_is_vectorized and reps_is_vectorized:
+#             if weight.shape != reps.shape:
+#                 raise ValueError("Weight and reps must have the same shape when vectorized.")
+#         elif not (np.isscalar(weight) or np.isscalar(reps)):
+#             raise TypeError("Invalid input types. Expected both weight and reps to be either scalars or vectorized.")
+        
+#         return weight, reps
 
 
 class OneRepMaxCalculator:
@@ -23,18 +46,17 @@ class OneRepMaxCalculator:
 
     @staticmethod
     def validate_inputs(weight, reps):
-        """Ensure that inputs are either scalars,
-        or vectorized types (Pandas Series, NumPy arrays)."""
         weight_is_vectorized = isinstance(weight, (pd.Series, np.ndarray))
         reps_is_vectorized = isinstance(reps, (pd.Series, np.ndarray))
-
-        # Check if both are vectorized
-        if weight_is_vectorized and reps_is_vectorized:
-            if weight.shape != reps.shape:
-                raise ValueError("Weight and reps must have the same shape when vectorized.")
-        elif not (np.isscalar(weight) or np.isscalar(reps)):
-            raise TypeError("Invalid input types. Expected both weight and reps to be either scalars or vectorized.")
         
+        if weight_is_vectorized and reps_is_vectorized and weight.shape != reps.shape:
+            raise ValueError("Weight and reps must have the same shape when vectorized.")
+        
+        if isinstance(reps, (int, float)) and reps <= 0:
+            raise ValueError("Reps must be positive.")
+        if isinstance(reps, (np.ndarray, pd.Series)) and (reps <= 0).any():
+            raise ValueError("All reps values must be positive.")
+
         return weight, reps
 
 

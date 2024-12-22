@@ -79,11 +79,13 @@ jobs:
       - name: Check working directory
         run: pwd
 
-      - name: Set working directory
+      - name: Set working directory and PYTHONPATH
         run: |
           cd /home/runner/work/fitness-tracker/fitness-tracker
           echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
-
+          echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/src" >> $GITHUB_ENV
+          echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/test" >> $GITHUB_ENV
+  
       # - name: Run pytest
       #   run: poetry run pytest --durations=10 test/test_model.py
 

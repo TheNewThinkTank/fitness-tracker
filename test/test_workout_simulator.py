@@ -1,3 +1,4 @@
+
 import pytest
 from unittest.mock import mock_open, patch
 import yaml
@@ -7,7 +8,6 @@ from src.simulations.workout_simulator import (  # type: ignore
     WorkoutSimulator,
     JSONWorkoutFormatter
     )
-
 
 @pytest.fixture
 def mock_yaml_data():

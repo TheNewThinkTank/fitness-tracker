@@ -1,15 +1,15 @@
-import os
+
 from pprint import pprint as pp
 import pytest
-
-from dotenv import load_dotenv
 import yaml
-
 from test.conftest import src
 from src.utils.validate import Workout
+from src.utils.config_loader import ConfigLoader  # type: ignore
 
-load_dotenv()
-email = os.environ["EMAIL"]
+# load_dotenv()
+# email = os.environ["EMAIL"]
+
+env_vars = ConfigLoader.load_env_variables()
 
 
 def setup():
@@ -19,19 +19,19 @@ def setup():
     with open("./.config/config.yml", "r") as rf:
         DATA = yaml.safe_load(rf)
 
-    user = "gustavcollinrasmussen"
-    athlete = "gustav_rasmussen"
+    # user = "gustavcollinrasmussen"
+    # athlete = "gustav_rasmussen"
 
     google_drive_data_path = (
         DATA["google_drive_data_path"]
-        .replace("<USER>", user)
-        .replace("<EMAIL>", email)
+        .replace("<USER>", env_vars["user"])
+        .replace("<EMAIL>", env_vars["email"])
     )
 
     file = (
         DATA["real_workout_database"]
         .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
-        .replace("<ATHLETE>", athlete)
+        .replace("<ATHLETE>", env_vars["athlete"])
         .replace("<YEAR>", "2024")
     )
 

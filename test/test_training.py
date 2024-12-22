@@ -1,9 +1,8 @@
 """
-unit test suite for src folder
 """
 
 from datetime import datetime
-from test.conftest import src
+# from test.conftest import src
 from src.crud.read import show_exercises
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 

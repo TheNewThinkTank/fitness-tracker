@@ -51,26 +51,16 @@ def set_db_and_table(
         email=env_vars["email"],
     )
 
-    if env != "prd":
+    if env != "prd" or 'GITHUB_ACTIONS' in os.environ:
         db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
         table = db.table("weight_training_log")
         training_catalogue = "src/utils/muscles_and_exercises.yaml"
         return db, table, training_catalogue
 
-    workspace = os.getenv('GITHUB_WORKSPACE', default='.')
-    # db_path = os.path.join(workspace, f"data/{year}_workouts.yml") if datatype == "real" else os.path.join(workspace, "data/simulated_workouts.yml")
-
-    # db_path = f"data/{year}_workouts.yml" if datatype == "real" else f"data/simulated_workouts.yml"
-
-    # db_path = (
-    #     config["real_workout_database"]
-    #     .replace("<YEAR>", str(year))
-    # ) if datatype == "real" else config["simulated_workout_database"]
-
-    if datatype == "real":
-        db_path = os.path.join(workspace, config["real_workout_database"].replace("<YEAR>", str(year)))
-    else:
-        db_path = os.path.join(workspace, config["simulated_workout_database"])
+    db_path = (
+        config["real_workout_database"]
+        .replace("<YEAR>", str(year))
+    ) if datatype == "real" else config["simulated_workout_database"]
 
     db_singleton = TinyDBSingleton(db_path)
     db = db_singleton.get_db()

@@ -1,10 +1,6 @@
-# TODO: fix import
+# # TODO: fix import
 # from tinydb import TinyDB
-# import pytest
 # from test.conftest import src
-
-# pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
-
 # from src.crud.update import (  # type: ignore
 #     # filter_exercises_with_whitespace,
 #     clean_exercise_name,
@@ -23,6 +19,6 @@
 #     assert clean_exercise_name("bench  press") == "bench_press"
 #     assert clean_exercise_name("bench_press") == "bench_press"
 #     assert clean_exercise_name("bench_ press") == "bench_press"
-#     assert clean_exercise_name("bench press_") == "bench_press_"
 #     assert clean_exercise_name("bench_  press") == "bench_press"
 #     assert clean_exercise_name("bench  _  press") == "bench_press"
+#     assert clean_exercise_name("shoulder press_") == "shoulder_press"

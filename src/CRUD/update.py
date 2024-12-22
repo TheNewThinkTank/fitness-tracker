@@ -49,14 +49,16 @@ def clean_exercise_name(exercise: str) -> str:
     :return: _description_
     :rtype: str
     """
-    # TODO: fix below
-    # Replace spaces with underscores if there isn't an underscore before or after
-    cleaned_exercise_name = re.sub(r'(?<!_) (?!_)', '_', exercise)
-    # If there is an underscore before or after, remove the space
-    # cleaned_exercise_name = re.sub(r'(?<=_) | |(?=_)', '', cleaned_exercise_name)
-    cleaned_exercise_name = re.sub(r'(?<=_) +| +(?=_)', '', cleaned_exercise_name)
 
-    return cleaned_exercise_name
+    pattern = r'[_\s]+'
+
+    # Replace matches with a single underscore
+    cleaned_exercise = re.sub(pattern, '_', exercise)
+
+    # Remove any trailing underscores
+    cleaned_exercise = cleaned_exercise.removesuffix("_")
+
+    return cleaned_exercise
 
 
 def clean_exercise_names(table) -> None:

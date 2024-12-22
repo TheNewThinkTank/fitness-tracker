@@ -84,6 +84,7 @@ jobs:
           cd /home/runner/work/fitness-tracker/fitness-tracker
           echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker" >> $GITHUB_ENV
           echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/src" >> $GITHUB_ENV
+          echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/src/crud" >> $GITHUB_ENV
           echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/test" >> $GITHUB_ENV
   
       # - name: Run pytest

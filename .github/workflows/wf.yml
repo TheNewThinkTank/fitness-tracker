@@ -109,6 +109,7 @@ jobs:
         run: |
           mkdir -p data
           mkdir -p "<GOOGLE_DRIVE_DATA_PATH>/<ATHLETE>"
+          mkdir -p "/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/My Drive/DATA/fitness-tracker-data"
 
       - name: Run tests
         run: poetry run pytest --cov --cov-report=xml

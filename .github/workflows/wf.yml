@@ -108,7 +108,7 @@ jobs:
       - name: Set up workspace
         run: |
           mkdir -p data
-          mkdir -p <GOOGLE_DRIVE_DATA_PATH>/<ATHLETE>
+          mkdir -p "<GOOGLE_DRIVE_DATA_PATH>/<ATHLETE>"
 
       - name: Run tests
         run: poetry run pytest --cov --cov-report=xml

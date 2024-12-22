@@ -1,16 +1,11 @@
 """
-Date: 2021-12-27
 Purpose: Plot weight-training data with fit
 """
-
-__author__ = "Gustav Collin Rasmussen"
-__version__ = "0.1.0"
 
 import argparse
 import os
 import sys
 from datetime import datetime
-# from pprint import pprint as pp
 import matplotlib.pyplot as plt  # type: ignore
 import seaborn as sns  # type: ignore
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -99,6 +94,7 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     plt.clf()  # clear figure before next plot
 
 
+# TODO: unit test below function
 def get_split(pgm: str) -> list[tuple[list, str]]:
 
     splits_and_key_exercises_1rm = [

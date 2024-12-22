@@ -4,7 +4,6 @@ Purpose: Get all exercises available for a given musclegroup
 """
 
 import yaml  # type: ignore
-
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 

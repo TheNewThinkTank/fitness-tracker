@@ -120,7 +120,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: TheNewThinkTank/fitness-tracker
-          # codecov_yml_path: .config/codecov.yml
+          codecov_yml_path: .config/codecov.yml
 
       - uses: rojopolis/spellcheck-github-actions@0.40.0
         name: Spellcheck

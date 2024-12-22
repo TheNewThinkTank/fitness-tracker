@@ -3,21 +3,9 @@ unit test suite for src folder
 """
 
 from datetime import datetime
-
-import pytest
-
 from test.conftest import src
-
-pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
-
-show_exercises = pytest.importorskip("src.crud.read.show_exercises")
-
-# from src.crud.read import show_exercises
-
+from src.crud.read import show_exercises
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-
-import pytest
-
 
 _, table, _ = set_db_and_table(
     datatype="real",
@@ -25,7 +13,6 @@ _, table, _ = set_db_and_table(
     )
 
 
-@pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
 def test_show_exercises():
     """Verify that test_show_exercises gives correct exercises for known workout."""
     assert show_exercises(table, "2021-12-16") == [

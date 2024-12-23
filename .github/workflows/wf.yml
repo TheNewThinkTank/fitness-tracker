@@ -123,12 +123,16 @@ jobs:
           mkdir -p data
 
       - name: Run tests
-        run: poetry run pytest --cov --cov-report=xml
+        run: |
+          echo "PYTHONPATH: $PYTHONPATH"
+          export PYTHONPATH=$PYTHONPATH
+          echo "PYTHONPATH: $PYTHONPATH"
+          poetry run pytest test/ --cov --cov-report=xml
         env:
           EMAIL: ${{ secrets.EMAIL }}
           USER: ${{ secrets.USER }}
           ATHLETE: ${{ secrets.ATHLETE }}
-          PYTHONPATH: ${{ env.PYTHONPATH }}
+          # PYTHONPATH: ${{ env.PYTHONPATH }}
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4

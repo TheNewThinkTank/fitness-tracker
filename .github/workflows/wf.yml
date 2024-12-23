@@ -87,8 +87,11 @@ jobs:
       #     echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/src/crud" >> $GITHUB_ENV
       #     echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/test" >> $GITHUB_ENV
 
+      # - name: Set PYTHONPATH
+      #   run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
+
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
 
       # - name: Run pytest
       #   run: poetry run pytest --durations=10 test/test_model.py

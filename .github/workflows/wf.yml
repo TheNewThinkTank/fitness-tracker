@@ -87,24 +87,10 @@ jobs:
       #     echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/src/crud" >> $GITHUB_ENV
       #     echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/test" >> $GITHUB_ENV
 
-      # - name: Set PYTHONPATH
-      #   run: |
-      #     echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
-
-      # - name: Set PYTHONPATH
-      #   run: |
-      #     echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
-      #     echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
-      #     echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src/crud" >> $GITHUB_ENV
-      #     echo "PYTHONPATH=$PYTHONPATH:$(pwd)/test" >> $GITHUB_ENV
-
       - name: Set PYTHONPATH
         run: |
-          echo "PYTHONPATH=\$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
-          echo "PYTHONPATH=\$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
-          echo "PYTHONPATH=\$PYTHONPATH:$(pwd)/src/crud" >> $GITHUB_ENV
-          echo "PYTHONPATH=\$PYTHONPATH:$(pwd)/test" >> $GITHUB_ENV
-
+          echo "PYTHONPATH=\$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test" >> $GITHUB_ENV
+    
       - name: Print PYTHONPATH
         run: echo $PYTHONPATH
 

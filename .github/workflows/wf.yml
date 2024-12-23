@@ -87,11 +87,15 @@ jobs:
       #     echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/src/crud" >> $GITHUB_ENV
       #     echo "PYTHONPATH=$PYTHONPATH:/home/runner/work/fitness-tracker/fitness-tracker/test" >> $GITHUB_ENV
 
-      # - name: Set PYTHONPATH
-      #   run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
-
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
+        run: |
+          echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
+
+      # - name: Set PYTHONPATH
+      #   run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
+
+      - name: Print PYTHONPATH
+        run: echo $PYTHONPATH
 
       # - name: Run pytest
       #   run: poetry run pytest --durations=10 test/test_model.py
@@ -127,6 +131,7 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           USER: ${{ secrets.USER }}
           ATHLETE: ${{ secrets.ATHLETE }}
+          PYTHONPATH: ${{ env.PYTHONPATH }}
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4

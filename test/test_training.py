@@ -3,7 +3,7 @@
 
 from datetime import datetime
 # from test.conftest import src
-from src.crud.read import show_exercises
+from src.crud.read import show_exercises  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 _, table, _ = set_db_and_table(

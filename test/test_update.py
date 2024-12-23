@@ -1,6 +1,6 @@
 # TODO: fix import
 from tinydb import TinyDB
-from test.conftest import src
+#from test.conftest import src
 from src.crud.update import (  # type: ignore
     # filter_exercises_with_whitespace,
     clean_exercise_name,

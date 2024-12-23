@@ -127,7 +127,8 @@ jobs:
           echo "PYTHONPATH: $PYTHONPATH"
           export PYTHONPATH=$PYTHONPATH
           echo "PYTHONPATH: $PYTHONPATH"
-          poetry run pytest test/ --cov --cov-report=xml
+          poetry run pytest --rootdir=$(pwd) test/ --cov --cov-report=xml
+        # poetry run pytest test/ --cov --cov-report=xml
         env:
           EMAIL: ${{ secrets.EMAIL }}
           USER: ${{ secrets.USER }}

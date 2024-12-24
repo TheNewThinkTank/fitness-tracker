@@ -1,5 +1,7 @@
 name: Docker Image Workflow
 
+# TODO: set DOCKERHUB_TOKEN and GITHUB_TOKEN in the repository secrets
+
 on:
   workflow_call:
     inputs:
@@ -15,10 +17,12 @@ on:
         description: "DockerHub Username"
         required: false
         type: string
+        default: "gustavrasmussen"
       github-owner:
         description: "GitHub Owner (for GitHub Packages)"
         required: false
         type: string
+        default: "TheNewThinkTank"
 
 jobs:
   build_scan_and_push:

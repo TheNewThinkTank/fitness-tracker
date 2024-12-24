@@ -1,0 +1,46 @@
+name: AWS ECR Workflow
+
+on:
+  workflow_call: # Allows other workflows to call this workflow
+    inputs:
+      aws-region:
+        description: "AWS Region"
+        required: true
+        type: string
+        default: "eu-central-1"
+      ecr-repository:
+        description: "ECR Repository Name"
+        required: true
+        type: string
+      image-tag:
+        description: "Docker Image Tag"
+        required: true
+        type: string
+
+jobs:
+  deploy_to_AWS_ECR:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.aws-region }}
+
+      - name: Login to AWS ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ inputs.ecr-repository }}
+          IMAGE_TAG: ${{ inputs.image-tag }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG

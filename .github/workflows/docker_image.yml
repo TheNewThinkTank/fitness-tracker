@@ -15,7 +15,7 @@ on:
         description: "DockerHub Username"
         required: false
         type: string
-        default: "gustavrasmussen"
+        default: gustavrasmussen
       github-owner:
         description: "GitHub Owner (for GitHub Packages)"
         required: false

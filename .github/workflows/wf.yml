@@ -127,14 +127,14 @@ jobs:
       # - name: Pydantic data validation
       #   run: poetry run python src/utils/validate.py
 
-  # docker_image_workflow:
-  #   needs: qualify_code
-  #   uses: ./.github/workflows/docker_image.yml
-  #   with:
-  #     image-name: fitness-tracker
-  #     image-tag: latest
-  ##     dockerhub-username: your-dockerhub-username  # Optional, if pushing to DockerHub
-  ##     github-owner: your-github-username          # Optional, if pushing to GitHub Packages
+  docker_image_workflow:
+    needs: qualify_code
+    uses: ./.github/workflows/docker_image.yml
+    with:
+      image-name: fitness-tracker
+      image-tag: latest
+  #     dockerhub-username: your-dockerhub-username  # Optional, if pushing to DockerHub
+  #     github-owner: your-github-username          # Optional, if pushing to GitHub Packages
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code

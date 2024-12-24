@@ -1,7 +1,5 @@
 name: Docker Image Workflow
 
-# TODO: set DOCKERHUB_TOKEN and GITHUB_TOKEN in the repository secrets
-
 on:
   workflow_call:
     inputs:
@@ -34,7 +32,7 @@ jobs:
 
       - name: Log in to DockerHub
         if: inputs.dockerhub-username
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ inputs.dockerhub-username }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}

@@ -1,0 +1,52 @@
+{
+    "date": "2023-01-01",
+    "split": "back",
+    "exercises": {
+        "pullup": [
+            {
+                "set_number": 1,
+                "reps": 4,
+                "weight": "10.00 kg"
+            },
+            {
+                "set_number": 2,
+                "reps": 1,
+                "weight": "10.75 kg"
+            },
+            {
+                "set_number": 3,
+                "reps": 2,
+                "weight": "10.50 kg"
+            },
+            {
+                "set_number": 4,
+                "reps": 2,
+                "weight": "10.50 kg"
+            },
+            {
+                "set_number": 5,
+                "reps": 6,
+                "weight": "9.50 kg"
+            }
+        ],
+        "face_pull": [
+            {
+                "set_number": 1,
+                "reps": 10,
+                "weight": "7.00 kg"
+            },
+            {
+                "set_number": 2,
+                "reps": 10,
+                "weight": "7.00 kg"
+            }
+        ],
+        "chinup": [
+            {
+                "set_number": 1,
+                "reps": 10,
+                "weight": "8.50 kg"
+            }
+        ]
+    }
+}

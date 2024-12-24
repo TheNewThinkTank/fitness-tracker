@@ -1,0 +1,8073 @@
+weight_training_log:
+  '9':
+    date: '2022-01-01'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 5
+        weight: 90 kg
+      - set_number: 4
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 5
+        weight: 90 kg
+      - set_number: 4
+        reps: 5
+        weight: 80 kg
+      legpress:
+      - set_number: 1
+        reps: 10
+        weight: 150 kg
+      - set_number: 2
+        reps: 10
+        weight: 150 kg
+      - set_number: 3
+        reps: 10
+        weight: 150 kg
+      - set_number: 4
+        reps: 10
+        weight: 150 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 8
+        weight: 41 kg
+      - set_number: 2
+        reps: 8
+        weight: 41 kg
+      - set_number: 3
+        reps: 8
+        weight: 41 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 4
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 14
+        weight: 40 kg
+  '10':
+    date: '2022-01-03'
+    split: chest
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      - set_number: 3
+        reps: 5
+        weight: 70 kg
+      - set_number: 4
+        reps: 1
+        weight: 80 kg
+      bb_incline_press:
+      - set_number: 1
+        reps: 4
+        weight: 60 kg
+      - set_number: 2
+        reps: 6
+        weight: 50 kg
+      - set_number: 3
+        reps: 6
+        weight: 50 kg
+      - set_number: 4
+        reps: 5
+        weight: 50 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 12
+        weight: 54 kg
+      - set_number: 2
+        reps: 10
+        weight: 54 kg
+      - set_number: 3
+        reps: 8
+        weight: 54 kg
+      cable_crossover_high_low:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      - set_number: 3
+        reps: 10
+        weight: 36 kg
+      cable_crossover_low_high:
+      - set_number: 1
+        reps: 7
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 12
+        weight: 18 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+  '11':
+    date: '2022-01-05'
+    split: back_and_biceps
+    exercises:
+      wide_grip_pullup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      diverging_seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      - set_number: 4
+        reps: 12
+        weight: 40 kg
+      diverging_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      face_pull:
+      - set_number: 1
+        reps: 10
+        weight: 14 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      db_curl:
+      - set_number: 1
+        reps: 6
+        weight: 32 kg
+      - set_number: 2
+        reps: 6
+        weight: 32 kg
+  '12':
+    date: '2022-01-06'
+    split: shoulders_and_abs
+    exercises:
+      military_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 8
+        weight: 35 kg
+      - set_number: 4
+        reps: 8
+        weight: 35 kg
+      cable_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 10
+        weight: 16 kg
+      - set_number: 4
+        reps: 10
+        weight: 16 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      - set_number: 4
+        reps: 10
+        weight: 12 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 8
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      - set_number: 3
+        reps: 12
+        weight: 45 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 24
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      - set_number: 3
+        reps: 20
+        weight: 0 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 16
+        weight: 0 kg
+      - set_number: 2
+        reps: 16
+        weight: 0 kg
+      - set_number: 3
+        reps: 20
+        weight: 0 kg
+  '13':
+    date: '2022-01-15'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 3
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      - set_number: 4
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 100 kg
+      - set_number: 3
+        reps: 5
+        weight: 100 kg
+      - set_number: 4
+        reps: 5
+        weight: 100 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 7
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      hack_squat:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+  '14':
+    date: '2022-01-16'
+    split: chest
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 2
+        weight: 80 kg
+      - set_number: 2
+        reps: 6
+        weight: 70 kg
+      - set_number: 3
+        reps: 4
+        weight: 70 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 52 kg
+      - set_number: 2
+        reps: 5
+        weight: 48 kg
+      - set_number: 3
+        reps: 5
+        weight: 44 kg
+      - set_number: 4
+        reps: 5
+        weight: 40 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 12
+        weight: 54 kg
+      - set_number: 2
+        reps: 8
+        weight: 54 kg
+      - set_number: 3
+        reps: 6
+        weight: 54 kg
+      cable_crossover_high_low:
+      - set_number: 1
+        reps: 10
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      - set_number: 3
+        reps: 8
+        weight: 28 kg
+      cable_crossover_low_high:
+      - set_number: 1
+        reps: 7
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 18 kg
+      - set_number: 3
+        reps: 12
+        weight: 18 kg
+  '15':
+    date: '2022-01-23'
+    split: back_and_biceps
+    exercises:
+      wide_grip_pullup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      diverging_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      - set_number: 4
+        reps: 8
+        weight: 70 kg
+      diverging_seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 8
+        weight: 60 kg
+      face_pull:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 23 kg
+      - set_number: 3
+        reps: 10
+        weight: 27 kg
+      - set_number: 4
+        reps: 10
+        weight: 32 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 6
+        weight: 35 kg
+  '16':
+    date: '2022-01-25'
+    split: shoulders_and_abs
+    exercises:
+      military_press:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      - set_number: 3
+        reps: 6
+        weight: 35 kg
+      - set_number: 4
+        reps: 5
+        weight: 35 kg
+      cable_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 10
+        weight: 16 kg
+      - set_number: 4
+        reps: 10
+        weight: 16 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      - set_number: 4
+        reps: 10
+        weight: 12 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      - set_number: 3
+        reps: 12
+        weight: 45 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 30
+        weight: 0 kg
+      - set_number: 3
+        reps: 20
+        weight: 0 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 17
+        weight: 0 kg
+      - set_number: 2
+        reps: 17
+        weight: 0 kg
+      - set_number: 3
+        reps: 20
+        weight: 0 kg
+  '17':
+    date: '2022-01-27'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 3
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      - set_number: 4
+        reps: 5
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 100 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      - set_number: 4
+        reps: 5
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 9
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+  '18':
+    date: '2022-01-29'
+    split: chest
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 2
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      - set_number: 3
+        reps: 5
+        weight: 65 kg
+      - set_number: 4
+        reps: 8
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 52 kg
+      - set_number: 2
+        reps: 5
+        weight: 48 kg
+      - set_number: 3
+        reps: 5
+        weight: 44 kg
+      - set_number: 4
+        reps: 5
+        weight: 40 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 12
+        weight: 46 kg
+      - set_number: 2
+        reps: 12
+        weight: 46 kg
+      - set_number: 3
+        reps: 10
+        weight: 46 kg
+      cable_crossover_low_high:
+      - set_number: 1
+        reps: 6
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      cable_crossover_high_low:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      - set_number: 3
+        reps: 10
+        weight: 28 kg
+  '19':
+    date: '2022-01-30'
+    split: back_and_biceps
+    exercises:
+      wide_grip_pullup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 54 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+      - set_number: 4
+        reps: 10
+        weight: 54 kg
+      diverging_seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 68 kg
+      - set_number: 2
+        reps: 8
+        weight: 64 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+      - set_number: 4
+        reps: 8
+        weight: 54 kg
+      face_pull:
+      - set_number: 1
+        reps: 10
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      - set_number: 3
+        reps: 10
+        weight: 36 kg
+      - set_number: 4
+        reps: 10
+        weight: 36 kg
+      bb_curl:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 6
+        weight: 35 kg
+  '20':
+    date: '2022-02-03'
+    split: shoulders
+    exercises:
+      military_press:
+      - set_number: 1
+        reps: 12
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      - set_number: 3
+        reps: 8
+        weight: 35 kg
+      - set_number: 4
+        reps: 6
+        weight: 35 kg
+      cable_side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 7.5 kg
+      - set_number: 3
+        reps: 12
+        weight: 7.5 kg
+      - set_number: 4
+        reps: 10
+        weight: 7.5 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 18 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 8
+        weight: 12 kg
+      - set_number: 4
+        reps: 8
+        weight: 12 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      - set_number: 3
+        reps: 12
+        weight: 45 kg
+  '21':
+    date: '2022-02-05'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 3
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      - set_number: 4
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      - set_number: 4
+        reps: 5
+        weight: 70 kg
+      leg_extention:
+      - set_number: 1
+        reps: 15
+        weight: 73 kg
+      - set_number: 2
+        reps: 12
+        weight: 73 kg
+      - set_number: 3
+        reps: 10
+        weight: 73 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      - set_number: 4
+        reps: 12
+        weight: 40 kg
+      legpress:
+      - set_number: 1
+        reps: 10
+        weight: 150 kg
+      - set_number: 2
+        reps: 10
+        weight: 150 kg
+      - set_number: 3
+        reps: 10
+        weight: 150 kg
+      - set_number: 4
+        reps: 10
+        weight: 150 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      - set_number: 3
+        reps: 20
+        weight: 0 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 16
+        weight: 0 kg
+      - set_number: 2
+        reps: 15
+        weight: 0 kg
+      - set_number: 3
+        reps: 15
+        weight: 0 kg
+  '22':
+    date: '2022-02-08'
+    split: chest
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 2
+        weight: 80 kg
+      - set_number: 2
+        reps: 3
+        weight: 70 kg
+      - set_number: 3
+        reps: 5
+        weight: 60 kg
+      - set_number: 4
+        reps: 5
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 6
+        weight: 50 kg
+      - set_number: 3
+        reps: 8
+        weight: 44 kg
+      - set_number: 4
+        reps: 5
+        weight: 44 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 25 kg
+      - set_number: 2
+        reps: 8
+        weight: 25 kg
+      - set_number: 3
+        reps: 8
+        weight: 25 kg
+      db_incline_flys:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      db_decline_flys:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+  '23':
+    date: '2022-02-08'
+    workout_number: '2'
+    split: back_and_biceps
+    exercises:
+      wide_grip_pullup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 52 kg
+      - set_number: 2
+        reps: 10
+        weight: 52 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      - set_number: 4
+        reps: 10
+        weight: 45 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 66 kg
+      - set_number: 2
+        reps: 10
+        weight: 66 kg
+      - set_number: 3
+        reps: 10
+        weight: 66 kg
+      - set_number: 4
+        reps: 10
+        weight: 66 kg
+      face_pull:
+      - set_number: 1
+        reps: 10
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      - set_number: 3
+        reps: 10
+        weight: 36 kg
+      - set_number: 4
+        reps: 10
+        weight: 36 kg
+      bb_curl:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 25 kg
+  '24':
+    date: '2022-02-11'
+    split: shoulders_and_abs
+    exercises:
+      arnold_press:
+      - set_number: 1
+        reps: 8
+        weight: 34 kg
+      - set_number: 2
+        reps: 8
+        weight: 34 kg
+      - set_number: 3
+        reps: 8
+        weight: 30 kg
+      - set_number: 4
+        reps: 8
+        weight: 30 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 14 kg
+      - set_number: 2
+        reps: 10
+        weight: 14 kg
+      - set_number: 3
+        reps: 10
+        weight: 10 kg
+      - set_number: 4
+        reps: 10
+        weight: 10 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 10 kg
+      - set_number: 2
+        reps: 10
+        weight: 10 kg
+      - set_number: 3
+        reps: 10
+        weight: 10 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 45 kg
+      - set_number: 2
+        reps: 15
+        weight: 45 kg
+      - set_number: 3
+        reps: 15
+        weight: 45 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 30
+        weight: 0 kg
+      - set_number: 3
+        reps: 26
+        weight: 0 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      - set_number: 3
+        reps: 30
+        weight: 0 kg
+  '25':
+    date: '2022-02-12'
+    split: legs
+    note: calves skipped due to fatigue from mountain trekking
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 3
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      - set_number: 4
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      - set_number: 4
+        reps: 5
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 15
+        weight: 73 kg
+      - set_number: 2
+        reps: 15
+        weight: 73 kg
+      - set_number: 3
+        reps: 14
+        weight: 109 kg
+      - set_number: 4
+        reps: 14
+        weight: 109 kg
+      back_extention:
+      - set_number: 1
+        reps: 12
+        weight: 0 kg
+      - set_number: 2
+        reps: 12
+        weight: 0 kg
+      - set_number: 3
+        reps: 12
+        weight: 0 kg
+  '26':
+    date: '2022-02-15'
+    gym: Novo BA
+    split: chest
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 2
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      - set_number: 4
+        reps: 5
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 52 kg
+      - set_number: 2
+        reps: 5
+        weight: 48 kg
+      - set_number: 3
+        reps: 5
+        weight: 44 kg
+      - set_number: 4
+        reps: 5
+        weight: 40 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      cable_crossover_high_low:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      cable_crossover_low_high:
+      - set_number: 1
+        reps: 5
+        weight: 15 kg
+      - set_number: 2
+        reps: 10
+        weight: 10 kg
+      - set_number: 3
+        reps: 14
+        weight: 5 kg
+  '27':
+    date: '2022-02-16'
+    split: back_and_biceps
+    exercises:
+      wide_grip_pullup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      diverging_seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 9
+        weight: 70 kg
+      - set_number: 4
+        reps: 8
+        weight: 70 kg
+      diverging_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 6
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      bb_curl:
+      - set_number: 1
+        reps: 6
+        weight: 35 kg
+      - set_number: 2
+        reps: 6
+        weight: 35 kg
+  '28':
+    date: '2022-02-18'
+    split: shoulders_and_abs
+    exercises:
+      arnold_press:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      - set_number: 3
+        reps: 6
+        weight: 36 kg
+      - set_number: 4
+        reps: 6
+        weight: 36 kg
+      cable_side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 18 kg
+      - set_number: 2
+        reps: 12
+        weight: 14 kg
+      - set_number: 3
+        reps: 12
+        weight: 14 kg
+      - set_number: 4
+        reps: 12
+        weight: 14 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      - set_number: 4
+        reps: 10
+        weight: 12 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      - set_number: 4
+        reps: 12
+        weight: 32 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 32
+        weight: 0 kg
+      - set_number: 2
+        reps: 26
+        weight: 0 kg
+      - set_number: 3
+        reps: 20
+        weight: 0 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 15
+        weight: 0 kg
+      - set_number: 3
+        reps: 15
+        weight: 0 kg
+  '29':
+    date: '2022-02-26'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 3
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      - set_number: 4
+        reps: 10
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 100 kg
+      - set_number: 3
+        reps: 5
+        weight: 100 kg
+      - set_number: 4
+        reps: 5
+        weight: 100 kg
+      diverging_leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      - set_number: 4
+        reps: 12
+        weight: 50 kg
+      legpress:
+      - set_number: 1
+        reps: 12
+        weight: 150 kg
+      - set_number: 2
+        reps: 10
+        weight: 150 kg
+      - set_number: 3
+        reps: 8
+        weight: 150 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+  '30':
+    date: '2022-02-27'
+    split: chest
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 2
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      - set_number: 4
+        reps: 8
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 8
+        weight: 48 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      - set_number: 4
+        reps: 6
+        weight: 40 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 46 kg
+      - set_number: 3
+        reps: 8
+        weight: 54 kg
+      cable_crossover_high_low:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      cable_crossover_low_high:
+      - set_number: 1
+        reps: 8
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+  '31':
+    date: '2022-03-02'
+    gym: BA
+    split: back_and_biceps
+    exercises:
+      wide_grip_pullup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      seated_row:
+      - set_number: 1
+        reps: 6
+        weight: 70 kg
+      - set_number: 2
+        reps: 6
+        weight: 65 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 55 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 6
+        weight: 70 kg
+      - set_number: 2
+        reps: 6
+        weight: 65 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 55 kg
+      face_pull:
+      - set_number: 1
+        reps: 8
+        weight: 25 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      bb_curl:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 5
+        weight: 35 kg
+  '32':
+    date: '2022-03-03'
+    split: shoulders_and_abs
+    gym: BA
+    exercises:
+      arnold_press:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+      - set_number: 3
+        reps: 6
+        weight: 40 kg
+      - set_number: 4
+        reps: 5
+        weight: 40 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 6
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 18 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      cable_side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 7.5 kg
+      - set_number: 2
+        reps: 10
+        weight: 7.5 kg
+      - set_number: 3
+        reps: 10
+        weight: 7.5 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 26
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+  '33':
+    date: '2022-03-05'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 4
+        weight: 100 kg
+      - set_number: 3
+        reps: 6
+        weight: 90 kg
+      - set_number: 4
+        reps: 6
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 6
+        weight: 100 kg
+      - set_number: 3
+        reps: 5
+        weight: 100 kg
+      - set_number: 4
+        reps: 5
+        weight: 100 kg
+      legpress:
+      - set_number: 1
+        reps: 12
+        weight: 150 kg
+      - set_number: 2
+        reps: 12
+        weight: 150 kg
+      - set_number: 3
+        reps: 12
+        weight: 150 kg
+      - set_number: 4
+        reps: 12
+        weight: 150 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 8
+        weight: 50 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      leg_extention:
+      - set_number: 1
+        reps: 15
+        weight: 77 kg
+      - set_number: 2
+        reps: 10
+        weight: 82 kg
+      - set_number: 3
+        reps: 8
+        weight: 82 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+  '34':
+    date: '2022-03-07'
+    split: chest
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 4
+        weight: 80 kg
+      - set_number: 2
+        reps: 6
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      - set_number: 4
+        reps: 8
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 52 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 5
+        weight: 44 kg
+      - set_number: 4
+        reps: 8
+        weight: 36 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 28 kg
+      - set_number: 2
+        reps: 6
+        weight: 28 kg
+      - set_number: 3
+        reps: 8
+        weight: 24 kg
+      db_incline_flys:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 18 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+      db_front_raise:
+      - set_number: 1
+        reps: 10
+        weight: 10 kg
+      - set_number: 2
+        reps: 8
+        weight: 10 kg
+      - set_number: 3
+        reps: 10
+        weight: 10 kg
+  '35':
+    date: '2022-03-11'
+    gym: BA
+    split: back_and_biceps
+    exercises:
+      wide_grip_pullup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 65 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      - set_number: 4
+        reps: 8
+        weight: 55 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 65 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 55 kg
+      face_pull:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 22.5 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      bb_curl:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      machine_reverse_fly:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 30 kg
+  '36':
+    date: '2022-03-12'
+    split: shoulders_and_abs
+    exercises:
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+      - set_number: 3
+        reps: 6
+        weight: 40 kg
+      - set_number: 4
+        reps: 6
+        weight: 40 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 8
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+      - set_number: 3
+        reps: 8
+        weight: 24 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      cable_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 14 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 12
+        weight: 18 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      - set_number: 4
+        reps: 15
+        weight: 55 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      - set_number: 3
+        reps: 20
+        weight: 0 kg
+  '37':
+    date: '2022-03-14'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 5
+        weight: 90 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      - set_number: 4
+        reps: 8
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 100 kg
+      - set_number: 2
+        reps: 10
+        weight: 100 kg
+      - set_number: 3
+        reps: 12
+        weight: 100 kg
+      - set_number: 4
+        reps: 5
+        weight: 100 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 79 kg
+      - set_number: 2
+        reps: 13
+        weight: 84 kg
+      - set_number: 3
+        reps: 8
+        weight: 88 kg
+      - set_number: 4
+        reps: 10
+        weight: 75 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 12
+        weight: 50 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      walking_kettlebell_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+  '38':
+    date: '2022-03-15'
+    split: chest
+    gym: BA
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 2
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 7
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 6
+        weight: 52 kg
+      - set_number: 2
+        reps: 6
+        weight: 48 kg
+      - set_number: 3
+        reps: 6
+        weight: 44 kg
+      - set_number: 4
+        reps: 8
+        weight: 40 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 10
+        weight: 30 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      cable_crossover_high_low:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      cable_crossover_low_high:
+      - set_number: 1
+        reps: 8
+        weight: 15 kg
+      - set_number: 2
+        reps: 12
+        weight: 10 kg
+      - set_number: 3
+        reps: 15
+        weight: 10 kg
+  '39':
+    date: '2022-03-17'
+    gym: BA
+    split: back_and_biceps
+    exercises:
+      lat_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      - set_number: 4
+        reps: 12
+        weight: 40 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 35 kg
+      - set_number: 2
+        reps: 12
+        weight: 35 kg
+      - set_number: 3
+        reps: 12
+        weight: 35 kg
+      - set_number: 4
+        reps: 12
+        weight: 35 kg
+      - set_number: 5
+        reps: 6
+        weight: 80 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 7.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 7.5 kg
+      - set_number: 3
+        reps: 12
+        weight: 7.5 kg
+      - set_number: 4
+        reps: 12
+        weight: 7.5 kg
+      one_arm_db_row:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      - set_number: 4
+        reps: 12
+        weight: 12 kg
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      bb_curl:
+      - set_number: 1
+        reps: 6
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+  '40':
+    date: '2022-03-19'
+    split: shoulders_and_abs
+    exercises:
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+      - set_number: 3
+        reps: 6
+        weight: 40 kg
+      - set_number: 4
+        reps: 6
+        weight: 40 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 6
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 10
+        weight: 16 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      cable_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 14 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 14 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      - set_number: 4
+        reps: 15
+        weight: 55 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 30
+        weight: 0 kg
+  '41':
+    date: '2022-03-26'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 8
+        weight: 80 kg
+      - set_number: 2
+        reps: 6
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 6
+        weight: 56 kg
+      - set_number: 2
+        reps: 8
+        weight: 52 kg
+      - set_number: 3
+        reps: 7
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 7
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      db_flys:
+      - set_number: 1
+        reps: 10
+        weight: 32 kg
+      - set_number: 2
+        reps: 9
+        weight: 32 kg
+      - set_number: 3
+        reps: 10
+        weight: 32 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      french_press:
+      - set_number: 1
+        reps: 10
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 22 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 22
+        weight: 0 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 24
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+  '42':
+    date: '2022-03-27'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 5
+        weight: 86 kg
+      - set_number: 2
+        reps: 7
+        weight: 77 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 5
+        weight: 86 kg
+      - set_number: 2
+        reps: 7
+        weight: 77 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 36 kg
+      - set_number: 3
+        reps: 12
+        weight: 41 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+  '43':
+    date: '2022-03-29'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 6
+        weight: 100 kg
+      - set_number: 2
+        reps: 6
+        weight: 90 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      - set_number: 4
+        reps: 8
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 6
+        weight: 120 kg
+      - set_number: 2
+        reps: 6
+        weight: 100 kg
+      - set_number: 3
+        reps: 10
+        weight: 80 kg
+      - set_number: 4
+        reps: 10
+        weight: 80 kg
+      diverging_leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 30 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 7
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+  '44':
+    date: '2022-04-02'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 4
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 56 kg
+      - set_number: 2
+        reps: 6
+        weight: 52 kg
+      - set_number: 3
+        reps: 8
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      - set_number: 3
+        reps: 5
+        weight: 40 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      - set_number: 3
+        reps: 9
+        weight: 32 kg
+      db_front_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 6
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 22 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 25
+        weight: 0 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+      twisting_leg_raise:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 16
+        weight: 0 kg
+  '45':
+    date: '2022-04-03'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 6
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 6
+        weight: 86 kg
+      - set_number: 2
+        reps: 8
+        weight: 77 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      - set_number: 3
+        reps: 12
+        weight: 41 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+  '46':
+    date: '2022-04-11'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 2
+        weight: 60 kg
+      - set_number: 2
+        reps: 6
+        weight: 100 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 6
+        weight: 130 kg
+      - set_number: 2
+        reps: 6
+        weight: 110 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 91 kg
+      - set_number: 3
+        reps: 10
+        weight: 91 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 30 kg
+      - set_number: 2
+        reps: 15
+        weight: 30 kg
+      - set_number: 3
+        reps: 15
+        weight: 30 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+  '47':
+    date: '2022-04-13'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 4
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 48 kg
+      - set_number: 3
+        reps: 8
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 4
+        weight: 40 kg
+      - set_number: 3
+        reps: 3
+        weight: 40 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 12 kg
+      - set_number: 2
+        reps: 8
+        weight: 12 kg
+      - set_number: 3
+        reps: 6
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+  '48':
+    date: '2022-04-16'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      - set_number: 3
+        reps: 12
+        weight: 41 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+  '49':
+    date: '2022-04-19'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 6
+        weight: 100 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 3
+        weight: 140 kg
+      - set_number: 2
+        reps: 5
+        weight: 100 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      diverging_leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 7
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+  '50':
+    date: '2022-04-20'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 9
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 48 kg
+      - set_number: 3
+        reps: 6
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      - set_number: 3
+        reps: 20
+        weight: 15 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 8
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+  '51':
+    date: '2022-04-21'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      - set_number: 3
+        reps: 12
+        weight: 41 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+  '52':
+    date: '2022-04-29'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 6
+        weight: 100 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 4
+        weight: 140 kg
+      - set_number: 2
+        reps: 6
+        weight: 100 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 86 kg
+      - set_number: 2
+        reps: 12
+        weight: 86 kg
+      - set_number: 3
+        reps: 12
+        weight: 86 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 7
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+  '53':
+    date: '2022-04-30'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 48 kg
+      - set_number: 3
+        reps: 8
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 6
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      - set_number: 3
+        reps: 8
+        weight: 35 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 26 kg
+      - set_number: 2
+        reps: 10
+        weight: 26 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+  '54':
+    date: '2022-05-03'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      - set_number: 3
+        reps: 12
+        weight: 41 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+  '55':
+    date: '2022-05-07'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 6
+        weight: 100 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 2
+        weight: 140 kg
+      - set_number: 2
+        reps: 4
+        weight: 140 kg
+      - set_number: 3
+        reps: 5
+        weight: 100 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 86 kg
+      - set_number: 2
+        reps: 12
+        weight: 86 kg
+      - set_number: 3
+        reps: 12
+        weight: 86 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 7
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+  '56':
+    date: '2022-05-08'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 48 kg
+      - set_number: 3
+        reps: 7
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 6
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      - set_number: 3
+        reps: 8
+        weight: 35 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 26 kg
+      - set_number: 2
+        reps: 10
+        weight: 26 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+  '57':
+    date: '2022-05-12'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      - set_number: 3
+        reps: 12
+        weight: 41 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+  '58':
+    date: '2022-05-14'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 100 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 120 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 86 kg
+      - set_number: 2
+        reps: 12
+        weight: 86 kg
+      - set_number: 3
+        reps: 12
+        weight: 86 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 50 kg
+      - set_number: 2
+        reps: 5
+        weight: 50 kg
+  '59':
+    date: '2022-05-16'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 48 kg
+      - set_number: 3
+        reps: 6
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 6
+        weight: 35 kg
+      - set_number: 3
+        reps: 7
+        weight: 35 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 10
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 10
+        weight: 26 kg
+      - set_number: 2
+        reps: 10
+        weight: 26 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+  '60':
+    date: '2022-05-19'
+    split: pull
+    gym: BA
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 85 kg
+      - set_number: 2
+        reps: 6
+        weight: 80 kg
+      - set_number: 3
+        reps: 6
+        weight: 75 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 85 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 10
+        weight: 75 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 15 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 60 kg
+      - set_number: 2
+        reps: 15
+        weight: 60 kg
+      - set_number: 3
+        reps: 15
+        weight: 60 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      bb_curl:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 30 kg
+  '61':
+    date: '2022-05-20'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 100 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 7
+        weight: 130 kg
+      - set_number: 2
+        reps: 6
+        weight: 100 kg
+      - set_number: 3
+        reps: 12
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 86 kg
+      - set_number: 2
+        reps: 12
+        weight: 86 kg
+      - set_number: 3
+        reps: 12
+        weight: 86 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 50 kg
+      - set_number: 2
+        reps: 5
+        weight: 50 kg
+  '62':
+    date: '2022-05-21'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 80 kg
+      - set_number: 2
+        reps: 6
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 48 kg
+      - set_number: 3
+        reps: 7
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 7
+        weight: 35 kg
+      - set_number: 2
+        reps: 7
+        weight: 35 kg
+      - set_number: 3
+        reps: 7
+        weight: 35 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 26 kg
+      - set_number: 2
+        reps: 10
+        weight: 26 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+  '63':
+    date: '2022-05-25'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 6
+        weight: 86 kg
+      - set_number: 2
+        reps: 8
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 6
+        weight: 86 kg
+      - set_number: 2
+        reps: 8
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      - set_number: 3
+        reps: 12
+        weight: 41 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      bb_curl:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+  '64':
+    date: '2022-05-28'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 100 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 130 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 86 kg
+      - set_number: 2
+        reps: 12
+        weight: 86 kg
+      - set_number: 3
+        reps: 12
+        weight: 86 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 50 kg
+      - set_number: 2
+        reps: 5
+        weight: 50 kg
+  '65':
+    date: '2022-05-29'
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 4
+        weight: 80 kg
+      - set_number: 2
+        reps: 6
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 48 kg
+      - set_number: 3
+        reps: 8
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      - set_number: 3
+        reps: 8
+        weight: 35 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 10
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 6
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 8 kg
+      - set_number: 3
+        reps: 12
+        weight: 8 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 26 kg
+      - set_number: 2
+        reps: 10
+        weight: 26 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+  '66':
+    date: '2022-06-04'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 77 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+  '67':
+    date: '2022-06-17'
+    split: legs
+    gym: Rixos downtown, Antalya, Turkey
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 4
+        weight: 120 kg
+      - set_number: 2
+        reps: 3
+        weight: 120 kg
+      - set_number: 3
+        reps: 3
+        weight: 100 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      leg_extention:
+      - set_number: 1
+        reps: 6
+        weight: 91 kg
+      - set_number: 2
+        reps: 8
+        weight: 77 kg
+      - set_number: 3
+        reps: 12
+        weight: 63 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 44 kg
+      - set_number: 2
+        reps: 12
+        weight: 58 kg
+      - set_number: 3
+        reps: 12
+        weight: 58 kg
+      leg_curl:
+      - set_number: 1
+        reps: 15
+        weight: 35 kg
+      - set_number: 2
+        reps: 12
+        weight: 49 kg
+  '68':
+    date: '2022-06-18'
+    split: push
+    gym: Rixos downtown, Antalya, Turkey
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 4
+        weight: 80 kg
+      - set_number: 2
+        reps: 4
+        weight: 70 kg
+      - set_number: 3
+        reps: 6
+        weight: 60 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 4
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 48 kg
+      - set_number: 3
+        reps: 8
+        weight: 48 kg
+      standing_bb_military_press:
+      - set_number: 1
+        reps: 10
+        weight: 30 kg
+      - set_number: 2
+        reps: 6
+        weight: 30 kg
+      - set_number: 3
+        reps: 7
+        weight: 30 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 9
+        weight: 32 kg
+      - set_number: 3
+        reps: 7
+        weight: 32 kg
+      db_incline_front_lateral_raise:
+      - set_number: 1
+        reps: 6
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 22 kg
+      - set_number: 2
+        reps: 12
+        weight: 22 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 21.25 kg
+      - set_number: 2
+        reps: 12
+        weight: 21.25 kg
+  '69':
+    date: '2022-06-24'
+    split: pull
+    gym: Rixos downtown, Antalya, Turkey
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 84 kg
+      - set_number: 2
+        reps: 10
+        weight: 91 kg
+      - set_number: 3
+        reps: 10
+        weight: 91 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 91 kg
+      - set_number: 2
+        reps: 8
+        weight: 84 kg
+      - set_number: 3
+        reps: 8
+        weight: 77 kg
+      face_pull:
+      - set_number: 1
+        reps: 8
+        weight: 42 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      - set_number: 3
+        reps: 10
+        weight: 28 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      db_side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      bb_curl:
+      - set_number: 1
+        reps: 5
+        weight: 35 kg
+      - set_number: 2
+        reps: 6
+        weight: 35 kg
+  '70':
+    date: '2022-06-27'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 7
+        weight: 100 kg
+      - set_number: 2
+        reps: 6
+        weight: 80 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 130 kg
+      - set_number: 2
+        reps: 5
+        weight: 100 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 91 kg
+      - set_number: 2
+        reps: 10
+        weight: 91 kg
+      - set_number: 3
+        reps: 8
+        weight: 91 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 50 kg
+      - set_number: 2
+        reps: 5
+        weight: 50 kg
+  '71':
+    date: '2022-07-01'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 30 kg
+      - set_number: 2
+        reps: 10
+        weight: 30 kg
+      - set_number: 3
+        reps: 10
+        weight: 30 kg
+      - set_number: 4
+        reps: 10
+        weight: 30 kg
+      - set_number: 5
+        reps: 10
+        weight: 30 kg
+      - set_number: 6
+        reps: 10
+        weight: 30 kg
+      - set_number: 7
+        reps: 10
+        weight: 30 kg
+      - set_number: 8
+        reps: 10
+        weight: 30 kg
+      - set_number: 9
+        reps: 10
+        weight: 30 kg
+      - set_number: 10
+        reps: 10
+        weight: 30 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 8
+        weight: 46 kg
+      - set_number: 2
+        reps: 8
+        weight: 46 kg
+      - set_number: 3
+        reps: 8
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 59 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+  '72':
+    date: '2022-07-02'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 18 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      - set_number: 4
+        reps: 10
+        weight: 18 kg
+      - set_number: 5
+        reps: 10
+        weight: 18 kg
+      - set_number: 6
+        reps: 10
+        weight: 18 kg
+      - set_number: 7
+        reps: 10
+        weight: 18 kg
+      - set_number: 8
+        reps: 10
+        weight: 18 kg
+      - set_number: 9
+        reps: 10
+        weight: 18 kg
+      - set_number: 10
+        reps: 10
+        weight: 18 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '73':
+    date: '2022-07-03'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      - set_number: 5
+        reps: 10
+        weight: 20 kg
+      - set_number: 6
+        reps: 10
+        weight: 20 kg
+      - set_number: 7
+        reps: 10
+        weight: 20 kg
+      - set_number: 8
+        reps: 10
+        weight: 20 kg
+      - set_number: 9
+        reps: 10
+        weight: 20 kg
+      - set_number: 10
+        reps: 10
+        weight: 20 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 15 kg
+      - set_number: 2
+        reps: 10
+        weight: 15 kg
+      - set_number: 3
+        reps: 10
+        weight: 15 kg
+      - set_number: 4
+        reps: 10
+        weight: 15 kg
+      - set_number: 5
+        reps: 10
+        weight: 15 kg
+      - set_number: 6
+        reps: 10
+        weight: 15 kg
+      - set_number: 7
+        reps: 10
+        weight: 15 kg
+      - set_number: 8
+        reps: 10
+        weight: 15 kg
+      - set_number: 9
+        reps: 10
+        weight: 15 kg
+      - set_number: 10
+        reps: 10
+        weight: 15 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '74':
+    date: '2022-07-08'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      - set_number: 4
+        reps: 10
+        weight: 45 kg
+      - set_number: 5
+        reps: 10
+        weight: 45 kg
+      - set_number: 6
+        reps: 10
+        weight: 45 kg
+      - set_number: 7
+        reps: 10
+        weight: 45 kg
+      - set_number: 8
+        reps: 10
+        weight: 45 kg
+      - set_number: 9
+        reps: 10
+        weight: 45 kg
+      - set_number: 10
+        reps: 10
+        weight: 45 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      - set_number: 4
+        reps: 10
+        weight: 35 kg
+      - set_number: 5
+        reps: 10
+        weight: 35 kg
+      - set_number: 6
+        reps: 10
+        weight: 35 kg
+      - set_number: 7
+        reps: 10
+        weight: 35 kg
+      - set_number: 8
+        reps: 10
+        weight: 35 kg
+      - set_number: 9
+        reps: 10
+        weight: 35 kg
+      - set_number: 10
+        reps: 10
+        weight: 35 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 8
+        weight: 46 kg
+      - set_number: 2
+        reps: 8
+        weight: 46 kg
+      - set_number: 3
+        reps: 8
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 59 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+  '75':
+    date: '2022-07-12'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      - set_number: 4
+        reps: 10
+        weight: 45 kg
+      - set_number: 5
+        reps: 10
+        weight: 45 kg
+      - set_number: 6
+        reps: 10
+        weight: 45 kg
+      - set_number: 7
+        reps: 10
+        weight: 45 kg
+      - set_number: 8
+        reps: 10
+        weight: 45 kg
+      - set_number: 9
+        reps: 10
+        weight: 45 kg
+      - set_number: 10
+        reps: 10
+        weight: 45 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 18 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      - set_number: 4
+        reps: 10
+        weight: 18 kg
+      - set_number: 5
+        reps: 10
+        weight: 18 kg
+      - set_number: 6
+        reps: 10
+        weight: 18 kg
+      - set_number: 7
+        reps: 10
+        weight: 18 kg
+      - set_number: 8
+        reps: 10
+        weight: 18 kg
+      - set_number: 9
+        reps: 10
+        weight: 18 kg
+      - set_number: 10
+        reps: 10
+        weight: 18 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '76':
+    date: '2022-07-14'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      - set_number: 5
+        reps: 10
+        weight: 20 kg
+      - set_number: 6
+        reps: 10
+        weight: 20 kg
+      - set_number: 7
+        reps: 10
+        weight: 20 kg
+      - set_number: 8
+        reps: 10
+        weight: 20 kg
+      - set_number: 9
+        reps: 10
+        weight: 20 kg
+      - set_number: 10
+        reps: 10
+        weight: 20 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 15 kg
+      - set_number: 2
+        reps: 10
+        weight: 15 kg
+      - set_number: 3
+        reps: 10
+        weight: 15 kg
+      - set_number: 4
+        reps: 10
+        weight: 15 kg
+      - set_number: 5
+        reps: 10
+        weight: 15 kg
+      - set_number: 6
+        reps: 10
+        weight: 15 kg
+      - set_number: 7
+        reps: 10
+        weight: 15 kg
+      - set_number: 8
+        reps: 10
+        weight: 15 kg
+      - set_number: 9
+        reps: 10
+        weight: 15 kg
+      - set_number: 10
+        reps: 10
+        weight: 15 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '77':
+    date: '2022-07-16'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 2
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 3
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 4
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 5
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 6
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 7
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 8
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 9
+        reps: 10
+        weight: 47.5 kg
+      - set_number: 10
+        reps: 10
+        weight: 47.5 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      - set_number: 4
+        reps: 10
+        weight: 35 kg
+      - set_number: 5
+        reps: 10
+        weight: 35 kg
+      - set_number: 6
+        reps: 10
+        weight: 35 kg
+      - set_number: 7
+        reps: 10
+        weight: 35 kg
+      - set_number: 8
+        reps: 10
+        weight: 35 kg
+      - set_number: 9
+        reps: 10
+        weight: 35 kg
+      - set_number: 10
+        reps: 10
+        weight: 35 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 8
+        weight: 46 kg
+      - set_number: 2
+        reps: 8
+        weight: 46 kg
+      - set_number: 3
+        reps: 8
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 59 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+  '78':
+    date: '2022-07-17'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 18 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      - set_number: 4
+        reps: 10
+        weight: 18 kg
+      - set_number: 5
+        reps: 10
+        weight: 18 kg
+      - set_number: 6
+        reps: 10
+        weight: 18 kg
+      - set_number: 7
+        reps: 10
+        weight: 18 kg
+      - set_number: 8
+        reps: 10
+        weight: 18 kg
+      - set_number: 9
+        reps: 10
+        weight: 18 kg
+      - set_number: 10
+        reps: 10
+        weight: 18 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '79':
+    date: '2022-07-18'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      - set_number: 5
+        reps: 10
+        weight: 20 kg
+      - set_number: 6
+        reps: 10
+        weight: 20 kg
+      - set_number: 7
+        reps: 10
+        weight: 20 kg
+      - set_number: 8
+        reps: 10
+        weight: 20 kg
+      - set_number: 9
+        reps: 10
+        weight: 20 kg
+      - set_number: 10
+        reps: 10
+        weight: 20 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 15 kg
+      - set_number: 2
+        reps: 10
+        weight: 15 kg
+      - set_number: 3
+        reps: 10
+        weight: 15 kg
+      - set_number: 4
+        reps: 10
+        weight: 15 kg
+      - set_number: 5
+        reps: 10
+        weight: 15 kg
+      - set_number: 6
+        reps: 10
+        weight: 15 kg
+      - set_number: 7
+        reps: 10
+        weight: 15 kg
+      - set_number: 8
+        reps: 10
+        weight: 15 kg
+      - set_number: 9
+        reps: 10
+        weight: 15 kg
+      - set_number: 10
+        reps: 10
+        weight: 15 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '80':
+    date: '2022-07-20'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      - set_number: 4
+        reps: 10
+        weight: 35 kg
+      - set_number: 5
+        reps: 10
+        weight: 35 kg
+      - set_number: 6
+        reps: 10
+        weight: 35 kg
+      - set_number: 7
+        reps: 10
+        weight: 35 kg
+      - set_number: 8
+        reps: 10
+        weight: 35 kg
+      - set_number: 9
+        reps: 10
+        weight: 35 kg
+      - set_number: 10
+        reps: 10
+        weight: 35 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 8
+        weight: 46 kg
+      - set_number: 2
+        reps: 8
+        weight: 46 kg
+      - set_number: 3
+        reps: 8
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 59 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+  '81':
+    date: '2022-07-21'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 55 kg
+      - set_number: 2
+        reps: 10
+        weight: 55 kg
+      - set_number: 3
+        reps: 10
+        weight: 55 kg
+      - set_number: 4
+        reps: 10
+        weight: 55 kg
+      - set_number: 5
+        reps: 10
+        weight: 55 kg
+      - set_number: 6
+        reps: 10
+        weight: 55 kg
+      - set_number: 7
+        reps: 10
+        weight: 55 kg
+      - set_number: 8
+        reps: 10
+        weight: 55 kg
+      - set_number: 9
+        reps: 10
+        weight: 55 kg
+      - set_number: 10
+        reps: 10
+        weight: 55 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 18 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      - set_number: 4
+        reps: 10
+        weight: 18 kg
+      - set_number: 5
+        reps: 10
+        weight: 18 kg
+      - set_number: 6
+        reps: 10
+        weight: 18 kg
+      - set_number: 7
+        reps: 10
+        weight: 18 kg
+      - set_number: 8
+        reps: 10
+        weight: 18 kg
+      - set_number: 9
+        reps: 10
+        weight: 18 kg
+      - set_number: 10
+        reps: 10
+        weight: 18 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 9
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '82':
+    date: '2022-07-25'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      - set_number: 4
+        reps: 10
+        weight: 25 kg
+      - set_number: 5
+        reps: 10
+        weight: 25 kg
+      - set_number: 6
+        reps: 10
+        weight: 25 kg
+      - set_number: 7
+        reps: 10
+        weight: 25 kg
+      - set_number: 8
+        reps: 10
+        weight: 25 kg
+      - set_number: 9
+        reps: 10
+        weight: 25 kg
+      - set_number: 10
+        reps: 10
+        weight: 25 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 15 kg
+      - set_number: 2
+        reps: 10
+        weight: 15 kg
+      - set_number: 3
+        reps: 10
+        weight: 15 kg
+      - set_number: 4
+        reps: 10
+        weight: 15 kg
+      - set_number: 5
+        reps: 10
+        weight: 15 kg
+      - set_number: 6
+        reps: 10
+        weight: 15 kg
+      - set_number: 7
+        reps: 10
+        weight: 15 kg
+      - set_number: 8
+        reps: 10
+        weight: 15 kg
+      - set_number: 9
+        reps: 10
+        weight: 15 kg
+      - set_number: 10
+        reps: 10
+        weight: 15 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '83':
+    date: '2022-07-27'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 8
+        weight: 46 kg
+      - set_number: 2
+        reps: 8
+        weight: 46 kg
+      - set_number: 3
+        reps: 8
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 59 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+  '84':
+    date: '2022-07-28'
+    split: legs_and_abs
+    note: 90 second arm hang at end of workout
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      - set_number: 5
+        reps: 10
+        weight: 60 kg
+      - set_number: 6
+        reps: 10
+        weight: 60 kg
+      - set_number: 7
+        reps: 10
+        weight: 60 kg
+      - set_number: 8
+        reps: 10
+        weight: 60 kg
+      - set_number: 9
+        reps: 10
+        weight: 60 kg
+      - set_number: 10
+        reps: 10
+        weight: 60 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 18 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      - set_number: 3
+        reps: 10
+        weight: 18 kg
+      - set_number: 4
+        reps: 10
+        weight: 18 kg
+      - set_number: 5
+        reps: 10
+        weight: 18 kg
+      - set_number: 6
+        reps: 10
+        weight: 18 kg
+      - set_number: 7
+        reps: 10
+        weight: 18 kg
+      - set_number: 8
+        reps: 10
+        weight: 18 kg
+      - set_number: 9
+        reps: 10
+        weight: 18 kg
+      - set_number: 10
+        reps: 10
+        weight: 18 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '85':
+    date: '2022-08-06'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      - set_number: 4
+        reps: 10
+        weight: 25 kg
+      - set_number: 5
+        reps: 10
+        weight: 25 kg
+      - set_number: 6
+        reps: 10
+        weight: 25 kg
+      - set_number: 7
+        reps: 10
+        weight: 25 kg
+      - set_number: 8
+        reps: 10
+        weight: 25 kg
+      - set_number: 9
+        reps: 10
+        weight: 25 kg
+      - set_number: 10
+        reps: 10
+        weight: 25 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      - set_number: 5
+        reps: 10
+        weight: 20 kg
+      - set_number: 6
+        reps: 10
+        weight: 20 kg
+      - set_number: 7
+        reps: 10
+        weight: 20 kg
+      - set_number: 8
+        reps: 10
+        weight: 20 kg
+      - set_number: 9
+        reps: 10
+        weight: 20 kg
+      - set_number: 10
+        reps: 10
+        weight: 20 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '86':
+    date: '2022-08-14'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 8
+        weight: 46 kg
+      - set_number: 2
+        reps: 8
+        weight: 46 kg
+      - set_number: 3
+        reps: 8
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 59 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      - set_number: 3
+        reps: 8
+        weight: 59 kg
+  '87':
+    date: '2022-08-16'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      - set_number: 5
+        reps: 10
+        weight: 60 kg
+      - set_number: 6
+        reps: 10
+        weight: 60 kg
+      - set_number: 7
+        reps: 10
+        weight: 60 kg
+      - set_number: 8
+        reps: 10
+        weight: 60 kg
+      - set_number: 9
+        reps: 10
+        weight: 60 kg
+      - set_number: 10
+        reps: 10
+        weight: 60 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 23 kg
+      - set_number: 2
+        reps: 10
+        weight: 23 kg
+      - set_number: 3
+        reps: 10
+        weight: 23 kg
+      - set_number: 4
+        reps: 10
+        weight: 23 kg
+      - set_number: 5
+        reps: 10
+        weight: 23 kg
+      - set_number: 6
+        reps: 10
+        weight: 23 kg
+      - set_number: 7
+        reps: 10
+        weight: 23 kg
+      - set_number: 8
+        reps: 10
+        weight: 23 kg
+      - set_number: 9
+        reps: 10
+        weight: 23 kg
+      - set_number: 10
+        reps: 10
+        weight: 23 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '88':
+    date: '2022-08-20'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 30 kg
+      - set_number: 2
+        reps: 10
+        weight: 30 kg
+      - set_number: 3
+        reps: 10
+        weight: 30 kg
+      - set_number: 4
+        reps: 10
+        weight: 30 kg
+      - set_number: 5
+        reps: 10
+        weight: 30 kg
+      - set_number: 6
+        reps: 10
+        weight: 30 kg
+      - set_number: 7
+        reps: 10
+        weight: 30 kg
+      - set_number: 8
+        reps: 10
+        weight: 30 kg
+      - set_number: 9
+        reps: 10
+        weight: 30 kg
+      - set_number: 10
+        reps: 10
+        weight: 30 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      - set_number: 4
+        reps: 10
+        weight: 20 kg
+      - set_number: 5
+        reps: 10
+        weight: 20 kg
+      - set_number: 6
+        reps: 10
+        weight: 20 kg
+      - set_number: 7
+        reps: 10
+        weight: 20 kg
+      - set_number: 8
+        reps: 10
+        weight: 20 kg
+      - set_number: 9
+        reps: 10
+        weight: 20 kg
+      - set_number: 10
+        reps: 10
+        weight: 20 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '89':
+    date: '2022-08-23'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 10
+        weight: 46 kg
+      - set_number: 2
+        reps: 10
+        weight: 46 kg
+      - set_number: 3
+        reps: 10
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 68 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+  '90':
+    date: '2022-08-26'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      - set_number: 5
+        reps: 10
+        weight: 60 kg
+      - set_number: 6
+        reps: 10
+        weight: 60 kg
+      - set_number: 7
+        reps: 10
+        weight: 60 kg
+      - set_number: 8
+        reps: 10
+        weight: 60 kg
+      - set_number: 9
+        reps: 10
+        weight: 60 kg
+      - set_number: 10
+        reps: 10
+        weight: 60 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 23 kg
+      - set_number: 2
+        reps: 10
+        weight: 23 kg
+      - set_number: 3
+        reps: 10
+        weight: 23 kg
+      - set_number: 4
+        reps: 10
+        weight: 23 kg
+      - set_number: 5
+        reps: 10
+        weight: 23 kg
+      - set_number: 6
+        reps: 10
+        weight: 23 kg
+      - set_number: 7
+        reps: 10
+        weight: 23 kg
+      - set_number: 8
+        reps: 10
+        weight: 23 kg
+      - set_number: 9
+        reps: 10
+        weight: 23 kg
+      - set_number: 10
+        reps: 10
+        weight: 23 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '91':
+    date: '2022-08-30'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      - set_number: 4
+        reps: 10
+        weight: 35 kg
+      - set_number: 5
+        reps: 10
+        weight: 35 kg
+      - set_number: 6
+        reps: 10
+        weight: 35 kg
+      - set_number: 7
+        reps: 10
+        weight: 35 kg
+      - set_number: 8
+        reps: 10
+        weight: 35 kg
+      - set_number: 9
+        reps: 10
+        weight: 35 kg
+      - set_number: 10
+        reps: 10
+        weight: 35 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      - set_number: 4
+        reps: 10
+        weight: 25 kg
+      - set_number: 5
+        reps: 10
+        weight: 25 kg
+      - set_number: 6
+        reps: 10
+        weight: 25 kg
+      - set_number: 7
+        reps: 10
+        weight: 25 kg
+      - set_number: 8
+        reps: 10
+        weight: 25 kg
+      - set_number: 9
+        reps: 10
+        weight: 25 kg
+      - set_number: 10
+        reps: 10
+        weight: 25 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '92':
+    date: '2022-09-02'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 10
+        weight: 46 kg
+      - set_number: 2
+        reps: 10
+        weight: 46 kg
+      - set_number: 3
+        reps: 10
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 68 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+  '93':
+    date: '2022-09-10'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      - set_number: 5
+        reps: 10
+        weight: 60 kg
+      - set_number: 6
+        reps: 10
+        weight: 60 kg
+      - set_number: 7
+        reps: 10
+        weight: 60 kg
+      - set_number: 8
+        reps: 10
+        weight: 60 kg
+      - set_number: 9
+        reps: 10
+        weight: 60 kg
+      - set_number: 10
+        reps: 10
+        weight: 60 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 23 kg
+      - set_number: 2
+        reps: 10
+        weight: 23 kg
+      - set_number: 3
+        reps: 10
+        weight: 23 kg
+      - set_number: 4
+        reps: 10
+        weight: 23 kg
+      - set_number: 5
+        reps: 10
+        weight: 23 kg
+      - set_number: 6
+        reps: 10
+        weight: 23 kg
+      - set_number: 7
+        reps: 10
+        weight: 23 kg
+      - set_number: 8
+        reps: 10
+        weight: 23 kg
+      - set_number: 9
+        reps: 10
+        weight: 23 kg
+      - set_number: 10
+        reps: 10
+        weight: 23 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '94':
+    date: '2022-09-11'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      - set_number: 4
+        reps: 10
+        weight: 35 kg
+      - set_number: 5
+        reps: 10
+        weight: 35 kg
+      - set_number: 6
+        reps: 10
+        weight: 35 kg
+      - set_number: 7
+        reps: 10
+        weight: 35 kg
+      - set_number: 8
+        reps: 10
+        weight: 35 kg
+      - set_number: 9
+        reps: 10
+        weight: 35 kg
+      - set_number: 10
+        reps: 10
+        weight: 35 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      - set_number: 4
+        reps: 10
+        weight: 25 kg
+      - set_number: 5
+        reps: 10
+        weight: 25 kg
+      - set_number: 6
+        reps: 10
+        weight: 25 kg
+      - set_number: 7
+        reps: 10
+        weight: 25 kg
+      - set_number: 8
+        reps: 10
+        weight: 25 kg
+      - set_number: 9
+        reps: 10
+        weight: 25 kg
+      - set_number: 10
+        reps: 10
+        weight: 25 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '95':
+    date: '2022-09-15'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 10
+        weight: 46 kg
+      - set_number: 2
+        reps: 10
+        weight: 46 kg
+      - set_number: 3
+        reps: 10
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 68 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+  '96':
+    date: '2022-09-16'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      - set_number: 5
+        reps: 10
+        weight: 60 kg
+      - set_number: 6
+        reps: 10
+        weight: 60 kg
+      - set_number: 7
+        reps: 10
+        weight: 60 kg
+      - set_number: 8
+        reps: 10
+        weight: 60 kg
+      - set_number: 9
+        reps: 10
+        weight: 60 kg
+      - set_number: 10
+        reps: 10
+        weight: 60 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 27 kg
+      - set_number: 2
+        reps: 10
+        weight: 27 kg
+      - set_number: 3
+        reps: 10
+        weight: 27 kg
+      - set_number: 4
+        reps: 10
+        weight: 27 kg
+      - set_number: 5
+        reps: 10
+        weight: 27 kg
+      - set_number: 6
+        reps: 10
+        weight: 27 kg
+      - set_number: 7
+        reps: 10
+        weight: 27 kg
+      - set_number: 8
+        reps: 10
+        weight: 27 kg
+      - set_number: 9
+        reps: 10
+        weight: 27 kg
+      - set_number: 10
+        reps: 10
+        weight: 27 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '97':
+    date: '2022-09-18'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      - set_number: 4
+        reps: 10
+        weight: 35 kg
+      - set_number: 5
+        reps: 10
+        weight: 35 kg
+      - set_number: 6
+        reps: 10
+        weight: 35 kg
+      - set_number: 7
+        reps: 10
+        weight: 35 kg
+      - set_number: 8
+        reps: 10
+        weight: 35 kg
+      - set_number: 9
+        reps: 10
+        weight: 35 kg
+      - set_number: 10
+        reps: 10
+        weight: 35 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      - set_number: 4
+        reps: 10
+        weight: 25 kg
+      - set_number: 5
+        reps: 10
+        weight: 25 kg
+      - set_number: 6
+        reps: 10
+        weight: 25 kg
+      - set_number: 7
+        reps: 10
+        weight: 25 kg
+      - set_number: 8
+        reps: 10
+        weight: 25 kg
+      - set_number: 9
+        reps: 10
+        weight: 25 kg
+      - set_number: 10
+        reps: 10
+        weight: 25 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '98':
+    date: '2022-09-20'
+    split: chest_and_back
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      - set_number: 4
+        reps: 10
+        weight: 50 kg
+      - set_number: 5
+        reps: 10
+        weight: 50 kg
+      - set_number: 6
+        reps: 10
+        weight: 50 kg
+      - set_number: 7
+        reps: 10
+        weight: 50 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      - set_number: 9
+        reps: 10
+        weight: 50 kg
+      - set_number: 10
+        reps: 10
+        weight: 50 kg
+      bent_over_row:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      - set_number: 4
+        reps: 10
+        weight: 40 kg
+      - set_number: 5
+        reps: 10
+        weight: 40 kg
+      - set_number: 6
+        reps: 10
+        weight: 40 kg
+      - set_number: 7
+        reps: 10
+        weight: 40 kg
+      - set_number: 8
+        reps: 10
+        weight: 40 kg
+      - set_number: 9
+        reps: 10
+        weight: 40 kg
+      - set_number: 10
+        reps: 10
+        weight: 40 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 10
+        weight: 46 kg
+      - set_number: 2
+        reps: 10
+        weight: 46 kg
+      - set_number: 3
+        reps: 10
+        weight: 46 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 68 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+  '99':
+    date: '2022-09-21'
+    split: legs_and_abs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      - set_number: 4
+        reps: 10
+        weight: 60 kg
+      - set_number: 5
+        reps: 10
+        weight: 60 kg
+      - set_number: 6
+        reps: 10
+        weight: 60 kg
+      - set_number: 7
+        reps: 10
+        weight: 60 kg
+      - set_number: 8
+        reps: 10
+        weight: 60 kg
+      - set_number: 9
+        reps: 10
+        weight: 60 kg
+      - set_number: 10
+        reps: 10
+        weight: 60 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 27 kg
+      - set_number: 2
+        reps: 10
+        weight: 27 kg
+      - set_number: 3
+        reps: 10
+        weight: 27 kg
+      - set_number: 4
+        reps: 10
+        weight: 27 kg
+      - set_number: 5
+        reps: 10
+        weight: 27 kg
+      - set_number: 6
+        reps: 10
+        weight: 27 kg
+      - set_number: 7
+        reps: 10
+        weight: 27 kg
+      - set_number: 8
+        reps: 10
+        weight: 27 kg
+      - set_number: 9
+        reps: 10
+        weight: 27 kg
+      - set_number: 10
+        reps: 10
+        weight: 27 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 10
+        weight: 0 kg
+  '100':
+    date: '2022-09-23'
+    split: shoulders_and_arms
+    exercises:
+      close_grip_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      - set_number: 4
+        reps: 10
+        weight: 35 kg
+      - set_number: 5
+        reps: 10
+        weight: 35 kg
+      - set_number: 6
+        reps: 10
+        weight: 35 kg
+      - set_number: 7
+        reps: 10
+        weight: 35 kg
+      - set_number: 8
+        reps: 10
+        weight: 35 kg
+      - set_number: 9
+        reps: 10
+        weight: 35 kg
+      - set_number: 10
+        reps: 10
+        weight: 35 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      - set_number: 4
+        reps: 10
+        weight: 25 kg
+      - set_number: 5
+        reps: 10
+        weight: 25 kg
+      - set_number: 6
+        reps: 10
+        weight: 25 kg
+      - set_number: 7
+        reps: 10
+        weight: 25 kg
+      - set_number: 8
+        reps: 10
+        weight: 25 kg
+      - set_number: 9
+        reps: 10
+        weight: 25 kg
+      - set_number: 10
+        reps: 10
+        weight: 25 kg
+      side_laterals:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      reverse_db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+  '101':
+    date: '2022-10-01'
+    split: nfp_split1
+    exercises:
+      front_squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      sumo_deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      chin_up:
+      - set_number: 1
+        reps: 8
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      arnold_press:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      side_jackknife:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      skull_crusher:
+      - set_number: 1
+        reps: 10
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      preacher_curl:
+      - set_number: 1
+        reps: 6
+        weight: 32 kg
+      - set_number: 2
+        reps: 5
+        weight: 32 kg
+  '102':
+    date: '2022-10-02'
+    split: nfp_split2
+    exercises:
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 10
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      romanian_deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+      db_flys:
+      - set_number: 1
+        reps: 8
+        weight: 28 kg
+      - set_number: 2
+        reps: 6
+        weight: 28 kg
+      military_press:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      face_pull:
+      - set_number: 1
+        reps: 10
+        weight: 27 kg
+      - set_number: 2
+        reps: 10
+        weight: 27 kg
+      reverse_crunch:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      french_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      hammer_curl:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+  '103':
+    date: '2022-10-04'
+    split: nfp_split3
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 10
+        weight: 80 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+      nordic_hamstring_curl:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 64 kg
+      incline_db_press:
+      - set_number: 1
+        reps: 10
+        weight: 44 kg
+      - set_number: 2
+        reps: 10
+        weight: 44 kg
+      db_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      kickback:
+      - set_number: 1
+        reps: 5
+        weight: 8 kg
+      - set_number: 2
+        reps: 5
+        weight: 4 kg
+      incline_db_curl:
+      - set_number: 1
+        reps: 8
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+  '104':
+    date: '2022-10-04'
+    split: nfp_split4
+    exercises:
+      walking_bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 41 kg
+      - set_number: 2
+        reps: 10
+        weight: 41 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      single_arm_bent_over_db_row:
+      - set_number: 1
+        reps: 10
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 22 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      db_front_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 12
+        weight: 36 kg
+      side_crunch:
+      - set_number: 1
+        reps: 12
+        weight: 0 kg
+      - set_number: 2
+        reps: 12
+        weight: 0 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 15
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 27 kg
+      ez_bar_curl_curl:
+      - set_number: 1
+        reps: 10
+        weight: 27 kg
+      - set_number: 2
+        reps: 10
+        weight: 27 kg
+  '105':
+    date: '2022-10-08'
+    split: nfp_split5
+    exercises:
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 90 kg
+      - set_number: 2
+        reps: 12
+        weight: 90 kg
+      deadlift:
+      - set_number: 1
+        reps: 7
+        weight: 80 kg
+      - set_number: 2
+        reps: 7
+        weight: 80 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 64 kg
+      - set_number: 2
+        reps: 10
+        weight: 64 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      leaning_cable_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 7 kg
+      - set_number: 2
+        reps: 12
+        weight: 5 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      diamond_pushup:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+      alternating_db_curl:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+  '106':
+    date: '2022-10-11'
+    split: nfp_split1
+    exercises:
+      front_squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      sumo_deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      chin_up:
+      - set_number: 1
+        reps: 8
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      barbell_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      arnold_press:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      barbell_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      side_jackknife:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      skull_crusher:
+      - set_number: 1
+        reps: 10
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      preacher_curl:
+      - set_number: 1
+        reps: 6
+        weight: 32 kg
+      - set_number: 2
+        reps: 5
+        weight: 32 kg
+  '107':
+    date: '2022-10-13'
+    split: nfp_split2
+    exercises:
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 10
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      romanian_deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 6
+        weight: 40 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      military_press:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      reverse_crunch:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 15
+        weight: 0 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 22 kg
+      hammer_curl:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+  '108':
+    date: '2022-10-15'
+    split: nfp_split3
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 10
+        weight: 80 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+      nordic_hamstring_curl:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 64 kg
+      - set_number: 2
+        reps: 10
+        weight: 68 kg
+      incline_db_press:
+      - set_number: 1
+        reps: 10
+        weight: 44 kg
+      - set_number: 2
+        reps: 12
+        weight: 44 kg
+      db_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 25
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+      kickback:
+      - set_number: 1
+        reps: 12
+        weight: 8 kg
+      - set_number: 2
+        reps: 8
+        weight: 8 kg
+      incline_db_curl:
+      - set_number: 1
+        reps: 6
+        weight: 28 kg
+      - set_number: 2
+        reps: 6
+        weight: 28 kg
+  '109':
+    date: '2022-10-18'
+    split: nfp_split4
+    exercises:
+      walking_bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 41 kg
+      - set_number: 2
+        reps: 10
+        weight: 41 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      single_arm_bent_over_db_row:
+      - set_number: 1
+        reps: 10
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 22 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      db_front_raise:
+      - set_number: 1
+        reps: 10
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 12
+        weight: 36 kg
+      side_crunch:
+      - set_number: 1
+        reps: 15
+        weight: 0 kg
+      - set_number: 2
+        reps: 15
+        weight: 0 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 27 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      ez_bar_curl_curl:
+      - set_number: 1
+        reps: 15
+        weight: 27 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+  '110':
+    date: '2022-10-20'
+    split: nfp_split5
+    exercises:
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 90 kg
+      - set_number: 2
+        reps: 12
+        weight: 90 kg
+      deadlift:
+      - set_number: 1
+        reps: 7
+        weight: 80 kg
+      - set_number: 2
+        reps: 7
+        weight: 80 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 64 kg
+      - set_number: 2
+        reps: 10
+        weight: 64 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      leaning_cable_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 5 kg
+      - set_number: 2
+        reps: 12
+        weight: 5 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      diamond_pushup:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+      alternating_db_curl:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+  '111':
+    date: '2022-10-25'
+    split: nfp_split1
+    exercises:
+      front_squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      sumo_deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      chin_up:
+      - set_number: 1
+        reps: 8
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      barbell_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      arnold_press:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      barbell_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      side_jackknife:
+      - set_number: 1
+        reps: 24
+        weight: 0 kg
+      - set_number: 2
+        reps: 24
+        weight: 0 kg
+      skull_crusher:
+      - set_number: 1
+        reps: 10
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      preacher_curl:
+      - set_number: 1
+        reps: 6
+        weight: 32 kg
+      - set_number: 2
+        reps: 5
+        weight: 32 kg
+  '112':
+    date: '2022-10-28'
+    split: nfp_split2
+    exercises:
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 10
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 36 kg
+      romanian_deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 6
+        weight: 50 kg
+      - set_number: 2
+        reps: 6
+        weight: 50 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      military_press:
+      - set_number: 1
+        reps: 12
+        weight: 25 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      reverse_crunch:
+      - set_number: 1
+        reps: 20
+        weight: 0 kg
+      - set_number: 2
+        reps: 15
+        weight: 0 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 22 kg
+      hammer_curl:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+  '113':
+    date: '2022-10-30'
+    split: nfp_split3
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 10
+        weight: 80 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+      nordic_hamstring_curl:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 68 kg
+      - set_number: 2
+        reps: 12
+        weight: 77 kg
+      incline_db_press:
+      - set_number: 1
+        reps: 12
+        weight: 44 kg
+      - set_number: 2
+        reps: 10
+        weight: 48 kg
+      db_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 30
+        weight: 0 kg
+      kickback:
+      - set_number: 1
+        reps: 10
+        weight: 10 kg
+      - set_number: 2
+        reps: 10
+        weight: 10 kg
+      incline_db_curl:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 9
+        weight: 28 kg
+  '114':
+    date: '2022-11-01'
+    split: nfp_split4
+    exercises:
+      walking_bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 41 kg
+      - set_number: 2
+        reps: 10
+        weight: 41 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      single_arm_bent_over_db_row:
+      - set_number: 1
+        reps: 10
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 22 kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      db_front_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      face_pull:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 12
+        weight: 36 kg
+      side_crunch:
+      - set_number: 1
+        reps: 15
+        weight: 0 kg
+      - set_number: 2
+        reps: 15
+        weight: 0 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      ez_bar_curl_curl:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+  '115':
+    date: '2022-11-04'
+    split: nfp_split5
+    exercises:
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 160 kg
+      - set_number: 2
+        reps: 12
+        weight: 200 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 120 kg
+      - set_number: 2
+        reps: 12
+        weight: 70 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 80 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 90 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      leaning_cable_lateral_raise:
+      - set_number: 1
+        reps: 5
+        weight: 7.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 5 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 70 kg
+      - set_number: 2
+        reps: 15
+        weight: 70 kg
+      hanging_leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      diamond_pushup:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      alternating_db_curl:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg

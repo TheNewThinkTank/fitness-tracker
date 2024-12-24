@@ -1,0 +1,3961 @@
+weight_training_log:
+  '116':
+    date: '2023-01-07'
+    split: push
+    exercises:
+      db_bench_press:
+      - set_number: 1
+        reps: 7
+        weight: 48 kg
+      - set_number: 2
+        reps: 7
+        weight: 48 kg
+      - set_number: 3
+        reps: 7
+        weight: 48 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 7
+        weight: 25 kg
+      - set_number: 2
+        reps: 7
+        weight: 25 kg
+      - set_number: 3
+        reps: 7
+        weight: 25 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+      - set_number: 3
+        reps: 10
+        weight: 24 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 11
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+  '117':
+    date: '2023-01-08'
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 7
+        weight: 59 kg
+      - set_number: 2
+        reps: 7
+        weight: 59 kg
+      - set_number: 3
+        reps: 7
+        weight: 59 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 5
+        weight: 68 kg
+      - set_number: 2
+        reps: 5
+        weight: 64 kg
+      - set_number: 3
+        reps: 5
+        weight: 64 kg
+      side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 12
+        weight: 55 kg
+      - set_number: 2
+        reps: 12
+        weight: 55 kg
+      - set_number: 3
+        reps: 12
+        weight: 55 kg
+      bb_curl:
+      - set_number: 1
+        reps: 7
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+  '118':
+    date: '2023-01-13'
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 55 kg
+      - set_number: 2
+        reps: 10
+        weight: 55 kg
+      - set_number: 3
+        reps: 10
+        weight: 55 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 22
+        weight: 0 kg
+  '119':
+    date: '2023-01-15'
+    start_time: '14:45'
+    end_time: '15:10'
+    timezone: CEWT
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 5
+        weight: 60 kg
+      - set_number: 3
+        reps: 5
+        weight: 60 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      - set_number: 3
+        reps: 10
+        weight: 25 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 8
+        weight: 24 kg
+      - set_number: 2
+        reps: 8
+        weight: 24 kg
+  '120':
+    date: '2023-01-19'
+    start_time: '14:56'
+    end_time: '15:14'
+    timezone: CEWT
+    split: pull
+    exercises:
+      lat_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 64 kg
+      - set_number: 2
+        reps: 8
+        weight: 64 kg
+      - set_number: 3
+        reps: 8
+        weight: 64 kg
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 59 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      - set_number: 3
+        reps: 10
+        weight: 59 kg
+      side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 12
+        weight: 55 kg
+      - set_number: 2
+        reps: 12
+        weight: 55 kg
+      - set_number: 3
+        reps: 12
+        weight: 55 kg
+      bb_curl:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 8
+        weight: 25 kg
+  '121':
+    date: '2023-01-22'
+    start_time: '16:40'
+    end_time: '17:13'
+    timezone: CEWT
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+  '122':
+    date: '2023-01-24'
+    start_time: '12:30'
+    end_time: '12:52'
+    timezone: CEWT
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 60 kg
+      - set_number: 2
+        reps: 5
+        weight: 60 kg
+      - set_number: 3
+        reps: 5
+        weight: 60 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      - set_number: 3
+        reps: 8
+        weight: 30 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+      - set_number: 3
+        reps: 10
+        weight: 24 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 22 kg
+      - set_number: 2
+        reps: 10
+        weight: 22 kg
+  '123':
+    date: '2023-01-25'
+    start_time: '14:31'
+    end_time: '14:59'
+    timezone: CEWT
+    split: pull
+    exercises:
+      lat_pulldown:
+      - set_number: 1
+        reps: 9
+        weight: 68 kg
+      - set_number: 2
+        reps: 9
+        weight: 68 kg
+      - set_number: 3
+        reps: 8
+        weight: 68 kg
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 64 kg
+      - set_number: 2
+        reps: 10
+        weight: 64 kg
+      - set_number: 3
+        reps: 10
+        weight: 64 kg
+      side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      bb_curl:
+      - set_number: 1
+        reps: 6
+        weight: 35 kg
+      - set_number: 2
+        reps: 7
+        weight: 30 kg
+  '124':
+    date: '2023-01-29'
+    start_time: '12:02'
+    end_time: '12:33'
+    timezone: CEWT
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 68 kg
+      - set_number: 2
+        reps: 12
+        weight: 68 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 25
+        weight: 0 kg
+  '125':
+    date: '2023-02-04'
+    start_time: '12:42'
+    end_time: '13:05'
+    timezone: CEWT
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 1
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 60 kg
+      - set_number: 3
+        reps: 5
+        weight: 60 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 12
+        weight: 25 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+      - set_number: 3
+        reps: 8
+        weight: 25 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 10
+        weight: 24 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 22 kg
+      - set_number: 2
+        reps: 12
+        weight: 22 kg
+  '126':
+    date: '2023-02-05'
+    start_time: '15:35'
+    end_time: '16:02'
+    timezone: CEWT
+    split: pull
+    exercises:
+      lat_pulldown:
+      - set_number: 1
+        reps: 9
+        weight: 64 kg
+      - set_number: 2
+        reps: 7
+        weight: 64 kg
+      - set_number: 3
+        reps: 7
+        weight: 64 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 59 kg
+      - set_number: 2
+        reps: 10
+        weight: 59 kg
+      - set_number: 3
+        reps: 10
+        weight: 59 kg
+      side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 8
+        weight: 24 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      bb_curl:
+      - set_number: 1
+        reps: 4
+        weight: 35 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+  '127':
+    date: '2023-02-07'
+    start_time: '11:45'
+    end_time: '12:14'
+    timezone: CEWT
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 73 kg
+      - set_number: 3
+        reps: 11
+        weight: 73 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 9
+        weight: 70 kg
+      leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 25
+        weight: 0 kg
+  '128':
+    date: '2023-02-14'
+    start_time: '20:35'
+    end_time: '21:01'
+    timezone: CEWT
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 5
+        weight: 60 kg
+      - set_number: 3
+        reps: 5
+        weight: 60 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+      - set_number: 3
+        reps: 12
+        weight: 25 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 9
+        weight: 16 kg
+      french_press:
+      - set_number: 1
+        reps: 10
+        weight: 26 kg
+      - set_number: 2
+        reps: 8
+        weight: 26 kg
+  '129':
+    date: '2023-02-16'
+    start_time: '13:33'
+    end_time: '13:59'
+    timezone: CEWT
+    split: pull
+    exercises:
+      lat_pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 64 kg
+      - set_number: 2
+        reps: 8
+        weight: 64 kg
+      - set_number: 3
+        reps: 8
+        weight: 64 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 59 kg
+      - set_number: 2
+        reps: 10
+        weight: 59 kg
+      - set_number: 3
+        reps: 10
+        weight: 59 kg
+      side_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      - set_number: 3
+        reps: 15
+        weight: 55 kg
+      bb_curl:
+      - set_number: 1
+        reps: 5
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+  '130':
+    date: '2023-02-19'
+    start_time: '14:49'
+    end_time: '15:29'
+    timezone: CEWT
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      leg_press_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 20
+        weight: 60 kg
+      - set_number: 3
+        reps: 30
+        weight: 100 kg
+      leg_raise:
+      - set_number: 1
+        reps: 35
+        weight: 0 kg
+      - set_number: 2
+        reps: 20
+        weight: 0 kg
+  '131':
+    date: '2023-02-25'
+    start_time: '14:39'
+    end_time: '15:07'
+    timezone: CEWT
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 4
+        weight: 70 kg
+      - set_number: 2
+        reps: 5
+        weight: 60 kg
+      - set_number: 3
+        reps: 5
+        weight: 60 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      - set_number: 3
+        reps: 6
+        weight: 35 kg
+      dumbbell_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      - set_number: 3
+        reps: 12
+        weight: 28 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+      french_press:
+      - set_number: 1
+        reps: 10
+        weight: 26 kg
+      - set_number: 2
+        reps: 6
+        weight: 26 kg
+  '132':
+    date: '2023-02-26'
+    start_time: '13:03'
+    end_time: '13:06'
+    timezone: CEWT
+    split: pull
+    exercises:
+      chinup:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 10
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+  '133':
+    date: '2023-03-01'
+    start_time: '14:25'
+    end_time: '15:08'
+    timezone: CEWT
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      leg_extention:
+      - set_number: 1
+        reps: 15
+        weight: 64 kg
+      - set_number: 2
+        reps: 12
+        weight: 64 kg
+      - set_number: 3
+        reps: 15
+        weight: 64 kg
+      leg_press_calf_raise:
+      - set_number: 1
+        reps: 17
+        weight: 90 kg
+      - set_number: 2
+        reps: 17
+        weight: 90 kg
+      - set_number: 3
+        reps: 17
+        weight: 90 kg
+      leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 30
+        weight: 0 kg
+  '134':
+    date: '2023-03-04'
+    start_time: '11:10'
+    end_time: '12:09'
+    timezone: CEWT
+    split: push
+    exercises:
+      cable_crossover:
+      - set_number: 1
+        reps: 16
+        weight: 28 kg
+      - set_number: 2
+        reps: 14
+        weight: 28 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 5
+        weight: 30 kg
+      - set_number: 3
+        reps: 2
+        weight: 40 kg
+      - set_number: 4
+        reps: 2
+        weight: 60 kg
+      - set_number: 5
+        reps: 1
+        weight: 70 kg
+      - set_number: 6
+        reps: 1
+        weight: 80 kg
+      - set_number: 7
+        reps: 1
+        weight: 70 kg
+      - set_number: 8
+        reps: 10
+        weight: 50 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      - set_number: 3
+        reps: 5
+        weight: 30 kg
+      machine_flys:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 10
+        weight: 41 kg
+      - set_number: 3
+        reps: 10
+        weight: 41 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 8 kg
+      - set_number: 2
+        reps: 10
+        weight: 10 kg
+      - set_number: 3
+        reps: 10
+        weight: 10 kg
+      cable_triceps_extention:
+      - set_number: 1
+        reps: 15
+        weight: 23 kg
+      - set_number: 2
+        reps: 10
+        weight: 23 kg
+  '135':
+    date: '2023-03-11'
+    start_time: '13:40'
+    end_time: '13:49'
+    timezone: CEWT
+    split: pull
+    exercises:
+      chinup:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      - set_number: 4
+        reps: 5
+        weight: 0 kg
+      - set_number: 5
+        reps: 5
+        weight: 0 kg
+  '136':
+    date: '2023-03-12'
+    start_time: '12:20'
+    end_time: '12:55'
+    timezone: CEWT
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 7
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 54 kg
+      - set_number: 2
+        reps: 12
+        weight: 54 kg
+      - set_number: 3
+        reps: 12
+        weight: 54 kg
+      leg_press_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      leg_raise:
+      - set_number: 1
+        reps: 35
+        weight: 0 kg
+      - set_number: 2
+        reps: 25
+        weight: 0 kg
+  '137':
+    date: '2023-03-14'
+    start_time: '15:37'
+    end_time: '16:16'
+    timezone: CEWT
+    split: push
+    exercises:
+      db_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 48 kg
+      - set_number: 2
+        reps: 8
+        weight: 52 kg
+      - set_number: 3
+        reps: 8
+        weight: 52 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 35 kg
+      - set_number: 2
+        reps: 8
+        weight: 35 kg
+      - set_number: 3
+        reps: 6
+        weight: 35 kg
+      machine_flys:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 9
+        weight: 50 kg
+      - set_number: 3
+        reps: 8
+        weight: 50 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 16 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 10
+        weight: 16 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+  '138':
+    date: '2023-03-18'
+    start_time: '15:25'
+    end_time: '15:37'
+    timezone: CEWT
+    split: pull
+    exercises:
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      - set_number: 4
+        reps: 5
+        weight: 0 kg
+      - set_number: 5
+        reps: 5
+        weight: 0 kg
+      - set_number: 6
+        reps: 5
+        weight: 0 kg
+      - set_number: 7
+        reps: 5
+        weight: 0 kg
+  '139':
+    date: '2023-03-23'
+    start_time: '15:30'
+    end_time: '16:08'
+    timezone: CEWT
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 80 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      leg_extention_precor:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      leg_press_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 70 kg
+      - set_number: 2
+        reps: 12
+        weight: 70 kg
+      - set_number: 3
+        reps: 12
+        weight: 70 kg
+      leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 30
+        weight: 0 kg
+  '140':
+    date: '2023-03-28'
+    start_time: '20:41'
+    end_time: '21:15'
+    timezone: CEWT
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 60 kg
+      - set_number: 2
+        reps: 5
+        weight: 60 kg
+      - set_number: 3
+        reps: 5
+        weight: 60 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 12
+        weight: 25 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+      - set_number: 3
+        reps: 12
+        weight: 25 kg
+      machine_flys:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 10
+        weight: 16 kg
+      french_press:
+      - set_number: 1
+        reps: 10
+        weight: 22 kg
+      - set_number: 2
+        reps: 12
+        weight: 22 kg
+  '141':
+    date: '2023-03-31'
+    start_time: '16:02'
+    end_time: '16:10'
+    timezone: CEWT
+    split: pull
+    exercises:
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      - set_number: 4
+        reps: 5
+        weight: 0 kg
+      - set_number: 5
+        reps: 5
+        weight: 0 kg
+      - set_number: 6
+        reps: 5
+        weight: 0 kg
+      - set_number: 7
+        reps: 5
+        weight: 0 kg
+  '142':
+    date: '2023-04-10'
+    start_time: '15:04'
+    end_time: '15:44'
+    timezone: CEST
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      leg_extention_precor:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 70 kg
+      - set_number: 2
+        reps: 12
+        weight: 70 kg
+      - set_number: 3
+        reps: 12
+        weight: 70 kg
+      leg_raise:
+      - set_number: 1
+        reps: 44
+        weight: 0 kg
+      - set_number: 2
+        reps: 23
+        weight: 0 kg
+  '143':
+    date: '2023-04-15'
+    start_time: '13:34'
+    end_time: '14:04'
+    timezone: CEST
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 5
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 50 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 6
+        weight: 35 kg
+      - set_number: 2
+        reps: 15
+        weight: 15 kg
+      - set_number: 3
+        reps: 8
+        weight: 25 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      - set_number: 3
+        reps: 8
+        weight: 28 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+  '144':
+    date: '2023-04-21'
+    start_time: '15:09'
+    end_time: '15:18'
+    timezone: CEWT
+    split: pull
+    exercises:
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      - set_number: 4
+        reps: 5
+        weight: 0 kg
+      - set_number: 5
+        reps: 5
+        weight: 0 kg
+      - set_number: 6
+        reps: 5
+        weight: 0 kg
+  '145':
+    date: '2023-05-07'
+    start_time: '15:20'
+    end_time: '15:53'
+    timezone: CEST
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 8
+        weight: 50 kg
+      - set_number: 3
+        reps: 8
+        weight: 50 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 8
+        weight: 50 kg
+      - set_number: 3
+        reps: 8
+        weight: 50 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 64 kg
+      - set_number: 2
+        reps: 12
+        weight: 73 kg
+      - set_number: 3
+        reps: 10
+        weight: 73 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 14
+        weight: 80 kg
+      - set_number: 3
+        reps: 10
+        weight: 80 kg
+      leg_raise:
+      - set_number: 1
+        reps: 25
+        weight: 0 kg
+      - set_number: 2
+        reps: 40
+        weight: 0 kg
+  '146':
+    date: '2023-05-10'
+    start_time: '17:28'
+    end_time: '17:53'
+    timezone: CEST
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 50 kg
+      - set_number: 2
+        reps: 5
+        weight: 50 kg
+      - set_number: 3
+        reps: 4
+        weight: 50 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 8
+        weight: 25 kg
+      - set_number: 2
+        reps: 8
+        weight: 25 kg
+      - set_number: 3
+        reps: 8
+        weight: 25 kg
+      db_flys:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 5
+        weight: 8 kg
+      - set_number: 2
+        reps: 5
+        weight: 8 kg
+      - set_number: 3
+        reps: 5
+        weight: 8 kg
+      french_press:
+      - set_number: 1
+        reps: 12
+        weight: 14 kg
+      - set_number: 2
+        reps: 12
+        weight: 14 kg
+  '147':
+    date: '2023-05-13'
+    start_time: '14:38'
+    end_time: '14:48'
+    timezone: CEWT
+    split: pull
+    exercises:
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      - set_number: 4
+        reps: 5
+        weight: 0 kg
+      - set_number: 5
+        reps: 5
+        weight: 0 kg
+      - set_number: 6
+        reps: 5
+        weight: 0 kg
+  '148':
+    date: '2023-05-20'
+    start_time: '12:53'
+    end_time: '13:30'
+    timezone: CEST
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      leg_extention_precor:
+      - set_number: 1
+        reps: 12
+        weight: 73 kg
+      - set_number: 2
+        reps: 12
+        weight: 73 kg
+      - set_number: 3
+        reps: 12
+        weight: 73 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 13
+        weight: 90 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      leg_raise:
+      - set_number: 1
+        reps: 30
+        weight: 0 kg
+      - set_number: 2
+        reps: 30
+        weight: 0 kg
+  '149':
+    date: '2023-05-22'
+    start_time: '15:46'
+    end_time: '16:10'
+    timezone: CEST
+    split: push
+    exercises:
+      bb_bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 50 kg
+      - set_number: 2
+        reps: 5
+        weight: 50 kg
+      - set_number: 3
+        reps: 5
+        weight: 50 kg
+      standing_barbell_military_press:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 8
+        weight: 25 kg
+      - set_number: 3
+        reps: 8
+        weight: 25 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      front_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 8 kg
+      - set_number: 2
+        reps: 10
+        weight: 8 kg
+      - set_number: 3
+        reps: 7
+        weight: 8 kg
+      french_press:
+      - set_number: 1
+        reps: 9
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+  '150':
+    date: '2023-05-25'
+    start_time: '12:20'
+    end_time: '12:26'
+    timezone: CEST
+    split: pull
+    exercises:
+      chinup:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+      - set_number: 3
+        reps: 5
+        weight: 0 kg
+      - set_number: 4
+        reps: 5
+        weight: 0 kg
+      - set_number: 5
+        reps: 5
+        weight: 0 kg
+  '151':
+    date: '2023-06-11'
+    start_time: '12:09'
+    end_time: '12:53'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 10
+        weight: 55 kg
+      - set_number: 3
+        reps: 12
+        weight: 55 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 55 kg
+      - set_number: 2
+        reps: 12
+        weight: 55 kg
+      - set_number: 3
+        reps: 12
+        weight: 55 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 15
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 8
+        weight: 45 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT - 30 kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT - 40 kg
+      - set_number: 3
+        reps: 9
+        weight: BODYWEIGHT - 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 5
+        weight: 0 kg
+      - set_number: 2
+        reps: 5
+        weight: 0 kg
+  '152':
+    date: '2023-06-14'
+    start_time: '19:34'
+    end_time: '20:00'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 15
+        weight: 41 kg
+      - set_number: 2
+        reps: 15
+        weight: 59 kg
+      - set_number: 3
+        reps: 15
+        weight: 64 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 6
+        weight: 60 kg
+      - set_number: 3
+        reps: 6
+        weight: 60 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+  '153':
+    date: '2023-06-21'
+    start_time: '17:19'
+    end_time: '17:48'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 55 kg
+      - set_number: 2
+        reps: 8
+        weight: 55 kg
+      - set_number: 3
+        reps: 8
+        weight: 55 kg
+      deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 55 kg
+      - set_number: 2
+        reps: 10
+        weight: 55 kg
+      - set_number: 3
+        reps: 10
+        weight: 55 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 7
+        weight: 45 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT - 30 kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT - 30 kg
+      - set_number: 3
+        reps: 9
+        weight: BODYWEIGHT - 20 kg
+  '154':
+    date: '2023-06-23'
+    start_time: '11:20'
+    end_time: '11:41'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 55 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 20
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      - set_number: 3
+        reps: 15
+        weight: 80 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 7
+        weight: 65 kg
+      db_flys:
+      - set_number: 1
+        reps: 9
+        weight: 28 kg
+      - set_number: 2
+        reps: 11
+        weight: 28 kg
+      - set_number: 3
+        reps: 12
+        weight: 28 kg
+  '155':
+    date: '2023-06-27'
+    start_time: '11:35'
+    end_time: '12:09'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 55 kg
+      - set_number: 2
+        reps: 10
+        weight: 55 kg
+      - set_number: 3
+        reps: 8
+        weight: 55 kg
+      technogym_pull_up:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT - 35 kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT - 35 kg
+      - set_number: 3
+        reps: 12
+        weight: BODYWEIGHT - 35 kg
+  '156':
+    date: '2023-07-05'
+    start_time: '16:55'
+    end_time: '17:27'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 55 kg
+      - set_number: 2
+        reps: 10
+        weight: 55 kg
+      - set_number: 3
+        reps: 10
+        weight: 55 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 55 kg
+      - set_number: 2
+        reps: 12
+        weight: 55 kg
+      - set_number: 3
+        reps: 12
+        weight: 55 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 55 kg
+      - set_number: 2
+        reps: 6
+        weight: 55 kg
+      - set_number: 3
+        reps: 4
+        weight: 55 kg
+      technogym_pull_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+  '157':
+    date: '2023-07-06'
+    start_time: '15:07'
+    end_time: '15:37'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 15
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 59 kg
+      - set_number: 3
+        reps: 11
+        weight: 59 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 9
+        weight: 50 kg
+      lat_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 12
+        weight: 24 kg
+  '158':
+    date: '2023-07-11'
+    start_time: '11:55'
+    end_time: '12:31'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 8
+        weight: 55 kg
+      - set_number: 2
+        reps: 5
+        weight: 55 kg
+      - set_number: 3
+        reps: 11
+        weight: 45 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+  '159':
+    date: '2023-07-13'
+    start_time: '12:37'
+    end_time: '13:07'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 11
+        weight: 60 kg
+      - set_number: 3
+        reps: 9
+        weight: 60 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 60 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      - set_number: 3
+        reps: 15
+        weight: 80 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      skull_crushers:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 6
+        weight: 32 kg
+      alternating_db_curls:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 9
+        weight: 24 kg
+      side_laterals:
+      - set_number: 1
+        reps: 10
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+  '160':
+    date: '2023-07-18'
+    start_time: '12:22'
+    end_time: '13:06'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 11
+        weight: 50 kg
+      - set_number: 3
+        reps: 9
+        weight: 50 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 6
+        weight: 0 kg
+      - set_number: 2
+        reps: 6
+        weight: 0 kg
+  '161':
+    date: '2023-07-22'
+    start_time: '11:30'
+    end_time: '12:26'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 68 kg
+      - set_number: 3
+        reps: 8
+        weight: 68 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      seated_row:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      skull_crushers:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      standing_cable_skullcrusher:
+      - set_number: 1
+        reps: 17
+        weight: 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 90 seconds
+      alternating_db_curls:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 6
+        weight: 32 kg
+      side_laterals:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+  '162':
+    date: '2023-07-24'
+    start_time: '16:13'
+    end_time: '16:49'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 6
+        weight: 80 kg
+      - set_number: 3
+        reps: 6
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 6
+        weight: 80 kg
+      - set_number: 3
+        reps: 10
+        weight: 80 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 11
+        weight: 50 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+  '163':
+    date: '2023-07-30'
+    start_time: '16:32'
+    end_time: '17:05'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 68 kg
+      - set_number: 2
+        reps: 12
+        weight: 68 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      skull_crushers:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+    alternating_db_curls:
+    - set_number: 1
+      reps: 8
+      weight: 28 kg
+    - set_number: 2
+      reps: 8
+      weight: 28 kg
+    side_laterals:
+    - set_number: 1
+      reps: 8
+      weight: 20 kg
+    - set_number: 2
+      reps: 8
+      weight: 20 kg
+    toe_to_bar:
+    - set_number: 1
+      reps: 8
+      weight: 0 kg
+    - set_number: 2
+      reps: 8
+      weight: 0 kg
+    plank:
+    - set_number: 1
+      reps: 1
+      weight: 0 kg
+      duration: 100 seconds
+  '164':
+    date: '2023-08-01'
+    start_time: '17:39'
+    end_time: '18:17'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 6
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 105 seconds
+  '165':
+    date: '2023-08-08'
+    start_time: '19:50'
+    end_time: '20:29'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 15
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 68 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 8
+        weight: 50 kg
+      - set_number: 3
+        reps: 8
+        weight: 50 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      skull_crushers:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      alternating_db_curls:
+      - set_number: 1
+        reps: 8
+        weight: 28 kg
+      - set_number: 2
+        reps: 8
+        weight: 28 kg
+      side_laterals:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 9
+        weight: 0 kg
+      - set_number: 2
+        reps: 8
+        weight: 0 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 80 seconds
+  '166':
+    date: '2023-08-11'
+    start_time: '13:53'
+    end_time: '14:32'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 11
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 7
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 95 seconds
+  '167':
+    date: '2023-08-16'
+    start_time: '12:59'
+    end_time: '13:37'
+    timezone: CEST
+    gym: NN MA
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      - set_number: 3
+        reps: 15
+        weight: 80 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      skull_crushers:
+      - set_number: 1
+        reps: 10
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      alternating_db_curls:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 6
+        weight: 32 kg
+      side_laterals:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 12
+        weight: 0 kg
+      - set_number: 2
+        reps: 9
+        weight: 0 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 90 seconds
+  '168':
+    date: '2023-08-18'
+    start_time: '19:21'
+    end_time: '19:50'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 7
+        weight: 80 kg
+      - set_number: 3
+        reps: 7
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 7
+        weight: 80 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 7
+        weight: 50 kg
+      nautilus_pull_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT - 20 kg
+      - set_number: 2
+        reps: 7
+        weight: BODYWEIGHT - 10 kg
+      - set_number: 3
+        reps: 5
+        weight: BODYWEIGHT - 10 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 95 seconds
+  '169':
+    date: '2023-08-23'
+    start_time: '17:51'
+    end_time: '18:23'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 68 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 60  kg
+      - set_number: 3
+        reps: 8
+        weight: 50  kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      skull_crushers:
+      - set_number: 1
+        reps: 10
+        weight: 25 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      alternating_db_curls:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 5
+        weight: 32 kg
+      side_laterals:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 6
+        weight: 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 12
+        weight: 0 kg
+      - set_number: 2
+        reps: 6
+        weight: 0 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 91 seconds
+  '170':
+    date: '2023-08-25'
+    start_time: '15:10'
+    end_time: '15:55'
+    timezone: CEST
+    split: full_body
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 9
+        weight: 70 kg
+      - set_number: 3
+        reps: 15
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      bb_bench_press:
+      - set_number: 1
+        reps: 12
+        weight: 55 kg
+      - set_number: 2
+        reps: 10
+        weight: 55 kg
+      - set_number: 3
+        reps: 10
+        weight: 55 kg
+      assisted_pull_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT - 14 kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT - 35 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT - 35 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 90 seconds
+  '171':
+    date: '2023-09-21'
+    start_time: '16:32'
+    end_time: '17:04'
+    timezone: CEST
+    split: full_body
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80  kg
+      - set_number: 3
+        reps: 15
+        weight: 80 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      db_flys:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      skull_crushers:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      alternating_db_curls:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 8
+        weight: 32 kg
+      side_laterals:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 12
+        weight: 0 kg
+      - set_number: 2
+        reps: 6
+        weight: 0 kg
+      plank:
+      - set_number: 1
+        reps: 1
+        weight: 0 kg
+        duration: 40 seconds
+  '172':
+    date: '2023-09-25'
+    start_time: '16:40'
+    end_time: '17:18'
+    timezone: CEST
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 6
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 6
+        weight: 50 kg
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 59 kg
+      - set_number: 3
+        reps: 10
+        weight: 59 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 13
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 9
+        weight: 50 kg
+  '173':
+    date: '2023-09-30'
+    start_time: '16:27'
+    end_time: '17:02'
+    timezone: CEST
+    split: push
+    exercises:
+      incline_db_press:
+      - set_number: 1
+        reps: 10
+        weight: 44 kg
+      - set_number: 2
+        reps: 10
+        weight: 44 kg
+      - set_number: 3
+        reps: 8
+        weight: 44 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 10
+        weight: 50 kg
+      seated_db_shoulder_press:
+      - set_number: 1
+        reps: 5
+        weight: 32 kg
+      - set_number: 2
+        reps: 9
+        weight: 28 kg
+      - set_number: 3
+        reps: 6
+        weight: 28 kg
+      behind_the_back_cable_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 10 kg
+      - set_number: 3
+        reps: 10
+        weight: 10 kg
+      seated_db_rear_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      static_hang:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 60 seconds
+  '174':
+    date: '2023-10-10'
+    start_time: '19:56'
+    end_time: '20:29'
+    timezone: CEST
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 5
+        weight: 70 kg
+      - set_number: 3
+        reps: 5
+        weight: 70 kg
+      facepull_w_push:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 30 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      narrow_grip_underhand _pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 6
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 50 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 35 kg
+      - set_number: 2
+        reps: 15
+        weight: 35 kg
+      - set_number: 3
+        reps: 15
+        weight: 35 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 9
+        weight: 30 kg
+      - set_number: 2
+        reps: 7
+        weight: 30 kg
+      - set_number: 3
+        reps: 8
+        weight: 20 kg
+  '175':
+    date: '2023-10-15'
+    start_time: '17:31'
+    end_time: '18:18'
+    timezone: CEST
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 5
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 6
+        weight: 80 kg
+      - set_number: 2
+        reps: 6
+        weight: 80 kg
+      - set_number: 3
+        reps: 6
+        weight: 80 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 6
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 68 kg
+      - set_number: 2
+        reps: 10
+        weight: 68 kg
+      - set_number: 3
+        reps: 10
+        weight: 68 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 15
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 41 kg
+      - set_number: 3
+        reps: 15
+        weight: 46 kg
+  '176':
+    date: '2023-10-20'
+    start_time: '21:23'
+    end_time: '21:59'
+    timezone: CEST
+    split: push
+    exercises:
+      incline_db_press:
+      - set_number: 1
+        reps: 8
+        weight: 52 kg
+      - set_number: 2
+        reps: 5
+        weight: 52 kg
+      - set_number: 3
+        reps: 8
+        weight: 44 kg
+      cable_crossover:
+      - set_number: 1
+        reps: 10
+        weight: 30 kg
+      - set_number: 2
+        reps: 10
+        weight: 25 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      seated_db_shoulder_press:
+      - set_number: 1
+        reps: 8
+        weight: 28 kg
+      - set_number: 2
+        reps: 8
+        weight: 24 kg
+      - set_number: 3
+        reps: 6
+        weight: 24 kg
+      behind_the_back_cable_lateral_raise:
+      - set_number: 1
+        reps: 9
+        weight: 5 kg
+      - set_number: 2
+        reps: 15
+        weight: 2.5 kg
+      - set_number: 3
+        reps: 8
+        weight: 5 kg
+      seated_db_rear_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      static_hang:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 60 seconds
+  '177':
+    date: '2023-10-21'
+    start_time: '20:48'
+    end_time: '21:31'
+    timezone: CEST
+    split: push
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 7
+        weight: 40 kg
+      pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      facepull_w_push:
+      - set_number: 1
+        reps: 7
+        weight: 15 kg
+      - set_number: 2
+        reps: 10
+        weight: 10 kg
+      - set_number: 3
+        reps: 10
+        weight: 7.5 kg
+      narrow_grip_underhand _pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 35 kg
+      - set_number: 3
+        reps: 12
+        weight: 35 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 15
+        weight: 60 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 5
+        weight: 70 kg
+  '178':
+    date: '2023-10-27'
+    start_time: '20:16'
+    end_time: '21:01'
+    timezone: CEST
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 3
+        weight: 60 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      - set_number: 3
+        reps: 5
+        weight: 40 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 68 kg
+      - set_number: 2
+        reps: 12
+        weight: 68 kg
+      - set_number: 3
+        reps: 12
+        weight: 68 kg
+      lying_leg_curl:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 50 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+  '179':
+    date: '2023-10-31'
+    start_time: '16:23'
+    end_time: '16:52'
+    timezone: CET
+    split: push
+    exercises:
+      incline_db_press:
+      - set_number: 1
+        reps: 7
+        weight: 52 kg
+      - set_number: 2
+        reps: 6
+        weight: 48 kg
+      - set_number: 3
+        reps: 8
+        weight: 44 kg
+      seated_db_shoulder_press:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 8
+        weight: 24 kg
+      - set_number: 3
+        reps: 8
+        weight: 24 kg
+      behind_the_back_cable_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 5 kg
+      - set_number: 2
+        reps: 9
+        weight: 5 kg
+      - set_number: 3
+        reps: 10
+        weight: 5 kg
+      seated_db_rear_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      db_incline_flys:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      - set_number: 3
+        reps: 10
+        weight: 28 kg
+      static_hang:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 90 seconds
+  '180':
+    date: '2023-11-01'
+    start_time: '11:19'
+    end_time: '11:49'
+    timezone: CET
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 11
+        weight: 50 kg
+      - set_number: 3
+        reps: 11
+        weight: 50 kg
+      pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      - set_number: 3
+        reps: 9
+        weight: 50 kg
+      facepull_w_push:
+      - set_number: 1
+        reps: 10
+        weight: 10 kg
+      - set_number: 2
+        reps: 9
+        weight: 10 kg
+      - set_number: 3
+        reps: 8
+        weight: 10 kg
+      narrow_grip_underhand _pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 12
+        weight: Sidea_9012_Olympic_Hex_Bar + 20 kg
+      - set_number: 2
+        reps: 15
+        weight: Sidea_9012_Olympic_Hex_Bar + 20 kg
+      - set_number: 3
+        reps: 12
+        weight: Sidea_9012_Olympic_Hex_Bar + 20 kg
+      db_curl:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 8
+        weight: 32 kg
+  '181':
+    date: '2023-11-06'
+    start_time: '15:15'
+    end_time: '15:47'
+    timezone: CET
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 5
+        weight: 80 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      - set_number: 3
+        reps: 5
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      - set_number: 3
+        reps: 15
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 7
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 11
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 7
+        weight: 40 kg
+      - set_number: 3
+        reps: 6
+        weight: 40 kg
+  '182':
+    date: '2023-11-24'
+    start_time: '18:00'
+    end_time: '18:31'
+    timezone: CET
+    split: push
+    exercises:
+      incline_db_press:
+      - set_number: 1
+        reps: 5
+        weight: 52 kg
+      - set_number: 2
+        reps: 5
+        weight: 48 kg
+      - set_number: 3
+        reps: 8
+        weight: 44 kg
+      df_incline_flys:
+      - set_number: 1
+        reps: 9
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      - set_number: 3
+        reps: 8
+        weight: 28 kg
+      seated_db_shoulder_press:
+      - set_number: 1
+        reps: 8
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+      - set_number: 3
+        reps: 8
+        weight: 24 kg
+      behind_the_back_cable_lateral_raise:
+      - set_number: 1
+        reps: 8
+        weight: 5 kg
+      - set_number: 2
+        reps: 8
+        weight: 5 kg
+      - set_number: 3
+        reps: 8
+        weight: 5 kg
+      seated_db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      static_hang:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 70 seconds
+  '183':
+    date: '2023-11-25'
+    start_time: '14:00'
+    end_time: '14:50'
+    timezone: CET
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 64 kg
+      - set_number: 3
+        reps: 9
+        weight: 73 kg
+      pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      - set_number: 3
+        reps: 8
+        weight: 80 kg
+      facepull_w_push:
+      - set_number: 1
+        reps: 12
+        weight: 15 kg
+      - set_number: 2
+        reps: 10
+        weight: 15 kg
+      - set_number: 3
+        reps: 10
+        weight: 15 kg
+      narrow_grip_underhand _pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 46 kg
+      - set_number: 2
+        reps: 12
+        weight: 46 kg
+      - set_number: 3
+        reps: 10
+        weight: 46 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: Sidea_9012_Olympic_Hex_Bar + 40 kg
+      - set_number: 2
+        reps: 11
+        weight: Sidea_9012_Olympic_Hex_Bar + 50 kg
+      - set_number: 3
+        reps: 15
+        weight: Sidea_9012_Olympic_Hex_Bar + 50 kg
+      db_curl:
+      - set_number: 1
+        reps: 9
+        weight: 35 kg
+      - set_number: 2
+        reps: 4
+        weight: 35 kg
+  '184':
+    date: '2023-12-18'
+    start_time: '14:30'
+    end_time: '15:05'
+    timezone: CET
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 30 kg
+      - set_number: 2
+        reps: 5
+        weight: 30 kg
+      - set_number: 3
+        reps: 5
+        weight: 30 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      - set_number: 3
+        reps: 15
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+  '185':
+    date: '2023-12-24'
+    start_time: '13:00'
+    end_time: '13:34'
+    timezone: CET
+    split: push
+    exercises:
+      incline_db_press:
+      - set_number: 1
+        reps: 4
+        weight: 52 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      db_incline_flys:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      - set_number: 3
+        reps: 10
+        weight: 28 kg
+      seated_db_shoulder_press:
+      - set_number: 1
+        reps: 8
+        weight: 24 kg
+      - set_number: 2
+        reps: 9
+        weight: 24 kg
+      - set_number: 3
+        reps: 8
+        weight: 24 kg
+      behind_the_back_cable_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 4.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 4.5 kg
+      - set_number: 3
+        reps: 12
+        weight: 4.5 kg
+      seated_db_rear_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 10 kg
+      - set_number: 3
+        reps: 12
+        weight: 10 kg
+      static_hang:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 75 seconds
+  '186':
+    date: '2023-12-26'
+    start_time: '12:30'
+    end_time: '13:03'
+    timezone: CET
+    split: pull
+    exercises:
+      pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 66 kg
+      - set_number: 2
+        reps: 8
+        weight: 66 kg
+      - set_number: 3
+        reps: 8
+        weight: 66 kg
+      facepull_w_push:
+      - set_number: 1
+        reps: 5
+        weight: 15.8 kg
+      - set_number: 2
+        reps: 8
+        weight: 9 kg
+      - set_number: 3
+        reps: 10
+        weight: 9 kg
+      narrow_grip_underhand_pulldown:
+      - set_number: 1
+        reps: 10
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 8
+        weight: 45 kg
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 52 kg
+      - set_number: 2
+        reps: 8
+        weight: 52 kg
+      - set_number: 3
+        reps: 8
+        weight: 52 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 10
+        weight: 85 kg
+      - set_number: 2
+        reps: 10
+        weight: 75 kg
+      - set_number: 3
+        reps: 10
+        weight: 65 kg
+      db_curl:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 8
+        weight: 32 kg
+  '187':
+    date: '2023-12-29'
+    start_time: '14:48'
+    end_time: '15:27'
+    timezone: CET
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 15
+        weight: 70 kg
+      - set_number: 3
+        reps: 5
+        weight: 70  kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      - set_number: 3
+        reps: 5
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      - set_number: 3
+        reps: 15
+        weight: 80 kg
+      leg_extention:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg

@@ -1,0 +1,389 @@
+weight_training_log:
+  '188':
+    date: '2024-01-07'
+    start_time: '15:50'
+    end_time: '16:22'
+    timezone: CET
+    split: push
+    exercises:
+      incline_db_press:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      db_incline_flys:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      - set_number: 3
+        reps: 8
+        weight: 28 kg
+      seated_db_shoulder_press:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+      - set_number: 3
+        reps: 10
+        weight: 24 kg
+      behind_the_back_cable_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 4.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 4.5 kg
+      - set_number: 3
+        reps: 12
+        weight: 4.5 kg
+      seated_db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 10 kg
+      - set_number: 3
+        reps: 12
+        weight: 10 kg
+      static_hang:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 60 seconds
+  '189':
+    date: '2024-01-10'
+    start_time: '14:58'
+    end_time: '15:27'
+    timezone: CET
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      pulldown:
+      - set_number: 1
+        reps: 8
+        weight: 65 kg
+      - set_number: 2
+        reps: 8
+        weight: 65 kg
+      - set_number: 3
+        reps: 8
+        weight: 65 kg
+      facepull_w_push:
+      - set_number: 1
+        reps: 8
+        weight: 12.5 kg
+      - set_number: 2
+        reps: 8
+        weight: 7.5 kg
+      - set_number: 3
+        reps: 12
+        weight: 7.5 kg
+      narrow_grip_underhand_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 5
+        weight: Sidea_9012_Olympic_Hex_Bar + 60 kg
+      - set_number: 2
+        reps: 5
+        weight: Sidea_9012_Olympic_Hex_Bar + 50 kg
+      - set_number: 3
+        reps: 5
+        weight: Sidea_9012_Olympic_Hex_Bar + 50 kg
+      db_curl:
+      - set_number: 1
+        reps: 9
+        weight: 32 kg
+      - set_number: 2
+        reps: 6
+        weight: 32 kg
+  '190':
+    date: '2024-01-12'
+    start_time: '15:41'
+    end_time: '16:21'
+    timezone: CET
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      - set_number: 3
+        reps: 5
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 10
+        weight: 120 kg
+      - set_number: 3
+        reps: 10
+        weight: 120 kg
+      leg_extention:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 11
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+  '191':
+    date: '2024-01-18'
+    start_time: '19:40'
+    end_time: '20:09'
+    timezone: CET
+    split: push
+    warmup: treadmill, 5 min
+    exercises:
+      incline_db_press:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      db_incline_flys:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      - set_number: 3
+        reps: 10
+        weight: 24 kg
+      seated_db_shoulder_press:
+      - set_number: 1
+        reps: 8
+        weight: 24 kg
+      - set_number: 2
+        reps: 8
+        weight: 24 kg
+      - set_number: 3
+        reps: 7
+        weight: 24 kg
+      behind_the_back_cable_lateral_raise:
+      - set_number: 1
+        reps: 6
+        weight: 4.5 kg
+      - set_number: 2
+        reps: 7
+        weight: 4.5 kg
+      - set_number: 3
+        reps: 8
+        weight: 4.5 kg
+      seated_db_rear_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 14 kg
+      - set_number: 2
+        reps: 12
+        weight: 14 kg
+      - set_number: 3
+        reps: 12
+        weight: 14 kg
+      static_hang:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 70 seconds
+  '192':
+    date: '2024-01-22'
+    start_time: '16:02'
+    end_time: '16:29'
+    timezone: CET
+    split: pull
+    exercises:
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      - set_number: 3
+        reps: 12
+        weight: 50 kg
+      assisted_pullup:
+      - set_number: 1
+        reps: 9
+        weight: BODYWEIGHT - 35 kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT - 35 kg
+      - set_number: 3
+        reps: 8
+        weight: BODYWEIGHT - 35 kg
+      facepull_w_push:
+      - set_number: 1
+        reps: 8
+        weight: 12.5 kg
+      - set_number: 2
+        reps: 10
+        weight: 7.5 kg
+      - set_number: 3
+        reps: 10
+        weight: 7.5 kg
+      narrow_grip_underhand_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      - set_number: 3
+        reps: 10
+        weight: 45 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 6
+        weight: Sidea_9012_Olympic_Hex_Bar + 60 kg
+      - set_number: 2
+        reps: 6
+        weight: Sidea_9012_Olympic_Hex_Bar + 60 kg
+      - set_number: 3
+        reps: 6
+        weight: Sidea_9012_Olympic_Hex_Bar + 60 kg
+      db_curl:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 8
+        weight: 28 kg
+  '193':
+    date: '2024-01-27'
+    start_time: '16:47'
+    end_time: '17:39'
+    timezone: CET
+    gym: Pure Gym BIG
+    split: legs
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 70 kg
+      - set_number: 3
+        reps: 10
+        weight: 70 kg
+      bb_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      - set_number: 3
+        reps: 10
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 100 kg
+      - set_number: 2
+        reps: 15
+        weight: 120 kg
+      - set_number: 3
+        reps: 15
+        weight: 120 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 66 kg
+      - set_number: 2
+        reps: 10
+        weight: 59 kg
+      - set_number: 3
+        reps: 10
+        weight: 59 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 9
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 39 kg
+      - set_number: 3
+        reps: 10
+        weight: 39 kg

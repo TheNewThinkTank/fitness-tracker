@@ -17,9 +17,7 @@ COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
 # ENV PATH /home/${USERNAME}/.local/bin:${PATH}
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-# TODO: switch below to .env and using helper.config_loader
-COPY local_assets/private_config.json /code/local_assets/private_config.json
-
+COPY .env .env
 COPY ./src /code/src
 COPY ./data /code/data
 COPY .config/config.yml /code/.config/config.yml

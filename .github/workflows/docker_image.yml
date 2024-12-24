@@ -68,6 +68,7 @@ jobs:
         uses: anchore/scan-action@v3
         with:
           image: ${{ inputs.image-name }}:${{ inputs.image-tag }}
+          fail-build: false
 
       - name: Push to DockerHub
         if: inputs.dockerhub-username

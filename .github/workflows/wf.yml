@@ -133,7 +133,7 @@ jobs:
       image-name: fitness-tracker
       image-tag: latest
       # dockerhub-username: gustavrasmussen  # Optional, if pushing to DockerHub
-      github-owner: TheNewThinkTank  # Optional, if pushing to GitHub Packages
+      github-owner: thenewthinktank  # TheNewThinkTank  # Optional, if pushing to GitHub Packages
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code

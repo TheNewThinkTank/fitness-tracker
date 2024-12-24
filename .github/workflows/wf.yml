@@ -133,8 +133,8 @@ jobs:
   #   with:
   #     image-name: fitness-tracker
   #     image-tag: latest
-  #     dockerhub-username: your-dockerhub-username  # Optional, if pushing to DockerHub
-  #     github-owner: your-github-username          # Optional, if pushing to GitHub Packages
+  ##     dockerhub-username: your-dockerhub-username  # Optional, if pushing to DockerHub
+  ##     github-owner: your-github-username          # Optional, if pushing to GitHub Packages
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code

@@ -1,0 +1,61 @@
+name: Docker Image Workflow
+
+on:
+  workflow_call:
+    inputs:
+      image-name:
+        description: "Docker Image Name"
+        required: true
+        type: string
+      image-tag:
+        description: "Docker Image Tag"
+        required: true
+        type: string
+      dockerhub-username:
+        description: "DockerHub Username"
+        required: false
+        type: string
+      github-owner:
+        description: "GitHub Owner (for GitHub Packages)"
+        required: false
+        type: string
+
+jobs:
+  build_scan_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Log in to DockerHub
+        if: inputs.dockerhub-username
+        uses: docker/login-action@v2
+        with:
+          username: ${{ inputs.dockerhub-username }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Log in to GitHub Packages
+        if: inputs.github-owner
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ inputs.github-owner }} --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
+
+      - name: Scan Docker image for vulnerabilities
+        uses: anchore/scan-action@v3
+        with:
+          image: ${{ inputs.image-name }}:${{ inputs.image-tag }}
+
+      - name: Push to DockerHub
+        if: inputs.dockerhub-username
+        run: |
+          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ${{ inputs.dockerhub-username }}/{{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker push ${{ inputs.dockerhub-username }}/{{ inputs.image-name }}:${{ inputs.image-tag }}
+
+      - name: Push to GitHub Packages
+        if: inputs.github-owner
+        run: |
+          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ghcr.io/${{ inputs.github-owner }}/{{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker push ghcr.io/${{ inputs.github-owner }}/{{ inputs.image-name }}:${{ inputs.image-tag }}

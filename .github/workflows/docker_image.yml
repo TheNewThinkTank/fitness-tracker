@@ -73,11 +73,11 @@ jobs:
       - name: Push to DockerHub
         if: inputs.dockerhub-username
         run: |
-          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ${{ inputs.dockerhub-username }}/{{ inputs.image-name }}:${{ inputs.image-tag }}
-          docker push ${{ inputs.dockerhub-username }}/{{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker push ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
 
       - name: Push to GitHub Packages
         if: inputs.github-owner
         run: |
-          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ghcr.io/${{ inputs.github-owner }}/{{ inputs.image-name }}:${{ inputs.image-tag }}
-          docker push ghcr.io/${{ inputs.github-owner }}/{{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker push ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}:${{ inputs.image-tag }}

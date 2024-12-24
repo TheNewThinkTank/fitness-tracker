@@ -13,11 +13,21 @@ FROM python:3.12
 
 WORKDIR /code
 
+ARG USER
+ARG ATHLETE
+ARG EMAIL
+ARG ALTERNATIVE_EMAIL
+
+ENV USER=${USER}
+ENV ATHLETE=${ATHLETE}
+ENV EMAIL=${EMAIL}
+ENV ALTERNATIVE_EMAIL=${ALTERNATIVE_EMAIL}
+
 COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
 # ENV PATH /home/${USERNAME}/.local/bin:${PATH}
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY .env .env
+# COPY .env .env
 COPY ./src /code/src
 COPY ./data /code/data
 COPY .config/config.yml /code/.config/config.yml

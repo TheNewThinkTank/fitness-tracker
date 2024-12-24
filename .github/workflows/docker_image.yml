@@ -41,9 +41,22 @@ jobs:
         if: inputs.github-owner
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ inputs.github-owner }} --password-stdin
 
-      - name: Build Docker image
-        run: |
-          docker build -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
+      # - name: Build Docker image
+      #   run: |
+      #     docker build -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
+
+      # Build the Docker image
+      - name: Build Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false  # Do not push the image
+          tags: gustavrasmussen/${{ inputs.image-name }}:${{ inputs.image-tag }}
+          build-args: |
+            USER=${{ secrets.USER }}
+            ATHLETE=${{ secrets.ATHLETE }}
+            EMAIL=${{ secrets.EMAIL }}
+            ALTERNATIVE_EMAIL=${{ secrets.ALTERNATIVE_EMAIL }}
 
       - name: Scan Docker image for vulnerabilities
         uses: anchore/scan-action@v3

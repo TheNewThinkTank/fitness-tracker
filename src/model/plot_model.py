@@ -12,8 +12,10 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 from model import get_data, get_df, one_rep_max_estimator, calc_volume  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
+from utils.config_loader import ConfigLoader  # type: ignore
 
-IMG_PATH = './docs/project_docs/img/'
+config = ConfigLoader.load_config()
+IMG_PATH = config["img_path"]
 
 
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:

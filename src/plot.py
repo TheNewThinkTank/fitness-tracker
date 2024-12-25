@@ -1,6 +1,5 @@
 """
-Date: 2021-12-19
-Purpose: Plot weight-training data
+Plot weight-training data
 """
 
 from typing import Any
@@ -11,8 +10,10 @@ import seaborn as sns  # type: ignore
 from crud.read import show_exercise  # type: ignore
 from utils.get_exercises import get_available_exercises  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
+from utils.config_loader import ConfigLoader  # type: ignore
 
-IMG_PATH = './docs/project_docs/img/'
+config = ConfigLoader.load_config()
+IMG_PATH = config["img_path"]
 
 
 def get_data(date: str, split: str) -> dict[str, pd.DataFrame] | dict:

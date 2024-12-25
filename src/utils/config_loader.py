@@ -19,9 +19,9 @@ class ConfigLoader:
 
     @staticmethod
     def load_config(
-        user: str,
-        athlete: str,
-        email: str,
+        user: str=load_env_variables()["user"],
+        athlete: str=load_env_variables()["athlete"],
+        email: str=load_env_variables()["email"],
         file_path: str="./.config/config.yml"
         ) -> dict:
         """Loads configuration from a YAML file and replaces placeholders."""

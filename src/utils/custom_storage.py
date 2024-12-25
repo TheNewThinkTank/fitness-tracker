@@ -1,4 +1,4 @@
-"""_summary_
+"""Extend TinyDB to use YAML as storage.
 """
 
 import yaml  # type: ignore
@@ -34,12 +34,7 @@ class YAMLStorage(Storage):
 def main():
 
     env_vars = ConfigLoader.load_env_variables()
-
-    config = ConfigLoader.load_config(
-        athlete=env_vars["athlete"],
-        user=env_vars["user"],
-        email=env_vars["email"],
-    )
+    config = ConfigLoader.load_config()
 
     in_file_name = "/db.yml"
 

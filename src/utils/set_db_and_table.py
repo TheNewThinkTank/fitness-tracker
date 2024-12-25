@@ -1,5 +1,5 @@
 """
-Purpose: Set db and table depending on datatype (real/simulated)
+Set db and table depending on datatype (real/simulated)
 """
 
 from datetime import datetime
@@ -45,11 +45,7 @@ def set_db_and_table(
     if not year:
         year = datetime.now().year
 
-    config = ConfigLoader.load_config(
-        athlete=athlete,
-        user=env_vars["user"],
-        email=env_vars["email"],
-    )
+    config = ConfigLoader.load_config(athlete=athlete)
 
     if env != "prd" or 'GITHUB_ACTIONS' in os.environ:
         db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)

@@ -1,5 +1,4 @@
 """
-Date: 2021-12-11
 Purpose: Store and analyze weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
@@ -89,11 +88,12 @@ def show_exercises(table, date: str) -> list[str]:
 
 
 def get_all(table) -> list[dict]:
-    """get all documents
+    """
+    get all documents.
 
     :param table: _description_
     :type table: _type_
-    :return: _description_
+    :return: A list of dictionaries representing the records.
     :rtype: list[dict]
     """
 

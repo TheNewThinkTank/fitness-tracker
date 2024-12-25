@@ -1,5 +1,5 @@
 """
-Purpose: read workout data and calculate 1RM and training volume.
+read workout data and calculate 1RM and training volume.
 """
 
 from datetime import datetime

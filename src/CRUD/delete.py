@@ -1,4 +1,4 @@
-"""_summary_
+"""Delete data from the database
 """
 
 import os
@@ -9,7 +9,7 @@ from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def remove_from_table(table):
-    """_summary_
+    """remove from table
 
     :param table: _description_
     :type table: _type_

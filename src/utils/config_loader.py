@@ -1,7 +1,9 @@
+"""Loads configuration from environment and files.
+"""
 
 import os
 from dotenv import load_dotenv
-from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
+from file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 class ConfigLoader:
@@ -48,10 +50,10 @@ class ConfigLoader:
         return data
 
 
-def main():
+def main() -> None:
     from pprint import pprint as pp
 
-    env_vars = ConfigLoader.load_env_variables()
+    # env_vars = ConfigLoader.load_env_variables()
 
     config = ConfigLoader.load_config(
         # env_vars["user"],

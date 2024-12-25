@@ -1,5 +1,5 @@
 """
-Purpose: read workout data and calculate combined metrics.
+Read workout data and calculate combined metrics.
 """
 
 from datetime import datetime as dt

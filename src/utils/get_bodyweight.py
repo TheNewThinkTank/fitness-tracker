@@ -1,4 +1,4 @@
-"""_summary_
+"""Get the bodyweight from the google sheet.
 """
 
 import pandas as pd  # type: ignore

@@ -6,7 +6,7 @@ from utils.config_loader import ConfigLoader  # type: ignore
 from file_convertion_tools.json_to_yaml import json_to_yaml  # type: ignore
 
 
-def main():
+def main() -> None:
 
     env_vars = ConfigLoader.load_env_variables()
     config = ConfigLoader.load_config()

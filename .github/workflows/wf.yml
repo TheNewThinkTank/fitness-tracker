@@ -16,14 +16,14 @@ jobs:
     with:
       google_drive_data_path: "data"
 
-  docker_image_workflow:
-    needs: qualify_code
-    uses: ./.github/workflows/docker_image.yml
-    with:
-      image-name: fitness-tracker  # ${{ env.IMAGE_NAME }}
-      image-tag: latest
-      # dockerhub-username: gustavrasmussen  # Optional, if pushing to DockerHub
-      github-owner: thenewthinktank  # Optional, if pushing to GitHub Packages
+  # docker_image_workflow:
+  #   needs: qualify_code
+  #   uses: ./.github/workflows/docker_image.yml
+  #   with:
+  #     image-name: fitness-tracker  # ${{ env.IMAGE_NAME }}
+  #     image-tag: latest
+  #     # dockerhub-username: gustavrasmussen  # Optional, if pushing to DockerHub
+  #     github-owner: thenewthinktank  # Optional, if pushing to GitHub Packages
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code

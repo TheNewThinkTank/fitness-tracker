@@ -1,4 +1,4 @@
-"""_summary_
+"""Get breath holding data from Google Sheet and plot min, max, and mean duration.
 """
 
 import datetime

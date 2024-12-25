@@ -6,7 +6,7 @@ from datetime import datetime as dt
 from config_loader import ConfigLoader  # type: ignore
 from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
-from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
+from file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 def get_data(year: str) -> dict:

@@ -1,5 +1,5 @@
 """
-Purpose: Plot weight-training data with fit
+Plot weight-training data with fit
 """
 
 import argparse

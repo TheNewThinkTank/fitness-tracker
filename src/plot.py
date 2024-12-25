@@ -17,14 +17,14 @@ IMG_PATH = config["img_path"]
 
 
 def get_data(date: str, split: str) -> dict[str, pd.DataFrame] | dict:
-    """Prepare pandas dataframes with training data for plotting
+    """Prepare pandas dataframes with training data for plotting.
 
-    :param date: _description_
+    :param date: Date of the workout
     :type date: str
-    :param split: _description_
+    :param split: Split of the workout
     :type split: str
-    :return: _description_
-    :rtype: Dict[str, pd.DataFrame] | dict
+    :return: Dataframes with training data
+    :rtype: dict[str, pd.DataFrame] | dict
     """
 
     _, table, training_catalogue = set_db_and_table(datatype="real")
@@ -38,14 +38,14 @@ def get_data(date: str, split: str) -> dict[str, pd.DataFrame] | dict:
 
 
 def compare_workouts(dfs_1: dict, dfs_2: dict) -> tuple[dict[Any, Any], dict[Any, Any]]:
-    """_summary_
+    """Compare two workouts and return common exercises.
 
-    :param dfs_1: _description_
+    :param dfs_1: Dataframes with training data
     :type dfs_1: dict
-    :param dfs_2: _description_
+    :param dfs_2: Dataframes with training data
     :type dfs_2: dict
-    :return: _description_
-    :rtype: Tuple[Dict[Any, Any], Dict[Any, Any]]
+    :return: Dataframes with common exercises
+    :rtype: tuple[dict[Any, Any], dict[Any, Any]]
     """
 
     common_exercises = []
@@ -61,9 +61,9 @@ def compare_workouts(dfs_1: dict, dfs_2: dict) -> tuple[dict[Any, Any], dict[Any
 def create_barplots(dfs: dict, date: str) -> None:
     """Plot training data for specific date
 
-    :param dfs: _description_
+    :param dfs: Dataframes with training data
     :type dfs: dict
-    :param date: _description_
+    :param date: Date of the workout
     :type date: str
     """
 

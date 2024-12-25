@@ -1,3 +1,5 @@
+"""User Settings
+"""
 
 from collections import ChainMap
 

@@ -1,8 +1,7 @@
 """
-_summary_
+Get the duration of each workout in a given year.
 """
 
-import datetime
 from datetime import datetime as dt
 import yaml  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
@@ -10,13 +9,13 @@ from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
 
 
-def get_data(year):
-    """_summary_
+def get_data(year: str) -> dict:
+    """Get the data from the workout database for a given year.
 
-    :param year: _description_
-    :type year: _type_
-    :return: _description_
-    :rtype: _type_
+    :param year: Year to get the data for.
+    :type year: str
+    :return: data from the workout database for a given year.
+    :rtype: dict
     """
     config = ConfigLoader.load_config()
     file = config["real_workout_database"].replace("<YEAR>", year)
@@ -27,11 +26,12 @@ def get_data(year):
 
 
 @profile
-def get_all_durations(year):
-    """_summary_
+def get_all_durations(year: str) -> dict:
+    """Get the duration of each workout in a given year.
 
-    :return: _description_
-    :rtype: _type_
+    :return: Dictionary with the date as the key
+        and the duration of the workout as the value.
+    :rtype: dict
     """
 
     data = get_data(year)
@@ -53,8 +53,8 @@ def get_all_durations(year):
     return date_and_duration
 
 
-def main():
-    """_summary_
+def main() -> None:
+    """Display the duration of each workout in a given year.
     """
 
     year = str(dt.now().year)

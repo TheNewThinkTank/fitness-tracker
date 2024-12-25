@@ -1,7 +1,7 @@
 """
-Date: 2021-12-11
-Purpose: Expose API for training data
-Doc: https://fastapi.tiangolo.com/tutorial/first-steps/
+Expose API for training data
+
+Docs: https://fastapi.tiangolo.com/tutorial/first-steps/
 
 To run, execute following command from CLI:
 cd src && uvicorn main:app --reload

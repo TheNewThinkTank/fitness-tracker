@@ -1,5 +1,5 @@
 """
-_summary_
+Get the total volume of each workout in the table.
 """
 
 from pprint import pprint as pp
@@ -7,7 +7,18 @@ from utils.get_bodyweight import get_bw  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar):
+def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> float:
+    """Get the weight of the exercise.
+
+    :param s: _description_
+    :type s: dict
+    :param bodyweight: _description_
+    :type bodyweight: str
+    :param Sidea_9012_Olympic_Hex_Bar: _description_
+    :type Sidea_9012_Olympic_Hex_Bar: str
+    :return: _description_
+    :rtype: float
+    """
     weight = eval(
         s["weight"][:-3]
         .replace("BODYWEIGHT", bodyweight)
@@ -18,7 +29,7 @@ def get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar):
 
 
 def get_total_volume(table) -> list[tuple[str, int]]:
-    """_summary_
+    """Get the total volume of each workout in the table.
 
     :param table: _description_
     :type table: _type_
@@ -46,8 +57,10 @@ def get_total_volume(table) -> list[tuple[str, int]]:
     return date_and_volume
 
 
-def main():
-    """_summary_"""
+def main() -> None:
+    """
+    Get the total volume of each workout in the table.
+    """
 
     datatype = "real"
     _, table, _ = set_db_and_table(datatype)

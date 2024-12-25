@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import random
 import numpy as np
-import yaml  # type: ignore
+from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 class ExerciseRepository:
@@ -17,8 +17,7 @@ class ExerciseRepository:
         self.training_catalogue = training_catalogue
 
     def get_exercises(self, split: str) -> list[dict[str, list[int]]]:
-        with open(self.training_catalogue, "r") as rf:
-            available_exercises = yaml.safe_load(rf)
+        available_exercises = load_yaml_file(self.training_catalogue)
         return available_exercises[split]
 
 

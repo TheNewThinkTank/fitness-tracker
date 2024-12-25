@@ -1,4 +1,4 @@
-from test.conftest import src
+
 from src.utils.get_program import get_pgm_from_date
 
 

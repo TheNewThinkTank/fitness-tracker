@@ -1,10 +1,9 @@
 """
-Date: 2022-05-02
-Purpose: Get all exercises available for a given musclegroup
+Get all exercises available for a given musclegroup
 """
 
-import yaml  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 def get_available_exercises(training_catalogue: str, split: str) -> list[str]:
@@ -18,8 +17,8 @@ def get_available_exercises(training_catalogue: str, split: str) -> list[str]:
     :rtype: list
     """
 
-    with open(training_catalogue, "r") as rf:
-        available_exercises = yaml.load(rf, Loader=yaml.FullLoader)
+    available_exercises = load_yaml_file(training_catalogue)
+
     return available_exercises[split]
 
 

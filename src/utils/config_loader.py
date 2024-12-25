@@ -1,7 +1,7 @@
 
 import os
-import yaml  # type: ignore
 from dotenv import load_dotenv
+from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 class ConfigLoader:
@@ -25,22 +25,25 @@ class ConfigLoader:
         file_path: str="./.config/config.yml"
         ) -> dict:
         """Loads configuration from a YAML file and replaces placeholders."""
-        with open(file_path, "r") as rf:
-            data = yaml.safe_load(rf)
 
-            google_drive_data_path = (
-                data["google_drive_data_path"]
-                .replace("<USER>", user)
-                .replace("<EMAIL>", email)
-            )
+        # with open(file_path, "r") as rf:
+        #     data = yaml.safe_load(rf)
 
-            data["google_drive_data_path"] = google_drive_data_path
+        data = load_yaml_file(file_path)
 
-            data["real_workout_database"] = (
-                data["real_workout_database"]
-                .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
-                .replace("<ATHLETE>", athlete)
-            )
+        google_drive_data_path = (
+            data["google_drive_data_path"]
+            .replace("<USER>", user)
+            .replace("<EMAIL>", email)
+        )
+
+        data["google_drive_data_path"] = google_drive_data_path
+
+        data["real_workout_database"] = (
+            data["real_workout_database"]
+            .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
+            .replace("<ATHLETE>", athlete)
+        )
 
         return data
 
@@ -51,10 +54,10 @@ def main():
     env_vars = ConfigLoader.load_env_variables()
 
     config = ConfigLoader.load_config(
-        env_vars["user"],
-        env_vars["athlete"],
-        env_vars["email"],
-        "./.config/config.yml"
+        # env_vars["user"],
+        # env_vars["athlete"],
+        # env_vars["email"],
+        # "./.config/config.yml"
     )
 
     # file = config["real_workout_database"]

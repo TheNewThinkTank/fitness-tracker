@@ -1,5 +1,4 @@
 """
-Date: 2024-01-20
 Purpose: Prepare workout frequency data for plotting
 """
 

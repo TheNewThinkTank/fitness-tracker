@@ -1,15 +1,12 @@
 """
-Date: 2022-09-16
 Purpose: read workout data and calculate combined metrics.
 """
 
 from datetime import datetime as dt
 import os
 import sys
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.dates as mdates  # type: ignore
 import matplotlib.cm as cm  # type: ignore
@@ -18,15 +15,16 @@ import pandas as pd  # type: ignore
 from pprint import pprint as pp
 import seaborn as sns  # type: ignore
 from icecream import ic  # type: ignore
-
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 from utils.get_workout_duration import get_all_durations  # type: ignore
 from utils.get_volume import get_total_volume  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from model.model import one_rep_max_estimator, get_df  # type: ignore
 from get_frequency_data import get_frequency_data  # type: ignore
+from utils.config_loader import ConfigLoader  # type: ignore
 
-IMG_PATH = './docs/project_docs/img/'
+config = ConfigLoader.load_config()
+IMG_PATH = config["img_path"]
 
 
 def plot_frequency(table, year_to_plot: str) -> None:
@@ -206,8 +204,8 @@ def main() -> None:
 
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--year_to_plot", type=str, default='2023')
-    parser.add_argument("--month_to_plot", type=str, default='July')
+    parser.add_argument("--year_to_plot", type=str, default='2024')
+    parser.add_argument("--month_to_plot", type=str, default='December')
     parser.add_argument("--datatype", type=str, default="real")
     args = parser.parse_args()
     datatype = args.datatype

@@ -1,5 +1,7 @@
 ---
 
+img_path: './docs/project_docs/img/'
+
 # google_drive_data_path: "/Users/<USER>/Google Drive/My Drive/DATA/fitness-tracker-data"
 google_drive_data_path: "/Users/<USER>/Library/CloudStorage/GoogleDrive-<EMAIL>/My Drive/DATA/fitness-tracker-data"
 

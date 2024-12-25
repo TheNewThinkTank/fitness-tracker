@@ -1,4 +1,4 @@
-"""_summary_
+"""Validates workout data from a JSON file.
 """
 
 import json
@@ -126,16 +126,11 @@ class WorkoutFactory:
 
 def main() -> None:
     """Main function."""
-    athlete = "gustav_rasmussen"
 
     # Load environment variables and configuration
     env_vars = ConfigLoader.load_env_variables()
-    config = ConfigLoader.load_config(
-        env_vars["user"],
-        env_vars["email"],
-        "./.config/config.yml"
-        )
-    file = config["real_workout_database"].replace("<ATHLETE>", athlete)
+    config = ConfigLoader.load_config()
+    file = config["real_workout_database"].replace("<ATHLETE>", env_vars["athlete"])
 
     # process workout data using the factory
     workouts = WorkoutFactory.create_workouts_from_json(file)

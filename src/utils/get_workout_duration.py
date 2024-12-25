@@ -11,13 +11,14 @@ from datetime_tools.get_duration import get_duration_minutes  # type: ignore
 
 
 def get_data(year):
-    env_vars = ConfigLoader.load_env_variables()
-    config = ConfigLoader.load_config(
-        athlete=env_vars["athlete"],
-        user=env_vars["user"],
-        email=env_vars["email"],
-    )
+    """_summary_
 
+    :param year: _description_
+    :type year: _type_
+    :return: _description_
+    :rtype: _type_
+    """
+    config = ConfigLoader.load_config()
     file = config["real_workout_database"].replace("<YEAR>", year)
     with open(file) as rf:
         data = yaml.safe_load(rf)["weight_training_log"]
@@ -56,7 +57,7 @@ def main():
     """_summary_
     """
 
-    year = str(datetime.datetime.now().year)
+    year = str(dt.now().year)
     date_and_duration = get_all_durations(year)
     for date, duration in date_and_duration.items():
         print(date, duration)

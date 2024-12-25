@@ -1,5 +1,4 @@
 """
-Date: 2021-12-13
 Purpose: Store weight-training data
 https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
@@ -89,15 +88,8 @@ def insert_specific_log(date: str,
     """
 
     env_vars = ConfigLoader.load_env_variables()
-
-    config = ConfigLoader.load_config(
-        athlete=env_vars["athlete"],
-        user=env_vars["user"],
-        email=env_vars["email"],
-    )
-
+    config = ConfigLoader.load_config()
     YEAR, MONTH = get_year_and_month(date)
-
     base_path = config["google_drive_data_path"]
 
     base_path += (

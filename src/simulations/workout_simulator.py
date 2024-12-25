@@ -1,3 +1,5 @@
+"""Simulate weight training workouts.
+"""
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field

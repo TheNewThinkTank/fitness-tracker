@@ -1,6 +1,4 @@
 """
-Date: 2024-02-10
-Author: Gustav Collin Rasmussen
 Purpose: Plots of popular 1-repetition-maximum formulas
 """
 

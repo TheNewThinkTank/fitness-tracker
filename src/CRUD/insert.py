@@ -1,6 +1,7 @@
 """
-Purpose: Store weight-training data
-https://tinydb.readthedocs.io/en/latest/getting-started.html
+Store weight-training data.
+
+Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
 import glob

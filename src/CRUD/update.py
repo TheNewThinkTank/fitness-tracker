@@ -1,6 +1,5 @@
 """
-Date: 2022-07-01
-Purpose: Update or delete weight-training data
+Update or delete weight-training data.
 """
 
 import os
@@ -42,7 +41,7 @@ def filter_exercises_with_whitespace(workout_data):
 
 
 def clean_exercise_name(exercise: str) -> str:
-    """_summary_
+    """Cleans the name of an exercise by replacing spaces with underscores.
 
     :param exercise: _description_
     :type exercise: str
@@ -82,7 +81,8 @@ def clean_exercise_names(table) -> None:
 
 
 def main() -> None:
-    """_summary_"""
+    """Main function for the update module.
+    """
 
     datamodels = ["real", "simulated"]
     datatype = datamodels[0]

@@ -59,7 +59,6 @@ async def get_dates_and_splits():  # -> dict[str, list[str]]:
         raise HTTPException(status_code=500, detail=str(e))
 
 
-
 @app.get("/dates/{date}")
 async def describe_workout(date: str):  # -> dict[str, str]:
     """Returns a dictionary describing the workout for the given date."""

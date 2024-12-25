@@ -19,8 +19,8 @@ from src.one_rep_max_calc import (  # type: ignore
     )
 
 
-def get_data():
-    """description.
+def get_data() -> tuple:
+    """Get data for plotting 1-repetition-maximum formulas.
     """
 
     epley_calculator = OneRepMaxCalculator(EpleyStrategy())
@@ -80,7 +80,12 @@ def get_data():
     return df1, df2, df3, df4
 
 
-def make_plots(df1, df2, df3, df4):
+def make_plots(
+        df1: pd.DataFrame,
+        df2: pd.DataFrame,
+        df3: pd.DataFrame,
+        df4: pd.DataFrame
+        ) -> None:
     _, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
 
     # Plot 1

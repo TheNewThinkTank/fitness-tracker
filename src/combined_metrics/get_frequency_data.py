@@ -1,5 +1,5 @@
 """
-Purpose: Prepare workout frequency data for plotting
+Prepare workout frequency data for plotting.
 """
 
 import pandas as pd  # type: ignore
@@ -7,7 +7,7 @@ from datetime_tools.get_year_and_week import get_year_and_week  # type: ignore
 
 
 def get_frequency_data(table, year_to_plot: str) -> pd.DataFrame:
-    """_summary_
+    """Get workout frequency data for plotting.
 
     :param table: _description_
     :type table: _type_

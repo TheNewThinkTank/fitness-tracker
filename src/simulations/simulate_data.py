@@ -1,6 +1,5 @@
 """
-Date: 2021-12-20
-Purpose: Simulate weight-training data
+Simulate weight-training data
 """
 
 from datetime import datetime
@@ -13,13 +12,13 @@ from algo_lib.sampling.reservoir_sample import reservoir_sample  # type: ignore
 def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[str]:
     """Get list of dates.
 
-    :param number_of_workouts: _description_
+    :param number_of_workouts: Number of workouts to simulate
     :type number_of_workouts: int
-    :param start: _description_
+    :param start: Start date for generating dates
     :type start: datetime
-    :param periods: _description_
+    :param periods: Periods to generate
     :type periods: int
-    :return: _description_
+    :return: List of dates
     :rtype: list[str]
     """
 

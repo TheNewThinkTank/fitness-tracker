@@ -1,6 +1,5 @@
 """
-Date: 2022-02-21
-Purpose: flatten nested JSON data into csv format,
+Flatten nested JSON data into csv format,
 e.g. for the great expectations framework to process.
 """
 
@@ -12,9 +11,9 @@ import pandas as pd  # type: ignore
 def get_exercise_data(infile: str) -> pd.DataFrame:
     """Read nested JSON file into dataframe.
 
-    :param infile: _description_
+    :param infile: Filepath to JSON file
     :type infile: str
-    :return: _description_
+    :return: Pandas dataframe with flattened JSON data
     :rtype: pd.DataFrame
     """
 
@@ -40,9 +39,9 @@ def df_to_csv(infile: str, df: pd.DataFrame) -> None:
     """Flatten data, apply additional transformations,
     and write results to csv format.
 
-    :param infile: _description_
+    :param infile: Filepath to JSON file
     :type infile: str
-    :param df: _description_
+    :param df: Pandas dataframe with flattened JSON data
     :type df: pd.DataFrame
     """
 

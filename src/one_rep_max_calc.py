@@ -95,7 +95,7 @@ class InvertedCalculator:
         return one_rm, reps, progression
 
 
-def main():
+def main() -> None:
     # Example usage
     epley_calculator = OneRepMaxCalculator(EpleyStrategy())
     brzycki_calculator = OneRepMaxCalculator(BrzyckiStrategy())

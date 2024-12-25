@@ -7,7 +7,7 @@ from utils.get_bodyweight import get_bw  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> float:
+def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int:
     """Get the weight of the exercise.
 
     :param s: _description_

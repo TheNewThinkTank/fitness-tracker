@@ -2,6 +2,7 @@
 name: Fitness Tracker Simulation Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - feature/simulations

@@ -39,6 +39,12 @@ jobs:
           POETRY_VIRTUALENVS_IN_PROJECT: true
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Set GOOGLE_DRIVE_DATA_PATH
+        run: echo "GOOGLE_DRIVE_DATA_PATH=${{ inputs.google_drive_data_path }}" >> $GITHUB_ENV
+
+      - name: Print GOOGLE_DRIVE_DATA_PATH
+        run: echo $GOOGLE_DRIVE_DATA_PATH        
+
       - name: Cache mypy dependencies
         uses: actions/cache@v4
         with:

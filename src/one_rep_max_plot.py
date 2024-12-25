@@ -1,5 +1,5 @@
 """
-Purpose: Plots of popular 1-repetition-maximum formulas
+Plots of popular 1-repetition-maximum formulas
 """
 
 import os

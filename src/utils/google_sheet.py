@@ -1,12 +1,12 @@
-"""_summary_
+"""Google Sheets API.
 """
 
 import gspread
 from google.oauth2.service_account import Credentials
 
 
-def get_sheet(sheet_id, sheet_title):
-    """_summary_
+def get_sheet(sheet_id: str, sheet_title: str) -> gspread.Worksheet:
+    """Get a Google Sheet by its ID and title.
 
     :param sheet_id: _description_
     :type sheet_id: _type_
@@ -22,9 +22,7 @@ def get_sheet(sheet_id, sheet_title):
         scopes=scopes
         )
     client = gspread.authorize(creds)
-
     workbook = client.open_by_key(sheet_id)
-
     sheet = workbook.worksheet(sheet_title)
 
     return sheet
@@ -72,7 +70,7 @@ def update_sheet() -> None:
     return
 
 
-def main():
+def main() -> None:
     # example: BODYWEIGHT sheet
     sheet_id = "1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs"
     sheet_title = "2023-2024"

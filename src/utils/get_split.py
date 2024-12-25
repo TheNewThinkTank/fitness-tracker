@@ -1,3 +1,5 @@
+"""Get the split of the workout.
+"""
 
 from enum import Enum, unique
 

@@ -7,14 +7,14 @@ on:
     branches:
       - main
 
-env:
-  GOOGLE_DRIVE_DATA_PATH: data
+# env:
+#   GOOGLE_DRIVE_DATA_PATH: data
 
 jobs:
   qualify_code:
     uses: ./.github/workflows/qualify_code.yml
     with:
-      google_drive_data_path: ${{ env.GOOGLE_DRIVE_DATA_PATH }}
+      google_drive_data_path: "data"
 
   # docker_image_workflow:
   #   needs: qualify_code

@@ -1,9 +1,9 @@
 
 from pprint import pprint as pp
 import pytest
-import yaml
 from src.utils.validate import Workout
 from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 def setup():
@@ -11,8 +11,7 @@ def setup():
 
     config = ConfigLoader.load_config()
     file = config["real_workout_database"].replace("<YEAR>", "2024")
-    with open(file) as rf:
-        data = yaml.safe_load(rf)["weight_training_log"]
+    data = load_yaml_file(file)["weight_training_log"]
     return data
 
 

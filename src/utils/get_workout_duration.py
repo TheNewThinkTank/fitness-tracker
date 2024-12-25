@@ -3,10 +3,10 @@ Get the duration of each workout in a given year.
 """
 
 from datetime import datetime as dt
-import yaml  # type: ignore
 from config_loader import ConfigLoader  # type: ignore
 from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
+from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 def get_data(year: str) -> dict:
@@ -19,8 +19,7 @@ def get_data(year: str) -> dict:
     """
     config = ConfigLoader.load_config()
     file = config["real_workout_database"].replace("<YEAR>", year)
-    with open(file) as rf:
-        data = yaml.safe_load(rf)["weight_training_log"]
+    data = load_yaml_file(file)["weight_training_log"]
 
     return data
 

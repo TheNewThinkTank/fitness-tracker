@@ -50,7 +50,7 @@ def test_get_data():
         },
     }
 
-    assert get_data(year)["1"] == expected_data
+    assert get_data(year)[0] == expected_data
 
 
 def test_get_all_durations():

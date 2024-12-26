@@ -10,29 +10,30 @@ from config_loader import ConfigLoader  # type: ignore
 
 
 class TinyDBSingleton:
-    _instance = None
+    _instances = {}
 
     def __new__(cls, db_path, storage=YAMLStorage):
         # Ensure the directory for db_path exists
         os.makedirs(os.path.dirname(db_path), exist_ok=True)
-        if cls._instance is None:
-            cls._instance = super(TinyDBSingleton, cls).__new__(cls)
-            cls._instance.db = TinyDB(db_path, storage=storage)
-        return cls._instance
+        if db_path not in cls._instances:
+            instance = super(TinyDBSingleton, cls).__new__(cls)
+            instance.db = TinyDB(db_path, storage=storage)
+            cls._instances[db_path] = instance
+        return cls._instances[db_path]
 
     def get_db(self):
         return self.db
 
     def close(self):
-        if self._instance:
-            self.db.close()  # Close the db file, this ensures no further writes.
-            TinyDBSingleton._instance = None  # Reset the instance
+        for instance in self._instances.values():
+            instance.db.close()  # Close the db file, this ensures no further writes.
+        TinyDBSingleton._instances = {}  # Reset the instances
 
 
 def set_db_and_table(
-    datatype, 
-    athlete=None, 
-    year=None, 
+    datatype,
+    athlete=None,
+    year=None,
     env="prd"  # dev
 ):
     """Set up database and table based on datatype (real/simulated)."""

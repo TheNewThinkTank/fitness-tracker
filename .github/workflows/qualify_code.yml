@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}-v2
           restore-keys: ${{ runner.os }}-poetry-
 
       - name: Install dependencies with poetry

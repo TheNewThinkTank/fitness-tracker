@@ -10,9 +10,9 @@ from config_loader import ConfigLoader  # type: ignore
 
 
 class TinyDBSingleton:
-    _instances = {}
+    _instances: dict[str, 'TinyDBSingleton'] = {}
 
-    def __new__(cls, db_path, storage=YAMLStorage):
+    def __new__(cls, db_path: str, storage=YAMLStorage):
         # Ensure the directory for db_path exists
         os.makedirs(os.path.dirname(db_path), exist_ok=True)
         if db_path not in cls._instances:

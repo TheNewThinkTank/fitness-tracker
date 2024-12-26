@@ -21,6 +21,10 @@ class TinyDBSingleton:
             cls._instances[db_path] = instance
         return cls._instances[db_path]
 
+    def __init__(self, db_path: str, storage=YAMLStorage):
+        if not hasattr(self, 'db'):
+            self.db = TinyDB(db_path, storage=storage)
+
     def get_db(self):
         return self.db
 

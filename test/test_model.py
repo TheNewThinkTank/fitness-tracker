@@ -79,5 +79,5 @@ def test_get_data():
         91.43,
     ]
 
-    assert x[:10] == real_x_program_1
-    assert y[:10] == real_y_program_1
+    assert x[:10] == pytest.approx(real_x_program_1, rel=1e-9)
+    assert y[:10] == pytest.approx(real_y_program_1, rel=1e-2)

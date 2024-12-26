@@ -2,8 +2,8 @@
 """
 
 from datetime import datetime
-from src.crud.read import show_exercises  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.crud.read import show_exercises  # type: ignore
 
 _, table, _ = set_db_and_table(
     datatype="real",

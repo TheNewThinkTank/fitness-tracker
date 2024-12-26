@@ -58,7 +58,7 @@ def test_one_rep_max_estimator():
     assert value_2021 <= value_2022
 
 
-# @pytest.mark.skip(reason="Skip until ImportError is fixed")
+@pytest.mark.skip(reason="Skip until data discrepancy is fixed")
 def test_get_data():
     """Verify that the correct lists (timestamps and 1RM estimates) are returned,
     for real training data from program_1

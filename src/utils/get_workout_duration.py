@@ -52,6 +52,20 @@ def get_all_durations(year: str) -> dict:
     return date_and_duration
 
 
+def get_number_of_workouts(year: str) -> int:
+    """Get the number of workouts in a given year.
+
+    :param year: Year to get the number of workouts for.
+    :type year: str
+    :return: Number of workouts in a given year.
+    :rtype: int
+    """
+
+    data = get_data(year)
+
+    return len(data)
+
+
 def main() -> None:
     """Display the duration of each workout in a given year.
     """
@@ -60,6 +74,9 @@ def main() -> None:
     date_and_duration = get_all_durations(year)
     for date, duration in date_and_duration.items():
         print(date, duration)
+
+    # 2021: 8 workouts, 2022: 107 workouts, 2023: 72 workouts, 2024: 65 workouts
+    # print(get_number_of_workouts("2024"))
 
 
 if __name__ == "__main__":

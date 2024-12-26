@@ -1,9 +1,6 @@
 
-# import pytest
 from datetime import datetime, timedelta
-
-from test.conftest import src
-from src.simulations.simulate_data import (
+from src.simulations.simulate_data import (  # type: ignore
     reservoir_sample,
     get_dates
 )

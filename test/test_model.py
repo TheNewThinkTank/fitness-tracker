@@ -5,7 +5,6 @@ unit test suite for model
 from datetime import datetime
 import pytest
 # import pandas as pd
-from test.conftest import src
 from src.model.model import get_df, one_rep_max_estimator, get_data
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
@@ -23,7 +22,7 @@ def setup():
     return table_2021, table_2022
 
 
-@pytest.mark.skip(reason="Skip until ImportError is fixed")
+# @pytest.mark.skip(reason="Skip until ImportError is fixed")
 @pytest.mark.parametrize(
     "test_input_split,test_input_exercise",
     [("legs", "squat")],  # , ('chest', 'pullover')],
@@ -35,7 +34,7 @@ def test_get_df(test_input_split, test_input_exercise):
     assert len(df) > 2
 
 
-@pytest.mark.skip(reason="Skip until PermissionError is fixed")
+@pytest.mark.skip(reason="Skip until KeyError is fixed")
 def test_one_rep_max_estimator():
     """Verify that 1RM has progression."""
 
@@ -59,7 +58,7 @@ def test_one_rep_max_estimator():
     assert value_2021 <= value_2022
 
 
-@pytest.mark.skip(reason="Skip until ImportError is fixed")
+# @pytest.mark.skip(reason="Skip until ImportError is fixed")
 def test_get_data():
     """Verify that the correct lists (timestamps and 1RM estimates) are returned,
     for real training data from program_1

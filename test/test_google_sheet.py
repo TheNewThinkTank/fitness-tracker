@@ -1,16 +1,13 @@
 
 import pytest
 from unittest.mock import patch, Mock
-
 import gspread
-
-from test.conftest import src
 from src.utils.google_sheet import get_sheet
 
 
 @patch('src.utils.google_sheet.gspread.authorize')
 @patch('src.utils.google_sheet.Credentials.from_service_account_file')
-def test_get_sheet_success(mock_from_service_account_file, mock_authorize):
+def test_get_sheet_success(mock_from_service_account_file, mock_authorize) -> None:
     # Arrange
     sheet_id = "test_sheet_id"
     sheet_title = "test_sheet_title"
@@ -40,7 +37,7 @@ def test_get_sheet_success(mock_from_service_account_file, mock_authorize):
     assert result == mock_sheet
 
 
-def test_get_sheet_invalid_sheet():
+def test_get_sheet_invalid_sheet() -> None:
     # This test will check how the function handles an invalid sheet title
     sheet_id = "test_sheet_id"
     sheet_title = "invalid_sheet_title"

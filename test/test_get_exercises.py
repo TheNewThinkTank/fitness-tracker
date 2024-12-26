@@ -1,5 +1,4 @@
 
-from test.conftest import src
 from src.utils.get_exercises import get_available_exercises
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 

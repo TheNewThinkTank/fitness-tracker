@@ -2,14 +2,11 @@
 """
 
 import pytest
-
 from tinydb import TinyDB
+from typing import Any
 
-from test.conftest import src
-
-pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
-
-insert_log = pytest.importorskip("src.crud.insert.insert_log")
+# pytestmark = pytest.mark.skip(reason="Skip until ModuleNotFoundError is fixed")
+insert_log: Any = pytest.importorskip("src.crud.insert.insert_log")
 
 # from src.crud.insert import insert_log  # , insert_specific_log
 

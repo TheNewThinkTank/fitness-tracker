@@ -40,6 +40,9 @@ algo-library = "^0.0.6"
 ruff = "^0.8.4"
 mypy = "^1.14.0"
 
+[tool.pytest.ini_options]
+pythonpath = "src"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

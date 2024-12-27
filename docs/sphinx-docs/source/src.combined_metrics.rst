@@ -1,10 +1,10 @@
-src.combined\_metrics package
+src.combined_metrics package
 =============================
 
 Submodules
 ----------
 
-src.combined\_metrics.combined\_metrics module
+src.combined_metrics.combined_metrics module
 ----------------------------------------------
 
 .. automodule:: src.combined_metrics.combined_metrics

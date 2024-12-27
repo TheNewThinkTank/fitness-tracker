@@ -1,39 +1,14 @@
 src package
 ===========
 
-Subpackages
------------
-
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
-   src.combined_metrics
-   src.crud
-   src.helpers
-   src.model
-   src.simulations
-
-Submodules
-----------
-
-src.main module
----------------
-
-.. automodule:: src.main
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-src.plot module
----------------
-
-.. automodule:: src.plot
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
+   combined_metrics
+   crud
+   model
+   simulations
+   utils
 
 .. automodule:: src
    :members:

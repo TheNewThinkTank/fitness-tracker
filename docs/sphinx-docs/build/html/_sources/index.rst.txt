@@ -11,11 +11,6 @@ Welcome to Fitness-Tracker's documentation!
    :caption: Contents:
 
    modules
-   src.combined_metrics
-   src.crud
-   src.model
-   src.simulations   
-   src.utils
 
 Indices and tables
 ==================

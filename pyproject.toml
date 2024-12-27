@@ -3,6 +3,10 @@ name = "fitness-tracker"
 version = "0.0.1"
 description = "Full stack fitness tracking application using TinyDB and FastAPI"
 authors = ["Gustav Rasmussen"]
+license = "MIT"
+packages = [
+    { include = "src" },
+]
 
 [tool.poetry.dependencies]
 behave = "^1.2.6"

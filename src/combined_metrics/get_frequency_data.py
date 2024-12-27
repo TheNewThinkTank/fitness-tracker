@@ -9,11 +9,11 @@ from datetime_tools.get_year_and_week import get_year_and_week  # type: ignore
 def get_frequency_data(table, year_to_plot: str) -> pd.DataFrame:
     """Get workout frequency data for plotting.
 
-    :param table: _description_
-    :type table: _type_
-    :param year_to_plot: _description_
+    :param table: TinyDB table
+    :type table: TinyDB.table
+    :param year_to_plot: year to plot
     :type year_to_plot: str
-    :return: _description_
+    :return: workout frequency data
     :rtype: pd.DataFrame
     """
 

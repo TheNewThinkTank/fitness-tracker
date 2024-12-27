@@ -7,7 +7,8 @@ from file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 class ConfigLoader:
-    """Handles loading configuration from environment and files."""
+    """Handles loading configuration from environment and files.
+    """
 
     @staticmethod
     def load_env_variables() -> dict:
@@ -26,7 +27,8 @@ class ConfigLoader:
         email: str=load_env_variables()["email"],
         file_path: str="./.config/config.yml"
         ) -> dict:
-        """Loads configuration from a YAML file and replaces placeholders."""
+        """Loads configuration from a YAML file and replaces placeholders.
+        """
 
         # with open(file_path, "r") as rf:
         #     data = yaml.safe_load(rf)
@@ -51,6 +53,8 @@ class ConfigLoader:
 
 
 def main() -> None:
+    """Load configuration and print it.
+    """
     from pprint import pprint as pp
 
     # env_vars = ConfigLoader.load_env_variables()

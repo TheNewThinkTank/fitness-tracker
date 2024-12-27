@@ -1,5 +1,5 @@
 """
-read workout data and calculate 1RM and training volume.
+Read workout data and calculate 1RM and training volume.
 """
 
 from datetime import datetime
@@ -20,7 +20,7 @@ from one_rep_max_calc import OneRepMaxCalculator  # type: ignore
 
 
 def get_df(
-    log,
+    table,
     splits: list[str] = ["chest", "push", "chest_and_back"],
     exercise: str = "barbell_bench_press",
 ) -> pd.DataFrame:
@@ -28,18 +28,19 @@ def get_df(
     containing workout date and training data,
     for specified split(s) and exercise.
 
-    :param log: _description_
-    :type log: _type_
-    :param splits: _description_, defaults to ["chest", "push", "chest_and_back"]
+    :param table: TinyDB table
+    :type table: tinydb.table.Table
+    :param splits: List of workout splits to include,
+      defaults to ["chest", "push", "chest_and_back"]
     :type splits: list, optional
-    :param exercise: _description_, defaults to "barbell_bench_press"
+    :param exercise: Exercise to include, defaults to "barbell_bench_press"
     :type exercise: str, optional
-    :return: _description_
+    :return: Consolidated Pandas dataframe
     :rtype: pd.DataFrame
     """
 
     frames = []
-    for item in log:
+    for item in table:
         if any(x in item["split"] for x in splits):
             if exercise in item["exercises"].keys():
                 df = pd.DataFrame(item["exercises"][exercise])
@@ -50,23 +51,23 @@ def get_df(
 
 
 def get_weight(df: pd.DataFrame) -> pd.Series:
-    """_summary_
+    """Extracts weight from the 'weight' column.
 
-    :param df: _description_
+    :param df: Pandas dataframe with 'weight' column
     :type df: pd.DataFrame
-    :return: _description_
-    :rtype: pd.DataFrame
+    :return: Weight in kg
+    :rtype: pd.Series
     """
 
     return df["weight"].str.strip(" kg").astype(float)
 
 
 def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
-    """sets times reps times load.
+    """Sets times reps times load.
 
-    :param df: _description_
+    :param df: DataFrame containing weight, reps, and set_number data
     :type df: pd.DataFrame
-    :return: _description_
+    :return: DataFrame with volume per date
     :rtype: pd.DataFrame
     """
 

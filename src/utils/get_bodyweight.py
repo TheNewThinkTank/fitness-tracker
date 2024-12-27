@@ -5,11 +5,11 @@ import pandas as pd  # type: ignore
 from google_sheet import get_sheet  # type: ignore
 
 
-def get_bw():
-    """_summary_
+def get_bw() -> float:
+    """Get the bodyweight from the google sheet.
 
-    :return: _description_
-    :rtype: _type_
+    :return: Bodyweight in kg
+    :rtype: float
     """
 
     URL = (
@@ -22,7 +22,9 @@ def get_bw():
     return df["BODYWEIGHT_KG"].values[-1]
 
 
-def main():
+def main() -> None:
+    """Get the bodyweight from the google sheet.
+    """
     sheet = get_sheet(
     sheet_id="1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs",
     sheet_title="2023-2024"

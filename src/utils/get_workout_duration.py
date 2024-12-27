@@ -14,7 +14,7 @@ from src.crud.read import get_all  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def get_data(year: str):
+def get_data(year: str) -> list[dict]:
     """Get the data from the workout database for a given year.
 
     :param year: Year to get the data for.
@@ -38,6 +38,8 @@ def get_data(year: str):
 def get_all_durations(year: str) -> dict:
     """Get the duration of each workout in a given year.
 
+    :param year: Year to get the duration of each workout for.
+    :type year: str
     :return: Dictionary with the date as the key
         and the duration of the workout as the value.
     :rtype: dict

@@ -1,5 +1,5 @@
 """
-Plot weight-training data
+Plot weight-training data.
 """
 
 from typing import Any
@@ -59,7 +59,7 @@ def compare_workouts(dfs_1: dict, dfs_2: dict) -> tuple[dict[Any, Any], dict[Any
 
 
 def create_barplots(dfs: dict, date: str) -> None:
-    """Plot training data for specific date
+    """Plot training data for specific date.
 
     :param dfs: Dataframes with training data
     :type dfs: dict
@@ -149,7 +149,8 @@ def create_barplots(dfs: dict, date: str) -> None:
 
 
 def main() -> None:
-    """Get data and create figure."""
+    """Get data and create figure.
+    """
 
     dates = [
         "2021-12-11",

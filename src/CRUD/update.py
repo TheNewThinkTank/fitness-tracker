@@ -14,13 +14,13 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def filter_exercises_with_whitespace(workout_data):
+def filter_exercises_with_whitespace(workout_data: list) -> list:
     """Find exercises with whitespace.
 
-    :param workout_data: _description_
-    :type workout_data: _type_
-    :return: _description_
-    :rtype: _type_
+    :param workout_data: Workout data
+    :type workout_data: list
+    :return: A list of workouts with exercises that contain whitespace
+    :rtype: list
     """
 
     filtered_exercises = []
@@ -43,9 +43,9 @@ def filter_exercises_with_whitespace(workout_data):
 def clean_exercise_name(exercise: str) -> str:
     """Cleans the name of an exercise by replacing spaces with underscores.
 
-    :param exercise: _description_
+    :param exercise: The name of an exercise
     :type exercise: str
-    :return: _description_
+    :return: The cleaned exercise name
     :rtype: str
     """
 
@@ -65,7 +65,9 @@ def clean_exercise_names(table) -> None:
     and updating the database.
 
     :param table: The database table containing workout data.
-    :type table: _type_
+    :type table: tinydb.table.Table
+    :return: None
+    :rtype: None
     """
     workout_data = table.all()
     updates = []

@@ -28,10 +28,13 @@ IMG_PATH = config["img_path"]
 
 
 def plot_frequency(table, year_to_plot: str) -> None:
-    """_summary_
+    """Plot workout frequency.
 
-    :param table: _description_
-    :type table: _type_
+    :param table: TinyDB table
+    :type table: TinyDB.table
+    :param year_to_plot: year to plot
+    :type year_to_plot: str
+    :return: None
     """
 
     res_df = get_frequency_data(table, year_to_plot)
@@ -69,14 +72,15 @@ def plot_frequency(table, year_to_plot: str) -> None:
 
 
 def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
-    """_summary_
+    """Plot workout duration.
 
-    :param table: _description_
-    :type table: _type_
-    :param year_to_plot: _description_
+    :param table: TinyDB table
+    :type table: TinyDB.table
+    :param year_to_plot: year to plot
     :type year_to_plot: str
-    :param month_to_plot: _description_
+    :param month_to_plot: month to plot
     :type month_to_plot: str
+    :return: None
     """
 
     _date_and_duration = get_all_durations(year_to_plot)
@@ -136,11 +140,12 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     plt.clf()
 
 
-def plot_duration_volume_1rm(table):
-    """_summary_
+def plot_duration_volume_1rm(table) -> None:
+    """Plot workout duration, volume and 1RM.
 
-    :param table: _description_
-    :type table: _type_
+    :param table: TinyDB table
+    :type table: TinyDB.table
+    :return: None
     """
 
     date_and_duration = get_all_durations()
@@ -199,7 +204,7 @@ def plot_duration_volume_1rm(table):
 
 
 def main() -> None:
-    """_summary_
+    """Main function to run the script.
     """
 
     import argparse

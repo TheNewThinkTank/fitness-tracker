@@ -10,7 +10,8 @@ from config_loader import ConfigLoader  # type: ignore
 
 
 class ExercisesFormatError(Exception):
-    """Custom error that is raised when Exercises doesn't have the right format."""
+    """Custom error that is raised when Exercises doesn't have the right format.
+    """
 
     def __init__(self, value: str, message: str) -> None:
         self.value = value

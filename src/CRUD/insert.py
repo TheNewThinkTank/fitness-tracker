@@ -111,7 +111,8 @@ def insert_specific_log(date: str,
 
 
 def main() -> None:
-    """Insert all simulated- or 1 or more real training logs"""
+    """Insert all simulated- or 1 or more real training logs.
+    """
 
     import argparse
     import logging

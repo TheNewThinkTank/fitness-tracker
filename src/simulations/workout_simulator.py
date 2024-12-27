@@ -80,6 +80,7 @@ class DataFormatter(ABC):
 
 # @dataclass
 class JSONWorkoutFormatter(DataFormatter):
+    """Writes workout data to a JSON file."""
 
     def __init__(self, workout_date: str, output_dir: str, data: dict, split: str):
         self.workout_date = workout_date
@@ -110,6 +111,8 @@ class JSONWorkoutFormatter(DataFormatter):
 
 
 def main() -> None:
+    """Simulate a workout and write the data to a JSON file.
+    """
     from pprint import pprint as pp
 
     TRAINING_CATALOGUE = "src/simulations/muscles_and_exercises_weight_ranges.yaml"

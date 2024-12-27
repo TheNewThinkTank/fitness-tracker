@@ -1,6 +1,5 @@
 """
-Date: 2021-12-25
-Purpose: empty specified folder or file
+Empty specified folder or file.
 """
 
 import sys
@@ -8,12 +7,7 @@ from file_convertion_tools.cleanup import cleanup, empty_file  # type: ignore
 
 
 def main() -> None:
-    """_summary_
-
-    :param path: _description_
-    :type path: str
-    :param file_path: _description_
-    :type file_path: str
+    """Empty specified folder or file.
     """
 
     path: str = sys.argv[1]

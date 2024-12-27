@@ -1,5 +1,5 @@
 """
-Definition of popular 1-repetition-maximum formulas
+Definition of popular 1-repetition-maximum formulas.
 """
 
 import numpy as np  # type: ignore

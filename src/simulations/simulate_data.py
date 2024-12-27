@@ -1,8 +1,9 @@
 """
-Simulate weight-training data
+Simulate weight-training data.
 """
 
 from datetime import datetime
+from typing import Any, Generator
 # from workout_simulator import WorkoutSimulator  # type: ignore
 from pprint import pprint as pp
 from datetime_tools.generate_days import generate_dates  # type: ignore
@@ -22,12 +23,13 @@ def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[st
     :rtype: list[str]
     """
 
-    date_generator = generate_dates(start, periods)
+    date_generator: Generator[Any, None, None] = generate_dates(start, periods)
     return reservoir_sample(date_generator, number_of_workouts)
 
 
 def main() -> None:
-    """Simulate specified number of workouts and insert their data into JSON files."""
+    """Simulate specified number of workouts and insert their data into JSON files.
+    """
 
     number_of_workouts = 10  # 1  # or you could use: int(sys.argv[1])  # Example: 3 * 365
     start_date = datetime(2018, 1, 1)  # Start date for generating dates

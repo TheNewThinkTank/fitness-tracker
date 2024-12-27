@@ -12,7 +12,7 @@ src.model.model module
    :undoc-members:
    :show-inheritance:
 
-src.model.plot_model module
+src.model.plot\_model module
 ----------------------------
 
 .. automodule:: src.model.plot_model

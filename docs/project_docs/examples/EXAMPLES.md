@@ -39,7 +39,7 @@ This can be done locally as follows:
 ```BASH
 cd docs
 make clean
-sphinx-apidoc -o ./source ../src
+sphinx-apidoc -o ./sphinx-docs/source ../src
 make html
 ```
 

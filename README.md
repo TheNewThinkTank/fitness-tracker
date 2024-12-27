@@ -11,4 +11,6 @@
   <img src="docs/project_docs/img/thumbnails/logo.png" width="400"/>
 </p>
 
-[website](https://thenewthinktank.github.io/fitness-tracker/)
+[Main Website](https://thenewthinktank.github.io/fitness-tracker/)
+
+[Tech Docs](https://fitness-tracker.readthedocs.io/en/latest/index.html)

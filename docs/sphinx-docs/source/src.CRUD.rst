@@ -1,27 +1,45 @@
 src.crud package
 ================
 
-.. automodule:: src.crud
+Submodules
+----------
+
+src.crud.delete module
+----------------------
+
+.. automodule:: src.crud.delete
    :members:
    :undoc-members:
    :show-inheritance:
+
+src.crud.insert module
+----------------------
 
 .. automodule:: src.crud.insert
    :members:
    :undoc-members:
    :show-inheritance:
 
+src.crud.read module
+--------------------
+
 .. automodule:: src.crud.read
    :members:
    :undoc-members:
    :show-inheritance:
+
+src.crud.update module
+----------------------
 
 .. automodule:: src.crud.update
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: src.crud.delete
+Module contents
+---------------
+
+.. automodule:: src.crud
    :members:
    :undoc-members:
    :show-inheritance:

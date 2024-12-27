@@ -4,7 +4,7 @@ src.simulations package
 Submodules
 ----------
 
-src.simulations.simulate_data module
+src.simulations.simulate\_data module
 -------------------------------------
 
 .. automodule:: src.simulations.simulate_data
@@ -12,7 +12,7 @@ src.simulations.simulate_data module
    :undoc-members:
    :show-inheritance:
 
-src.simulations.simulate_people module
+src.simulations.simulate\_people module
 ---------------------------------------
 
 .. automodule:: src.simulations.simulate_people
@@ -20,8 +20,8 @@ src.simulations.simulate_people module
    :undoc-members:
    :show-inheritance:
 
-src.simulations.workout_simulator module
-----------------------------------------
+src.simulations.workout\_simulator module
+-----------------------------------------
 
 .. automodule:: src.simulations.workout_simulator
    :members:

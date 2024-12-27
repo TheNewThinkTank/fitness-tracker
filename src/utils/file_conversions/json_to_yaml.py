@@ -7,6 +7,8 @@ from file_convertion_tools.json_to_yaml import json_to_yaml  # type: ignore
 
 
 def main() -> None:
+    """Convert a JSON file to a YAML file.
+    """
 
     env_vars = ConfigLoader.load_env_variables()
     config = ConfigLoader.load_config()

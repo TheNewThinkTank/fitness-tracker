@@ -1,5 +1,5 @@
 """
-Plots of popular 1-repetition-maximum formulas
+Plots of popular 1-repetition-maximum formulas.
 """
 
 import os
@@ -21,6 +21,9 @@ from src.one_rep_max_calc import (  # type: ignore
 
 def get_data() -> tuple:
     """Get data for plotting 1-repetition-maximum formulas.
+
+    :return: tuple of dataframes
+    :rtype: tuple
     """
 
     epley_calculator = OneRepMaxCalculator(EpleyStrategy())
@@ -86,6 +89,17 @@ def make_plots(
         df3: pd.DataFrame,
         df4: pd.DataFrame
         ) -> None:
+    """Make plots of 1-repetition-maximum formulas.
+
+    :param df1: dataframe with weight, one_rep_max, and variable columns
+    :type df1: pd.DataFrame
+    :param df2: dataframe with reps, one_rep_max, and variable columns
+    :type df2: pd.DataFrame
+    :param df3: dataframe with weight, inverse_one_rep_max, and variable columns
+    :type df3: pd.DataFrame
+    :param df4: dataframe with reps, inverse_one_rep_max, and variable columns
+    :type df4: pd.DataFrame
+    """
     _, axes = plt.subplots(nrows=2, ncols=2, figsize=(10, 8))
 
     # Plot 1

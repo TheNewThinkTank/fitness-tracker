@@ -1,5 +1,5 @@
 """
-Get all exercises available for a given musclegroup
+Get all exercises available for a given musclegroup.
 """
 
 from utils.set_db_and_table import set_db_and_table  # type: ignore
@@ -23,7 +23,8 @@ def get_available_exercises(training_catalogue: str, split: str) -> list[str]:
 
 
 def main() -> None:
-    """_summary_"""
+    """Get all exercises available for a given musclegroup.
+    """
 
     splits: list = [
         "back",

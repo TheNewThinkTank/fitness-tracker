@@ -6,13 +6,20 @@ from pathlib import Path
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
-def parse_date(date_str):
+def parse_date(date_str: str) -> dt | None:
+    """Parse the date string.
+
+    :param date_str: date in the format 'YYYY-MM-DD'
+    :type date_str: str
+    :return: date object
+    :rtype: dt | None
+    """
     if isinstance(date_str, str) and any(x in date_str for x in "YMD"):
         return None
     return dt.strptime(date_str, "%Y-%m-%d") if isinstance(date_str, str) else date_str
 
 
-def get_pgm_from_date(workout_date):
+def get_pgm_from_date(workout_date: str) -> str | None:
     """Get the workout program based on the workout date.
 
     :param workout_date: date in the format 'YYYY-MM-DD'
@@ -40,7 +47,7 @@ def get_pgm_from_date(workout_date):
     return None
 
 
-def main():
+def main() -> None:
     """Get the workout program based on the workout date.
     """
 

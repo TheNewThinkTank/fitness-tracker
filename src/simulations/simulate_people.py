@@ -1,4 +1,5 @@
-"""Generate fictitious people."""
+"""Generate fictitious people.
+"""
 
 from algo_lib.simulation.simulate_people import generate_people  # type: ignore
 

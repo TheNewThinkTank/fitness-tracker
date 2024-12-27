@@ -1,4 +1,4 @@
-"""Delete data from the database
+"""Delete data from the database.
 """
 
 import os
@@ -9,10 +9,10 @@ from utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def remove_from_table(table):
-    """remove from table
+    """Remove from table.
 
-    :param table: _description_
-    :type table: _type_
+    :param table: TinyDB table
+    :type table: TinyDB.table
     """
 
     # Workout = Query()
@@ -22,17 +22,18 @@ def remove_from_table(table):
 
 
 def truncate_table(table) -> None:
-    """truncate table
+    """Truncate table.
 
-    :param table: _description_
-    :type table: _type_
+    :param table: TinyDB table
+    :type table: TinyDB.table
     """
 
     table.truncate()
 
 
 def main() -> None:
-    """_summary_"""
+    """Main function.
+    """
 
     datamodels = ["real", "simulated"]
     datatype = datamodels[0]

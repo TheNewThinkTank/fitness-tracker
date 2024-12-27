@@ -1,4 +1,5 @@
-"""Get breath holding data from Google Sheet and plot min, max, and mean duration.
+"""Get breath holding data from Google Sheet
+and plot min, max, and mean duration.
 """
 
 import datetime
@@ -7,22 +8,23 @@ import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from scipy.stats import linregress  # type: ignore
-
 from google_sheet import get_sheet  # type: ignore
 
 
-def get_sheet_title():
+def get_sheet_title() -> str:
+    """Get the current year and month for the sheet title.
+    """
     today = datetime.datetime.now().date()
     this_year = today.year
     this_month = today.month
     return f"{this_year}-{this_month:02}"
 
 
-def get_breath_holding():
-    """_summary_
+def get_breath_holding() -> pd.DataFrame:
+    """Get the breath holding data from the Google Sheet.
 
-    :return: _description_
-    :rtype: _type_
+    :return: Breath holding data
+    :rtype: pd.DataFrame
     """
 
     sheet_title = get_sheet_title()
@@ -38,11 +40,11 @@ def get_breath_holding():
     return df
 
 
-def make_figure(df):
-    """_summary_
+def make_figure(df) -> None:
+    """Make a figure of min, max, and mean breath holding duration.
 
-    :param df: _description_
-    :type df: _type_
+    :param df: Breath holding data
+    :type df: pd.DataFrame
     """
 
     sheet_title = get_sheet_title()
@@ -91,7 +93,9 @@ def make_figure(df):
     plt.savefig(f"docs/project_docs/img/breathholding/{sheet_title}.png")
 
 
-def main():
+def main() -> None:
+    """Get the breath holding data from the Google Sheet and make a figure.
+    """
     df = get_breath_holding()
     # print(df)
     make_figure(df)

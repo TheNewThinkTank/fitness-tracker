@@ -1,5 +1,5 @@
 """
-Set db and table depending on datatype (real/simulated)
+Set db and table depending on datatype (real/simulated).
 """
 
 from datetime import datetime
@@ -10,6 +10,8 @@ from config_loader import ConfigLoader  # type: ignore
 
 
 class TinyDBSingleton:
+    """Singleton class for TinyDB.
+    """
     _instances: dict[str, 'TinyDBSingleton'] = {}
 
     def __new__(cls, db_path: str, storage=YAMLStorage):
@@ -40,7 +42,19 @@ def set_db_and_table(
     year=None,
     env="prd"  # dev
 ):
-    """Set up database and table based on datatype (real/simulated)."""
+    """Set up database and table based on datatype (real/simulated).
+    
+    :param datatype: Type of data to be used, either "real" or "simulated"
+    :type datatype: str
+    :param athlete: Athlete name, defaults to None
+    :type athlete: str, optional
+    :param year: Year of the data, defaults to None
+    :type year: int, optional
+    :param env: Environment, defaults to "prd"
+    :type env: str, optional
+    :return: Database, table and training catalogue
+    :rtype: tuple
+    """
 
     env_vars = ConfigLoader.load_env_variables()
 
@@ -71,7 +85,9 @@ def set_db_and_table(
     return db, table, training_catalogue
 
 
-def main():
+def main() -> None:
+    """Main function.
+    """
     db, table, training_catalogue = set_db_and_table(
         datatype="real",
         year="2021"

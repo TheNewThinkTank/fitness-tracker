@@ -55,7 +55,8 @@ def df_to_csv(infile: str, df: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    """Convert all JSON files inside nested folders to CSV"""
+    """Convert all JSON files inside nested folders to CSV.
+    """
 
     dircontent = []
     for path in Path("data/log_archive/JSON/").rglob("*.json"):

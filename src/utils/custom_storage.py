@@ -8,6 +8,8 @@ from config_loader import ConfigLoader  # type: ignore
 
 
 class YAMLStorage(Storage):
+    """YAML storage for TinyDB.
+    """
     def __init__(self, filename, **kwargs):
         super().__init__()
         touch(filename, create_dirs=True)  # Create file if not exists
@@ -31,7 +33,9 @@ class YAMLStorage(Storage):
         self._handle.close()
 
 
-def main():
+def main() -> None:
+    """Load a TinyDB database using YAML storage.
+    """
 
     env_vars = ConfigLoader.load_env_variables()
     config = ConfigLoader.load_config()

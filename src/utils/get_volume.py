@@ -10,13 +10,13 @@ from utils.set_db_and_table import set_db_and_table  # type: ignore
 def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int:
     """Get the weight of the exercise.
 
-    :param s: _description_
+    :param s: Dictionary containing the exercise details
     :type s: dict
-    :param bodyweight: _description_
+    :param bodyweight: Bodyweight of the person
     :type bodyweight: str
-    :param Sidea_9012_Olympic_Hex_Bar: _description_
+    :param Sidea_9012_Olympic_Hex_Bar: Weight of the barbell
     :type Sidea_9012_Olympic_Hex_Bar: str
-    :return: _description_
+    :return: Weight of the exercise
     :rtype: float
     """
     weight = eval(
@@ -31,9 +31,9 @@ def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int
 def get_total_volume(table) -> list[tuple[str, int]]:
     """Get the total volume of each workout in the table.
 
-    :param table: _description_
-    :type table: _type_
-    :return: _description_
+    :param table: TinyDB table
+    :type table: tinydb.table.Table
+    :return: List of tuples containing the date and total volume of each workout
     :rtype: list[tuple[str, int]]
     """
 

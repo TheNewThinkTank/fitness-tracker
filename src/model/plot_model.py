@@ -1,5 +1,5 @@
 """
-Plot weight-training data with fit
+Plot weight-training data with fit.
 """
 
 import argparse
@@ -19,15 +19,15 @@ IMG_PATH = config["img_path"]
 
 
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
-    """Plot training data 1RM with fit
+    """Plot training data 1RM with fit.
 
-    :param datatype: _description_
+    :param datatype: Data type: real or simulated
     :type datatype: str
-    :param x: _description_
+    :param x: x-axis data
     :type x: list
-    :param y: _description_
+    :param y: y-axis data
     :type y: list
-    :param exercise: _description_
+    :param exercise: Exercise name
     :type exercise: str
     """
 
@@ -62,15 +62,15 @@ def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
 
 def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
-    """_summary_
+    """Create volume plots.
 
-    :param datatype: _description_
+    :param datatype: Data type: real or simulated
     :type datatype: str
-    :param x: _description_
+    :param x: x-axis data
     :type x: list
-    :param y: _description_
+    :param y: y-axis data
     :type y: list
-    :param exercise: _description_
+    :param exercise: Exercise name
     :type exercise: str
     """
 
@@ -98,6 +98,13 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
 # TODO: unit test below function
 def get_split(pgm: str) -> list[tuple[list, str]]:
+    """Get split and key exercises.
+
+    :param pgm: Program type: 1rm or gvt
+    :type pgm: str
+    :return: Split and key exercises
+    :rtype: list[tuple[list, str]]
+    """
 
     splits_and_key_exercises_1rm = [
         (["chest", "push"], "bb_bench_press"),
@@ -119,7 +126,24 @@ def get_split(pgm: str) -> list[tuple[list, str]]:
     return split_selector[pgm]
 
 
-def make_plots(pgm, split_selection, table, datatype):
+def make_plots(
+        pgm: str,
+        split_selection: list[tuple[list, str]],
+        table,
+        datatype: str
+        ) -> None:
+    """Make plots.
+
+    :param pgm: Program type
+    :type pgm: str
+    :param split_selection: Split and key exercises
+    :type split_selection: list[tuple[list, str]]
+    :param table: TinyDB table
+    :type table: TinyDB.table
+    :param datatype: Data type: real or simulated
+    :type datatype: str
+    :raises ValueError: If program type is not 1rm or gvt
+    """
 
     for splits, exercise in split_selection:
         df = get_df(table, splits, exercise)
@@ -138,7 +162,8 @@ def make_plots(pgm, split_selection, table, datatype):
 
 
 def main() -> None:
-    """Get data and create figure."""
+    """Get data and create figure.
+    """
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--datatype", type=str, required=True)  # real/simulated

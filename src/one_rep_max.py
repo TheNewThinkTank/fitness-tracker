@@ -23,22 +23,30 @@ import numpy as np
 
 
 class OneRepMaxStrategy(ABC):
+    """Abstract class for one-repetition-maximum estimation strategies.
+    """
     @abstractmethod
     def estimate(self, weight, reps):
         pass
 
 
 class EpleyStrategy(OneRepMaxStrategy):
+    """Epley formula for one-repetition-maximum estimation.
+    """
     def estimate(self, weight, reps):
         return weight * (1 + reps / 30)
 
 
 class BrzyckiStrategy(OneRepMaxStrategy):
+    """Brzycki formula for one-repetition-maximum estimation.
+    """
     def estimate(self, weight, reps):
         return weight * 36 / (37 - reps)
 
 
 class ACSMStrategy(OneRepMaxStrategy):
+    """ACSM formula for one-repetition-maximum estimation.
+    """
     def estimate(self, weight, reps):
         denominator = (100 - reps * 2.5) / 100
         # Check if denominator has any zeros

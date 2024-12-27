@@ -8,12 +8,12 @@ from google.oauth2.service_account import Credentials
 def get_sheet(sheet_id: str, sheet_title: str) -> gspread.Worksheet:
     """Get a Google Sheet by its ID and title.
 
-    :param sheet_id: _description_
-    :type sheet_id: _type_
-    :param sheet_title: _description_
-    :type sheet_title: _type_
-    :return: _description_
-    :rtype: _type_
+    :param sheet_id: ID of the Google Sheet.
+    :type sheet_id: str
+    :param sheet_title: Title of the Google Sheet.
+    :type sheet_title: str
+    :return: Google Sheet.
+    :rtype: gspread.Worksheet
     """
 
     scopes = ["https://www.googleapis.com/auth/spreadsheets"]
@@ -29,6 +29,8 @@ def get_sheet(sheet_id: str, sheet_title: str) -> gspread.Worksheet:
 
 
 def update_sheet() -> None:
+    """Update a Google Sheet.
+    """
     # worksheet = sh.get_worksheet(0)
     # worksheet = sh.worksheet(sheet_title)
 
@@ -71,6 +73,8 @@ def update_sheet() -> None:
 
 
 def main() -> None:
+    """Display a Google Sheet.
+    """
     # example: BODYWEIGHT sheet
     sheet_id = "1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs"
     sheet_title = "2023-2024"

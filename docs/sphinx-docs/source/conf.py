@@ -15,18 +15,18 @@ import sys
 
 # sys.path.insert(0, os.path.abspath("."))
 # sys.path.insert(0, os.path.abspath(".."))
-sys.path.insert(0, os.path.abspath("../.."))
+sys.path.insert(0, os.path.abspath("../../src"))
 # sys.path.insert(0, os.path.abspath("../../src/"))
 # sys.path.insert(0, os.path.abspath("../src/crud/"))
 
 # -- Project information -----------------------------------------------------
 
 project = "Fitness-Tracker"
-copyright = "2022, Gustav Collin Rasmussen"
-author = "Gustav Collin Rasmussen"
+copyright = "2022, Gustav Rasmussen"
+author = "Gustav Rasmussen"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.0"
+release = "0.0.1"
 
 
 # -- General configuration ---------------------------------------------------

@@ -1,7 +1,11 @@
-Modules
-=======
+src
+===
 
 .. toctree::
    :maxdepth: 4
 
-   src
+   combined_metrics
+   crud
+   model
+   simulations   
+   utils

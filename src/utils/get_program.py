@@ -39,9 +39,9 @@ def get_pgm_from_date(workout_date: str) -> str | None:
         if start and end:
             programs.append({"name": pgm["name"], "start": start, "end": end})
 
-    workout_date = dt.strptime(workout_date, "%Y-%m-%d").date()
+    workout_date_dt = dt.strptime(workout_date, "%Y-%m-%d").date()
     for pgm in programs:
-        if pgm["start"] <= workout_date <= pgm["end"]:
+        if pgm["start"] <= workout_date_dt <= pgm["end"]:
             return pgm["name"]
 
     return None

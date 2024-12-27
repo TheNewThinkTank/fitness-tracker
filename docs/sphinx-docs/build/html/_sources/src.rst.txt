@@ -1,16 +1,16 @@
-src package
-===========
+.. src package
+.. ===========
 
-.. toctree::
-   :maxdepth: 2
+.. .. toctree::
+..    :maxdepth: 2
 
-   combined_metrics
-   crud
-   model
-   simulations
-   utils
+..    combined_metrics
+..    crud
+..    model
+..    simulations
+..    utils
 
-.. automodule:: src
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. .. automodule:: src
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:

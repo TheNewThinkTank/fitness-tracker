@@ -54,6 +54,8 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# The master toctree document.
+master_doc = 'index'
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -68,3 +70,6 @@ html_theme = "alabaster"  # "sphinx_rtd_theme", "pydata_sphinx_theme"
 html_static_path = [
                 # "_static",
                 ]
+
+# Output file base name for HTML help builder.
+htmlhelp_basename = 'FitnessTrackerdoc'

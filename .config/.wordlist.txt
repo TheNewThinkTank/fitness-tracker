@@ -1,3 +1,17 @@
+cd
+degit
+frontend
+mkdir
+npm
+npx
+sveltejs
+mv
+rmdir
+ci
+sudo
+usr
+cli
+ln
 auth
 backend
 BDD
@@ -13,6 +27,8 @@ Expections
 extention
 FastAPI
 filesystem
+frontend
+Frontend
 GitLab
 html
 http

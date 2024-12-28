@@ -121,6 +121,7 @@
 #         "2024-12-22": 36,
 #         "2024-12-23": 28,
 #         "2024-12-25": 32,
+#         "2024-12-28": 35,
 #     }
 
 #     assert get_all_durations(year) == expected_duration
@@ -130,4 +131,4 @@
 #     assert get_number_of_workouts("2021") == 8
 #     assert get_number_of_workouts("2022") == 107
 #     assert get_number_of_workouts("2023") == 72
-#     assert get_number_of_workouts("2024") == 65
+#     assert get_number_of_workouts("2024") == 66

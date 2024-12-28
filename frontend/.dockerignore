@@ -1,10 +1,7 @@
-# .dockerignore for backend
+# .dockerignore for frontend
 
 # Ignore node_modules
 node_modules
-
-# Ignore frontend directory
-frontend
 
 # Ignore Docker-related files
 Dockerfile
@@ -15,15 +12,9 @@ docker-compose.yml
 .git
 .gitignore
 
-# Ignore Python cache and virtual environment directories
-__pycache__
-**/__pycache__
-*.pyc
-*.pyo
-*.pyd
-.venv
-env
-venv
+# Ignore build output
+build
+dist
 
 # Ignore IDE and editor directories and files
 .vscode
@@ -31,7 +22,3 @@ venv
 *.swp
 
 .env
-
-src/simulations
-src/crud/insert.py
-src/plot.py

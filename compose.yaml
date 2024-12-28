@@ -1,25 +1,36 @@
-version: "3.8"
-
 services:
-  app:
+  backend:
     build:
       context: .
     ports:
-      - 8080:80
-    develop:
-      watch:
-        - path: .
-          action: rebuild
-    # healthcheck:
-    #   test: ["CMD", "pg_isready"]
-    #   interval: 10s
-    #   timeout: 5s
-    #   retries: 5
-    container_name: fitness-tracker
-    command: uvicorn src.main:app --host 0.0.0.0 --port 80 --reload  # "python src/main.py"
-    profiles: [dev]
+      - "8000:8000"
+    container_name: fitness-tracker-backend
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
-      - data:/data
-      # - .:/code  # .:/scr  # .:/app
-    # secrets:
-    #   - 
+      - ./src:/app
+    environment:
+      - PYTHONPATH=/app
+    # profiles: [dev]
+    # develop:
+    #   watch:
+    #     - path: .
+    #       action: rebuild
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:5000"
+    container_name: fitness-tracker-frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    # profiles: [dev]
+    # develop:
+    #   watch:
+
+# volumes:
+#   data:
+#     "/data"

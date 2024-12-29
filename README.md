@@ -52,6 +52,9 @@ cd frontend
 npm run dev
 ```
 
+**Debugging**:
+from the url, open the browser's developer tools (`F12` or `Cmd+Shift+C`)
+
 ## Known issues
 
 **Issue**: `zsh: command not found: docker-compose`

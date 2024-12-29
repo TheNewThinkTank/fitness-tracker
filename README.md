@@ -40,6 +40,18 @@ docker compose --profile ci up --build --attach-dependencies --remove-orphans
 # then visit http://localhost:5000
 ```
 
+Or, running without containers
+
+```BASH
+# Start the Backend
+cd src
+uvicorn main:app --reload
+
+# Start the Frontend
+cd frontend
+npm run dev
+```
+
 ## Known issues
 
 **Issue**: `zsh: command not found: docker-compose`
@@ -57,3 +69,14 @@ docker-compose version
 # Output should be similar to:
 Docker Compose version v2.29.1-desktop.1
 ```
+
+## Testing endpoints locally
+
+Overview of endpoints
+
+- [root](http://127.0.0.1:8000/)
+- [data](http://127.0.0.1:8000/data)
+- [dates](http://127.0.0.1:8000/dates)
+- [dates_and_splits](http://127.0.0.1:8000/dates_and_splits)
+- [date](http://127.0.0.1:8000/dates/{date})
+- [exercise](http://127.0.0.1:8000/{date}/exercises/{exercise})

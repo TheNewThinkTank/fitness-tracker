@@ -3,7 +3,7 @@
   let workouts = [];
 
   onMount(async () => {
-    const response = await fetch('/data');
+    const response = await fetch('http://localhost:8000/data');
     workouts = await response.json();
   });
 </script>

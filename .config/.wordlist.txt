@@ -12,6 +12,8 @@ sudo
 usr
 cli
 ln
+uvicorn
+dev
 auth
 backend
 BDD

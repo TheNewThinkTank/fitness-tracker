@@ -12,10 +12,10 @@ visit URL: http://127.0.0.1:8000/docs
 from fastapi import FastAPI, HTTPException, Response  # type: ignore
 from fastapi.middleware.cors import CORSMiddleware  # type: ignore
 # import uvicorn  # type: ignore
-from tinydb import TinyDB  # type: ignore
-from src.utils.custom_storage import YAMLStorage  # type: ignore
+# from tinydb import TinyDB  # type: ignore
+# from src.utils.custom_storage import YAMLStorage  # type: ignore
 import src.crud.read as read  # type: ignore
-# from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from fastapi.openapi.utils import get_openapi  # type: ignore
 import yaml  # type: ignore
 
@@ -23,7 +23,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5000"],  # Update with your frontend URL
+    allow_origins=[
+        "http://localhost:5000",
+        "http://localhost:8080",
+        ],  # Update with your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,10 +34,10 @@ app.add_middleware(
 
 year = 2024
 # TODO: use singleton for db and table
-db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
-table = (db.table("weight_training_log"))
-training_catalogue = "src/utils/muscles_and_exercises.yaml"
-# db, table, _ = set_db_and_table(datatype="real")
+# db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
+# table = (db.table("weight_training_log"))
+# training_catalogue = "src/utils/muscles_and_exercises.yaml"
+db, table, training_catalogue = set_db_and_table(datatype="real", year=year)
 
 
 @app.get("/")

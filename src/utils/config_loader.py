@@ -25,10 +25,19 @@ class ConfigLoader:
         user: str=load_env_variables()["user"],
         athlete: str=load_env_variables()["athlete"],
         email: str=load_env_variables()["email"],
-        file_path: str="./.config/config.yml"
+        # file_path: str="./.config/config.yml"
         ) -> dict:
         """Loads configuration from a YAML file and replaces placeholders.
         """
+
+        root_dir: str = os.path.dirname(
+            os.path.dirname(
+                os.path.dirname(
+                    os.path.abspath(__file__)
+                    )
+                )
+            )
+        file_path: str = os.path.join(root_dir, '.config', 'config.yml')
 
         # with open(file_path, "r") as rf:
         #     data = yaml.safe_load(rf)
@@ -62,8 +71,7 @@ def main() -> None:
     config = ConfigLoader.load_config(
         # env_vars["user"],
         # env_vars["athlete"],
-        # env_vars["email"],
-        # "./.config/config.yml"
+        # env_vars["email"]
     )
 
     # file = config["real_workout_database"]

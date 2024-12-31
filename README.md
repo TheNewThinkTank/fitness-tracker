@@ -15,6 +15,7 @@
 
 [Tech Docs](https://fitness-tracker.readthedocs.io/en/latest/index.html)
 
+<!--
 ## Frontend setup
 
 ```BASH
@@ -29,6 +30,7 @@ mv svelte-app/* .
 mv svelte-app/.* .
 rmdir svelte-app
 ```
+-->
 
 ## Running locally
 
@@ -83,3 +85,7 @@ Overview of endpoints
 - [dates_and_splits](http://127.0.0.1:8000/dates_and_splits)
 - [date](http://127.0.0.1:8000/dates/{date})
 - [exercise](http://127.0.0.1:8000/{date}/exercises/{exercise})
+
+## For contributors
+
+[Project tracking](https://thenewthinktank.atlassian.net/jira/software/projects/FT/boards/2)

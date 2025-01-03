@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-# Date: 2022-01-21
-# Purpose: BASH workflow that inserts data into a database and prepares figures.
+# BASH workflow that inserts data into a database and prepares figures.
 
 CONFIG_FILE=".config/fitcli.conf"
 

@@ -34,6 +34,10 @@
             "push",
             "legs",
             "full_body",
+            "upper_body_a",
+            "lower_body_a",
+            "upper_body_b",
+            "lower_body_b",
             "other"
         ]
       },

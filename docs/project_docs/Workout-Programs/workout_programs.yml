@@ -137,29 +137,29 @@ programs:
     program_iterations: 12
     number_of_workouts: 48
 
-  example_workouts_for_program_10:
-    Upper Body A (Strength):
-      Bench Press: 4 sets of 4-6 reps
-      Bent Over Row: 4 sets of 4-6 reps
-      Overhead Press: 3 sets of 4-6 reps
-      Pull-Up: 3 sets of 4-6 reps
-      Dip: 3 sets of 6-8 reps
-    Lower Body A (Strength):
-      Squat: 4 sets of 4-6 reps
-      Deadlift: 4 sets of 4-6 reps
-      Leg Press: 3 sets of 6-8 reps
-      Romanian Deadlift: 3 sets of 6-8 reps
-      Calf Raise: 3 sets of 8-10 reps
-    Upper Body B (Hypertrophy):
-      Incline Dumbbell Press: 3 sets of 8-12 reps
-      Seated Cable Row: 3 sets of 8-12 reps
-      Lateral Raise: 3 sets of 12-15 reps
-      Face Pull: 3 sets of 12-15 reps
-      Bicep Curl: 3 sets of 12-15 reps
-      Tricep Pushdown: 3 sets of 12-15 reps
-    Lower Body B (Hypertrophy):
-      Leg Extension: 3 sets of 12-15 reps
-      Lying Leg Curl: 3 sets of 12-15 reps
-      Lunge: 3 sets of 12-15 reps
-      Glute Bridge: 3 sets of 12-15 reps
-      Seated Calf Raise: 3 sets of 15-20 reps
+example_workouts_for_program_10:
+  Upper Body A (Strength):
+    Bench Press: 4 sets of 4-6 reps
+    Bent Over Row: 4 sets of 4-6 reps
+    Overhead Press: 3 sets of 4-6 reps
+    Pull-Up: 3 sets of 4-6 reps
+    Dip: 3 sets of 6-8 reps
+  Lower Body A (Strength):
+    Squat: 4 sets of 4-6 reps
+    Deadlift: 4 sets of 4-6 reps
+    Leg Press: 3 sets of 6-8 reps
+    Romanian Deadlift: 3 sets of 6-8 reps
+    Calf Raise: 3 sets of 8-10 reps
+  Upper Body B (Hypertrophy):
+    Incline Dumbbell Press: 3 sets of 8-12 reps
+    Seated Cable Row: 3 sets of 8-12 reps
+    Lateral Raise: 3 sets of 12-15 reps
+    Face Pull: 3 sets of 12-15 reps
+    Bicep Curl: 3 sets of 12-15 reps
+    Tricep Pushdown: 3 sets of 12-15 reps
+  Lower Body B (Hypertrophy):
+    Leg Extension: 3 sets of 12-15 reps
+    Lying Leg Curl: 3 sets of 12-15 reps
+    Lunge: 3 sets of 12-15 reps
+    Glute Bridge: 3 sets of 12-15 reps
+    Seated Calf Raise: 3 sets of 15-20 reps

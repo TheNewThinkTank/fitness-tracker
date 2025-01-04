@@ -1,5 +1,48 @@
 # Workout Programs Detail
 
+=== "Program 10"
+
+    Upper Body A
+
+    | Exercise                    | Sets | Rep-range |
+    | --------------------------- | ---- | --------- |
+    | Bench Press                 | 4    | 4-6       |
+    | Bent Over Row               | 4    | 4-6       |
+    | Overhead Press              | 3    | 4-6       |
+    | Pull-Up                     | 3    | 4-6       |
+    | Dip                         | 3    | 6-8       |
+
+    Lower Body A
+
+    | Exercise          | Sets | Rep-range |
+    | ----------------- | ---- | --------- |
+    | Squat             | 4    | 4-6       |
+    | Deadlift          | 4    | 4-6       |
+    | Leg Press         | 3    | 6-8       |
+    | Romanian Deadlift | 3    | 6-8       |
+    | Calf Raise        | 3    | 8-10      |
+
+    Upper Body B
+
+    | Exercise               | Sets | Rep-range |
+    | ---------------------- | ---- | --------- |
+    | Incline Dumbbell Press | 3    | 8-12      |
+    | Seated Cable Row       | 3    | 8-12      |
+    | Lateral Raise          | 3    | 12-15     |
+    | Face Pull              | 3    | 12-15     |
+    | Bicep Curl             | 3    | 12-15     |
+    | Tricep Pushdown        | 3    | 12-15     |
+
+    Lower Body B
+
+    | Exercise          | Sets | Rep-range |
+    | ----------------- | ---- | --------- |
+    | Leg Extension     | 3    | 12-15     |
+    | Lying Leg Curl    | 3    | 12-15     |
+    | Lunge             | 3    | 12-15     |
+    | Glute Bridge      | 3    | 12-15     |
+    | Seated Calf Raise | 3    | 15-20     |
+
 === "Program 9"
 
     Chest

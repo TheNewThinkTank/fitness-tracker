@@ -11,12 +11,14 @@ Data and analysis for athlete: `gustav_rasmussen`<br>
 Below: Annual weekly workout frequency.<br>
 Each figure displays week vs number of workouts during that week.
 
-| ![2024_workout_frequency](../img/2024_workout_frequency.png) | ![2023_workout_frequency](../img/2023_workout_frequency.png) |
+| ![2025_workout_frequency](../img/2025_workout_frequency.png) | ![2024_workout_frequency](../img/2024_workout_frequency.png) |
 | :----------: | :------: |
-| ![2022_workout_frequency](../img/2022_workout_frequency.png) | ![2021_workout_frequency](../img/2021_workout_frequency.png) |
+| ![2023_workout_frequency](../img/2023_workout_frequency.png) | ![2022_workout_frequency](../img/2022_workout_frequency.png) |
+| ![2021_workout_frequency](../img/2021_workout_frequency.png) | |
 
-## Duration and volume 2024
+## Duration and volume 2025
 
+<!--
 | ![December_2024](../img/workout_duration_December_2024.png) | ![November_2024](../img/workout_duration_November_2024.png) |
 | :------: | :------: |
 | ![October_2024](../img/workout_duration_October_2024.png) | ![September_2024](../img/workout_duration_September_2024.png) |
@@ -24,8 +26,26 @@ Each figure displays week vs number of workouts during that week.
 | ![June_2024](../img/workout_duration_June_2024.png) | ![May_2024](../img/workout_duration_May_2024.png) |
 | ![April_2024](../img/workout_duration_April_2024.png) | ![March_2024](../img/workout_duration_March_2024.png) |
 | ![February_2024](../img/workout_duration_February_2024.png) | ![January_2024](../img/workout_duration_January_2024.png) |
+-->
 
-#### 2023
+![January_2025](../img/workout_duration_January_2025.png)
+
+### 2024
+
+- <a style="text-align: center;">[December](../img/workout_duration_December_2024.png)<br>
+- <a style="text-align: center;">[November](../img/workout_duration_November_2024.png)<br>
+- <a style="text-align: center;">[October](../img/workout_duration_October_2024.png)<br>
+- <a style="text-align: center;">[September](../img/workout_duration_September_2024.png)<br>
+- <a style="text-align: center;">[August](../img/workout_duration_August_2024.png)<br>
+- <a style="text-align: center;">[July](../img/workout_duration_July_2024.png)<br>
+- <a style="text-align: center;">[June](../img/workout_duration_June_2024.png)<br>
+- <a style="text-align: center;">[May](../img/workout_duration_May_2024.png)<br>
+- <a style="text-align: center;">[April](../img/workout_duration_April_2024.png)<br>
+- <a style="text-align: center;">[March](../img/workout_duration_March_2024.png)<br>
+- <a style="text-align: center;">[February](../img/workout_duration_February_2024.png)<br>
+- <a style="text-align: center;">[January](../img/workout_duration_January_2024.png)<br>
+
+### 2023
 
 - <a style="text-align: center;">[December](../img/workout_duration_December_2023.png)<br>
 - <a style="text-align: center;">[November](../img/workout_duration_November_2023.png)<br>

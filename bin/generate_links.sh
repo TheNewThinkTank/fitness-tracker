@@ -23,36 +23,39 @@
 # https://drive.google.com/uc?export=view&id=1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO
 
 
-
-
-
 # Directory containing PNG files
 IMG_DIR="path/to/your/img"
 
 # Function to get Google Drive file ID
 get_file_id() {
   local file_path="$1"
-  local file_id
-  file_id=$(gdrive upload --share "$file_path" | grep "Id" | awk '{print $2}')
-  echo "$file_id"
+  gdrive upload --share "$file_path" | grep 'https://drive.google.com/file/d/' | sed 's/.*file\/d\/\([^\/]*\).*/\1/'
 }
 
 # Function to generate embeddable link
 generate_embeddable_link() {
   local file_id="$1"
-  local embeddable_link="https://drive.google.com/uc?export=view&id=$file_id"
-  echo "$embeddable_link"
+  echo "https://drive.google.com/uc?export=view&id=${file_id}"
 }
 
-# Create a file to store the links
-LINKS_FILE="image_links.txt"
-> "$LINKS_FILE"
+# Main script
+main() {
+  if [[ ! -d "$IMG_DIR" ]]; then
+    echo "Directory $IMG_DIR does not exist."
+    exit 1
+  fi
 
-# Loop through all PNG files in the directory
-for img_file in "$IMG_DIR"/*.png; do
-  file_id=$(get_file_id "$img_file")
-  embeddable_link=$(generate_embeddable_link "$file_id")
-  echo "$img_file -> $embeddable_link" >> "$LINKS_FILE"
-done
+  > image_links.txt  # Clear the file if it exists
 
-echo "Links generated and saved to $LINKS_FILE"
+  for img_file in "$IMG_DIR"/*.png; if [[ -f "$img_file" ]]; then
+    do
+      file_id=$(get_file_id "$img_file")
+      embeddable_link=$(generate_embeddable_link "$file_id")
+      echo "$embeddable_link" >> image_links.txt
+    done
+  fi
+
+  echo "Embeddable links have been saved to image_links.txt"
+}
+
+main

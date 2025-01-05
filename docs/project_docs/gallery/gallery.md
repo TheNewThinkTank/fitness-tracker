@@ -11,9 +11,7 @@ Data and analysis for athlete: `gustav_rasmussen`<br>
 Below: Annual weekly workout frequency.<br>
 Each figure displays week vs number of workouts during that week.
 
-<img src="https://drive.google.com/uc?export=view&id=1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO" alt="2025_workout_frequency">
-
-| ![2025_workout_frequency](../img/2025/2025_workout_frequency.png) | ![2024_workout_frequency](../img/2024/2024_workout_frequency.png) |
+| <img src="https://lh3.googleusercontent.com/d/1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO"> | ![2024_workout_frequency](../img/2024/2024_workout_frequency.png) |
 | :----------: | :------: |
 | ![2023_workout_frequency](../img/2023/2023_workout_frequency.png) | ![2022_workout_frequency](../img/2022/2022_workout_frequency.png) |
 | ![2021_workout_frequency](../img/2021/2021_workout_frequency.png) | |

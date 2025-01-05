@@ -24,7 +24,16 @@
 
 # Directory containing PNG files
 # Read USER, EMAIL and ATHLETE from .env file
-source ../.env
+
+if [ -f ../.env ]; then
+  source ../.env
+else
+  echo "Warning: .env file not found. Using default values."
+  USER="default_user"
+  EMAIL="default_email"
+  ATHLETE="default_athlete"
+fi
+
 IMG_DIR="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025"
 
 # Function to get Google Drive file ID using gdrive

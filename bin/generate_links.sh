@@ -26,6 +26,7 @@
 # Read USER, EMAIL and ATHLETE from .env file
 
 if [ -f ../.env ]; then
+  # shellcheck source=/dev/null
   source ../.env
 else
   echo "Warning: .env file not found. Using default values."
@@ -39,7 +40,8 @@ IMG_DIR="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/
 # Function to get Google Drive file ID using gdrive
 get_file_id() {
   local file_path="$1"
-  local file_id=$(gdrive files upload "$file_path" | grep 'https://drive.google.com/file/d/' | sed 's/.*file\/d\/\([^\/]*\).*/\1/')
+  local file_id
+  file_id=$(gdrive files upload "$file_path" | grep 'https://drive.google.com/file/d/' | sed 's/.*file\/d\/\([^\/]*\).*/\1/')
   gdrive files share "$file_id" --role reader --type anyone
   echo "$file_id"
 }

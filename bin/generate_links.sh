@@ -47,13 +47,13 @@ main() {
 
   > image_links.txt  # Clear the file if it exists
 
-  for img_file in "$IMG_DIR"/*.png; if [[ -f "$img_file" ]]; then
-    do
+  for img_file in "$IMG_DIR"/*.png; do
+    if [[ -f "$img_file" ]]; then
       file_id=$(get_file_id "$img_file")
       embeddable_link=$(generate_embeddable_link "$file_id")
       echo "$embeddable_link" >> image_links.txt
-    done
-  fi
+    fi
+  done
 
   echo "Embeddable links have been saved to image_links.txt"
 }

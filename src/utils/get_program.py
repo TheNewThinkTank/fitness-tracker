@@ -6,6 +6,7 @@ from pathlib import Path
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
+# TODO: Move to datetime package
 def parse_date(date_str: str) -> dt | None:
     """Parse the date string.
 

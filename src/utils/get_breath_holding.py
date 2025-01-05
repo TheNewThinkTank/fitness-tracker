@@ -2,32 +2,42 @@
 and plot min, max, and mean duration.
 """
 
-import datetime
+from datetime import datetime as dt  # type: ignore
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from scipy.stats import linregress  # type: ignore
 from google_sheet import get_sheet  # type: ignore
+from utils.config_loader import ConfigLoader  # type: ignore
+
+config = ConfigLoader.load_config()
+IMG_PATH = config["img_path"]
 
 
-def get_sheet_title() -> str:
-    """Get the current year and month for the sheet title.
+def get_sheet_title(year: int, month: int) -> str:
+    """Get the title of the Google Sheet.
+
+    :param year: Year
+    :type year: int
+    :param month: Month
+    :type month: int
+    :return: Title of the Google Sheet
+    :rtype: str
     """
-    today = datetime.datetime.now().date()
-    this_year = today.year
-    this_month = today.month
-    return f"{this_year}-{this_month:02}"
+
+    return f"{year}-{month:02}"
 
 
-def get_breath_holding() -> pd.DataFrame:
+def get_breath_holding(sheet_title: str) -> pd.DataFrame:
     """Get the breath holding data from the Google Sheet.
 
+    :param sheet_title: Title of the Google Sheet
+    :type sheet_title: str
     :return: Breath holding data
     :rtype: pd.DataFrame
     """
 
-    sheet_title = get_sheet_title()
     sheet = get_sheet(
         sheet_id="1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4",
         sheet_title=sheet_title
@@ -40,14 +50,12 @@ def get_breath_holding() -> pd.DataFrame:
     return df
 
 
-def make_figure(df) -> None:
+def make_figure(df, year, sheet_title) -> None:
     """Make a figure of min, max, and mean breath holding duration.
 
     :param df: Breath holding data
     :type df: pd.DataFrame
     """
-
-    sheet_title = get_sheet_title()
 
     # Convert 'DURATION (HH:MM)' to seconds
     df['DURATION (MM:SS)'] = df['DURATION (MM:SS)'].apply(
@@ -89,16 +97,24 @@ def make_figure(df) -> None:
     plt.title(f'Min, Max, and Mean Breath holding - {sheet_title}')
     plt.legend()
     plt.tight_layout()
+
     # plt.show()
-    plt.savefig(f"docs/project_docs/img/breathholding/{sheet_title}.png")
+    plt.savefig(f"{IMG_PATH}{year}/breathholding/{sheet_title}.png")
 
 
 def main() -> None:
     """Get the breath holding data from the Google Sheet and make a figure.
     """
-    df = get_breath_holding()
+
+    today = dt.now().date()
+    this_year = today.year
+    this_month = today.month
+
+    sheet_title = get_sheet_title(this_year, this_month)
+    df = get_breath_holding(sheet_title)
     # print(df)
-    make_figure(df)
+
+    make_figure(df, this_year, sheet_title)
 
 
 if __name__ == "__main__":

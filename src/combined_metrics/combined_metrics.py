@@ -66,8 +66,10 @@ def plot_frequency(table, year_to_plot: str) -> None:
              res_df['date'].iloc[-1] + pd.to_timedelta(3, unit='d')
              )
     plt.title(f"{year_to_plot} Workout Frequency", fontsize=20)
-    plt.savefig(f"{IMG_PATH}{year_to_plot}_workout_frequency.png")
     # plt.show()
+
+    plt.savefig(f"{IMG_PATH}{year_to_plot}/{year_to_plot}_workout_frequency.png")
+
     plt.clf()
 
 
@@ -134,9 +136,10 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     plt.ylabel("duration [minutes]", fontsize=15)
     plt.title(f"Duration and total volume [kg] ({month_to_plot} {year_to_plot})", fontsize=17)
     plt.xticks(dates, dates)
-
     # plt.show()
-    plt.savefig(f"{IMG_PATH}workout_duration_{month_to_plot}_{year_to_plot}.png")
+
+    plt.savefig(f"{IMG_PATH}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png")
+
     plt.clf()
 
 
@@ -197,9 +200,10 @@ def plot_duration_volume_1rm(table) -> None:
     plt.ylabel("duration [minutes]", fontsize=15)
     plt.title(f"Duration, volume, 1RM ({EXERCISE})", fontsize=15)
     plt.xticks(dates, dates)
-
     # plt.show()
-    plt.savefig(f"{IMG_PATH}workout_duration_volume_1rm_{EXERCISE}.png")
+
+    plt.savefig(f"{IMG_PATH}all_years/workout_duration_volume_1rm_{EXERCISE}.png")
+
     plt.clf()
 
 

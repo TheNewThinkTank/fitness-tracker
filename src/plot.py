@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt  # type: ignore
 import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
+# import sys  # type: ignore
 from crud.read import show_exercise  # type: ignore
 from utils.get_exercises import get_available_exercises  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
@@ -58,6 +59,19 @@ def compare_workouts(dfs_1: dict, dfs_2: dict) -> tuple[dict[Any, Any], dict[Any
     return dfs_1_common, dfs_2_common
 
 
+# TODO: Move to datetime package
+def validate_date_format(date: str) -> str:
+    """Validate date format and return year.
+
+    :param date: Date of the workout
+    :type date: str
+    """
+
+    if date[4] != "-":
+        raise ValueError("Invalid date format. Should be YYYY-MM-DD.")
+    return date[:4]
+
+
 def create_barplots(dfs: dict, date: str) -> None:
     """Plot training data for specific date.
 
@@ -69,6 +83,8 @@ def create_barplots(dfs: dict, date: str) -> None:
 
     # TODO: highten legend transparency
     # TODO: set figure-level x- and y labels ("set_number" and "Repetitions")
+
+    year = validate_date_format(date)
 
     keys = list(dfs.keys())
     values = list(dfs.values())
@@ -143,9 +159,9 @@ def create_barplots(dfs: dict, date: str) -> None:
     plt.tight_layout(h_pad=2)
     plt.title(f"Workout date: {date}")
     sns.move_legend(ax1, "upper right", bbox_to_anchor=(1, 1))
-    sns.move_legend(ax3, "center right", bbox_to_anchor=(1, 1))
+    sns.move_legend(ax3, "center right", bbox_to_anchor=(1, 1))    
 
-    plt.savefig(f"{IMG_PATH}workout_{date}.png")
+    plt.savefig(f"{IMG_PATH}{year}/workout_{date}.png")
 
 
 def main() -> None:

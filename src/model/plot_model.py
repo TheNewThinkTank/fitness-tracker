@@ -57,7 +57,11 @@ def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     plt.xticks(rotation=45)
     ax.set_ylabel("1 RM estimates [kg]", fontsize=20)
     ax.legend(loc="lower right", fontsize=20)
-    plt.savefig(f"{IMG_PATH}{datatype}_fitted_data_{exercise}_splines.png")
+
+    plt.savefig(
+        f"{IMG_PATH}all_years/one_rep_max/{datatype}_fitted_data_{exercise}_splines.png"
+        )
+
     plt.clf()  # clear figure before next plot
 
 
@@ -92,7 +96,9 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     plt.xticks(rotation=45)
     ax.set_ylabel("Volume [kg]", fontsize=20)
     ax.legend(loc="lower right", fontsize=20)
-    plt.savefig(f"{IMG_PATH}{datatype}_fitted_data_{exercise}_gvt.png")
+    plt.savefig(
+        f"{IMG_PATH}all_years/volume/{datatype}_fitted_data_{exercise}_gvt.png"
+        )
     plt.clf()  # clear figure before next plot
 
 

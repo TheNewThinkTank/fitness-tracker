@@ -1,6 +1,8 @@
 """Google Sheets API.
 """
 
+# TODO: Move to key-master repo, publish to PyPI.
+
 import gspread
 from google.oauth2.service_account import Credentials
 

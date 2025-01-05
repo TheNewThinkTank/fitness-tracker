@@ -9,7 +9,7 @@ and consider consulting
 [this book](https://books.google.dk/books/about/Breatheology.html?id=q3OJZwEACAAJ&source=kp_book_description&redir_esc=y)
 for effective breathing exercises
 
-| ![2024-07](../img/breathholding/2024-08.png) | ![2024-08](../img/breathholding/2024-07.png) |
+| ![2024-07](../img/2024/breathholding/2024-08.png) | ![2024-08](../img/2024/breathholding/2024-07.png) |
 | :------: | :------: |
 
 Each bar represents breath holds on a given date.

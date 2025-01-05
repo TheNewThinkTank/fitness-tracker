@@ -45,7 +45,7 @@ main() {
     exit 1
   fi
 
-  > image_links.txt  # Clear the file if it exists
+  true > image_links.txt  # Clear the file if it exists
 
   for img_file in "$IMG_DIR"/*.png; do
     if [[ -f "$img_file" ]]; then

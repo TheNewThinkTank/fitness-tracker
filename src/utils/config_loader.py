@@ -52,6 +52,12 @@ class ConfigLoader:
 
         data["google_drive_data_path"] = google_drive_data_path
 
+        data["img_path"] = (
+            data["img_path"]
+            .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
+            .replace("<ATHLETE>", athlete)
+        )
+
         data["real_workout_database"] = (
             data["real_workout_database"]
             .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)

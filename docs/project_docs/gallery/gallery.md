@@ -11,44 +11,48 @@ Data and analysis for athlete: `gustav_rasmussen`<br>
 Below: Annual weekly workout frequency.<br>
 Each figure displays week vs number of workouts during that week.
 
-| <img src="https://lh3.googleusercontent.com/d/1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO"> | ![2024_workout_frequency](../img/2024/2024_workout_frequency.png) |
+<!--
+<img src="https://lh3.googleusercontent.com/d/<ID>">
+-->
+
+| <img src="https://lh3.googleusercontent.com/d/1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO"> | <img src="https://lh3.googleusercontent.com/d/1p28Q5yvAytWRclEq3rUmbhl5PHOAWinp"> |
 | :----------: | :------: |
-| ![2023_workout_frequency](../img/2023/2023_workout_frequency.png) | ![2022_workout_frequency](../img/2022/2022_workout_frequency.png) |
-| ![2021_workout_frequency](../img/2021/2021_workout_frequency.png) | |
+| <img src="https://lh3.googleusercontent.com/d/1XKjCcHD9DlI-fmAWdqjn6GJutRM-nbr0"> | <img src="https://lh3.googleusercontent.com/d/1SGSjctH8RhJXrjuI6TTdrj7BRVyGwTO1"> |
+| <img src="https://lh3.googleusercontent.com/d/1CshUp9CxLIW3ddMAU7FZDAO2odNpZfnm"> | |
 
 ## Duration and volume 2025
 
-![January_2025](../img/2025/workout_duration_January_2025.png)
+<img src="https://lh3.googleusercontent.com/d/1kK6-8APNGP-VhnhZ12axl6ka1fkxyMoA">
 
 ### 2024
 
-- <a style="text-align: center;">[December](../img/2024/workout_duration_December_2024.png)<br>
-- <a style="text-align: center;">[November](../img/2024/workout_duration_November_2024.png)<br>
-- <a style="text-align: center;">[October](../img/2024/workout_duration_October_2024.png)<br>
-- <a style="text-align: center;">[September](../img/2024/workout_duration_September_2024.png)<br>
-- <a style="text-align: center;">[August](../img/2024/workout_duration_August_2024.png)<br>
-- <a style="text-align: center;">[July](../img/2024/workout_duration_July_2024.png)<br>
-- <a style="text-align: center;">[June](../img/2024/workout_duration_June_2024.png)<br>
-- <a style="text-align: center;">[May](../img/2024/workout_duration_May_2024.png)<br>
-- <a style="text-align: center;">[April](../img/2024/workout_duration_April_2024.png)<br>
-- <a style="text-align: center;">[March](../img/2024/workout_duration_March_2024.png)<br>
-- <a style="text-align: center;">[February](../img/2024/workout_duration_February_2024.png)<br>
-- <a style="text-align: center;">[January](../img/2024/workout_duration_January_2024.png)<br>
+- <a style="text-align: center;">[December](https://lh3.googleusercontent.com/d/1P0d3unlswZQEOO8cVJ-LCleQ3BVOpkm7)
+- <a style="text-align: center;">[November](https://lh3.googleusercontent.com/d/1dFpvitcJPgQKlaowaG6bEML_5HS97fM2)
+- <a style="text-align: center;">[October](https://lh3.googleusercontent.com/d/1NPq7Np6FKDyeNvFE68PLZWOkLn992_Ok)
+- <a style="text-align: center;">[September](https://lh3.googleusercontent.com/d/1aKz2OKHApKNN5r16GjpVLYqfVAG0at0L)
+- <a style="text-align: center;">[August](https://lh3.googleusercontent.com/d/1xaToLYDtXjPcSVQvXzha2UCFSKYnlElH)
+- <a style="text-align: center;">[July](https://lh3.googleusercontent.com/d/1i2LsaqcjgMhtVQGbrby9H_HasY4XV_Gq)
+- <a style="text-align: center;">[June](https://lh3.googleusercontent.com/d/1DXgDTH3ovbpNjpfwowBHKE47sC_MWeRd)
+- <a style="text-align: center;">[May](https://lh3.googleusercontent.com/d/1Su4wVA3lbIyXvtldYRLj0dDDNxPkv78t)
+- <a style="text-align: center;">[April](https://lh3.googleusercontent.com/d/17Xu6lLKatnLrY7GhtLYD3SOl61eTsEBN)
+- <a style="text-align: center;">[March](https://lh3.googleusercontent.com/d/1zJAgabJ1CY9aZSc1AsQNlJL92p_FFRBV)
+- <a style="text-align: center;">[February](https://lh3.googleusercontent.com/d/1rehTcLnQpzajamEDP2EFyLFIWAJv-BUZ)
+- <a style="text-align: center;">[January](https://lh3.googleusercontent.com/d/1ocMHCVz6SNmJv3RLX_qEIkgZIpzpHvlL)
 
 ### 2023
 
-- <a style="text-align: center;">[December](../img/2023/workout_duration_December_2023.png)<br>
-- <a style="text-align: center;">[November](../img/2023/workout_duration_November_2023.png)<br>
-- <a style="text-align: center;">[October](../img/2023/workout_duration_October_2023.png)<br>
-- <a style="text-align: center;">[September](../img/2023/workout_duration_September_2023.png)<br>
-- <a style="text-align: center;">[August](../img/2023/workout_duration_August_2023.png)<br>
-- <a style="text-align: center;">[July](../img/2023/workout_duration_July_2023.png)<br>
-- <a style="text-align: center;">[June](../img/2023/workout_duration_June_2023.png)<br>
-- <a style="text-align: center;">[May](../img/2023/workout_duration_May_2023.png)<br>
-- <a style="text-align: center;">[April](../img/2023/workout_duration_April_2023.png)<br>
-- <a style="text-align: center;">[March](../img/2023/workout_duration_March_2023.png)<br>
-- <a style="text-align: center;">[February](../img/2023/workout_duration_February_2023.png)<br>
-- <a style="text-align: center;">[January](../img/2023/workout_duration_January_2023.png)<br>
+- <a style="text-align: center;">[December](https://lh3.googleusercontent.com/d/1BC-WbpsDrnRf5xdBQ1tKffutZZLtar23)
+- <a style="text-align: center;">[November](https://lh3.googleusercontent.com/d/1TfoHnfEn787Qswi67QDdCqTKyE5nkcM5)
+- <a style="text-align: center;">[October](https://lh3.googleusercontent.com/d/1cF8IVW8M6S3qBHjAUTpIyC2SRUK4QVPg)
+- <a style="text-align: center;">[September](https://lh3.googleusercontent.com/d/1-1zTBq8MDRwsQ2H4xoCduCLMg5KXaToK)
+- <a style="text-align: center;">[August](https://lh3.googleusercontent.com/d/14-2z6JwKlR1bhdfM8Q93JTCrDOhpGPrO)
+- <a style="text-align: center;">[July](https://lh3.googleusercontent.com/d/1Da64xwlPnG8QgffIOQp_d2GXL3lFhuB5)
+- <a style="text-align: center;">[June](https://lh3.googleusercontent.com/d/194MlJQs73rXgc2HMR6dNhPIsjb-x564s)
+- <a style="text-align: center;">[May](https://lh3.googleusercontent.com/d/1i4IcIYVdAuqzl9dHRhoOBHAiHQlar-ju)
+- <a style="text-align: center;">[April](https://lh3.googleusercontent.com/d/1fC6p6eu_5s6rOiVKDmd-xxT-qEtBPTpV)
+- <a style="text-align: center;">[March](https://lh3.googleusercontent.com/d/1oA73lj72s3nu3sft70M1HyJ1gVz09euV)
+- <a style="text-align: center;">[February](https://lh3.googleusercontent.com/d/1Ruc9Ts1G46uVA9a0OE4cQbk7xN-UR0hD)
+- <a style="text-align: center;">[January](https://lh3.googleusercontent.com/d/1GTLN9TMgO0aGLleZ6g0ih-YCk2q_OnFF)
 
 ## Volume
 

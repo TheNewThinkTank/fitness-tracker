@@ -20,22 +20,25 @@
 # Manual example:
 # https://drive.google.com/file/d/1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO/view?usp=sharing
 # Embeddable link:
-# https://drive.google.com/uc?export=view&id=1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO
-
+# https://lh3.googleusercontent.com/d/1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO
 
 # Directory containing PNG files
-IMG_DIR="path/to/your/img"
+# Read USER, EMAIL and ATHLETE from .env file
+source ../.env
+IMG_DIR="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025"
 
-# Function to get Google Drive file ID
+# Function to get Google Drive file ID using gdrive
 get_file_id() {
   local file_path="$1"
-  gdrive upload --share "$file_path" | grep 'https://drive.google.com/file/d/' | sed 's/.*file\/d\/\([^\/]*\).*/\1/'
+  local file_id=$(gdrive files upload "$file_path" | grep 'https://drive.google.com/file/d/' | sed 's/.*file\/d\/\([^\/]*\).*/\1/')
+  gdrive files share "$file_id" --role reader --type anyone
+  echo "$file_id"
 }
 
 # Function to generate embeddable link
 generate_embeddable_link() {
   local file_id="$1"
-  echo "https://drive.google.com/uc?export=view&id=${file_id}"
+  echo "https://lh3.googleusercontent.com/d/${file_id}"
 }
 
 # Main script

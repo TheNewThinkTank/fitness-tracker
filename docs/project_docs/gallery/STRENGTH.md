@@ -5,6 +5,6 @@ Each figure displays **workout-date** vs **1-rep-max estimate** for different tr
 together with their regression fits/trendlines using 68 % confidence intervals.<br>
 (Each program is shown in the legend).
 
-| ![Fitted Data Deadlift](../img/all_years/one-rep-max/real_fitted_data_deadlift_splines.png) | ![Fitted Data Squat](../img/all_years/one-rep-max/real_fitted_data_squat_splines.png) |
+| <img src="https://lh3.googleusercontent.com/d/1XY7jFBAEacZu1C8mPPnw5C9KjMLKKVyT"> | <img src="https://lh3.googleusercontent.com/d/1xC2NCv51OEq_UfdRL5LqjlZr30DCCfVI"> |
 | :--------------------------------------------------------: | :---------------------------------------------------------: |
-| ![Fitted Data Barbell Bench Press](../img/all_years/one-rep-max/real_fitted_data_barbell_bench_press_splines.png) | ![Fitted Data Seated Row](../img/all_years/one-rep-max/real_fitted_data_seated_row_splines.png) |
+| <img src="https://lh3.googleusercontent.com/d/1nmnrPqvF6Wiep4QptWDfe9LCpu-GgeN1"> | <img src="https://lh3.googleusercontent.com/d/1hxEUHHHpNlN5C0ey5iyWrctgAYCD_bYO"> |

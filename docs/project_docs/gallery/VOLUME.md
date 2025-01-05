@@ -6,10 +6,4 @@ using 68% confidence intervals. (Each program is shown in the legend).
 
 | barbell_bench_press_volume | squat_volume |
 | -------------------------- | ------------ |
-| ![Barbell Bench Press Volume](../img/all_years/volume/real_fitted_data_barbell_bench_press_gvt.png) | ![Squat Volume](../img/all_years/volume/real_fitted_data_squat_gvt.png) |
-
-<!--
-| barbell_bench_press_volume | squat_volume |
-| -------------------------- | ------------ |
-| <img src="../img/all_years/volume/real_fitted_data_barbell_bench_press_gvt.png" width="400" height="400" /> | <img src="../img/all_years/volume/real_fitted_data_squat_gvt.png" width="400" height="400" /> |
--->
+| <img src="https://lh3.googleusercontent.com/d/1Wnj34boyCR2dVzRmFf4rLQ_0t-zwP7tM"> | <img src="https://lh3.googleusercontent.com/d/1uez0l_rDSsfAD0uy4Cn1XcVlMGyFv9X4"> |

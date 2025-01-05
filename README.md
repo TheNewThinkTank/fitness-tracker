@@ -8,7 +8,7 @@
 # Fitness-Tracker
 
 <p align="center">
-  <img src="docs/project_docs/img/thumbnails/logo.png" width="400"/>
+<img src="https://lh3.googleusercontent.com/d/17ggezi9SP4a1_8GIzMJxV8b1VBbzhMFZ"width="400"/>
 </p>
 
 [Main Website](https://thenewthinktank.github.io/fitness-tracker/)

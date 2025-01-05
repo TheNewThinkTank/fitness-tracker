@@ -1,4 +1,27 @@
+
+.DS_Store
+
 /node_modules/
 /public/build/
 
-.DS_Store
+# SvelteKit build output
+.svelte-kit/
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE specific files
+.vscode/
+.idea/
+*.iml
+
+# Other
+*.bak
+*.orig

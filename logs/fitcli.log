@@ -251,3 +251,29 @@
 2025-01-04 21:49:16 - Data inserted in database.
 2025-01-04 21:49:21 - Figures prepared successfully.
 2025-01-04 21:49:21 - Workflow completed successfully
+2025-01-06 19:32:07 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-06 19:32:07 - Workflow started
+2025-01-06 19:32:07 - Workout date: 2025-01-06, File format: yml
+2025-01-06 19:32:07 - Processing for date: 2025-01-06
+2025-01-06 19:32:08 - Data inserted in database.
+2025-01-06 19:32:15 - Figures prepared successfully.
+2025-01-06 19:32:15 - Error: Failed to open image 2025_workout_frequency.png
+2025-01-06 19:46:44 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-06 19:46:44 - Workflow started
+2025-01-06 19:46:44 - Workout date: 2025-01-06, File format: yml
+2025-01-06 19:46:44 - Processing for date: 2025-01-06
+2025-01-06 19:46:44 - Error: Failed to insert data in database.
+2025-01-06 19:49:20 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-06 19:49:20 - Workflow started
+2025-01-06 19:49:20 - Workout date: 2025-01-06, File format: yml
+2025-01-06 19:49:20 - Processing for date: 2025-01-06
+2025-01-06 19:49:20 - Data inserted in database.
+2025-01-06 19:49:25 - Figures prepared successfully.
+2025-01-06 19:49:25 - Error: Failed to open image 2025_workout_frequency.png
+2025-01-06 19:51:02 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-06 19:51:02 - Workflow started
+2025-01-06 19:51:02 - Workout date: 2025-01-06, File format: yml
+2025-01-06 19:51:02 - Processing for date: 2025-01-06
+2025-01-06 19:51:02 - Data inserted in database.
+2025-01-06 19:51:06 - Figures prepared successfully.
+2025-01-06 19:51:07 - Workflow completed successfully

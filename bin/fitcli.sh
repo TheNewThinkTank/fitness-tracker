@@ -108,7 +108,20 @@ main() {
   FILE_FORMAT='yml'
   CONFIG_FILE='./fitcli.conf'
   LOG_FILE='logs/fitcli.log'
-  IMG_PATH='./docs/project_docs/img/'
+
+  # Load USER, EMAIL, and ATHLETE from the .env file
+  if [ -f .env ]; then
+    # shellcheck source=/dev/null
+    source .env
+  else
+    echo "Warning: .env file not found. Using default values."
+    USER="default_user"
+    EMAIL="default_email"
+    ATHLETE="default_athlete"
+  fi
+
+  IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
+
   SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
 
   # Parse command-line arguments

@@ -27,6 +27,23 @@ config = ConfigLoader.load_config()
 IMG_PATH = config["img_path"]
 
 
+def save_plot(fig, path) -> None:
+    """Save the plot to the specified path."""
+    fig.tight_layout()
+    fig.subplots_adjust(top=0.9)
+    fig.savefig(path)
+    plt.clf()
+
+
+def configure_plot(ax, x_ticks, x_label, y_label, title) -> None:
+    """Configure plot settings."""
+    ax.set_xlabel(x_label, fontsize=15)
+    ax.set_ylabel(y_label, fontsize=15)
+    ax.set_title(title, fontsize=20)
+    ax.grid(True)
+    plt.xticks(x_ticks, rotation=45, ha='right')
+
+
 def plot_frequency(table, year_to_plot: str) -> None:
     """Plot workout frequency.
 
@@ -38,35 +55,22 @@ def plot_frequency(table, year_to_plot: str) -> None:
     """
 
     res_df = get_frequency_data(table, year_to_plot)
-    # res_df['date'] = pd.to_datetime(res_df['date'])
-    # ic(res_df)
-
-    _, ax = plt.subplots()
-
+    fig, ax = plt.subplots()
     ax.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
-    # ax = sns.scatterplot(x=res_df['date'], y=res_df['workouts'])  # , palette="Reds", s=100)
 
-    ax.xaxis.set_major_locator(mdates.WeekdayLocator())  # mdates.AutoDateLocator()
+    ax.xaxis.set_major_locator(mdates.WeekdayLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y week %U"))
-    ticks = [res_df['date'].iloc[i] for i in range(len(res_df['date']))]
-    plt.xticks(ticks, rotation=45, ha='right')
-    # plt.xticks(rotation=45, ha='right')
-    # ax.get_legend().remove()
-    plt.yticks(res_df["workouts"], res_df["workouts"])
 
-    plt.xlabel("workout week", fontsize=15)
-    plt.ylabel("weekly workouts", fontsize=15)
-    plt.grid(True)
-    plt.tight_layout()
-    plt.subplots_adjust(top=0.9)
-    # Adjust x-axis limits to shift data points to the left
-    plt.xlim(res_df['date'].iloc[0] - pd.to_timedelta(3, unit='d'),
-             res_df['date'].iloc[-1] + pd.to_timedelta(3, unit='d')
-             )
-    plt.title(f"{year_to_plot} Workout Frequency", fontsize=20)
-    # plt.show()
-    plt.savefig(f"{IMG_PATH}{year_to_plot}/{year_to_plot}_workout_frequency.png")
-    plt.clf()
+    configure_plot(
+        ax,
+        res_df['date'],
+        "Workout Week",
+        "Weekly Workouts",
+        f"{year_to_plot} Workout Frequency"
+        )
+
+    save_path = f"{IMG_PATH}{year_to_plot}/{year_to_plot}_workout_frequency.png"
+    save_plot(fig, save_path)
 
 
 def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
@@ -82,21 +86,16 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     """
 
     _date_and_duration = get_all_durations(year_to_plot)
-    # ic(_date_and_duration)
-    # pp(_date_and_duration)
-    date_and_duration = dict()
-    for date, duration in _date_and_duration.items():
-        YEAR, MONTH = get_year_and_month(date)
-        if YEAR == year_to_plot and MONTH == month_to_plot:
-            # print(YEAR, MONTH)
-            date_and_duration[date] = duration
+
+    date_and_duration = {
+        date: duration
+        for date, duration in _date_and_duration.items()
+        if get_year_and_month(date) == (year_to_plot, month_to_plot)
+    }
+
     pp(date_and_duration)
 
     date_and_volume = get_total_volume(table)
-
-    # ic(date_and_volume)
-    # ic(date_and_duration)
-
     volumes = [d_v[1] for d_v in date_and_volume if d_v[0] in date_and_duration.keys()]
 
     date_and_duration = {
@@ -105,38 +104,30 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     dates = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
 
-    # ic(dates)
-    # ic(durations)
-    # ic(volumes)
-
-    # pp(date_and_duration)
-    # pp(date_and_volume)
-
     norm = mcolors.Normalize(min(volumes), max(volumes))
     sm = cm.ScalarMappable(cmap="Reds", norm=norm)
     sm.set_array([])
 
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
-    plt.gca().xaxis.set_major_locator(mdates.DayLocator())
+    fig, ax = plt.subplots()
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
+    ax.xaxis.set_major_locator(mdates.DayLocator())
 
-    ax = sns.scatterplot(x=dates, y=durations, hue=volumes, palette="Reds", s=100)
+    sns.scatterplot(x=dates, y=durations, hue=volumes, palette="Reds", s=100, ax=ax)
     plt.plot(dates, durations, zorder=0, c="brown")
-    plt.gcf().autofmt_xdate()
 
     ax.get_legend().remove()
-
     plt.colorbar(sm, ax=ax)
 
-    plt.grid()
-    plt.xlabel("workout date", fontsize=15)
-    plt.ylabel("duration [minutes]", fontsize=15)
-    plt.title(f"Duration and total volume [kg] ({month_to_plot} {year_to_plot})", fontsize=17)
-    plt.xticks(dates, dates)
-    # plt.show()
+    configure_plot(
+        ax,
+        dates,
+        "Workout Date",
+        "Duration [minutes]",
+        f"Duration and Total Volume [kg] ({month_to_plot} {year_to_plot})"
+        )
 
-    plt.savefig(f"{IMG_PATH}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png")
-
-    plt.clf()
+    save_path = f"{IMG_PATH}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png"
+    save_plot(fig, save_path)
 
 
 def plot_duration_volume_1rm(table) -> None:
@@ -150,55 +141,53 @@ def plot_duration_volume_1rm(table) -> None:
     date_and_duration = get_all_durations()
     date_and_volume = get_total_volume(table)
     dates = date_and_duration.keys()
-    _SPLITS = [
+    splits = [
         "push",
         "full_body",
         # "legs",
         # "legs_and_abs",
     ]
-    EXERCISE = "bb_bench_press"  # "squat"
-    df = get_df(table, splits=_SPLITS, exercise=EXERCISE)
+    exercise = "bb_bench_press"  # "squat"
+    df = get_df(table, splits=splits, exercise=exercise)
     one_rm = one_rep_max_estimator(df)
-    one_rm_squat = one_rm[one_rm.index.isin(dates)]
+    one_rm_filtered = one_rm[one_rm.index.isin(dates)]
     volumes = [
-        d_v[1] for d_v in date_and_volume if d_v[0] in one_rm_squat.index  # dates
+        d_v[1] for d_v in date_and_volume if d_v[0] in one_rm_filtered.index  # dates
     ]
 
     date_and_duration = {
         dt.strptime(k, "%Y-%m-%d").date(): v
         for k, v in date_and_duration.items()
-        if k in one_rm_squat.index
+        if k in one_rm_filtered.index
     }
     dates = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
-    one_rm = one_rm_squat["1RM"].to_list()
+    # one_rm_values = one_rm_filtered["1RM"].to_list()
 
-    print(dates)
-    print(durations)
-    print(one_rm)
-    print(volumes)
-
-    norm = plt.Normalize(min(volumes), max(volumes))
+    norm = mcolors.Normalize(min(volumes), max(volumes))
     sm = plt.cm.ScalarMappable(cmap="Reds", norm=norm)
     sm.set_array([])
 
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
-    plt.gca().xaxis.set_major_locator(mdates.DayLocator())
-    ax = sns.scatterplot(x=dates, y=durations, hue=volumes, palette="Reds", s=one_rm)
+    fig, ax = plt.subplots()
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
+    ax.xaxis.set_major_locator(mdates.DayLocator())
+
+    sns.scatterplot(x=dates, y=durations, hue=volumes, palette="Reds", s=one_rm, ax=ax)
     plt.plot(dates, durations, zorder=0, c="brown")
-    plt.gcf().autofmt_xdate()
 
     ax.get_legend().remove()
-    ax.figure.colorbar(sm)
+    plt.colorbar(sm, ax=ax)
 
-    plt.grid()
-    plt.xlabel("workout date", fontsize=15)
-    plt.ylabel("duration [minutes]", fontsize=15)
-    plt.title(f"Duration, volume, 1RM ({EXERCISE})", fontsize=15)
-    plt.xticks(dates, dates)
-    # plt.show()
-    plt.savefig(f"{IMG_PATH}all_years/workout_duration_volume_1rm_{EXERCISE}.png")
-    plt.clf()
+    configure_plot(
+        ax,
+        dates,
+        "Workout Date",
+        "Duration [minutes]",
+        f"Duration, Volume, 1RM ({exercise})"
+        )
+
+    save_path = f"{IMG_PATH}all_years/workout_duration_volume_1rm_{exercise}.png"
+    save_plot(fig, save_path)
 
 
 def main() -> None:
@@ -211,6 +200,7 @@ def main() -> None:
     parser.add_argument("--month_to_plot", type=str, default='December')
     parser.add_argument("--datatype", type=str, default="real")
     args = parser.parse_args()
+
     datatype = args.datatype
     year_to_plot = args.year_to_plot
     month_to_plot = args.month_to_plot

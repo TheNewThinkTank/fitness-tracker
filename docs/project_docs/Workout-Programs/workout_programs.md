@@ -145,9 +145,32 @@
       &nbsp;&nbsp;&nbsp;&nbsp;Focus on strength.<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Heavy sets of 2-8 reps for key exercises<br>
       &nbsp;&nbsp;&nbsp;&nbsp;(deadlift, squat, benchpress, seated_row)<br>
-    start: 2024-07-DD<br>
-    end: 2024-MM-DD<br>
+    start: 2024-07-18<br>
+    end: 2025-01-03<br>
     program_iterations: TODO<br>
     number_of_workouts: TODO<br>
+
+</details>
+
+<details>
+
+  <summary>program_10</summary>
+
+    name: HYBRID-STRENGTH-HYPERTROPHY<br>
+    splits:
+      - Upper Body A
+      - Lower Body A
+      - Upper Body B
+      - Lower Body B
+    description:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;This program focuses on building both strength and muscle mass.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Ideally, each week will include two upper body workouts<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;and two lower body workouts.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;The program will incorporate both heavy compound lifts<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;and higher-rep isolation exercises.<br>
+    start: 2025-01-04<br>
+    end: 2025-MM-DD<br>
+    program_iterations: 12<br>
+    number_of_workouts: 48<br>
 
 </details>

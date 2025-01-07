@@ -41,11 +41,12 @@ def get_df(
 
     frames = []
     for item in table:
-        if any(x in item["split"] for x in splits):
-            if exercise in item["exercises"].keys():
-                df = pd.DataFrame(item["exercises"][exercise])
-                df["date"] = item["date"]
-                frames.append(df)
+        if not any(x in item["split"] for x in splits):
+            continue
+        if exercise in item["exercises"].keys():
+            df = pd.DataFrame(item["exercises"][exercise])
+            df["date"] = item["date"]
+            frames.append(df)
 
     return pd.concat(frames)
 

@@ -48,14 +48,12 @@ def plot_frequency(table, year_to_plot: str) -> None:
 
     ax.xaxis.set_major_locator(mdates.WeekdayLocator())  # mdates.AutoDateLocator()
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y week %U"))
-
     ticks = [res_df['date'].iloc[i] for i in range(len(res_df['date']))]
-
     plt.xticks(ticks, rotation=45, ha='right')
     # plt.xticks(rotation=45, ha='right')
-
     # ax.get_legend().remove()
     plt.yticks(res_df["workouts"], res_df["workouts"])
+
     plt.xlabel("workout week", fontsize=15)
     plt.ylabel("weekly workouts", fontsize=15)
     plt.grid(True)
@@ -67,9 +65,7 @@ def plot_frequency(table, year_to_plot: str) -> None:
              )
     plt.title(f"{year_to_plot} Workout Frequency", fontsize=20)
     # plt.show()
-
     plt.savefig(f"{IMG_PATH}{year_to_plot}/{year_to_plot}_workout_frequency.png")
-
     plt.clf()
 
 
@@ -201,9 +197,7 @@ def plot_duration_volume_1rm(table) -> None:
     plt.title(f"Duration, volume, 1RM ({EXERCISE})", fontsize=15)
     plt.xticks(dates, dates)
     # plt.show()
-
     plt.savefig(f"{IMG_PATH}all_years/workout_duration_volume_1rm_{EXERCISE}.png")
-
     plt.clf()
 
 

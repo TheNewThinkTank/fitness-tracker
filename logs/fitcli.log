@@ -277,3 +277,10 @@
 2025-01-06 19:51:02 - Data inserted in database.
 2025-01-06 19:51:06 - Figures prepared successfully.
 2025-01-06 19:51:07 - Workflow completed successfully
+2025-01-07 16:45:50 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-07 16:45:50 - Workflow started
+2025-01-07 16:45:50 - Workout date: 2025-01-07, File format: yml
+2025-01-07 16:45:50 - Processing for date: 2025-01-07
+2025-01-07 16:45:50 - Data inserted in database.
+2025-01-07 16:45:54 - Figures prepared successfully.
+2025-01-07 16:45:55 - Workflow completed successfully

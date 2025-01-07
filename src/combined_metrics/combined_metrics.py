@@ -63,7 +63,7 @@ def plot_frequency(table, year_to_plot: str) -> None:
         marker="o", 
         data=res_df, 
         ax=ax, 
-        color="k"  #"#6c8ebf"  # "b"
+        color="#6c8ebf"
     )
     # ax.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
 
@@ -223,7 +223,7 @@ def main() -> None:
     _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
 
     plot_frequency(table, year_to_plot)
-    # plot_duration(table, year_to_plot, month_to_plot)
+    plot_duration(table, year_to_plot, month_to_plot)
     # plot_duration_volume_1rm(table)
 
 

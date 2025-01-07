@@ -11,10 +11,6 @@ Data and analysis for athlete: `gustav_rasmussen`<br>
 Below: Annual weekly workout frequency.<br>
 Each figure displays week vs number of workouts during that week.
 
-<!--
-<img src="https://lh3.googleusercontent.com/d/<ID>">
--->
-
 | <img src="https://lh3.googleusercontent.com/d/1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO"> | <img src="https://lh3.googleusercontent.com/d/1p28Q5yvAytWRclEq3rUmbhl5PHOAWinp"> |
 | :----------: | :------: |
 | <img src="https://lh3.googleusercontent.com/d/1XKjCcHD9DlI-fmAWdqjn6GJutRM-nbr0"> | <img src="https://lh3.googleusercontent.com/d/1SGSjctH8RhJXrjuI6TTdrj7BRVyGwTO1"> |
@@ -24,9 +20,22 @@ Each figure displays week vs number of workouts during that week.
 
 <img src="https://lh3.googleusercontent.com/d/1kK6-8APNGP-VhnhZ12axl6ka1fkxyMoA">
 
-<div id="image-container"></div>
-
 <script>
+  // Add a timestamp to all image URLs that use Google Drive links
+  document.querySelectorAll('img').forEach((img) => {
+    const src = img.src;
+
+    // Check if the src is a Google Drive image URL
+    if (src.includes('lh3.googleusercontent.com')) {
+      const timestampedSrc = `${src}?t=${Date.now()}`;
+      img.src = timestampedSrc; // Update the src attribute with a timestamp
+    }
+  });
+</script>
+
+<!-- <div id="image-container"></div> -->
+
+<!-- <script>
   // Base Google Drive Image URL
   const baseUrl = "https://lh3.googleusercontent.com/d/1kK6-8APNGP-VhnhZ12axl6ka1fkxyMoA";
 
@@ -40,7 +49,7 @@ Each figure displays week vs number of workouts during that week.
 
   // Append the img element to the container
   document.getElementById("image-container").appendChild(img);
-</script>
+</script> -->
 
 ### 2024
 

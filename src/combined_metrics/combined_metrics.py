@@ -56,7 +56,16 @@ def plot_frequency(table, year_to_plot: str) -> None:
 
     res_df = get_frequency_data(table, year_to_plot)
     fig, ax = plt.subplots()
-    ax.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
+
+    sns.lineplot(
+        x="date", 
+        y="workouts", 
+        marker="o", 
+        data=res_df, 
+        ax=ax, 
+        color="#6c8ebf"  # "b"
+    )
+    # ax.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
 
     ax.xaxis.set_major_locator(mdates.WeekdayLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y week %U"))
@@ -196,7 +205,13 @@ def main() -> None:
 
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--year_to_plot", type=str, default='2024')
+
+    parser.add_argument(
+        "--year_to_plot",
+        type=str,
+        default='2024'
+        )
+
     parser.add_argument("--month_to_plot", type=str, default='December')
     parser.add_argument("--datatype", type=str, default="real")
     args = parser.parse_args()

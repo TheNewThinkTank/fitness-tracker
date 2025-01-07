@@ -1,10 +1,12 @@
+"""
+"""
 
 from pprint import pprint as pp
-import seaborn as sns
-import matplotlib.pyplot as plt
-import pandas as pd
-import yaml
-# from ..model.model import get_df  # type: ignore
+from typing import Any
+import seaborn as sns  # type: ignore
+import matplotlib.pyplot as plt  # type: ignore
+import pandas as pd  # type: ignore
+import yaml  # type: ignore
 from set_db_and_table import set_db_and_table  # type: ignore
 
 DATA_MODELS = ["real", "simulated"]
@@ -61,7 +63,7 @@ rep_ranges = extract_recommended_rep_ranges(data)
 
 actual_reps = extract_actual_rep_ranges(table, splits)
 
-combined_data = {}
+combined_data: dict[Any, Any] = {}
 for date, exercises in actual_reps.items():
     combined_data[date] = {}
     for exercise, performed_reps in exercises.items():

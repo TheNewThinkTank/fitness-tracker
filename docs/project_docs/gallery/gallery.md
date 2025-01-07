@@ -24,6 +24,24 @@ Each figure displays week vs number of workouts during that week.
 
 <img src="https://lh3.googleusercontent.com/d/1kK6-8APNGP-VhnhZ12axl6ka1fkxyMoA">
 
+<div id="image-container"></div>
+
+<script>
+  // Base Google Drive Image URL
+  const baseUrl = "https://lh3.googleusercontent.com/d/1kK6-8APNGP-VhnhZ12axl6ka1fkxyMoA";
+
+  // Generate the URL with a timestamp query parameter
+  const imageUrl = `${baseUrl}?t=${Date.now()}`; // Add timestamp
+
+  // Create an img element and set the src
+  const img = document.createElement("img");
+  img.src = imageUrl;
+  img.alt = "Dynamic Image with Timestamp";
+
+  // Append the img element to the container
+  document.getElementById("image-container").appendChild(img);
+</script>
+
 ### 2024
 
 - <a style="text-align: center;">[December](https://lh3.googleusercontent.com/d/1P0d3unlswZQEOO8cVJ-LCleQ3BVOpkm7)

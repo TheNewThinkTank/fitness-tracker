@@ -24,7 +24,7 @@ My formal education as both a fitness instructor at the "At Work" school as well
 
 ### Professional Experience
 
-My hands-on experience working as a fitness instructor for 2 years at SATS for two years has given me valuable insights into the practical aspects of fitness training and client management. This experience has been instrumental in shaping the user experience and functionality of this application. I furthermore had the priveledge to teach classes at various martial arts gyms across different styles, across greater Copenhagen for a number of years.
+My hands-on experience working as a fitness instructor at SATS for two years has given me valuable insights into the practical aspects of fitness training and client management. This experience has been instrumental in shaping the user experience and functionality of this application. I furthermore had the priveledge to teach classes at various martial arts gyms across different styles, across greater Copenhagen for a number of years.
 
 !!! tip "Similar projects"
     If you liked this fitness tracker then you might also be interested in

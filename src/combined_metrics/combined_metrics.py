@@ -169,9 +169,9 @@ def plot_frequency(table, year_to_plot: str) -> None:
 
     ax.get_legend().remove()
 
-    # save_path = f"{IMG_PATH}{year_to_plot}/{year_to_plot}_workout_frequency.png"
-    # save_plot(fig, save_path)
-    plt.show()
+    # plt.show()
+    save_path = f"{IMG_PATH}{year_to_plot}/{year_to_plot}_workout_frequency.png"
+    save_plot(fig, save_path)
 
 
 def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
@@ -326,7 +326,7 @@ def main() -> None:
     parser.add_argument(
         "--year_to_plot",
         type=str,
-        default='2024'  # '2025'
+        default='2025'
         )
 
     parser.add_argument(
@@ -345,7 +345,7 @@ def main() -> None:
     _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
 
     plot_frequency(table, year_to_plot)
-    # plot_duration(table, year_to_plot, month_to_plot)
+    plot_duration(table, year_to_plot, month_to_plot)
     # plot_duration_volume_1rm(table)
 
 

@@ -291,3 +291,10 @@
 2025-01-08 21:46:19 - Data inserted in database.
 2025-01-08 21:46:24 - Figures prepared successfully.
 2025-01-08 21:46:24 - Workflow completed successfully
+2025-01-10 19:30:14 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-10 19:30:14 - Workflow started
+2025-01-10 19:30:14 - Workout date: 2025-01-10, File format: yml
+2025-01-10 19:30:14 - Processing for date: 2025-01-10
+2025-01-10 19:30:15 - Data inserted in database.
+2025-01-10 19:30:34 - Figures prepared successfully.
+2025-01-10 19:30:34 - Error: Failed to open image 2025_workout_frequency.png

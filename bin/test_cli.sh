@@ -17,6 +17,7 @@ fi
 if [ -f .config/config.yml ]; then
   GOOGLE_DRIVE_DATA_PATH=$(yq e '.google_drive_data_path' .config/config.yml | sed "s/<USER>/$USER/g; s/<EMAIL>/$EMAIL/g")
   IMG_PATH=$(yq e '.img_path' .config/config.yml | sed "s|<GOOGLE_DRIVE_DATA_PATH>|$GOOGLE_DRIVE_DATA_PATH|g; s/<ATHLETE>/$ATHLETE/g")
+  IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
   echo "$GOOGLE_DRIVE_DATA_PATH"  # /Users/$USER/Library/CloudStorage/GoogleDrive-$EMAIL/My Drive/DATA/fitness-tracker-data
   echo "$IMG_PATH"  # $GOOGLE_DRIVE_DATA_PATH/$ATHLETE/img/
 else

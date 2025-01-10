@@ -1,4 +1,4 @@
-site_name: fitness-tracker - Full stack fitness tracking application using TinyDB and FastAPI
+site_name: fitness-tracker - Full stack fitness tracking application using Docker, TinyDB, FastAPI & Svelte
 docs_dir: docs/project_docs
 theme:
   name: material

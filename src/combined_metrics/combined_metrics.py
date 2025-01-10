@@ -15,10 +15,8 @@ from matplotlib.ticker import MaxNLocator  # type: ignore
 import pandas as pd  # type: ignore
 from pprint import pprint as pp
 import seaborn as sns  # type: ignore
-
-import statsmodels.api as sm  # type: ignore
-from scipy.interpolate import make_interp_spline  # type: ignore
-
+# import statsmodels.api as sm  # type: ignore
+# from scipy.interpolate import make_interp_spline  # type: ignore
 from icecream import ic  # type: ignore
 from utils.set_db_and_table import set_db_and_table  # type: ignore
 from utils.get_workout_duration import get_all_durations  # type: ignore
@@ -35,7 +33,7 @@ IMG_PATH = config["img_path"]
 def save_plot(fig, path) -> None:
     """Save the plot to the specified path."""
     fig.tight_layout()
-    fig.subplots_adjust(top=0.85)
+    fig.subplots_adjust(top=0.85, bottom=0.2)
     fig.savefig(path, bbox_inches='tight')
     plt.clf()
 
@@ -59,26 +57,13 @@ def plot_frequency(table, year_to_plot: str) -> None:
     :return: None
     """
 
-    # test
-    # test_data = {
-    #     'date': pd.to_datetime([
-    #         '2024-01-01',
-    #         '2024-01-08',
-    #         '2024-01-15',
-    #         ]),
-    #     'workouts': [3, 5, 2]
-    # }
-    # res_df = pd.DataFrame(test_data)
-    # plot_frequency(res_df, "2024")
-
     res_df = get_frequency_data(table, year_to_plot)
 
     # Ensure date values are properly converted to datetime objects
     res_df['date'] = pd.to_datetime(res_df['date'], errors='coerce')
     res_df = res_df.dropna(subset=['date'])  # Drop rows with invalid dates
 
-    # Debugging: Print the date range
-    # TODO: use logger here instead of print
+    # TODO: use logger here instead of print, with level: DEBUG
     # print("Date range after conversion:")
     # print(res_df['date'].min(), res_df['date'].max())
 
@@ -134,6 +119,7 @@ def plot_frequency(table, year_to_plot: str) -> None:
         ax=ax, 
         color="#6c8ebf",
         marker="o",
+        s=100,
         label="Data Points"
     )
 
@@ -158,6 +144,9 @@ def plot_frequency(table, year_to_plot: str) -> None:
 
     date_format = "%Y week %U"  # "%Y-%m-%d"
     ax.xaxis.set_major_formatter(mdates.DateFormatter(date_format))
+
+    ax.set_ylim(bottom=0)
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
     configure_plot(
         ax,
@@ -229,6 +218,7 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
         f"Duration and Total Volume [kg] ({month_to_plot} {year_to_plot})"
         )
 
+    # plt.show()
     save_path = f"{IMG_PATH}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png"
     save_plot(fig, save_path)
 
@@ -345,7 +335,7 @@ def main() -> None:
     _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
 
     plot_frequency(table, year_to_plot)
-    plot_duration(table, year_to_plot, month_to_plot)
+    # plot_duration(table, year_to_plot, month_to_plot)
     # plot_duration_volume_1rm(table)
 
 

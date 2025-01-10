@@ -18,9 +18,7 @@ The development and concepts behind this fitness tracker are influenced by the f
    - The book "Exercise Physiology: Nutrition, Energy, and Human Performance" provides detailed information on exercise physiology, nutrition, energy, and human performance, which, together with other textbooks and articles, form the foundation of the algorithms and recommendations used in this application.
 
 2. **Education**
-   - My formal education as both a fitness instructor at the "At Work" school as well as a Running Coach at the "DGI" school
-   has provided me with the theoretical and practical knowledge necessary to design effective fitness programs and tracking systems.
-   In addition, I hold the instructor certificate in Leung Ting Wing Tsun from "Wing Tsun Instructor Academy" which besides main focus on this discipline, incorporated elements of strength and cardio training, nutrition, yoga and more.
+   - My formal education as both a fitness instructor at the "At Work" school as well as a Running Coach at the "DGI" school has provided me with the theoretical and practical knowledge necessary to design effective fitness programs and tracking systems. In addition, I hold the instructor certificate in Leung Ting Wing Tsun from "Wing Tsun Instructor Academy" which besides main focus on this discipline, incorporated elements of strength and cardio training, nutrition, yoga and more.
 
 3. **Professional Experience**
    - My hands-on experience working as a fitness instructor for 2 years at SATS for two years has given me valuable insights into the practical aspects of fitness training and client management. This experience has been instrumental in shaping the user experience and functionality of this application. I furthermore had the priveledge to teach classes at various martial arts gyms across different styles, across greater Copenhagen for a number of years.

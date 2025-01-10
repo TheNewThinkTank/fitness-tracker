@@ -97,6 +97,63 @@ load_config() {
   fi
 }
 
+# Load USER, EMAIL, and ATHLETE from the .env file
+load_env_variables() {
+  if [ -f .env ]; then
+    # shellcheck source=/dev/null
+    source .env
+  else
+    echo "Warning: .env file not found. Using default values."
+    USER="default_user"
+    EMAIL="default_email"
+    ATHLETE="default_athlete"
+  fi
+}
+
+# Read img_path from config.yml
+load_config_variables() {
+  if [ -f .config/config.yml ]; then
+    GOOGLE_DRIVE_DATA_PATH=$(yq e '.google_drive_data_path' .config/config.yml | sed "s/<USER>/$USER/g; s/<EMAIL>/$EMAIL/g")
+    IMG_PATH=$(yq e '.img_path' .config/config.yml | sed "s|<GOOGLE_DRIVE_DATA_PATH>|$GOOGLE_DRIVE_DATA_PATH|g; s/<ATHLETE>/$ATHLETE/g")
+    IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
+    echo "$GOOGLE_DRIVE_DATA_PATH"  # /Users/$USER/Library/CloudStorage/GoogleDrive-$EMAIL/My Drive/DATA/fitness-tracker-data
+    echo "$IMG_PATH"  # $GOOGLE_DRIVE_DATA_PATH/$ATHLETE/img/
+  else
+    echo "Warning: config.yml file not found. Using default img_path."
+    IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
+  fi
+}
+
+# Parse command-line arguments
+parse_arguments() {
+  while getopts ":d:f:c:h" opt; do
+    case ${opt} in
+      d )
+        WORKOUT_DATE=$OPTARG
+        ;;
+      f )
+        FILE_FORMAT=$OPTARG
+        ;;
+      c )
+        CONFIG_FILE=$OPTARG
+        ;;
+      h )
+        echo "Usage: $0 [-d WORKOUT_DATE] [-f FILE_FORMAT] [-c CONFIG_FILE]"
+        exit 0
+        ;;
+      \? )
+        echo "Invalid option: $OPTARG" 1>&2
+        exit 1
+        ;;
+      : )
+        echo "Invalid option: $OPTARG requires an argument" 1>&2
+        exit 1
+        ;;
+    esac
+  done
+  shift $((OPTIND -1))
+}
+
 # Main function for script execution
 main() {
   # Code to be executed when the script is run directly
@@ -109,82 +166,62 @@ main() {
   CONFIG_FILE='./fitcli.conf'
   LOG_FILE='logs/fitcli.log'
 
-  # Load USER, EMAIL, and ATHLETE from the .env file
-  if [ -f .env ]; then
-    # shellcheck source=/dev/null
-    source .env
-  else
-    echo "Warning: .env file not found. Using default values."
-    USER="default_user"
-    EMAIL="default_email"
-    ATHLETE="default_athlete"
-  fi
+  load_env_variables
 
-  # Read img_path from config.yml
-  if [ -f .config/config.yml ]; then
-    GOOGLE_DRIVE_DATA_PATH=$(yq e '.google_drive_data_path' .config/config.yml | sed "s/<USER>/$USER/g; s/<EMAIL>/$EMAIL/g")
-    IMG_PATH=$(yq e '.img_path' .config/config.yml | sed "s|<GOOGLE_DRIVE_DATA_PATH>|$GOOGLE_DRIVE_DATA_PATH|g; s/<ATHLETE>/$ATHLETE/g")
-    IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
-    echo "$GOOGLE_DRIVE_DATA_PATH"  # /Users/$USER/Library/CloudStorage/GoogleDrive-$EMAIL/My Drive/DATA/fitness-tracker-data
-    echo "$IMG_PATH"  # $GOOGLE_DRIVE_DATA_PATH/$ATHLETE/img/
-  else
-    echo "Warning: config.yml file not found. Using default img_path."
-    IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
-  fi
-  # IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
+  load_config_variables
 
   SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
 
   # Parse command-line arguments
   WORKOUT_DATES=()  # Initialize an array for multiple dates
-  while getopts ":d:f:c:h" opt; do
-    case ${opt} in
-      d )
-        IFS=',' read -r -a input_dates <<< "$OPTARG"
-        for date in "${input_dates[@]}"; do
-          if validate_date "$date"; then
-            WORKOUT_DATES+=("$date")
-          else
-            log "Error: Invalid date format. Expected YYYY-MM-DD."
-            exit 1
-          fi
-        done
-        ;;
-      f )
-        if validate_file_format "$OPTARG"; then
-          FILE_FORMAT=$OPTARG
-        else
-          log "Error: Unsupported file format. Supported formats: ${SUPPORTED_FILE_FORMATS[*]}"
-          exit 1
-        fi
-        ;;
-      c )
-        CONFIG_FILE=$OPTARG
-        ;;
-      h )
-        show_help
-        exit 0
-        ;;
-      \? )
-        log "Invalid option: -$OPTARG"
-        show_help
-        exit 1
-        ;;
-      : )
-        log "Invalid option: -$OPTARG requires an argument"
-        show_help
-        exit 1
-        ;;
-    esac
-  done
+
+  # while getopts ":d:f:c:h" opt; do
+  #   case ${opt} in
+  #     d )
+  #       IFS=',' read -r -a input_dates <<< "$OPTARG"
+  #       for date in "${input_dates[@]}"; do
+  #         if validate_date "$date"; then
+  #           WORKOUT_DATES+=("$date")
+  #         else
+  #           log "Error: Invalid date format. Expected YYYY-MM-DD."
+  #           exit 1
+  #         fi
+  #       done
+  #       ;;
+  #     f )
+  #       if validate_file_format "$OPTARG"; then
+  #         FILE_FORMAT=$OPTARG
+  #       else
+  #         log "Error: Unsupported file format. Supported formats: ${SUPPORTED_FILE_FORMATS[*]}"
+  #         exit 1
+  #       fi
+  #       ;;
+  #     c )
+  #       CONFIG_FILE=$OPTARG
+  #       ;;
+  #     h )
+  #       show_help
+  #       exit 0
+  #       ;;
+  #     \? )
+  #       log "Invalid option: -$OPTARG"
+  #       show_help
+  #       exit 1
+  #       ;;
+  #     : )
+  #       log "Invalid option: -$OPTARG requires an argument"
+  #       show_help
+  #       exit 1
+  #       ;;
+  #   esac
+  # done
 
   # Default to today's date if none provided
-  # if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
-  #   WORKOUT_DATES=($(date +%F))
-  # fi
   if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
     mapfile -t WORKOUT_DATES < <(date +%F)
   fi
+
+  parse_arguments "$@"
 
   # Load configuration
   load_config

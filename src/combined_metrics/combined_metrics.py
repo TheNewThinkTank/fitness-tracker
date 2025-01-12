@@ -18,13 +18,13 @@ import seaborn as sns  # type: ignore
 # import statsmodels.api as sm  # type: ignore
 # from scipy.interpolate import make_interp_spline  # type: ignore
 from icecream import ic  # type: ignore
-from utils.set_db_and_table import set_db_and_table  # type: ignore
-from utils.get_workout_duration import get_all_durations  # type: ignore
-from utils.get_volume import get_total_volume  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.get_workout_duration import get_all_durations  # type: ignore
+from src.utils.get_volume import get_total_volume  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
-from model.model import one_rep_max_estimator, get_df  # type: ignore
-from get_frequency_data import get_frequency_data  # type: ignore
-from utils.config_loader import ConfigLoader  # type: ignore
+from src.model.model import one_rep_max_estimator, get_df  # type: ignore
+from src.combined_metrics.get_frequency_data import get_frequency_data  # type: ignore
+from src.utils.config_loader import ConfigLoader  # type: ignore
 
 config = ConfigLoader.load_config()
 IMG_PATH = config["img_path"]

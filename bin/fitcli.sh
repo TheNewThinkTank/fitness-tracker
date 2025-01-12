@@ -14,7 +14,7 @@ log() {
 validate_date() {
   local input_date="$1"
   echo "Validating date: $input_date"
-  
+
   if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS date command
     if date -j -f "%Y-%m-%d" "$input_date" > /dev/null 2>&1; then

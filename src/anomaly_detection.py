@@ -4,7 +4,7 @@ injury risks, or inconsistencies in workout logs.
 """
 
 import numpy as np
-from sklearn.ensemble import IsolationForest
+from sklearn.ensemble import IsolationForest  # type: ignore
 
 # Example data: workout metrics (duration, intensity)
 X = np.array([

@@ -2,9 +2,9 @@
 """
 
 import numpy as np
-import pandas as pd
+import pandas as pd  # type: ignore
 import matplotlib.pyplot as plt
-import seaborn as sns
+import seaborn as sns  # type: ignore
 from src.utils.config_loader import ConfigLoader  # type: ignore
 
 config = ConfigLoader.load_config()
@@ -53,9 +53,10 @@ plt.grid(True)
 # plt.show()
 # plt.clf()
 # plt.close()
-plt.savefig(path)  # , bbox_inches='tight')
+plt.savefig(path)
 
 # 2. Calendar Heatmap
+path = f"{IMG_PATH}simulations/calendar-heatmap.png"
 plt.figure(figsize=(14, 5))
 # pivot = monthly_data.pivot("Year", "Month", "Workouts")
 pivot = monthly_data.pivot(index="Year", columns="Month", values="Workouts")
@@ -66,8 +67,10 @@ plt.title("Monthly Workout Heatmap")
 plt.xlabel("Month")
 plt.ylabel("Year")
 # plt.show()
+plt.savefig(path)
 
 # 3. Bar Chart
+path = f"{IMG_PATH}simulations/bar-chart.png"
 plt.figure(figsize=(10, 5))
 sns.barplot(x="Year", y="Workouts", data=yearly_data, hue="Year", legend=False)  # palette="viridis")
 plt.title("Yearly Workout Totals")
@@ -75,8 +78,10 @@ plt.xlabel("Year")
 plt.ylabel("Total Workouts")
 add_labels(plt.gca(), yearly_data["Year"], yearly_data["Workouts"])
 # plt.show()
+plt.savefig(path)
 
 # 4. Box Plot
+path = f"{IMG_PATH}simulations/box-plot.png"
 plt.figure(figsize=(10, 5))
 sns.boxplot(x="Year", y="Workouts", data=data)
 plt.title("Distribution of Weekly Workouts by Year")
@@ -84,8 +89,10 @@ plt.xlabel("Year")
 plt.ylabel("Number of Workouts")
 plt.grid(True, axis="y", linestyle="--", alpha=0.6)
 # plt.show()
+plt.savefig(path)
 
 # 5. Cumulative Sum Plot
+path = f"{IMG_PATH}simulations/cumulative-sum-plot.png"
 data["Cumulative_Workouts"] = data["Workouts"].cumsum()
 plt.figure(figsize=(14, 5))
 plt.plot(
@@ -100,8 +107,10 @@ plt.ylabel("Cumulative Workouts")
 plt.legend()
 plt.grid(True)
 # plt.show()
+plt.savefig(path)
 
 # 6. Stacked Area Chart
+path = f"{IMG_PATH}simulations/stacked-area-chart.png"
 types = ["Strength", "Cardio", "Flexibility"]
 stacked_data = pd.DataFrame(
     {
@@ -126,8 +135,10 @@ plt.xlabel("Date")
 plt.ylabel("Workouts")
 plt.legend(loc="upper left")
 # plt.show()
+plt.savefig(path)
 
 # 7. Seasonality Analysis (Polar Plot)
+path = f"{IMG_PATH}simulations/seasonality-analysis-polar-plot.png"
 monthly_avg = data.groupby("Month").Workouts.mean()
 theta = np.linspace(0, 2 * np.pi, len(monthly_avg))
 plt.figure(figsize=(8, 8))
@@ -135,12 +146,17 @@ ax = plt.subplot(111, polar=True)
 ax.plot(theta, monthly_avg, marker="o", label="Average Workouts")
 ax.fill(theta, monthly_avg, alpha=0.3)
 ax.set_xticks(theta)
-ax.set_xticklabels(range(1, 13))
+
+# ax.set_xticklabels(range(1, 13))
+ax.set_xticklabels(map(str, range(1, 13)))
+
 plt.title("Seasonality in Workouts (Monthly Averages)")
 plt.legend()
 # plt.show()
+plt.savefig(path)
 
 # 8. Bubble Chart
+path = f"{IMG_PATH}simulations/bubble-chart.png"
 bubble_data = data.copy()
 bubble_data["Intensity"] = np.random.uniform(1, 3, size=len(data))
 plt.figure(figsize=(14, 5))
@@ -157,3 +173,4 @@ plt.xlabel("Date")
 plt.ylabel("Number of Workouts")
 plt.colorbar(label="Workouts")
 # plt.show()
+plt.savefig(path)

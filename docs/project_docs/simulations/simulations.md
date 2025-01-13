@@ -1,7 +1,7 @@
 # Simulations
 
 Gallery of visualization types based on simulated workout data is shown below.
-Source code can be found [here](https://github.com/TheNewThinkTank/fitness-tracker/tree/main/src/simulations/plot_frequency.py)
+Source code can be found [here](https://github.com/TheNewThinkTank/fitness-tracker/blob/main/src/combined_metrics/plot_frequency.py)
 
 ## Frequency plots
 

@@ -4,12 +4,9 @@ Read workout data and calculate 1RM and training volume.
 
 from datetime import datetime
 import logging
-# import os
 import sys
 from typing import Final
 import pandas as pd  # type: ignore
-# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# sys.path.append(os.path.dirname(SCRIPT_DIR))
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.one_rep_max import (  # type: ignore
     OneRepMaxStrategy,

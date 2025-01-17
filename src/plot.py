@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt  # type: ignore
 import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
-# import sys  # type: ignore
 from src.crud.read import show_exercise  # type: ignore
 from src.utils.get_exercises import get_available_exercises  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore

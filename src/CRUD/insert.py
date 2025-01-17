@@ -8,12 +8,9 @@ import glob
 import json
 import os
 from pathlib import Path
-# import sys
 from typing import Union
 import yaml  # type: ignore
 from tinydb import table  # , TinyDB
-# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# sys.path.append(os.path.dirname(SCRIPT_DIR))
 from icecream import ic  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore

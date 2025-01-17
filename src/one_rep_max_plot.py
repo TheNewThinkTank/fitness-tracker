@@ -2,10 +2,6 @@
 Plots of popular 1-repetition-maximum formulas.
 """
 
-# import os
-# import sys
-# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# sys.path.append(os.path.dirname(SCRIPT_DIR))
 import matplotlib.pyplot as plt  # type: ignore
 import numpy as np  # type: ignore
 import pandas as pd  # type: ignore

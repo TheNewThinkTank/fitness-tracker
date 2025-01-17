@@ -2,10 +2,10 @@
 Get the duration of each workout in a given year.
 """
 
-import sys
-from pathlib import Path
+# import sys
+# from pathlib import Path
 # Add the root directory to the PYTHONPATH
-sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
+# sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 from icecream import ic  # type: ignore
 from datetime import datetime as dt
 from profiling_tools.profiling_utils import profile  # type: ignore

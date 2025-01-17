@@ -3,10 +3,6 @@ Read workout data and calculate combined metrics.
 """
 
 from datetime import datetime as dt
-# import os
-# import sys
-# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# sys.path.append(os.path.dirname(SCRIPT_DIR))
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.dates as mdates  # type: ignore
 import matplotlib.cm as cm  # type: ignore

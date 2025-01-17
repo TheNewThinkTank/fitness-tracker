@@ -79,9 +79,11 @@ jobs:
         with:
           file_or_dir: "./docs/project_docs/Workout-Programs/workout_programs.yml"
 
-      # - name: Set PYTHONPATH
-      #   run: |
-      #     echo "PYTHONPATH=\$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test" >> $GITHUB_ENV
+      - name: Set PYTHONPATH
+        run: |
+          echo "PYTHONPATH=\$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test"
+          echo "PYTHONPATH=$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test"
+          echo "PYTHONPATH=\$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test" >> $GITHUB_ENV
 
       # - name: Print PYTHONPATH
       #   run: echo $PYTHONPATH

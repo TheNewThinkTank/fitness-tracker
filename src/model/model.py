@@ -12,6 +12,7 @@ import pandas as pd  # type: ignore
 # sys.path.append(os.path.dirname(SCRIPT_DIR))
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.one_rep_max import (  # type: ignore
+    OneRepMaxStrategy,
     ACSMStrategy,
     EpleyStrategy,
     BrzyckiStrategy
@@ -83,7 +84,7 @@ def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
     return df_res.drop(["set_number", "reps", "weight"], axis=1)
 
 
-def one_rep_max_estimator(df: pd.DataFrame, formula="acsm") -> pd.DataFrame:
+def one_rep_max_estimator(df: pd.DataFrame, formula: str="acsm") -> pd.DataFrame:
     """Estimates 1RM using ACSM, Epley, or Brzycki formulas.
 
     :param df: DataFrame containing weight and reps data
@@ -96,6 +97,7 @@ def one_rep_max_estimator(df: pd.DataFrame, formula="acsm") -> pd.DataFrame:
     df_copy = df.copy()
 
     # Define strategies based on the input formula
+    strategy: OneRepMaxStrategy
     match formula.lower():
         case "acsm":
             strategy = ACSMStrategy()

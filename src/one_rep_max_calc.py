@@ -4,7 +4,7 @@ Definition of popular 1-repetition-maximum formulas.
 
 import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
-from one_rep_max import (  # type: ignore
+from src.one_rep_max import (  # type: ignore
     OneRepMaxStrategy,
     EpleyStrategy,
     BrzyckiStrategy

@@ -3,16 +3,16 @@ Plot weight-training data with fit.
 """
 
 import argparse
-import os
-import sys
+# import os
+# import sys
 from datetime import datetime
 import matplotlib.pyplot as plt  # type: ignore
 import seaborn as sns  # type: ignore
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
-from model import get_data, get_df, one_rep_max_estimator, calc_volume  # type: ignore
-from utils.set_db_and_table import set_db_and_table  # type: ignore
-from utils.config_loader import ConfigLoader  # type: ignore
+# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# sys.path.append(os.path.dirname(SCRIPT_DIR))
+from src.model import get_data, get_df, one_rep_max_estimator, calc_volume  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.config_loader import ConfigLoader  # type: ignore
 
 config = ConfigLoader.load_config()
 IMG_PATH = config["img_path"]

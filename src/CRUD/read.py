@@ -4,12 +4,12 @@ Store and analyze weight-training data.
 Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-import os
-import sys
+# import os
+# import sys
 from tinydb import Query  # type: ignore
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
-from utils.set_db_and_table import set_db_and_table  # type: ignore
+# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# sys.path.append(os.path.dirname(SCRIPT_DIR))
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_bw_workouts(table) -> list[dict]:

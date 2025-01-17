@@ -4,7 +4,7 @@
 import yaml  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from tinydb.storages import Storage, touch  # type: ignore
-from config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import ConfigLoader  # type: ignore
 
 
 class YAMLStorage(Storage):

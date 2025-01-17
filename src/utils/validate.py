@@ -6,7 +6,7 @@ from pprint import pprint as pp
 import re
 from typing import Optional
 import pydantic
-from config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import ConfigLoader  # type: ignore
 
 
 class ExercisesFormatError(Exception):

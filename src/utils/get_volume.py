@@ -3,8 +3,8 @@ Get the total volume of each workout in the table.
 """
 
 from pprint import pprint as pp
-from utils.get_bodyweight import get_bw  # type: ignore
-from utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.get_bodyweight import get_bw  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int:

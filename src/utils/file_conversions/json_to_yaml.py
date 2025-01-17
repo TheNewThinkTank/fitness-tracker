@@ -2,7 +2,7 @@
 """
 
 from pathlib import Path
-from utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import ConfigLoader  # type: ignore
 from file_convertion_tools.json_to_yaml import json_to_yaml  # type: ignore
 
 

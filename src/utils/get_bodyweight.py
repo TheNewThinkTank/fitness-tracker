@@ -2,7 +2,7 @@
 """
 
 import pandas as pd  # type: ignore
-from google_sheet import get_sheet  # type: ignore
+from src.utils.google_sheet import get_sheet  # type: ignore
 
 
 def get_bw() -> float:

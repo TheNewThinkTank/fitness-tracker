@@ -5,8 +5,8 @@ Set db and table depending on datatype (real/simulated).
 from datetime import datetime
 import os
 from tinydb import TinyDB  # type: ignore
-from custom_storage import YAMLStorage  # type: ignore
-from config_loader import ConfigLoader  # type: ignore
+from src.utils.custom_storage import YAMLStorage  # type: ignore
+from src.utils.config_loader import ConfigLoader  # type: ignore
 
 
 class TinyDBSingleton:

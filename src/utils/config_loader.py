@@ -3,7 +3,7 @@
 
 import os
 from dotenv import load_dotenv
-from file_conversions.load_yaml import load_yaml_file  # type: ignore
+from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
 class ConfigLoader:

@@ -2,16 +2,16 @@
 Update or delete weight-training data.
 """
 
-import os
+# import os
 # from pprint import pprint as pp
 import re
-import sys
+# import sys
 from icecream import ic  # type: ignore
 # from tinydb import Query, where  # type: ignore
-from tinydb import Query  # type: ignore
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SCRIPT_DIR))
-from utils.set_db_and_table import set_db_and_table  # type: ignore
+# from tinydb import Query  # type: ignore
+# SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# sys.path.append(os.path.dirname(SCRIPT_DIR))
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def filter_exercises_with_whitespace(workout_data: list) -> list:

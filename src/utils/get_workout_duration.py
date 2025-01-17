@@ -11,7 +11,7 @@ from datetime import datetime as dt
 from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
 from src.crud.read import get_all  # type: ignore
-from utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_data(year: str) -> list[dict]:

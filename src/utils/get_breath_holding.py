@@ -8,8 +8,8 @@ import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from scipy.stats import linregress  # type: ignore
-from google_sheet import get_sheet  # type: ignore
-from utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.google_sheet import get_sheet  # type: ignore
+from src.utils.config_loader import ConfigLoader  # type: ignore
 
 config = ConfigLoader.load_config()
 IMG_PATH = config["img_path"]

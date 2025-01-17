@@ -7,7 +7,7 @@ import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import pandas as pd  # type: ignore
 import yaml  # type: ignore
-from set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 DATA_MODELS = ["real", "simulated"]
 datatype = DATA_MODELS[0]

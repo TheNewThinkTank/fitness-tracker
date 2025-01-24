@@ -2,7 +2,7 @@
 unit test suite for model
 """
 
-from datetime import datetime
+from datetime import datetime as dt
 import pytest
 # import pandas as pd
 from src.model.model import get_df, one_rep_max_estimator, get_data
@@ -13,11 +13,11 @@ def setup():
     datatype = "real"
     _, table_2021, _ = set_db_and_table(
         datatype,
-        year=datetime.strptime("2021", "%Y").year
+        year=dt.strptime("2021", "%Y").year
         )
     _, table_2022, _ = set_db_and_table(
         datatype,
-        year=datetime.strptime("2022", "%Y").year
+        year=dt.strptime("2022", "%Y").year
         )
     return table_2021, table_2022
 
@@ -33,7 +33,7 @@ def test_get_df(test_input_split, test_input_exercise):
     assert len(df) > 2
 
 
-@pytest.mark.skip(reason="Skip until KeyError is fixed")
+# @pytest.mark.skip(reason="Skip until KeyError is fixed")
 def test_one_rep_max_estimator():
     """Verify that 1RM has progression."""
 
@@ -57,7 +57,7 @@ def test_one_rep_max_estimator():
     assert value_2021 <= value_2022
 
 
-@pytest.mark.skip(reason="Skip until data discrepancy is fixed")
+# @pytest.mark.skip(reason="Skip until data discrepancy is fixed")
 def test_get_data():
     """Verify that the correct lists (timestamps and 1RM estimates) are returned,
     for real training data from program_1

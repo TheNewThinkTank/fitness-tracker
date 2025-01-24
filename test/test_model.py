@@ -22,7 +22,6 @@ def setup():
     return table_2021, table_2022
 
 
-# @pytest.mark.skip(reason="Skip until ImportError is fixed")
 @pytest.mark.parametrize(
     "test_input_split,test_input_exercise",
     [("legs", "squat")],  # , ('chest', 'pullover')],

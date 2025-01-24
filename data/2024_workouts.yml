@@ -3990,3 +3990,77 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: Sidea_9012_Olympic_Hex_Bar + 30 kg
+  '253':
+    date: '2024-12-28'
+    start_time: '14:12'
+    end_time: '14:47'
+    timezone: CET
+    split: arms_abs_calf
+    gym: PureGym Gasvaerksvej
+    warmup: ''
+    notes: seated_calf_raise done using Startrac 'Tilt seat calf' machine
+    exercises:
+      military_press:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      - set_number: 3
+        reps: 10
+        weight: 35 kg
+      db_side_laterals:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      - set_number: 3
+        reps: 12
+        weight: 20 kg
+      cable_rear_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 11.4 kg
+      - set_number: 2
+        reps: 12
+        weight: 6.8 kg
+      - set_number: 3
+        reps: 12
+        weight: 6.8 kg
+      db_curl:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      cable_french_press:
+      - set_number: 1
+        reps: 15
+        weight: 17 kg
+      - set_number: 2
+        reps: 7
+        weight: 19.3 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 20
+        weight: 25 kg
+      - set_number: 2
+        reps: 17
+        weight: 25 kg
+      - set_number: 3
+        reps: 20
+        weight: 25 kg
+      swiss_ball_crunch:
+      - set_number: 1
+        reps: 25
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 18
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 15
+        weight: BODYWEIGHT kg

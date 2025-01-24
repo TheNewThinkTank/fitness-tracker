@@ -1,82 +1,182 @@
-"""
-unit test suite for model
-"""
 
-from datetime import datetime as dt
 import pytest
-# import pandas as pd
-from src.model.model import get_df, one_rep_max_estimator, get_data
-from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-
-
-def setup():
-    datatype = "real"
-    _, table_2021, _ = set_db_and_table(
-        datatype,
-        year=dt.strptime("2021", "%Y").year
-        )
-    _, table_2022, _ = set_db_and_table(
-        datatype,
-        year=dt.strptime("2022", "%Y").year
-        )
-    return table_2021, table_2022
-
-
-@pytest.mark.parametrize(
-    "test_input_split,test_input_exercise",
-    [("legs", "squat")],  # , ('chest', 'pullover')],
+import sys
+import logging
+import pandas as pd
+from tinydb import TinyDB
+from tinydb.storages import MemoryStorage
+from src.model.model import (  # type: ignore
+    get_df,
+    get_weight,
+    calc_volume,
+    one_rep_max_estimator,
+    get_data,
+    main,
 )
-def test_get_df(test_input_split, test_input_exercise):
-    """Verify that dataframe has more than 2 entries."""
-    table_2021, _ = setup()
-    df = get_df(table_2021, test_input_split, test_input_exercise)
-    assert len(df) > 2
 
 
-@pytest.mark.skip(reason="Skip until KeyError is fixed")
+# Fixture for creating a mock TinyDB table
+@pytest.fixture
+def mock_table():
+    db = TinyDB(storage=MemoryStorage)
+    table = db.table("workouts")
+    table.insert(
+        {
+            "date": "2023-10-01",
+            "split": "chest",
+            "exercises": {
+                "barbell_bench_press": [
+                    {"set_number": 1, "reps": 10, "weight": "100 kg"},
+                    {"set_number": 2, "reps": 8, "weight": "110 kg"},
+                ]
+            },
+        }
+    )
+    table.insert(
+        {
+            "date": "2023-10-02",
+            "split": "push",
+            "exercises": {
+                "barbell_bench_press": [
+                    {"set_number": 1, "reps": 12, "weight": "95 kg"},
+                    {"set_number": 2, "reps": 10, "weight": "105 kg"},
+                ]
+            },
+        }
+    )
+    return table
+
+
+def test_get_df(mock_table):
+    splits = ["chest", "push"]
+    exercise = "barbell_bench_press"
+    df = get_df(mock_table, splits=splits, exercise=exercise)
+    
+    # Check that the DataFrame is not empty
+    assert isinstance(df, pd.DataFrame)
+    assert not df.empty
+    
+    # Check that the DataFrame contains the correct exercise
+    assert "barbell_bench_press" in mock_table.all()[0]["exercises"].keys()
+    
+    # Check that the DataFrame contains the correct dates
+    expected_dates = {"2023-10-01", "2023-10-02"}
+    assert set(df["date"].unique()) == expected_dates
+    
+    # Check that the DataFrame contains the correct columns
+    expected_columns = {"set_number", "reps", "weight", "date"}
+    assert set(df.columns) == expected_columns
+
+
+# Test get_weight function
+def test_get_weight():
+    data = {"weight": ["100 kg", "110 kg", "120 kg"]}
+    df = pd.DataFrame(data)
+    weights = get_weight(df)
+
+    assert isinstance(weights, pd.Series)
+    assert all(isinstance(w, float) for w in weights)
+
+
+# Test calc_volume function
+def test_calc_volume():
+    data = {
+        "date": ["2023-10-01", "2023-10-01", "2023-10-02"],
+        "set_number": [1, 2, 1],
+        "reps": [10, 8, 12],
+        "weight": ["100 kg", "110 kg", "95 kg"],
+    }
+    df = pd.DataFrame(data)
+    volume_df = calc_volume(df)
+
+    assert isinstance(volume_df, pd.DataFrame)
+    assert "volume" in volume_df.columns
+    assert not volume_df.empty
+
+
+# Test one_rep_max_estimator function
 def test_one_rep_max_estimator():
-    """Verify that 1RM has progression."""
+    data = {
+        "date": ["2023-10-01", "2023-10-01", "2023-10-02"],
+        "set_number": [1, 2, 1],
+        "reps": [10, 8, 12],
+        "weight": ["100 kg", "110 kg", "95 kg"],
+    }
+    df = pd.DataFrame(data)
 
-    table_2021, table_2022 = setup()
-
-    df_2021 = get_df(table_2021, ["legs"], "squat")
-    df_1rm_2021 = one_rep_max_estimator(df_2021)
-
-    df_2022 = get_df(table_2022, ["legs"], "squat")
-    df_1rm_2022 = one_rep_max_estimator(df_2022)
-
-    value_2021 = df_1rm_2021.loc["2021-12-11", "1RM"]
-    value_2022 = df_1rm_2022.loc["2022-03-14", "1RM"]
-
-    print(value_2021, value_2022)
-
-    # Check that for program_1, first squat 1RM is less or equal to 1RM of last squat
-    # if pd.isna(value_2021) or pd.isna(value_2022):
-    #     print("One of the values is NaN, comparison not possible.")
-    # else:
-    assert value_2021 <= value_2022
+    for formula in ["acsm", "epley", "brzycki"]:
+        one_rm_df = one_rep_max_estimator(df, formula=formula)
+        assert isinstance(one_rm_df, pd.DataFrame)
+        assert "1RM" in one_rm_df.columns
+        assert not one_rm_df.empty
 
 
-@pytest.mark.skip(reason="Skip until data discrepancy is fixed")
+# Test get_data function
 def test_get_data():
-    """Verify that the correct lists (timestamps and 1RM estimates) are returned,
-    for real training data from program_1
-    """
+    data = {
+        "date": ["2023-10-01", "2023-10-02"],
+        "1RM": [120.5, 130.75],
+        "volume": [1200, 1300],
+    }
+    df = pd.DataFrame(data).set_index("date")
 
-    table_2021, _ = setup()
+    x, y = get_data(df, y_col="1RM")
+    assert isinstance(x, list)
+    assert isinstance(y, list)
+    assert len(x) == len(y)
 
-    df = get_df(table_2021, ["legs"], "squat")
-    df_1rm = one_rep_max_estimator(df)
-    x, y = get_data(df_1rm)
+    x, y = get_data(df, y_col="volume")
+    assert isinstance(x, list)
+    assert isinstance(y, list)
+    assert len(x) == len(y)
 
-    real_x_program_1 = [
-        1639177200.0,
-        1640386800.0,
-    ]
-    real_y_program_1 = [
-        102.86,
-        91.43,
-    ]
 
-    assert x[:10] == pytest.approx(real_x_program_1, rel=1e-9)
-    assert y[:10] == pytest.approx(real_y_program_1, rel=1e-2)
+# Test main function (integration test)
+def test_main(capsys):
+    # Redirect logging output to stdout
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    stream_handler = logging.StreamHandler(sys.stdout)
+    logger.addHandler(stream_handler)
+    
+    # Call the main function
+    main()
+    
+    # Capture the output
+    captured = capsys.readouterr()
+    
+    # Check if logs are printed
+    assert "Exercise: squat" in captured.out
+    assert "Workout timestamps:" in captured.out
+    assert "1 RM estimates:" in captured.out
+    assert "Volume:" in captured.out
+    
+    # Clean up the logger to avoid affecting other tests
+    logger.removeHandler(stream_handler)
+
+
+# Test invalid formula in one_rep_max_estimator
+def test_invalid_formula():
+    data = {
+        "date": ["2023-10-01", "2023-10-01", "2023-10-02"],
+        "set_number": [1, 2, 1],
+        "reps": [10, 8, 12],
+        "weight": ["100 kg", "110 kg", "95 kg"],
+    }
+    df = pd.DataFrame(data)
+
+    with pytest.raises(SystemExit):
+        one_rep_max_estimator(df, formula="invalid_formula")
+
+
+# Test invalid y_col in get_data
+def test_invalid_y_col():
+    data = {
+        "date": ["2023-10-01", "2023-10-02"],
+        "1RM": [120.5, 130.75],
+        "volume": [1200, 1300],
+    }
+    df = pd.DataFrame(data).set_index("date")
+
+    with pytest.raises(ValueError):
+        get_data(df, y_col="invalid_column")

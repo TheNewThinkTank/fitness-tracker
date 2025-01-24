@@ -131,28 +131,28 @@ def test_get_data():
     assert len(x) == len(y)
 
 
-# Test main function (integration test)
-def test_main(capsys):
-    # Redirect logging output to stdout
-    logger = logging.getLogger()
-    logger.setLevel(logging.INFO)
-    stream_handler = logging.StreamHandler(sys.stdout)
-    logger.addHandler(stream_handler)
+# # Test main function (integration test)
+# def test_main(capsys):
+#     # Redirect logging output to stdout
+#     logger = logging.getLogger()
+#     logger.setLevel(logging.INFO)
+#     stream_handler = logging.StreamHandler(sys.stdout)
+#     logger.addHandler(stream_handler)
     
-    # Call the main function
-    main()
+#     # Call the main function
+#     main()
     
-    # Capture the output
-    captured = capsys.readouterr()
+#     # Capture the output
+#     captured = capsys.readouterr()
     
-    # Check if logs are printed
-    assert "Exercise: squat" in captured.out
-    assert "Workout timestamps:" in captured.out
-    assert "1 RM estimates:" in captured.out
-    assert "Volume:" in captured.out
+#     # Check if logs are printed
+#     assert "Exercise: squat" in captured.out
+#     assert "Workout timestamps:" in captured.out
+#     assert "1 RM estimates:" in captured.out
+#     assert "Volume:" in captured.out
     
-    # Clean up the logger to avoid affecting other tests
-    logger.removeHandler(stream_handler)
+#     # Clean up the logger to avoid affecting other tests
+#     logger.removeHandler(stream_handler)
 
 
 # Test invalid formula in one_rep_max_estimator

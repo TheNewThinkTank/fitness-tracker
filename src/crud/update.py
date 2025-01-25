@@ -2,10 +2,7 @@
 Update or delete weight-training data.
 """
 
-# from pprint import pprint as pp
 import re
-# from icecream import ic  # type: ignore
-# from tinydb import Query, where  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 

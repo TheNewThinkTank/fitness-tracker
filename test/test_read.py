@@ -1,6 +1,5 @@
 
 from unittest.mock import MagicMock
-from tinydb import Query  # type: ignore
 from src.crud.read import (  # type: ignore
     get_bw_workouts,
     search_for_exercise,

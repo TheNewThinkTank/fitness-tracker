@@ -27,7 +27,7 @@ def get_dates(number_of_workouts: int, start: datetime, periods: int) -> list[st
     return reservoir_sample(date_generator, number_of_workouts)
 
 
-def main() -> None:
+def simulate_data() -> None:
     """Simulate specified number of workouts and insert their data into JSON files.
     """
 
@@ -75,4 +75,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    simulate_data()

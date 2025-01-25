@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../../.config/yaml_schema.json
+# TODO: setup macro to load this YAML into Github pages markdown
+date: "2024-10-05"
+start_time: "11:57"
+end_time: "12:38"
+timezone: CEST
+split: arms_abs_calf
+gym: PureGym Valby
+warmup: "rowing 5 minutes, 1112 meters"
+cooldown: "15 minutes yoga"
+notes: "seated_calf_raise was dropsets, without pause between"
+exercises:
+  military_press:
+  - set_number: 1
+    reps: 12
+    weight: 25 kg
+  - set_number: 2
+    reps: 10
+    weight: 35 kg
+  - set_number: 3
+    reps: 10
+    weight: 35 kg
+  db_side_laterals:
+  - set_number: 1
+    reps: 12
+    weight: 14 kg
+  - set_number: 2
+    reps: 12
+    weight: 18 kg
+  - set_number: 3
+    reps: 12
+    weight: 18 kg
+  cable_french_press:
+  - set_number: 1
+    reps: 20
+    weight: 20 kg
+  - set_number: 2
+    reps: 6
+    weight: 40 kg
+  db_rear_laterals:
+  - set_number: 1
+    reps: 12
+    weight: 11.4 kg
+  - set_number: 2
+    reps: 10
+    weight: 11.4 kg
+  - set_number: 3
+    reps: 8
+    weight: 11.4 kg
+  db_curl:
+  - set_number: 1
+    reps: 12
+    weight: 28 kg
+  - set_number: 2
+    reps: 9
+    weight: 28 kg
+  seated_calf_raise:
+  - set_number: 1
+    reps: 9
+    weight: 50 kg
+  - set_number: 2
+    reps: 10
+    weight: 30 kg
+  - set_number: 3
+    reps: 15
+    weight: 20 kg
+  swiss_ball_crunch:
+  - set_number: 1
+    reps: 25
+    weight: BODYWEIGHT kg
+  - set_number: 2
+    reps: 20
+    weight: BODYWEIGHT kg
+  - set_number: 3
+    reps: 15
+    weight: BODYWEIGHT kg

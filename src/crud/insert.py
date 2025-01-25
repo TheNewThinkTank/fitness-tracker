@@ -31,8 +31,18 @@ def insert_log(table: table.Table,
     :type file_format: str
     """
 
+    # Validate file format
+    if file_format not in ['json', 'yml']:
+        raise ValueError(
+            f"Invalid file format: {file_format}. Expected 'json' or 'yml'."
+            )
+
     # assert log_path
     print(f"{log_path = }")
+
+    # Convert Path objects to strings
+    if isinstance(log_path, Path):
+        log_path = str(log_path)
 
     if isinstance(log_path, str):
         with open(log_path) as rf:
@@ -113,7 +123,7 @@ def main() -> None:
 
     import argparse
     import logging
-    from utils.logger_config import setup_logger, log_running_file  # type: ignore
+    from src.utils.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="insert.log")
     log_running_file(__file__)

@@ -109,12 +109,14 @@ jobs:
 
       - name: Upload results to Codecov
         # uses: codecov/codecov-action@v4
-        uses: codecov/codecov-action@5c47607acb93fed5485fdbf7232e8a31425f672a  # v5.0.2
+        uses: codecov/codecov-action@v5  # 5c47607acb93fed5485fdbf7232e8a31425f672a  # v5.0.2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: TheNewThinkTank/fitness-tracker
           # codecov_yml_path: .config/codecov.yml  # --codecov-yml-path
           verbose: true # optional (default = false)
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - uses: rojopolis/spellcheck-github-actions@0.40.0
         name: Spellcheck

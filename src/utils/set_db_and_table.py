@@ -57,7 +57,7 @@ def set_db_and_table(
     """
 
     if not athlete:
-        athlete = config_data["athlete"]
+        athlete = config_data["ATHLETE"]
 
     if not year:
         year = datetime.now().year
@@ -84,12 +84,12 @@ def set_db_and_table(
 def main() -> None:
     """Main function.
     """
+
     db, table, training_catalogue = set_db_and_table(
         datatype="real",
         year="2021"
     )
     print(db, table, training_catalogue)
-
     # At the end, make sure to close the database
     db_singleton = TinyDBSingleton("dummy_path")  # Create a dummy instance just to close
     db_singleton.close()

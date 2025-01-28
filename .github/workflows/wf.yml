@@ -12,13 +12,15 @@ on:
 
 jobs:
   qualify_code:
-    uses: ./.github/workflows/qualify_code.yml
+    uses: ./.github/workflows/job_qualify_code.yml
     with:
       google_drive_data_path: "data"
+    secrets:
+      ATHLETE: ${{ secrets.ATHLETE }}
 
   # docker_image_workflow:
   #   needs: qualify_code
-  #   uses: ./.github/workflows/docker_image.yml
+  #   uses: ./.github/workflows/job_docker_image.yml
   #   with:
   #     image-name: fitness-tracker  # ${{ env.IMAGE_NAME }}
   #     image-tag: latest
@@ -27,7 +29,7 @@ jobs:
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code
-  #   uses: ./.github/workflows/aws_ecr.yml
+  #   uses: ./.github/workflows/job_aws_ecr.yml
   #   with:
   #     aws-region: eu-central-1
   #     ecr-repository: fitness-tracker

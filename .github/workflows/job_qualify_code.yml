@@ -6,6 +6,9 @@ on:
       google_drive_data_path:
         required: true
         type: string
+    secrets:
+      ATHLETE:
+        required: true
 
 jobs:
   qualify_code:
@@ -44,6 +47,9 @@ jobs:
 
       - name: Print GOOGLE_DRIVE_DATA_PATH
         run: echo $GOOGLE_DRIVE_DATA_PATH        
+
+      - name: Set ATHLETE
+        run: echo "ATHLETE=${{ inputs.ATHLETE }}" >> $GITHUB_ENV
 
       - name: Cache mypy dependencies
         uses: actions/cache@v4

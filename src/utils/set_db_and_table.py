@@ -57,7 +57,10 @@ def set_db_and_table(
     """
 
     if not athlete:
-        athlete = config_data["ATHLETE"]
+        if 'GITHUB_ACTIONS' in os.environ:
+            athlete = config_data["athlete"]
+        else:
+            athlete = config_data["ATHLETE"]
 
     if not year:
         year = datetime.now().year

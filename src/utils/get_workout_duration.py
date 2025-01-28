@@ -2,12 +2,9 @@
 Get the duration of each workout in a given year.
 """
 
-# import sys
-# from pathlib import Path
-# Add the root directory to the PYTHONPATH
-# sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
-from icecream import ic  # type: ignore
 from datetime import datetime as dt
+import os
+from icecream import ic  # type: ignore
 from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
 from src.crud.read import get_all  # type: ignore
@@ -25,6 +22,7 @@ def get_data(year: str) -> list[dict]:
 
     db, table, _ = set_db_and_table(
         datatype="real",
+        athlete=os.getenv("ATHLETE", "donald_duck"),
         year=year,
         )
     

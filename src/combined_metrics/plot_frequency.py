@@ -5,10 +5,9 @@ import numpy as np
 import pandas as pd  # type: ignore
 import matplotlib.pyplot as plt
 import seaborn as sns  # type: ignore
-from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import config_data  # type: ignore
 
-config = ConfigLoader.load_config()
-IMG_PATH = config["img_path"]
+IMG_PATH = config_data["img_path"]
 
 # Generate synthetic workout data for 4 years (208 weeks)
 np.random.seed(42)

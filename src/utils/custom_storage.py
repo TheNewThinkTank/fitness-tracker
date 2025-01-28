@@ -4,7 +4,7 @@
 import yaml  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from tinydb.storages import Storage, touch  # type: ignore
-from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import config_data  # type: ignore
 
 
 class YAMLStorage(Storage):
@@ -37,12 +37,12 @@ def main() -> None:
     """Load a TinyDB database using YAML storage.
     """
 
-    env_vars = ConfigLoader.load_env_variables()
-    config = ConfigLoader.load_config()
-
     in_file_name = "/db.yml"
 
-    test_path = f'{config["google_drive_data_path"]}/{env_vars["athlete"]}{in_file_name}'
+    test_path = (
+        f'{config_data["google_drive_data_path"]}/'
+        f'{config_data["athlete"]}{in_file_name}'
+        )
 
     db = TinyDB(test_path, storage=YAMLStorage)
     print(db)

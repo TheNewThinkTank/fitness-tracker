@@ -1,87 +1,39 @@
 """Loads configuration from environment and files.
 """
 
-import os
-from dotenv import load_dotenv
-from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
+from dynaconf import Dynaconf
 
+settings = Dynaconf(
+        settings_files=[".config/settings.toml"],
+        # envvar_prefix="DYNACONF", # False # Optional: Prefix for environment variables
+        environments=True,  # Enable environments (default, development, production)
+        default_env="default",
+        load_dotenv=True,  # Load .env file
+        envvar_for_dynaconf=".env",  # Path to .env file relative to settings.toml
+    )
 
-class ConfigLoader:
-    """Handles loading configuration from environment and files.
-    """
-
-    @staticmethod
-    def load_env_variables() -> dict:
-        """Loads environment variables."""
-        load_dotenv()
-        return {
-            "user": os.environ["USER"],
-            "athlete": os.environ["ATHLETE"],
-            "email": os.environ["EMAIL"]
-            }
-
-    @staticmethod
-    def load_config(
-        user: str=load_env_variables()["user"],
-        athlete: str=load_env_variables()["athlete"],
-        email: str=load_env_variables()["email"],
-        # file_path: str="./.config/config.yml"
-        ) -> dict:
-        """Loads configuration from a YAML file and replaces placeholders.
-        """
-
-        root_dir: str = os.path.dirname(
-            os.path.dirname(
-                os.path.dirname(
-                    os.path.abspath(__file__)
-                    )
-                )
-            )
-        file_path: str = os.path.join(root_dir, '.config', 'config.yml')
-
-        # with open(file_path, "r") as rf:
-        #     data = yaml.safe_load(rf)
-
-        data = load_yaml_file(file_path)
-
-        google_drive_data_path = (
-            data["google_drive_data_path"]
-            .replace("<USER>", user)
-            .replace("<EMAIL>", email)
-        )
-
-        data["google_drive_data_path"] = google_drive_data_path
-
-        data["img_path"] = (
-            data["img_path"]
-            .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
-            .replace("<ATHLETE>", athlete)
-        )
-
-        data["real_workout_database"] = (
-            data["real_workout_database"]
-            .replace("<GOOGLE_DRIVE_DATA_PATH>", google_drive_data_path)
-            .replace("<ATHLETE>", athlete)
-        )
-
-        return data
+settings.setenv("default")  # Ensure the correct environment is active
+settings.validators.validate()
+config_data = settings.as_dict()
 
 
 def main() -> None:
     """Load configuration and print it.
     """
+
     from pprint import pprint as pp
 
-    # env_vars = ConfigLoader.load_env_variables()
+    pp(config_data)
 
-    config = ConfigLoader.load_config(
-        # env_vars["user"],
-        # env_vars["athlete"],
-        # env_vars["email"]
-    )
+    # Access settings
+    # DEBUG = settings.DEBUG
+    # ATHLETE = settings.ATHLETE
 
-    # file = config["real_workout_database"]
-    pp(config)
+    # print(f"DEBUG: {DEBUG}")
+    # print(f"ATHLETE: {ATHLETE}")
+
+    # ATHLETE = settings.get("ATHLETE", "default_value")
+    # print(f"ATHLETE: {ATHLETE}")
 
 
 if __name__ == "__main__":

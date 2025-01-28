@@ -9,10 +9,9 @@ import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from scipy.stats import linregress  # type: ignore
 from src.utils.google_sheet import get_sheet  # type: ignore
-from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import config_data  # type: ignore
 
-config = ConfigLoader.load_config()
-IMG_PATH = config["img_path"]
+IMG_PATH = config_data["img_path"]
 
 
 def get_sheet_title(year: int, month: int) -> str:

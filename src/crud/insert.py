@@ -14,7 +14,7 @@ from tinydb import table  # , TinyDB
 from icecream import ic  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import config_data  # type: ignore
 
 
 def insert_log(table: table.Table,
@@ -95,13 +95,11 @@ def insert_specific_log(date: str,
     :type workout_number: int, optional
     """
 
-    env_vars = ConfigLoader.load_env_variables()
-    config = ConfigLoader.load_config()
     YEAR, MONTH = get_year_and_month(date)
-    base_path = config["google_drive_data_path"]
+    base_path = config_data["google_drive_data_path"]
 
     base_path += (
-        f"/{env_vars['athlete']}/log_archive/{file_format.upper()}/"
+        f"/{config_data['athlete']}/log_archive/{file_format.upper()}/"
         f"{YEAR}/{MONTH}/*training_log_{date}"
     )
 

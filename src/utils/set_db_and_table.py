@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 from tinydb import TinyDB  # type: ignore
 from src.utils.custom_storage import YAMLStorage  # type: ignore
-from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import config_data  # type: ignore
 
 
 class TinyDBSingleton:
@@ -56,15 +56,11 @@ def set_db_and_table(
     :rtype: tuple
     """
 
-    env_vars = ConfigLoader.load_env_variables()
-
     if not athlete:
-        athlete = env_vars["athlete"]
+        athlete = config_data["athlete"]
 
     if not year:
         year = datetime.now().year
-
-    config = ConfigLoader.load_config(athlete=athlete)
 
     if env != "prd" or 'GITHUB_ACTIONS' in os.environ:
         db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
@@ -73,14 +69,14 @@ def set_db_and_table(
         return db, table, training_catalogue
 
     db_path = (
-        config["real_workout_database"]
+        config_data["real_workout_database"]
         .replace("<YEAR>", str(year))
-    ) if datatype == "real" else config["simulated_workout_database"]
+    ) if datatype == "real" else config_data["simulated_workout_database"]
 
     db_singleton = TinyDBSingleton(db_path)
     db = db_singleton.get_db()
-    table = db.table(config[f"{datatype}_weight_table"])
-    training_catalogue = config["training_catalogue"]
+    table = db.table(config_data[f"{datatype}_weight_table"])
+    training_catalogue = config_data["training_catalogue"]
 
     return db, table, training_catalogue
 

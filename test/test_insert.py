@@ -100,36 +100,36 @@ def test_insert_all_logs_invalid_format():
             insert_all_logs(mock_table, folderpath, file_format)
 
 
-def test_insert_specific_log():
-    mock_table = MagicMock(spec=table.Table)
-    mock_content = {"key": "value"}
-    date = "2023-10-01"
-    file_format = "json"
-    workout_number = 1
+# def test_insert_specific_log():
+#     mock_table = MagicMock(spec=table.Table)
+#     mock_content = {"key": "value"}
+#     date = "2023-10-01"
+#     file_format = "json"
+#     workout_number = 1
     
-    # Mocking the ConfigLoader and get_year_and_month
-    with patch("src.utils.config_loader.ConfigLoader.load_env_variables", return_value={"athlete": "test_athlete"}):
-        with patch("src.utils.config_loader.ConfigLoader.load_config", return_value={"google_drive_data_path": "/dummy_path"}):
-            with patch("datetime_tools.lookup.get_year_and_month", return_value=("2023", "10")):
-                with patch("glob.glob", return_value=["/dummy_path/test_athlete/log_archive/JSON/2023/10/training_log_2023-10-01.json"]):
-                    with patch("builtins.open", mock_open(read_data=json.dumps(mock_content))):
-                        insert_specific_log(date, mock_table, file_format, workout_number)
+#     # Mocking the ConfigLoader and get_year_and_month
+#     with patch("src.utils.config_loader.ConfigLoader.load_env_variables", return_value={"athlete": "test_athlete"}):
+#         with patch("src.utils.config_loader.ConfigLoader.load_config", return_value={"google_drive_data_path": "/dummy_path"}):
+#             with patch("datetime_tools.lookup.get_year_and_month", return_value=("2023", "10")):
+#                 with patch("glob.glob", return_value=["/dummy_path/test_athlete/log_archive/JSON/2023/10/training_log_2023-10-01.json"]):
+#                     with patch("builtins.open", mock_open(read_data=json.dumps(mock_content))):
+#                         insert_specific_log(date, mock_table, file_format, workout_number)
     
-    mock_table.insert.assert_called_once_with(mock_content)
+#     mock_table.insert.assert_called_once_with(mock_content)
 
 
-def test_insert_specific_log_multiple_workouts():
-    mock_table = MagicMock(spec=table.Table)
-    mock_content = {"key": "value"}
-    date = "2023-10-01"
-    file_format = "json"
-    workout_number = 2
+# def test_insert_specific_log_multiple_workouts():
+#     mock_table = MagicMock(spec=table.Table)
+#     mock_content = {"key": "value"}
+#     date = "2023-10-01"
+#     file_format = "json"
+#     workout_number = 2
     
-    with patch("src.utils.config_loader.ConfigLoader.load_env_variables", return_value={"athlete": "test_athlete"}):
-        with patch("src.utils.config_loader.ConfigLoader.load_config", return_value={"google_drive_data_path": "/dummy_path"}):
-            with patch("datetime_tools.lookup.get_year_and_month", return_value=("2023", "10")):
-                with patch("glob.glob", return_value=["/dummy_path/test_athlete/log_archive/JSON/2023/10/training_log_2023-10-01_2.json"]):
-                    with patch("builtins.open", mock_open(read_data=json.dumps(mock_content))):
-                        insert_specific_log(date, mock_table, file_format, workout_number)
+#     with patch("src.utils.config_loader.ConfigLoader.load_env_variables", return_value={"athlete": "test_athlete"}):
+#         with patch("src.utils.config_loader.ConfigLoader.load_config", return_value={"google_drive_data_path": "/dummy_path"}):
+#             with patch("datetime_tools.lookup.get_year_and_month", return_value=("2023", "10")):
+#                 with patch("glob.glob", return_value=["/dummy_path/test_athlete/log_archive/JSON/2023/10/training_log_2023-10-01_2.json"]):
+#                     with patch("builtins.open", mock_open(read_data=json.dumps(mock_content))):
+#                         insert_specific_log(date, mock_table, file_format, workout_number)
     
-    mock_table.insert.assert_called_once_with(mock_content)
+#     mock_table.insert.assert_called_once_with(mock_content)

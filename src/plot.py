@@ -10,10 +10,9 @@ import seaborn as sns  # type: ignore
 from src.crud.read import show_exercise  # type: ignore
 from src.utils.get_exercises import get_available_exercises  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import config_data  # type: ignore
 
-config = ConfigLoader.load_config()
-IMG_PATH = config["img_path"]
+IMG_PATH = config_data["img_path"]
 
 
 def get_data(date: str, split: str) -> dict[str, pd.DataFrame] | dict:

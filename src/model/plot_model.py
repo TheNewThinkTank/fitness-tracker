@@ -13,10 +13,9 @@ from src.model.model import (  # type: ignore
     calc_volume
 )
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-from src.utils.config_loader import ConfigLoader  # type: ignore
+from src.utils.config_loader import config_data  # type: ignore
 
-config = ConfigLoader.load_config()
-IMG_PATH = config["img_path"]
+IMG_PATH = config_data["img_path"]
 
 
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:

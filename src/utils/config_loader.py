@@ -1,7 +1,7 @@
 """Loads configuration from environment and files.
 """
 
-from dynaconf import Dynaconf
+from dynaconf import Dynaconf  # type: ignore
 
 settings = Dynaconf(
         settings_files=[".config/settings.toml"],

@@ -298,3 +298,230 @@
 2025-01-10 19:30:15 - Data inserted in database.
 2025-01-10 19:30:34 - Figures prepared successfully.
 2025-01-10 19:30:34 - Error: Failed to open image 2025_workout_frequency.png
+2025-01-29 21:04:59 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:04:59 - Workflow started
+2025-01-29 21:04:59 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:04:59 - Processing for date: 2025-01-29
+2025-01-29 21:04:59 - Error: Failed to insert data in database.
+2025-01-29 21:06:34 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:06:34 - Workflow started
+2025-01-29 21:06:34 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:06:34 - Processing for date: 2025-01-29
+2025-01-29 21:06:34 - Error: Failed to insert data in database.
+2025-01-29 21:07:18 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:07:18 - Workflow started
+2025-01-29 21:07:18 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:07:18 - Processing for date: 2025-01-29
+2025-01-29 21:07:18 - Error: Failed to insert data in database.
+2025-01-29 21:31:50 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:31:50 - Workflow started
+2025-01-29 21:31:50 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:31:50 - Processing for date: 2025-01-29
+2025-01-29 21:31:51 - Error: Failed to insert data in database.
+2025-01-29 21:34:09 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:34:09 - Workflow started
+2025-01-29 21:34:09 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:34:09 - Processing for date: 2025-01-29
+2025-01-29 21:34:09 - Error: Failed to insert data in database.
+2025-01-29 21:35:48 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:35:48 - Workflow started
+2025-01-29 21:35:48 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:35:48 - Processing for date: 2025-01-29
+2025-01-29 21:35:48 - Error: Failed to insert data in database.
+2025-01-29 21:36:51 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:36:51 - Workflow started
+2025-01-29 21:36:51 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:36:51 - Processing for date: 2025-01-29
+2025-01-29 21:36:51 - Error: Failed to insert data in database.
+2025-01-29 21:37:17 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:37:17 - Workflow started
+2025-01-29 21:37:17 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:37:17 - Processing for date: 2025-01-29
+2025-01-29 21:37:17 - Error: Failed to insert data in database.
+2025-01-29 21:38:42 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 21:38:42 - Workflow started
+2025-01-29 21:38:42 - Workout date: 2025-01-29, File format: yml
+2025-01-29 21:38:42 - Processing for date: 2025-01-29
+2025-01-29 21:38:42 - Error: Failed to insert data in database.
+2025-01-29 22:32:35 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 22:32:35 - Workflow started
+2025-01-29 22:32:35 - Processing for date: 2025-01-29
+2025-01-29 22:32:35 - Workout date: 2025-01-29, File format: yml
+2025-01-29 22:37:53 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 22:37:53 - Workflow started
+2025-01-29 22:37:53 - Processing for date: 2025-01-29
+2025-01-29 22:38:16 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 22:38:16 - Workflow started
+2025-01-29 22:38:16 - Processing for date: 2025-01-29
+2025-01-29 22:42:05 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 22:42:05 - Workflow started
+2025-01-29 22:42:05 - Processing for date: 2025-01-29
+2025-01-29 22:42:05 - Year, month: 2025, 01
+2025-01-29 22:42:55 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 22:42:55 - Workflow started
+2025-01-29 22:42:55 - Processing for date: 2025-01-29
+2025-01-29 22:42:55 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/01
+2025-01-29 22:48:51 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-29 22:48:51 - Workflow started
+2025-01-29 22:48:51 - Processing for date: 2025-01-29
+2025-01-29 22:48:51 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-29 22:48:51 - Found 4 workout files for date 2025-01-29.
+2025-01-29 22:48:51 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My (Workout number: 1)
+2025-01-29 22:48:51 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My into the database.
+2025-01-30 09:35:14 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 09:35:14 - Workflow started
+2025-01-30 09:35:14 - Processing for date: 2025-01-30
+2025-01-30 09:35:14 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:45:54 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 11:45:54 - Workflow started
+2025-01-30 11:45:54 - Processing for date: 2025-01-30
+2025-01-30 11:45:54 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:47:28 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 11:47:28 - Workflow started
+2025-01-30 11:47:28 - Processing for date: 2025-01-30
+2025-01-30 11:47:28 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:51:09 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 11:51:09 - Workflow started
+2025-01-30 11:51:09 - Processing for date: 2025-01-30
+2025-01-30 11:51:09 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:54:58 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 11:54:58 - Workflow started
+2025-01-30 11:54:58 - Processing for date: 2025-01-30
+2025-01-30 11:54:58 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:55:54 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 11:55:54 - Workflow started
+2025-01-30 11:55:54 - Processing for date: 2025-01-30
+2025-01-30 11:55:54 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:58:18 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 11:58:18 - Workflow started
+2025-01-30 11:58:18 - Processing for date: 2025-01-30
+2025-01-30 11:58:18 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:58:18 - Error: No workout files found for date 2025-01-30.
+2025-01-30 11:58:42 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 11:58:42 - Workflow started
+2025-01-30 11:58:42 - Processing for date: 2025-01-30
+2025-01-30 11:58:42 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 11:58:42 - Error: No workout files found for date 2025-01-30.
+2025-01-30 12:13:54 - No workout dates provided. Defaulting to today's date.
+2025-01-30 12:13:54 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 12:13:54 - Workflow started
+2025-01-30 12:13:54 - Processing for date: 2025-01-30
+2025-01-30 12:13:54 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 12:13:54 - Error: No workout files found for date 2025-01-30.
+2025-01-30 12:16:13 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 12:16:13 - No workout dates provided. Defaulting to today's date.
+2025-01-30 12:16:13 - Workflow started
+2025-01-30 12:16:13 - Processing for date: 2025-01-30
+2025-01-30 12:16:13 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 12:16:13 - Error: No workout files found for date 2025-01-30.
+2025-01-30 12:16:29 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 12:16:29 - Workflow started
+2025-01-30 12:16:29 - Processing for date: 2025-01-29
+2025-01-30 12:16:29 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 12:16:29 - Found 4 workout files for date 2025-01-29.
+2025-01-30 12:16:29 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My (Workout number: 1)
+2025-01-30 12:16:29 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My into the database.
+2025-01-30 13:29:41 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 13:29:41 - Workflow started
+2025-01-30 13:29:41 - Processing for date: 2025-01-29
+2025-01-30 13:29:41 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 13:29:41 - Found 4 workout files for date 2025-01-29.
+2025-01-30 13:29:41 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My (Workout number: 1)
+2025-01-30 13:29:41 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My into the database.
+2025-01-30 13:45:21 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 13:45:21 - Workflow started
+2025-01-30 13:45:21 - Processing for date: 2025-01-29
+2025-01-30 13:45:21 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 13:45:21 - Found 4 workout files for date 2025-01-29.
+2025-01-30 13:45:21 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My (Workout number: 1)
+2025-01-30 13:45:22 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My into the database.
+2025-01-30 14:00:16 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 14:00:16 - Workflow started
+2025-01-30 14:00:16 - Processing for date: 2025-01-29
+2025-01-30 14:00:16 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 14:00:16 - Found 2 workout files for date 2025-01-29.
+2025-01-30 14:00:16 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 14:00:16 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 14:24:47 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 14:24:47 - Workflow started
+2025-01-30 14:24:47 - Processing for date: 2025-01-29
+2025-01-30 14:24:47 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 14:24:47 - Found 2 workout files for date 2025-01-29.
+2025-01-30 14:24:47 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 14:24:47 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 16:19:24 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 16:19:24 - Workflow started
+2025-01-30 16:19:24 - Processing for date: 2025-01-29
+2025-01-30 16:19:24 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 16:19:24 - Found 2 workout files for date 2025-01-29.
+2025-01-30 16:19:24 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 16:19:24 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 16:27:31 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 16:27:31 - Workflow started
+2025-01-30 16:27:31 - Processing for date: 2025-01-29
+2025-01-30 16:27:31 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 16:27:31 - Found 2 workout files for date 2025-01-29.
+2025-01-30 16:27:31 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 16:27:31 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 16:33:03 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 16:33:03 - Workflow started
+2025-01-30 16:33:03 - Processing for date: 2025-01-29
+2025-01-30 16:33:03 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 16:33:03 - Found 2 workout files for date 2025-01-29.
+2025-01-30 16:33:03 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 16:33:03 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 17:29:43 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 17:29:43 - Workflow started
+2025-01-30 17:29:43 - Processing for date: 2025-01-29
+2025-01-30 17:29:43 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 17:29:43 - Found 2 workout files for date 2025-01-29.
+2025-01-30 17:29:43 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 17:29:43 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 17:56:15 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 17:56:15 - Workflow started
+2025-01-30 17:56:15 - Processing for date: 2025-01-29
+2025-01-30 17:56:15 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 17:56:15 - Found 2 workout files for date 2025-01-29.
+2025-01-30 17:56:15 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 17:56:15 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 17:57:07 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 17:57:07 - Workflow started
+2025-01-30 17:57:07 - Processing for date: 2025-01-29
+2025-01-30 17:57:07 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 17:57:07 - Found 2 workout files for date 2025-01-29.
+2025-01-30 17:57:07 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 17:57:07 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-30 19:32:45 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-30 19:32:45 - Workflow started
+2025-01-30 19:32:45 - Processing for date: 2025-01-29
+2025-01-30 19:32:45 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-30 19:32:46 - Found 2 workout files for date 2025-01-29.
+2025-01-30 19:32:46 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-30 19:32:46 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-31 16:02:27 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-31 16:02:27 - Workflow started
+2025-01-31 16:02:27 - Processing for date: 2025-01-29
+2025-01-31 16:02:27 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-31 16:02:27 - Found 2 workout files for date 2025-01-29.
+2025-01-31 16:02:27 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-31 16:02:27 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml into the database.
+2025-01-31 16:18:02 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-31 16:18:02 - Workflow started
+2025-01-31 16:18:03 - Processing for date: 2025-01-29
+2025-01-31 16:18:03 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-31 16:18:03 - Found 2 workout files for date 2025-01-29.
+2025-01-31 16:18:03 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-31 16:18:03 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29.yml inserted into the database.
+2025-01-31 16:18:03 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/lower_body_a_training_log_2025-01-29.yml (Workout number: 2)
+2025-01-31 16:18:03 - Error: Failed to insert data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/lower_body_a_training_log_2025-01-29.yml into the database.
+2025-01-31 16:42:06 - Configuration file ./fitcli.conf not found. Using default values.
+2025-01-31 16:42:06 - Workflow started
+2025-01-31 16:42:06 - Processing for date: 2025-01-29
+2025-01-31 16:42:06 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January
+2025-01-31 16:42:06 - Found 2 workout files for date 2025-01-29.
+2025-01-31 16:42:06 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/lower_body_a_training_log_2025-01-29.yml (Workout number: 1)
+2025-01-31 16:42:06 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/lower_body_a_training_log_2025-01-29.yml inserted into the database.
+2025-01-31 16:42:06 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29_2.yml (Workout number: 2)
+2025-01-31 16:42:07 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29_2.yml inserted into the database.
+2025-01-31 16:42:22 - Figures prepared successfully.
+2025-01-31 16:42:23 - Workflow completed successfully

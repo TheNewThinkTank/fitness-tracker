@@ -49,14 +49,11 @@ python cli.py show_help
 """
 
 from datetime import datetime as dt
+# from src.utils.config import settings  # type: ignore
 import os
 import subprocess
 import sys
 import click
-from src.utils.config_loader import config_data  # type: ignore
-
-# onfig = ConfigLoader.load_config()
-IMG_PATH = config_data["img_path"]
 
 
 def log(message):

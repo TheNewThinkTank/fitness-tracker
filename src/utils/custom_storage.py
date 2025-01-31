@@ -1,10 +1,10 @@
 """Extend TinyDB to use YAML as storage.
 """
 
+from src.utils.config import settings  # type: ignore
 import yaml  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from tinydb.storages import Storage, touch  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
 
 
 class YAMLStorage(Storage):
@@ -40,8 +40,8 @@ def main() -> None:
     in_file_name = "/db.yml"
 
     test_path = (
-        f'{config_data["google_drive_data_path"]}/'
-        f'{config_data["athlete"]}{in_file_name}'
+        f'{settings["GOOGLE_DRIVE_DATA_PATH"]}/'
+        f'{settings["ATHLETE"]}{in_file_name}'
         )
 
     db = TinyDB(test_path, storage=YAMLStorage)

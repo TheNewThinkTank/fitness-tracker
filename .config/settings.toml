@@ -2,11 +2,11 @@
 # DEBUG = true
 # env_file = ".env"
 
-GOOGLE_DRIVE_DATA_PATH = "@jinja /Users/{{env.USER}}/Library/CloudStorage/GoogleDrive-{{env.EMAIL}}/My Drive/DATA/fitness-tracker-data"
-img_path = "@jinja {{this.google_drive_data_path}}/{{env.ATHLETE}}/img/"
-real_workout_database = "@jinja {{this.google_drive_data_path}}/{{env.ATHLETE}}/<YEAR>_workouts.yml"
-real_disciplines_database = "@jinja {{this.google_drive_data_path}}/{{env.ATHLETE}}/real_disciplines.json"
-simulated_workout_database = "@jinja {{this.google_drive_data_path}}/sim_db.yml"
+GOOGLE_DRIVE_DATA_PATH = "@jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data"
+img_path = "@jinja {{ this.google_drive_data_path }}/{{ env.ATHLETE }}/img/"
+real_workout_database = "@jinja {{ this.google_drive_data_path }}/{{ env.ATHLETE }}/<YEAR>_workouts.yml"
+real_disciplines_database = "@jinja {{ this.google_drive_data_path }}/{{ env.ATHLETE }}/real_disciplines.json"
+simulated_workout_database = "@jinja {{ this.google_drive_data_path }}/sim_db.yml"
 real_weight_table = "weight_training_log"
 real_disciplines_table = "disciplines_log"
 simulated_weight_table = "weight_training_log"

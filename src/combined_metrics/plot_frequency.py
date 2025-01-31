@@ -1,13 +1,11 @@
 """Visualizations for annual training frequency
 """
 
+from src.utils.config import settings  # type: ignore
 import numpy as np
 import pandas as pd  # type: ignore
 import matplotlib.pyplot as plt
 import seaborn as sns  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
-
-IMG_PATH = config_data["img_path"]
 
 # Generate synthetic workout data for 4 years (208 weeks)
 np.random.seed(42)
@@ -34,7 +32,7 @@ def add_labels(ax, x, y):
 
 
 # 1. Time Series Line Plot
-path = f"{IMG_PATH}simulations/time-series-line-plot.png"
+path = f"{settings['IMG_PATH']}simulations/time-series-line-plot.png"
 plt.figure(figsize=(14, 5))
 plt.plot(data["Date"], data["Workouts"], label="Weekly Workouts", alpha=0.5)
 plt.plot(
@@ -55,7 +53,7 @@ plt.grid(True)
 plt.savefig(path)
 
 # 2. Calendar Heatmap
-path = f"{IMG_PATH}simulations/calendar-heatmap.png"
+path = f"{settings['IMG_PATH']}simulations/calendar-heatmap.png"
 plt.figure(figsize=(14, 5))
 # pivot = monthly_data.pivot("Year", "Month", "Workouts")
 pivot = monthly_data.pivot(index="Year", columns="Month", values="Workouts")
@@ -69,7 +67,7 @@ plt.ylabel("Year")
 plt.savefig(path)
 
 # 3. Bar Chart
-path = f"{IMG_PATH}simulations/bar-chart.png"
+path = f"{settings['IMG_PATH']}simulations/bar-chart.png"
 plt.figure(figsize=(10, 5))
 sns.barplot(x="Year", y="Workouts", data=yearly_data, hue="Year", legend=False)  # palette="viridis")
 plt.title("Yearly Workout Totals")
@@ -80,7 +78,7 @@ add_labels(plt.gca(), yearly_data["Year"], yearly_data["Workouts"])
 plt.savefig(path)
 
 # 4. Box Plot
-path = f"{IMG_PATH}simulations/box-plot.png"
+path = f"{settings['IMG_PATH']}simulations/box-plot.png"
 plt.figure(figsize=(10, 5))
 sns.boxplot(x="Year", y="Workouts", data=data)
 plt.title("Distribution of Weekly Workouts by Year")
@@ -91,7 +89,7 @@ plt.grid(True, axis="y", linestyle="--", alpha=0.6)
 plt.savefig(path)
 
 # 5. Cumulative Sum Plot
-path = f"{IMG_PATH}simulations/cumulative-sum-plot.png"
+path = f"{settings['IMG_PATH']}simulations/cumulative-sum-plot.png"
 data["Cumulative_Workouts"] = data["Workouts"].cumsum()
 plt.figure(figsize=(14, 5))
 plt.plot(
@@ -109,7 +107,7 @@ plt.grid(True)
 plt.savefig(path)
 
 # 6. Stacked Area Chart
-path = f"{IMG_PATH}simulations/stacked-area-chart.png"
+path = f"{settings['IMG_PATH']}simulations/stacked-area-chart.png"
 types = ["Strength", "Cardio", "Flexibility"]
 stacked_data = pd.DataFrame(
     {
@@ -137,7 +135,7 @@ plt.legend(loc="upper left")
 plt.savefig(path)
 
 # 7. Seasonality Analysis (Polar Plot)
-path = f"{IMG_PATH}simulations/seasonality-analysis-polar-plot.png"
+path = f"{settings['IMG_PATH']}simulations/seasonality-analysis-polar-plot.png"
 monthly_avg = data.groupby("Month").Workouts.mean()
 theta = np.linspace(0, 2 * np.pi, len(monthly_avg))
 plt.figure(figsize=(8, 8))
@@ -155,7 +153,7 @@ plt.legend()
 plt.savefig(path)
 
 # 8. Bubble Chart
-path = f"{IMG_PATH}simulations/bubble-chart.png"
+path = f"{settings['IMG_PATH']}simulations/bubble-chart.png"
 bubble_data = data.copy()
 bubble_data["Intensity"] = np.random.uniform(1, 3, size=len(data))
 plt.figure(figsize=(14, 5))

@@ -4,9 +4,10 @@ Set db and table depending on datatype (real/simulated).
 
 from datetime import datetime
 import os
+from pprint import pprint as pp
+from src.utils.config import settings  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from src.utils.custom_storage import YAMLStorage  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
 
 
 class TinyDBSingleton:
@@ -56,10 +57,12 @@ def set_db_and_table(
     :rtype: tuple
     """
 
+    # pp(f"{settings = }")
+
     if not athlete:
         athlete = os.getenv(
             "ATHLETE",
-            config_data["DYNACONF_ATHLETE"] # config_data["ATHLETE"]
+            settings.ATHLETE
             )
 
     if not year:
@@ -72,14 +75,14 @@ def set_db_and_table(
         return db, table, training_catalogue
 
     db_path = (
-        config_data["real_workout_database"]
+        settings["REAL_WORKOUT_DATABASE"]
         .replace("<YEAR>", str(year))
-    ) if datatype == "real" else config_data["simulated_workout_database"]
+    ) if datatype == "real" else settings["simulated_workout_database"]
 
     db_singleton = TinyDBSingleton(db_path)
     db = db_singleton.get_db()
-    table = db.table(config_data[f"{datatype}_weight_table"])
-    training_catalogue = config_data["training_catalogue"]
+    table = db.table(settings[f"{datatype.upper()}_WEIGHT_TABLE"])
+    training_catalogue = settings["TRAINING_CATALOGUE"]
 
     return db, table, training_catalogue
 
@@ -88,14 +91,17 @@ def main() -> None:
     """Main function.
     """
 
-    db, table, training_catalogue = set_db_and_table(
-        datatype="real",
-        year="2021"
-    )
-    print(db, table, training_catalogue)
-    # At the end, make sure to close the database
-    db_singleton = TinyDBSingleton("dummy_path")  # Create a dummy instance just to close
-    db_singleton.close()
+    # settings = settings.as_dict()
+    pp(settings.ATHLETE)
+
+    # db, table, training_catalogue = set_db_and_table(
+    #     datatype="real",
+    #     year="2021"
+    # )
+    # print(db, table, training_catalogue)
+    # # At the end, make sure to close the database
+    # db_singleton = TinyDBSingleton("dummy_path")  # Create a dummy instance just to close
+    # db_singleton.close()
 
 
 if __name__ == "__main__":

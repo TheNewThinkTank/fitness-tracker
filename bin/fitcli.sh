@@ -46,16 +46,6 @@ validate_file_format() {
   return 1
 }
 
-insert_data() {
-  local file_format=$1
-  local workout_date=$2
-  if ! python3 ./src/crud/insert.py --file_format "$file_format" --datatype real --dates "$workout_date"; then
-    log "Error: Failed to insert data in database."
-    exit 1
-  fi
-  log "Data inserted in database."
-}
-
 prepare_figures() {
   local year=$1
   local month=$2
@@ -97,39 +87,37 @@ load_config() {
   fi
 }
 
-# Load USER, EMAIL, and ATHLETE from the .env file
 load_env_variables() {
-  if [ -f .env ]; then
+  if [ -f .config/.env ]; then
     # shellcheck source=/dev/null
-    source .env
+    source .config/.env
   else
     echo "Warning: .env file not found. Using default values."
-    USER="default_user"
-    EMAIL="default_email"
-    ATHLETE="default_athlete"
+    DYNACONF_USER="default_user"
+    DYNACONF_EMAIL="default_email"
+    DYNACONF_ATHLETE="default_athlete"
   fi
 }
 
-# Read img_path from config.yml
 load_config_variables() {
   if [ -f .config/config.yml ]; then
-    GOOGLE_DRIVE_DATA_PATH=$(yq e '.google_drive_data_path' .config/config.yml | sed "s/<USER>/$USER/g; s/<EMAIL>/$EMAIL/g")
-    IMG_PATH=$(yq e '.img_path' .config/config.yml | sed "s|<GOOGLE_DRIVE_DATA_PATH>|$GOOGLE_DRIVE_DATA_PATH|g; s/<ATHLETE>/$ATHLETE/g")
+    GOOGLE_DRIVE_DATA_PATH=$(yq e '.google_drive_data_path' .config/config.yml | sed "s/<USER>/${DYNACONF_USER}/g; s/<EMAIL>/${DYNACONF_EMAIL}/g")
+    IMG_PATH=$(yq e '.img_path' .config/config.yml | sed "s|<GOOGLE_DRIVE_DATA_PATH>|$GOOGLE_DRIVE_DATA_PATH|g; s/<ATHLETE>/$DYNACONF_ATHLETE/g")
     IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
-    echo "$GOOGLE_DRIVE_DATA_PATH"  # /Users/$USER/Library/CloudStorage/GoogleDrive-$EMAIL/My Drive/DATA/fitness-tracker-data
-    echo "$IMG_PATH"  # $GOOGLE_DRIVE_DATA_PATH/$ATHLETE/img/
+    echo "$GOOGLE_DRIVE_DATA_PATH"
+    echo "$IMG_PATH"
   else
     echo "Warning: config.yml file not found. Using default img_path."
     IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
   fi
 }
 
-# Parse command-line arguments
 parse_arguments() {
   while getopts ":d:f:c:h" opt; do
     case ${opt} in
       d )
         WORKOUT_DATE=$OPTARG
+        WORKOUT_DATES=("$WORKOUT_DATE")  # Initialize WORKOUT_DATES with the provided date
         ;;
       f )
         FILE_FORMAT=$OPTARG
@@ -154,93 +142,111 @@ parse_arguments() {
   shift $((OPTIND -1))
 }
 
-# Main function for script execution
-main() {
-  # Code to be executed when the script is run directly
+get_month_name() {
+  local month_num=$1
+  case $month_num in
+    01) echo "January" ;;
+    02) echo "February" ;;
+    03) echo "March" ;;
+    04) echo "April" ;;
+    05) echo "May" ;;
+    06) echo "June" ;;
+    07) echo "July" ;;
+    08) echo "August" ;;
+    09) echo "September" ;;
+    10) echo "October" ;;
+    11) echo "November" ;;
+    12) echo "December" ;;
+    *) echo "Invalid month number: $month_num" >&2; exit 1 ;;
+  esac
+}
 
+main() {
   # Default values
-  WORKOUT_DATE=$(date +%F)
-  YEAR_TO_PLOT=$(date +%Y)
-  MONTH_TO_PLOT=$(date +%B)
   FILE_FORMAT='yml'
   CONFIG_FILE='./fitcli.conf'
   LOG_FILE='logs/fitcli.log'
 
-  load_env_variables
-
-  load_config_variables
-
   SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
-
-  # Parse command-line arguments
-  WORKOUT_DATES=()  # Initialize an array for multiple dates
-
-  # while getopts ":d:f:c:h" opt; do
-  #   case ${opt} in
-  #     d )
-  #       IFS=',' read -r -a input_dates <<< "$OPTARG"
-  #       for date in "${input_dates[@]}"; do
-  #         if validate_date "$date"; then
-  #           WORKOUT_DATES+=("$date")
-  #         else
-  #           log "Error: Invalid date format. Expected YYYY-MM-DD."
-  #           exit 1
-  #         fi
-  #       done
-  #       ;;
-  #     f )
-  #       if validate_file_format "$OPTARG"; then
-  #         FILE_FORMAT=$OPTARG
-  #       else
-  #         log "Error: Unsupported file format. Supported formats: ${SUPPORTED_FILE_FORMATS[*]}"
-  #         exit 1
-  #       fi
-  #       ;;
-  #     c )
-  #       CONFIG_FILE=$OPTARG
-  #       ;;
-  #     h )
-  #       show_help
-  #       exit 0
-  #       ;;
-  #     \? )
-  #       log "Invalid option: -$OPTARG"
-  #       show_help
-  #       exit 1
-  #       ;;
-  #     : )
-  #       log "Invalid option: -$OPTARG requires an argument"
-  #       show_help
-  #       exit 1
-  #       ;;
-  #   esac
-  # done
-
-  # Default to today's date if none provided
-  if [[ ${#WORKOUT_DATES[@]} -eq 0 ]]; then
-    mapfile -t WORKOUT_DATES < <(date +%F)
-  fi
 
   parse_arguments "$@"
 
-  # Load configuration
-  load_config
+  # Set default WORKOUT_DATE only if not provided via -d
+  if [[ -z "${WORKOUT_DATE:-}" ]]; then
+    WORKOUT_DATE=$(date +%F)
+    WORKOUT_DATES=("$WORKOUT_DATE")  # Default to today's date
+  fi
 
-  # Check dependencies
+  # Calculate YEAR_TO_PLOT and MONTH_TO_PLOT based on WORKOUT_DATE
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS date command
+    YEAR_TO_PLOT=$(date -j -f "%Y-%m-%d" "$WORKOUT_DATE" +%Y)
+    MONTH_TO_PLOT=$(date -j -f "%Y-%m-%d" "$WORKOUT_DATE" +%B)
+  else
+    # Linux date command
+    YEAR_TO_PLOT=$(date -d "$WORKOUT_DATE" +%Y)
+    MONTH_TO_PLOT=$(date -d "$WORKOUT_DATE" +%B)
+  fi
+
+  load_env_variables
+  load_config_variables  # This depends on YEAR_TO_PLOT, so it must be called after YEAR_TO_PLOT is set
+
+  load_config
   check_dependencies
 
   log "Workflow started"
-  log "Workout date: $WORKOUT_DATE, File format: $FILE_FORMAT"
 
-  # insert_data "$FILE_FORMAT" "$WORKOUT_DATE"
-  # Process each date
   for workout_date in "${WORKOUT_DATES[@]}"; do
     log "Processing for date: $workout_date"
-    insert_data "$FILE_FORMAT" "$workout_date"
-  done
 
-  prepare_figures "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
-  open_images "$YEAR_TO_PLOT" "$MONTH_TO_PLOT"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      # macOS date command
+      YEAR=$(date -j -f "%Y-%m-%d" "$workout_date" +%Y)
+      MONTH_NUM=$(date -j -f "%Y-%m-%d" "$workout_date" +%m)
+    else
+      # Linux date command
+      YEAR=$(date -d "$workout_date" +%Y)
+      MONTH_NUM=$(date -d "$workout_date" +%m)
+    fi
+
+    MONTH_NAME=$(get_month_name "$MONTH_NUM")
+    BASE_PATH="${GOOGLE_DRIVE_DATA_PATH}/${DYNACONF_ATHLETE}/log_archive/${FILE_FORMAT^^}/${YEAR}/${MONTH_NAME}"
+
+    log "BASE_PATH: $BASE_PATH"
+
+    # Find all workout files for the given date
+    WORKOUT_FILES=()
+    while IFS= read -r -d '' file; do
+      WORKOUT_FILES+=("$file")
+    done < <(find "$BASE_PATH" -name "*training_log_${workout_date}*.${FILE_FORMAT}" -print0)
+
+    if [[ ${#WORKOUT_FILES[@]} -eq 0 ]]; then
+      log "Error: No workout files found for date $workout_date."
+      exit 1
+    fi
+
+    log "Found ${#WORKOUT_FILES[@]} workout files for date $workout_date."
+
+    for ((i = 0; i < ${#WORKOUT_FILES[@]}; i++)); do
+      WORKOUT_NUMBER=$((i + 1))
+      log "Processing workout file: ${WORKOUT_FILES[$i]} (Workout number: $WORKOUT_NUMBER)"
+      if ! python3 ./src/crud/insert.py \
+        --file_format "$FILE_FORMAT" \
+        --datatype real \
+        --dates "$workout_date" \
+        --workout_number "$WORKOUT_NUMBER"; then
+        log "Error: Failed to insert data from file ${WORKOUT_FILES[$i]} into the database."
+
+        # exit 1
+        continue  # Skip to the next file instead of exiting
+
+      fi
+      log "Data from file ${WORKOUT_FILES[$i]} inserted into the database."
+    done
+
+    prepare_figures "$YEAR" "$MONTH_NAME"
+    open_images "$YEAR" "$MONTH_NAME"
+  done
 
   log "Workflow completed successfully"
 }

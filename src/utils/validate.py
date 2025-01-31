@@ -6,7 +6,7 @@ from pprint import pprint as pp
 import re
 from typing import Optional
 import pydantic
-from src.utils.config_loader import config_data  # type: ignore
+from src.utils.config import settings  # type: ignore
 
 
 class ExercisesFormatError(Exception):
@@ -128,7 +128,7 @@ class WorkoutFactory:
 def main() -> None:
     """Main function."""
 
-    file = config_data["real_workout_database"]
+    file = settings["real_workout_database"]
 
     # process workout data using the factory
     workouts = WorkoutFactory.create_workouts_from_json(file)

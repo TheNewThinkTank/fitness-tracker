@@ -4,6 +4,7 @@ Plot weight-training data with fit.
 
 import argparse
 from datetime import datetime
+from src.utils.config import settings  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import seaborn as sns  # type: ignore
 from src.model.model import (  # type: ignore
@@ -13,9 +14,8 @@ from src.model.model import (  # type: ignore
     calc_volume
 )
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
 
-IMG_PATH = config_data["img_path"]
+settings['IMG_PATH img_path'] = settings["settings['IMG_PATH img_path']"]
 
 
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
@@ -59,7 +59,7 @@ def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     ax.legend(loc="lower right", fontsize=20)
 
     plt.savefig(
-        f"{IMG_PATH}all_years/one_rep_max/{datatype}_fitted_data_{exercise}_splines.png"
+        f"{settings['IMG_PATH']}all_years/one_rep_max/{datatype}_fitted_data_{exercise}_splines.png"
         )
 
     plt.clf()  # clear figure before next plot
@@ -97,7 +97,7 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     ax.set_ylabel("Volume [kg]", fontsize=20)
     ax.legend(loc="lower right", fontsize=20)
     plt.savefig(
-        f"{IMG_PATH}all_years/volume/{datatype}_fitted_data_{exercise}_gvt.png"
+        f"{settings['IMG_PATH']}all_years/volume/{datatype}_fitted_data_{exercise}_gvt.png"
         )
     plt.clf()  # clear figure before next plot
 

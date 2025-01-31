@@ -3,6 +3,7 @@ Read workout data and calculate combined metrics.
 """
 
 from datetime import datetime as dt
+from src.utils.config import settings  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.dates as mdates  # type: ignore
 import matplotlib.cm as cm  # type: ignore
@@ -20,9 +21,6 @@ from src.utils.get_volume import get_total_volume  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.model.model import one_rep_max_estimator, get_df  # type: ignore
 from src.combined_metrics.get_frequency_data import get_frequency_data  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
-
-IMG_PATH = config_data["img_path"]
 
 
 def save_plot(fig, path) -> None:
@@ -154,7 +152,7 @@ def plot_frequency(table, year_to_plot: str) -> None:
     ax.get_legend().remove()
 
     # plt.show()
-    save_path = f"{IMG_PATH}{year_to_plot}/{year_to_plot}_workout_frequency.png"
+    save_path = f"{settings['IMG_PATH']}{year_to_plot}/{year_to_plot}_workout_frequency.png"
     save_plot(fig, save_path)
 
 
@@ -214,7 +212,7 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
         )
 
     # plt.show()
-    save_path = f"{IMG_PATH}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png"
+    save_path = f"{settings['IMG_PATH']}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png"
     save_plot(fig, save_path)
 
 
@@ -274,7 +272,7 @@ def plot_duration_volume_1rm(table) -> None:
         f"Duration, Volume, 1RM ({exercise})"
         )
 
-    save_path = f"{IMG_PATH}all_years/workout_duration_volume_1rm_{exercise}.png"
+    save_path = f"{settings['IMG_PATH']}all_years/workout_duration_volume_1rm_{exercise}.png"
     save_plot(fig, save_path)
 
 
@@ -330,7 +328,7 @@ def main() -> None:
     _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
 
     plot_frequency(table, year_to_plot)
-    # plot_duration(table, year_to_plot, month_to_plot)
+    plot_duration(table, year_to_plot, month_to_plot)
     # plot_duration_volume_1rm(table)
 
 

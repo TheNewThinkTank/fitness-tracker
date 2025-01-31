@@ -1,4 +1,5 @@
-"""Get breath holding data from Google Sheet
+"""
+Get breath holding data from Google Sheet
 and plot min, max, and mean duration.
 """
 
@@ -8,10 +9,8 @@ import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from scipy.stats import linregress  # type: ignore
+from src.utils.config import settings  # type: ignore
 from src.utils.google_sheet import get_sheet  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
-
-IMG_PATH = config_data["img_path"]
 
 
 def get_sheet_title(year: int, month: int) -> str:
@@ -98,7 +97,7 @@ def make_figure(df, year, sheet_title) -> None:
     plt.tight_layout()
 
     # plt.show()
-    plt.savefig(f"{IMG_PATH}{year}/breathholding/{sheet_title}.png")
+    plt.savefig(f"{settings['img_path']}{year}/breathholding/{sheet_title}.png")
 
 
 def main() -> None:

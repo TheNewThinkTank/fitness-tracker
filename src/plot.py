@@ -2,6 +2,7 @@
 Plot weight-training data.
 """
 
+from src.utils.config import settings  # type: ignore
 from typing import Any
 import matplotlib.pyplot as plt  # type: ignore
 import numpy as np  # type: ignore
@@ -10,9 +11,6 @@ import seaborn as sns  # type: ignore
 from src.crud.read import show_exercise  # type: ignore
 from src.utils.get_exercises import get_available_exercises  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
-
-IMG_PATH = config_data["img_path"]
 
 
 def get_data(date: str, split: str) -> dict[str, pd.DataFrame] | dict:
@@ -159,7 +157,7 @@ def create_barplots(dfs: dict, date: str) -> None:
     sns.move_legend(ax1, "upper right", bbox_to_anchor=(1, 1))
     sns.move_legend(ax3, "center right", bbox_to_anchor=(1, 1))    
 
-    plt.savefig(f"{IMG_PATH}{year}/workout_{date}.png")
+    plt.savefig(f"{settings['IMG_PATH']}{year}/workout_{date}.png")
 
 
 def main() -> None:

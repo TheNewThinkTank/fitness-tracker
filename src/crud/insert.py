@@ -4,22 +4,24 @@ Store weight-training data.
 Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-import glob
+# import glob
 import json
 import os
 from pathlib import Path
 from typing import Union
+from src.utils.config import settings  # type: ignore
 import yaml  # type: ignore
 from tinydb import table  # , TinyDB
 from icecream import ic  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-from src.utils.config_loader import config_data  # type: ignore
 
 
-def insert_log(table: table.Table,
-               log_path: Union[str, Path, list],
-               file_format: str) -> None:
+def insert_log(
+    table: table.Table,
+    log_path: Union[str, Path, list],
+    file_format: str
+    ) -> None:
     """Store training log from log_path in database table.
 
     :param table: A TinyDB table
@@ -50,14 +52,19 @@ def insert_log(table: table.Table,
                 content = json.load(rf)
             elif file_format == 'yml':
                 content = yaml.safe_load(rf)
+            table.insert(content)
     elif isinstance(log_path, list):
-        with open(*log_path) as rf:
-            if file_format == 'json':
-                content = json.load(rf)
-            elif file_format == 'yml':
-                content = yaml.safe_load(rf)
-
-    table.insert(content)
+        if not log_path:
+            raise ValueError("No files found for the given date and workout number.")
+        for file_path in log_path:
+            with open(file_path) as rf:
+                if file_format == 'json':
+                    content = json.load(rf)
+                elif file_format == 'yml':
+                    content = yaml.safe_load(rf)
+                table.insert(content)
+    else:
+        raise TypeError(f"Unsupported type for log_path: {type(log_path)}")
 
 
 def insert_all_logs(table, folderpath: str, file_format: str) -> None:
@@ -78,10 +85,12 @@ def insert_all_logs(table, folderpath: str, file_format: str) -> None:
         insert_log(table, p / f, file_format)
 
 
-def insert_specific_log(date: str,
-                        table,
-                        file_format: str,
-                        workout_number: int = 1) -> None:
+def insert_specific_log(
+    date: str,
+    table,
+    file_format: str="yml",
+    workout_number: int=1
+    ) -> None:
     """Store a specific training log in database.
 
     :param date: string of date in format YYYY-MM-DD
@@ -96,21 +105,38 @@ def insert_specific_log(date: str,
     """
 
     YEAR, MONTH = get_year_and_month(date)
-    base_path = config_data["google_drive_data_path"]
+    base_path = Path(settings["GOOGLE_DRIVE_DATA_PATH"])
 
-    base_path += (
-        f"/{config_data['athlete']}/log_archive/{file_format.upper()}/"
-        f"{YEAR}/{MONTH}/*training_log_{date}"
-    )
+    # base_path += (
+    #     f"/{settings['ATHLETE']}/log_archive/{file_format.upper()}/"
+    #     f"{YEAR}/{MONTH}/*training_log_{date}"
+    # )
 
+    base_path = base_path / settings['ATHLETE'] / "log_archive" / file_format.upper() / str(YEAR) / MONTH
+
+    # Construct the file pattern
+    file_pattern = f"*training_log_{date}"
+
+    # TODO: update logic to handle multiple workouts on a given day
     if workout_number > 1:
-        base_path += f"_{workout_number}"
+        # base_path += f"_{workout_number}"
+        file_pattern += f"_{workout_number}"
+    file_pattern += f".{file_format}"
 
-    full_path = base_path + '.' + file_format  # json or yml
-    log_path = glob.glob(full_path)
+    # full_path = base_path + '.' + file_format  # json or yml
+    full_path = base_path / file_pattern
+    print(f"Searching for files matching: {full_path}")
+    # /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/*training_log_2025-01-29.yml
+
+    # Use glob to find matching files
+    # log_path = glob.glob(full_path)
+    log_path = list(base_path.glob(file_pattern))
 
     print(f"{full_path = }")
     print(f"{log_path = }")
+
+    if not log_path:
+        raise FileNotFoundError(f"No files found for date {date} and workout number {workout_number}.")
 
     insert_log(table, log_path, file_format)
 

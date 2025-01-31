@@ -1,5 +1,7 @@
 """
-Get the total volume of each workout in the table.
+Get the total workout volume of each date in the table.
+In the case of multiple workouts on the same day,
+the volume is the sum of the volumes of the workouts.
 """
 
 from pprint import pprint as pp
@@ -12,7 +14,7 @@ def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int
 
     :param s: Dictionary containing the exercise details
     :type s: dict
-    :param bodyweight: Bodyweight of the person
+    :param bodyweight: Bodyweight of the person in kg
     :type bodyweight: str
     :param Sidea_9012_Olympic_Hex_Bar: Weight of the barbell
     :type Sidea_9012_Olympic_Hex_Bar: str
@@ -29,7 +31,7 @@ def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int
 
 
 def get_total_volume(table) -> list[tuple[str, int]]:
-    """Get the total volume of each workout in the table.
+    """Get the total volume of all workouts, summing volumes for the same date.
 
     :param table: TinyDB table
     :type table: tinydb.table.Table
@@ -37,9 +39,10 @@ def get_total_volume(table) -> list[tuple[str, int]]:
     :rtype: list[tuple[str, int]]
     """
 
-    bodyweight = str(get_bw())  # "80"
+    bodyweight = str(get_bw())
     Sidea_9012_Olympic_Hex_Bar = "31"
-    date_and_volume = []
+    date_and_volume = {}  # []
+
     for item in table:
         total_volume = 0
         for exercise in item["exercises"].keys():
@@ -53,8 +56,16 @@ def get_total_volume(table) -> list[tuple[str, int]]:
                 volume_partial.append(s["reps"] * weight)
 
             total_volume += number_of_sets * max(volume_partial)
-        date_and_volume.append((item["date"], total_volume))
-    return date_and_volume
+
+        # Sum volumes for the same date
+        date = item["date"]
+        if date in date_and_volume:
+            date_and_volume[date] += total_volume
+        else:
+            date_and_volume[date] = total_volume
+
+    # Convert the dictionary to a list of tuples
+    return list(date_and_volume.items())
 
 
 def main() -> None:

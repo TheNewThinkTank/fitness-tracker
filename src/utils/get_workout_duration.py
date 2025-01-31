@@ -1,5 +1,7 @@
 """
-Get the duration of each workout in a given year.
+Get the workout duration on each date in a given year.
+In the case of multiple workouts on the same day,
+the duration is the sum of the durations of the workouts.
 """
 
 from datetime import datetime as dt
@@ -25,7 +27,7 @@ def get_data(year: str) -> list[dict]:
         athlete=os.getenv("ATHLETE", "donald_duck"),
         year=year,
         )
-    
+
     data = get_all(table)
     # db.close()
 
@@ -34,7 +36,8 @@ def get_data(year: str) -> list[dict]:
 
 @profile
 def get_all_durations(year: str) -> dict:
-    """Get the duration of each workout in a given year.
+    """Get the total duration of all workouts in a given year,
+    summing durations for the same date.
 
     :param year: Year to get the duration of each workout for.
     :type year: str
@@ -53,7 +56,13 @@ def get_all_durations(year: str) -> dict:
         start_time = workout["start_time"]
         end_time = workout["end_time"]
         duration = get_duration_minutes(start_time, end_time)
-        date_and_duration[date] = duration
+
+        # Sum durations for the same date
+        if date in date_and_duration:
+            date_and_duration[date] += duration
+        else:
+            date_and_duration[date] = duration
+
     # pp(date_and_duration)
     return date_and_duration
 

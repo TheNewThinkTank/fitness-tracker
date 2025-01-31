@@ -14,7 +14,7 @@ settings = Dynaconf(
 
 settings.setenv("default")  # Ensure the correct environment is active
 settings.validators.validate()
-config_data = settings.as_dict()
+# settings = settings.as_dict()
 
 
 def main() -> None:
@@ -23,7 +23,9 @@ def main() -> None:
 
     from pprint import pprint as pp
 
-    pp(config_data)
+    # pp(settings)
+    pp(settings.ATHLETE)
+    pp(settings.GOOGLE_DRIVE_DATA_PATH)
 
     # Access settings
     # DEBUG = settings.DEBUG

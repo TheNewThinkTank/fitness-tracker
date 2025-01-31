@@ -181,11 +181,11 @@ main() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS date command
     YEAR_TO_PLOT=$(date -j -f "%Y-%m-%d" "$WORKOUT_DATE" +%Y)
-    MONTH_TO_PLOT=$(date -j -f "%Y-%m-%d" "$WORKOUT_DATE" +%B)
+    # MONTH_TO_PLOT=$(date -j -f "%Y-%m-%d" "$WORKOUT_DATE" +%B)
   else
     # Linux date command
     YEAR_TO_PLOT=$(date -d "$WORKOUT_DATE" +%Y)
-    MONTH_TO_PLOT=$(date -d "$WORKOUT_DATE" +%B)
+    # MONTH_TO_PLOT=$(date -d "$WORKOUT_DATE" +%B)
   fi
 
   load_env_variables

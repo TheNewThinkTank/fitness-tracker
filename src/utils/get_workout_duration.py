@@ -6,6 +6,7 @@ the duration is the sum of the durations of the workouts.
 
 from datetime import datetime as dt
 import os
+from typing import Any
 from icecream import ic  # type: ignore
 from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
@@ -47,7 +48,7 @@ def get_all_durations(year: str) -> dict:
     """
 
     data = get_data(year)
-    date_and_duration = {}
+    date_and_duration: dict[Any, Any] = {}
     for workout in data:
         if "start_time" not in workout:
             continue

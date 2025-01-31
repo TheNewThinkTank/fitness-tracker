@@ -26,7 +26,8 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 # COPY .env .env
 COPY ./src /code/src
 COPY ./data /code/data
-COPY .config/config.yml /code/.config/config.yml
+# COPY .config/config.yml /code/.config/config.yml
+COPY .config/settings.toml /code/.config/settings.toml
 # COPY ./app /code/app
 
 EXPOSE 8000

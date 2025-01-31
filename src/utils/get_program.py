@@ -4,6 +4,7 @@
 from datetime import datetime as dt
 from pathlib import Path
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
+from src.utils.config import settings  # type: ignore
 
 
 # TODO: Move to datetime package
@@ -29,8 +30,7 @@ def get_pgm_from_date(workout_date: str) -> str | None:
     :rtype: str
     """
 
-    config_data = load_yaml_file(".config/config.yml")
-    workout_programs_path = Path.cwd() / config_data["workout_programs"]
+    workout_programs_path = Path.cwd() / settings.workout_programs
     available_programs = load_yaml_file(workout_programs_path)
 
     programs = []

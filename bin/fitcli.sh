@@ -49,7 +49,9 @@ validate_file_format() {
 prepare_figures() {
   local year=$1
   local month=$2
-  if ! python3 ./src/combined_metrics/combined_metrics.py --year_to_plot "$year" --month_to_plot "$month"; then
+  if ! python3 ./src/combined_metrics/combined_metrics.py \
+    --year_to_plot "$year" \
+    --month_to_plot "$month"; then
     log "Error: Failed to prepare figures."
     exit 1
   fi
@@ -100,14 +102,16 @@ load_env_variables() {
 }
 
 load_config_variables() {
-  if [ -f .config/config.yml ]; then
-    GOOGLE_DRIVE_DATA_PATH=$(yq e '.google_drive_data_path' .config/config.yml | sed "s/<USER>/${DYNACONF_USER}/g; s/<EMAIL>/${DYNACONF_EMAIL}/g")
-    IMG_PATH=$(yq e '.img_path' .config/config.yml | sed "s|<GOOGLE_DRIVE_DATA_PATH>|$GOOGLE_DRIVE_DATA_PATH|g; s/<ATHLETE>/$DYNACONF_ATHLETE/g")
+  if [ -f .config/settings.toml ]; then
+    # Load variables from settings.toml
+    GOOGLE_DRIVE_DATA_PATH=$(tomlq -r '.default.GOOGLE_DRIVE_DATA_PATH' .config/settings.toml | sed "s/{{ env.USER }}/${USER}/g; s/{{ env.EMAIL }}/${EMAIL}/g")
+    IMG_PATH=$(tomlq -r '.default.img_path' .config/settings.toml | sed "s/{{ this.google_drive_data_path }}/${GOOGLE_DRIVE_DATA_PATH}/g; s/{{ env.ATHLETE }}/${ATHLETE}/g")
     IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
+    
     echo "$GOOGLE_DRIVE_DATA_PATH"
     echo "$IMG_PATH"
   else
-    echo "Warning: config.yml file not found. Using default img_path."
+    echo "Warning: .config/settings.toml file not found. Using default img_path."
     IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
   fi
 }

@@ -5,6 +5,7 @@ the volume is the sum of the volumes of the workouts.
 """
 
 from pprint import pprint as pp
+from typing import Any
 from src.utils.get_bodyweight import get_bw  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
@@ -41,7 +42,7 @@ def get_total_volume(table) -> list[tuple[str, int]]:
 
     bodyweight = str(get_bw())
     Sidea_9012_Olympic_Hex_Bar = "31"
-    date_and_volume = {}  # []
+    date_and_volume: dict[Any, Any] = {}
 
     for item in table:
         total_volume = 0

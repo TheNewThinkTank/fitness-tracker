@@ -1,8 +1,9 @@
 """
 """
 
-from pprint import pprint as pp
+from pprint import pformat  # type: ignore
 from typing import Any
+from loguru import logger  # type: ignore
 import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import pandas as pd  # type: ignore
@@ -41,7 +42,7 @@ def extract_actual_rep_ranges(table, splits):
     return frames
 
 
-# pp(extract_actual_rep_ranges(table, splits))
+logger.debug(pformat(extract_actual_rep_ranges(table, splits)))
 
 in_file = "docs/project_docs/workout-programs/workout-program-detail.yml"
 with open(in_file, "r") as rf:
@@ -74,7 +75,7 @@ for date, exercises in actual_reps.items():
                 "recommended_range": (min_reps, max_reps),
             }
 
-pp(combined_data)
+logger.debug(pformat(combined_data))
 
 # Flatten the data
 flat_data = []

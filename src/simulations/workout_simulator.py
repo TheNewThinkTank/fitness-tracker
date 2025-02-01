@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 import json
 from pathlib import Path
 import random
+from loguru import logger  # type: ignore
 import numpy as np
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
@@ -103,7 +104,7 @@ class JSONWorkoutFormatter(DataFormatter):
         filepath = self.output_dir / f"simulated_training_log_{self.workout_date}.json"
         
         # Debug print statement
-        print(f"Writing data to: {filepath}")
+        logger.debug(f"Writing data to: {filepath}")
 
         # Write the data to the JSON file
         with filepath.open("w", encoding="utf-8") as f:
@@ -113,13 +114,13 @@ class JSONWorkoutFormatter(DataFormatter):
 def main() -> None:
     """Simulate a workout and write the data to a JSON file.
     """
-    from pprint import pprint as pp
+    from pprint import pformat  # type: ignore
 
     TRAINING_CATALOGUE = "src/simulations/muscles_and_exercises_weight_ranges.yaml"
     selection = ExerciseSelector(ExerciseRepository(TRAINING_CATALOGUE))
     simulated_workout = WorkoutSimulator(exercises=selection.exercises, progress=10)
 
-    pp(simulated_workout.workout_data)
+    logger.debug(pformat(simulated_workout.workout_data))
 
     # You can now easily change the formatter or add new ones
     formatter = JSONWorkoutFormatter(

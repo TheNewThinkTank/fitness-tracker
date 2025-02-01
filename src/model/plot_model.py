@@ -15,8 +15,6 @@ from src.model.model import (  # type: ignore
 )
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
-settings['IMG_PATH img_path'] = settings["settings['IMG_PATH img_path']"]
-
 
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     """Plot training data 1RM with fit.

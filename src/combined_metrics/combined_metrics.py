@@ -10,7 +10,8 @@ import matplotlib.cm as cm  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
 from matplotlib.ticker import MaxNLocator  # type: ignore
 import pandas as pd  # type: ignore
-from pprint import pprint as pp
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 import seaborn as sns  # type: ignore
 # import statsmodels.api as sm  # type: ignore
 # from scipy.interpolate import make_interp_spline  # type: ignore
@@ -176,7 +177,7 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
         if get_year_and_month(date) == (year_to_plot, month_to_plot)
     }
 
-    pp(date_and_duration)
+    logger.debug(pformat(date_and_duration))
 
     date_and_volume = get_total_volume(table)
     volumes = [d_v[1] for d_v in date_and_volume if d_v[0] in date_and_duration.keys()]
@@ -280,6 +281,11 @@ def main() -> None:
     """Main function to run the script.
     """
 
+    import argparse
+    import calendar
+
+    default_month = calendar.month_name[1]
+
     # years = [
     #     '2021',
     #     '2022',
@@ -288,22 +294,6 @@ def main() -> None:
     #     '2025',
     #     ]
 
-    months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-    ]
-
-    import argparse
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
@@ -315,7 +305,7 @@ def main() -> None:
     parser.add_argument(
         "--month_to_plot",
         type=str,
-        default=months[0]
+        default=default_month
         )
 
     parser.add_argument("--datatype", type=str, default="real")
@@ -326,6 +316,8 @@ def main() -> None:
     month_to_plot = args.month_to_plot
 
     _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
+
+    logger.debug(default_month)
 
     plot_frequency(table, year_to_plot)
     plot_duration(table, year_to_plot, month_to_plot)

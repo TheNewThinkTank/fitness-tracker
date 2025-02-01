@@ -102,8 +102,7 @@ class JSONWorkoutFormatter(DataFormatter):
 
         # Construct the file path
         filepath = self.output_dir / f"simulated_training_log_{self.workout_date}.json"
-        
-        # Debug print statement
+
         logger.debug(f"Writing data to: {filepath}")
 
         # Write the data to the JSON file

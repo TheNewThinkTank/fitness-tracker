@@ -60,7 +60,7 @@ def extract_recommended_rep_ranges(data):
 
 rep_ranges = extract_recommended_rep_ranges(data)
 # for exercise, (min_reps, max_reps) in rep_ranges.items():
-#     print(f"{exercise}: {min_reps}-{max_reps} reps")
+#     logger.debug(f"{exercise}: {min_reps}-{max_reps} reps")
 
 actual_reps = extract_actual_rep_ranges(table, splits)
 

@@ -3,6 +3,8 @@
 
 from datetime import datetime as dt
 from pathlib import Path
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 from src.utils.config import settings  # type: ignore
 
@@ -53,7 +55,7 @@ def main() -> None:
     """
 
     workout_date = "2022-01-01"
-    print(get_pgm_from_date(workout_date))
+    logger.debug(pformat(get_pgm_from_date(workout_date)))
 
 
 if __name__ == "__main__":

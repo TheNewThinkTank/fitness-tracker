@@ -4,7 +4,7 @@ Set db and table depending on datatype (real/simulated).
 
 from datetime import datetime
 import os
-from pprint import pprint as pp
+from pprint import pformat  # type: ignore
 from loguru import logger  # type: ignore
 from src.utils.config import settings  # type: ignore
 from tinydb import TinyDB  # type: ignore
@@ -58,7 +58,7 @@ def set_db_and_table(
     :rtype: tuple
     """
 
-    logger.debug(f"{settings = }")
+    logger.debug(pformat(settings))
 
     if not athlete:
         athlete = os.getenv(
@@ -100,7 +100,7 @@ def main() -> None:
     #     year="2021"
     # )
 
-    # logger.debug(db, table, training_catalogue)
+    # logger.debug(f"{db}, {table}, {training_catalogue}")
 
     # # At the end, make sure to close the database
     # db_singleton = TinyDBSingleton("dummy_path")  # Create a dummy instance just to close

@@ -8,6 +8,8 @@ import pandas as pd  # type: ignore
 import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import matplotlib.colors as mcolors  # type: ignore
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 from scipy.stats import linregress  # type: ignore
 from src.utils.config import settings  # type: ignore
 from src.utils.google_sheet import get_sheet  # type: ignore
@@ -110,7 +112,7 @@ def main() -> None:
 
     sheet_title = get_sheet_title(this_year, this_month)
     df = get_breath_holding(sheet_title)
-    # print(df)
+    logger.debug(pformat(df))
 
     make_figure(df, this_year, sheet_title)
 

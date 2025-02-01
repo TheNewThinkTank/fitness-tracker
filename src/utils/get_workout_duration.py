@@ -6,8 +6,8 @@ the duration is the sum of the durations of the workouts.
 
 from datetime import datetime as dt
 import os
+from pprint import pformat  # type: ignore
 from typing import Any
-from icecream import ic  # type: ignore
 from loguru import logger  # type: ignore
 from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
@@ -65,7 +65,7 @@ def get_all_durations(year: str) -> dict:
         else:
             date_and_duration[date] = duration
 
-    logger.debug(date_and_duration)
+    logger.debug(pformat(date_and_duration))
 
     return date_and_duration
 
@@ -80,7 +80,7 @@ def get_number_of_workouts(year: str) -> int:
     """
 
     data = get_data(year)
-    logger.debug(year, data)
+    logger.debug(f"{year}, {data}")
     return len(data)
 
 
@@ -88,17 +88,17 @@ def main() -> None:
     """Display the duration of each workout in a given year.
     """
 
-    logger.debug(get_data("2024"))
+    logger.debug(pformat(get_data("2024")))
 
     year = str(dt.now().year)
     date_and_duration = get_all_durations(year)
     for date, duration in date_and_duration.items():
-        ic(date, duration)
+        logger.debug(f"{date}, {duration}")
 
-    logger.debug(get_number_of_workouts("2021"))
-    logger.debug(get_number_of_workouts("2022"))
-    logger.debug(get_number_of_workouts("2023"))
-    logger.debug(get_number_of_workouts("2024"))
+    logger.debug(pformat(get_number_of_workouts("2021")))
+    logger.debug(pformat(get_number_of_workouts("2022")))
+    logger.debug(pformat(get_number_of_workouts("2023")))
+    logger.debug(pformat(get_number_of_workouts("2024")))
 
 
 if __name__ == "__main__":

@@ -2,7 +2,8 @@
 """
 
 # TODO: Move to key-master repo, publish to PyPI.
-
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -37,7 +38,7 @@ def update_sheet() -> None:
     # worksheet = sh.worksheet(sheet_title)
 
     # sheets = workbook.worksheets()
-    # print(sheets)
+    # logger.debug(pformat(sheets))
 
     # values = [
     #     ["Name", "Price", "Quantity"],
@@ -47,17 +48,17 @@ def update_sheet() -> None:
     # ]
 
     # sheets = map(lambda x: x.title, workbook.worksheets())
-    # print(list(sheets))
+    # logger.debug(pformat(list(sheets)))
 
     # sheet.update_title("August 2024")
     # sheet.update_cell(1, 1, "new value")
 
     # value = sheet.acell("A1").value
     # value = sheet.cell(1, 1).value
-    # print(value)
+    # logger.debug(pformat(value))
 
     # cell = sheet.find("2024-08-03")
-    # print(cell.row, cell.col)
+    # logger.debug(pformat(cell.row, cell.col))
 
     # new_worksheet_name = "Values"
 
@@ -78,12 +79,10 @@ def main() -> None:
     """Display a Google Sheet.
     """
 
-    from loguru import logger  # type: ignore
-
     # example: BODYWEIGHT sheet
     sheet_id = "1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs"
     sheet_title = "2023-2024"
-    logger.debug(get_sheet(sheet_id, sheet_title))
+    logger.debug(pformat(get_sheet(sheet_id, sheet_title)))
 
 
 if __name__ == "__main__":

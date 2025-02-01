@@ -2,7 +2,7 @@
 """
 
 import json
-from pprint import pprint as pp
+from pprint import pformat  # type: ignore
 import re
 from typing import Optional
 from loguru import logger  # type: ignore
@@ -134,7 +134,7 @@ def main() -> None:
     # process workout data using the factory
     workouts = WorkoutFactory.create_workouts_from_json(file)
     # Display exercises from the first workout for demonstration
-    logger.debug(workouts[0].exercises)
+    logger.debug(pformat(workouts[0].exercises))
 
 
 if __name__ == "__main__":

@@ -51,7 +51,7 @@ def simulate_data() -> None:
     #                                      )
     # simulated_exercises = simulated_workout.select_random_exercises()
     # logger.debug(type(simulated_exercises))
-    # logger.debug(simulated_exercises)
+    # logger.debug(pformat(simulated_exercises))
 
     # actual_reps = random.randint(1, 10)
     # weight_range = [50, 90]
@@ -69,7 +69,7 @@ def simulate_data() -> None:
         # weight_range = [50, 90]
 
         # simulated_workout.high_reps_low_weight(weight_range, actual_reps)
-        # logger.debug(simulated_workout)
+        # logger.debug(pformat(simulated_workout))
         # simulated_workout.write_data()
         # progress += 1_000
     """

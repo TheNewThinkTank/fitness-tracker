@@ -57,12 +57,11 @@ def plot_frequency(table, year_to_plot: str) -> None:
     res_df['date'] = pd.to_datetime(res_df['date'], errors='coerce')
     res_df = res_df.dropna(subset=['date'])  # Drop rows with invalid dates
 
-    # TODO: use logger here instead of print, with level: DEBUG
-    # print("Date range after conversion:")
-    # print(res_df['date'].min(), res_df['date'].max())
+    logger.debug("Date range after conversion:")
+    logger.debug(f"{res_df['date'].min()}, {res_df['date'].max()}")
 
     if res_df.empty:
-        print(f"No valid data to plot for the year {year_to_plot}.")
+        logger.error(f"No valid data to plot for the year {year_to_plot}.")
         return
 
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -74,9 +73,9 @@ def plot_frequency(table, year_to_plot: str) -> None:
     # smoothed = lowess(res_df['workouts'], res_df['date'], frac=0.1)
     # Convert smoothed dates back to datetime objects
     # smoothed_dates = pd.to_datetime(smoothed[:, 0], unit='s')
-    # print(smoothed)
+    # logger.debug(pformat(smoothed))
     # if smoothed.size == 0:
-    #     print("Lowess smoothing failed. Not enough data points.")
+    #     logger.error("Lowess smoothing failed. Not enough data points.")
     #     return
     # Plot the smoothed curve
     # ax.plot(smoothed_dates, smoothed[:, 1], color="#6c8ebf", label="Smoothed Curve")
@@ -92,10 +91,10 @@ def plot_frequency(table, year_to_plot: str) -> None:
     # Plot the smoothed curve
     # ax.plot(x_smooth, y_smooth, color="#6c8ebf", label="Smoothed Curve")
 
-    # print("res_df:")
-    # print(res_df.head())
-    # print(res_df)
-    # print("Dates range:", res_df['date'].min(), "to", res_df['date'].max())
+    logger.info("res_df:")
+    logger.info(pformat(res_df.head()))
+    logger.info(pformat(res_df))
+    logger.info(f"Dates range: {res_df['date'].min()} to {res_df['date'].max()}")
 
     # sns.barplot(
     #     x="date", 

@@ -4,7 +4,8 @@ In the case of multiple workouts on the same day,
 the volume is the sum of the volumes of the workouts.
 """
 
-from pprint import pprint as pp
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 from typing import Any
 from src.utils.get_bodyweight import get_bw  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
@@ -77,7 +78,7 @@ def main() -> None:
     datatype = "real"
     _, table, _ = set_db_and_table(datatype)
     date_and_volume = get_total_volume(table)
-    pp(date_and_volume)
+    logger.debug(pformat(date_and_volume))
 
 
 if __name__ == "__main__":

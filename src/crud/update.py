@@ -2,7 +2,9 @@
 Update or delete weight-training data.
 """
 
+# from pprint import pformat  # type: ignore
 import re
+# from loguru import logger  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
@@ -87,17 +89,17 @@ def main() -> None:
         )
 
     # workout_data = table.all()
-    # pp(workout_data)
-    # pp(filter_exercises_with_whitespace(workout_data))
+    # logger.info(pformat(workout_data))
+    # logger.info(pformat(filter_exercises_with_whitespace(workout_data)))
     # print("##########")
     clean_exercise_names(table)
     # print("##########")
-    # pp(filter_exercises_with_whitespace(workout_data))
+    # logger.info(pformat(filter_exercises_with_whitespace(workout_data)))
 
-    # ic(db)
-    # ic(table)
+    # logger.info(pformat(db))
+    # logger.info(pformat(table))
     # all_entries = table.all()
-    # ic(all_entries)
+    # logger.info(pformat(all_entries))
 
     # remove_from_table(table)
     # truncate_table(table)

@@ -1,10 +1,12 @@
 """Extend TinyDB to use YAML as storage.
 """
 
-from src.utils.config import settings  # type: ignore
-import yaml  # type: ignore
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 from tinydb import TinyDB  # type: ignore
 from tinydb.storages import Storage, touch  # type: ignore
+import yaml  # type: ignore
+from src.utils.config import settings  # type: ignore
 
 
 class YAMLStorage(Storage):
@@ -45,7 +47,7 @@ def main() -> None:
         )
 
     db = TinyDB(test_path, storage=YAMLStorage)
-    print(db)
+    logger.debug(pformat(db))
 
 
 if __name__ == "__main__":

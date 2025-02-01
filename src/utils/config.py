@@ -21,21 +21,19 @@ def main() -> None:
     """Load configuration and print it.
     """
 
-    from pprint import pprint as pp
+    from pprint import pformat  # type: ignore
+    from loguru import logger  # type: ignore
 
-    # pp(settings)
-    pp(settings.ATHLETE)
-    pp(settings.GOOGLE_DRIVE_DATA_PATH)
+    # logger.debug(pformat(settings))
+    logger.debug(pformat(settings.ATHLETE))
+    logger.debug(pformat(settings.GOOGLE_DRIVE_DATA_PATH))
 
     # Access settings
     # DEBUG = settings.DEBUG
     # ATHLETE = settings.ATHLETE
-
-    # print(f"DEBUG: {DEBUG}")
-    # print(f"ATHLETE: {ATHLETE}")
-
+    # logger.debug(f"DEBUG: {DEBUG}")
     # ATHLETE = settings.get("ATHLETE", "default_value")
-    # print(f"ATHLETE: {ATHLETE}")
+    # logger.debug(f"ATHLETE: {ATHLETE}")
 
 
 if __name__ == "__main__":

@@ -4,6 +4,8 @@ Store and analyze weight-training data.
 Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 from tinydb import Query  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
@@ -171,8 +173,6 @@ def main() -> None:
     """Main function to run all the functions.
     """
 
-    from pprint import pprint as pp
-
     datamodels = ["real", "simulated"]
     datatype = datamodels[0]
     _EXERCISE = "squat"
@@ -181,16 +181,16 @@ def main() -> None:
     # _, table, _ = set_db_and_table(datatype)
     _, table, _ = set_db_and_table(datatype, env="dev")
 
-    # pp(search_for_exercise(table))
-    # pp(get_bw_workouts(table))
+    logger.debug(pformat(search_for_exercise(table)))
+    # logger.debug(pformat(get_bw_workouts(table)))
 
     # dates_and_muscle_groups = get_dates_and_muscle_groups(table)
-    # pp(dates_and_muscle_groups)
-    # pp(show_exercises(table, _WORKOUT_DATE))
-    # pp(get_all(table))
-    # pp(describe_workout(table, _WORKOUT_DATE))
-    # pp(show_exercise(table, _EXERCISE, _WORKOUT_DATE))
-    # print(analyze_workout(table, _EXERCISE))
+    # logger.debug(pformat(dates_and_muscle_groups))
+    # logger.debug(pformat(show_exercises(table, _WORKOUT_DATE)))
+    # logger.debug(pformat(get_all(table)))
+    # logger.debug(pformat(describe_workout(table, _WORKOUT_DATE)))
+    # logger.debug(pformat(show_exercise(table, _EXERCISE, _WORKOUT_DATE)))
+    # logger.debug(pformat(analyze_workout(table, _EXERCISE)))
 
 
 if __name__ == "__main__":

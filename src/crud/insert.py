@@ -13,6 +13,7 @@ from src.utils.config import settings  # type: ignore
 import yaml  # type: ignore
 from tinydb import table  # , TinyDB
 from icecream import ic  # type: ignore
+from loguru import logger  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
@@ -40,7 +41,7 @@ def insert_log(
             )
 
     # assert log_path
-    print(f"{log_path = }")
+    logger.debug(f"{log_path = }")
 
     # Convert Path objects to strings
     if isinstance(log_path, Path):
@@ -77,7 +78,7 @@ def insert_all_logs(table, folderpath: str, file_format: str) -> None:
     :type folderpath: str
     """
 
-    print(f"{folderpath = }")
+    logger.debug(f"{folderpath = }")
 
     p = Path(folderpath)
     all_files = os.listdir(p)
@@ -125,15 +126,15 @@ def insert_specific_log(
 
     # full_path = base_path + '.' + file_format  # json or yml
     full_path = base_path / file_pattern
-    print(f"Searching for files matching: {full_path}")
+    logger.debug(f"Searching for files matching: {full_path}")
     # /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/*training_log_2025-01-29.yml
 
     # Use glob to find matching files
     # log_path = glob.glob(full_path)
     log_path = list(base_path.glob(file_pattern))
 
-    print(f"{full_path = }")
-    print(f"{log_path = }")
+    logger.debug(f"{full_path = }")
+    logger.debug(f"{log_path = }")
 
     if not log_path:
         raise FileNotFoundError(f"No files found for date {date} and workout number {workout_number}.")

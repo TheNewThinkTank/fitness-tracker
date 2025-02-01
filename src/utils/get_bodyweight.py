@@ -1,7 +1,9 @@
 """Get the bodyweight from the google sheet.
 """
 
+from loguru import logger  # type: ignore
 import pandas as pd  # type: ignore
+from pprint import pformat  # type: ignore
 from src.utils.google_sheet import get_sheet  # type: ignore
 
 
@@ -29,8 +31,8 @@ def main() -> None:
     sheet_id="1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs",
     sheet_title="2023-2024"
     )
-    print(sheet)
-    print(get_bw())
+    logger.debug(pformat(sheet))
+    logger.debug(pformat(get_bw()))
 
 
 if __name__ == "__main__":

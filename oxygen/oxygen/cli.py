@@ -49,17 +49,12 @@ python cli.py show_help
 """
 
 from datetime import datetime as dt
-# from src.utils.config import settings  # type: ignore
 import os
 import subprocess
 import sys
 import click
-
-
-def log(message):
-    """Log messages with timestamp."""
-    timestamp = dt.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(f"{timestamp} - {message}")
+from loguru import logger  # type: ignore
+from src.utils.config import settings  # type: ignore
 
 
 @click.group()
@@ -79,13 +74,13 @@ def cli():
     "--file-format",
     "-f",
     default="yml",
-    type=click.Choice(["yml", "json", "csv"]),
+    type=click.Choice(["yml", "json"]),
     help="Specify the file format (default: yml).",
 )
 def insert(workout_date, file_format):
     """Insert workout data into the database."""
     try:
-        log(f"Inserting data for {workout_date} with format {file_format}.")
+        logger.info(f"Inserting data for {workout_date} with format {file_format}.")
         subprocess.run(
             [
                 "python3",
@@ -99,9 +94,9 @@ def insert(workout_date, file_format):
             ],
             check=True,
         )
-        log("Data inserted successfully.")
+        logger.info("Data inserted successfully.")
     except subprocess.CalledProcessError as e:
-        log(f"Error inserting data: {e}")
+        logger.error(f"Error inserting data: {e}")
         sys.exit(1)
 
 
@@ -122,7 +117,7 @@ def insert(workout_date, file_format):
 def prepare_figures(year, month):
     """Prepare figures for the specified year and month."""
     try:
-        log(f"Preparing figures for {year} {month}.")
+        logger.info(f"Preparing figures for {year} {month}.")
         subprocess.run(
             [
                 "python3",
@@ -134,9 +129,9 @@ def prepare_figures(year, month):
             ],
             check=True,
         )
-        log("Figures prepared successfully.")
+        logger.info("Figures prepared successfully.")
     except subprocess.CalledProcessError as e:
-        log(f"Error preparing figures: {e}")
+        logger.error(f"Error preparing figures: {e}")
         sys.exit(1)
 
 
@@ -158,10 +153,10 @@ def prepare_figures(year, month):
 def open_images(ctx, year, month):
     """Open generated workout images."""
 
-    img_path = f"{IMG_PATH}{year}/{month}/"
+    img_path = f"{settings['IMG_PATH']}{year}/{month}/"
 
     try:
-        log(f"Opening images for {year} {month}.")
+        logger.info(f"Opening images for {year} {month}.")
         for img_file in [
             f"{img_path}{year}_workout_frequency.png",
             f"{img_path}workout_duration_{month}_{year}.png",
@@ -169,10 +164,10 @@ def open_images(ctx, year, month):
             if os.path.exists(img_file):
                 subprocess.run(["open", img_file], check=True)
             else:
-                log(f"Warning: {img_file} not found.")
-        log("Images opened successfully.")
+                logger.warning(f"{img_file} not found.")
+        logger.info("Images opened successfully.")
     except subprocess.CalledProcessError as e:
-        log(f"Error opening images: {e}")
+        logger.error(f"Error opening images: {e}")
         sys.exit(1)
 
 

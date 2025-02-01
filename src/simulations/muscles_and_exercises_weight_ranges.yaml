@@ -1,4 +1,8 @@
 ---
+
+# TODO: Migrate to docs/project_docs/muscles_and_exercises_weight_ranges.yaml
+# TODO: Implement macro to parse YAML as Markdown for GitHub Pages
+
 legs:
   - squat: [50, 120]
   - deadlift: [50, 120]

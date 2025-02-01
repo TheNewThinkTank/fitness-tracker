@@ -1,5 +1,9 @@
 ---
 
+# TODO: Add more exercises
+# TODO: Migrate to docs/project_docs/muscles_and_exercises.yaml
+# TODO: Implement macro to parse YAML as Markdown for GitHub Pages
+
 legs:
   - squat
   - front_squat

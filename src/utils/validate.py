@@ -5,6 +5,7 @@ import json
 from pprint import pprint as pp
 import re
 from typing import Optional
+from loguru import logger  # type: ignore
 import pydantic
 from src.utils.config import settings  # type: ignore
 
@@ -133,7 +134,7 @@ def main() -> None:
     # process workout data using the factory
     workouts = WorkoutFactory.create_workouts_from_json(file)
     # Display exercises from the first workout for demonstration
-    pp(workouts[0].exercises)
+    logger.debug(workouts[0].exercises)
 
 
 if __name__ == "__main__":

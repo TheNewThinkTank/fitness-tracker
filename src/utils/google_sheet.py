@@ -77,10 +77,13 @@ def update_sheet() -> None:
 def main() -> None:
     """Display a Google Sheet.
     """
+
+    from loguru import logger  # type: ignore
+
     # example: BODYWEIGHT sheet
     sheet_id = "1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs"
     sheet_title = "2023-2024"
-    print(get_sheet(sheet_id, sheet_title))
+    logger.debug(get_sheet(sheet_id, sheet_title))
 
 
 if __name__ == "__main__":

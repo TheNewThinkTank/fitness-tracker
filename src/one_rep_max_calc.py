@@ -2,6 +2,7 @@
 Definition of popular 1-repetition-maximum formulas.
 """
 
+from loguru import logger  # type: ignore
 import numpy as np  # type: ignore
 import pandas as pd  # type: ignore
 from src.one_rep_max import (  # type: ignore
@@ -9,31 +10,6 @@ from src.one_rep_max import (  # type: ignore
     EpleyStrategy,
     BrzyckiStrategy
     )
-
-
-# class OneRepMaxCalculator:
-#     def __init__(self, strategy):
-#         self.strategy = strategy
-
-#     def calculate(self, weight, reps):
-#         weight, reps = self.validate_inputs(weight, reps)
-#         return self.strategy.estimate(weight, reps)
-
-#     @staticmethod
-#     def validate_inputs(weight, reps):
-#         """Ensure that inputs are either scalars,
-#         or vectorized types (Pandas Series, NumPy arrays)."""
-#         weight_is_vectorized = isinstance(weight, (pd.Series, np.ndarray))
-#         reps_is_vectorized = isinstance(reps, (pd.Series, np.ndarray))
-
-#         # Check if both are vectorized
-#         if weight_is_vectorized and reps_is_vectorized:
-#             if weight.shape != reps.shape:
-#                 raise ValueError("Weight and reps must have the same shape when vectorized.")
-#         elif not (np.isscalar(weight) or np.isscalar(reps)):
-#             raise TypeError("Invalid input types. Expected both weight and reps to be either scalars or vectorized.")
-        
-#         return weight, reps
 
 
 class OneRepMaxCalculator:
@@ -75,7 +51,11 @@ class InvertedCalculator:
         self.strategy = strategy
 
     def calculate(self, one_rm, reps, progression):
-        one_rm, reps, progression = self.validate_inputs(one_rm, reps, progression)
+        one_rm, reps, progression = self.validate_inputs(
+            one_rm,
+            reps,
+            progression
+            )
         return self.strategy.estimate(one_rm, reps, progression)
 
     @staticmethod
@@ -87,8 +67,11 @@ class InvertedCalculator:
         elif isinstance(one_rm, (int, float)) and isinstance(reps, (int, float)):
             pass  # Single values are acceptable
         else:
-            raise TypeError("Invalid input types. Expected both one_rm and reps to be either scalars or pandas Series.")
-        
+            raise TypeError(
+                "Invalid input types."
+                " Expected both one_rm and reps to be either scalars or pandas Series."
+                )
+
         if not isinstance(progression, (pd.Series, np.ndarray)):
             progression = np.array(progression)  # Convert scalar to array for consistent operations
 
@@ -101,7 +84,7 @@ def main() -> None:
     brzycki_calculator = OneRepMaxCalculator(BrzyckiStrategy())
     epley_results = epley_calculator.calculate(100, 10)
     brzycki_results = brzycki_calculator.calculate(100, 10)
-    print(epley_results, brzycki_results)
+    logger.debug(f"{epley_results = }, {brzycki_results = }")
 
 
 if __name__ == "__main__":

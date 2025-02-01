@@ -4,8 +4,9 @@ Simulate weight-training data.
 
 from datetime import datetime
 from typing import Any, Generator
+from pprint import pformat  # type: ignore
 # from workout_simulator import WorkoutSimulator  # type: ignore
-from pprint import pprint as pp
+from loguru import logger  # type: ignore
 from datetime_tools.generate_days import generate_dates  # type: ignore
 from algo_lib.sampling.reservoir_sample import reservoir_sample  # type: ignore
 
@@ -37,7 +38,7 @@ def simulate_data() -> None:
     # Get random workout dates
     dates = get_dates(number_of_workouts, start_date, periods)
     dates_sorted = sorted(dates)
-    pp(dates_sorted)
+    logger.debug(pformat(dates_sorted))
 
     # workout_date = dates[0]
     # progress = 10
@@ -49,14 +50,14 @@ def simulate_data() -> None:
     #                                      OUTPUT_DIR,
     #                                      )
     # simulated_exercises = simulated_workout.select_random_exercises()
-    # print(type(simulated_exercises))
-    # print(simulated_exercises)
+    # logger.debug(type(simulated_exercises))
+    # logger.debug(simulated_exercises)
 
     # actual_reps = random.randint(1, 10)
     # weight_range = [50, 90]
 
     # weight_choice = simulated_workout.high_reps_low_weight(weight_range, actual_reps)
-    # print(weight_choice)
+    # logger.debug(weight_choice)
 
     """
     progress = 10  # to simulate higher weight per set across workouts
@@ -68,7 +69,7 @@ def simulate_data() -> None:
         # weight_range = [50, 90]
 
         # simulated_workout.high_reps_low_weight(weight_range, actual_reps)
-        # pp(simulated_workout)
+        # logger.debug(simulated_workout)
         # simulated_workout.write_data()
         # progress += 1_000
     """

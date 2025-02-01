@@ -1,4 +1,5 @@
 """User Settings.
+TODO: Implement/integrate this module
 """
 
 from collections import ChainMap

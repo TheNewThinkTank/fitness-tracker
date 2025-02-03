@@ -525,3 +525,39 @@
 2025-01-31 16:42:07 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/upper_body_b_training_log_2025-01-29_2.yml inserted into the database.
 2025-01-31 16:42:22 - Figures prepared successfully.
 2025-01-31 16:42:23 - Workflow completed successfully
+2025-02-03 16:55:02 - Configuration file ./fitcli.conf not found. Using default values.
+2025-02-03 16:55:02 - Workflow started
+2025-02-03 16:55:02 - Processing for date: 2025-02-03
+2025-02-03 16:55:02 - BASE_PATH: @jinja /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/February
+2025-02-03 16:55:02 - Error: No workout files found for date 2025-02-03.
+2025-02-03 17:22:23 - DEBUG: GOOGLE_DRIVE_DATA_PATH = @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data
+2025-02-03 17:22:23 - DEBUG: IMG_PATH = @jinja @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-02-03 17:23:46 - DEBUG: GOOGLE_DRIVE_DATA_PATH = @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data
+2025-02-03 17:23:46 - DEBUG: IMG_PATH = @jinja @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-02-03 17:25:25 - DEBUG: GOOGLE_DRIVE_DATA_PATH = @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data
+2025-02-03 17:25:25 - DEBUG: IMG_PATH = @jinja @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-02-03 17:25:25 - Configuration file ./fitcli.conf not found. Using default values.
+2025-02-03 17:25:25 - Workflow started
+2025-02-03 17:25:25 - Processing for date: 2025-02-03
+2025-02-03 17:25:25 - BASE_PATH: @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/February
+2025-02-03 17:25:25 - Error: No workout files found for date 2025-02-03.
+2025-02-03 17:42:16 - DEBUG: GOOGLE_DRIVE_DATA_PATH = @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data
+2025-02-03 17:42:16 - DEBUG: IMG_PATH = @jinja @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-02-03 17:42:16 - Configuration file ./fitcli.conf not found. Using default values.
+2025-02-03 17:42:16 - Workflow started
+2025-02-03 17:42:16 - Processing for date: 2025-02-03
+2025-02-03 17:42:16 - BASE_PATH: @jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/February
+2025-02-03 17:42:16 - Error: No workout files found for date 2025-02-03.
+2025-02-03 17:56:32 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-02-03 17:56:32 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-02-03 17:56:32 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-02-03 17:56:32 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-02-03 17:56:32 - Configuration file ./fitcli.conf not found. Using default values.
+2025-02-03 17:56:32 - Workflow started
+2025-02-03 17:56:32 - Processing for date: 2025-02-03
+2025-02-03 17:56:32 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/February
+2025-02-03 17:56:32 - Found 1 workout files for date 2025-02-03.
+2025-02-03 17:56:32 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/February/lower_body_b_training_log_2025-02-03.yml (Workout number: 1)
+2025-02-03 17:56:33 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/February/lower_body_b_training_log_2025-02-03.yml inserted into the database.
+2025-02-03 17:56:37 - Figures prepared successfully.
+2025-02-03 17:56:37 - Workflow completed successfully

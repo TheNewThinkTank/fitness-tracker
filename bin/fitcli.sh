@@ -103,17 +103,27 @@ load_env_variables() {
 
 load_config_variables() {
   if [ -f .config/settings.toml ]; then
-    # Load variables from settings.toml
-    GOOGLE_DRIVE_DATA_PATH=$(tomlq -r '.default.GOOGLE_DRIVE_DATA_PATH' .config/settings.toml | sed "s/{{ env.USER }}/${USER}/g; s/{{ env.EMAIL }}/${EMAIL}/g")
-    IMG_PATH=$(tomlq -r '.default.img_path' .config/settings.toml | sed "s/{{ this.google_drive_data_path }}/${GOOGLE_DRIVE_DATA_PATH}/g; s/{{ env.ATHLETE }}/${ATHLETE}/g")
+    # Call the Python script to process the configuration
+    GOOGLE_DRIVE_DATA_PATH=$(python3 ./src/utils/config.py | grep "GOOGLE_DRIVE_DATA_PATH" | cut -d':' -f2- | xargs)
+    IMG_PATH=$(python3 ./src/utils/config.py | grep "IMG_PATH" | cut -d':' -f2- | xargs)
     IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
-    
-    echo "$GOOGLE_DRIVE_DATA_PATH"
-    echo "$IMG_PATH"
+
+    log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
+    log "DEBUG: IMG_PATH = $IMG_PATH"
   else
-    echo "Warning: .config/settings.toml file not found. Using default img_path."
+    log "Warning: .config/settings.toml file not found. Using default img_path."
     IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
   fi
+}
+
+validate_env_variables() {
+  local required_vars=("USER" "EMAIL" "ATHLETE")
+  for var in "${required_vars[@]}"; do
+    if [[ -z "${!var}" ]]; then
+      log "Error: Environment variable $var is not set."
+      exit 1
+    fi
+  done
 }
 
 parse_arguments() {
@@ -193,7 +203,11 @@ main() {
   fi
 
   load_env_variables
+  validate_env_variables
   load_config_variables  # This depends on YEAR_TO_PLOT, so it must be called after YEAR_TO_PLOT is set
+
+  log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
+  log "DEBUG: IMG_PATH = $IMG_PATH"
 
   load_config
   check_dependencies

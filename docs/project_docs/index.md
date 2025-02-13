@@ -2,9 +2,10 @@
 
 ## Overview
 
-Full stack fitness tracking application using TinyDB and FastAPI.
+Full stack fitness tracking application using TinyDB, FastAPI, Svelte and Docker.
 Add weight-training logs continuously to db.json and query the data through the browser.
-Visually inspect your progression through dates and exercises
+Visually inspect your progression through dates and exercises.
+Most of the project, in particular `src` supports all major platforms (Windows, Linux and MacOS), but the cli `bin/fitcli.sh` currently supports Linux and MacOS only.
 
 ## Getting Started
 

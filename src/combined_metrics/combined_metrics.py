@@ -293,21 +293,32 @@ def main() -> None:
     #     '2025',
     #     ]
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Get combined metrics for volume and frequency of workouts.",
+    )
 
     parser.add_argument(
+        "-y",
         "--year_to_plot",
         type=str,
-        default='2025'
+        default='2025',
         )
 
     parser.add_argument(
+        "-m",
         "--month_to_plot",
         type=str,
         default=default_month
         )
 
-    parser.add_argument("--datatype", type=str, default="real")
+    parser.add_argument(
+        "-t",
+        "--datatype",
+        type=str,
+        default="real",
+        help="Either real or simulated workout data.",
+        )
+
     args = parser.parse_args()
 
     datatype = args.datatype

@@ -153,11 +153,42 @@ def main() -> None:
     setup_logger(log_file="insert.log")
     log_running_file(__file__)
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--file_format", type=str, default='json')
-    parser.add_argument("--datatype", type=str, required=True)
-    parser.add_argument("--dates", type=str)
-    parser.add_argument("--workout_number", type=int)
+    parser = argparse.ArgumentParser(
+        # prog="",
+        description="Add workout logs to TinyDB.",
+    )
+
+    parser.add_argument(
+        "-f",
+        "--file_format",
+        type=str,
+        default="yaml", # "json",
+        help="Format of the workout log file.",
+    )
+
+    parser.add_argument(
+        "-t",
+        "--datatype",
+        type=str,
+        # required=True,
+        default="real",
+        help="Either real or simulated workout data.",
+    )
+
+    parser.add_argument(
+        "-d",
+        "--dates",
+        type=str,
+        help="Date the workout was performed on.",
+    )
+
+    parser.add_argument(
+        "-w",
+        "--workout_number",
+        type=int,
+        help="Number of workouts, if there are multiple workouts on a given date.",
+    )
+
     args = parser.parse_args()
 
     file_format = args.file_format  # json or yml

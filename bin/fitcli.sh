@@ -157,22 +157,18 @@ parse_arguments() {
 }
 
 get_month_name() {
-  local month_num=$1
-  case $month_num in
-    01) echo "January" ;;
-    02) echo "February" ;;
-    03) echo "March" ;;
-    04) echo "April" ;;
-    05) echo "May" ;;
-    06) echo "June" ;;
-    07) echo "July" ;;
-    08) echo "August" ;;
-    09) echo "September" ;;
-    10) echo "October" ;;
-    11) echo "November" ;;
-    12) echo "December" ;;
-    *) echo "Invalid month number: $month_num" >&2; exit 1 ;;
-  esac
+    local month_num=$1
+    if (( month_num >= 1 && month_num <= 12 )); then
+        if [[ "$(uname)" == "Darwin" ]]; then
+            month=$(date -j -f "%m" "$month_num" "+%B")
+        else
+            month=$(date -d "$month_num/1" '+%B')
+        fi
+        echo $month
+    else
+        echo "Invalid month number: $month_num" >&2
+        exit 1
+    fi
 }
 
 main() {

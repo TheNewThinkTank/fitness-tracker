@@ -164,7 +164,7 @@ get_month_name() {
         else
             month=$(date -d "$month_num/1" '+%B')
         fi
-        echo $month
+        echo "$month"
     else
         echo "Invalid month number: $month_num" >&2
         exit 1

@@ -1,6 +1,6 @@
 
 from pprint import pprint as pp
-import yaml
+import yaml  # type: ignore
 
 
 def load_yaml(file_name):

@@ -69,10 +69,12 @@ def set_db_and_table(
     if not year:
         year = datetime.now().year
 
+    training_catalogue = settings["TRAINING_CATALOGUE"]
+
     if env != "prd" or 'GITHUB_ACTIONS' in os.environ:
         db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
         table = db.table("weight_training_log")
-        training_catalogue = "src/utils/muscles_and_exercises.yaml"
+        # training_catalogue = "src/utils/muscles_and_exercises.yaml"
         return db, table, training_catalogue
 
     db_path = (
@@ -83,7 +85,7 @@ def set_db_and_table(
     db_singleton = TinyDBSingleton(db_path)
     db = db_singleton.get_db()
     table = db.table(settings[f"{datatype.upper()}_WEIGHT_TABLE"])
-    training_catalogue = settings["TRAINING_CATALOGUE"]
+    # training_catalogue = settings["TRAINING_CATALOGUE"]
 
     return db, table, training_catalogue
 

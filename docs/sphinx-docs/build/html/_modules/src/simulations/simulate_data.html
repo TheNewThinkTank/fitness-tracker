@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.simulations.simulate_data &mdash; Fitness-Tracker 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fitness-Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.simulations.simulate_data</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.simulations.simulate_data</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simulate weight-training data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Generator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pformat</span>  <span class="c1"># type: ignore</span>
+<span class="c1"># from workout_simulator import WorkoutSimulator  # type: ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">loguru</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>  <span class="c1"># type: ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime_tools.generate_days</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_dates</span>  <span class="c1"># type: ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">algo_lib.sampling.reservoir_sample</span><span class="w"> </span><span class="kn">import</span> <span class="n">reservoir_sample</span>  <span class="c1"># type: ignore</span>
+
+
+<div class="viewcode-block" id="get_dates">
+<a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.get_dates">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_dates</span><span class="p">(</span><span class="n">number_of_workouts</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">periods</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get list of dates.</span>
+
+<span class="sd">    :param number_of_workouts: Number of workouts to simulate</span>
+<span class="sd">    :type number_of_workouts: int</span>
+<span class="sd">    :param start: Start date for generating dates</span>
+<span class="sd">    :type start: datetime</span>
+<span class="sd">    :param periods: Periods to generate</span>
+<span class="sd">    :type periods: int</span>
+<span class="sd">    :return: List of dates</span>
+<span class="sd">    :rtype: list[str]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">date_generator</span><span class="p">:</span> <span class="n">Generator</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">generate_dates</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">periods</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">reservoir_sample</span><span class="p">(</span><span class="n">date_generator</span><span class="p">,</span> <span class="n">number_of_workouts</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="simulate_data">
+<a class="viewcode-back" href="../../../src.simulations.html#src.simulations.simulate_data.simulate_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_data</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate specified number of workouts and insert their data into JSON files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">number_of_workouts</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># 1  # or you could use: int(sys.argv[1])  # Example: 3 * 365</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Start date for generating dates</span>
+    <span class="n">periods</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">365</span>  <span class="c1"># Number of days to generate</span>
+    <span class="c1"># Get random workout dates</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="n">get_dates</span><span class="p">(</span><span class="n">number_of_workouts</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">periods</span><span class="p">)</span>
+    <span class="n">dates_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">pformat</span><span class="p">(</span><span class="n">dates_sorted</span><span class="p">))</span>
+
+    <span class="c1"># workout_date = dates[0]</span>
+    <span class="c1"># progress = 10</span>
+    <span class="c1"># TRAINING_CATALOGUE: str = &quot;src/simulations/muscles_and_exercises_weight_ranges.yaml&quot;</span>
+    <span class="c1"># OUTPUT_DIR: str = &quot;data/simulated/&quot;</span>
+    <span class="c1"># simulated_workout = WorkoutSimulator(workout_date,</span>
+    <span class="c1">#                                      progress,</span>
+    <span class="c1">#                                      TRAINING_CATALOGUE,</span>
+    <span class="c1">#                                      OUTPUT_DIR,</span>
+    <span class="c1">#                                      )</span>
+    <span class="c1"># simulated_exercises = simulated_workout.select_random_exercises()</span>
+    <span class="c1"># logger.debug(type(simulated_exercises))</span>
+    <span class="c1"># logger.debug(pformat(simulated_exercises))</span>
+
+    <span class="c1"># actual_reps = random.randint(1, 10)</span>
+    <span class="c1"># weight_range = [50, 90]</span>
+
+    <span class="c1"># weight_choice = simulated_workout.high_reps_low_weight(weight_range, actual_reps)</span>
+    <span class="c1"># logger.debug(weight_choice)</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    progress = 10  # to simulate higher weight per set across workouts</span>
+<span class="sd">    for workout in range(number_of_workouts):</span>
+<span class="sd">        workout_date = dates[workout]</span>
+<span class="sd">        simulated_workout = WorkoutSimulator(workout_date, progress)</span>
+
+<span class="sd">        # actual_reps = random.randint(1, 10)</span>
+<span class="sd">        # weight_range = [50, 90]</span>
+
+<span class="sd">        # simulated_workout.high_reps_low_weight(weight_range, actual_reps)</span>
+<span class="sd">        # logger.debug(pformat(simulated_workout))</span>
+<span class="sd">        # simulated_workout.write_data()</span>
+<span class="sd">        # progress += 1_000</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">simulate_data</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

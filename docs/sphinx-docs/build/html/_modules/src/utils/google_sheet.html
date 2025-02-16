@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.utils.google_sheet &mdash; Fitness-Tracker 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fitness-Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.utils.google_sheet</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.utils.google_sheet</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Google Sheets API.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># TODO: Move to key-master repo, publish to PyPI.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pformat</span>  <span class="c1"># type: ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">loguru</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>  <span class="c1"># type: ignore</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gspread</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.oauth2.service_account</span><span class="w"> </span><span class="kn">import</span> <span class="n">Credentials</span>
+
+
+<div class="viewcode-block" id="get_sheet">
+<a class="viewcode-back" href="../../../src.utils.html#src.utils.google_sheet.get_sheet">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_sheet</span><span class="p">(</span><span class="n">sheet_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">sheet_title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gspread</span><span class="o">.</span><span class="n">Worksheet</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a Google Sheet by its ID and title.</span>
+
+<span class="sd">    :param sheet_id: ID of the Google Sheet.</span>
+<span class="sd">    :type sheet_id: str</span>
+<span class="sd">    :param sheet_title: Title of the Google Sheet.</span>
+<span class="sd">    :type sheet_title: str</span>
+<span class="sd">    :return: Google Sheet.</span>
+<span class="sd">    :rtype: gspread.Worksheet</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://www.googleapis.com/auth/spreadsheets&quot;</span><span class="p">]</span>
+    <span class="n">creds</span> <span class="o">=</span> <span class="n">Credentials</span><span class="o">.</span><span class="n">from_service_account_file</span><span class="p">(</span>
+        <span class="s2">&quot;local_assets/credentials.json&quot;</span><span class="p">,</span>
+        <span class="n">scopes</span><span class="o">=</span><span class="n">scopes</span>
+        <span class="p">)</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">gspread</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
+    <span class="n">workbook</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_by_key</span><span class="p">(</span><span class="n">sheet_id</span><span class="p">)</span>
+    <span class="n">sheet</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="n">worksheet</span><span class="p">(</span><span class="n">sheet_title</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sheet</span></div>
+
+
+
+<div class="viewcode-block" id="update_sheet">
+<a class="viewcode-back" href="../../../src.utils.html#src.utils.google_sheet.update_sheet">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">update_sheet</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Update a Google Sheet.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># worksheet = sh.get_worksheet(0)</span>
+    <span class="c1"># worksheet = sh.worksheet(sheet_title)</span>
+
+    <span class="c1"># sheets = workbook.worksheets()</span>
+    <span class="c1"># logger.debug(pformat(sheets))</span>
+
+    <span class="c1"># values = [</span>
+    <span class="c1">#     [&quot;Name&quot;, &quot;Price&quot;, &quot;Quantity&quot;],</span>
+    <span class="c1">#     [&quot;Basketball&quot;, 29.99, 1],</span>
+    <span class="c1">#     [&quot;Jeans&quot;, 39.99, 4],</span>
+    <span class="c1">#     [&quot;Soap&quot;, 7.99, 3],</span>
+    <span class="c1"># ]</span>
+
+    <span class="c1"># sheets = map(lambda x: x.title, workbook.worksheets())</span>
+    <span class="c1"># logger.debug(pformat(list(sheets)))</span>
+
+    <span class="c1"># sheet.update_title(&quot;August 2024&quot;)</span>
+    <span class="c1"># sheet.update_cell(1, 1, &quot;new value&quot;)</span>
+
+    <span class="c1"># value = sheet.acell(&quot;A1&quot;).value</span>
+    <span class="c1"># value = sheet.cell(1, 1).value</span>
+    <span class="c1"># logger.debug(pformat(value))</span>
+
+    <span class="c1"># cell = sheet.find(&quot;2024-08-03&quot;)</span>
+    <span class="c1"># logger.debug(pformat(cell.row, cell.col))</span>
+
+    <span class="c1"># new_worksheet_name = &quot;Values&quot;</span>
+
+    <span class="c1"># if new_worksheet_name in sheets:</span>
+    <span class="c1">#     sheet = workbook.worksheet(new_worksheet_name)</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     sheet = workbook.add_worksheet(new_worksheet_name, rows=10, cols=10)</span>
+
+    <span class="c1"># sheet.clear()</span>
+    <span class="c1"># sheet.update(f&quot;A1:C{len(values)}&quot;, values)</span>
+    <span class="c1"># sheet.update_cell(len(values) + 1, 2, &quot;=sum(B2:B4)&quot;)</span>
+    <span class="c1"># sheet.update_cell(len(values) + 1, 3, &quot;=sum(C2:C4)&quot;)</span>
+    <span class="c1"># sheet.format(&quot;A1:C1&quot;, {&quot;textFormat&quot;: {&quot;bold&quot;: True}})</span>
+    <span class="k">return</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../src.utils.html#src.utils.google_sheet.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a Google Sheet.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># example: BODYWEIGHT sheet</span>
+    <span class="n">sheet_id</span> <span class="o">=</span> <span class="s2">&quot;1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs&quot;</span>
+    <span class="n">sheet_title</span> <span class="o">=</span> <span class="s2">&quot;2023-2024&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">pformat</span><span class="p">(</span><span class="n">get_sheet</span><span class="p">(</span><span class="n">sheet_id</span><span class="p">,</span> <span class="n">sheet_title</span><span class="p">)))</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

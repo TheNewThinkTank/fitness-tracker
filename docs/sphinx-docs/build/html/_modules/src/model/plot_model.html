@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.model.plot_model &mdash; Fitness-Tracker 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Fitness-Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.model.plot_model</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.model.plot_model</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Plot weight-training data with fit.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>  <span class="c1"># type: ignore</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># type: ignore</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>  <span class="c1"># type: ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.model.model</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>  <span class="c1"># type: ignore</span>
+    <span class="n">get_data</span><span class="p">,</span>
+    <span class="n">get_df</span><span class="p">,</span>
+    <span class="n">one_rep_max_estimator</span><span class="p">,</span>
+    <span class="n">calc_volume</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.set_db_and_table</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_db_and_table</span>  <span class="c1"># type: ignore</span>
+
+
+<div class="viewcode-block" id="create_1rm_plots">
+<a class="viewcode-back" href="../../../src.model.html#src.model.plot_model.create_1rm_plots">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_1rm_plots</span><span class="p">(</span><span class="n">datatype</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">exercise</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot training data 1RM with fit.</span>
+
+<span class="sd">    :param datatype: Data type: real or simulated</span>
+<span class="sd">    :type datatype: str</span>
+<span class="sd">    :param x: x-axis data</span>
+<span class="sd">    :type x: list</span>
+<span class="sd">    :param y: y-axis data</span>
+<span class="sd">    :type y: list</span>
+<span class="sd">    :param exercise: Exercise name</span>
+<span class="sd">    :type exercise: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+    <span class="n">x_prg1</span><span class="p">,</span> <span class="n">x_prg2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">:]</span>
+    <span class="n">y_prg1</span><span class="p">,</span> <span class="n">y_prg2</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">10</span><span class="p">:]</span>
+
+    <span class="c1"># Only add confidence intervals if there are sufficient data points</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exercise</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># ax = sns.regplot(x=x, y=y, ci=68, truncate=False)</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">x_prg1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_prg1</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Program 1: 4-split&quot;</span>
+        <span class="p">)</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_prg2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_prg2</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Program 2: PPL&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exercise</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+    <span class="n">xticks</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
+    <span class="n">xticks_dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xticks</span><span class="p">]</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xticks_dates</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;1 RM estimates [kg]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;IMG_PATH&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">all_years/one_rep_max/</span><span class="si">{</span><span class="n">datatype</span><span class="si">}</span><span class="s2">_fitted_data_</span><span class="si">{</span><span class="n">exercise</span><span class="si">}</span><span class="s2">_splines.png&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>  <span class="c1"># clear figure before next plot</span></div>
+
+
+
+<div class="viewcode-block" id="create_volume_plots">
+<a class="viewcode-back" href="../../../src.model.html#src.model.plot_model.create_volume_plots">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_volume_plots</span><span class="p">(</span><span class="n">datatype</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">exercise</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create volume plots.</span>
+
+<span class="sd">    :param datatype: Data type: real or simulated</span>
+<span class="sd">    :type datatype: str</span>
+<span class="sd">    :param x: x-axis data</span>
+<span class="sd">    :type x: list</span>
+<span class="sd">    :param y: y-axis data</span>
+<span class="sd">    :type y: list</span>
+<span class="sd">    :param exercise: Exercise name</span>
+<span class="sd">    :type exercise: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+    <span class="c1"># TODO: lookup dates and use get_program instead of list slicing</span>
+    <span class="n">x_prg1</span><span class="p">,</span> <span class="n">x_prg2</span><span class="p">,</span> <span class="n">x_prg3</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">20</span><span class="p">:]</span>
+    <span class="n">y_prg1</span><span class="p">,</span> <span class="n">y_prg2</span><span class="p">,</span> <span class="n">y_prg3</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">20</span><span class="p">:]</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_prg1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_prg1</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Program 1: 4-SPLIT&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_prg2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_prg2</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Program 2: PPL&quot;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_prg3</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_prg3</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Program 3: GVT&quot;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exercise</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">xticks</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
+    <span class="n">xticks_dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xticks</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xticks_dates</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Volume [kg]&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;IMG_PATH&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">all_years/volume/</span><span class="si">{</span><span class="n">datatype</span><span class="si">}</span><span class="s2">_fitted_data_</span><span class="si">{</span><span class="n">exercise</span><span class="si">}</span><span class="s2">_gvt.png&quot;</span>
+        <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>  <span class="c1"># clear figure before next plot</span></div>
+
+
+
+<span class="c1"># TODO: unit test below function</span>
+<div class="viewcode-block" id="get_split">
+<a class="viewcode-back" href="../../../src.model.html#src.model.plot_model.get_split">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_split</span><span class="p">(</span><span class="n">pgm</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get split and key exercises.</span>
+
+<span class="sd">    :param pgm: Program type: 1rm or gvt</span>
+<span class="sd">    :type pgm: str</span>
+<span class="sd">    :return: Split and key exercises</span>
+<span class="sd">    :rtype: list[tuple[list, str]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">splits_and_key_exercises_1rm</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">([</span><span class="s2">&quot;chest&quot;</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">],</span> <span class="s2">&quot;bb_bench_press&quot;</span><span class="p">),</span>
+        <span class="p">([</span><span class="s2">&quot;back&quot;</span><span class="p">,</span> <span class="s2">&quot;pull&quot;</span><span class="p">],</span> <span class="s2">&quot;seated_row&quot;</span><span class="p">),</span>
+        <span class="p">([</span><span class="s2">&quot;legs&quot;</span><span class="p">],</span> <span class="s2">&quot;squat&quot;</span><span class="p">),</span>
+        <span class="p">([</span><span class="s2">&quot;legs&quot;</span><span class="p">],</span> <span class="s2">&quot;deadlift&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">splits_and_key_exercises_gvt</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">([</span><span class="s2">&quot;chest&quot;</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;chest_and_back&quot;</span><span class="p">],</span> <span class="s2">&quot;bb_bench_press&quot;</span><span class="p">),</span>
+        <span class="p">([</span><span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;legs_and_abs&quot;</span><span class="p">],</span> <span class="s2">&quot;squat&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">split_selector</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;1rm&quot;</span><span class="p">:</span> <span class="n">splits_and_key_exercises_1rm</span><span class="p">,</span>
+        <span class="s2">&quot;gvt&quot;</span><span class="p">:</span> <span class="n">splits_and_key_exercises_gvt</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">split_selector</span><span class="p">[</span><span class="n">pgm</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="make_plots">
+<a class="viewcode-back" href="../../../src.model.html#src.model.plot_model.make_plots">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_plots</span><span class="p">(</span>
+        <span class="n">pgm</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">split_selection</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+        <span class="n">table</span><span class="p">,</span>
+        <span class="n">datatype</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make plots.</span>
+
+<span class="sd">    :param pgm: Program type</span>
+<span class="sd">    :type pgm: str</span>
+<span class="sd">    :param split_selection: Split and key exercises</span>
+<span class="sd">    :type split_selection: list[tuple[list, str]]</span>
+<span class="sd">    :param table: TinyDB table</span>
+<span class="sd">    :type table: TinyDB.table</span>
+<span class="sd">    :param datatype: Data type: real or simulated</span>
+<span class="sd">    :type datatype: str</span>
+<span class="sd">    :raises ValueError: If program type is not 1rm or gvt</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">splits</span><span class="p">,</span> <span class="n">exercise</span> <span class="ow">in</span> <span class="n">split_selection</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">get_df</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">splits</span><span class="p">,</span> <span class="n">exercise</span><span class="p">)</span>
+
+        <span class="k">match</span> <span class="n">pgm</span><span class="p">:</span>
+            <span class="k">case</span> <span class="s2">&quot;1rm&quot;</span><span class="p">:</span>
+                <span class="n">df_plot</span> <span class="o">=</span> <span class="n">one_rep_max_estimator</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">df_plot</span><span class="p">)</span>
+                <span class="n">create_1rm_plots</span><span class="p">(</span><span class="n">datatype</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">exercise</span><span class="p">)</span>
+            <span class="k">case</span> <span class="s2">&quot;gvt&quot;</span><span class="p">:</span>
+                <span class="n">df_plot</span> <span class="o">=</span> <span class="n">calc_volume</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">df_plot</span><span class="p">,</span> <span class="n">y_col</span><span class="o">=</span><span class="s2">&quot;volume&quot;</span><span class="p">)</span>
+                <span class="n">create_volume_plots</span><span class="p">(</span><span class="n">datatype</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">exercise</span><span class="p">)</span>
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../src.model.html#src.model.plot_model.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get data and create figure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--datatype&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># real/simulated</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--pgm&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 1rm/gvt</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">datatype</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">datatype</span>
+    <span class="n">pgm</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">pgm</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">set_db_and_table</span><span class="p">(</span><span class="n">datatype</span><span class="p">)</span>
+
+    <span class="n">split_selection</span> <span class="o">=</span> <span class="n">get_split</span><span class="p">(</span><span class="n">pgm</span><span class="p">)</span>
+
+    <span class="n">make_plots</span><span class="p">(</span><span class="n">pgm</span><span class="p">,</span> <span class="n">split_selection</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">datatype</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

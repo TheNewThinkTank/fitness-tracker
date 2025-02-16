@@ -1,0 +1,706 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.utils package &mdash; Fitness-Tracker 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="src.simulations package" href="src.simulations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="src.combined_metrics.html">src.combined_metrics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.crud.html">src.crud package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.model.html">src.model package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.simulations.html">src.simulations package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">src.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.main">src.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.one_rep_max">src.one_rep_max module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.one_rep_max_calc">src.one_rep_max_calc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.one_rep_max_plot">src.one_rep_max_plot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.plot">src.plot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.user_settings">src.user_settings module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fitness-Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+          <li class="breadcrumb-item"><a href="src.html">src package</a></li>
+      <li class="breadcrumb-item active">src.utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-utils-package">
+<h1>src.utils package<a class="headerlink" href="#src-utils-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.utils.cleanup">
+<span id="src-utils-cleanup-module"></span><h2>src.utils.cleanup module<a class="headerlink" href="#module-src.utils.cleanup" title="Link to this heading"></a></h2>
+<p>Empty specified folder or file.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.cleanup.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.cleanup.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/cleanup.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.cleanup.main" title="Link to this definition"></a></dt>
+<dd><p>Empty specified folder or file.</p>
+</dd></dl>
+
+</section>
+<section id="src-utils-config-loader-module">
+<h2>src.utils.config_loader module<a class="headerlink" href="#src-utils-config-loader-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.utils.custom_storage">
+<span id="src-utils-custom-storage-module"></span><h2>src.utils.custom_storage module<a class="headerlink" href="#module-src.utils.custom_storage" title="Link to this heading"></a></h2>
+<p>Extend TinyDB to use YAML as storage.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.utils.custom_storage.YAMLStorage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.utils.custom_storage.</span></span><span class="sig-name descname"><span class="pre">YAMLStorage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/custom_storage.html#YAMLStorage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.custom_storage.YAMLStorage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Storage</span></code></p>
+<p>YAML storage for TinyDB.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.custom_storage.YAMLStorage.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/custom_storage.html#YAMLStorage.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.custom_storage.YAMLStorage.close" title="Link to this definition"></a></dt>
+<dd><p>Optional: Close open file handles, etc.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.custom_storage.YAMLStorage.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/custom_storage.html#YAMLStorage.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.custom_storage.YAMLStorage.read" title="Link to this definition"></a></dt>
+<dd><p>Read the current state.</p>
+<p>Any kind of deserialization should go here.</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">None</span></code> here to indicate that the storage is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.custom_storage.YAMLStorage.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/custom_storage.html#YAMLStorage.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.custom_storage.YAMLStorage.write" title="Link to this definition"></a></dt>
+<dd><p>Write the current state of the database to the storage.</p>
+<p>Any kind of serialization should go here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – The current state of the database.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.custom_storage.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.custom_storage.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/custom_storage.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.custom_storage.main" title="Link to this definition"></a></dt>
+<dd><p>Load a TinyDB database using YAML storage.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.get_bodyweight">
+<span id="src-utils-get-bodyweight-module"></span><h2>src.utils.get_bodyweight module<a class="headerlink" href="#module-src.utils.get_bodyweight" title="Link to this heading"></a></h2>
+<p>Get the bodyweight from the google sheet.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_bodyweight.get_bw">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_bodyweight.</span></span><span class="sig-name descname"><span class="pre">get_bw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/src/utils/get_bodyweight.html#get_bw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_bodyweight.get_bw" title="Link to this definition"></a></dt>
+<dd><p>Get the bodyweight from the google sheet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Bodyweight in kg</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_bodyweight.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_bodyweight.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_bodyweight.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_bodyweight.main" title="Link to this definition"></a></dt>
+<dd><p>Get the bodyweight from the google sheet.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.get_breath_holding">
+<span id="src-utils-get-breath-holding-module"></span><h2>src.utils.get_breath_holding module<a class="headerlink" href="#module-src.utils.get_breath_holding" title="Link to this heading"></a></h2>
+<p>Get breath holding data from Google Sheet
+and plot min, max, and mean duration.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_breath_holding.get_breath_holding">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_breath_holding.</span></span><span class="sig-name descname"><span class="pre">get_breath_holding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/src/utils/get_breath_holding.html#get_breath_holding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_breath_holding.get_breath_holding" title="Link to this definition"></a></dt>
+<dd><p>Get the breath holding data from the Google Sheet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sheet_title</strong> (<em>str</em>) – Title of the Google Sheet</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Breath holding data</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_breath_holding.get_sheet_title">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_breath_holding.</span></span><span class="sig-name descname"><span class="pre">get_sheet_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/utils/get_breath_holding.html#get_sheet_title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_breath_holding.get_sheet_title" title="Link to this definition"></a></dt>
+<dd><p>Get the title of the Google Sheet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em>) – Year</p></li>
+<li><p><strong>month</strong> (<em>int</em>) – Month</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Title of the Google Sheet</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_breath_holding.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_breath_holding.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_breath_holding.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_breath_holding.main" title="Link to this definition"></a></dt>
+<dd><p>Get the breath holding data from the Google Sheet and make a figure.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_breath_holding.make_figure">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_breath_holding.</span></span><span class="sig-name descname"><span class="pre">make_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet_title</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_breath_holding.html#make_figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_breath_holding.make_figure" title="Link to this definition"></a></dt>
+<dd><p>Make a figure of min, max, and mean breath holding duration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – Breath holding data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.get_exercises">
+<span id="src-utils-get-exercises-module"></span><h2>src.utils.get_exercises module<a class="headerlink" href="#module-src.utils.get_exercises" title="Link to this heading"></a></h2>
+<p>Get all exercises available for a given musclegroup.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_exercises.get_available_exercises">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_exercises.</span></span><span class="sig-name descname"><span class="pre">get_available_exercises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">training_catalogue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/utils/get_exercises.html#get_available_exercises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_exercises.get_available_exercises" title="Link to this definition"></a></dt>
+<dd><p>Fetch musclegroup-exercises catalogue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>training_catalogue</strong> (<em>str</em>) – Exercises available for each musclegroup</p></li>
+<li><p><strong>split</strong> (<em>str</em>) – Name of musclegroup</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of available exercises for a given split / musclegroup</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_exercises.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_exercises.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_exercises.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_exercises.main" title="Link to this definition"></a></dt>
+<dd><p>Get all exercises available for a given musclegroup.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.get_program">
+<span id="src-utils-get-program-module"></span><h2>src.utils.get_program module<a class="headerlink" href="#module-src.utils.get_program" title="Link to this heading"></a></h2>
+<p>Get the workout program based on the workout date.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_program.get_pgm_from_date">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_program.</span></span><span class="sig-name descname"><span class="pre">get_pgm_from_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workout_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_program.html#get_pgm_from_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_program.get_pgm_from_date" title="Link to this definition"></a></dt>
+<dd><p>Get the workout program based on the workout date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>workout_date</strong> (<em>str</em>) – date in the format ‘YYYY-MM-DD’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>name of the workout program</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_program.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_program.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_program.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_program.main" title="Link to this definition"></a></dt>
+<dd><p>Get the workout program based on the workout date.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_program.parse_date">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_program.</span></span><span class="sig-name descname"><span class="pre">parse_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_program.html#parse_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_program.parse_date" title="Link to this definition"></a></dt>
+<dd><p>Parse the date string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date_str</strong> (<em>str</em>) – date in the format ‘YYYY-MM-DD’</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>date object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dt | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.get_split">
+<span id="src-utils-get-split-module"></span><h2>src.utils.get_split module<a class="headerlink" href="#module-src.utils.get_split" title="Link to this heading"></a></h2>
+<p>Get the split of the workout.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.utils.get_split.Split">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.utils.get_split.</span></span><span class="sig-name descname"><span class="pre">Split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/get_split.html#Split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_split.Split" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.get_split.Split.BACK">
+<span class="sig-name descname"><span class="pre">BACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#src.utils.get_split.Split.BACK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.get_split.Split.CHEST">
+<span class="sig-name descname"><span class="pre">CHEST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#src.utils.get_split.Split.CHEST" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.get_split.Split.LEGS">
+<span class="sig-name descname"><span class="pre">LEGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#src.utils.get_split.Split.LEGS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-src.utils.get_volume">
+<span id="src-utils-get-volume-module"></span><h2>src.utils.get_volume module<a class="headerlink" href="#module-src.utils.get_volume" title="Link to this heading"></a></h2>
+<p>Get the total workout volume of each date in the table.
+In the case of multiple workouts on the same day,
+the volume is the sum of the volumes of the workouts.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_volume.get_total_volume">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_volume.</span></span><span class="sig-name descname"><span class="pre">get_total_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/utils/get_volume.html#get_total_volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_volume.get_total_volume" title="Link to this definition"></a></dt>
+<dd><p>Get the total volume of all workouts, summing volumes for the same date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>tinydb.table.Table</em>) – TinyDB table</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of tuples containing the date and total volume of each workout</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[tuple[str, int]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_volume.get_weight">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_volume.</span></span><span class="sig-name descname"><span class="pre">get_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bodyweight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Sidea_9012_Olympic_Hex_Bar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/utils/get_volume.html#get_weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_volume.get_weight" title="Link to this definition"></a></dt>
+<dd><p>Get the weight of the exercise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>dict</em>) – Dictionary containing the exercise details</p></li>
+<li><p><strong>bodyweight</strong> (<em>str</em>) – Bodyweight of the person in kg</p></li>
+<li><p><strong>Sidea_9012_Olympic_Hex_Bar</strong> (<em>str</em>) – Weight of the barbell</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Weight of the exercise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_volume.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_volume.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_volume.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_volume.main" title="Link to this definition"></a></dt>
+<dd><p>Get the total volume of each workout in the table.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.get_workout_duration">
+<span id="src-utils-get-workout-duration-module"></span><h2>src.utils.get_workout_duration module<a class="headerlink" href="#module-src.utils.get_workout_duration" title="Link to this heading"></a></h2>
+<p>Get the workout duration on each date in a given year.
+In the case of multiple workouts on the same day,
+the duration is the sum of the durations of the workouts.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_workout_duration.get_all_durations">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_workout_duration.</span></span><span class="sig-name descname"><span class="pre">get_all_durations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/src/utils/get_workout_duration.html#get_all_durations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_workout_duration.get_all_durations" title="Link to this definition"></a></dt>
+<dd><p>Get the total duration of all workouts in a given year,
+summing durations for the same date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>year</strong> (<em>str</em>) – Year to get the duration of each workout for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with the date as the key
+and the duration of the workout as the value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_workout_duration.get_data">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_workout_duration.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/utils/get_workout_duration.html#get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_workout_duration.get_data" title="Link to this definition"></a></dt>
+<dd><p>Get the data from the workout database for a given year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>year</strong> (<em>str</em>) – Year to get the data for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>data from the workout database for a given year.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_workout_duration.get_number_of_workouts">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_workout_duration.</span></span><span class="sig-name descname"><span class="pre">get_number_of_workouts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/src/utils/get_workout_duration.html#get_number_of_workouts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_workout_duration.get_number_of_workouts" title="Link to this definition"></a></dt>
+<dd><p>Get the number of workouts in a given year.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>year</strong> (<em>str</em>) – Year to get the number of workouts for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of workouts in a given year.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.get_workout_duration.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.get_workout_duration.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/get_workout_duration.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.get_workout_duration.main" title="Link to this definition"></a></dt>
+<dd><p>Display the duration of each workout in a given year.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.google_sheet">
+<span id="src-utils-google-sheet-module"></span><h2>src.utils.google_sheet module<a class="headerlink" href="#module-src.utils.google_sheet" title="Link to this heading"></a></h2>
+<p>Google Sheets API.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.google_sheet.get_sheet">
+<span class="sig-prename descclassname"><span class="pre">src.utils.google_sheet.</span></span><span class="sig-name descname"><span class="pre">get_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet_title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Worksheet</span></span></span><a class="reference internal" href="_modules/src/utils/google_sheet.html#get_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.google_sheet.get_sheet" title="Link to this definition"></a></dt>
+<dd><p>Get a Google Sheet by its ID and title.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sheet_id</strong> (<em>str</em>) – ID of the Google Sheet.</p></li>
+<li><p><strong>sheet_title</strong> (<em>str</em>) – Title of the Google Sheet.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Google Sheet.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gspread.Worksheet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.google_sheet.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.google_sheet.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/google_sheet.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.google_sheet.main" title="Link to this definition"></a></dt>
+<dd><p>Display a Google Sheet.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.google_sheet.update_sheet">
+<span class="sig-prename descclassname"><span class="pre">src.utils.google_sheet.</span></span><span class="sig-name descname"><span class="pre">update_sheet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/google_sheet.html#update_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.google_sheet.update_sheet" title="Link to this definition"></a></dt>
+<dd><p>Update a Google Sheet.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.logger_config">
+<span id="src-utils-logger-config-module"></span><h2>src.utils.logger_config module<a class="headerlink" href="#module-src.utils.logger_config" title="Link to this heading"></a></h2>
+<p>Logging configuration for the project.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.logger_config.log_running_file">
+<span class="sig-prename descclassname"><span class="pre">src.utils.logger_config.</span></span><span class="sig-name descname"><span class="pre">log_running_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/logger_config.html#log_running_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.logger_config.log_running_file" title="Link to this definition"></a></dt>
+<dd><p>Optional utility for logging the running file.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.logger_config.setup_logger">
+<span class="sig-prename descclassname"><span class="pre">src.utils.logger_config.</span></span><span class="sig-name descname"><span class="pre">setup_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'insert.log'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'logs/'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/logger_config.html#setup_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.logger_config.setup_logger" title="Link to this definition"></a></dt>
+<dd><p>Set up the logger for the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the log file, defaults to “insert.log”</p></li>
+<li><p><strong>log_dir</strong> (<em>str</em><em>, </em><em>optional</em>) – Name of the log directory, defaults to “logs/”</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.set_db_and_table">
+<span id="src-utils-set-db-and-table-module"></span><h2>src.utils.set_db_and_table module<a class="headerlink" href="#module-src.utils.set_db_and_table" title="Link to this heading"></a></h2>
+<p>Set db and table depending on datatype (real/simulated).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.utils.set_db_and_table.TinyDBSingleton">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.utils.set_db_and_table.</span></span><span class="sig-name descname"><span class="pre">TinyDBSingleton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage=&lt;class</span> <span class="pre">'src.utils.custom_storage.YAMLStorage'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/set_db_and_table.html#TinyDBSingleton"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.set_db_and_table.TinyDBSingleton" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Singleton class for TinyDB.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.set_db_and_table.TinyDBSingleton.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/set_db_and_table.html#TinyDBSingleton.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.set_db_and_table.TinyDBSingleton.close" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.set_db_and_table.TinyDBSingleton.get_db">
+<span class="sig-name descname"><span class="pre">get_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/set_db_and_table.html#TinyDBSingleton.get_db"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.set_db_and_table.TinyDBSingleton.get_db" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.set_db_and_table.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.set_db_and_table.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/set_db_and_table.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.set_db_and_table.main" title="Link to this definition"></a></dt>
+<dd><p>Main function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.set_db_and_table.set_db_and_table">
+<span class="sig-prename descclassname"><span class="pre">src.utils.set_db_and_table.</span></span><span class="sig-name descname"><span class="pre">set_db_and_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datatype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">athlete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'prd'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/set_db_and_table.html#set_db_and_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.set_db_and_table.set_db_and_table" title="Link to this definition"></a></dt>
+<dd><p>Set up database and table based on datatype (real/simulated).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>datatype</strong> (<em>str</em>) – Type of data to be used, either “real” or “simulated”</p></li>
+<li><p><strong>athlete</strong> (<em>str</em><em>, </em><em>optional</em>) – Athlete name, defaults to None</p></li>
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – Year of the data, defaults to None</p></li>
+<li><p><strong>env</strong> (<em>str</em><em>, </em><em>optional</em>) – Environment, defaults to “prd”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Database, table and training catalogue</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.utils.validate">
+<span id="src-utils-validate-module"></span><h2>src.utils.validate module<a class="headerlink" href="#module-src.utils.validate" title="Link to this heading"></a></h2>
+<p>Validates workout data from a JSON file.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="src.utils.validate.ExercisesFormatError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.utils.validate.</span></span><span class="sig-name descname"><span class="pre">ExercisesFormatError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/validate.html#ExercisesFormatError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.ExercisesFormatError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Custom error that is raised when Exercises doesn’t have the right format.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.utils.validate.Workout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.utils.validate.</span></span><span class="sig-name descname"><span class="pre">Workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercises</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warmup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gym</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/utils/validate.html#Workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.Workout" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>Represents a Workout from a JSON file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.date">
+<span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#src.utils.validate.Workout.date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.end">
+<span class="sig-name descname"><span class="pre">end</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#src.utils.validate.Workout.end" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.exercise_valid">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exercise_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/validate.html#Workout.exercise_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.Workout.exercise_valid" title="Link to this definition"></a></dt>
+<dd><p>Validate exercises using the WorkoutValidator.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.exercises">
+<span class="sig-name descname"><span class="pre">exercises</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#src.utils.validate.Workout.exercises" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.gym">
+<span class="sig-name descname"><span class="pre">gym</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#src.utils.validate.Workout.gym" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#src.utils.validate.Workout.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.note">
+<span class="sig-name descname"><span class="pre">note</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#src.utils.validate.Workout.note" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.split">
+<span class="sig-name descname"><span class="pre">split</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#src.utils.validate.Workout.split" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.start">
+<span class="sig-name descname"><span class="pre">start</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#src.utils.validate.Workout.start" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.utils.validate.Workout.warmup">
+<span class="sig-name descname"><span class="pre">warmup</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#src.utils.validate.Workout.warmup" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.utils.validate.WorkoutFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.utils.validate.</span></span><span class="sig-name descname"><span class="pre">WorkoutFactory</span></span><a class="reference internal" href="_modules/src/utils/validate.html#WorkoutFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.WorkoutFactory" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Factory for creating Workout instances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.validate.WorkoutFactory.create_workout">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.utils.validate.Workout" title="src.utils.validate.Workout"><span class="pre">Workout</span></a></span></span><a class="reference internal" href="_modules/src/utils/validate.html#WorkoutFactory.create_workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.WorkoutFactory.create_workout" title="Link to this definition"></a></dt>
+<dd><p>Create a Workout instance from the given data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.validate.WorkoutFactory.create_workouts_from_json">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_workouts_from_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#src.utils.validate.Workout" title="src.utils.validate.Workout"><span class="pre">Workout</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/utils/validate.html#WorkoutFactory.create_workouts_from_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.WorkoutFactory.create_workouts_from_json" title="Link to this definition"></a></dt>
+<dd><p>Creates a list of Workout instances from a JSON file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.utils.validate.WorkoutValidator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.utils.validate.</span></span><span class="sig-name descname"><span class="pre">WorkoutValidator</span></span><a class="reference internal" href="_modules/src/utils/validate.html#WorkoutValidator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.WorkoutValidator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handles validation of workout data.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.utils.validate.WorkoutValidator.validate_exercises">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_exercises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/validate.html#WorkoutValidator.validate_exercises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.WorkoutValidator.validate_exercises" title="Link to this definition"></a></dt>
+<dd><p>Validator to check whether exercises are valid.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.validate.main">
+<span class="sig-prename descclassname"><span class="pre">src.utils.validate.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/utils/validate.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.validate.main" title="Link to this definition"></a></dt>
+<dd><p>Main function.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.utils" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="src.simulations.html" class="btn btn-neutral float-left" title="src.simulations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

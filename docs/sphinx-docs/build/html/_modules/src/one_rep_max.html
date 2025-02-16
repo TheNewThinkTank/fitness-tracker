@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.one_rep_max &mdash; Fitness-Tracker 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Fitness-Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.one_rep_max</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.one_rep_max</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;acsm_1rm, epley or brzycki formulas</span>
+<span class="sd">are used to implement the 1RM estimation.</span>
+
+<span class="sd">ACSM 1RM formula</span>
+
+<span class="sd">.. math::</span>
+<span class="sd">    \\frac{w}{\\frac{100 - r \\cdot 2.5}{100}}</span>
+
+<span class="sd">Epley 1RM formula</span>
+
+<span class="sd">.. math::</span>
+<span class="sd">    w \\cdot \\frac{1 + r}{30}</span>
+
+<span class="sd">Brzycki 1RM formula</span>
+
+<span class="sd">.. math::</span>
+<span class="sd">    w \\cdot \\frac{36}{37 - r}</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<div class="viewcode-block" id="OneRepMaxStrategy">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.OneRepMaxStrategy">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OneRepMaxStrategy</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract class for one-repetition-maximum estimation strategies.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="OneRepMaxStrategy.estimate">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.OneRepMaxStrategy.estimate">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">reps</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="EpleyStrategy">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.EpleyStrategy">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">EpleyStrategy</span><span class="p">(</span><span class="n">OneRepMaxStrategy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Epley formula for one-repetition-maximum estimation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="EpleyStrategy.estimate">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.EpleyStrategy.estimate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">reps</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">weight</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">reps</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BrzyckiStrategy">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.BrzyckiStrategy">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BrzyckiStrategy</span><span class="p">(</span><span class="n">OneRepMaxStrategy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Brzycki formula for one-repetition-maximum estimation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BrzyckiStrategy.estimate">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.BrzyckiStrategy.estimate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">reps</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">weight</span> <span class="o">*</span> <span class="mi">36</span> <span class="o">/</span> <span class="p">(</span><span class="mi">37</span> <span class="o">-</span> <span class="n">reps</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ACSMStrategy">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.ACSMStrategy">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ACSMStrategy</span><span class="p">(</span><span class="n">OneRepMaxStrategy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;ACSM formula for one-repetition-maximum estimation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ACSMStrategy.estimate">
+<a class="viewcode-back" href="../../src.html#src.one_rep_max.ACSMStrategy.estimate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">reps</span><span class="p">):</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">reps</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+        <span class="c1"># Check if denominator has any zeros</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;denominator is zero in ACSM formula for one or more entries.&quot;</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">weight</span> <span class="o">/</span> <span class="n">denominator</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

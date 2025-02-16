@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.crud package &mdash; Fitness-Tracker 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src.model package" href="src.model.html" />
+    <link rel="prev" title="src.combined_metrics package" href="src.combined_metrics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fitness-Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="src.html">src package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="src.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="src.combined_metrics.html">src.combined_metrics package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">src.crud package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.model.html">src.model package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.simulations.html">src.simulations package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="src.utils.html">src.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.main">src.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.one_rep_max">src.one_rep_max module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.one_rep_max_calc">src.one_rep_max_calc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.one_rep_max_plot">src.one_rep_max_plot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.plot">src.plot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src.user_settings">src.user_settings module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="src.html#module-src">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fitness-Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+          <li class="breadcrumb-item"><a href="src.html">src package</a></li>
+      <li class="breadcrumb-item active">src.crud package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/src.crud.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="src-crud-package">
+<h1>src.crud package<a class="headerlink" href="#src-crud-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-src.crud.delete">
+<span id="src-crud-delete-module"></span><h2>src.crud.delete module<a class="headerlink" href="#module-src.crud.delete" title="Link to this heading"></a></h2>
+<p>Delete data from the database.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.delete.main">
+<span class="sig-prename descclassname"><span class="pre">src.crud.delete.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/delete.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.delete.main" title="Link to this definition"></a></dt>
+<dd><p>Main function.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.delete.remove_from_table">
+<span class="sig-prename descclassname"><span class="pre">src.crud.delete.</span></span><span class="sig-name descname"><span class="pre">remove_from_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/crud/delete.html#remove_from_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.delete.remove_from_table" title="Link to this definition"></a></dt>
+<dd><p>Remove from table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>TinyDB.table</em>) – TinyDB table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.delete.truncate_table">
+<span class="sig-prename descclassname"><span class="pre">src.crud.delete.</span></span><span class="sig-name descname"><span class="pre">truncate_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/delete.html#truncate_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.delete.truncate_table" title="Link to this definition"></a></dt>
+<dd><p>Truncate table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>TinyDB.table</em>) – TinyDB table</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.crud.insert">
+<span id="src-crud-insert-module"></span><h2>src.crud.insert module<a class="headerlink" href="#module-src.crud.insert" title="Link to this heading"></a></h2>
+<p>Store weight-training data.</p>
+<p>Docs: <a class="reference external" href="https://tinydb.readthedocs.io/en/latest/getting-started.html">https://tinydb.readthedocs.io/en/latest/getting-started.html</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.insert.insert_all_logs">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">insert_all_logs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folderpath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#insert_all_logs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.insert_all_logs" title="Link to this definition"></a></dt>
+<dd><p>Store all training logs in database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>folderpath</strong> (<em>str</em>) – A path to the workout log folder,
+from where each file will be inserted into the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.insert.insert_log">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">insert_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#insert_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.insert_log" title="Link to this definition"></a></dt>
+<dd><p>Store training log from log_path in database table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>log_path</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>, </em><em>list</em><em>]</em>) – A path to the workout log file or a list of paths
+that will be inserted into the table</p></li>
+<li><p><strong>file_format</strong> (<em>str</em>) – Format of the log file (‘json’ or ‘yml’)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.insert.insert_specific_log">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">insert_specific_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'yml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workout_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#insert_specific_log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.insert_specific_log" title="Link to this definition"></a></dt>
+<dd><p>Store a specific training log in database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> (<em>str</em>) – string of date in format YYYY-MM-DD</p></li>
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>file_format</strong> (<em>str</em>) – file extention, e.g. json or yml</p></li>
+<li><p><strong>workout_number</strong> (<em>int</em><em>, </em><em>optional</em>) – unique identifier of the workout on a given day,
+in case of multiple workouts. Defaults to 1</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.insert.main">
+<span class="sig-prename descclassname"><span class="pre">src.crud.insert.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/insert.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.insert.main" title="Link to this definition"></a></dt>
+<dd><p>Insert all simulated- or 1 or more real training logs.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.crud.read">
+<span id="src-crud-read-module"></span><h2>src.crud.read module<a class="headerlink" href="#module-src.crud.read" title="Link to this heading"></a></h2>
+<p>Store and analyze weight-training data.</p>
+<p>Docs: <a class="reference external" href="https://tinydb.readthedocs.io/en/latest/getting-started.html">https://tinydb.readthedocs.io/en/latest/getting-started.html</a></p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.analyze_workout">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">analyze_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#analyze_workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.analyze_workout" title="Link to this definition"></a></dt>
+<dd><p>Deeper analysis of workout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>exercise</strong> (<em>str</em>) – Name of exercise to analyze</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries representing the records.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.describe_workout">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">describe_workout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#describe_workout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.describe_workout" title="Link to this definition"></a></dt>
+<dd><p>Simple summary statistics for each exercise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – TinyDB table</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – Date of workout</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary with the date of the workout and the exercises performed</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.get_all">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#get_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.get_all" title="Link to this definition"></a></dt>
+<dd><p>Get all documents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>TinyDB table</em>) – TinyDB table</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries representing the records.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.get_bw_workouts">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">get_bw_workouts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#get_bw_workouts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.get_bw_workouts" title="Link to this definition"></a></dt>
+<dd><p>get workouts where BODYWEIGHT was used</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.get_dates">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">get_dates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#get_dates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.get_dates" title="Link to this definition"></a></dt>
+<dd><p>Get all workout dates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>TinyDB table</em>) – TinyDB table</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of workout dates</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.get_dates_and_muscle_groups">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">get_dates_and_muscle_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#get_dates_and_muscle_groups"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.get_dates_and_muscle_groups" title="Link to this definition"></a></dt>
+<dd><p>Returns all workout dates with their corresponding muscle groups.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary of workout dates and corresponding splits / musclegroup</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.main">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to run all the functions.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.search_for_exercise">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">search_for_exercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'assisted_pullup'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#search_for_exercise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.search_for_exercise" title="Link to this definition"></a></dt>
+<dd><p>Search for a specific exercise in the table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – TinyDB table</p></li>
+<li><p><strong>exercise</strong> (<em>str</em>) – Name of exercise to search for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dictionaries representing the records.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.show_exercise">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">show_exercise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/crud/read.html#show_exercise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.show_exercise" title="Link to this definition"></a></dt>
+<dd><p>Show detailed data for selected exercise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – TinyDB table</p></li>
+<li><p><strong>exercise</strong> (<em>str</em>) – Name of exercise</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – Date of workout</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of sets for the selected exercise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.read.show_exercises">
+<span class="sig-prename descclassname"><span class="pre">src.crud.read.</span></span><span class="sig-name descname"><span class="pre">show_exercises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/crud/read.html#show_exercises"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.read.show_exercises" title="Link to this definition"></a></dt>
+<dd><p>Show all exercises for given workout date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<em>TinyDB table</em>) – A TinyDB table</p></li>
+<li><p><strong>date</strong> (<em>str</em>) – Date of a given workout</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of exercises performed on a given date</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-src.crud.update">
+<span id="src-crud-update-module"></span><h2>src.crud.update module<a class="headerlink" href="#module-src.crud.update" title="Link to this heading"></a></h2>
+<p>Update or delete weight-training data.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.update.clean_exercise_name">
+<span class="sig-prename descclassname"><span class="pre">src.crud.update.</span></span><span class="sig-name descname"><span class="pre">clean_exercise_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exercise</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/src/crud/update.html#clean_exercise_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.update.clean_exercise_name" title="Link to this definition"></a></dt>
+<dd><p>Cleans the name of an exercise by replacing spaces with underscores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>exercise</strong> (<em>str</em>) – The name of an exercise</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The cleaned exercise name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.update.clean_exercise_names">
+<span class="sig-prename descclassname"><span class="pre">src.crud.update.</span></span><span class="sig-name descname"><span class="pre">clean_exercise_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/update.html#clean_exercise_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.update.clean_exercise_names" title="Link to this definition"></a></dt>
+<dd><p>Cleans the names of exercises by replacing spaces with underscores
+and updating the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>tinydb.table.Table</em>) – The database table containing workout data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.update.filter_exercises_with_whitespace">
+<span class="sig-prename descclassname"><span class="pre">src.crud.update.</span></span><span class="sig-name descname"><span class="pre">filter_exercises_with_whitespace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">workout_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="reference internal" href="_modules/src/crud/update.html#filter_exercises_with_whitespace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.update.filter_exercises_with_whitespace" title="Link to this definition"></a></dt>
+<dd><p>Find exercises with whitespace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>workout_data</strong> (<em>list</em>) – Workout data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of workouts with exercises that contain whitespace</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.crud.update.main">
+<span class="sig-prename descclassname"><span class="pre">src.crud.update.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/crud/update.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.crud.update.main" title="Link to this definition"></a></dt>
+<dd><p>Main function for the update module.</p>
+</dd></dl>
+
+</section>
+<section id="module-src.crud">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-src.crud" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="src.combined_metrics.html" class="btn btn-neutral float-left" title="src.combined_metrics package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="src.model.html" class="btn btn-neutral float-right" title="src.model package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Gustav Rasmussen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

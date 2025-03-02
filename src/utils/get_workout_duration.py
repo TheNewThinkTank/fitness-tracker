@@ -36,7 +36,6 @@ def get_data(year: str) -> list[dict]:
     return data
 
 
-@profile
 def get_all_durations(year: str) -> dict:
     """Get the total duration of all workouts in a given year,
     summing durations for the same date.
@@ -84,6 +83,7 @@ def get_number_of_workouts(year: str) -> int:
     return len(data)
 
 
+@profile
 def main() -> None:
     """Display the duration of each workout in a given year.
     """

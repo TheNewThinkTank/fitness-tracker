@@ -89,7 +89,7 @@ def set_db_and_table(
 
     return db, table, training_catalogue
 
-
+# @profile
 def main() -> None:
     """Main function.
     """

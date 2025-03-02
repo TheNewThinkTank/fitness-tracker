@@ -225,9 +225,9 @@ def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
     :return: None
     """
 
-    date_and_duration = get_all_durations(year_to_plot)
+    _date_and_duration = get_all_durations(year_to_plot)
     date_and_volume = get_total_volume(table)
-    dates = date_and_duration.keys()
+    _dates = _date_and_duration.keys()
     splits = [
         "push",
         "full_body",
@@ -237,18 +237,18 @@ def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
     exercise = "bb_bench_press"  # "squat"
     df = get_df(table, splits=splits, exercise=exercise)
     one_rm = one_rep_max_estimator(df)
-    one_rm_filtered = one_rm[one_rm.index.isin(dates)]
+    one_rm_filtered = one_rm[one_rm.index.isin(_dates)]
     volumes = [
         d_v[1] for d_v in date_and_volume if d_v[0] in one_rm_filtered.index  # dates
     ]
 
     date_and_duration: dict[Any, Any] = {
         dt.strptime(k, "%Y-%m-%d").date(): v
-        for k, v in date_and_duration.items()
+        for k, v in _date_and_duration.items()
         if k in one_rm_filtered.index
     }
-    dates: list[Any] = list(date_and_duration.keys())
 
+    dates: list[Any] = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
     # one_rm_values = one_rm_filtered["1RM"].to_list()
 
@@ -260,7 +260,9 @@ def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
     ax.xaxis.set_major_locator(mdates.DayLocator())
 
-    sns.scatterplot(x=dates, y=durations, hue=volumes, palette="Reds", s=one_rm, ax=ax)
+    sns.scatterplot(
+        x=dates, y=durations, hue=volumes, palette="Reds", s=one_rm, ax=ax
+        )
     plt.plot(dates, durations, zorder=0, c="brown")
 
     ax.get_legend().remove()

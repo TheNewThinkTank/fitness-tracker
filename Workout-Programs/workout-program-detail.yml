@@ -1,0 +1,28 @@
+---
+
+program_10:
+  upper_body_a (Strength):
+    bench_press: 4 sets of 4-6 reps
+    bent_row: 4 sets of 4-6 reps
+    overhead_press: 3 sets of 4-6 reps
+    pullup: 3 sets of 4-6 reps
+    dip: 3 sets of 6-8 reps
+  lower_body_a (Strength):
+    squat: 4 sets of 4-6 reps
+    deadlift: 4 sets of 4-6 reps
+    leg_press: 3 sets of 6-8 reps
+    rdl: 3 sets of 6-8 reps
+    calf_raise: 3 sets of 8-10 reps
+  upper_body_b (Hypertrophy):
+    db_incline_press: 3 sets of 8-12 reps
+    seated_row: 3 sets of 8-12 reps
+    lateral_raise: 3 sets of 12-15 reps
+    face_pull: 3 sets of 12-15 reps
+    bb_curl: 3 sets of 12-15 reps
+    tricep_pushdown: 3 sets of 12-15 reps
+  lower_body_b (Hypertrophy):
+    leg_extension: 3 sets of 12-15 reps
+    leg_curl: 3 sets of 12-15 reps
+    lunge: 3 sets of 12-15 reps
+    glute_bridge: 3 sets of 12-15 reps
+    seated_calf_raise: 3 sets of 15-20 reps

@@ -13,6 +13,7 @@ import pandas as pd  # type: ignore
 from pprint import pformat  # type: ignore
 from loguru import logger  # type: ignore
 import seaborn as sns  # type: ignore
+from typing import Any  # type: ignore
 # import statsmodels.api as sm  # type: ignore
 # from scipy.interpolate import make_interp_spline  # type: ignore
 # from icecream import ic  # type: ignore
@@ -241,12 +242,13 @@ def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
         d_v[1] for d_v in date_and_volume if d_v[0] in one_rm_filtered.index  # dates
     ]
 
-    date_and_duration = {
+    date_and_duration: dict[Any, Any] = {
         dt.strptime(k, "%Y-%m-%d").date(): v
         for k, v in date_and_duration.items()
         if k in one_rm_filtered.index
     }
-    dates = list(date_and_duration.keys())
+    dates: list[Any] = list(date_and_duration.keys())
+
     durations = list(date_and_duration.values())
     # one_rm_values = one_rm_filtered["1RM"].to_list()
 

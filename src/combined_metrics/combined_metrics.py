@@ -216,7 +216,7 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     save_plot(fig, save_path)
 
 
-def plot_duration_volume_1rm(table) -> None:
+def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
     """Plot workout duration, volume and 1RM.
 
     :param table: TinyDB table
@@ -224,7 +224,7 @@ def plot_duration_volume_1rm(table) -> None:
     :return: None
     """
 
-    date_and_duration = get_all_durations()
+    date_and_duration = get_all_durations(year_to_plot)
     date_and_volume = get_total_volume(table)
     dates = date_and_duration.keys()
     splits = [
@@ -331,7 +331,7 @@ def main() -> None:
 
     plot_frequency(table, year_to_plot)
     plot_duration(table, year_to_plot, month_to_plot)
-    # plot_duration_volume_1rm(table)
+    # plot_duration_volume_1rm(table, year_to_plot)
 
 
 if __name__ == "__main__":

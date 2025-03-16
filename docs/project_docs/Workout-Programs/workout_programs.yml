@@ -133,6 +133,23 @@ programs:
       The program will incorporate both heavy compound lifts
       and higher-rep isolation exercises.
     start: 2025-01-04
-    end: 2025-MM-DD
-    program_iterations: 12
-    number_of_workouts: 48
+    end: 2025-03-DD
+    program_iterations: 6
+    number_of_workouts: 24
+
+program_11:
+  name: KETTLEBELL & BODYWEIGHT HYBRID
+  splits:
+    - upper_body_push_core
+    - lower_body_power_pullups
+    - upper_body_pull_kettlebell_circuit
+    - full_body_kettlebell_box_jumps
+  description: |
+    A hybrid program combining kettlebell exercises,
+    and bodyweight movements to build strength, power, and functional fitness.
+    Includes a dedicated abs/core workout for improved core stability.
+    Focus on dynamic, compound movements with moderate to high intensity.
+  start: 2025-MM-DD
+  end: 2026-MM-DD
+  program_iterations: 12
+  number_of_workouts: 48

@@ -26,3 +26,44 @@ program_10:
     lunge: 3 sets of 12-15 reps
     glute_bridge: 3 sets of 12-15 reps
     seated_calf_raise: 3 sets of 15-20 reps
+
+program_11:
+  Warm-Up: 5-10 minutes dynamic stretching + mobility drills
+  upper_body_push_core:
+    Main_Exercises:
+      Kettlebell Overhead Press - 4 sets of 6-8 reps per arm
+      Push-Ups (Weighted if possible) - 3 sets of 10-15 reps
+      Kettlebell Floor Press - 3 sets of 8-10 reps per arm
+      Dips (Bodyweight or Assisted) - 3 sets of 8-12 reps
+    Core_Workout:
+      Hanging Leg Raises - 3 sets of 10-12 reps
+      Plank Hold (Forearm) - 3 sets of 45-60 seconds
+      Russian Twists (with kettlebell) - 3 sets of 20 twists (10 per side)
+  lower_body_power_pullups:
+    Main_Exercises:
+      Box Jumps - 4 sets of 8-10 reps
+      Kettlebell Goblet Squats - 4 sets of 8-10 reps
+      Kettlebell Swings - 3 sets of 15-20 reps
+      Walking Lunges (Bodyweight or Weighted) - 3 sets of 10 steps per leg
+    Pullup_Circuit:
+      Chin-Ups - 3 sets of 6-10 reps
+      Wide-Grip Pull-Ups - 3 sets of 6-8 reps
+      Commando Pull-Ups - 3 sets of 8-10 reps per side
+  upper_body_pull_kettlebell_circuit:
+    Main_Exercises:
+      Kettlebell Renegade Rows - 4 sets of 8-10 reps per arm
+      Inverted Rows (TRX or Barbell) - 3 sets of 10-12 reps
+      Face Pulls (with Resistance Band) - 3 sets of 12-15 reps
+    Kettlebell_Circuit (No Rest Between Exercises):
+      Kettlebell Clean and Press - 10 reps per arm
+      Kettlebell Bent-Over Rows - 10 reps per arm
+      Kettlebell Snatch - 10 reps per arm
+      Repeat circuit 3 times with 1-minute rest between rounds.
+  full_body_kettlebell_box_jumps:
+    Main_Exercises:
+      Kettlebell Turkish Get-Ups - 3 sets of 3-5 reps per arm
+      Box Jumps - 4 sets of 8-10 reps
+      Kettlebell Deadlifts - 4 sets of 8-10 reps
+      Burpee Box Jump Combo - 3 sets of 8-10 reps
+    Finisher:
+      Farmer's Carry (Heavy Kettlebells) - 3 rounds of 30-40 meters

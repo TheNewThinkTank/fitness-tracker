@@ -3,7 +3,7 @@ __pycache__
 .pytest_cache
 local_assets
 node_modules
-.vscode
+# .vscode
 poetry.lock
 .DS_Store
 .env

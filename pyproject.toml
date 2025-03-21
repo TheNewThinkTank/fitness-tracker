@@ -38,6 +38,7 @@ dynaconf = "^3.2.7"
 loguru = "^0.7.3"
 sphinx-rtd-theme = "^3.0.2"
 snakeviz = "^2.2.2"
+isort = "^6.0.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.4"
@@ -50,7 +51,7 @@ yamllint = "^1.35.1"
 icecream = "^2.1.3"
 
 [tool.pytest.ini_options]
-pythonpath = "src:src/crud"
+pythonpath = "src"  # "src:src/crud"
 
 [tool.poetry.extras]
 docs = ["sphinx", "sphinx_rtd_theme"]

@@ -6,5 +6,5 @@
     ],
     // "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.testing.cwd": "${workspaceFolder}/test",
+    "python.testing.cwd": "${workspaceFolder}",
 }

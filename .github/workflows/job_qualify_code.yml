@@ -12,7 +12,7 @@ on:
 
 jobs:
   qualify_code:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest  # ubuntu-20.04
 
     steps:
       - name: Check out repository code

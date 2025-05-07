@@ -6,7 +6,7 @@ on:
       PYTHONVERSION:
         required: true
         description: Python version to use
-        type: number
+        type: string
       google_drive_data_path:
         required: true
         type: string

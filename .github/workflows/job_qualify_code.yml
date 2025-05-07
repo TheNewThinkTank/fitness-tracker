@@ -3,6 +3,10 @@ name: Qualify Code
 on:
   workflow_call:
     inputs:
+      PYTHONVERSION:
+        required: true
+        description: Python version to use
+        type: number
       google_drive_data_path:
         required: true
         type: string
@@ -18,29 +22,34 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      # - name: Setup Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: 3.11
+      #     cache: pip
+
+      # - name: Install and cache poetry
+      #   run: make -f .config/Makefile install-poetry
+      #   if: steps.cache.outputs.cache-hit != 'true'
+
+      # - name: Cache poetry dependencies
+      #   id: cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ~/.cache/pypoetry/virtualenvs
+      #     key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}-v2
+      #     restore-keys: ${{ runner.os }}-poetry-
+
+      # - name: Install dependencies with poetry
+      #   run: poetry install
+      #   env:
+      #     POETRY_VIRTUALENVS_IN_PROJECT: true
+      #   if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Setup Python and Poetry
+        uses: TheNewThinkTank/gh-actions/.github/actions/setup-python-poetry@v1.0.0  # main
         with:
-          python-version: 3.11
-          cache: pip
-
-      - name: Install and cache poetry
-        run: make -f .config/Makefile install-poetry
-        if: steps.cache.outputs.cache-hit != 'true'
-
-      - name: Cache poetry dependencies
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}-v2
-          restore-keys: ${{ runner.os }}-poetry-
-
-      - name: Install dependencies with poetry
-        run: poetry install
-        env:
-          POETRY_VIRTUALENVS_IN_PROJECT: true
-        if: steps.cache.outputs.cache-hit != 'true'
+          python-version: ${{ inputs.PYTHONVERSION }}
 
       - name: Set GOOGLE_DRIVE_DATA_PATH
         run: echo "GOOGLE_DRIVE_DATA_PATH=${{ inputs.google_drive_data_path }}" >> $GITHUB_ENV

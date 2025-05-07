@@ -7,13 +7,24 @@ on:
     branches:
       - main
 
-# env:
+env:
+  PYTHONVERSION: 3.11
 #   IMAGE_NAME: "fitness-tracker"
 
 jobs:
+
+  vars:
+    runs-on: ubuntu-latest
+    outputs:
+      PYTHONVERSION: ${{ env.PYTHONVERSION }}
+    steps:
+      - run: echo "Exposing env vars"
+
   qualify_code:
+    needs: vars
     uses: ./.github/workflows/job_qualify_code.yml
     with:
+      PYTHONVERSION: ${{ needs.vars.outputs.PYTHONVERSION }}
       google_drive_data_path: "data"
     secrets:
       ATHLETE: ${{ secrets.ATHLETE }}

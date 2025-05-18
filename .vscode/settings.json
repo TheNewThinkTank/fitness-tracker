@@ -1,10 +1,18 @@
 {
-    // Python settings
-    // "python.envFile": "${workspaceFolder}/.env",
-    "python.testing.pytestArgs": [
-        "test"
-    ],
-    // "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "python.testing.cwd": "${workspaceFolder}",
+  // Python settings
+  // "python.envFile": "${workspaceFolder}/.env",
+  "python.testing.pytestArgs": [
+    "test"
+  ],
+  // "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.testing.cwd": "${workspaceFolder}",
+
+  "yaml.schemas": {
+    ".config/yaml_schema.json": [
+      "**/fitness-tracker-data/**/*.yaml",
+      "**/fitness-tracker-data/**/*.yml"
+    ]
+  }
+
 }

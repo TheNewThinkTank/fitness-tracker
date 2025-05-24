@@ -133,12 +133,12 @@ programs:
       The program will incorporate both heavy compound lifts
       and higher-rep isolation exercises.
     start: 2025-01-04
-    end: 2025-03-DD
+    end: 2025-05-24
     program_iterations: 6
     number_of_workouts: 24
 
 program_11:
-  name: KETTLEBELL & BODYWEIGHT HYBRID
+  name: KETTLEBELL-BODYWEIGHT-HYBRID
   splits:
     - upper_body_push_core
     - lower_body_power_pullups
@@ -151,5 +151,5 @@ program_11:
     Focus on dynamic, compound movements with moderate to high intensity.
   start: 2025-MM-DD
   end: 2026-MM-DD
-  program_iterations: 12
-  number_of_workouts: 48
+  program_iterations: 6
+  number_of_workouts: 24

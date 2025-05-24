@@ -169,8 +169,27 @@
       &nbsp;&nbsp;&nbsp;&nbsp;The program will incorporate both heavy compound lifts<br>
       &nbsp;&nbsp;&nbsp;&nbsp;and higher-rep isolation exercises.<br>
     start: 2025-01-04<br>
+    end: 2025-05-24<br>
+    program_iterations: 6<br>
+    number_of_workouts: 24<br>
+
+</details>
+
+<details>
+
+  <summary>program_11</summary>
+
+    name: HYBRID-STRENGTH-HYPERTROPHY<br>
+    splits:
+      - foo
+      - bar
+      - baz
+      - qux
+    description:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;desc
+    start: 2025-MM-DD<br>
     end: 2025-MM-DD<br>
-    program_iterations: 12<br>
-    number_of_workouts: 48<br>
+    program_iterations: 6<br>
+    number_of_workouts: 24<br>
 
 </details>

@@ -144,8 +144,10 @@ program_11:
     - pull
     - legs
   description: |
-    A hypertrophy program focusing on metabolic stress through supersets and short rest periods.
-    Every 2 exercises are performed as supersets with no break between exercises, and approx. 10-15 seconds break between supersets.
+    A hypertrophy program focusing on metabolic stress through supersets,
+    and short rest periods. Every 2 exercises are performed as supersets
+    with no break between exercises,
+    and approx. 10-15 seconds break between supersets.
   start: 2025-MM-DD
   end: 2026-MM-DD
   program_iterations: 6

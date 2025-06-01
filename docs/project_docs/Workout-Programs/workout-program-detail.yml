@@ -28,6 +28,35 @@ program_10:
     seated_calf_raise: 3 sets of 15-20 reps
 
 program_11:
+  push:
+    bench_press: 3 sets of 8-12 reps
+    lateral_raise: 3 sets of 8-12 reps
+    db_incline_press: 3 sets of 8-12 reps
+    db_incline_flys: 3 sets of 8-12 reps
+    military_press: 3 sets of 8-12 reps
+    bb_shrug: 3 sets of 8-12 reps
+    front_raise: 3 sets of 8-12 reps
+    around_the_world: 3 sets of 8-12 reps
+  pull:
+    pullup: 3 sets of max reps
+    back_extension: 3 sets of 12-15 reps
+    pull_down: 3 sets of 8-12 reps
+    bent_row: 3 sets of 8-12 reps
+    seated_row: 3 sets of 8-12 reps
+    rear_lateral_raise: 3 sets of 8-12 reps
+    straight_arm_pull_down: 3 sets of 8-12 reps
+    face_pull: 3 sets of 8-12 reps
+  legs:
+    squat: 3 sets of 8-12 reps
+    deadlift: 3 sets of 8-12 reps
+    walking_lunge: 3 sets of 8-12 reps
+    rdl: 3 sets of 8-12 reps
+    leg_extension: 3 sets of 8-12 reps
+    leg_curl: 3 sets of 8-12 reps
+    calf_raise: 3 sets of 8-12 reps
+    hanging_leg_raise: 3 sets of max reps
+
+program_12_placeholder:
   Warm-Up: 5-10 minutes dynamic stretching + mobility drills
   upper_body_push_core:
     Main_Exercises:

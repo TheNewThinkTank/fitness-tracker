@@ -179,17 +179,14 @@
 
   <summary>program_11</summary>
 
-    name: HYBRID-STRENGTH-HYPERTROPHY<br>
-    splits:
-      - foo
-      - bar
-      - baz
-      - qux
+    name: PPL<br>
+    splits: [push, pull, legs]<br>
     description:<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;desc
-    start: 2025-MM-DD<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Focus on hypertrophy.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Lighter sets of 8-15 reps for key exercises<br>
+    start: 2025-06-01<br>
     end: 2025-MM-DD<br>
     program_iterations: 6<br>
-    number_of_workouts: 24<br>
+    number_of_workouts: 18<br>
 
 </details>

@@ -1,5 +1,46 @@
 # Workout Programs Detail
 
+=== "Program 11"
+
+    Push
+
+    | Exercise                    | Sets | Rep-range |
+    | --------------------------- | ---- | --------- |
+    | Bench Press                 | 3    | 8-12       |
+    | Lateral Raise               | 3    | 8-12       |
+    | Incline Dumbbell Press      | 3    | 8-12       |
+    | Incline Dumbbell Flys       | 3    | 8-12       |
+    | Military Press              | 3    | 8-12       |
+    | Barbell Shrug               | 3    | 8-12       |
+    | Dumbbell Front Raise        | 3    | 8-12       |
+    | Dumbbell Around-The-World's | 3    | 8-12       |
+
+    Pull
+
+    | Exercise               | Sets | Rep-range |
+    | ---------------------- | ---- | --------- |
+    | Pull Up                | 3    | MAX       |
+    | Back Extentions        | 3    | 12-15     |
+    | Pull Down              | 3    | 8-12      |
+    | Bent Over BB Row       | 3    | 8-12      |
+    | Seated Cable Row       | 3    | 8-12      |
+    | Rear Lateral Raise     | 3    | 8-12      |
+    | Straight-Arm Pull Down | 3    | 8-12      |
+    | Face Pull              | 3    | 8-12      |
+
+    Legs
+
+    | Exercise               | Sets | Rep-range |
+    | ---------------------- | ---- | --------- |
+    | Squat                  | 3    | 8-12      |
+    | Deadlift               | 3    | 8-12      |
+    | Walking Lunge          | 3    | 8-12      |
+    | Romanian Deadlift      | 3    | 8-12      |
+    | Leg Extention          | 3    | 8-12      |
+    | Leg Curl               | 3    | 8-12      |
+    | Calf Raise             | 3    | 8-12      |
+    | Hanging Leg Raise      | 3    | MAX       |
+
 === "Program 10"
 
     Upper Body A

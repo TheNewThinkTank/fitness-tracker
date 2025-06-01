@@ -183,7 +183,8 @@
     splits: [push, pull, legs]<br>
     description:<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Focus on hypertrophy.<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;Lighter sets of 8-15 reps for key exercises<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Lighter sets of 8-15 reps for key exercises.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Every 2 exercises are performed as supersets with no break between exercises, and approx. 10-15 seconds break between supersets.<br>
     start: 2025-06-01<br>
     end: 2025-MM-DD<br>
     program_iterations: 6<br>

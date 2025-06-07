@@ -5,13 +5,19 @@ the volume is the sum of the volumes of the workouts.
 """
 
 from pprint import pformat  # type: ignore
+import re
 from loguru import logger  # type: ignore
 from typing import Any
 from src.utils.get_bodyweight import get_bw  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.utils.powerbands import bands_mapping  # type: ignore
 
 
-def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int:
+def get_weight(
+        s: dict,
+        bodyweight: str,
+        Sidea_9012_Olympic_Hex_Bar: str
+        ) -> int:
     """Get the weight of the exercise.
 
     :param s: Dictionary containing the exercise details
@@ -23,13 +29,31 @@ def get_weight(s: dict, bodyweight: str, Sidea_9012_Olympic_Hex_Bar: str) -> int
     :return: Weight of the exercise
     :rtype: float
     """
-    weight = eval(
+
+    weight_expr = (
         s["weight"][:-3]
         .replace("BODYWEIGHT", bodyweight)
         .replace("Sidea_9012_Olympic_Hex_Bar", Sidea_9012_Olympic_Hex_Bar)
     )
 
-    return weight
+    # Replace POWERBAND_COLOR with actual resistance value
+    def replace_powerband(match):
+        color = match.group(1)
+        return str(bands_mapping.get(color, 0))  # Default to 0 if unknown
+
+    weight_expr = re.sub(r"POWERBAND_(GREEN|PURPLE|BLACK|RED)", replace_powerband, weight_expr)
+
+    # Safe evaluation using eval() with restricted scope
+    try:
+        # Only allow basic math operations; no external functions allowed
+        allowed_names = {
+            "__builtins__": {},
+        }
+        result = eval(weight_expr, allowed_names, {})
+        return result
+    except Exception as e:
+        logger.error(f"Error evaluating weight expression: {weight_expr} | {e}")
+        return 0
 
 
 def get_total_volume(table) -> list[tuple[str, int]]:

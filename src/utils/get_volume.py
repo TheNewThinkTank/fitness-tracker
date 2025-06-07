@@ -46,7 +46,7 @@ def get_weight(
     # Safe evaluation using eval() with restricted scope
     try:
         # Only allow basic math operations; no external functions allowed
-        allowed_names = {
+        allowed_names: dict[str, dict[Any, Any]] = {
             "__builtins__": {},
         }
         result = eval(weight_expr, allowed_names, {})

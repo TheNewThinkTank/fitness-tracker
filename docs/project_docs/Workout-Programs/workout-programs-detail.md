@@ -26,7 +26,7 @@
     | Seated Cable Row       | 3    | 8-12      |
     | Rear Lateral Raise     | 3    | 8-12      |
     | Straight-Arm Pull Down | 3    | 8-12      |
-    | Face Pull              | 3    | 8-12      |
+    | Face Pull With Push    | 3    | 8-12      |
 
     Legs
 

@@ -4,22 +4,32 @@ set -euo pipefail
 
 # BASH workflow that inserts data into a database and prepares figures.
 
-CONFIG_FILE=".config/fitcli.conf"  # shellcheck disable=SC2034
+# shellcheck disable=SC2034
+CONFIG_FILE=".config/fitcli.conf"
 
 mkdir -p logs
 
 # Load utility functions
 UTILS_DIR="utils"
 
-source "${UTILS_DIR}/logging.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/validation.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/config.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/filesystem.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/date.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/env.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/help.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/args.sh"  # shellcheck disable=SC1091
-source "${UTILS_DIR}/figures.sh"  # shellcheck disable=SC1091
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/logging.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/validation.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/config.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/filesystem.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/date.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/env.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/help.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/args.sh"
+# shellcheck disable=SC1091
+source "${UTILS_DIR}/figures.sh"
 
 load_config_variables() {
   if [ -f .config/settings.toml ]; then
@@ -87,10 +97,12 @@ process_workout_date() {
 main() {
   # Default values
   FILE_FORMAT='yml'
-  CONFIG_FILE='./fitcli.conf'  # shellcheck disable=SC2034
-  LOG_FILE='logs/fitcli.log'  # shellcheck disable=SC2034
-
-  SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')  # shellcheck disable=SC2034
+  # shellcheck disable=SC2034
+  CONFIG_FILE='./fitcli.conf'
+  # shellcheck disable=SC2034
+  LOG_FILE='logs/fitcli.log'
+  # shellcheck disable=SC2034
+  SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
 
   parse_arguments "$@"
 

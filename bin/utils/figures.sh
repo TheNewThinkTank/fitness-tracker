@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 prepare_figures() {
   local year=$1

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 show_help() {
   echo "Usage: fitcli [-d WORKOUT_DATE] [-f FILE_FORMAT] [-c CONFIG_FILE]"

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 parse_arguments() {
   while getopts ":d:f:c:h" opt; do

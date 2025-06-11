@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 load_env_variables() {
   if [ -f .config/.env ]; then

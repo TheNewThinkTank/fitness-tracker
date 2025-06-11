@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 find_workout_files() {
   local base_path="$1"

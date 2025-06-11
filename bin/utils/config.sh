@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 load_config() {
   if [[ -f "$CONFIG_FILE" ]]; then

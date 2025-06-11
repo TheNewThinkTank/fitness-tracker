@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 get_month_name() {
   local month_num=$1

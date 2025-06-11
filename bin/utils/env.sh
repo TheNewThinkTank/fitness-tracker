@@ -8,7 +8,7 @@ load_env_variables() {
     echo "Warning: .env file not found. Using default values."
     # DYNACONF_USER="default_user"
     # DYNACONF_EMAIL="default_email"
-    DYNACONF_ATHLETE="default_athlete"
+    # DYNACONF_ATHLETE="default_athlete"
   fi
 }
 

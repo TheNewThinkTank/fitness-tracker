@@ -4,22 +4,22 @@ set -euo pipefail
 
 # BASH workflow that inserts data into a database and prepares figures.
 
-CONFIG_FILE=".config/fitcli.conf"
+CONFIG_FILE=".config/fitcli.conf"  # shellcheck disable=SC2034
 
 mkdir -p logs
 
 # Load utility functions
 UTILS_DIR="utils"
 
-source "${UTILS_DIR}/logging.sh"
-source "${UTILS_DIR}/validation.sh"
-source "${UTILS_DIR}/config.sh"
-source "${UTILS_DIR}/filesystem.sh"
-source "${UTILS_DIR}/date.sh"
-source "${UTILS_DIR}/env.sh"
-source "${UTILS_DIR}/help.sh"
-source "${UTILS_DIR}/args.sh"
-source "${UTILS_DIR}/figures.sh"
+source "${UTILS_DIR}/logging.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/validation.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/config.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/filesystem.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/date.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/env.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/help.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/args.sh"  # shellcheck disable=SC1091
+source "${UTILS_DIR}/figures.sh"  # shellcheck disable=SC1091
 
 load_config_variables() {
   if [ -f .config/settings.toml ]; then
@@ -87,10 +87,10 @@ process_workout_date() {
 main() {
   # Default values
   FILE_FORMAT='yml'
-  CONFIG_FILE='./fitcli.conf'
-  LOG_FILE='logs/fitcli.log'
+  CONFIG_FILE='./fitcli.conf'  # shellcheck disable=SC2034
+  LOG_FILE='logs/fitcli.log'  # shellcheck disable=SC2034
 
-  SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
+  SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')  # shellcheck disable=SC2034
 
   parse_arguments "$@"
 

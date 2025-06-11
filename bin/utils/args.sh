@@ -5,13 +5,13 @@ parse_arguments() {
     case ${opt} in
       d )
         WORKOUT_DATE=$OPTARG
-        WORKOUT_DATES=("$WORKOUT_DATE")  # Initialize WORKOUT_DATES with the provided date
+        WORKOUT_DATES=("$WORKOUT_DATE")  # shellcheck disable=SC2034
         ;;
       f )
-        FILE_FORMAT=$OPTARG
+        FILE_FORMAT=$OPTARG  # shellcheck disable=SC2034
         ;;
       c )
-        CONFIG_FILE=$OPTARG
+        CONFIG_FILE=$OPTARG  # shellcheck disable=SC2034
         ;;
       h )
         echo "Usage: $0 [-d WORKOUT_DATE] [-f FILE_FORMAT] [-c CONFIG_FILE]"

@@ -2,8 +2,10 @@
 
 load_env_variables() {
   if [ -f .config/.env ]; then
+    set -a
     # shellcheck source=/dev/null
     source .config/.env
+    set +a  
   else
     echo "Warning: .env file not found. Using default values."
     # DYNACONF_USER="default_user"

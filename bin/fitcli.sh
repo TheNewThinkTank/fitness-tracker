@@ -10,7 +10,7 @@ CONFIG_FILE=".config/fitcli.conf"
 mkdir -p logs
 
 # Load utility functions
-UTILS_DIR="utils"
+UTILS_DIR="bin/utils"
 
 # shellcheck disable=SC1091
 source "${UTILS_DIR}/logging.sh"

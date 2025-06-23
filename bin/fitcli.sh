@@ -34,6 +34,11 @@ source "${UTILS_DIR}/figures.sh"
 load_config_variables() {
   if [ -f .config/settings.toml ]; then
     # Call the Python script to process the configuration
+
+    # CONFIG_JSON=$(python3 -m src.utils.config_loader)
+    # GOOGLE_DRIVE_DATA_PATH=$(echo "$CONFIG_JSON" | jq -r .GOOGLE_DRIVE_DATA_PATH)
+    # IMG_PATH=$(echo "$CONFIG_JSON" | jq -r .IMG_PATH)
+
     GOOGLE_DRIVE_DATA_PATH=$(python3 ./src/utils/config.py | grep "GOOGLE_DRIVE_DATA_PATH" | cut -d':' -f2- | xargs)
     IMG_PATH=$(python3 ./src/utils/config.py | grep "IMG_PATH" | cut -d':' -f2- | xargs)
     IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"

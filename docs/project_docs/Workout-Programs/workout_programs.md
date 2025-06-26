@@ -182,12 +182,30 @@
     name: PPL<br>
     splits: [push, pull, legs]<br>
     description:<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;Focus on hypertrophy.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Focus on sarcoplasmic hypertrophy.<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Lighter sets of 8-15 reps for key exercises.<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;Every 2 exercises are performed as supersets with no break between exercises, and approx. 10-15 seconds break between supersets.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Every 2 exercises are performed as supersets with no break between exercises, and max. 10-15 seconds break between supersets.<br>
     start: 2025-06-01<br>
     end: 2025-MM-DD<br>
     program_iterations: 6<br>
     number_of_workouts: 18<br>
+
+</details>
+
+<details>
+
+  <summary>program_12</summary>
+
+    name: FULL-BODY<br>
+    splits: [full_body_a, full_body_b]<br>
+    description:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Focus on both myofibrillar and sarcoplasmic hypertrophy,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;through lighter sets of 8-15 reps on half of the workouts (for metabolic stress),<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;and heavy-duty sets to failure of 5-8 reps on the other half of the workouts (for mechanical stress).<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Every 2 exercises are performed as agonist-antagonist supersets (for reciprocal inhibition) with no break between exercises, and max. 10-15 seconds break between supersets.<br>
+    start: 2025-MM-DD<br>
+    end: 2025-MM-DD<br>
+    program_iterations: N<br>
+    number_of_workouts: NN<br>
 
 </details>

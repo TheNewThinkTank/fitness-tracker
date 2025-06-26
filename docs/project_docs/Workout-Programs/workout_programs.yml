@@ -144,11 +144,28 @@ program_11:
     - pull
     - legs
   description: |
-    A hypertrophy program focusing on metabolic stress through supersets,
+    A hypertrophy program focusing on sarcoplasmic hypertrophy and metabolic stress through supersets,
     and short rest periods. Every 2 exercises are performed as supersets
     with no break between exercises,
-    and approx. 10-15 seconds break between supersets.
+    and max. 10-15 seconds break between supersets.
   start: 2025-MM-DD
-  end: 2026-MM-DD
+  end: 2025-MM-DD
+  program_iterations: 6
+  number_of_workouts: 24
+
+program_12:
+  name: FULL-BODY
+  splits:
+    - full_body_a
+    - full_body_b
+  description: |
+      Focus on both myofibrillar and sarcoplasmic hypertrophy,
+      through lighter sets of 8-15 reps on half of the workouts (for metabolic stress),
+      and heavy-duty sets to failure of 5-8 reps on the other half of the workouts (for mechanical stress).
+      Every 2 exercises are performed as agonist-antagonist supersets (for reciprocal inhibition) with no break between exercises,
+      and max. 10-15 seconds break between supersets.
+      Focus exercises: squat, bench press, deadlift, lat pulldown, arnold presses, seated_row, calf raise.
+  start: 2025-MM-DD
+  end: 2025-MM-DD
   program_iterations: 6
   number_of_workouts: 24

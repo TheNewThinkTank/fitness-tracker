@@ -84,6 +84,13 @@ process_workout_date() {
   for ((i = 0; i < ${#WORKOUT_FILES[@]}; i++)); do
     WORKOUT_NUMBER=$((i + 1))
     log "Processing workout file: ${WORKOUT_FILES[$i]} (Workout number: $WORKOUT_NUMBER)"
+
+    # run pydantic validation on the workout file
+    if ! python3 ./src/utils/validate.py --file "${WORKOUT_FILES[$i]}"; then
+      log "Error: Validation failed for file ${WORKOUT_FILES[$i]}."
+      continue
+    fi
+
     if ! python3 ./src/crud/insert.py \
       --file_format "$FILE_FORMAT" \
       --datatype real \

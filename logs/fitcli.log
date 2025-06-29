@@ -978,3 +978,29 @@
 2025-06-26 17:21:59 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/June/push_training_log_2025-06-26.yml inserted into the database.
 2025-06-26 17:22:04 - Figures prepared successfully.
 2025-06-26 17:22:05 - Workflow completed successfully
+2025-06-29 19:53:20 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-06-29 19:53:20 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-06-29 19:53:20 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-06-29 19:53:20 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-06-29 19:53:20 - Configuration file ./fitcli.conf not found. Using default values.
+2025-06-29 19:53:20 - Workflow started
+2025-06-29 19:53:20 - Processing for date: 2025-06-26
+2025-06-29 19:53:20 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/June
+2025-06-29 19:53:20 - Found 1 workout files for date 2025-06-26.
+2025-06-29 19:53:20 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/June/push_training_log_2025-06-26.yml (Workout number: 1)
+2025-06-29 19:53:20 - Error: Validation failed for file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/June/push_training_log_2025-06-26.yml.
+2025-06-29 19:53:27 - Figures prepared successfully.
+2025-06-29 19:53:27 - Workflow completed successfully
+2025-06-29 19:59:00 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-06-29 19:59:00 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-06-29 19:59:00 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-06-29 19:59:00 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-06-29 19:59:00 - Configuration file ./fitcli.conf not found. Using default values.
+2025-06-29 19:59:00 - Workflow started
+2025-06-29 19:59:00 - Processing for date: 2025-06-26
+2025-06-29 19:59:00 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/June
+2025-06-29 19:59:00 - Found 1 workout files for date 2025-06-26.
+2025-06-29 19:59:00 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/June/push_training_log_2025-06-26.yml (Workout number: 1)
+2025-06-29 19:59:02 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/June/push_training_log_2025-06-26.yml inserted into the database.
+2025-06-29 19:59:05 - Figures prepared successfully.
+2025-06-29 19:59:05 - Workflow completed successfully

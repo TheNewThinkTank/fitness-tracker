@@ -67,10 +67,13 @@ def test_validate_training_set_valid():
     WorkoutValidator._validate_training_set(training_set)
 
 
-def test_validate_training_set_invalid_missing_fields():
-    training_set = {"set_number": 1, "reps": 10}  # Missing "weight"
-    with pytest.raises(ExercisesFormatError, match="Each set should have:"):
+def test_validate_training_set_invalid_multiple_missing_fields():
+    training_set = {"set_number": 1}  # Missing "reps" and "weight"
+    with pytest.raises(ExercisesFormatError) as exc_info:
         WorkoutValidator._validate_training_set(training_set)
+
+    assert "reps" in str(exc_info.value)
+    assert "weight" in str(exc_info.value)
 
 
 def test_validate_training_set_invalid_weight_type():

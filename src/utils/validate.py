@@ -3,7 +3,7 @@ Validates workout data from a JSON or YAML file.
 """
 
 import json
-import yaml
+import yaml  # type: ignore
 from pprint import pformat  # type: ignore
 import re
 from typing import Optional

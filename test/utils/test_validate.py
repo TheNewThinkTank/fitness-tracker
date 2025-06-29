@@ -13,8 +13,8 @@ from src.utils.validate import (  # type: ignore
 def test_workout_model_valid():
     data = {
         "date": "2023-10-01",
-        "start": "10:00",
-        "end": "11:00",
+        "start_time": "10:00",
+        "end_time": "11:00",
         "split": "Upper Body",
         "exercises": {
             "pushup": [{"set_number": 1, "reps": 10, "weight": "BODYWEIGHT"}]
@@ -31,8 +31,8 @@ def test_workout_model_valid():
 def test_workout_model_invalid():
     data = {
         "date": "2023-10-01",
-        "start": "10:00",
-        "end": "11:00",
+        "start_time": "10:00",
+        "end_time": "11:00",
         "split": "Upper Body",
         "exercises": {},  # Invalid: No exercises
         "warmup": None,  # Add optional fields
@@ -129,8 +129,8 @@ def test_validate_set_numbers_invalid_sequence():
 def test_create_workout():
     data = {
         "date": "2023-10-01",
-        "start": "10:00",
-        "end": "11:00",
+        "start_time": "10:00",
+        "end_time": "11:00",
         "split": "Upper Body",
         "exercises": {
             "pushup": [{"set_number": 1, "reps": 10, "weight": "BODYWEIGHT"}]
@@ -149,8 +149,8 @@ def test_create_workouts_from_json():
         "weight_training_log": {
             "1": {
                 "date": "2023-10-01",
-                "start": "10:00",
-                "end": "11:00",
+                "start_time": "10:00",
+                "end_time": "11:00",
                 "split": "Upper Body",
                 "exercises": {
                     "pushup": [{"set_number": 1, "reps": 10, "weight": "BODYWEIGHT"}]

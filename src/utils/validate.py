@@ -1,12 +1,15 @@
-"""Validates workout data from a JSON file.
+"""
+Validates workout data from a JSON or YAML file.
 """
 
 import json
+import yaml
 from pprint import pformat  # type: ignore
 import re
 from typing import Optional
 from loguru import logger  # type: ignore
-import pydantic
+# import pydantic
+from pydantic import BaseModel, field_validator  # type: ignore
 from src.utils.config import settings  # type: ignore
 
 
@@ -20,21 +23,22 @@ class ExercisesFormatError(Exception):
         super().__init__(message)
 
 
-class Workout(pydantic.BaseModel):
-    """Represents a Workout from a JSON file."""
+class Workout(BaseModel):
+    """Represents a Workout from a JSON or YAML file."""
 
     date: str
-    start: str
-    end: str
+    start_time: str
+    end_time: str
     split: str
     exercises: dict
-    warmup: Optional[str]
-    gym: Optional[str]
-    note: Optional[str]
+    warmup: Optional[str] = None
+    cooldown: Optional[str] = None
+    gym: Optional[str] = None
+    notes: Optional[str] = None
 
-    @pydantic.field_validator("exercises")
+    @field_validator("exercises")
     @classmethod
-    def exercise_valid(cls, value) -> None:
+    def exercise_valid(cls, value) -> dict:
         """Validate exercises using the WorkoutValidator."""
         WorkoutValidator.validate_exercises(value)
         return value
@@ -47,11 +51,17 @@ class WorkoutValidator:
     def validate_exercises(value: dict) -> None:
         """Validator to check whether exercises are valid."""
         if not value:
-            raise ExercisesFormatError(value=str(value), message="There must be at least 1 exercise.")
+            raise ExercisesFormatError(
+                value=str(value),
+                message="There must be at least 1 exercise."
+                )
 
         for exercise in value.values():
             if not exercise:
-                raise ExercisesFormatError(value=str(value), message="There must be at least 1 set.")
+                raise ExercisesFormatError(
+                    value=str(value),
+                    message="There must be at least 1 set."
+                    )
             for training_set in exercise:
                 WorkoutValidator._validate_training_set(training_set)
 
@@ -61,10 +71,19 @@ class WorkoutValidator:
     def _validate_training_set(training_set: dict) -> None:
         """Validates individual training sets."""
         required_fields = {"set_number", "reps", "weight"}
-        if not all(x in set(training_set.keys()) for x in required_fields):
+        provided_keys = set(training_set.keys())
+        missing_fields = required_fields - provided_keys
+    
+        # if not all(x in set(training_set.keys()) for x in required_fields):
+        #     raise ExercisesFormatError(
+        #         value=str(training_set),
+        #         message=f"Each set should have: {required_fields}. Got: {set(training_set.keys())}",
+        #     )
+
+        if missing_fields:
             raise ExercisesFormatError(
                 value=str(training_set),
-                message=f"Each set should have: {required_fields}. Got: {set(training_set.keys())}",
+                message=f"Missing required field(s): {', '.join(missing_fields)}",
             )
 
         if not isinstance(training_set["weight"], str):
@@ -125,14 +144,25 @@ class WorkoutFactory:
             data = json.load(rf)["weight_training_log"]
             return [WorkoutFactory.create_workout(item) for item in data.values()]
 
+    @staticmethod
+    def create_workouts_from_yaml(file_path: str) -> list[Workout]:
+        """Creates a list of Workout instances from a YAML file."""
+        with open(file_path) as rf:
+            try:
+                data = yaml.safe_load(rf)["weight_training_log"]
+                return [WorkoutFactory.create_workout(item) for item in data.values()]
+            except yaml.YAMLError as e:
+                raise ValueError(f"Invalid YAML in file {file_path}") from e
+
 
 def main() -> None:
     """Main function."""
 
-    file = settings["real_workout_database"]
+    file = settings["real_workout_database"].replace("<YEAR>", "2025")
 
     # process workout data using the factory
-    workouts = WorkoutFactory.create_workouts_from_json(file)
+    # workouts = WorkoutFactory.create_workouts_from_json(file)
+    workouts = WorkoutFactory.create_workouts_from_yaml(file)
     # Display exercises from the first workout for demonstration
     logger.debug(pformat(workouts[0].exercises))
 

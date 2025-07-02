@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Python and Poetry
-        uses: TheNewThinkTank/gh-actions/.github/actions/setup-python-poetry@v1.0.0  # main
+        uses: TheNewThinkTank/gh-actions/.github/actions/setup-python-poetry@v1.0.4  # main
         with:
           python-version: ${{ inputs.PYTHONVERSION }}
 

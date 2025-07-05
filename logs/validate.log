@@ -1,3 +1,3 @@
-07-04 14:43 root         INFO     Logger initialized
-07-04 14:43 root         INFO     Running ./src/utils/validate.py ...
-07-04 14:43 root         DEBUG    Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/July/legs_training_log_2025-07-04.yml
+07-05 16:20 root         INFO     Logger initialized
+07-05 16:20 root         INFO     Running ./src/utils/validate.py ...
+07-05 16:20 root         DEBUG    Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/July/push_training_log_2025-07-05.yml

@@ -169,9 +169,12 @@ program_12:
       Every 2 exercises are performed as agonist-antagonist supersets
       (for reciprocal inhibition) with no break between exercises,
       and max. 10-15 seconds break between supersets.
-      Focus exercises:
+      Possible exercises:
       squat, bench press, deadlift, lat pulldown,
-      arnold presses, seated_row, calf raise.
+      arnold presses, seated_row, calf raise,
+      landmine rotation, landmine press,
+      kettlebell loaded chop,
+      pallof press
   start: 2025-MM-DD
   end: 2025-MM-DD
   program_iterations: 6

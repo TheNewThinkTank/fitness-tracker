@@ -186,7 +186,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp;Lighter sets of 8-15 reps for key exercises.<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Every 2 exercises are performed as supersets with no break between exercises, and max. 10-15 seconds break between supersets.<br>
     start: 2025-06-01<br>
-    end: 2025-MM-DD<br>
+    end: 2025-07-0D<br>
     program_iterations: 6<br>
     number_of_workouts: 18<br>
 

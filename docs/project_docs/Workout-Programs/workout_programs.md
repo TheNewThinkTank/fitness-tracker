@@ -14,7 +14,7 @@
     end: 2022-03-19<br>
     program_iterations: 10<br>
     number_of_workouts: 40<br>
-  
+
 </details>
 
 <details>

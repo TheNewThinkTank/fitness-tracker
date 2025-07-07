@@ -1,5 +1,13 @@
 # Hatha
 
+Hatha Yoga is one of the most widely practiced branches of yoga worldwide. The word "Hatha" comes from the Sanskrit words "Ha" (sun) and "Tha" (moon), symbolizing the balance of opposites — masculine and feminine, active and passive, hot and cold.
+
+Hatha Yoga focuses on physical postures (asanas) and breathing techniques (pranayama) to promote physical health, mental clarity, and spiritual growth. It serves as the foundation for many modern styles of yoga.
+
+---
+
+Beginners routine
+
 1. Warm-up:
 Mountain Pose (Tadasana): Stand with feet together, grounding through all four corners of your feet, and lengthen the spine, relaxing the shoulders.
 Raised Arms Pose: Inhale and reach arms up overhead, palms facing each other.

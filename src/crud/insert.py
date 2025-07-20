@@ -8,7 +8,6 @@ Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 import json
 import os
 from pathlib import Path
-from typing import Union
 from src.utils.config import settings  # type: ignore
 import yaml  # type: ignore
 from tinydb import table  # , TinyDB
@@ -20,7 +19,7 @@ from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 def insert_log(
     table: table.Table,
-    log_path: Union[str, Path, list],
+    log_path: str | Path | list,
     file_format: str
     ) -> None:
     """Store training log from log_path in database table.

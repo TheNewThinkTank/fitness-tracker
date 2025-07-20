@@ -92,11 +92,15 @@ class WorkoutValidator:
                 message=f"The weight must be a string. Got type: {type(training_set['weight'])}",
             )
 
-        regex = re.compile(r"BODYWEIGHT|\d{1,3}(?:\.\d{1,2})?\skg$", re.VERBOSE)
-        if not re.match(regex, training_set["weight"]):
+        # TODO: Sidea_9012_Olympic_Hex_Bar
+        # TODO: powerband_pattern = r"^POWERBAND_(GREEN|PURPLE|BLACK|RED)"
+        weight_pattern = r"^(BODYWEIGHT|\d{1,3}(?:\.\d{1,2})?\skg)$"
+
+        weight_regex = re.compile(weight_pattern, re.VERBOSE)
+        if not re.match(weight_regex, training_set["weight"]):
             raise ExercisesFormatError(
                 value=str(training_set),
-                message=f"Weight must match regex: \\d{{1,3}}(?:\\.\\d{{1,2}})?\\skg$. Got: {training_set['weight']}",
+                message=f"Weight must match regex: {weight_pattern}. Got: {training_set['weight']}",
             )
 
         for field in ["set_number", "reps"]:

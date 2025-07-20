@@ -8,7 +8,7 @@ import re
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def filter_exercises_with_whitespace(workout_data: list) -> list:
+def filter_exercises_with_whitespace(workout_data: list) -> list[dict]:
     """Find exercises with whitespace.
 
     :param workout_data: Workout data
@@ -43,10 +43,10 @@ def clean_exercise_name(exercise: str) -> str:
     :rtype: str
     """
 
-    pattern = r'[_\s]+'
+    regex = r'[_\s]+'
 
     # Replace matches with a single underscore
-    cleaned_exercise = re.sub(pattern, '_', exercise)
+    cleaned_exercise = re.sub(regex, '_', exercise)
 
     # Remove any trailing underscores
     cleaned_exercise = cleaned_exercise.removesuffix("_")

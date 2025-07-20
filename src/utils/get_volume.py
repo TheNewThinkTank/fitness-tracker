@@ -41,7 +41,7 @@ def get_weight(
         color = match.group(1)
         return str(bands_mapping.get(color, 0))  # Default to 0 if unknown
 
-    weight_expr = re.sub(r"POWERBAND_(GREEN|PURPLE|BLACK|RED)", replace_powerband, weight_expr)
+    weight_regex = re.sub(r"POWERBAND_(GREEN|PURPLE|BLACK|RED)", replace_powerband, weight_expr)
 
     # Safe evaluation using eval() with restricted scope
     try:
@@ -49,10 +49,10 @@ def get_weight(
         allowed_names: dict[str, dict[Any, Any]] = {
             "__builtins__": {},
         }
-        result = eval(weight_expr, allowed_names, {})
+        result = eval(weight_regex, allowed_names, {})
         return result
     except Exception as e:
-        logger.error(f"Error evaluating weight expression: {weight_expr} | {e}")
+        logger.error(f"Error evaluating weight expression: {weight_regex} | {e}")
         return 0
 
 

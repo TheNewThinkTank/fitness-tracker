@@ -4,7 +4,7 @@
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def remove_from_table(table):
+def remove_from_table(table) -> type[NotImplementedError]:
     """Remove from table.
 
     :param table: TinyDB table

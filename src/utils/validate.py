@@ -5,7 +5,7 @@ Validates workout data from a JSON or YAML file.
 import json
 import yaml  # type: ignore
 from pprint import pformat  # type: ignore
-import re
+import regex  # re  type: ignore
 from typing import Optional
 from loguru import logger  # type: ignore
 # import pydantic
@@ -94,10 +94,12 @@ class WorkoutValidator:
 
         # TODO: Sidea_9012_Olympic_Hex_Bar
         # TODO: powerband_pattern = r"^POWERBAND_(GREEN|PURPLE|BLACK|RED)"
-        weight_pattern = r"^(BODYWEIGHT|\d{1,3}(?:\.\d{1,2})?\skg)$"
+        # weight_pattern = r"^(?:BODYWEIGHT(?:\s*-?\s*\d{1,3}(?:\.\d{1,2})?\s*kg)?|\d{1,3}(?:\.\d{1,2})?\s*kg)$"
 
-        weight_regex = re.compile(weight_pattern, re.VERBOSE)
-        if not re.match(weight_regex, training_set["weight"]):
+        weight_pattern = r"^(?:BODYWEIGHT(?:\s*-?\s*\d{1,3}(?:\.\d{1,2})?\s*kg)?|BODYWEIGHT\s+kg|\d{1,3}(?:\.\d{1,2})?\s*kg)$"
+
+        weight_regex = regex.compile(weight_pattern, regex.VERBOSE)
+        if not regex.match(weight_regex, training_set["weight"]):
             raise ExercisesFormatError(
                 value=str(training_set),
                 message=f"Weight must match regex: {weight_pattern}. Got: {training_set['weight']}",
@@ -115,6 +117,22 @@ class WorkoutValidator:
                 value=str(training_set),
                 message=f"The 'reps' value must be between 1 and 100. Got: {training_set['reps']}",
             )
+        
+        # TODO: validate optional fields like 'height' if they exist, e.g. for box jumps
+        # if "height" in training_set:
+        #     if not isinstance(training_set["height"], str):
+        #         raise ExercisesFormatError(
+        #             value=str(training_set),
+        #             message=f"The 'height' must be a string. Got type: {type(training_set['height'])}",
+        #         )
+        #     height_pattern = r"^\d{1,3}(?:\.\d{1,2})?\s*(?P<unit>cm|in)$"
+        #     height_regex = re.compile(height_pattern, re.VERBOSE)
+        #     if not re.match(height_regex, training_set["height"]):
+        #         raise ExercisesFormatError(
+        #             value=str(training_set),
+        #             message=f"Height must match regex: {height_pattern}. Got: {training_set['height']}",
+        #         )
+
 
     @staticmethod
     def _validate_set_numbers(exercise: list) -> None:

@@ -16,6 +16,14 @@
 - Swings
 - Snatch
 - Farmers walk
+- Reverse lunge
+- Deadlift
+- Goblet squat
+- Russian twist
+- Windmill
+- Press
+- Row
+- Turkish get up
 
 ## Training methods
 
@@ -36,3 +44,13 @@ wrist variations:
 
 - Front hand
 - Back hand
+
+## Exercise categories
+
+- Grinding
+- Ballistics
+- Doubles (using 2 kettlebells)
+
+## Referances
+
+[unilateral strength exercise benefits](https://pubmed.ncbi.nlm.nih.gov/28539892/)

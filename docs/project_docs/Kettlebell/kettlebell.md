@@ -54,6 +54,6 @@ wrist variations:
 - Ballistics
 - Doubles (using 2 kettlebells)
 
-## Referances
+## References
 
 [unilateral strength exercise benefits](https://pubmed.ncbi.nlm.nih.gov/28539892/)

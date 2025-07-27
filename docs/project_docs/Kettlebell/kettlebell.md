@@ -1,7 +1,6 @@
 # Kettlebell
 
-<!-- ![kettlebell](../img/kettlebell.png) -->
-![kettlebell](../img/kettlebell.png){ width="300" style="display: block; margin: 0 auto;" }
+![kettlebell](../img/Kettlebell.png){ width="300" style="display: block; margin: 0 auto;" }
 
 ## Movements & exercise examples
 

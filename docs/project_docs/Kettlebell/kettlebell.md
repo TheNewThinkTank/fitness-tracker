@@ -24,6 +24,9 @@
 - Press
 - Row
 - Turkish get up
+- Halo
+- High pull
+- Arm bars
 
 ## Training methods
 

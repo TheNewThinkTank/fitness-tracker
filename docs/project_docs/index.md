@@ -1,4 +1,4 @@
-# Welcome to the fitness-tracker
+# Welcome
 
 ## Overview
 

@@ -1,4 +1,6 @@
-# Injuries and Rehabilitation
+# Injuries
+
+Injuries and Rehabilitation
 
 | Injury | Recovery exercise / stretch |
 | :- | :- |

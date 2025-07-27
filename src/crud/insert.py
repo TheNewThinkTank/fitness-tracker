@@ -8,6 +8,7 @@ Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 import json
 import os
 from pathlib import Path
+from typing import NewType
 from src.utils.config import settings  # type: ignore
 import yaml  # type: ignore
 from tinydb import table  # , TinyDB
@@ -15,6 +16,11 @@ from icecream import ic  # type: ignore
 from loguru import logger  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+
+# WorkoutID = NewType("WorkoutID", str)
+WorkoutDate = NewType("WorkoutDate", str)
+# FilePath = NewType("FilePath", str)
+# TableName = NewType("TableName", str)
 
 
 def insert_log(
@@ -67,7 +73,11 @@ def insert_log(
         raise TypeError(f"Unsupported type for log_path: {type(log_path)}")
 
 
-def insert_all_logs(table, folderpath: str, file_format: str) -> None:
+def insert_all_logs(
+        table: table.Table,
+        folderpath: str,
+        file_format: str
+    ) -> None:
     """Store all training logs in database.
 
     :param table: A TinyDB table
@@ -86,17 +96,17 @@ def insert_all_logs(table, folderpath: str, file_format: str) -> None:
 
 
 def insert_specific_log(
-    date: str,
-    table,
-    file_format: str="yml",
-    workout_number: int=1
+        date: WorkoutDate,
+        table: table.Table,
+        file_format: str="yml",
+        workout_number: int=1
     ) -> None:
     """Store a specific training log in database.
 
     :param date: string of date in format YYYY-MM-DD
     :type date: str
-    :param table: A TinyDB table
-    :type table: TinyDB table
+    :param TableName(table): A TinyDB TableName(table)
+    :type TableName(table): TinyDB TableName(table)
     :param file_format: file extention, e.g. json or yml
     :type file_format: str
     :param workout_number: unique identifier of the workout on a given day,
@@ -206,9 +216,9 @@ def main() -> None:
         logging.info("workout date(s): %s", dates)
         for date in dates.split(","):
             if args.workout_number is None:
-                insert_specific_log(date, table, file_format)
+                insert_specific_log(WorkoutDate(date), table, file_format)
             else:
-                insert_specific_log(date, table, file_format, workout_number)
+                insert_specific_log(WorkoutDate(date), table, file_format, workout_number)
                 logging.info("workout number: %s", workout_number)
 
     elif datatype == "simulated":

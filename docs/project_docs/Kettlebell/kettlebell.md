@@ -6,7 +6,10 @@
 
 - Push (e.g. Press)
 - Pull (e.g. Row)
-- Carry
+- Squat (e.g. Goblin squat)
+- Hinge (e.g. Swing)
+- Carry (e.g. Farmers walk)
+- Rotation / anti-rotation (e.g. Windmill)
 
 ## Exercise examples
 
@@ -14,12 +17,22 @@
 - Snatch
 - Farmers walk
 
-- EMOM
+## Training methods
+
+- EMOM (e.g. 10 reps starting on the minute)
 - AMRAP
-- Flow
-- Complex
+- AMSAP
+- Flow (e.g. combining 2 exercises, press and overhead squat)
+- Complex (chain multiple exercises together, e.g. 5 rows, 5 deadlifts, 5 presses, 5 swings, 5 snatch, left side first, then right)
 
 ## Grips
 
-- Finger grip
-- Hook grip
+- Thumb grip (e.g. for press, clean-and-press)
+- Finger grip (e.g. swing, clean, snatch)
+- Hook grip (e.g. press)
+- Goblet grip
+
+wrist variations:
+
+- Front hand
+- Back hand

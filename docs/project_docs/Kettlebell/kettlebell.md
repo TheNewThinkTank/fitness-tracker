@@ -1,6 +1,11 @@
 # Kettlebell
 
-![kettlebell](../img/kettlebell.png)
+<!-- ![kettlebell](../img/kettlebell.png) -->
+<!-- <img src="../img/kettlebell.png" alt="kettlebell" width="300"/> -->
+
+<div align="center">
+  <img src="../img/kettlebell.png" alt="kettlebell" style="width:50%;" />
+</div>
 
 ## Movements & exercise examples
 

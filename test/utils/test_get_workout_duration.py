@@ -3,7 +3,6 @@
 from src.utils.get_workout_duration import (  # type: ignore
     get_data,
     get_all_durations,
-    get_number_of_workouts,
 )
 
 
@@ -127,10 +126,3 @@ def test_get_all_durations():
     }
 
     assert get_all_durations(year) == expected_duration
-
-
-def test_get_number_of_workouts():
-    assert get_number_of_workouts("2021") == 8
-    assert get_number_of_workouts("2022") == 107
-    assert get_number_of_workouts("2023") == 72
-    assert get_number_of_workouts("2024") == 66

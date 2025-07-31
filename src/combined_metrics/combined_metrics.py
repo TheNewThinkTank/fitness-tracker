@@ -150,7 +150,9 @@ def plot_frequency(table, year_to_plot: str) -> None:
         f"{year_to_plot} Workout Frequency"
         )
 
-    ax.get_legend().remove()
+    legend = ax.get_legend()
+    if legend is not None:
+        legend.remove()
 
     # plt.show()
     save_path = f"{settings['IMG_PATH']}{year_to_plot}/{year_to_plot}_workout_frequency.png"

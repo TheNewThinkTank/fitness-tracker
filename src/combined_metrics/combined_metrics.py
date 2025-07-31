@@ -203,7 +203,9 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
     plt.plot(dates, durations, zorder=0, c="brown")
     ax.set_ylim(bottom=0)
 
-    ax.get_legend().remove()
+    legend = ax.get_legend()
+    if legend is not None:
+        legend.remove()
     plt.colorbar(sm, ax=ax)
 
     configure_plot(
@@ -267,7 +269,10 @@ def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
         )
     plt.plot(dates, durations, zorder=0, c="brown")
 
-    ax.get_legend().remove()
+    legend = ax.get_legend()
+    if legend is not None:
+        legend.remove()
+
     plt.colorbar(sm, ax=ax)
 
     configure_plot(

@@ -96,7 +96,7 @@ class WorkoutValidator:
         # TODO: powerband_pattern = r"^POWERBAND_(GREEN|PURPLE|BLACK|RED)"
         # weight_pattern = r"^(?:BODYWEIGHT(?:\s*-?\s*\d{1,3}(?:\.\d{1,2})?\s*kg)?|\d{1,3}(?:\.\d{1,2})?\s*kg)$"
 
-        weight_pattern = r"^(?:BODYWEIGHT(?:\s*-?\s*\d{1,3}(?:\.\d{1,2})?\s*kg)?|BODYWEIGHT\s+kg|\d{1,3}(?:\.\d{1,2})?\s*kg)$"
+        weight_pattern = r"^(?:BODYWEIGHT(?:\s*[-+]?\s*\d{1,3}(?:\.\d{1,2})?\s*kg)?|BODYWEIGHT\s+kg|\d{1,3}(?:\.\d{1,2})?\s*kg)$"
 
         weight_regex = regex.compile(weight_pattern, regex.VERBOSE)
         if not regex.match(weight_regex, training_set["weight"]):

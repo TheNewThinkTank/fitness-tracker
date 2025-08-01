@@ -10,7 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 behave = "^1.2.6"
-fastapi = "^0.115.6"
+fastapi = "^0.116.1"
 matplotlib = "^3.10.0"
 numpy = "2.2.0"
 pandas = "^2.2.3"

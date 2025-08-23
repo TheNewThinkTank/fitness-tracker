@@ -1,0 +1,2638 @@
+version: "0.1"
+topics:
+  - name: Python Configuration Management
+    paths:
+      - "**/*.py"
+    policies:
+    - title: "Do Not Hardcode Secrets in Source Code"
+      description: |
+        Secrets and sensitive configuration values must not be hardcoded in source code.
+      severity: mandatory
+      required_context: single-file
+      software_version: 0.116.1
+      impact: |
+        Prevents secret leaks and accidental exposures.
+      code_examples:
+        - non_compliant: |
+            # config.py
+            DB_PASSWORD = "supersecret"  # Hardcoded secret
+        - compliant: |
+            # .env (never committed to version control)
+            # DB_PASSWORD=supersecret
+
+            # config.py
+            import os
+
+            DB_PASSWORD = os.getenv("DB_PASSWORD")
+            if DB_PASSWORD is None:
+                raise RuntimeError("DB_PASSWORD environment variable is required")
+
+  - name: Async‑First Design
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Require Async Endpoint Definitions"
+        description: |
+          All route handlers must use `async def` instead of `def`.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/async/#path-operation-functions"
+        impact: |
+          Enables higher throughput and prevents event loop blocking.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              @app.get("/")
+              def sync_endpoint():
+                  return {"status": "ok"}
+          - compliant: |
+              @app.get("/")
+              async def async_endpoint():
+                  return {"status": "ok"}
+
+      - title: "Non-Blocking I/O Libraries Must Be Used for External Calls"
+        description: |
+          All external network I/O, such as HTTP calls or file reads/writes, must use non-blocking, async-capable libraries (e.g., `httpx.AsyncClient` for HTTP, `aiofiles` for filesystem). Do not use synchronous libraries like `requests` or the standard `open()` function inside async endpoints.
+        software_version: 0.116.1
+        reference_link:
+          - https://fastapi.tiangolo.com/async/#async-and-await
+        required_context: single-file
+        severity: high
+        impact: |
+          Prevents event loop blocking and enables true async concurrency for network- and disk-bound operations, reducing tail latency under load.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              import requests
+
+              @app.get("/users")
+              async def get_users():
+                  # Synchronous call inside async endpoint (BAD)
+                  resp = requests.get("https://example.com/api/users")
+                  return resp.json()
+            compliant: |
+              import httpx
+
+              @app.get("/users")
+              async def get_users():
+                  async with httpx.AsyncClient() as client:
+                      resp = await client.get("https://example.com/api/users")
+                  return resp.json()
+
+      - title: "Only Async Database Drivers Allowed in Async Endpoints"
+        description: |
+          All database access in async FastAPI endpoints must use fully async drivers (such as `asyncpg`, `aiosqlite`, or SQLAlchemy's async engine). Never use synchronous database clients (like `psycopg2`, `sqlite3`, or sync SQLAlchemy) in any async route.
+        software_version: 0.116.1
+        reference_link:
+          - https://fastapi.tiangolo.com/async/#async-sql-databases
+        required_context: single-file
+        severity: mandatory
+        impact: |
+          Prevents database operations from blocking the event loop, ensuring consistent performance and safety in concurrent requests.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from sqlalchemy import create_engine
+
+              engine = create_engine("postgresql://user:pass@localhost/db")
+
+              @app.get("/data")
+              async def get_data():
+                  # BAD: sync engine inside async endpoint
+                  with engine.connect() as conn:
+                      result = conn.execute("SELECT 1")
+                  return {"result": result.scalar()}
+            compliant: |
+              from sqlalchemy.ext.asyncio import create_async_engine
+
+              engine = create_async_engine("postgresql+asyncpg://user:pass@localhost/db")
+
+              @app.get("/data")
+              async def get_data():
+                  async with engine.connect() as conn:
+                      result = await conn.execute("SELECT 1")
+                  return {"result": result.scalar()}
+
+      - title: "Offload CPU-Bound or Blocking Tasks to a Thread Pool"
+        description: |
+          Any CPU-intensive computation or blocking synchronous function must be offloaded from the event loop using `asyncio.to_thread` or `run_in_executor`. Never run long-running or blocking synchronous code directly in an async FastAPI endpoint.
+        software_version: 0.116.1
+        reference_link:
+          - https://fastapi.tiangolo.com/async/#async-and-await
+        required_context: single-file
+        severity: high
+        impact: |
+          Prevents the async event loop from stalling, maintaining low latency for all requests and ensuring the server remains responsive under heavy CPU or blocking loads.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              def blocking_operation():
+                  # Expensive synchronous computation
+                  import time; time.sleep(2)
+                  return 42
+
+              @app.get("/block")
+              async def block():
+                  # BAD: blocks the event loop
+                  return {"result": blocking_operation()}
+            compliant: |
+              import asyncio
+
+              def blocking_operation():
+                  import time; time.sleep(2)
+                  return 42
+
+              @app.get("/block")
+              async def block():
+                  # Offload to a thread to keep event loop free
+                  result = await asyncio.to_thread(blocking_operation)
+                  return {"result": result}
+
+
+  - name: "Dependency Injection & Modular Services"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Use FastAPI Depends for Dependency Injection"
+        description: |
+          Use FastAPI's `Depends` to inject dependencies such as database sessions, configurations, or authentication checks directly into your endpoints.
+        impact: |
+          Dependency injection leads to cleaner, modular, and more maintainable code.
+          It reduces code duplication and increases test coverage by making components independent and replaceable.
+        severity: high
+        required_context: single-file
+        software_version:
+          - 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/dependencies/"
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+              from sqlalchemy.orm import Session
+              from app.database import SessionLocal
+              from app.models import Item
+
+              app = FastAPI()
+
+              @app.get("/items/{item_id}")
+              def get_item(item_id: int):
+                  db = SessionLocal()  # Directly creating a session here
+                  item = db.query(Item).filter(Item.id == item_id).first()
+                  db.close()
+                  return item
+
+            compliant: |
+              from fastapi import FastAPI, Depends
+              from sqlalchemy.orm import Session
+              from app.database import SessionLocal
+              from app.models import Item
+
+              app = FastAPI()
+
+              def get_db():
+                  db = SessionLocal()
+                  try:
+                      yield db
+                  finally:
+                      db.close()
+
+              @app.get("/items/{item_id}")
+              def get_item(item_id: int, db: Session = Depends(get_db)):
+                  item = db.query(Item).filter(Item.id == item_id).first()
+                  return item
+
+      - title: "Use `dependency_overrides` for Testing"
+        description: |
+          Tests must use FastAPI's `dependency_overrides` to replace dependencies such as services, database sessions, or authentication checks instead of modifying application code directly.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/testing-dependencies/"
+        impact: |
+          - Ensures tests run in isolation without relying on real network or database calls.  
+          - Improves reliability by providing consistent, predictable test environments.  
+          - Reduces the risk of production-side effects during test execution.
+        code_examples:
+          - non_compliant: |
+              from fastapi.testclient import TestClient
+              from app.main import app
+              from app.dependencies import get_db
+              from app.db import SessionLocal
+
+              # Bad: Directly modifying the production dependency instead of overriding
+              def test_endpoint():
+                  # Replace production DB session function directly
+                  from app import dependencies
+                  dependencies.get_db = lambda: SessionLocal()  # Changes actual app code
+                  client = TestClient(app)
+                  response = client.get("/")
+                  assert response.status_code == 200
+          - compliant: |
+              from fastapi.testclient import TestClient
+              from app.main import app
+              from app.dependencies import get_db
+              from tests.mocks import MockSession
+
+              # Good: Override dependency using FastAPI's built-in mechanism
+              def test_endpoint():
+                  app.dependency_overrides[get_db] = lambda: MockSession()
+                  client = TestClient(app)
+                  response = client.get("/")
+                  assert response.status_code == 200
+
+      - title: "Background Tasks with Dependency Injection"
+        description: |
+          Background tasks must be encapsulated in dedicated services and injected via FastAPI’s `Depends` rather than defined directly inside route handlers.
+        impact: |
+          - Improves maintainability by centralizing background task logic.  
+          - Enhances testability by enabling isolated testing of task logic.  
+          - Encourages code reuse across multiple endpoints.  
+          - Makes it easier to integrate advanced features like retries, scheduling, and monitoring.
+        severity: medium
+        required_context: multi-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI, BackgroundTasks
+
+              app = FastAPI()
+
+              @app.get("/process")
+              def process(background_tasks: BackgroundTasks):
+                  background_tasks.add_task(run_heavy_task, "process data")  # Task logic in route
+                  return {"message": "Task started"}
+
+              def run_heavy_task(data):
+                  # Simulating heavy computation or I/O-bound task
+                  pass
+          - compliant: |
+              from fastapi import FastAPI, Depends
+              from app.background_tasks import BackgroundTaskService  # Modular background task service
+
+              app = FastAPI()
+
+              def get_background_service():
+                  return BackgroundTaskService()
+
+              @app.get("/process")
+              def process(background_service: BackgroundTaskService = Depends(get_background_service)):
+                  background_service.process("process data")  # Delegating to service
+                  return {"message": "Task started"}
+
+              # Example BackgroundTaskService (in separate file)
+              class BackgroundTaskService:
+                  def process(self, data: str):
+                      # Handle background task logic here
+                      pass
+
+
+
+  - name: "Request Validation with Pydantic Models"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Define Explicit Request/Response Models"
+        description: |
+          All FastAPI endpoints must define both request and response schemas using Pydantic models.
+        impact: |
+          - Ensures consistent and predictable API contracts
+          - Improves developer experience with accurate, auto-generated API documentation
+          - Prevents runtime errors caused by malformed inputs or unexpected outputs
+          - Reduces boilerplate by relying on Pydantic's built-in validation and serialization
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/body/"
+          - "https://fastapi.tiangolo.com/tutorial/response-model/"
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.post("/items/")
+              def create_item(item: dict):  
+                  return {"item": item}
+          - compliant: |
+              from fastapi import FastAPI
+              from pydantic import BaseModel, Field
+
+              app = FastAPI()
+
+              class ItemRequest(BaseModel):
+                  name: str = Field(..., example="Laptop")
+                  price: float = Field(..., gt=0, example=999.99)
+
+              class ItemResponse(BaseModel):
+                  id: int
+                  name: str
+                  price: float
+
+              @app.post("/items/", response_model=ItemResponse)
+              def create_item(item: ItemRequest):
+                  return {"id": 1, "name": item.name, "price": item.price}
+
+      
+      - title: "Reuse Shared Pydantic Models Across Endpoints"
+        description: |
+          For the same entity, reuse a shared Pydantic model across multiple endpoints to maintain consistent field names, data types, and validation rules.
+        impact: |
+          - Ensures consistent data structures across endpoints
+          - Reduces maintenance overhead by centralizing model changes
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/extra-models/"
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from pydantic import BaseModel
+
+              # Anti-pattern: Different models for the same entity
+              class CreateItem(BaseModel):
+                  name: str
+                  price: float
+
+              class UpdateItem(BaseModel):
+                  title: str  # Field name mismatch
+                  cost: float  # Field name mismatch
+
+              @app.post("/items/")
+              def create_item(item: CreateItem): ...
+
+              @app.put("/items/{id}")
+              def update_item(id: int, item: UpdateItem): ...
+          - compliant: |
+              from pydantic import BaseModel
+
+              # Single source of truth
+              class ItemBase(BaseModel):
+                  name: str
+                  price: float
+
+              @app.post("/items/")
+              def create_item(item: ItemBase): ...
+
+              @app.put("/items/{id}")
+              def update_item(id: int, item: ItemBase): ...
+
+      - title: "Document Pydantic Models with Field Examples"
+        description: |
+          All Pydantic models must include at least one example demonstrating valid values, provided through `Field()` parameters or `Config.schema_extra` for complex cases.
+        impact: |
+          - Improves API usability and developer onboarding
+          - Reduces integration errors by showing exact value formats
+          - Keeps API documentation consistent and predictable
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/schema-extra-example/"
+        code_examples:
+          - non_compliant: |
+              from pydantic import BaseModel
+
+              class Product(BaseModel):
+                  id: str          # No example provided
+                  price: float     # No description or example
+          - compliant: |
+              from pydantic import Field, BaseModel
+
+              class Product(BaseModel):
+                  id: str = Field(
+                      ...,
+                      example="prod_XYZ123",
+                      description="Unique product identifier"
+                  )
+                  price: float = Field(
+                      ...,
+                      example=99.99,
+                      description="Price in USD with two decimal places"
+                  )
+
+                  class Config:
+                      schema_extra = {
+                          "example": {
+                              "id": "prod_XYZ123",
+                              "price": 99.99
+                          }
+                      }
+
+      - title: "Structure Complex Data with Nested Pydantic Models"
+        description: |
+          For hierarchical or multi-level JSON data (e.g., orders with line items, invoices with payments),  
+          define **nested Pydantic models** instead of using raw dictionaries or untyped lists.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/body-nested-models/"
+        impact: |
+          - Ensures data integrity for complex request payloads  
+          - Reduces debugging time by catching validation errors early  
+          - Prevents business logic errors caused by incomplete or malformed nested structures
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from typing import Dict, List
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.post("/orders")
+              def create_order(order: Dict[str, List[Dict]]):  # Unvalidated nested dicts
+                  return order
+          - compliant: |
+              from pydantic import BaseModel
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              class Item(BaseModel):
+                  sku: str
+                  quantity: int
+
+              class Order(BaseModel):
+                  order_id: str
+                  items: list[Item]  # Validated nested model
+
+              @app.post("/orders")
+              def create_order(order: Order):
+                  return order
+
+                    
+      - title: "Leverage Model Inheritance for DRY Schemas"
+        description: |
+          Create **base Pydantic models** (or mixins) for fields that are repeated across multiple models  
+          (e.g., `id`, `created_at`, `updated_at`, `user_id`).  
+          Extend these base models for specific use cases instead of redefining the same fields multiple times.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/extra-models/#inheritance"
+        impact: |
+          - Reduces maintenance overhead by eliminating duplicate field definitions  
+          - Ensures consistent validation and field behavior across all models  
+          - Makes it easier to update shared fields in one place instead of multiple files
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from pydantic import BaseModel
+              from datetime import datetime
+
+              class UserCreate(BaseModel):
+                  name: str
+                  email: str
+                  created_at: datetime 
+                  updated_at: datetime
+
+              class UserResponse(BaseModel):
+                  name: str
+                  email: str
+                  created_at: datetime
+                  updated_at: datetime
+          - compliant: |
+              from pydantic import BaseModel
+              from datetime import datetime
+
+              class TimestampMixin(BaseModel):
+                  created_at: datetime
+                  updated_at: datetime
+
+              class UserCreate(TimestampMixin):
+                  name: str
+                  email: str
+
+              class UserResponse(TimestampMixin):
+                  name: str
+                  email: str
+
+      - title: "Mark Optional Fields with Proper Type Hints"
+        description: |
+          Use `Optional[...]` or `Field(default=None)` to explicitly mark fields that are not required.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/body-fields/#declare-model-attributes"
+        impact: |
+          - Makes API contracts explicit and unambiguous  
+          - Prevents accidental `None` values in required fields  
+          - Ensures OpenAPI schema accurately reflects which fields are required vs optional
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from pydantic import BaseModel
+
+              class Item(BaseModel):
+                  name = None  # Missing type hint, unclear if optional or required
+                  price: float = 0.0  # Implies required but gives default
+          - compliant: |
+              from typing import Optional
+              from pydantic import BaseModel, Field
+
+              class Item(BaseModel):
+                  name: str  # Required field
+                  price: Optional[float] = Field(
+                      default=None,
+                      description="USD price (optional for samples)"
+                  )
+
+  - name: "Security & Authentication"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Enforce HTTPS Redirection for All Endpoints"
+        description: |
+          All FastAPI applications must redirect all HTTP requests to HTTPS.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/deployment/https/"
+        impact: |
+          Prevents man-in-the-middle attacks and complies with OWASP API Top 10 (API2:2023).
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()  # No HTTPS enforcement
+
+              @app.get("/data")
+              def get_data():
+                  return {"sensitive": True}
+          - compliant: |
+              from fastapi import FastAPI
+              from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
+
+              app = FastAPI()
+
+              # Force HTTPS redirection
+              app.add_middleware(HTTPSRedirectMiddleware)
+
+              @app.get("/data")
+              def get_data():
+                  return {"sensitive": True}
+
+
+      - title: "Secure Endpoints with OAuth2 JWT Bearer Tokens"
+        description: |
+          All authenticated FastAPI endpoints must require an OAuth2 JWT bearer token, extracted via `OAuth2PasswordBearer`, and validate it using a trusted library such as `PyJWT` or `python-jose`, including signature and expiration checks.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/"
+        impact: |
+          Prevents unauthorized access and complies with OWASP API Top 10 (API1:2023).
+          Critical for authentication systems.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.get("/protected")
+              def unprotected_route(token: str):  # Manual token handling
+                  return {"data": "secret"}
+            compliant: |
+              from fastapi import FastAPI, Depends, HTTPException
+              from fastapi.security import OAuth2PasswordBearer
+              from jose import JWTError, jwt
+
+              app = FastAPI()
+              oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+              def validate_token(token: str = Depends(oauth2_scheme)):
+                  try:
+                      payload = jwt.decode(
+                          token,
+                          "SECRET_KEY",
+                          algorithms=["HS256"]
+                      )
+                      return payload
+                  except JWTError:
+                      raise HTTPException(status_code=401, detail="Invalid token")
+
+              @app.get("/protected")
+              def protected_route(payload: dict = Depends(validate_token)):
+                  return {"data": "secret"}
+
+
+      - title: "Enable CORS in FastAPI Applications"
+        description: |
+          FastAPI applications must use `CORSMiddleware` to enable and configure cross-origin resource sharing.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/cors/"
+        impact: |
+          Prevents browsers from making unauthorized requests to your API, reducing the risk of CSRF and data exfiltration vulnerabilities (OWASP API8:2023).
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()  # No CORS middleware configured
+          - compliant: |
+              from fastapi import FastAPI
+              from fastapi.middleware.cors import CORSMiddleware
+
+              app = FastAPI()
+              app.add_middleware(
+                  CORSMiddleware,
+                  allow_origins=["https://trusted.example.com"],
+                  allow_credentials=True,
+                  allow_methods=["GET", "POST"],
+                  allow_headers=["Authorization", "Content-Type"],
+              )
+
+      - title: "Disallow Wildcard Origins in CORS for Production"
+        description: |
+          In production environments, FastAPI applications must not use `allow_origins=["*"]` in `CORSMiddleware`.  
+          Only explicitly defined, trusted origins should be permitted.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/cors/"
+        impact: |
+          Prevents unrestricted cross-origin access in production, reducing risk of CSRF and data exfiltration.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+              from fastapi.middleware.cors import CORSMiddleware
+
+              app = FastAPI()
+              app.add_middleware(
+                  CORSMiddleware,
+                  allow_origins=["*"], 
+                  allow_credentials=True,
+                  allow_methods=["*"],
+                  allow_headers=["*"],
+              )
+            compliant: |
+              from fastapi import FastAPI
+              from fastapi.middleware.cors import CORSMiddleware
+
+              app = FastAPI()
+              app.add_middleware(
+                  CORSMiddleware,
+                  allow_origins=["https://trusted.example.com"], 
+                  allow_credentials=True,
+                  allow_methods=["GET", "POST"],
+                  allow_headers=["Authorization", "Content-Type"],
+              )
+
+
+
+      - title: "Never Expose Secret or Sensitive Data in API Responses"
+        description: |
+          FastAPI endpoints must not include secrets, credentials, or tokens in response payloads, including error responses.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/response-model/"
+        impact: |
+          Prevents accidental data leaks, protects sensitive information, and supports principle of least privilege (OWASP API3:2023).
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+              app = FastAPI()
+
+              @app.get("/user")
+              def get_user():
+                  return {
+                      "username": "bob",
+                      "password": "hunter2",   # Should never be exposed
+                      "api_key": "secret-key"  # Should never be exposed
+                  }
+          - compliant: |
+              from fastapi import FastAPI
+              from pydantic import BaseModel
+
+              class UserResponse(BaseModel):
+                  username: str
+
+              app = FastAPI()
+
+              @app.get("/user", response_model=UserResponse)
+              def get_user():
+                  return {"username": "bob"}
+
+      - title: "Passwords Must Be Hashed Using FastAPI Security Utilities"
+        description: |
+          All user passwords must be hashed using strong, recommended algorithms (e.g., bcrypt) via the utilities provided in `fastapi.security` or trusted libraries. Never store or transmit plaintext passwords.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/"
+        impact: |
+          Prevents user credential theft and complies with security best practices and OWASP API2:2023.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              users = {}
+
+              @app.post("/register")
+              def register(username: str, password: str):
+                  users[username] = password  # Plaintext password storage
+            compliant: |
+              from fastapi import FastAPI
+              from passlib.context import CryptContext
+
+              pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+              users = {}
+
+              @app.post("/register")
+              def register(username: str, password: str):
+                  hashed = pwd_context.hash(password)
+                  users[username] = hashed
+ 
+  - name: "Rate Limiting and Throttle"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Enforce Rate Limiting on Sensitive Endpoints"
+        description: |
+          All FastAPI endpoints handling authentication (e.g., login, token refresh) or write operations (e.g., POST, PUT, DELETE) must apply rate limiting. Use middleware such as `slowapi` or a Redis-backed limiter.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/middleware/"
+        impact: |
+          Protects critical endpoints from abuse, brute-force login attempts, and accidental DoS caused by misbehaving clients.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.post("/login")
+              def login(username: str, password: str):
+                  # No rate limiting on login endpoint
+                  return {"token": "abc"}
+            compliant: |
+              from fastapi import FastAPI
+              from slowapi import Limiter, _rate_limit_exceeded_handler
+              from slowapi.util import get_remote_address
+
+              limiter = Limiter(key_func=get_remote_address)
+              app = FastAPI()
+              app.state.limiter = limiter
+              app.add_exception_handler(429, _rate_limit_exceeded_handler)
+
+              @app.post("/login")
+              @limiter.limit("5/minute")
+              def login(username: str, password: str):
+                  return {"token": "abc"}
+
+      - title: "Never Use Wildcard Rate Limits in Production"
+        description: |
+          FastAPI applications must avoid using wildcard (`*`) rate limits in production (e.g., `@limiter.limit("*")`).
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/middleware/"
+        impact: |
+          Prevents accidental unprotected exposure of APIs and maintains effective traffic throttling.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              @limiter.limit("*")
+              @app.get("/open")
+              def open_api():
+                  return {"msg": "unlimited"}
+            compliant: |
+              @limiter.limit("100/hour")
+              @app.get("/open")
+              def open_api():
+                  return {"msg": "rate limited"}
+
+      - title: "Throttle All API Traffic at a Global Level"
+        description: |
+          A global rate limit must be configured for all FastAPI endpoints. This can be implemented with middleware or application-wide settings (e.g., limit all users to 1000 requests/hour).
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/middleware/"
+        impact: |
+          Ensures baseline protection against denial-of-service, even if per-route limits are missing.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              # No global rate limit set; only some endpoints have limits.
+              @app.get("/data")
+              def data(): return {"ok": True}
+            compliant: |
+              from fastapi import FastAPI
+              from slowapi import Limiter
+
+              limiter = Limiter(key_func=lambda r: r.client.host, default_limits=["1000/hour"])
+              app = FastAPI()
+              app.state.limiter = limiter
+
+              @app.get("/data")
+              def data(): return {"ok": True}
+
+      - title: "Apply Different Rate Limits for Anonymous and Authenticated Users"
+        description: |
+          FastAPI applications must configure separate rate limits for anonymous (unauthenticated) users and authenticated users.
+          Unauthenticated clients should be subject to stricter limits, while authenticated users may receive higher quotas.
+          This must be implemented by using a custom key function in your rate limiting middleware.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/middleware/"
+        impact: |
+          Prevents anonymous scraping and brute-force attacks while allowing authenticated users to access resources at a higher rate.
+        code_examples:
+          - non_compliant: |
+              # Same rate limit for all users, regardless of authentication status
+              @limiter.limit("100/hour")
+              @app.get("/user-data")
+              def user_data(): 
+                  return {"message": "Data"}
+          - compliant: |
+              from fastapi import FastAPI, Depends, Request
+              from slowapi import Limiter
+              from slowapi.util import get_remote_address
+              from slowapi.errors import RateLimitExceeded
+              from fastapi.responses import JSONResponse
+
+              app = FastAPI()
+
+              # Mock authentication dependency
+              def get_current_user(request: Request):
+                  # In a real app, replace with actual auth logic
+                  return getattr(request.state, "user", None)
+
+              # Custom key function for rate limiting
+              def rate_limit_key(request: Request):
+                  user = get_current_user(request)
+                  if user and getattr(user, "is_authenticated", False):
+                      return f"user:{user.id}"
+                  return f"ip:{get_remote_address(request)}"  # Always return string
+
+              limiter = Limiter(key_func=rate_limit_key)
+              app.state.limiter = limiter
+
+              @app.exception_handler(RateLimitExceeded)
+              async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
+                  return JSONResponse(
+                      status_code=429,
+                      content={"detail": "Rate limit exceeded"}
+                  )
+
+              # Separate limits using safe key functions
+              def anon_key(request: Request):
+                  return f"ip:{get_remote_address(request)}"
+
+              def auth_key(request: Request):
+                  user = get_current_user(request)
+                  if user and getattr(user, "is_authenticated", False):
+                      return f"user:{user.id}"
+                  return f"ip:{get_remote_address(request)}"  # fallback for safety
+
+              @app.get("/user-data")
+              @limiter.limit("20/hour", key_func=anon_key)    # Anonymous users
+              @limiter.limit("200/hour", key_func=auth_key)   # Authenticated users
+              def user_data(user=Depends(get_current_user)):
+                  if user:
+                      return {"message": f"Hello, {user.username}"}
+                  return {"message": "Anonymous access"}
+
+
+  - name: "OpenAPI & Swagger Documentation Policy Pack"
+    paths:
+      - "**/*.py"  
+    policies:
+      - title: "Generate OpenAPI Documentation for All Endpoints"
+        description: |
+          FastAPI applications must be implemented so that OpenAPI documentation is fully generated from the code, with all routes and their request/response data models defined in a way that can be automatically derived.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/first-steps/"
+        impact: |
+          Guarantees OpenAPI output reflects the actual application structure and enforces type-safe, self-documented endpoints.
+        code_examples:
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              # OpenAPI disabled; missing response_model; untyped query param
+              app = FastAPI(openapi_url=None)
+
+              @app.get("/items/{item_id}")
+              def read_item(item_id):  # no type for path param
+                  return {"item_id": item_id}  # no response_model
+
+              @app.post("/items")
+              def create_item(item: dict):  # raw dict instead of Pydantic model
+                  return item
+          - compliant: |
+              from fastapi import FastAPI, Query
+              from pydantic import BaseModel
+
+              app = FastAPI()  # OpenAPI enabled (default)
+
+              class Item(BaseModel):
+                  item_id: int
+
+              class ItemCreate(BaseModel):
+                  name: str
+
+              # Typed path param and response_model
+              @app.get("/items/{item_id}", response_model=Item)
+              def read_item(item_id: int):
+                  return {"item_id": item_id}
+
+              # Typed query param
+              @app.get("/search")
+              def search_items(q: str = Query(..., min_length=1)):
+                  return {"q": q}
+
+              # Pydantic request body model + response_model
+              @app.post("/items", response_model=Item)
+              def create_item(payload: ItemCreate):
+                  # pretend we created item with id 1
+                  return {"item_id": 1}
+
+      - title: "Provide Examples for Pydantic Models"
+        description: |
+          All Pydantic models must include at least one example using `Field(example=...)` or `Config.schema_extra`.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/schema-extra-example/"
+        impact: |
+          Improves API adoption speed and enables accurate mock server generation.
+        code_examples:
+          - non_compliant: |
+              from pydantic import BaseModel
+
+              class Item(BaseModel):
+                  name: str  # No example
+          - compliant: |
+              from pydantic import BaseModel, Field
+
+              class Item(BaseModel):
+                  name: str = Field(example="Laptop")
+                  price: float = Field(example=999.99)
+
+                  class Config:
+                      schema_extra = {
+                          "examples": [{
+                              "name": "Premium Laptop",
+                              "price": 1299.99
+                          }]
+                      }
+
+      - title: "Mark Deprecated API Endpoints in Code"
+        description: |
+          When introducing breaking changes, mark outdated endpoints with `deprecated=True` and include deprecation information in their description.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/versioning/"
+        impact: |
+          Clearly signals deprecated functionality to clients via OpenAPI and documentation.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              @app.get("/items")
+              def get_items():  # No deprecation flag or info
+                  return []
+          - compliant: |
+              @app.get(
+                  "/v1/items",
+                  deprecated=True,
+                  description="Deprecated: Will be removed on 2025-01-01. Use /v2/items instead."
+              )
+              def get_items_v1():
+                  return []
+
+              @app.get("/v2/items")
+              def get_items_v2():
+                  return []
+
+      - title: "Group Endpoints Using Tags for Better Documentation Structure"
+        description: |
+          All endpoints must be organized with descriptive tags using the `tags` parameter in FastAPI route decorators.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/path-operation-configuration/#tags"
+        impact: |
+          Tags group related endpoints together in the generated OpenAPI docs, making APIs easier to navigate for both developers and external consumers.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              @app.get("/users")
+              def list_users(): ...
+          - compliant: |
+              @app.get("/users", tags=["users"])
+              def list_users(): ...
+
+  - name: "Error Handling & Problem Details"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Standardize Error Responses with Problem+JSON"
+        description: |
+          All error responses must:
+          1. Use `application/problem+json` content-type
+          2. Include RFC 7807 fields (`type`, `title`, `status`, `detail`)
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/handling-errors/"
+          - "https://datatracker.ietf.org/doc/html/rfc7807"
+        impact: |
+          Ensures consistent error handling across clients and prevents information leakage.
+          Required for API governance standards (Microsoft REST API Guidelines).
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI, HTTPException
+              app = FastAPI()
+
+              @app.get("/items/{id}")
+              def get_item(id: int):
+                  raise HTTPException(404, "Not found")  # Plaintext response
+            
+            compliant: |
+              from fastapi import FastAPI, HTTPException, Request
+              from fastapi.responses import JSONResponse
+              app = FastAPI()
+
+              async def rfc7807_exception_handler(request: Request, exc: HTTPException):
+                  return JSONResponse(
+                      status_code=exc.status_code,
+                      content={
+                          "type": "https://example.com/errors/not-found",
+                          "title": "Resource not found",
+                          "status": exc.status_code,
+                          "detail": exc.detail,
+                          "instance": str(request.url)
+                      },
+                      media_type="application/problem+json"
+                  )
+
+              app.add_exception_handler(HTTPException, rfc7807_exception_handler)
+
+      - title: "Define a Global Exception Handler for FastAPI"
+        description: |
+          FastAPI applications must define at least one global exception handler function using `@app.exception_handler(Exception)` to standardize error responses.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/handling-errors/#install-custom-exception-handlers"
+        impact: |
+          Ensures a consistent error response format for all exceptions handled by the global handler.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.get("/items/{id}")
+              def get_item(id: int):
+                  raise Exception("Unexpected failure")  # No global handler defined
+          - compliant: |
+              from fastapi import FastAPI, Request
+              from fastapi.responses import JSONResponse
+
+              app = FastAPI()
+
+              @app.exception_handler(Exception)
+              async def global_exception_handler(request: Request, exc: Exception):
+                  return JSONResponse(
+                      status_code=500,
+                      content={
+                          "type": "https://example.com/errors/internal-server-error",
+                          "title": "Internal Server Error",
+                          "status": 500,
+                          "detail": str(exc),
+                          "instance": str(request.url)
+                      },
+                      media_type="application/problem+json"
+                  )
+
+              @app.get("/items/{id}")
+              def get_item(id: int):
+                  raise Exception("Unexpected failure")
+
+
+      - title: "Sanitize Production Error Responses"
+        description: |
+          In production environments, error responses must not expose stack traces or detailed internal information to clients.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/handling-errors/#override-the-default-exception-handlers"
+        impact: |
+          Prevents sensitive information leakage (OWASP API7:2023).
+          Complies with GDPR Article 32 (security of processing).
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+              app = FastAPI(debug=True)  # Stack traces exposed
+            
+            compliant: |
+              from fastapi import FastAPI
+              from fastapi.responses import JSONResponse
+              import os
+
+              app = FastAPI(debug=os.getenv("ENV") == "development")
+
+              @app.exception_handler(500)
+              async def hide_internal_errors(request, exc):
+                  return JSONResponse(
+                      status_code=500,
+                      content={
+                          "type": "about:blank",
+                          "title": "Internal Server Error",
+                          "status": 500
+                      },
+                      media_type="application/problem+json"
+                  )
+
+      - title: "Declare Error Responses in OpenAPI"
+        description: |
+          Every endpoint must declare its error responses in OpenAPI using the `responses={...}` parameter.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/additional-responses/"
+        impact: |
+          Enables clients to programmatically handle errors and improves API reliability.
+        code_examples:
+          - non_compliant: |
+              @app.get("/items/{id}")
+              def get_item(id: int):  # No error docs
+                  return {}
+          - compliant: |
+              from pydantic import BaseModel
+
+              class NotFound(BaseModel):
+                  type: str = "about:blank"
+                  title: str = "Not Found"
+                  status: int = 404
+
+              @app.get(
+                  "/items/{id}",
+                  responses={
+                      404: {
+                          "description": "Item not found",
+                          "content": {
+                              "application/problem+json": {
+                                  "example": {"type": "about:blank", "title": "Not Found", "status": 404}
+                              }
+                          }
+                      }
+                  }
+              )
+              def get_item(id: int):
+                  return {}
+
+      - title: "Include Correlation IDs in RFC 7807 Error Responses"
+        description: |
+          All error responses using RFC 7807 (`application/problem+json`) MUST include a correlation ID in the JSON body.
+          The correlation ID MUST be generated or propagated per request and exposed under the field name `correlation_id`.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/handling-errors/"
+          - "https://www.rfc-editor.org/rfc/rfc7807"
+        impact: |
+          Enables clients and operators to correlate a user-visible error with backend traces/logs, cutting time-to-diagnosis.
+        code_examples:
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.get("/boom")
+              def boom():
+                  # Raises 500; returns default JSON without RFC 7807 or correlation_id
+                  raise RuntimeError("unexpected")
+          - compliant: |
+              from fastapi import FastAPI, Request
+              from fastapi.responses import JSONResponse
+              from uuid import uuid4
+
+              app = FastAPI()
+
+              # Generate or propagate a per-request ID for later inclusion in the problem body
+              @app.middleware("http")
+              async def add_request_id(request: Request, call_next):
+                  rid = request.headers.get("X-Request-ID") or str(uuid4())
+                  request.state.request_id = rid
+                  return await call_next(request)
+
+              # Global handler that returns RFC 7807 with a correlation_id field
+              @app.exception_handler(Exception)
+              async def problem_details_handler(request: Request, exc: Exception):
+                  correlation_id = getattr(request.state, "request_id", str(uuid4()))
+                  problem = {
+                      "type": "about:blank",
+                      "title": "Internal Server Error",
+                      "status": 500,
+                      "detail": "An unexpected error occurred.",
+                      "instance": str(request.url),
+                      "correlation_id": correlation_id,
+                  }
+                  return JSONResponse(
+                      problem,
+                      status_code=500,
+                      media_type="application/problem+json",
+                  )
+
+
+  
+  - name: "Structured Logging & Correlation IDs"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Include X-Request-ID in All Logs and Responses"
+        description: |
+          Every FastAPI HTTP request must include a unique correlation/request ID (such as `X-Request-ID`). The ID should be generated if not provided by the client, attached to the response headers, and included in all structured logs for that request.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/middleware/"
+        impact: |
+          Enables precise tracing of requests across microservices and log aggregation tools, greatly reducing time to diagnose production issues.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.get("/")
+              def root():
+                  logger.info("Request received")  # No correlation ID
+                  return {"hello": "world"}
+            compliant: |
+              from fastapi import FastAPI, Request
+              from uuid import uuid4
+
+              app = FastAPI()
+
+              @app.middleware("http")
+              async def add_request_id(request: Request, call_next):
+                  request_id = request.headers.get("X-Request-ID", str(uuid4()))
+                  request.state.request_id = request_id
+                  response = await call_next(request)
+                  response.headers["X-Request-ID"] = request_id
+                  return response
+
+              @app.get("/")
+              def root(request: Request):
+                  logger.info("Request received", extra={"request_id": request.state.request_id})
+                  return {"hello": "world"}
+
+  - name: "Performance Tuning (Uvicorn/Gunicorn Workers)"
+    paths:
+      - '**/*.py'
+      - '**/Dockerfile'
+      - '**/Procfile'
+      - '**/*.sh'
+      - '**/*.yml'
+      - '**/*.yaml'
+    policies:
+      - title: "Always Use UvicornWorker as Gunicorn Worker Class"
+        description: |
+          When running FastAPI behind Gunicorn, always use `uvicorn.workers.UvicornWorker` as the worker class.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/deployment/"
+        impact: |
+          Ensures Gunicorn runs FastAPI in full async mode, avoiding blocking and enabling high concurrency.
+        code_examples:
+          # Shell examples
+          - non_compliant: |
+              gunicorn app:app --workers=4  # Defaults to sync worker
+          - compliant: |
+              gunicorn app:app --workers=4 --worker-class=uvicorn.workers.UvicornWorker
+
+
+      - title: "Set a Sensible Worker Timeout to Prevent Resource Leaks"
+        description: |
+          Always configure a timeout for Gunicorn/Uvicorn workers (e.g., `--timeout 30`). Avoid leaving workers with default or excessive timeouts.
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/deployment/"
+        impact: |
+          Prevents zombie workers and resource starvation during request spikes or code hangs.
+        code_examples:
+          # Shell examples
+          - non_compliant: |
+              gunicorn app:app --workers=4 --worker-class=uvicorn.workers.UvicornWorker  # No timeout set
+          - compliant: |
+              gunicorn app:app --workers=4 --worker-class=uvicorn.workers.UvicornWorker --timeout=30
+
+  - name: "Database Access Layer"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Use Async Database Drivers and Sessions"
+        description: |
+          All FastAPI database access must use async-compatible drivers (e.g., asyncpg for PostgreSQL, aiosqlite for SQLite) and async SQLAlchemy or SQLModel sessions. Do not use synchronous database drivers in async endpoints.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/async-sql-databases/"
+        impact: |
+          Prevents event loop blocking, enabling FastAPI to handle many concurrent requests efficiently.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from sqlalchemy import create_engine
+              engine = create_engine("postgresql://user:pass@localhost/db")  # Synchronous driver
+
+              @app.get("/users")
+              async def get_users():
+                  with engine.connect() as conn:
+                      # Blocking I/O inside async endpoint
+                      ...
+            compliant: |
+              from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+              from sqlalchemy.orm import sessionmaker
+
+              engine = create_async_engine("postgresql+asyncpg://user:pass@localhost/db")
+              async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
+
+              @app.get("/users")
+              async def get_users():
+                  async with async_session() as session:
+                      # Fully async DB access
+                      ...
+
+      - title: "Manage Database Sessions Using FastAPI Dependency Injection"
+        description: |
+          Database sessions must be provided to endpoints using FastAPI's `Depends`, with a `yield`-based dependency that always closes sessions, never as a global singleton.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/"
+        impact: |
+          Prevents connection leaks and race conditions, ensuring sessions are tied to request scope.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              # global_session is a singleton, unsafe in async context
+              global_session = async_sessionmaker(engine, class_=AsyncSession)
+
+              @app.get("/users")
+              async def get_users():
+                  result = await global_session().execute("SELECT * FROM users")
+                  ...
+            compliant: |
+              async def get_db():
+                  async with async_session() as session:
+                      try:
+                          yield session
+                      finally:
+                          await session.close()
+
+              @app.get("/users")
+              async def get_users(db=Depends(get_db)):
+                  result = await db.execute("SELECT * FROM users")
+                  ...
+
+      - title: "Encapsulate Database Logic in Repository or Service Classes"
+        description: |
+          All database queries and ORM logic must be encapsulated in repository or service classes, not directly in route functions. Endpoints should call repository methods, not write raw queries.
+        severity: high
+        required_context: multi-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/bigger-applications/"
+        impact: |
+          Separates business logic from transport layer, supports unit testing, and avoids ORM leakage in API routes.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              @app.get("/users")
+              async def get_users(db=Depends(get_db)):
+                  result = await db.execute(select(User))
+                  return result.scalars().all()
+            compliant: |
+              class UserRepository:
+                  def __init__(self, db):
+                      self.db = db
+
+                  async def list_users(self):
+                      result = await self.db.execute(select(User))
+                      return result.scalars().all()
+
+              @app.get("/users")
+              async def get_users(db=Depends(get_db)):
+                  repo = UserRepository(db)
+                  return await repo.list_users()
+
+      - title: "Configure Connection Pooling and Safe Engine Settings"
+        description: |
+          Database engines must configure connection pooling parameters (e.g., pool size, pool pre-ping). Avoid leaving pool settings at defaults for production.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://docs.sqlalchemy.org/en/20/core/pooling.html"
+        impact: |
+          Improves resilience, prevents "too many connections" errors, and ensures long-running apps remain healthy.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              engine = create_async_engine(
+                  "postgresql+asyncpg://user:pass@localhost/db"
+              )
+            compliant: |
+              import os
+              from sqlalchemy.ext.asyncio import create_async_engine
+
+              engine = create_async_engine(
+                  "postgresql+asyncpg://user:pass@localhost/db",
+                  pool_size=(os.cpu_count() or 4) * 2,
+                  max_overflow=(os.cpu_count() or 4),
+                  pool_pre_ping=True,
+                  pool_recycle=3600  # Recycle connections hourly
+              )
+        
+
+
+
+
+                
+  - name: "Background Tasks and Schedulers"
+    paths:
+      - "**/*.py"
+    policies:
+
+      - title: "Inject Background Task Handlers via Dependency Injection"
+        description: |
+          All background task logic must be encapsulated in service classes or functions
+          and provided to FastAPI endpoints via `Depends`.
+          Background task handlers must not be defined inline within endpoints.
+        severity: high
+        required_context: multi-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+        impact: |
+          Improves modularity, maintainability, and testability by injecting task logic
+          instead of hardcoding it inside route handlers.
+        code_examples:
+          - non_compliant: |
+              from fastapi import FastAPI, BackgroundTasks
+
+              app = FastAPI()
+
+              def log_ping_event(message: str):
+                  print(f"Ping event: {message}")
+
+              @app.post("/ping")
+              def ping(bg_tasks: BackgroundTasks):
+                  # Bad: Task logic is directly tied to endpoint
+                  bg_tasks.add_task(log_ping_event, "pinged")
+                  return {"message": "pong"}
+          - compliant: |
+              from fastapi import FastAPI, BackgroundTasks, Depends
+
+              app = FastAPI()
+
+              class PingService:
+                  def log_ping(self, message: str):
+                      print(f"Ping event: {message}")
+
+              def get_ping_service():
+                  return PingService()
+
+              @app.post("/ping")
+              def ping(
+                  bg_tasks: BackgroundTasks,
+                  ping_service: PingService = Depends(get_ping_service)
+              ):
+                  # Good: Task logic injected via dependency
+                  bg_tasks.add_task(ping_service.log_ping, "pinged")
+                  return {"message": "pong"}
+
+      - title: "Avoid Blocking Calls in FastAPI BackgroundTasks"
+        description: |
+          Any task function registered with FastAPI's `BackgroundTasks` must:
+            - Use async I/O for non-blocking operations
+            - Offload blocking or CPU-bound work to a thread pool (`run_in_threadpool`) or process pool
+            - Avoid calls like `time.sleep`, synchronous file I/O, or blocking database queries
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+        impact: |
+          Prevents thread starvation and degraded server performance while maximizing FastAPI’s
+          async concurrency model.
+        code_examples:
+          - non_compliant: |
+              import time
+              from fastapi import FastAPI, BackgroundTasks
+
+              app = FastAPI()
+
+              def slow_task():
+                  # Bad: Blocking call will stall worker
+                  time.sleep(10)
+
+              @app.get("/start-task")
+              def start_task(background_tasks: BackgroundTasks):
+                  background_tasks.add_task(slow_task)
+                  return {"status": "started"}
+          - compliant: |
+              import asyncio
+              from fastapi import FastAPI, BackgroundTasks
+              from starlette.concurrency import run_in_threadpool
+
+              app = FastAPI()
+
+              async def fast_task():
+                  await asyncio.sleep(10)  # Non-blocking async sleep
+
+              def blocking_file_write():
+                  with open("output.txt", "w") as f:
+                      f.write("Done")
+
+              @app.get("/start-task")
+              async def start_task(background_tasks: BackgroundTasks):
+                  # Async non-blocking task
+                  background_tasks.add_task(fast_task)
+
+                  # Offload blocking task to a thread pool
+                  background_tasks.add_task(lambda: run_in_threadpool(blocking_file_write))
+
+                  return {"status": "started"}
+
+      - title: "Use BackgroundTasks Only for Lightweight Async Work"
+        description: |
+          FastAPI's `BackgroundTasks` must be used only for lightweight, sub-second tasks such as sending email, logging analytics, or cache invalidation.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+        impact: |
+          Preserves API responsiveness and prevents event loop blocking from heavy workloads.
+        code_examples:
+          - non_compliant: |
+              import time
+              from fastapi import FastAPI, BackgroundTasks
+
+              app = FastAPI()
+
+              def create_pdf_report():
+                  # Simulates 30 seconds of CPU-bound work
+                  time.sleep(30)
+
+              @app.post("/report")
+              def generate_report(bg_tasks: BackgroundTasks):
+                  # Misuse: scheduling a heavy/CPU-bound task
+                  bg_tasks.add_task(create_pdf_report)
+                  return {"status": "processing"}
+          - compliant: |
+              from fastapi import FastAPI, BackgroundTasks
+              import logging
+
+              app = FastAPI()
+              logger = logging.getLogger(__name__)
+
+              def log_report_request():
+                  # Quick, non-blocking work
+                  logger.info("Report request logged.")
+
+              @app.post("/report")
+              def request_report(bg_tasks: BackgroundTasks):
+                  bg_tasks.add_task(log_report_request)
+                  return {"status": "queued"}
+
+      - title: "Use Task Queues for Heavy or Long-Running Background Work"
+        description: |
+          All CPU-bound, I/O-heavy, or long-running background operations must be handled by a dedicated
+          task queue system (e.g., Celery, Dramatiq, RQ).
+        severity: mandatory
+        required_context: multi-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/background-tasks/"
+        impact: |
+          Prevents API thread starvation, improves scalability, and ensures reliable execution of
+          resource-intensive jobs without impacting user-facing request latency.
+        code_examples:
+          - non_compliant: |
+              from fastapi import FastAPI, BackgroundTasks
+
+              app = FastAPI()
+
+              def heavy_data_export(file_name: str):
+                  # Simulate CPU/IO-heavy job
+                  import time
+                  time.sleep(60)
+
+              @app.post("/process")
+              def start_heavy_task(bg_tasks: BackgroundTasks):
+                  # Bad: Runs heavy work via BackgroundTasks
+                  bg_tasks.add_task(heavy_data_export, "big-report.csv")
+                  return {"status": "started"}
+          - compliant: |
+              from fastapi import FastAPI
+              from celery import Celery
+
+              app = FastAPI()
+              celery_app = Celery("tasks", broker="redis://localhost:6379/0")
+
+              @app.post("/process")
+              def start_heavy_task():
+                  # Good: Offload to Celery worker
+                  celery_app.send_task("heavy_data_export", args=["big-report.csv"])
+                  return {"status": "queued"}
+
+
+                
+  - name: "Cache Strategy (Redis / CDN)"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Use Async Redis Clients for Caching in FastAPI"
+        description: |
+          All cache interactions in FastAPI apps must use asynchronous Redis clients (such as `aioredis` or `redis.asyncio`). Synchronous Redis clients (like the default `redis` package) should not be used.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/async/"
+        impact: |
+          Ensures Redis operations are non-blocking and suitable for async FastAPI environments.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              import redis
+              r = redis.StrictRedis(host='localhost', port=6379, db=0)
+              
+              def cache_get(key):
+                  return r.get(key)  # Synchronous, blocks event loop
+          - compliant: |
+              import redis.asyncio as aioredis
+              import asyncio
+              
+              r = aioredis.Redis(host='localhost', port=6379, db=0)
+              
+              async def cache_get(key):
+                  return await r.get(key)  # Non-blocking, async
+
+      - title: "Explicitly Set Cache-Control Headers on All HTTP Responses"
+        description: |
+          All HTTP responses must explicitly include a `Cache-Control` header, regardless of the endpoint's
+          purpose. The value may be:
+            - `no-store` or `no-cache` for dynamic or sensitive data
+            - `public, max-age=<seconds>` or `private, max-age=<seconds>` for data that may be cached
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/response/"
+        impact: |
+          Prevents unintended caching of sensitive data and ensures that all endpoints clearly communicate
+          cache behavior to clients and intermediaries.
+        code_examples:
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.get("/public-info")
+              def public_info():
+                  return {"info": "public"}  # No Cache-Control header
+          - compliant: |
+              from fastapi import FastAPI, Response
+
+              app = FastAPI()
+
+              @app.get("/public-info")
+              def public_info():
+                  headers = {"Cache-Control": "public, max-age=600"}
+                  return Response(
+                      content='{"info":"public"}',
+                      media_type="application/json",
+                      headers=headers
+                  )
+
+              @app.get("/private-data")
+              def private_data():
+                  headers = {"Cache-Control": "no-store"}
+                  return Response(
+                      content='{"secret":"value"}',
+                      media_type="application/json",
+                      headers=headers
+                  )
+
+  - name: "API Versioning & Deprecation"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Require URL Path Prefixes for API Versioning"
+        description: |
+          All FastAPI endpoints must be mounted under a `/v{integer}` URL path prefix (e.g., `/v1`, `/v2`).
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/versioning/"
+        impact: |
+          Establishes a clear and predictable versioning pattern for API endpoints.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              app.include_router(items_router)  # No version prefix
+
+              # Using query parameters for versioning (not allowed)
+              @app.get("/items")
+              def get_items(version: int = 1):
+                  return []
+          - compliant: |
+              # Properly versioned routers
+              app.include_router(items_v1_router, prefix="/v1")
+              app.include_router(items_v2_router, prefix="/v2")
+
+      - title: "Maintain Separate OpenAPI Schemas for Each Major Version"
+        description: |
+          Each API version must have its own OpenAPI schema (e.g., `/v1/openapi.json`, `/v2/openapi.json`). When breaking changes are introduced, list them in that version’s OpenAPI `description`.
+        severity: medium
+        required_context: multi-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/versioning/"
+        impact: |
+          Enables clear separation of API versions for governance, documentation, and client code generation.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              # One app serving endpoints from multiple versions,
+              # but with only a single OpenAPI schema.
+              app = FastAPI()
+
+              @app.get("/v1/items")
+              def get_items_v1():
+                  return [{"id": 1, "name": "Old Item"}]
+
+              @app.get("/v2/items")
+              def get_items_v2():
+                  return [{"id": 1, "name": "New Item", "price": 9.99}]
+
+              # Problem: both versions share the same /openapi.json
+          - compliant: |
+              from fastapi import FastAPI
+
+              # Create separate FastAPI apps with distinct OpenAPI URLs
+              app_v1 = FastAPI(
+                  title="My API v1",
+                  openapi_url="/v1/openapi.json",
+                  description="Version 1 - legacy item structure"
+              )
+
+              @app_v1.get("/items")
+              def get_items_v1():
+                  return [{"id": 1, "name": "Old Item"}]
+
+              app_v2 = FastAPI(
+                  title="My API v2",
+                  openapi_url="/v2/openapi.json",
+                  description="Version 2 - includes price field"
+              )
+
+              @app_v2.get("/items")
+              def get_items_v2():
+                  return [{"id": 1, "name": "New Item", "price": 9.99}]
+
+              # Main application mounting both versions
+              main_app = FastAPI()
+              main_app.mount("/v1", app_v1)
+              main_app.mount("/v2", app_v2)
+
+
+      - title: "Include API Version Change Notes in Code"
+        description: |
+          When introducing a new major API version, include version change notes directly in the FastAPI application's OpenAPI `description` or endpoint docstrings. These notes must list key breaking changes and field name updates.
+        severity: medium
+        required_context: multi-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/versioning/"
+        impact: |
+          Makes version-related breaking changes discoverable directly from the generated API documentation.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              app = FastAPI(title="My API v2")
+              # No mention of breaking changes in API description
+          - compliant: |
+              app = FastAPI(
+                  title="My API v2",
+                  description="""
+                  ## Version Change Notes
+                  - Field `item_id` renamed to `id`
+                  - Endpoint `/v1/items` deprecated
+                  """
+              )
+
+  - name: "Unit, Integration & Contract Testing"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Isolate Tests with Dependency Overrides"
+        description: |
+          Tests that interact with external systems must use FastAPI's `dependency_overrides` to inject test doubles or mocks for those dependencies.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/dependencies/override-dependencies/"
+        impact: |
+          Ensures tests run quickly and reliably without side effects from real external systems or network calls.
+        code_examples:
+          - non_compliant: |
+              # No overrides: this hits a real external service.
+              from httpx import AsyncClient
+
+              async def test_payment():
+                  async with AsyncClient(app=app, base_url="http://test") as ac:
+                      response = await ac.post("/pay", json={"card": "..."})
+                  assert response.status_code == 200
+          - compliant: |
+              from unittest.mock import AsyncMock
+              from httpx import AsyncClient
+
+              # Override the external dependency with a mock/double
+              app.dependency_overrides[get_payment_gateway] = lambda: AsyncMock(
+                  charge=AsyncMock(return_value={"id": "mock_charge"})
+              )
+
+              import pytest
+              @pytest.mark.asyncio
+              async def test_payment():
+                  async with AsyncClient(app=app, base_url="http://test") as ac:
+                      response = await ac.post("/pay", json={"card": "..."})
+                  assert response.json()["id"] == "mock_charge"
+
+
+      - title: "Validate API Responses Against Pydantic Models in Tests"
+        description: |
+          All API tests must validate that response payloads conform to the defined Pydantic models by instantiating the corresponding model with the response data.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/testing/"
+        impact: |
+          Ensures test cases detect schema mismatches and maintain API contract integrity.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              def test_create_item():
+                  resp = client.post("/items", json={"foo": "bar"})
+                  assert resp.status_code == 200
+                  # No schema validation here
+          - compliant: |
+              from app.schemas import ItemResponse
+
+              def test_create_item():
+                  resp = client.post("/items", json={"name": "Widget", "price": 5.99})
+                  assert resp.status_code == 200
+                  ItemResponse(**resp.json())
+
+  - name: "Configuration & Settings Management"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "All Configuration Values Must Have Safe Defaults or Be Required"
+        description: |
+          Each field in the configuration (`BaseSettings`) class must either provide a safe default value or be declared as required (no default).
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/settings/"
+        impact: |
+          Ensures the app never runs with missing or broken configuration, preventing production outages.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from pydantic_settings import BaseSettings
+
+              class Settings(BaseSettings):
+                  db_host: str = None  # Unsafe: allows None, not truly required
+                  secret_key: str = ""  # Unsafe: empty string as default
+                  debug: bool  # No default and not explicitly required
+          - compliant: |
+              from pydantic import Field
+              from pydantic_settings import BaseSettings
+
+              class Settings(BaseSettings):
+                  db_host: str = Field(..., description="Database host")  # Required—must be set by env or .env
+                  secret_key: str = Field(..., description="Application secret key")  # Required—must be set
+                  debug: bool = False  # Safe default
+
+
+      - title: "Never Expose or Log Sensitive Configuration"
+        description: |
+          FastAPI services must never log, print, or return secrets or sensitive config values (e.g., passwords, API keys)
+          in logs, error messages, or HTTP responses.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/settings/"
+        impact: |
+          Prevents accidental leaks of credentials, secrets, or keys that could result in security breaches.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from config import settings
+              import logging
+
+              logging.info(f"Loaded secret: {settings.api_key}")
+              # Or in exception handler
+              raise Exception(f"API key is {settings.api_key}")
+            compliant: |
+              from config import settings
+              import logging
+
+              logging.info("Secret config loaded successfully")
+              # Never output secrets
+
+  - name: "Observability & Metrics"
+    paths:
+      - "**/*.py"
+    policies:
+      - title: "Expose Prometheus-Compatible Metrics for All Deployments"
+        description: |
+          Every FastAPI service must expose a Prometheus-compatible `/metrics` endpoint using a supported library (e.g., `prometheus-fastapi-instrumentator`). This endpoint must include HTTP request metrics, latency, and error rates.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/metrics/"
+        impact: |
+          Enables real-time monitoring, alerting, and historical analysis to catch incidents quickly and optimize performance.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+              # No metrics endpoint exposed
+            compliant: |
+              from fastapi import FastAPI
+              from prometheus_fastapi_instrumentator import Instrumentator
+
+              app = FastAPI()
+              Instrumentator().instrument(app).expose(app)
+
+      - title: "Expose Custom Prometheus Metrics with Labels in FastAPI Endpoints"
+        description: |
+          All FastAPI endpoints must include at least one custom Prometheus metric (e.g., counter, histogram, gauge) with one or more labels to track application or business events.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/metrics/"
+        impact: |
+          Supports fine-grained monitoring, troubleshooting, and SLO/SLA tracking by capturing detailed events and context.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.post("/orders")
+              def create_order(user_id: str):
+                  # No custom Prometheus metrics here
+                  return {"status": "order created"}
+          - compliant: |
+              from fastapi import FastAPI
+              from prometheus_client import Counter
+
+              app = FastAPI()
+
+              orders_created = Counter(
+                  "orders_created_total",
+                  "Number of orders created",
+                  ["user_id"]
+              )
+
+              @app.post("/orders")
+              def create_order(user_id: str):
+                  orders_created.labels(user_id=user_id).inc()
+                  return {"status": "order created"}
+
+      - title: "Integrate OpenTelemetry for Distributed Tracing"
+        description: |
+          All FastAPI APIs in a distributed or microservices environment must be instrumented with OpenTelemetry to provide full trace propagation for HTTP/gRPC, database, and background task operations.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/observability/"
+        impact: |
+          Enables end-to-end visibility across services for performance analysis, troubleshooting, and root-cause detection.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from fastapi import FastAPI, BackgroundTasks
+              import httpx
+              import sqlite3
+
+              app = FastAPI()
+
+              @app.get("/items")
+              async def get_items(background_tasks: BackgroundTasks):
+                  #  No OpenTelemetry instrumentation for FastAPI, HTTP, DB, or background tasks
+                  conn = sqlite3.connect("example.db")
+                  cursor = conn.cursor()
+                  cursor.execute("SELECT * FROM items")
+                  items = cursor.fetchall()
+                  conn.close()
+
+                  async with httpx.AsyncClient() as client:
+                      await client.get("https://external-service.example.com/data")
+
+                  background_tasks.add_task(send_email)
+                  return {"items": items}
+
+              async def send_email():
+                  #  No trace context here either
+                  print("Sending email")
+          - compliant: |
+              from fastapi import FastAPI, BackgroundTasks, Depends
+              import httpx
+              import sqlite3
+              import logging
+              from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+              from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
+              from opentelemetry.instrumentation.sqlite3 import SQLite3Instrumentor
+              from opentelemetry.trace import get_current_span
+
+              app = FastAPI()
+
+              #  Instrument FastAPI, HTTPX, and SQLite
+              FastAPIInstrumentor.instrument_app(app)
+              HTTPXClientInstrumentor().instrument()
+              SQLite3Instrumentor().instrument()
+
+              logger = logging.getLogger(__name__)
+
+              def get_trace_context():
+                  span = get_current_span()
+                  ctx = span.get_span_context()
+                  return {
+                      "trace_id": format(ctx.trace_id, "032x"),
+                      "span_id": format(ctx.span_id, "016x")
+                  }
+
+              @app.get("/items")
+              async def get_items(background_tasks: BackgroundTasks, trace_ctx: dict = Depends(get_trace_context)):
+                  #  DB operations with trace
+                  conn = sqlite3.connect("example.db")
+                  cursor = conn.cursor()
+                  cursor.execute("SELECT * FROM items")
+                  items = cursor.fetchall()
+                  conn.close()
+
+                  #  HTTP request with trace headers
+                  async with httpx.AsyncClient() as client:
+                      await client.get(
+                          "https://external-service.example.com/data",
+                          headers={"traceparent": f"00-{trace_ctx['trace_id']}-{trace_ctx['span_id']}-01"}
+                      )
+
+                  #  Background task with propagated trace context
+                  background_tasks.add_task(send_email, trace_ctx)
+                  return {"items": items}
+
+              async def send_email(trace_ctx: dict):
+                  logger.info("Sending email", extra=trace_ctx)
+
+
+      - title: "Include Trace Context Fields in Logs"
+        description: |
+          All logging calls must include "trace_id" and "span_id" fields in their extra data.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/observability/"
+        impact: |
+          Ensures log entries can be correlated across distributed systems for debugging and observability.
+        code_examples:
+          - non_compliant: |
+              import logging
+              logger = logging.getLogger(__name__)
+
+              def process(user_id: str):
+                  # Missing required trace context: no trace_id/span_id
+                  logger.info("Processing started", extra={"user_id": user_id})
+          - compliant: |
+              import logging
+              logger = logging.getLogger(__name__)
+
+              def process(trace_id: str, span_id: str, user_id: str):
+                  # Required fields present in extra
+                  extra = {
+                      "trace_id": trace_id,
+                      "span_id": span_id,
+                      "user_id": user_id,  # optional additional fields
+                  }
+                  logger.info("Processing started", extra=extra)
+
+
+      - title: "Set W3C traceparent Header on Outbound HTTP Requests"
+        description: |
+          All outbound HTTP requests must set the W3C "traceparent" header with the current trace and span IDs.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/observability/"
+        impact: |
+          Ensures distributed tracing tools can link outbound requests to their originating trace.
+        code_examples:
+          - non_compliant: |
+              import httpx
+              async def call_api():
+                  async with httpx.AsyncClient() as client:
+                      await client.get("https://example.com")  # No traceparent
+          - compliant: |
+              import httpx
+              async def call_api(trace_ctx: dict):
+                  traceparent = f"00-{trace_ctx['trace_id']}-{trace_ctx['span_id']}-01"
+                  async with httpx.AsyncClient() as client:
+                      await client.get(
+                          "https://example.com",
+                          headers={"traceparent": traceparent},
+                      )
+
+      - title: "Pass Trace Context to Background Tasks"
+        description: |
+          Background task functions must accept a trace context parameter and include it in all log calls.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/advanced/observability/"
+        impact: |
+          Ensures that asynchronous background work remains linked to its originating request in trace logs.
+        code_examples:
+          - non_compliant: |
+              import logging
+              from fastapi import BackgroundTasks
+
+              logger = logging.getLogger(__name__)
+
+              def start_task(background_tasks: BackgroundTasks):
+                  background_tasks.add_task(task_fn)  # No trace context passed
+
+              def task_fn():
+                  logger.info("Task started")  # No trace context
+          - compliant: |
+              import logging
+              from fastapi import BackgroundTasks
+
+              logger = logging.getLogger(__name__)
+
+              def start_task(background_tasks: BackgroundTasks, trace_ctx: dict):
+                  background_tasks.add_task(task_fn, trace_ctx)
+
+              def task_fn(trace_ctx: dict):
+                  logger.info("Task started", extra=trace_ctx)
+
+
+  - name: "Common Pitfalls (Blocking Calls, Global State)"
+    paths:
+      - "**/*.py"
+    policies:
+
+      - title: "Avoid Unnecessary or Side-Effect-Causing Imports in FastAPI Application Code"
+        description: |
+          FastAPI application modules must load heavy or network-initializing dependencies lazily within functions or dependency providers, not at module scope.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/deployment/docker/"
+        impact: |
+          Prevents unnecessary dependency loading, reduces container image size, avoids hidden runtime side effects,
+          and improves startup performance in production deployments.
+        code_examples:
+          - non_compliant: |
+              # app/main.py
+              from fastapi import FastAPI
+              import pandas as pd            # Heavy dependency loaded at import time
+              from some_sdk import Client    # May init network/threads on import
+
+              app = FastAPI()
+
+              @app.get("/data")
+              def data():
+                  # Uses a heavy dependency imported at module scope
+                  df = pd.DataFrame({"a": [1, 2, 3]})
+                  return df.to_dict()
+
+              @app.get("/info")
+              def info():
+                  c = Client()
+                  return {"ok": True}
+          - compliant: |
+              # app/main.py
+              from fastapi import FastAPI, Depends
+
+              app = FastAPI()
+
+              @app.get("/data")
+              def data():
+                  # Import heavy dependency only when needed
+                  import pandas as pd
+                  df = pd.DataFrame({"a": [1, 2, 3]})
+                  return df.to_dict()
+
+              # Provide network-initializing SDK via a dependency provider (lazy load)
+              def get_client():
+                  from some_sdk import Client
+                  return Client()
+
+              @app.get("/info")
+              def info(client = Depends(get_client)):
+                  return {"ok": True}
+
+
+      - title: "Avoid Mutable Global State in FastAPI (Use DI and Read-Only Caches)"
+        description: |
+          FastAPI modules must not use mutable module-level globals to share data between requests.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/dependencies/"
+        impact: |
+          Eliminates race conditions and nondeterministic behavior under async/concurrent load.
+        code_examples:
+          - non_compliant: |
+              # app/main.py
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              # Mutable global used by multiple requests
+              cache = {}
+
+              @app.get("/data")
+              async def get_data():
+                  # Unsafe cross-request mutation
+                  cache["key"] = "value"
+                  return {"ok": True}
+          - compliant: |
+              # app/main.py
+              from functools import lru_cache
+              from fastapi import FastAPI, Depends
+              from typing import Dict
+
+              app = FastAPI()
+
+              class Config:
+                  def __init__(self, feature_flag: bool):
+                      self.feature_flag = feature_flag
+
+              @lru_cache()
+              def get_config() -> Config:
+                  # Construct once; read-only thereafter
+                  return Config(feature_flag=True)
+
+              class KVStore:
+                  # Encapsulated state; accessed via DI (no module-level mutation)
+                  def __init__(self):
+                      self._data: Dict[str, str] = {}
+
+                  def set(self, k: str, v: str) -> None:
+                      self._data[k] = v
+
+                  def get(self, k: str) -> str | None:
+                      return self._data.get(k)
+
+              def get_store() -> KVStore:
+                  # Instance provided via DI; callers don't touch a global
+                  return KVStore()
+
+              @app.get("/data")
+              async def get_data(cfg: Config = Depends(get_config), store: KVStore = Depends(get_store)):
+                  store.set("key", "value")
+                  return {"flag": cfg.feature_flag, "value": store.get("key")}
+
+      - title: "Never Use time.sleep or Other Blocking Calls in Async Endpoints"
+        description: |
+          In FastAPI async endpoints, never use `time.sleep`, synchronous requests, or other blocking calls. Always use their async equivalents (`await asyncio.sleep`, `httpx.AsyncClient`, async DB drivers, etc.).
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/async/"
+        impact: |
+          Prevents event loop starvation and latency spikes. Ensures scalability and reliability under concurrent load.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              import time
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.get("/wait")
+              async def wait():
+                  time.sleep(1)  # Blocks event loop!
+                  return {"ok": True}
+            compliant: |
+              import asyncio
+              from fastapi import FastAPI
+
+              app = FastAPI()
+
+              @app.get("/wait")
+              async def wait():
+                  await asyncio.sleep(1)  # Non-blocking
+                  return {"ok": True}
+
+      - title: "Avoid Synchronous Database Drivers in Async Apps"
+        description: |
+          All FastAPI async endpoints must use async-compatible database drivers (e.g., asyncpg, aiosqlite, async SQLAlchemy). Never use synchronous drivers (e.g., psycopg2, sqlite3) in async contexts.
+        severity: mandatory
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/async/"
+        impact: |
+          Prevents database access from stalling the event loop and degrading overall API responsiveness.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              from sqlalchemy import create_engine
+              engine = create_engine("postgresql://...")  # Sync engine
+
+              @app.get("/data")
+              async def get_data():
+                  with engine.connect() as conn:
+                      result = conn.execute("SELECT 1")
+                      return {"value": result.scalar()}
+            compliant: |
+              from sqlalchemy.ext.asyncio import create_async_engine
+              async_engine = create_async_engine("postgresql+asyncpg://...")
+
+              @app.get("/data")
+              async def get_data():
+                  async with async_engine.connect() as conn:
+                      result = await conn.execute("SELECT 1")
+                      return {"value": result.scalar()}
+
+      - title: "Detect and Refactor Synchronous Third-Party Libraries"
+        description: |
+          All long-running third-party library calls within FastAPI async endpoints must be checked for async support. If not async, run them in a thread executor (`await asyncio.to_thread` or `run_in_executor`).
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/async/"
+        impact: |
+          Prevents accidental blocking of the event loop by CPU-bound or legacy synchronous code.
+        code_examples:
+          # Python examples
+          - non_compliant: |
+              import pandas as pd
+
+              @app.get("/data")
+              async def load_data():
+                  df = pd.read_csv("big.csv")  # Blocking!
+                  return {"rows": len(df)}
+            compliant: |
+              import pandas as pd
+              import asyncio
+
+              @app.get("/data")
+              async def load_data():
+                  df = await asyncio.to_thread(pd.read_csv, "big.csv")
+                  return {"rows": len(df)}
+
+  - name: "Code Quality & Maintainability"
+    paths:
+      - "**/*.py"
+    policies:
+
+      - title: "Require Explicit Type Annotations for Functions and Public Classes"
+        description: |
+          All Python functions, methods, and public classes must include explicit type annotations for parameters,
+          return types, and class attributes.
+        severity: high
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://docs.python.org/3/library/typing.html"
+        impact: |
+          Ensures maintainability, improves readability, and enables robust static analysis and automated refactoring.
+        code_examples:
+          - non_compliant: |
+              # Missing annotations on function and class members
+              def add(a, b):
+                  return a + b
+
+              class User:
+                  def __init__(self, name, age):
+                      self.name = name
+                      self.age = age
+          - compliant: |
+              from typing import List
+
+              def add(a: int, b: int) -> int:
+                  return a + b
+
+              class User:
+                  name: str
+                  age: int
+
+                  def __init__(self, name: str, age: int) -> None:
+                      self.name = name
+                      self.age = age
+
+              def names(users: List[User]) -> List[str]:
+                  return [u.name for u in users]
+
+      - title: "Avoid Import-Time Side Effects in FastAPI Modules"
+        description: |
+          FastAPI modules must not perform import-time side effects such as opening network connections, starting threads, reading/writing files, or mutating global state; initialize external resources only inside functions (e.g., app factories or dependency providers).
+        severity: medium
+        required_context: single-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/tutorial/dependencies/"
+        impact: |
+          Prevents hidden runtime behaviors and enables predictable application startup and testing.
+        code_examples:
+          - non_compliant: |
+              # app/main.py
+              from fastapi import FastAPI
+              import requests
+              from some_db_lib import Database
+
+              app = FastAPI()
+
+              # Import-time side effects:
+              db = Database("postgres://...")         # Opens connection at import
+              requests.post("https://example.com/")   # Network call at import
+
+              @app.get("/users")
+              def users():
+                  return db.fetch_all("select * from users")
+          - compliant: |
+              # app/main.py
+              from fastapi import FastAPI, Depends
+              from typing import Protocol, List, Dict
+
+              class UserRepo(Protocol):
+                  def list_users(self) -> List[Dict]: ...
+
+              # Dependency provider; initialized at call time, not import time
+              def get_user_repo() -> UserRepo:
+                  from some_db_impl import SqlUserRepo
+                  return SqlUserRepo(dsn="postgres://...")
+
+              def create_app() -> FastAPI:
+                  app = FastAPI()
+
+                  @app.get("/users")
+                  def users(repo: UserRepo = Depends(get_user_repo)):
+                      return repo.list_users()
+
+                  return app
+
+              # Optional runtime entrypoint
+              app = create_app()
+
+      - title: "Include ADR Reference in Architecture-Critical Modules"
+        description: |
+          Any module that defines an architecture-critical construct must include an ADR reference in either:
+            1) a top-level module docstring, or
+            2) a module-level constant named ADR_ID.
+          The ADR reference must match the pattern `ADR-\d{4,}`.
+          Architecture-critical constructs include: a FastAPI app factory (`create_app`/`get_app`) or `FastAPI()` instance,
+          an `APIRouter` instance, a database engine/session setup (e.g., SQLAlchemy engine or sessionmaker),
+          a configuration class deriving from `pydantic.BaseSettings`, or a task-queue client (e.g., Celery/Dramatiq app).
+        severity: medium
+        required_context: multi-file
+        software_version: 0.116.1
+        reference_link:
+          - "https://fastapi.tiangolo.com/project-generation/"
+        impact: |
+          Makes architectural intent discoverable directly in code and enables automated checks without external documents.
+        code_examples:
+          - non_compliant: |
+              # users_service.py
+              from fastapi import FastAPI, APIRouter
+              from sqlalchemy import create_engine
+              from pydantic import BaseSettings
+
+              router = APIRouter()
+              engine = create_engine("postgresql+psycopg2://...")
+
+              class Settings(BaseSettings):
+                  db_url: str
+
+              app = FastAPI()
+
+              def create_app():
+                  app.include_router(router)
+                  return app
+              # Missing ADR reference in docstring and no ADR_ID constant
+          - non_compliant: |
+              # users_service.py
+              "Users service module."  # Docstring present but no ADR reference
+              ADR_ID = "ADR_1"         # Wrong format (underscore; not ADR-####)
+
+              from fastapi import FastAPI, APIRouter
+              from sqlalchemy import create_engine
+
+              router = APIRouter()
+              engine = create_engine("postgresql+psycopg2://...")
+              app = FastAPI()
+          - compliant: |
+              # users_service.py
+              """
+              Users service module.
+              ADR Reference: ADR-0001 (Adopt PostgreSQL + SQLAlchemy for persistence)
+              """
+              ADR_ID = "ADR-0001"
+
+              from fastapi import FastAPI, APIRouter
+              from sqlalchemy import create_engine
+              from pydantic import BaseSettings
+
+              router = APIRouter()
+              engine = create_engine("postgresql+psycopg2://...")
+
+              class Settings(BaseSettings):
+                  db_url: str
+
+              app = FastAPI()
+
+              def create_app():
+                  app.include_router(router)
+                  return app

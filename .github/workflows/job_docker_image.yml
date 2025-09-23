@@ -65,7 +65,7 @@ jobs:
       #       ALTERNATIVE_EMAIL=${{ secrets.ALTERNATIVE_EMAIL }}
 
       - name: Scan Docker image for vulnerabilities
-        uses: anchore/scan-action@v6
+        uses: anchore/scan-action@v7
         with:
           image: ${{ inputs.image-name }}:${{ inputs.image-tag }}
           fail-build: false

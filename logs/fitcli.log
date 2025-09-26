@@ -1289,3 +1289,29 @@
 2025-09-15 20:28:20 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/September/full_body_d_training_log_2025-09-15.yml inserted into the database.
 2025-09-15 20:28:27 - Figures prepared successfully.
 2025-09-15 20:28:27 - Workflow completed successfully
+2025-09-26 14:20:08 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-09-26 14:20:08 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-09-26 14:20:08 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-09-26 14:20:08 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-09-26 14:20:08 - Configuration file ./fitcli.conf not found. Using default values.
+2025-09-26 14:20:08 - Workflow started
+2025-09-26 14:20:08 - Processing for date: 2025-09-18
+2025-09-26 14:20:08 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/September
+2025-09-26 14:20:08 - Found 1 workout files for date 2025-09-18.
+2025-09-26 14:20:08 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/September/full_body_a_training_log_2025-09-18.yml (Workout number: 1)
+2025-09-26 14:20:11 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/September/full_body_a_training_log_2025-09-18.yml inserted into the database.
+2025-09-26 14:20:20 - Figures prepared successfully.
+2025-09-26 14:20:20 - Workflow completed successfully
+2025-09-26 14:20:30 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-09-26 14:20:30 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-09-26 14:20:30 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-09-26 14:20:30 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-09-26 14:20:30 - Configuration file ./fitcli.conf not found. Using default values.
+2025-09-26 14:20:30 - Workflow started
+2025-09-26 14:20:30 - Processing for date: 2025-09-21
+2025-09-26 14:20:30 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/September
+2025-09-26 14:20:30 - Found 1 workout files for date 2025-09-21.
+2025-09-26 14:20:30 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/September/full_body_b_training_log_2025-09-21.yml (Workout number: 1)
+2025-09-26 14:20:32 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/September/full_body_b_training_log_2025-09-21.yml inserted into the database.
+2025-09-26 14:20:36 - Figures prepared successfully.
+2025-09-26 14:20:36 - Workflow completed successfully

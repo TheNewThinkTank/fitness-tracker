@@ -17,6 +17,7 @@ from typing import Any  # type: ignore
 # import statsmodels.api as sm  # type: ignore
 # from scipy.interpolate import make_interp_spline  # type: ignore
 # from icecream import ic  # type: ignore
+from src.common.params import PlotParams  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.utils.get_workout_duration import get_all_durations  # type: ignore
 from src.utils.get_volume import get_total_volume  # type: ignore
@@ -159,17 +160,21 @@ def plot_frequency(table, year_to_plot: str) -> None:
     save_plot(fig, save_path)
 
 
-def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
-    """Plot workout duration.
+def plot_duration(
+        params: PlotParams
+        # table, year_to_plot: str, month_to_plot: str
+        ) -> None:
+    """Plot workout duration using a PlotParams object.
 
-    :param table: TinyDB table
-    :type table: TinyDB.table
-    :param year_to_plot: year to plot
-    :type year_to_plot: str
-    :param month_to_plot: month to plot
-    :type month_to_plot: str
+    :param params: PlotParams containing table, year and month
+    :type params: PlotParams
     :return: None
     """
+
+    table = params.table
+    year_to_plot = params.year
+    month_to_plot = params.month
+    img_path = params.img_path or settings["IMG_PATH"]
 
     _date_and_duration = get_all_durations(year_to_plot)
 
@@ -217,7 +222,7 @@ def plot_duration(table, year_to_plot: str, month_to_plot: str) -> None:
         )
 
     # plt.show()
-    save_path = f"{settings['IMG_PATH']}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png"
+    save_path = f"{img_path}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png"
     save_plot(fig, save_path)
 
 
@@ -341,7 +346,13 @@ def main() -> None:
     logger.debug(default_month)
 
     plot_frequency(table, year_to_plot)
-    plot_duration(table, year_to_plot, month_to_plot)
+
+    params = PlotParams(
+        table=table,
+        year=year_to_plot,
+        month=month_to_plot,
+        )
+    plot_duration(params)  # plot_duration(table, year_to_plot, month_to_plot)
     # plot_duration_volume_1rm(table, year_to_plot)
 
 

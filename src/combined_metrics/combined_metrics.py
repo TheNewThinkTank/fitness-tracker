@@ -43,7 +43,10 @@ def configure_plot(ax, x_ticks, x_label, y_label, title) -> None:
     plt.xticks(x_ticks, rotation=45, ha='right')
 
 
-def plot_frequency(table, year_to_plot: str) -> None:
+def plot_frequency(
+        params: PlotParams
+        # table, year_to_plot: str
+        ) -> None:
     """Plot workout frequency.
 
     :param table: TinyDB table
@@ -52,6 +55,10 @@ def plot_frequency(table, year_to_plot: str) -> None:
     :type year_to_plot: str
     :return: None
     """
+
+    table = params.table
+    year_to_plot = params.year
+    img_path = params.img_path or settings["IMG_PATH"]
 
     res_df = get_frequency_data(table, year_to_plot)
 
@@ -156,7 +163,7 @@ def plot_frequency(table, year_to_plot: str) -> None:
         legend.remove()
 
     # plt.show()
-    save_path = f"{settings['IMG_PATH']}{year_to_plot}/{year_to_plot}_workout_frequency.png"
+    save_path = f"{img_path}{year_to_plot}/{year_to_plot}_workout_frequency.png"
     save_plot(fig, save_path)
 
 
@@ -226,13 +233,17 @@ def plot_duration(
     save_plot(fig, save_path)
 
 
-def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
+def plot_duration_volume_1rm(params: PlotParams) -> None:
     """Plot workout duration, volume and 1RM.
 
     :param table: TinyDB table
     :type table: TinyDB.table
     :return: None
     """
+
+    table = params.table
+    year_to_plot = params.year
+    img_path = params.img_path or settings["IMG_PATH"]
 
     _date_and_duration = get_all_durations(year_to_plot)
     date_and_volume = get_total_volume(table)
@@ -288,7 +299,7 @@ def plot_duration_volume_1rm(table, year_to_plot: str) -> None:
         f"Duration, Volume, 1RM ({exercise})"
         )
 
-    save_path = f"{settings['IMG_PATH']}all_years/workout_duration_volume_1rm_{exercise}.png"
+    save_path = f"{img_path}all_years/workout_duration_volume_1rm_{exercise}.png"
     save_plot(fig, save_path)
 
 
@@ -345,15 +356,11 @@ def main() -> None:
 
     logger.debug(default_month)
 
-    plot_frequency(table, year_to_plot)
+    params = PlotParams(table=table, year=year_to_plot)
 
-    params = PlotParams(
-        table=table,
-        year=year_to_plot,
-        month=month_to_plot,
-        )
-    plot_duration(params)  # plot_duration(table, year_to_plot, month_to_plot)
-    # plot_duration_volume_1rm(table, year_to_plot)
+    plot_frequency(params)
+    plot_duration(PlotParams(table=table, year=year_to_plot, month=month_to_plot))
+    # plot_duration_volume_1rm(params)
 
 
 if __name__ == "__main__":

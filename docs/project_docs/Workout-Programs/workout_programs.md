@@ -188,7 +188,7 @@ Workout Programs
       &nbsp;&nbsp;&nbsp;&nbsp;Lighter sets of 8-15 reps for key exercises.<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Every 2 exercises are performed as supersets with no break between exercises, and max. 10-15 seconds break between supersets.<br>
     start: 2025-06-01<br>
-    end: 2025-07-0D<br>
+    end: 2025-07-15<br>
     program_iterations: 6<br>
     number_of_workouts: 18<br>
 
@@ -199,14 +199,29 @@ Workout Programs
   <summary>program_12</summary>
 
     name: FULL-BODY<br>
-    splits: [full_body_a, full_body_b]<br>
+    splits: [full_body_a, full_body_b, full_body_c, full_body_d]<br>
     description:<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Focus on both myofibrillar and sarcoplasmic hypertrophy,<br>
       &nbsp;&nbsp;&nbsp;&nbsp;through lighter sets of 8-15 reps on half of the workouts (for metabolic stress),<br>
       &nbsp;&nbsp;&nbsp;&nbsp;and heavy-duty sets to failure of 5-8 reps on the other half of the workouts (for mechanical stress).<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Every 2 exercises are performed as agonist-antagonist supersets (for reciprocal inhibition) with no break between exercises, and max. 10-15 seconds break between supersets.<br>
-    start: 2025-MM-DD<br>
-    end: 2025-MM-DD<br>
+    start: 2025-07-24<br>
+    end: 2025-11-01<br>
+    program_iterations: 5<br>
+    number_of_workouts: 20<br>
+
+</details>
+
+<details>
+
+  <summary>program_13</summary>
+
+    name: LEGS-TORSO-ARMS<br>
+    splits: [legs, torso, arms]<br>
+    description:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Legs, torso and arms split program.<br>
+    start: 2025-11-DD<br>
+    end: 2026-MM-DD<br>
     program_iterations: N<br>
     number_of_workouts: NN<br>
 

@@ -149,7 +149,7 @@ program_11:
     and short rest periods. Every 2 exercises are performed as supersets
     with no break between exercises,
     and max. 10-15 seconds break between supersets.
-  start: 2025-MM-DD
+  start: 2025-06-01
   end: 2025-07-15
   program_iterations: 6
   number_of_workouts: 24
@@ -172,6 +172,8 @@ program_12:
   splits:
     - full_body_a
     - full_body_b
+    - full_body_c
+    - full_body_d
   description: |
       Focus on both myofibrillar and sarcoplasmic hypertrophy,
       through lighter sets of 8-15 reps on half of the workouts
@@ -188,7 +190,20 @@ program_12:
       landmine rotation, landmine press,
       kettlebell loaded chop,
       pallof press
-  start: 2025-MM-DD
-  end: 2025-MM-DD
-  program_iterations: 6
-  number_of_workouts: 24
+  start: 2025-07-24
+  end: 2025-11-01
+  program_iterations: 5
+  number_of_workouts: 20
+
+program_13:
+  name: LTA
+  splits:
+    - legs
+    - torso
+    - arms
+  description: |
+    A program focusing on the legs, torso, and arms.
+  start: 2025-11-DD
+  end: 2026-MM-DD
+  program_iterations: N
+  number_of_workouts: NN

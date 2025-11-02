@@ -1,19 +1,93 @@
 # Workout Programs Detail
 
+=== "Program 13"
+
+    Legs
+
+    | Exercise                    | Sets | Rep-range |
+    | --------------------------- | ---- | --------- |
+    |                             |      |           |
+
+    Torso
+
+    | Exercise                    | Sets | Rep-range |
+    | --------------------------- | ---- | --------- |
+    |                             |      |           |
+
+    Arms
+
+    | Exercise                    | Sets | Rep-range |
+    | --------------------------- | ---- | --------- |
+    |                             |      |           |
+
+=== "Program 12"
+
+    Full Body A
+
+    | Exercise                    | Sets | Rep-range |
+    | --------------------------- | ---- | --------- |
+    | BB Squat                    | 2    | 6-8       |
+    | BB Deadlift                 | 2    | 6-8       |
+    | BB Benchpress               | 2    | 6-8       |
+    | Assisted Pullup             | 2    | 6-8       |
+    | DB Seated Lateral Raise     | 2    | 8-12      |
+    | Hip Thrusts                 | 2    | 8-12      |
+
+    Full Body B
+
+    | Exercise               | Sets | Rep-range |
+    | ---------------------- | ---- | --------- |
+    | Commando Pullup        | 2    | MAX       |
+    | Landmine Press         | 2    | 4-8       |
+    | Box Jump               | 2    | 6-10      |
+    | Kb Russian Twist       | 2    | 6-12      |
+    | Svend Press            | 2    | 8-12      |
+    | Plate Lateral Raise    | 2    | 8-12      |
+    | Kb Windmill            | 2    | 2-12      |
+    | Kb Turkish Get Up      | 2    | 2-8       |
+
+    Full Body C
+
+    | Exercise               | Sets | Rep-range |
+    | ---------------------- | ---- | --------- |
+    | Bb Front Squat         | 2    | 6-8       |
+    | Bb Sumo Deadlift       | 2    | 6-8       |
+    | Chinup                 | 2    | 6-8       |
+    | Dip                    | 2    | 6-8       |
+    | Loaded Back Extention  | 2    | 6-8       |
+    | Side Jackknife         | 2    | 6-8       |
+    | Cable Pallof Press     | 2    | 6-8       |
+    | Bb Shrug               | 2    | 6-8       |
+
+    Full Body D
+
+    | Exercise                  | Sets | Rep-range |
+    | ------------------------- | ---- | --------- |
+    | Halo                      | 2    | 6-10      |
+    | Snatch                    | 2    | 6-8       |
+    | Armbar                    | 2    | 6-10      |
+    | Swing                     | 2    | 6-8       |
+    | Farmers Walk              | 2    | 30-40     |
+    | Alternating Reverse Lunge | 2    | 6-8       |
+    | Goblet Squat              | 2    | 6-8       |
+    | Renegade Row              | 2    | 4-8       |
+    | Gironda Pullup            | 2    | MAX       |
+    | Mike Tyson Pushup         | 2    | MAX       |
+
 === "Program 11"
 
     Push
 
     | Exercise                    | Sets | Rep-range |
     | --------------------------- | ---- | --------- |
-    | Bench Press                 | 3    | 8-12       |
-    | Lateral Raise               | 3    | 8-12       |
-    | Incline Dumbbell Press      | 3    | 8-12       |
-    | Incline Dumbbell Flys       | 3    | 8-12       |
-    | Military Press              | 3    | 8-12       |
-    | Barbell Shrug               | 3    | 8-12       |
-    | Dumbbell Front Raise        | 3    | 8-12       |
-    | Dumbbell Around-The-World's | 3    | 8-12       |
+    | Bench Press                 | 3    | 8-12      |
+    | Lateral Raise               | 3    | 8-12      |
+    | Incline Dumbbell Press      | 3    | 8-12      |
+    | Incline Dumbbell Flys       | 3    | 8-12      |
+    | Military Press              | 3    | 8-12      |
+    | Barbell Shrug               | 3    | 8-12      |
+    | Dumbbell Front Raise        | 3    | 8-12      |
+    | Dumbbell Around-The-World's | 3    | 8-12      |
 
     Pull
 

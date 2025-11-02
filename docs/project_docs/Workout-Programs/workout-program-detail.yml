@@ -56,24 +56,70 @@ program_11:
     calf_raise: 3 sets of 8-12 reps
     hanging_leg_raise: 3 sets of max reps
 
-program_12_placeholder:
-  Warm-Up: 5-10 minutes dynamic stretching + mobility drills
-  Cooldown: 5-10 minutes static stretching + foam rolling
-  Every-day-exercises:
-    Plank: 2 sets of 30-60 seconds
-    Horse-Stance: 2 sets of 20-40 seconds
-    Push-Ups: 2 sets of 8-12 reps
-    Lunges: 2 sets of 10 reps per Leg
-    Static-Hang: 2 sets of 20-40 seconds
+program_12:
+  full_body_a:
+    bb_squat: 2 sets of 6-8 reps
+    bb_deadlift: 2 sets of 6-8 reps
+    bb_bench_press: 2 sets of 6-8 reps
+    assisted_pullup: 2 sets of 6-8 reps
+    db_seated_lateral_raise: 2 sets of 8-12 reps
+    hip_thrusts: 2 sets of 8-12 reps
+  full_body_b:
+    commando_pullup: 2 sets of 6-8 reps
+    landmine_press: 2 sets of 4-8 reps
+    box_jump: 2 sets of 6-10 reps
+    kb_russian_twist: 2 sets of 6-12 reps
+    svend_press: 2 sets of 8-12 reps
+    plate_lateral_raise: 2 sets of 8-12 reps
+    kb_windmill: 2 sets of 2-12 reps
+    kb_turkish_get_up: 2 sets of 2-8 reps
+  full_body_c:
+    bb_front_squat: 2 sets of 6-8 reps
+    bb_sumo_deadlift: 2 sets of 6-8 reps
+    chinup: 2 sets of 6-8 reps
+    dip: 2 sets of 6-8 reps
+    loaded_back_extention: 2 sets of 6-8 reps
+    side_jackknife: 2 sets of 6-8 reps
+    cable_pallof_press: 2 sets of 6-8 reps
+    bb_shrug: 2 sets of 6-8 reps
+  full_body_d:
+    halo: 2 sets of 6-10 reps
+    snatch: 2 sets of 6-8 reps
+    armbar: 2 sets of 6-10 reps
+    swing: 2 sets of 6-8 reps
+    farmers_walk: 2 sets of 30-40 reps
+    alternating_reverse_lunge: 2 sets of 6-8 reps
+    goblet_squat: 2 sets of 6-8 reps
+    renegade_row: 2 sets of 4-8 reps
+    gironda_pullup: 2 sets of 3-8 reps
+    mike_tyson_pushup: 2 sets of 3-8 reps
+
+program_13:
+  legs:
+    # squat: 4 sets of 6-8 reps
+    # deadlift: 4 sets of 6-8 reps
+    # leg_press: 3 sets of 8-10 reps
+    # walking_lunge: 3 sets of 10-12 reps per leg
+    # bulgarian_split_squat: 3 sets of 10-12 reps per leg
+    # calf_raise: 3 sets of 12-15 reps
+  torso:
+    # plank: 3 sets of 30-60 seconds
+    # side_plank: 3 sets of 30-60 seconds per side
+    # russian_twist: 3 sets of 12-15 reps per side
+    # bird_dog: 3 sets of 10-12 reps per side
+  arms:
+    # bb_curl: 3 sets of 10-12 reps
+    # tricep_dip: 3 sets of 10-12 reps
+    # hammer_curl: 3 sets of 10-12 reps
+    # tricep_pushdown: 3 sets of 10-12 reps
+
+_next:
   upper_body_push_core:
     Main_Exercises:
       Kettlebell Overhead Press - 4 sets of 6-8 reps per arm
       Push-Ups (Weighted if possible) - 3 sets of 10-15 reps
       Kettlebell Floor Press - 3 sets of 8-10 reps per arm
       Dips (Bodyweight or Assisted) - 3 sets of 8-12 reps
-    Core_Workout:
-      Hanging Leg Raises - 3 sets of 10-12 reps
-      Plank Hold (Forearm) - 3 sets of 45-60 seconds
       Russian Twists (with kettlebell) - 3 sets of 20 twists (10 per side)
   lower_body_power_pullups:
     Main_Exercises:
@@ -101,5 +147,4 @@ program_12_placeholder:
       Box Jumps - 4 sets of 8-10 reps
       Kettlebell Deadlifts - 4 sets of 8-10 reps
       Burpee Box Jump Combo - 3 sets of 8-10 reps
-    Finisher:
-      Farmer's Carry (Heavy Kettlebells) - 3 rounds of 30-40 meters
+      Farmer's walk (Heavy Kettlebells) - 3 rounds of 30-40 meters

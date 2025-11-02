@@ -81,6 +81,7 @@ h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #333;
+    text-align: center;
 }
 
 ul {
@@ -143,19 +144,26 @@ tbody tr:hover {
     outline: none;
 }
 
+/* Print improvements: A4 sizing and avoid page breaks inside exercise items */
+@page {
+    size: A4;
+    margin: 20mm; /* comfortable A4 margins */
+}
+
 @media print {
+    /* Base adjustments for clear printed output */
     body {
         color: #000;
+        font-size: 12pt;
     }
 
     .program {
         border: 2px solid #000;
         background-color: #fff;
         box-shadow: none;
-    }
-
-    h1 {
-        color: #000;
+        /* Prevent the main program block from being split if possible */
+        page-break-inside: avoid;
+        break-inside: avoid;
     }
 
     .session-details {
@@ -164,16 +172,23 @@ tbody tr:hover {
     }
 
     .session-details .detail-item span {
-        font-size: 14px; /* Adjust based on your preference */
+        font-size: 14px;
+        display: inline-block;
+        width: auto;
+        border-bottom: 1px solid #000;
+        padding: 2px 4px;
+        text-align: left;
     }
 
     h2 {
         color: #000;
         border-color: #000;
+        page-break-after: avoid; /* avoid breaking immediately after section title */
     }
 
     h3 {
         color: #000;
+        page-break-after: avoid; /* keep exercise title with its content */
     }
 
     li {
@@ -191,5 +206,31 @@ tbody tr:hover {
 
     [contenteditable="true"] {
         background-color: #fff;
+    }
+
+    /* Prevent breaking an exercise item (title + table) across pages */
+    .exercise-item,
+    .exercise-item h3,
+    .exercise-item table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+    }
+
+    /* Prevent table rows from being split and ensure header repeats */
+    thead {
+        display: table-header-group;
+    }
+    tfoot {
+        display: table-footer-group;
+    }
+    tbody tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Small spacing between exercise blocks on print */
+    .exercise-item {
+        margin-bottom: 6mm;
     }
 }

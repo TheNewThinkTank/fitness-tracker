@@ -6,19 +6,37 @@
 
     | Exercise                    | Sets | Rep-range |
     | --------------------------- | ---- | --------- |
-    |                             |      |           |
+    | Bb Squat                    | 3    | 10-12     |
+    | Bb Deadlift                 | 3    | 10-12     |
+    | Bulgarian Split Squat       | 3    | 10-12     |
+    | Leg Curl                    | 3    | 10-12     |
+    | Calf Raise                  | 3    | 10-12     |
 
     Torso
 
     | Exercise                    | Sets | Rep-range |
     | --------------------------- | ---- | --------- |
-    |                             |      |           |
+    | Lat Pulldown                | 2    | 10-12     |
+    | Behind the neck Pulldown    | 2    | 10-12     |
+    | Rows                        | 2    | 10-12     |
+    | Kelso Shrug                 | 2    | 10-12     |
+    | Db Flat Press               | 2    | 10-12     |
+    | Db Incline Press            | 2    | 10-12     |
+    | Machine / Cable Fly         | 2    | 10-12     |
+    | Back Extention              | 2    | 10-12     |
+    | Toe-to-Bar                  | 2    | MAX       |
 
     Arms
 
     | Exercise                    | Sets | Rep-range |
     | --------------------------- | ---- | --------- |
-    |                             |      |           |
+    | DB Side Lateral             | 2    | 10-12     |
+    | Egyptian Side Lateral       | 2    | 10-12     |
+    | Cable Reverse Fly           | 2    | 10-12     |
+    | Cable French Press          | 3    | 10-12     |
+    | DB Incline Curl             | 3    | 10-12     |
+    | BB Shrug                    | 2    | 10-12     |
+    | Face Pull w. Push           | 2    | 10-12     |
 
 === "Program 12"
 

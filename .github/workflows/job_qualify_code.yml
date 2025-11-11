@@ -109,7 +109,7 @@ jobs:
         # env:
         #   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-      - uses: rojopolis/spellcheck-github-actions@0.53.0
+      - uses: rojopolis/spellcheck-github-actions@0.54.0
         name: Spellcheck
         with:
           config_path: .config/.spellcheck.yml

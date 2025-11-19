@@ -1445,3 +1445,68 @@
 2025-11-02 15:04:04 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/full_body_d_training_log_2025-11-01.yml inserted into the database.
 2025-11-02 15:04:07 - Figures prepared successfully.
 2025-11-02 15:04:07 - Workflow completed successfully
+2025-11-19 18:26:40 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:26:40 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:26:40 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:26:40 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:26:40 - Configuration file ./fitcli.conf not found. Using default values.
+2025-11-19 18:26:40 - Workflow started
+2025-11-19 18:26:40 - Processing for date: 2025-11-05
+2025-11-19 18:26:40 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November
+2025-11-19 18:26:40 - Found 1 workout files for date 2025-11-05.
+2025-11-19 18:26:40 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/legs_training_log_2025-11-05.yml (Workout number: 1)
+2025-11-19 18:26:42 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/legs_training_log_2025-11-05.yml inserted into the database.
+2025-11-19 18:26:49 - Figures prepared successfully.
+2025-11-19 18:26:50 - Workflow completed successfully
+2025-11-19 18:27:09 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:27:09 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:27:09 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:27:09 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:27:09 - Configuration file ./fitcli.conf not found. Using default values.
+2025-11-19 18:27:09 - Workflow started
+2025-11-19 18:27:09 - Processing for date: 2025-11-08
+2025-11-19 18:27:09 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November
+2025-11-19 18:27:09 - Found 1 workout files for date 2025-11-08.
+2025-11-19 18:27:09 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/torso_training_log_2025-11-08.yml (Workout number: 1)
+2025-11-19 18:27:09 - Error: Validation failed for file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/torso_training_log_2025-11-08.yml.
+2025-11-19 18:27:13 - Figures prepared successfully.
+2025-11-19 18:27:14 - Workflow completed successfully
+2025-11-19 18:57:44 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:57:44 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:57:44 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:57:44 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:57:44 - Configuration file ./fitcli.conf not found. Using default values.
+2025-11-19 18:57:44 - Workflow started
+2025-11-19 18:57:44 - Processing for date: 2025-11-08
+2025-11-19 18:57:44 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November
+2025-11-19 18:57:44 - Found 1 workout files for date 2025-11-08.
+2025-11-19 18:57:44 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/torso_training_log_2025-11-08.yml (Workout number: 1)
+2025-11-19 18:57:46 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/torso_training_log_2025-11-08.yml inserted into the database.
+2025-11-19 18:57:50 - Figures prepared successfully.
+2025-11-19 18:57:51 - Workflow completed successfully
+2025-11-19 18:58:10 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:58:10 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:58:10 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:58:10 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:58:10 - Configuration file ./fitcli.conf not found. Using default values.
+2025-11-19 18:58:10 - Workflow started
+2025-11-19 18:58:10 - Processing for date: 2025-11-11
+2025-11-19 18:58:10 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November
+2025-11-19 18:58:10 - Found 1 workout files for date 2025-11-11.
+2025-11-19 18:58:10 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/arms_training_log_2025-11-11.yml (Workout number: 1)
+2025-11-19 18:58:13 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/arms_training_log_2025-11-11.yml inserted into the database.
+2025-11-19 18:58:17 - Figures prepared successfully.
+2025-11-19 18:58:17 - Workflow completed successfully
+2025-11-19 18:58:28 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:58:28 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:58:28 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-19 18:58:28 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-19 18:58:28 - Configuration file ./fitcli.conf not found. Using default values.
+2025-11-19 18:58:28 - Workflow started
+2025-11-19 18:58:28 - Processing for date: 2025-11-19
+2025-11-19 18:58:28 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November
+2025-11-19 18:58:28 - Found 1 workout files for date 2025-11-19.
+2025-11-19 18:58:28 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/legs_training_log_2025-11-19.yml (Workout number: 1)
+2025-11-19 18:58:30 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/legs_training_log_2025-11-19.yml inserted into the database.
+2025-11-19 18:58:33 - Figures prepared successfully.
+2025-11-19 18:58:33 - Workflow completed successfully

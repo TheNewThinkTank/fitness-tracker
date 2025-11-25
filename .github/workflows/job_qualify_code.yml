@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup Python and Poetry
         uses: TheNewThinkTank/gh-actions/.github/actions/setup-python-poetry@v1.0.4  # main

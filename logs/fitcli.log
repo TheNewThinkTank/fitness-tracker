@@ -1523,3 +1523,16 @@
 2025-11-25 14:57:16 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/torso_training_log_2025-11-25.yml inserted into the database.
 2025-11-25 14:57:21 - Figures prepared successfully.
 2025-11-25 14:57:21 - Workflow completed successfully
+2025-11-27 17:10:18 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-27 17:10:18 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-27 17:10:18 - DEBUG: GOOGLE_DRIVE_DATA_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data
+2025-11-27 17:10:18 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2025/
+2025-11-27 17:10:18 - Configuration file ./fitcli.conf not found. Using default values.
+2025-11-27 17:10:18 - Workflow started
+2025-11-27 17:10:18 - Processing for date: 2025-11-27
+2025-11-27 17:10:18 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November
+2025-11-27 17:10:18 - Found 1 workout files for date 2025-11-27.
+2025-11-27 17:10:18 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/arms_training_log_2025-11-27.yml (Workout number: 1)
+2025-11-27 17:10:20 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/November/arms_training_log_2025-11-27.yml inserted into the database.
+2025-11-27 17:10:25 - Figures prepared successfully.
+2025-11-27 17:10:26 - Workflow completed successfully

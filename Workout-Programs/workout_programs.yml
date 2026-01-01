@@ -1,0 +1,209 @@
+---
+
+ppl: &ppl_anchor [push, pull, legs]
+
+program: &program_anchor
+  name: PPL
+  splits: *ppl_anchor
+  description: |
+    default workout program using PPL (Push, Pull, Legs) split.
+  start: YYYY-MM-DD
+  end: YYYY-MM-DD
+  program_iterations: 10
+  number_of_workouts: 30
+
+programs:
+  program_1:
+    name: 4-SPLIT
+    splits: [legs, chest, back_and_biceps, shoulder_and_abs]
+    description: |
+      Focus on strength.
+      Heavy sets of 2-8 reps for key exercises
+      (deadlift, squat, benchpress, seated_row)
+    start: 2021-12-11
+    end: 2022-03-19
+    program_iterations: 10
+    number_of_workouts: 40
+
+  program_2:
+    <<: *program_anchor
+    description: |
+      Focus on strength.
+      Heavy sets of 2-8 reps for key exercises
+      (deadlift, squat, benchpress, seated_row)
+    start: 2022-03-26
+    end: 2022-06-27
+
+  program_3:
+    name: GVT
+    splits: [back_and_chest, legs_and_abs, shoulders_and_arms]
+    description: |
+      German Volume Training.
+      Focus on volume and intensity.
+      10 Moderate sets of 10 reps for key exercises (supersets).
+      (deadlift, squat, benchpress, seated_row)
+      with 90 seconds rest between sets.
+    start: 2022-07-01
+    end: 2022-09-23
+    program_iterations: 10
+    number_of_workouts: 30
+
+  program_4:
+    name: NFP
+    splits: [full_body_1, full_body_2, full_body_3, full_body_4, full_body_5]
+    description: |
+      Norwegian Frequency Project
+      Focus on standard programs performed multiple times per week.
+      Learn new exercises and get better at exercises seldomly performed.
+      Increase focus on core-strength, posture, mobility and cardio.
+      Include:
+      front-squat, bulgarian-split-squat, sumo-deadlift, standing-calf-raise,
+      hammer-curl, pronated-ez-curl, skull-crusher, forearm-cable-supination,
+      chinup, incline-db-press
+    start: 2022-10-01
+    end: 2022-11-04
+    program_iterations: 10
+    number_of_workouts: 30
+
+  program_5:
+    name: PPL
+    splits: *ppl_anchor
+    description: |
+      Focus on strength.
+      Heavy sets of 2-8 reps for key exercises
+      (deadlift, squat, benchpress, seated_row)
+    start: 2023-01-07
+    end: 2023-05-25
+    program_iterations: 5
+    number_of_workouts: 15
+
+  program_6:
+    name: FULL-BODY
+    splits: [full_body]
+    description: |
+      Standard full-body program.
+    start: 2023-06-11
+    end: 2023-09-21
+    program_iterations: 15
+    number_of_workouts: 15
+
+  program_7:
+    name: PPL
+    splits: *ppl_anchor
+    description: |
+      similar as program_5
+    start: 2023-09-25
+    end: 2024-02-25
+    program_iterations: 5
+    number_of_workouts: x
+
+  program_8:
+    name: PPL
+    splits: *ppl_anchor
+    description: |
+      similar as program_5
+    start: 2024-03-03
+    end: 2024-07-17
+    program_iterations: 9
+    number_of_workouts: 27
+
+  program_9:
+    name: 4-SPLIT
+    splits: [chest, back, shoulder_arm_core_abs_calf, legs]
+    description: |
+      Focus on strength.
+      Heavy sets of 2-8 reps for key exercises
+      (deadlift, squat, benchpress, seated_row)
+    start: 2024-07-18
+    end: 2025-01-03
+    program_iterations: TODO
+    number_of_workouts: TODO
+
+  program_10:
+    name: HYBRID-STRENGTH-HYPERTROPHY
+    splits:
+      - Upper Body A
+      - Lower Body A
+      - Upper Body B
+      - Lower Body B
+    description: |
+      This program focuses on building both strength and muscle mass.
+      Ideally, each week will include two upper body workouts
+      and two lower body workouts.
+      The program will incorporate both heavy compound lifts
+      and higher-rep isolation exercises.
+    start: 2025-01-04
+    end: 2025-05-24
+    program_iterations: 6
+    number_of_workouts: 24
+
+program_11:
+  name: PPL
+  splits:
+    - push
+    - pull
+    - legs
+  description: |
+    A hypertrophy program focusing on sarcoplasmic hypertrophy
+    and metabolic stress through supersets,
+    and short rest periods. Every 2 exercises are performed as supersets
+    with no break between exercises,
+    and max. 10-15 seconds break between supersets.
+  start: 2025-06-01
+  end: 2025-07-15
+  program_iterations: 6
+  number_of_workouts: 24
+
+program_12:
+  name: FULL-BODY
+  goals:
+    - hypertrophy
+    - strength
+    - balance
+    - mobility
+    - cardio
+    - core
+    - flexibility
+    - posture
+    - stability
+    - coordination
+    - endurance
+    - rotational strength
+  splits:
+    - full_body_a
+    - full_body_b
+    - full_body_c
+    - full_body_d
+  description: |
+      Focus on both myofibrillar and sarcoplasmic hypertrophy,
+      through lighter sets of 8-15 reps on half of the workouts
+      (for metabolic stress),
+      and heavy-duty sets to failure of 5-8 reps
+      on the other half of the workouts
+      (for mechanical stress).
+      Every 2 exercises are performed as agonist-antagonist supersets
+      (for reciprocal inhibition) with no break between exercises,
+      and max. 10-15 seconds break between supersets.
+      Possible exercises:
+      squat, bench press, deadlift, lat pulldown,
+      arnold presses, seated_row, calf raise,
+      landmine rotation, landmine press,
+      kettlebell loaded chop,
+      pallof press
+  start: 2025-07-24
+  end: 2025-11-01
+  program_iterations: 5
+  number_of_workouts: 20
+
+program_13:
+  name: LTA
+  splits:
+    - legs
+    - torso
+    - arms
+  description: |
+    A program focusing on the legs, torso, and arms.
+  start: 2025-11-DD
+  end: 2026-MM-DD
+  program_iterations: N
+  number_of_workouts: NN

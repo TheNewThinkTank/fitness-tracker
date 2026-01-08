@@ -1,5 +1,6 @@
 # TODOs
 
+- [ ] Enable idempotency: add check to see if workout is already written to DB, and skip if true.
 - [ ] Add analysis of box jump height over time.
 - [ ] Search workout notes for the string "[Ll]ong queue" or similar, and count occurences to identify most popular Gyms and training times.
 - [ ] Rank training years by total exercise time.

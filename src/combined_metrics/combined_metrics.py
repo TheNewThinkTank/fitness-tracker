@@ -24,12 +24,15 @@ from src.utils.get_volume import get_total_volume  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.model.model import one_rep_max_estimator, get_df  # type: ignore
 from src.combined_metrics.get_frequency_data import get_frequency_data  # type: ignore
+from pathlib import Path  # type: ignore
 
 
 def save_plot(fig, path) -> None:
     """Save the plot to the specified path."""
     fig.tight_layout()
     fig.subplots_adjust(top=0.85, bottom=0.2)
+    # Create parent directories if they don't exist
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, bbox_inches='tight')
     plt.clf()
 

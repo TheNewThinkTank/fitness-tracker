@@ -1,0 +1,162 @@
+---
+reps: repetitions
+db: dumbbell
+bb: barbell
+kb: kettlebell
+1RM: 1 repetition maximum
+Volume: |
+  For a given exercise performed during a given workout,
+  the product of total number of sets,
+  weight (assuming the same weight is used throughout the exercise)
+  and reps (assuming the same number of reps is used throughout the exercise)
+BMI: Body Mass Index
+VO2-Max: |
+  maximum rate of oxygen consumption attainable during physical exertion.
+  V for volume, O2 for oxygen, and Max for maximum
+  and usually normalized per kilogram of body mass
+EMOM: Every Minute On the Minute
+AMRAP: As Many Rounds As Possible
+RPE: Rate of Perceived Exertion
+TUT: Time Under Tension
+TDEE: Total Daily Energy Expenditure
+BMR: Basal Metabolic Rate
+RMR: Resting Metabolic Rate
+HIIT: High-Intensity Interval Training
+LISS: Low-Intensity Steady State
+Fasted Cardio: |
+  Performing cardiovascular exercise in a fasted state,
+  typically in the morning before eating breakfast
+Superset: |
+  A training technique where two exercises are performed back-to-back with minimal rest in between.
+  This can involve exercises targeting the same muscle group (agonist superset)
+  or opposing muscle groups (antagonist superset).
+Drop Set: |
+  A training technique where an individual performs an exercise to failure,
+  then immediately reduces the weight and continues performing the exercise
+  without rest. This allows for continued muscle fatigue and growth stimulation.
+Circuit Training: |
+  A form of body conditioning or resistance training using high-intensity aerobics.
+  It targets strength building and muscular endurance.
+  A circuit consists of a series of exercises performed in sequence,
+  with minimal rest in between.
+Plyometrics: |
+  Exercises that involve explosive movements, such as jumps or bounds,
+  designed to increase power and speed.
+Core: |
+  Refers to the muscles in the trunk of the body,
+  including the abdominal muscles, lower back, hips, and pelvis.
+  Core exercises focus on improving stability, balance, and strength in these areas.
+Mobility: |
+  The ability of a joint to move freely through its full range of motion.
+  Mobility exercises aim to improve flexibility, joint health, and overall movement quality.
+Flexibility: |
+  The ability of a muscle or muscle group to lengthen passively through a range of motion
+  Flexibility exercises involve stretching muscles to improve their elasticity and range of motion.
+Strength Training: |
+  A type of physical exercise specializing in the use of resistance to induce muscular contraction,
+  which builds strength, anaerobic endurance, and muscle size.
+Resistance Training: |
+  A form of exercise that involves using resistance to induce muscular contraction,
+  which builds strength, endurance, and muscle size.
+Cardio: |
+  Short for cardiovascular exercise, it refers to any exercise that raises your heart rate.
+  This includes activities like running, cycling, swimming, and brisk walking.
+Aerobic Exercise: |
+  Physical exercise of low to moderate intensity that depends primarily on the aerobic energy-generating process.
+  It is characterized by the use of oxygen to adequately meet energy demands during exercise.
+Anaerobic Exercise: |
+  Physical exercise of high intensity that relies on energy sources stored in the muscles,
+  rather than on oxygen from breathing.
+Calisthenics: |
+  A form of exercise consisting of a variety of movements that do not require weights or equipment.
+  These exercises are often performed rhythmically and with minimal equipment,
+  focusing on using one's body weight for resistance.
+Bodyweight Training: |
+  A form of strength training that uses the individual's own weight to provide resistance against gravity.
+  It includes exercises like push-ups, pull-ups, squats, and lunges,
+  and can be performed anywhere without the need for equipment.
+Progressive Overload: |
+  A fundamental principle of strength training that involves gradually increasing the amount of weight or resistance
+  used in exercises over time to stimulate muscle growth and strength gains.
+Periodization: |
+  A systematic approach to training that involves varying the intensity, volume, and type of exercise
+  over specific periods to optimize performance and recovery.
+Deload: |
+  A planned reduction in training volume or intensity to allow for recovery and adaptation.
+  It typically involves lighter weights or reduced workout frequency for a short period.
+Active Recovery: |
+  Low-intensity exercise performed after a workout or on rest days to promote recovery,
+  such as walking, light cycling, or stretching.
+Warm-Up: |
+  A preparatory phase before exercise that involves light physical activity to increase heart rate,
+  warm up the muscles, and prepare the body for more intense activity.
+Cool Down: |
+  A post-exercise phase that involves light physical activity and stretching to help the body recover,
+  lower heart rate, and prevent stiffness.
+Workout Split: |
+  A training routine that divides workouts into different muscle groups or movement patterns,
+  allowing for focused training on specific areas of the body on different days.
+Full-Body Workout: |
+  A training session that targets all major muscle groups in a single workout,
+  often involving compound exercises that engage multiple muscles simultaneously.
+Compound Exercises: |
+  Exercises that involve multiple joints and muscle groups,
+  such as squats, deadlifts, bench presses, and pull-ups.
+Isolation Exercises: |
+  Exercises that target a specific muscle group and involve only one joint,
+  such as bicep curls, tricep extensions, and leg curls.
+Warm-Up Sets: |
+  Lighter sets performed before the main workout sets to prepare the muscles and joints for heavier loads
+  and to reduce the risk of injury.
+Cool-Down Sets: |
+  Lighter sets or exercises performed after the main workout to help the body transition back to a resting state,
+  promote recovery, and reduce muscle soreness.
+Rest Days: |
+  Days designated for recovery from intense training, allowing the body to repair and adapt.
+  Rest days are crucial for preventing overtraining and reducing the risk of injury.
+Cross-Training: |
+  Engaging in different types of exercise or sports to improve overall fitness,
+  prevent boredom, and reduce the risk of injury from repetitive movements.
+Functional Training: |
+  A type of training that focuses on exercises that mimic everyday movements,
+  improving overall strength, balance, coordination, and flexibility for daily activities.
+Endurance Training: |
+  A type of training that focuses on improving the body's ability to sustain prolonged physical activity,
+  enhancing cardiovascular fitness, muscular endurance, and overall stamina.
+Strength Endurance: |
+  The ability of a muscle or group of muscles to perform repeated contractions over an extended period,
+  combining both strength and endurance training principles.
+Hypertrophy: |
+  The increase in the size of skeletal muscle fibers through resistance training,
+  typically achieved through moderate to high volume training with moderate weights.
+Power Training: |
+  A type of training that focuses on developing explosive strength and speed,
+  often involving high-intensity, low-repetition exercises like Olympic lifts, plyometrics,
+  and sprinting drills.
+Agility Training: |
+  A type of training that focuses on improving quickness, coordination, and balance,
+  often involving drills that require rapid changes in direction and speed.
+Balance Training: |
+  Exercises designed to improve stability and control of the body's position,
+  often involving single-leg movements, stability balls, or balance boards.
+Core Stability: |
+  The ability to maintain control of the body's position and movement through the core muscles,
+  which include the abdominal muscles, lower back, hips, and pelvis.
+Mobility Drills: |
+  Specific exercises designed to improve joint range of motion and flexibility,
+  often involving dynamic movements, stretching, and foam rolling.
+Flexibility Training: |
+  A type of training that focuses on improving the elasticity and length of muscles,
+  often involving static stretching, dynamic stretching, and mobility exercises.
+Recovery: |
+  The process of allowing the body to heal and adapt after physical exertion,
+  which can include rest, nutrition, hydration, and active recovery techniques.
+Nutrition: |
+  The process of providing or obtaining the food necessary for health and growth,
+  including macronutrients (proteins, carbohydrates, fats) and micronutrients (vitamins, minerals).
+Hydration: |
+  The process of maintaining adequate fluid balance in the body,
+  which is essential for optimal performance, recovery, and overall health.
+Supplementation: |
+  The use of dietary supplements to enhance performance, recovery, or overall health,
+  which can include protein powders, vitamins, minerals, and other performance-enhancing substances.

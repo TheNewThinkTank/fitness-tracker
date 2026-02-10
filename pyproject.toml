@@ -39,7 +39,7 @@ loguru = "^0.7.3"
 sphinx-rtd-theme = "^3.0.2"
 snakeviz = "^2.2.2"
 isort = "^7.0.0"
-regex = "^2025.7.34"
+regex = "^2026.1.15"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.4"

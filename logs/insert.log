@@ -1,7 +1,7 @@
-03-03 21:42 root         INFO     Logger initialized
-03-03 21:42 root         INFO     Running ./src/crud/insert.py ...
-03-03 21:42 root         INFO     datatype: real
-03-03 21:42 root         DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=21']>
-03-03 21:42 root         DEBUG    table: <Table name='weight_training_log', total=21, storage=<src.utils.custom_storage.YAMLStorage object at 0x10325bd90>>
-03-03 21:42 root         INFO     workout date(s): 2026-03-03
-03-03 21:42 root         INFO     workout number: 1
+03-05 14:21 root         INFO     Logger initialized
+03-05 14:21 root         INFO     Running ./src/crud/insert.py ...
+03-05 14:21 root         INFO     datatype: real
+03-05 14:21 root         DEBUG    db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=22']>
+03-05 14:21 root         DEBUG    table: <Table name='weight_training_log', total=22, storage=<src.utils.custom_storage.YAMLStorage object at 0x10644ad10>>
+03-05 14:21 root         INFO     workout date(s): 2026-03-04
+03-05 14:21 root         INFO     workout number: 1

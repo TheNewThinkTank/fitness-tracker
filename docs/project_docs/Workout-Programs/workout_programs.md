@@ -226,3 +226,18 @@ Workout Programs
     number_of_workouts: NN<br>
 
 </details>
+
+<details>
+
+  <summary>program_14</summary>
+
+    name: STANDARD<br>
+    splits: [full_body_a, full_body_b]<br>
+    description:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Few and heavy sets.<br>
+    start: 2026-03-DD<br>
+    end: 2026-MM-DD<br>
+    program_iterations: N<br>
+    number_of_workouts: NN<br>
+
+</details>

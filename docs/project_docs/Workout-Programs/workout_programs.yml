@@ -207,3 +207,13 @@ program_13:
   end: 2026-MM-DD
   program_iterations: N
   number_of_workouts: NN
+
+  program_14:
+    name: FULL-BODY
+    splits: [full_body_a, full_body_b]
+    description: |
+      Standard full-body program, with few and heavy sets.
+    start: 2026-03-DD
+    end: 2026-MM-DD
+    program_iterations: N
+    number_of_workouts: NN

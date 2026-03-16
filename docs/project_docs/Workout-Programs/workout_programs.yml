@@ -203,7 +203,8 @@ program_13:
     - arms
   description: |
     A split program with dedicated workouts for the legs, torso, and arms,
-    from start of 2026 mixed with a total of 10 full-body home kettlebell workouts.
+    which from start of 2026 was mixed with a total of 10 full-body,
+    home kettlebell workouts.
   start: 2025-11-05
   end: 2026-03-09
   program_iterations: 10

@@ -202,18 +202,19 @@ program_13:
     - torso
     - arms
   description: |
-    A program focusing on the legs, torso, and arms.
-  start: 2025-11-DD
-  end: 2026-MM-DD
-  program_iterations: N
-  number_of_workouts: NN
+    A split program with dedicated workouts for the legs, torso, and arms,
+    from start of 2026 mixed with a total of 10 full-body home kettlebell workouts.
+  start: 2025-11-05
+  end: 2026-03-09
+  program_iterations: 10
+  number_of_workouts: 40
 
   program_14:
     name: FULL-BODY
     splits: [full_body_a, full_body_b]
     description: |
       Standard full-body program, with few and heavy sets.
-    start: 2026-03-DD
+    start: 2026-03-14
     end: 2026-MM-DD
     program_iterations: N
     number_of_workouts: NN

@@ -219,11 +219,12 @@ Workout Programs
     name: LEGS-TORSO-ARMS<br>
     splits: [legs, torso, arms]<br>
     description:<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;Legs, torso and arms split program.<br>
-    start: 2025-11-DD<br>
-    end: 2026-MM-DD<br>
-    program_iterations: N<br>
-    number_of_workouts: NN<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;A split program with dedicated workouts for the legs, torso, and arms,
+    from start of 2026 mixed with a total of 10 full-body home kettlebell workouts.<br>
+    start: 2025-11-05<br>
+    end: 2026-03-09<br>
+    program_iterations: 10<br>
+    number_of_workouts: 40<br>
 
 </details>
 
@@ -235,7 +236,7 @@ Workout Programs
     splits: [full_body_a, full_body_b]<br>
     description:<br>
       &nbsp;&nbsp;&nbsp;&nbsp;Few and heavy sets.<br>
-    start: 2026-03-DD<br>
+    start: 2026-03-14<br>
     end: 2026-MM-DD<br>
     program_iterations: N<br>
     number_of_workouts: NN<br>

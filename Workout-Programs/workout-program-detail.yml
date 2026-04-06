@@ -1,0 +1,157 @@
+---
+
+program_10:
+  upper_body_a (Strength):
+    bench_press: 4 sets of 4-6 reps
+    bent_row: 4 sets of 4-6 reps
+    overhead_press: 3 sets of 4-6 reps
+    pullup: 3 sets of 4-6 reps
+    dip: 3 sets of 6-8 reps
+  lower_body_a (Strength):
+    squat: 4 sets of 4-6 reps
+    deadlift: 4 sets of 4-6 reps
+    leg_press: 3 sets of 6-8 reps
+    rdl: 3 sets of 6-8 reps
+    calf_raise: 3 sets of 8-10 reps
+  upper_body_b (Hypertrophy):
+    db_incline_press: 3 sets of 8-12 reps
+    seated_row: 3 sets of 8-12 reps
+    lateral_raise: 3 sets of 12-15 reps
+    face_pull: 3 sets of 12-15 reps
+    bb_curl: 3 sets of 12-15 reps
+    tricep_pushdown: 3 sets of 12-15 reps
+  lower_body_b (Hypertrophy):
+    leg_extension: 3 sets of 12-15 reps
+    leg_curl: 3 sets of 12-15 reps
+    lunge: 3 sets of 12-15 reps
+    glute_bridge: 3 sets of 12-15 reps
+    seated_calf_raise: 3 sets of 15-20 reps
+
+program_11:
+  push:
+    bench_press: 3 sets of 8-12 reps
+    lateral_raise: 3 sets of 8-12 reps
+    db_incline_press: 3 sets of 8-12 reps
+    db_incline_flys: 3 sets of 8-12 reps
+    military_press: 3 sets of 8-12 reps
+    bb_shrug: 3 sets of 8-12 reps
+    front_raise: 3 sets of 8-12 reps
+    around_the_world: 3 sets of 8-12 reps
+  pull:
+    pullup: 3 sets of max reps
+    back_extension: 3 sets of 12-15 reps
+    pull_down: 3 sets of 8-12 reps
+    bent_row: 3 sets of 8-12 reps
+    seated_row: 3 sets of 8-12 reps
+    rear_lateral_raise: 3 sets of 8-12 reps
+    straight_arm_pull_down: 3 sets of 8-12 reps
+    face_pull_w_push: 3 sets of 8-12 reps
+  legs:
+    squat: 3 sets of 8-12 reps
+    deadlift: 3 sets of 8-12 reps
+    walking_lunge: 3 sets of 8-12 reps
+    rdl: 3 sets of 8-12 reps
+    leg_extension: 3 sets of 8-12 reps
+    leg_curl: 3 sets of 8-12 reps
+    calf_raise: 3 sets of 8-12 reps
+    hanging_leg_raise: 3 sets of max reps
+
+program_12:
+  full_body_a:
+    bb_squat: 2 sets of 6-8 reps
+    bb_deadlift: 2 sets of 6-8 reps
+    bb_bench_press: 2 sets of 6-8 reps
+    assisted_pullup: 2 sets of 6-8 reps
+    db_seated_lateral_raise: 2 sets of 8-12 reps
+    hip_thrusts: 2 sets of 8-12 reps
+  full_body_b:
+    commando_pullup: 2 sets of 6-8 reps
+    landmine_press: 2 sets of 4-8 reps
+    box_jump: 2 sets of 6-10 reps
+    kb_russian_twist: 2 sets of 6-12 reps
+    svend_press: 2 sets of 8-12 reps
+    plate_lateral_raise: 2 sets of 8-12 reps
+    kb_windmill: 2 sets of 2-12 reps
+    kb_turkish_get_up: 2 sets of 2-8 reps
+  full_body_c:
+    bb_front_squat: 2 sets of 6-8 reps
+    bb_sumo_deadlift: 2 sets of 6-8 reps
+    chinup: 2 sets of 6-8 reps
+    dip: 2 sets of 6-8 reps
+    loaded_back_extention: 2 sets of 6-8 reps
+    side_jackknife: 2 sets of 6-8 reps
+    cable_pallof_press: 2 sets of 6-8 reps
+    bb_shrug: 2 sets of 6-8 reps
+  full_body_d:
+    halo: 2 sets of 6-10 reps
+    snatch: 2 sets of 6-8 reps
+    armbar: 2 sets of 6-10 reps
+    swing: 2 sets of 6-8 reps
+    farmers_walk: 2 sets of 30-40 reps
+    alternating_reverse_lunge: 2 sets of 6-8 reps
+    goblet_squat: 2 sets of 6-8 reps
+    renegade_row: 2 sets of 4-8 reps
+    gironda_pullup: 2 sets of 3-8 reps
+    mike_tyson_pushup: 2 sets of 3-8 reps
+
+program_13:
+  legs:
+    squat: 3 sets of 10-12 reps
+    deadlift: 3 sets of 10-12 reps
+    bulgarian_split_squat: 3 sets of 10-12 reps
+    leg_curl: 3 sets of 10-12 reps
+    calf_raise: 3 sets of 10-12 reps
+  torso:
+    lat_pulldown: 2 sets of 10-12 reps
+    behind_the_neck_pulldown: 2 sets of 10-12 reps
+    row: 2 sets of 10-12 reps
+    kelso_shrug: 2 sets of 10-12 reps
+    db_flat_press: 2 sets of 10-12 reps
+    db_incline_press: 2 sets of 10-12 reps
+    machine_fly: 2 sets of 10-12 reps
+    back_extension: 2 sets of 10-12 reps
+    toe_to_bar: 2 sets of MAX reps
+  arms:
+    db_side_lateral_raise: 2 sets of 10-12 reps
+    egyptian_side_lateral_raise: 2 sets of 10-12 reps
+    cable_reverse_fly: 2 sets of 10-12 reps
+    cable_french_press: 3 sets of 10-12 reps
+    db_incline_curl: 3 sets of 10-12 reps
+    bb_shrug: 2 sets of 10-12 reps
+    face_pull_w_push: 2 sets of 10-12 reps
+
+_next:
+  upper_body_push_core:
+    Main_Exercises:
+      Kettlebell Overhead Press - 4 sets of 6-8 reps per arm
+      Push-Ups (Weighted if possible) - 3 sets of 10-15 reps
+      Kettlebell Floor Press - 3 sets of 8-10 reps per arm
+      Dips (Bodyweight or Assisted) - 3 sets of 8-12 reps
+      Russian Twists (with kettlebell) - 3 sets of 20 twists (10 per side)
+  lower_body_power_pullups:
+    Main_Exercises:
+      Box Jumps - 4 sets of 8-10 reps
+      Kettlebell Goblet Squats - 4 sets of 8-10 reps
+      Kettlebell Swings - 3 sets of 15-20 reps
+      Walking Lunges (Bodyweight or Weighted) - 3 sets of 10 steps per leg
+    Pullup_Circuit:
+      Chin-Ups - 3 sets of 6-10 reps
+      Assisted-Wide-Grip-Pull-Ups - 3 sets of 6-8 reps
+      Commando Pull-Ups - 3 sets of 8-10 reps per side
+  upper_body_pull_kettlebell_circuit:
+    Main_Exercises:
+      Kettlebell Renegade Rows - 4 sets of 8-10 reps per arm
+      Inverted Rows (TRX or Barbell) - 3 sets of 10-12 reps
+      Face Pulls (with Resistance Band) - 3 sets of 12-15 reps
+    Kettlebell_Circuit (No Rest Between Exercises):
+      Kettlebell Clean and Press - 10 reps per arm
+      Kettlebell Bent-Over Rows - 10 reps per arm
+      Kettlebell Snatch - 10 reps per arm
+      Repeat circuit 3 times with 1-minute rest between rounds.
+  full_body_kettlebell_box_jumps:
+    Main_Exercises:
+      Kettlebell Turkish Get-Ups - 3 sets of 3-5 reps per arm
+      Box Jumps - 4 sets of 8-10 reps
+      Kettlebell Deadlifts - 4 sets of 8-10 reps
+      Burpee Box Jump Combo - 3 sets of 8-10 reps
+      Farmer's walk (Heavy Kettlebells) - 3 rounds of 30-40 meters

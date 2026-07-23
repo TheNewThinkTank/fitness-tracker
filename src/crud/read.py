@@ -104,7 +104,7 @@ def get_all(table) -> list[dict]:
     return table.all()
 
 
-def describe_workout(table, date: str) -> list[dict]:
+def describe_workout(table, date: str) -> list[dict] | None:
     """Simple summary statistics for each exercise on the given date.
 
     Returns a list because multiple workouts can share the same date.

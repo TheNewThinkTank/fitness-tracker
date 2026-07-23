@@ -43,7 +43,7 @@ jobs:
         run: docker build -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
 
       - name: Scan Docker image for vulnerabilities
-        uses: anchore/scan-action@v3
+        uses: anchore/scan-action@v5
         with:
           image: ${{ inputs.image-name }}:${{ inputs.image-tag }}
           fail-build: true

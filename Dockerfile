@@ -1,11 +1,11 @@
-FROM python:3.11-slim AS requirements-stage
+FROM python:3.13-slim AS requirements-stage
 
 WORKDIR /tmp
 RUN pip install poetry && poetry self add poetry-plugin-export
 COPY ./pyproject.toml ./poetry.lock* /tmp/
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 RUN useradd --uid 1000 --create-home --shell /bin/bash appuser
 

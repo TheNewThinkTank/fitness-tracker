@@ -38,7 +38,7 @@ dynaconf = "^3.2.7"
 loguru = "^0.7.3"
 sphinx-rtd-theme = "^3.0.2"
 snakeviz = "^2.2.2"
-isort = "^7.0.0"
+isort = "^8.0.1"
 regex = "^2026.1.15"
 
 [tool.poetry.group.dev.dependencies]

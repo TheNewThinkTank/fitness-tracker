@@ -97,7 +97,7 @@ def get_total_volume(table) -> list[tuple[str, int]]:
             volume_partial = []
 
             for s in item["exercises"][exercise]:
-                weight = 1
+                weight: float = 1
                 if s["weight"][:-3] != "0":
                     weight = get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar)
                 volume_partial.append(s["reps"] * weight)

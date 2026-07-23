@@ -26,7 +26,7 @@ def parse_date(date_str: str) -> datetime.date | None:
 @lru_cache(maxsize=1)
 def _load_programs(path: str) -> list[dict]:
     """Load and parse workout programs from YAML, cached after first read."""
-    available_programs = load_yaml_file(Path(path))
+    available_programs = load_yaml_file(path)
     programs = []
     for pgm in available_programs["programs"].values():
         start = parse_date(pgm["start"])

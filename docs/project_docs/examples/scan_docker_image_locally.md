@@ -1,27 +1,26 @@
 # Scan Docker Image locally
 
-assuming you have a `.env` file at the root of your repo,
-with content:
+Assuming you have a `.env` file at the root of your repo (see `.env.example`):
 
 ```text
 USER=<USER>
 ATHLETE=<ATHLETE>
 EMAIL=<EMAIL>
-ALTERNATIVE_EMAIL=<ALTERNATIVE_EMAIL>
+GOOGLE_DRIVE_DATA_PATH=data
 ```
 
-(remember to add `.env` to your `.gitignore` if you wish to keep the content private)
+Build the image (env vars are injected at runtime, not build time):
 
-first build image:
-
-```BASH
-docker build \              
-    --build-arg USER=$(grep -w USER .env | cut -d '=' -f2) \
-    --build-arg ATHLETE=$(grep -w ATHLETE .env | cut -d '=' -f2) \
-    --build-arg EMAIL=$(grep -w EMAIL .env | cut -d '=' -f2) \
-    --build-arg ALTERNATIVE_EMAIL=$(grep -w ALTERNATIVE_EMAIL .env | cut -d '=' -f2) \
-    -t fitness-tracker:latest .
+```bash
+docker build -t fitness-tracker:latest .
 ```
 
-then run scanning:
-`grype fitness-tracker:latest`
+Then scan with Grype:
+
+```bash
+grype fitness-tracker:latest
+```
+
+Scanning also runs automatically in CI via `job_docker_image.yml` using
+[Anchore scan-action](https://github.com/anchore/scan-action).
+Builds fail on HIGH or CRITICAL severity findings.

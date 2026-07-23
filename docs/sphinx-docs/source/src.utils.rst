@@ -12,14 +12,6 @@ src.utils.cleanup module
    :undoc-members:
    :show-inheritance:
 
-src.utils.config\_loader module
--------------------------------
-
-.. automodule:: src.utils.config_loader
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 src.utils.custom\_storage module
 --------------------------------
 
@@ -56,14 +48,6 @@ src.utils.get\_program module
 -----------------------------
 
 .. automodule:: src.utils.get_program
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-src.utils.get\_split module
----------------------------
-
-.. automodule:: src.utils.get_split
    :members:
    :undoc-members:
    :show-inheritance:

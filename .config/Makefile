@@ -32,5 +32,5 @@ run-tests-and-coverage:
 
 # Qualify code target
 .PHONY: qualify-code
-qualify-code: install-poetry install-dependencies lint-flake8 lint-ruff \
+qualify-code: install-poetry install-dependencies lint-ruff \
 	static-type-checks wily-build-and-rank run-tests-and-coverage

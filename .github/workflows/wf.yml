@@ -9,7 +9,6 @@ on:
 
 env:
   PYTHONVERSION: 3.11
-#   IMAGE_NAME: "fitness-tracker"
 
 jobs:
 
@@ -28,15 +27,16 @@ jobs:
       google_drive_data_path: "data"
     secrets:
       ATHLETE: ${{ secrets.ATHLETE }}
+      EMAIL: ${{ secrets.EMAIL }}
+      USER: ${{ secrets.USER }}
 
-  # docker_image_workflow:
-  #   needs: qualify_code
-  #   uses: ./.github/workflows/job_docker_image.yml
-  #   with:
-  #     image-name: fitness-tracker  # ${{ env.IMAGE_NAME }}
-  #     image-tag: latest
-  #     # dockerhub-username: gustavrasmussen  # Optional, if pushing to DockerHub
-  #     github-owner: thenewthinktank  # Optional, if pushing to GitHub Packages
+  docker_image_workflow:
+    needs: qualify_code
+    uses: ./.github/workflows/job_docker_image.yml
+    with:
+      image-name: fitness-tracker
+      image-tag: latest
+      github-owner: thenewthinktank
 
   # deploy_to_AWS_ECR:
   #   needs: qualify_code

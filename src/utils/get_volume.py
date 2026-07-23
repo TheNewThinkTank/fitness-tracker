@@ -17,43 +17,64 @@ def get_weight(
         s: dict,
         bodyweight: str,
         Sidea_9012_Olympic_Hex_Bar: str
-        ) -> int:
-    """Get the weight of the exercise.
+        ) -> float:
+    """Get the weight of the exercise in kg.
+
+    Handles plain weights ("80 kg"), bodyweight forms ("BODYWEIGHT",
+    "BODYWEIGHT + 10 kg", "BODYWEIGHT - 5 kg"), barbell references
+    ("Sidea_9012_Olympic_Hex_Bar"), and powerband modifiers.
 
     :param s: Dictionary containing the exercise details
     :type s: dict
-    :param bodyweight: Bodyweight of the person in kg
+    :param bodyweight: Bodyweight of the person in kg as a string
     :type bodyweight: str
-    :param Sidea_9012_Olympic_Hex_Bar: Weight of the barbell
+    :param Sidea_9012_Olympic_Hex_Bar: Weight of the hex bar in kg as a string
     :type Sidea_9012_Olympic_Hex_Bar: str
-    :return: Weight of the exercise
+    :return: Weight of the exercise in kg
     :rtype: float
     """
 
-    weight_expr = (
-        s["weight"][:-3]
-        .replace("BODYWEIGHT", bodyweight)
-        .replace("Sidea_9012_Olympic_Hex_Bar", Sidea_9012_Olympic_Hex_Bar)
-    )
+    raw = s["weight"].strip()
 
-    # Replace POWERBAND_COLOR with actual resistance value
-    def replace_powerband(match):
+    # Strip trailing " kg" if present
+    if raw.endswith(" kg"):
+        raw = raw[:-3].strip()
+
+    # Substitute named constants before parsing
+    raw = raw.replace("Sidea_9012_Olympic_Hex_Bar", Sidea_9012_Olympic_Hex_Bar)
+
+    # Substitute powerband colors with their resistance values
+    def _replace_powerband(match: re.Match) -> str:
         color = match.group(1)
-        return str(bands_mapping.get(color, 0))  # Default to 0 if unknown
+        return str(bands_mapping.get(color, 0))
 
-    weight_regex = re.sub(r"POWERBAND_(GREEN|PURPLE|BLACK|RED)", replace_powerband, weight_expr)
+    raw = re.sub(r"POWERBAND_(GREEN|PURPLE|BLACK|RED)", _replace_powerband, raw)
 
-    # Safe evaluation using eval() with restricted scope
+    # Handle BODYWEIGHT forms: "BODYWEIGHT", "BODYWEIGHT + N", "BODYWEIGHT - N"
+    bw_match = re.fullmatch(
+        r"BODYWEIGHT(?:\s*([+-])\s*(\d+(?:\.\d+)?))?", raw, re.IGNORECASE
+    )
+    if bw_match:
+        bw = float(bodyweight)
+        if bw_match.group(1) is None:
+            return bw
+        delta = float(bw_match.group(2))
+        return bw + delta if bw_match.group(1) == "+" else bw - delta
+
+    # Handle simple arithmetic "A + B" or "A - B" (two numeric terms)
+    arith_match = re.fullmatch(
+        r"(\d+(?:\.\d+)?)\s*([+-])\s*(\d+(?:\.\d+)?)", raw
+    )
+    if arith_match:
+        a, op, b = float(arith_match.group(1)), arith_match.group(2), float(arith_match.group(3))
+        return a + b if op == "+" else a - b
+
+    # Plain numeric
     try:
-        # Only allow basic math operations; no external functions allowed
-        allowed_names: dict[str, dict[Any, Any]] = {
-            "__builtins__": {},
-        }
-        result = eval(weight_regex, allowed_names, {})
-        return result
-    except Exception as e:
-        logger.error(f"Error evaluating weight expression: {weight_regex} | {e}")
-        return 0
+        return float(raw)
+    except ValueError:
+        logger.error(f"Cannot parse weight expression: {s['weight']!r}")
+        return 0.0
 
 
 def get_total_volume(table) -> list[tuple[str, int]]:

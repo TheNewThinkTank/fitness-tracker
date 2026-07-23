@@ -89,24 +89,10 @@ def set_db_and_table(
 
     return db, table, training_catalogue
 
-# @profile
 def main() -> None:
     """Main function.
     """
-
-    # settings = settings.as_dict()
     logger.debug(settings.ATHLETE)
-
-    # db, table, training_catalogue = set_db_and_table(
-    #     datatype="real",
-    #     year="2021"
-    # )
-
-    # logger.debug(f"{db}, {table}, {training_catalogue}")
-
-    # # At the end, make sure to close the database
-    # db_singleton = TinyDBSingleton("dummy_path")  # Create a dummy instance just to close
-    # db_singleton.close()
 
 
 if __name__ == "__main__":

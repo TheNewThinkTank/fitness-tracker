@@ -38,14 +38,14 @@ def predict_anomalies(model, data):
     return anomalies
 
 
-# Example data: workout metrics (duration, intensity)
-X = np.array([
-    [30, 50], [35, 60], [40, 55], [20, 80],  # Normal
-    [120, 90],  # Potential anomaly
-])
+def main() -> None:
+    X = np.array([
+        [30, 50], [35, 60], [40, 55], [20, 80],  # Normal
+        [120, 90],  # Potential anomaly
+    ])
+    model = train_anomaly_detector(X)
+    predict_anomalies(model, X)
 
-# Train the model
-model = train_anomaly_detector(X)
 
-# Predict anomalies
-anomalies = predict_anomalies(model, X)
+if __name__ == "__main__":
+    main()

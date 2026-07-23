@@ -2,9 +2,9 @@
 Update or delete weight-training data.
 """
 
-# from pprint import pformat  # type: ignore
 import re
-# from loguru import logger  # type: ignore
+from pprint import pformat  # type: ignore
+from loguru import logger  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
@@ -77,32 +77,43 @@ def clean_exercise_names(table) -> None:
 
 
 def main() -> None:
-    """Main function for the update module.
+    """Clean exercise names in the database.
+
+    Pass --dry-run to preview changes without writing them.
     """
 
-    datamodels = ["real", "simulated"]
-    datatype = datamodels[0]
+    import argparse
 
-    _, table, _ = set_db_and_table(
-        datatype,
-        env="dev"
-        )
+    parser = argparse.ArgumentParser(description="Clean exercise names in the database.")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview changes without writing to the database.",
+    )
+    parser.add_argument(
+        "--datatype",
+        type=str,
+        default="real",
+        choices=["real", "simulated"],
+        help="Which database to operate on (default: real).",
+    )
+    args = parser.parse_args()
 
-    # workout_data = table.all()
-    # logger.info(pformat(workout_data))
-    # logger.info(pformat(filter_exercises_with_whitespace(workout_data)))
-    # print("##########")
+    _, table, _ = set_db_and_table(args.datatype, env="dev")
+
+    dirty = filter_exercises_with_whitespace(table.all())
+    if not dirty:
+        logger.info("No exercises with whitespace found — nothing to do.")
+        return
+
+    logger.info("Exercises with whitespace:\n{}", pformat(dirty))
+
+    if args.dry_run:
+        logger.info("Dry run — no changes written.")
+        return
+
     clean_exercise_names(table)
-    # print("##########")
-    # logger.info(pformat(filter_exercises_with_whitespace(workout_data)))
-
-    # logger.info(pformat(db))
-    # logger.info(pformat(table))
-    # all_entries = table.all()
-    # logger.info(pformat(all_entries))
-
-    # remove_from_table(table)
-    # truncate_table(table)
+    logger.info("Exercise names cleaned successfully.")
 
 
 if __name__ == "__main__":

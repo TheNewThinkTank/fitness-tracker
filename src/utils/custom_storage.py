@@ -16,7 +16,6 @@ class YAMLStorage(Storage):
         super().__init__()
         touch(filename, create_dirs=True)  # Create file if not exists
         self.kwargs = kwargs
-        self._handle = open(filename, 'r+')
         self.filename = filename
 
     def read(self):
@@ -32,7 +31,7 @@ class YAMLStorage(Storage):
             yaml.dump(data, handle, sort_keys=False)
 
     def close(self):
-        self._handle.close()
+        pass
 
 
 def main() -> None:

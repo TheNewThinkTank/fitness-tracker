@@ -1,27 +1,24 @@
 # Frontend setup
 
-```BASH
+> The frontend is already scaffolded under `frontend/`. These instructions are
+> for reference only — follow them if you need to recreate it from scratch.
+
+The project uses **Svelte 5** with a Rollup bundler.
+
+```bash
 mkdir frontend && cd frontend
-npx degit sveltejs/template svelte-app
-cd svelte-app
+
+# Scaffold a new Vite + Svelte project (official Svelte 5 approach)
+npm create vite@latest . -- --template svelte
 npm install
 
-# Move the contents of the svelte-app directory to the frontend directory and remove the svelte-app directory
-cd ..
-mv svelte-app/* .
-mv svelte-app/.* .
-rmdir svelte-app
-
-# Upgrade Svelte from "^3.55.0" to "^5.0.0"
-
-# remove node_modules and package-lock.json:
-rm -rf node_modules
-rm package-lock.json
-# Specify version "^5.0.0" for svelte in package.json
-# manually bump of version for all dependencies as well.
-
-npm install
+# Verify Svelte version
 npm list svelte
-# test the app still works:
+
+# Start dev server
 npm run dev
 ```
+
+> **Note:** The older `npx degit sveltejs/template` approach scaffolds a
+> Svelte 3/4 Rollup template that is no longer maintained. Do not use it
+> for new Svelte 5 projects.

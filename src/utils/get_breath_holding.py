@@ -39,8 +39,8 @@ def get_breath_holding(sheet_title: str) -> pd.DataFrame:
     """
 
     sheet = get_sheet(
-        sheet_id="1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4",
-        sheet_title=sheet_title
+        sheet_id=settings["BREATH_HOLDING_SHEET_ID"],
+        sheet_title=sheet_title,
     )
 
     data = sheet.get_all_records()
@@ -99,7 +99,7 @@ def make_figure(df, year, sheet_title) -> None:
     plt.tight_layout()
 
     # plt.show()
-    plt.savefig(f"{settings['img_path']}{year}/breathholding/{sheet_title}.png")
+    plt.savefig(f"{settings['IMG_PATH']}{year}/breathholding/{sheet_title}.png")
 
 
 def main() -> None:

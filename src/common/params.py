@@ -12,14 +12,6 @@ class PlotParams:
     img_path: Optional[str] = None  # fallback to settings if None
 
 @dataclass
-class InsertParams:
-    file_format: str
-    datatype: str
-    dates: str
-    workout_number: int = 1
-    table: Optional[object] = None
-
-@dataclass
 class SimulationConfig:
     n_people: int = 100
     days: int = 365

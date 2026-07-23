@@ -15,6 +15,78 @@
 
 [Tech Docs](https://fitness-tracker.readthedocs.io/en/latest/index.html)
 
+## Running locally
+
+Copy the environment template and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+Required variables:
+
+| Variable | Description |
+|---|---|
+| `USER` | Your OS username |
+| `EMAIL` | Your Google account email (used for Drive access) |
+| `ATHLETE` | Athlete folder name in your Google Drive data path |
+| `GOOGLE_DRIVE_DATA_PATH` | Path to workout data root. Use `data` for local dev |
+
+### Docker Compose
+
+```bash
+docker compose up
+```
+
+- Backend API: `http://localhost:8000`
+- Frontend: `http://localhost:3000`
+- API docs: `http://localhost:8000/docs`
+
+### Docker (single container)
+
+Build and run locally, or pull the published image:
+
+```bash
+# Build locally
+docker build -t fitness-tracker:latest .
+
+# Or pull the published image
+# docker pull ghcr.io/thenewthinktank/fitness-tracker:latest
+
+docker run --rm \
+  -p 8000:8000 \
+  --env-file .env \
+  -v "$(pwd)/local_assets/credentials.json:/code/local_assets/credentials.json:ro" \
+  fitness-tracker:latest
+```
+
+The `--env-file .env` flag supplies all required environment variables.
+The credentials volume mount is read-only, matching the container runtime behaviour.
+
+---
+
+## Container image
+
+The image is published to GitHub Container Registry on every push to `main`:
+
+```
+ghcr.io/thenewthinktank/fitness-tracker:latest
+```
+
+The repository is public so no pull credentials are required.
+
+The image exposes two health endpoints intended for use by container orchestrators:
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /healthz` | Liveness — is the process running? |
+| `GET /readyz` | Readiness — is the database reachable? |
+
+Kubernetes deployment manifests and GitOps configuration live in the
+[homelab](https://github.com/TheNewThinkTank/homelab) repository.
+
+---
+
 ## For contributors
 
 [Project tracking](https://thenewthinktank.atlassian.net/jira/software/projects/FT/boards/2)

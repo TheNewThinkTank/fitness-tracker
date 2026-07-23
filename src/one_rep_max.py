@@ -41,6 +41,10 @@ class BrzyckiStrategy(OneRepMaxStrategy):
     """Brzycki formula for one-repetition-maximum estimation.
     """
     def estimate(self, weight, reps):
+        if np.any(reps == 37):
+            raise ValueError(
+                "denominator is zero in Brzycki formula for one or more entries (reps == 37)."
+            )
         return weight * 36 / (37 - reps)
 
 

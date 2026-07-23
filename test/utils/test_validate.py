@@ -158,7 +158,7 @@ def test_create_workouts_from_json():
                 "exercises": {
                     "pushup": [{"set_number": 1, "reps": 10, "weight": "BODYWEIGHT"}]
                 },
-                "warmup": None,  # Add optional fields
+                "warmup": None,
                 "gym": None,
                 "note": None,
             }
@@ -170,3 +170,20 @@ def test_create_workouts_from_json():
         assert len(workouts) == 1
         assert isinstance(workouts[0], Workout)
         assert workouts[0].date == "2023-10-01"
+
+
+def test_create_workouts_from_yaml():
+    import os
+    fixture = os.path.join(
+        os.path.dirname(__file__), "..", "fixtures", "workouts_fixture.yml"
+    )
+    workouts = WorkoutFactory.create_workouts_from_yaml(fixture)
+    assert len(workouts) == 2
+    assert all(isinstance(w, Workout) for w in workouts)
+    dates = {w.date for w in workouts}
+    assert "2021-12-16" in dates
+    assert "2021-12-20" in dates
+    # Verify exercises were parsed correctly for the known workout
+    shoulder_workout = next(w for w in workouts if w.date == "2021-12-16")
+    assert "cable_extention" in shoulder_workout.exercises
+    assert "toe_to_bar" in shoulder_workout.exercises

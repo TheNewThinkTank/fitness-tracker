@@ -51,10 +51,12 @@ python cli.py show_help
 from datetime import datetime as dt
 import os
 import subprocess
-import sys
 import click
 from loguru import logger  # type: ignore
 from src.utils.config import settings  # type: ignore
+from src.crud.insert import insert_specific_log, WorkoutDate  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.combined_metrics.combined_metrics import run as combined_metrics_run  # type: ignore
 
 
 @click.group()
@@ -81,23 +83,12 @@ def insert(workout_date, file_format):
     """Insert workout data into the database."""
     try:
         logger.info(f"Inserting data for {workout_date} with format {file_format}.")
-        subprocess.run(
-            [
-                "python3",
-                "./src/crud/insert.py",
-                "--file_format",
-                file_format,
-                "--datatype",
-                "real",
-                "--dates",
-                workout_date,
-            ],
-            check=True,
-        )
+        _, table, _ = set_db_and_table(datatype="real")
+        insert_specific_log(WorkoutDate(workout_date), table, file_format)
         logger.info("Data inserted successfully.")
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         logger.error(f"Error inserting data: {e}")
-        sys.exit(1)
+        raise SystemExit(1)
 
 
 @cli.command()
@@ -118,21 +109,11 @@ def prepare_figures(year, month):
     """Prepare figures for the specified year and month."""
     try:
         logger.info(f"Preparing figures for {year} {month}.")
-        subprocess.run(
-            [
-                "python3",
-                "./src/combined_metrics/combined_metrics.py",
-                "--year_to_plot",
-                str(year),
-                "--month_to_plot",
-                month,
-            ],
-            check=True,
-        )
+        combined_metrics_run(year_to_plot=str(year), month_to_plot=month)
         logger.info("Figures prepared successfully.")
-    except subprocess.CalledProcessError as e:
+    except Exception as e:
         logger.error(f"Error preparing figures: {e}")
-        sys.exit(1)
+        raise SystemExit(1)
 
 
 @cli.command()
@@ -168,7 +149,7 @@ def open_images(ctx, year, month):
         logger.info("Images opened successfully.")
     except subprocess.CalledProcessError as e:
         logger.error(f"Error opening images: {e}")
-        sys.exit(1)
+        raise SystemExit(1)
 
 
 @cli.command()

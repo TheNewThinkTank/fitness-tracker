@@ -4,23 +4,18 @@ Store weight-training data.
 Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
-# import glob
 import json
 import os
 from pathlib import Path
 from typing import NewType
 from src.utils.config import settings  # type: ignore
 import yaml  # type: ignore
-from tinydb import table  # , TinyDB
-from icecream import ic  # type: ignore
+from tinydb import table  # type: ignore
 from loguru import logger  # type: ignore
 from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
-# WorkoutID = NewType("WorkoutID", str)
 WorkoutDate = NewType("WorkoutDate", str)
-# FilePath = NewType("FilePath", str)
-# TableName = NewType("TableName", str)
 
 
 def insert_log(
@@ -156,14 +151,12 @@ def main() -> None:
     """
 
     import argparse
-    import logging
     from src.utils.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="insert.log")
     log_running_file(__file__)
 
     parser = argparse.ArgumentParser(
-        # prog="",
         description="Add workout logs to TinyDB.",
     )
 
@@ -171,7 +164,7 @@ def main() -> None:
         "-f",
         "--file_format",
         type=str,
-        default="yaml", # "json",
+        default="yml",
         help="Format of the workout log file.",
     )
 
@@ -179,7 +172,6 @@ def main() -> None:
         "-t",
         "--datatype",
         type=str,
-        # required=True,
         default="real",
         help="Either real or simulated workout data.",
     )
@@ -200,32 +192,31 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    file_format = args.file_format  # json or yml
-    datatype = args.datatype  # real/simulated
-    dates = args.dates  # 2022-02-03,2022-02-05
+    file_format = args.file_format
+    datatype = args.datatype
+    dates = args.dates
     workout_number = args.workout_number
 
     db, table, _ = set_db_and_table(datatype)
-    ic(db)
+    logger.debug("db: {}", db)
 
-    logging.info("datatype: %s", datatype)
-    logging.debug("db: %s", db)
-    logging.debug("table: %s", table)
+    logger.info("datatype: {}", datatype)
+    logger.debug("table: {}", table)
 
     if datatype == "real":
-        logging.info("workout date(s): %s", dates)
+        logger.info("workout date(s): {}", dates)
         for date in dates.split(","):
             if args.workout_number is None:
                 insert_specific_log(WorkoutDate(date), table, file_format)
             else:
                 insert_specific_log(WorkoutDate(date), table, file_format, workout_number)
-                logging.info("workout number: %s", workout_number)
+                logger.info("workout number: {}", workout_number)
 
     elif datatype == "simulated":
         insert_all_logs(table, "data/simulated/", file_format)
 
     else:
-        logging.error("Unsupported value for datatype: %s", datatype)
+        logger.error("Unsupported value for datatype: {}", datatype)
 
 
 if __name__ == "__main__":

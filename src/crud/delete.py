@@ -4,17 +4,13 @@
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
-def remove_from_table(table) -> type[NotImplementedError]:
+def remove_from_table(table) -> None:
     """Remove from table.
 
     :param table: TinyDB table
     :type table: TinyDB.table
     """
-
-    # Workout = Query()
-    # table.remove(Workout.exercises.squat < 5)
-
-    return NotImplementedError
+    raise NotImplementedError
 
 
 def truncate_table(table) -> None:

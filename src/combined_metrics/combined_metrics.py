@@ -14,9 +14,6 @@ from pprint import pformat  # type: ignore
 from loguru import logger  # type: ignore
 import seaborn as sns  # type: ignore
 from typing import Any  # type: ignore
-# import statsmodels.api as sm  # type: ignore
-# from scipy.interpolate import make_interp_spline  # type: ignore
-# from icecream import ic  # type: ignore
 from src.common.params import PlotParams  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.utils.get_workout_duration import get_all_durations  # type: ignore
@@ -78,44 +75,10 @@ def plot_frequency(
 
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # lowess (locally weighted scatterplot smoothing)
-    # Apply lowess smoothing
-    # lowess = sm.nonparametric.lowess
-    # smoothed = lowess(res_df['workouts'], res_df['date'].astype('int64') // 10**9, frac=0.1)
-    # smoothed = lowess(res_df['workouts'], res_df['date'], frac=0.1)
-    # Convert smoothed dates back to datetime objects
-    # smoothed_dates = pd.to_datetime(smoothed[:, 0], unit='s')
-    # logger.debug(pformat(smoothed))
-    # if smoothed.size == 0:
-    #     logger.error("Lowess smoothing failed. Not enough data points.")
-    #     return
-    # Plot the smoothed curve
-    # ax.plot(smoothed_dates, smoothed[:, 1], color="#6c8ebf", label="Smoothed Curve")
-    # ax.plot(smoothed[:, 0], smoothed[:, 1], color="#6c8ebf", label="Smoothed Curve")
-
-    # Apply cubic spline interpolation for smoother curves
-    # x = res_df['date'].astype('int64') // 10**9  # Convert dates to seconds since epoch
-    # y = res_df['workouts']
-    # spline = make_interp_spline(x, y, k=3)  # Cubic spline interpolation
-    # x_smooth = pd.date_range(start=res_df['date'].min(), end=res_df['date'].max(), freq='D')
-    # y_smooth = spline(x_smooth.astype('int64') // 10**9)
-
-    # Plot the smoothed curve
-    # ax.plot(x_smooth, y_smooth, color="#6c8ebf", label="Smoothed Curve")
-
     logger.info("res_df:")
     logger.info(pformat(res_df.head()))
     logger.info(pformat(res_df))
     logger.info(f"Dates range: {res_df['date'].min()} to {res_df['date'].max()}")
-
-    # sns.barplot(
-    #     x="date", 
-    #     y="workouts", 
-    #     data=res_df, 
-    #     ax=ax, 
-    #     color="#6c8ebf",
-    #     label="Data Points"
-    # )
 
     sns.scatterplot(
         x="date", 
@@ -128,16 +91,6 @@ def plot_frequency(
         label="Data Points"
     )
 
-    # sns.lineplot(
-    #     x="date", 
-    #     y="workouts", 
-    #     marker="o", 
-    #     data=res_df, 
-    #     ax=ax, 
-    #     color="#6c8ebf"
-    # )
-    # ax.plot(res_df['date'], res_df['workouts'], marker='o', linestyle='-', color='b')
-
     # Ensure the x-axis limits are within the date range
     ax.set_xlim(res_df['date'].min(), res_df['date'].max())
 
@@ -145,8 +98,6 @@ def plot_frequency(
         ax.xaxis.set_major_locator(MaxNLocator(integer=True))  # Use simple integer ticks
     else:
         ax.xaxis.set_major_locator(mdates.WeekdayLocator())
-    # ax.xaxis.set_major_locator(mdates.WeekdayLocator())
-
     date_format = "%Y week %U"  # "%Y-%m-%d"
     ax.xaxis.set_major_formatter(mdates.DateFormatter(date_format))
 
@@ -273,7 +224,7 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
 
     dates: list[Any] = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
-    # one_rm_values = one_rm_filtered["1RM"].to_list()
+    one_rm_sizes = one_rm_filtered["1RM"].to_list()
 
     norm = mcolors.Normalize(min(volumes), max(volumes))
     sm = plt.cm.ScalarMappable(cmap="Reds", norm=norm)
@@ -284,7 +235,7 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     ax.xaxis.set_major_locator(mdates.DayLocator())
 
     sns.scatterplot(
-        x=dates, y=durations, hue=volumes, palette="Reds", s=one_rm, ax=ax
+        x=dates, y=durations, hue=volumes, palette="Reds", s=one_rm_sizes, ax=ax
         )
     plt.plot(dates, durations, zorder=0, c="brown")
 
@@ -306,64 +257,43 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     save_plot(fig, save_path)
 
 
-def main() -> None:
-    """Main function to run the script.
+def run(year_to_plot: str, month_to_plot: str, datatype: str = "real") -> None:
+    """Generate all combined metric plots for the given year and month.
+
+    :param year_to_plot: Year string, e.g. "2025"
+    :type year_to_plot: str
+    :param month_to_plot: Month name, e.g. "January"
+    :type month_to_plot: str
+    :param datatype: "real" or "simulated", defaults to "real"
+    :type datatype: str, optional
     """
+    _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
+    params = PlotParams(table=table, year=year_to_plot)
+    plot_frequency(params)
+    plot_duration(PlotParams(table=table, year=year_to_plot, month=month_to_plot))
+    plot_duration_volume_1rm(params)
+
+
+def main() -> None:
+    """CLI entry point for combined metrics."""
 
     import argparse
     import calendar
 
     default_month = calendar.month_name[1]
 
-    # years = [
-    #     '2021',
-    #     '2022',
-    #     '2023',
-    #     '2024',
-    #     '2025',
-    #     ]
-
     parser = argparse.ArgumentParser(
         description="Get combined metrics for volume and frequency of workouts.",
     )
-
+    parser.add_argument("-y", "--year_to_plot", type=str, default='2025')
+    parser.add_argument("-m", "--month_to_plot", type=str, default=default_month)
     parser.add_argument(
-        "-y",
-        "--year_to_plot",
-        type=str,
-        default='2025',
-        )
-
-    parser.add_argument(
-        "-m",
-        "--month_to_plot",
-        type=str,
-        default=default_month
-        )
-
-    parser.add_argument(
-        "-t",
-        "--datatype",
-        type=str,
-        default="real",
+        "-t", "--datatype", type=str, default="real",
         help="Either real or simulated workout data.",
-        )
+    )
 
     args = parser.parse_args()
-
-    datatype = args.datatype
-    year_to_plot = args.year_to_plot
-    month_to_plot = args.month_to_plot
-
-    _, table, _ = set_db_and_table(datatype, year=int(year_to_plot))
-
-    logger.debug(default_month)
-
-    params = PlotParams(table=table, year=year_to_plot)
-
-    plot_frequency(params)
-    plot_duration(PlotParams(table=table, year=year_to_plot, month=month_to_plot))
-    # plot_duration_volume_1rm(params)
+    run(args.year_to_plot, args.month_to_plot, args.datatype)
 
 
 if __name__ == "__main__":

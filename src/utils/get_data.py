@@ -16,9 +16,12 @@ def get_data(year: str) -> list[dict]:
     :rtype: list[dict]
     """
 
+    athlete = os.getenv("ATHLETE")
+    if not athlete:
+        raise ValueError("ATHLETE environment variable is not set.")
     db, table, _ = set_db_and_table(
         datatype="real",
-        athlete=os.getenv("ATHLETE", "donald_duck"),
+        athlete=athlete,
         year=year,
         )
 

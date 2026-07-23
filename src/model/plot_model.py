@@ -5,6 +5,7 @@ Plot weight-training data with fit.
 import argparse
 from datetime import datetime
 from src.utils.config import settings  # type: ignore
+from src.utils.get_program import get_pgm_from_date  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import seaborn as sns  # type: ignore
 from src.model.model import (  # type: ignore
@@ -16,14 +17,34 @@ from src.model.model import (  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
+def _split_by_program(x: list, y: list) -> list[tuple[list, list, str]]:
+    """Group (x, y) timestamp pairs by their training program name.
+
+    Returns a list of (x_group, y_group, program_name) tuples in order of first
+    appearance.  Falls back to a single "Unknown" group when get_pgm_from_date
+    returns None.
+    """
+    groups: dict[str, tuple[list, list]] = {}
+    order: list[str] = []
+    for xi, yi in zip(x, y):
+        date_str = datetime.fromtimestamp(xi).strftime("%Y-%m-%d")
+        pgm = get_pgm_from_date(date_str) or "Unknown"
+        if pgm not in groups:
+            groups[pgm] = ([], [])
+            order.append(pgm)
+        groups[pgm][0].append(xi)
+        groups[pgm][1].append(yi)
+    return [(groups[p][0], groups[p][1], p) for p in order]
+
+
 def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     """Plot training data 1RM with fit.
 
     :param datatype: Data type: real or simulated
     :type datatype: str
-    :param x: x-axis data
+    :param x: x-axis data (Unix timestamps)
     :type x: list
-    :param y: y-axis data
+    :param y: y-axis data (1RM estimates in kg)
     :type y: list
     :param exercise: Exercise name
     :type exercise: str
@@ -31,25 +52,26 @@ def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
     plt.figure(figsize=(8, 8))
 
-    x_prg1, x_prg2 = x[:10], x[10:]
-    y_prg1, y_prg2 = y[:10], y[10:]
-
-    # Only add confidence intervals if there are sufficient data points
     if len(x) < 5:
         sns.set_theme()
         ax = sns.scatterplot(x=x, y=y)
         ax.set_title(f"{exercise}")
     else:
-        # ax = sns.regplot(x=x, y=y, ci=68, truncate=False)
-        ax = sns.regplot(
-            x=x_prg1, y=y_prg1, ci=68, truncate=False, label="Program 1: 4-split"
-        )
-        sns.regplot(x=x_prg2, y=y_prg2, ci=68, truncate=True, label="Program 2: PPL")
+        groups = _split_by_program(x, y)
+        ax = None
+        for i, (xg, yg, pgm_name) in enumerate(groups):
+            if len(xg) < 2:
+                continue
+            truncate = i > 0
+            plot = sns.regplot(x=xg, y=yg, ci=68, truncate=truncate, label=pgm_name)
+            if ax is None:
+                ax = plot
+        if ax is None:
+            ax = sns.scatterplot(x=x, y=y)
         ax.set_title(f"{exercise}", fontsize=30)
 
     xticks = ax.get_xticks()
-    xticks_dates = [datetime.fromtimestamp(x).strftime("%Y-%m-%d") for x in xticks]
-
+    xticks_dates = [datetime.fromtimestamp(t).strftime("%Y-%m-%d") for t in xticks]
     ax.set_xticklabels(xticks_dates)
     plt.ylim(0, max(y) + 5)
     plt.xticks(rotation=45)
@@ -58,9 +80,8 @@ def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
     plt.savefig(
         f"{settings['IMG_PATH']}all_years/one_rep_max/{datatype}_fitted_data_{exercise}_splines.png"
-        )
-
-    plt.clf()  # clear figure before next plot
+    )
+    plt.clf()
 
 
 def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
@@ -68,9 +89,9 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
     :param datatype: Data type: real or simulated
     :type datatype: str
-    :param x: x-axis data
+    :param x: x-axis data (Unix timestamps)
     :type x: list
-    :param y: y-axis data
+    :param y: y-axis data (volume in kg)
     :type y: list
     :param exercise: Exercise name
     :type exercise: str
@@ -78,17 +99,21 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
     plt.figure(figsize=(8, 8))
 
-    # TODO: lookup dates and use get_program instead of list slicing
-    x_prg1, x_prg2, x_prg3 = x[:10], x[10:20], x[20:]
-    y_prg1, y_prg2, y_prg3 = y[:10], y[10:20], y[20:]
+    groups = _split_by_program(x, y)
+    ax = None
+    for xg, yg, pgm_name in groups:
+        if len(xg) < 2:
+            continue
+        plot = sns.regplot(x=xg, y=yg, ci=68, label=pgm_name)
+        if ax is None:
+            ax = plot
 
-    ax = sns.regplot(x=x_prg1, y=y_prg1, ci=68, label="Program 1: 4-SPLIT")
-    sns.regplot(x=x_prg2, y=y_prg2, ci=68, label="Program 2: PPL")
-    sns.regplot(x=x_prg3, y=y_prg3, ci=68, label="Program 3: GVT")
+    if ax is None:
+        ax = sns.scatterplot(x=x, y=y)
 
     ax.set_title(f"{exercise}", fontsize=30)
     xticks = ax.get_xticks()
-    xticks_dates = [datetime.fromtimestamp(x).strftime("%Y-%m-%d") for x in xticks]
+    xticks_dates = [datetime.fromtimestamp(t).strftime("%Y-%m-%d") for t in xticks]
     ax.set_xticklabels(xticks_dates)
     plt.ylim(0, max(y) + 5)
     plt.xticks(rotation=45)
@@ -96,8 +121,8 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
     ax.legend(loc="lower right", fontsize=20)
     plt.savefig(
         f"{settings['IMG_PATH']}all_years/volume/{datatype}_fitted_data_{exercise}_gvt.png"
-        )
-    plt.clf()  # clear figure before next plot
+    )
+    plt.clf()
 
 
 # TODO: unit test below function

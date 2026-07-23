@@ -171,10 +171,8 @@ class WorkoutFactory:
         """Creates a list of Workout instances from a YAML file."""
         with open(file_path) as rf:
             try:
-                # data = yaml.safe_load(rf)["weight_training_log"]
-                # return [WorkoutFactory.create_workout(item) for item in data.values()]
-                data = yaml.safe_load(rf)
-                return [WorkoutFactory.create_workout(data)]
+                data = yaml.safe_load(rf)["weight_training_log"]
+                return [WorkoutFactory.create_workout(item) for item in data.values()]
             except yaml.YAMLError as e:
                 raise ValueError(f"Invalid YAML in file {file_path}") from e
 
@@ -183,8 +181,7 @@ def main() -> None:
     """Main function."""
 
     import argparse
-    import logging
-    from logger_config import setup_logger, log_running_file  # type: ignore
+    from src.utils.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="validate.log")
     log_running_file(__file__)
@@ -201,14 +198,9 @@ def main() -> None:
     args = parser.parse_args()
     file = args.file
 
-    logging.debug(f"Validating workout data from file: {file}")
+    logger.debug(f"Validating workout data from file: {file}")
 
-    # file = settings["real_workout_database"].replace("<YEAR>", "2025")
-
-    # process workout data using the factory
-    # workouts = WorkoutFactory.create_workouts_from_json(file)
     workouts = WorkoutFactory.create_workouts_from_yaml(file)
-    # Display exercises from the first workout for demonstration
     logger.debug(pformat(workouts[0].exercises))
 
 

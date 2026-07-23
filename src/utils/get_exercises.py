@@ -2,12 +2,14 @@
 Get all exercises available for a given musclegroup.
 """
 
+from functools import lru_cache
 from pprint import pformat  # type: ignore
 from loguru import logger  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
+@lru_cache(maxsize=None)
 def get_available_exercises(training_catalogue: str, split: str) -> list[str]:
     """Fetch musclegroup-exercises catalogue.
 

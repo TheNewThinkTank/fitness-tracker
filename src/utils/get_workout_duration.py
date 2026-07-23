@@ -28,6 +28,7 @@ def get_all_durations(year: str) -> dict:
     date_and_duration: dict[Any, Any] = {}
     for workout in data:
         if "start_time" not in workout:
+            logger.warning("Workout on {} has no start_time — skipping duration.", workout.get("date", "unknown"))
             continue
 
         date = workout["date"]

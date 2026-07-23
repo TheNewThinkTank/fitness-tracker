@@ -12,7 +12,7 @@ def main() -> None:
     """
 
     in_file_name = "/db.json"  # f"/log_archive/JSON/2023/June/test.json"
-    in_file = f'{settings["google_drive_data_path"]}/{settings["athlete"]}{in_file_name}'
+    in_file = f'{settings["GOOGLE_DRIVE_DATA_PATH"]}/{settings["ATHLETE"]}{in_file_name}'
 
     json_to_yaml(Path(in_file))
 

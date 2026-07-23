@@ -9,25 +9,23 @@ def load_yaml(file_name):
         return yaml.safe_load(file)
 
 
-abs = load_yaml("abs")
-back = load_yaml("back")
-chest = load_yaml("chest")
-arms = load_yaml("arms/arms")
-legs = load_yaml("legs/legs")
-shoulders = load_yaml("shoulders")
+def main() -> None:
+    abs_ = load_yaml("abs")
+    back = load_yaml("back")
+    chest = load_yaml("chest")
+    arms = load_yaml("arms/arms")
+    legs = load_yaml("legs/legs")
+    shoulders = load_yaml("shoulders")
 
-combined = {
-    'exercises': [
-        abs,
-        back,
-        chest,
-        arms,
-        legs,
-        shoulders
-        ]
-}
+    combined = {
+        'exercises': [abs_, back, chest, arms, legs, shoulders]
+    }
 
-pp(combined)
+    pp(combined)
 
-with open("docs/project_docs/exercises/muscles_and_exercises.yaml", 'w') as wf:
-    yaml.dump(combined, wf, default_flow_style=False)
+    with open("docs/project_docs/exercises/muscles_and_exercises.yaml", 'w') as wf:
+        yaml.dump(combined, wf, default_flow_style=False)
+
+
+if __name__ == "__main__":
+    main()

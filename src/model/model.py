@@ -3,10 +3,11 @@ Read workout data and calculate 1RM and training volume.
 """
 
 from datetime import datetime
-import logging
+import re
 import sys
 from typing import Final
 import pandas as pd  # type: ignore
+from loguru import logger  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.one_rep_max import (  # type: ignore
     OneRepMaxStrategy,
@@ -50,15 +51,33 @@ def get_df(
 
 
 def get_weight(df: pd.DataFrame) -> pd.Series:
-    """Extracts weight from the 'weight' column.
+    """Extracts numeric weight in kg from the 'weight' column.
+
+    Handles plain weights ("80 kg"), bodyweight-only ("BODYWEIGHT" → 0),
+    and bodyweight-offset forms ("BODYWEIGHT + 10 kg" → 10, "BODYWEIGHT - 5 kg" → -5).
 
     :param df: Pandas dataframe with 'weight' column
     :type df: pd.DataFrame
-    :return: Weight in kg
+    :return: Weight in kg as float
     :rtype: pd.Series
     """
 
-    return df["weight"].str.strip(" kg").astype(float)
+    def _parse(value: str) -> float:
+        value = value.strip()
+        if value == "BODYWEIGHT":
+            return 0.0
+        m = re.match(
+            r"^BODYWEIGHT\s*([+-])\s*(\d+(?:\.\d+)?)\s*kg$", value, re.IGNORECASE
+        )
+        if m:
+            sign = 1 if m.group(1) == "+" else -1
+            return sign * float(m.group(2))
+        m = re.match(r"^(\d+(?:\.\d+)?)\s*kg$", value)
+        if m:
+            return float(m.group(1))
+        raise ValueError(f"Cannot parse weight: {value!r}")
+
+    return df["weight"].map(_parse)
 
 
 def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
@@ -148,13 +167,10 @@ def get_data(df, y_col="1RM") -> tuple[list[float], list[float]]:
 def main() -> None:
     """Prepare dfs, calc 1RM and do linear regression."""
 
-    from utils.logger_config import setup_logger, log_running_file  # type: ignore
+    from src.utils.logger_config import setup_logger, log_running_file  # type: ignore
 
     setup_logger(log_file="model.log")
     log_running_file(__file__)
-
-    logger1 = logging.getLogger("model.area1")
-    logger2 = logging.getLogger("model.area2")
 
     DATA_MODELS = ["real", "simulated"]
     FORMULAS = ["acsm", "epley", "brzycki"]
@@ -163,9 +179,9 @@ def main() -> None:
     _SPLITS: Final[list[str]] = ["legs", "legs_and_abs"]
     db, table, _ = set_db_and_table(datatype)
 
-    logger1.info("data_model: %s", datatype)
-    logger1.debug("db: %s", db)
-    logger1.debug("table: %s", table)
+    logger.info("data_model: {}", datatype)
+    logger.debug("db: {}", db)
+    logger.debug("table: {}", table)
 
     workout_timestamps, one_rm_estimates = get_data(
         one_rep_max_estimator(
@@ -179,10 +195,10 @@ def main() -> None:
         y_col="volume",
     )
 
-    logger2.info("Exercise: %s", _EXERCISE)
-    logger2.info("Workout timestamps: %s", workout_timestamps)
-    logger2.info("1 RM estimates: %s", one_rm_estimates)
-    logger2.info("Volume: %s", volume)
+    logger.info("Exercise: {}", _EXERCISE)
+    logger.info("Workout timestamps: {}", workout_timestamps)
+    logger.info("1 RM estimates: {}", one_rm_estimates)
+    logger.info("Volume: {}", volume)
 
 
 if __name__ == "__main__":

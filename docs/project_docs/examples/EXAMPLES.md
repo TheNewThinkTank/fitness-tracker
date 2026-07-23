@@ -13,41 +13,49 @@ First, clone the project:<br>
 
 ## Running locally
 
-```BASH
-# docker-compose up --build
-docker compose --profile ci up --build --attach-dependencies --remove-orphans
-# then visit http://localhost:5000
+Copy the environment template and fill in your values:
+
+```bash
+cp .env.example .env
 ```
 
-Run FastAPI with Docker from CLI:
-`docker-compose up`<br>
-then visit this [URL](http://localhost:8080/docs)
+### With Docker Compose (recommended)
 
-Alternatively,
-
-```BASH
-docker build -t ftimage .
-docker run -d -p 8000:8000 --name ftcontainer ftimage
+```bash
+docker compose up
 ```
 
-Or, running without containers:
+- Backend API: `http://localhost:8000`
+- API docs: `http://localhost:8000/docs`
+- Frontend: `http://localhost:3000`
 
-```BASH
-# Start the Backend
-cd src
-uvicorn main:app --reload
+### Single container
 
-# Start the Frontend
+```bash
+docker build -t fitness-tracker:latest .
+docker run --rm \
+  -p 8000:8000 \
+  --env-file .env \
+  -v "$(pwd)/local_assets/credentials.json:/code/local_assets/credentials.json:ro" \
+  fitness-tracker:latest
+```
+
+### Without containers
+
+```bash
+# Start the backend
+uvicorn src.main:app --reload
+
+# Start the frontend (separate terminal)
 cd frontend
 npm run dev
 ```
 
-**Debugging**:
-from the url, open the browser's developer tools (`F12` or `Cmd+Shift+C`)
+**Debugging**: from the URL, open the browser's developer tools (`F12` or `Cmd+Shift+C`)
 
 ## Testing endpoints locally
 
-Overview of endpoints
+Overview of endpoints:
 
 - [root](http://127.0.0.1:8000/)
 - [data](http://127.0.0.1:8000/data)
@@ -55,12 +63,14 @@ Overview of endpoints
 - [dates_and_splits](http://127.0.0.1:8000/dates_and_splits)
 - [date](http://127.0.0.1:8000/dates/{date})
 - [exercise](http://127.0.0.1:8000/{date}/exercises/{exercise})
+- [healthz](http://127.0.0.1:8000/healthz)
+- [readyz](http://127.0.0.1:8000/readyz)
 
 ### Example: insert breath holding data in TinyDB
 
-```BASH
+```bash
 python3 src/utils/get_breath_holding.py
 
-./fitcli.sh
-./fitcli.sh -d 2024-03-03 -f json
+./bin/fitcli.sh
+./bin/fitcli.sh -d 2024-03-03 -f json
 ```

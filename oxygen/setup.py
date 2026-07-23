@@ -10,7 +10,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "oxygen=oxygen.cli:main",
+            "oxygen=oxygen.cli:cli",
         ],
     },
 )

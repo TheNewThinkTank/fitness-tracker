@@ -56,14 +56,6 @@ src.plot module
    :undoc-members:
    :show-inheritance:
 
-src.user\_settings module
--------------------------
-
-.. automodule:: src.user_settings
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

@@ -12,6 +12,10 @@ real_disciplines_table = "disciplines_log"
 simulated_weight_table = "weight_training_log"
 training_catalogue = "docs/project_docs/exercises/muscles_and_exercises.yaml"
 workout_programs = "docs/project_docs/Workout-Programs/workout_programs.yml"
+credentials_path = "local_assets/credentials.json"
+bodyweight_csv_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPN6RmIAL_8-1x87e48ZkPs2ItSCRp33LxjbeWb7B6WdAZGEX6F_sll70oy58X-abor5xbA2Qt4ZQz/pub?output=csv"
+breath_holding_sheet_id = "1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4"
+bodyweight_sheet_id = "1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs"
 # VERSION = "0.0.1"
 
 # [development]

@@ -13,31 +13,29 @@ on:
     secrets:
       ATHLETE:
         required: true
+      EMAIL:
+        required: true
+      USER:
+        required: true
 
 jobs:
   qualify_code:
-    runs-on: ubuntu-latest  # ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Python and Poetry
-        uses: TheNewThinkTank/gh-actions/.github/actions/setup-python-poetry@v1.0.4  # main
+        uses: TheNewThinkTank/gh-actions/.github/actions/setup-python-poetry@v1.0.4
         with:
           python-version: ${{ inputs.PYTHONVERSION }}
 
       - name: Set GOOGLE_DRIVE_DATA_PATH
         run: echo "GOOGLE_DRIVE_DATA_PATH=${{ inputs.google_drive_data_path }}" >> $GITHUB_ENV
 
-      - name: Print GOOGLE_DRIVE_DATA_PATH
-        run: echo $GOOGLE_DRIVE_DATA_PATH        
-
-      - name: Set ATHLETE
-        run: echo "ATHLETE=${{ inputs.ATHLETE }}" >> $GITHUB_ENV
-
       - name: Cache mypy dependencies
-        uses: actions/cache@v5
+        uses: actions/cache@v4
         with:
           path: ~/.cache/mypy
           key: ${{ runner.os }}-mypy-${{ hashFiles('**/mypy.ini') }}
@@ -45,12 +43,6 @@ jobs:
 
       - name: Check poetry version
         run: poetry --version
-
-      # - name: Format with Ruff
-      #   run: poetry ruff format .
-
-      # - name: Lint with ruff
-      #   run: make -f .config/Makefile lint-ruff
 
       - name: Static type checks with mypy
         run: make -f .config/Makefile static-type-checks
@@ -71,51 +63,25 @@ jobs:
         with:
           file_or_dir: "./docs/project_docs/Workout-Programs/workout_programs.yml"
 
-      # - name: Set PYTHONPATH
-      #   run: |
-      #     echo "PYTHONPATH=\$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test"
-      #     echo "PYTHONPATH=$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test"
-      #     echo "PYTHONPATH=\$PYTHONPATH:$(pwd):$(pwd)/src:$(pwd)/src/crud:$(pwd)/test" >> $GITHUB_ENV
-
-      - name: Print PYTHONPATH
-        run: echo $PYTHONPATH
-
-      # - name: Run pytest
-      #   run: poetry run pytest --durations=10 test/test_model.py
-
-      # - name: BDD with Behave
-      #   run: poetry run behave
-
       - name: Set up workspace
-        run: |
-          mkdir -p data
+        run: mkdir -p data
 
       - name: Run tests
-        run: |
-          poetry run pytest --rootdir=$(pwd) test/ --cov --cov-report=xml
+        run: poetry run pytest --rootdir=$(pwd) test/ --cov --cov-report=xml
         env:
           EMAIL: ${{ secrets.EMAIL }}
           USER: ${{ secrets.USER }}
           ATHLETE: ${{ secrets.ATHLETE }}
-          # PYTHONPATH: ${{ env.PYTHONPATH }}
 
       - name: Upload results to Codecov
-        # uses: codecov/codecov-action@v4
-        uses: codecov/codecov-action@v6  # 5c47607acb93fed5485fdbf7232e8a31425f672a # v5.0.2
+        uses: codecov/codecov-action@v4
         with:
-          # token: ${{ secrets.CODECOV_TOKEN }}
           slug: TheNewThinkTank/fitness-tracker
-          # codecov_yml_path: .config/codecov.yml  # --codecov-yml-path
-          verbose: true # optional (default = false)
-        # env:
-        #   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
 
       - uses: rojopolis/spellcheck-github-actions@0.60.0
         name: Spellcheck
         with:
           config_path: .config/.spellcheck.yml
-          source_files: README.md # workout_programs.md
+          source_files: README.md
           task_name: Markdown
-
-      # - name: Pydantic data validation
-      #   run: poetry run python src/utils/validate.py

@@ -1,7 +1,8 @@
 """Get the workout program based on the workout date.
 """
 
-from datetime import datetime as dt
+import datetime
+from functools import lru_cache
 from pathlib import Path
 from pprint import pformat  # type: ignore
 from loguru import logger  # type: ignore
@@ -9,18 +10,30 @@ from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 from src.utils.config import settings  # type: ignore
 
 
-# TODO: Move to datetime package
-def parse_date(date_str: str) -> dt | None:
-    """Parse the date string.
+def parse_date(date_str: str) -> datetime.date | None:
+    """Parse a date string, returning None for unfilled template placeholders.
 
-    :param date_str: date in the format 'YYYY-MM-DD'
+    :param date_str: date in the format 'YYYY-MM-DD', or a template string containing Y/M/D
     :type date_str: str
-    :return: date object
-    :rtype: dt | None
+    :return: parsed date, or None if the string looks like an unfilled template
+    :rtype: datetime.date | None
     """
-    if isinstance(date_str, str) and any(x in date_str for x in "YMD"):
+    if not isinstance(date_str, str) or any(x in date_str for x in "YMD"):
         return None
-    return dt.strptime(date_str, "%Y-%m-%d") if isinstance(date_str, str) else date_str
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
+
+
+@lru_cache(maxsize=1)
+def _load_programs(path: str) -> list[dict]:
+    """Load and parse workout programs from YAML, cached after first read."""
+    available_programs = load_yaml_file(Path(path))
+    programs = []
+    for pgm in available_programs["programs"].values():
+        start = parse_date(pgm["start"])
+        end = parse_date(pgm["end"])
+        if start and end:
+            programs.append({"name": pgm["name"], "start": start, "end": end})
+    return programs
 
 
 def get_pgm_from_date(workout_date: str) -> str | None:
@@ -29,24 +42,14 @@ def get_pgm_from_date(workout_date: str) -> str | None:
     :param workout_date: date in the format 'YYYY-MM-DD'
     :type workout_date: str
     :return: name of the workout program
-    :rtype: str
+    :rtype: str | None
     """
-
-    workout_programs_path = Path.cwd() / settings.workout_programs
-    available_programs = load_yaml_file(workout_programs_path)
-
-    programs = []
-    for pgm in available_programs["programs"].values():
-        start = parse_date(pgm["start"])
-        end = parse_date(pgm["end"])
-        if start and end:
-            programs.append({"name": pgm["name"], "start": start, "end": end})
-
-    workout_date_dt = dt.strptime(workout_date, "%Y-%m-%d").date()
+    path = str(Path.cwd() / settings.workout_programs)
+    programs = _load_programs(path)
+    target = datetime.datetime.strptime(workout_date, "%Y-%m-%d").date()
     for pgm in programs:
-        if pgm["start"] <= workout_date_dt <= pgm["end"]:
+        if pgm["start"] <= target <= pgm["end"]:
             return pgm["name"]
-
     return None
 
 

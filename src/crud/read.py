@@ -6,23 +6,23 @@ Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 
 from pprint import pformat  # type: ignore
 from loguru import logger  # type: ignore
-from tinydb import Query  # type: ignore
+from tinydb import Query  # type: ignore  # used by analyze_workout
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 def get_bw_workouts(table) -> list[dict]:
-    """get workouts where BODYWEIGHT was used
-    """
-    Workout = Query()
+    """get workouts where BODYWEIGHT was used."""
     results = []
-    # Iterate over all entries in the table
     for entry in table.all():
         exercises = entry.get('exercises', {})
-        # Check each exercise for BODYWEIGHT in weights
         for _, sets in exercises.items():
             for set_info in sets:
                 if 'weight' in set_info and 'BODYWEIGHT' in set_info['weight']:
-                    results.append(entry)  # Add the entire entry
+                    results.append(entry)
+                    break  # avoid duplicating the same entry for multiple BW sets
+            else:
+                continue
+            break
     return results
 
 
@@ -104,33 +104,28 @@ def get_all(table) -> list[dict]:
     return table.all()
 
 
-def describe_workout(table, date: str) -> dict | None:
-    """Simple summary statistics for each exercise.
+def describe_workout(table, date: str) -> list[dict] | None:
+    """Simple summary statistics for each exercise on the given date.
+
+    Returns a list because multiple workouts can share the same date.
 
     :param table: TinyDB table
     :type table: TinyDB table
     :param date: Date of workout
     :type date: str
-    :return: A dictionary with the date of the workout and the exercises performed
-    :rtype: dict
+    :return: A list of workout summaries for the given date, or None if not found
+    :rtype: list[dict] | None
     """
 
-    # d = {}
-    # for item in table:
-    #     if item["date"] == date:
-    #         d["Date of workout"] = date
-    #         for k, v in item["exercises"].items():
-    #             d[k] = f"{len(v)} sets"
-    # return d
-
-    # TODO: check if below works when workout date contains multiple workouts.
-    # TODO: otherwise, perhaps use code above.
-    workout_data = next((item for item in table if item["date"] == date), None)
-    if not workout_data:
+    matches = [item for item in table if item["date"] == date]
+    if not matches:
         return None
-    result = {"Date of workout": date}
-    result.update({k: f"{len(v)} sets" for k, v in workout_data["exercises"].items()})
-    return result
+    results = []
+    for workout_data in matches:
+        summary = {"Date of workout": date}
+        summary.update({k: f"{len(v)} sets" for k, v in workout_data["exercises"].items()})
+        results.append(summary)
+    return results
 
 
 def show_exercise(table, exercise: str, date: str) -> list:
@@ -182,15 +177,7 @@ def main() -> None:
     _, table, _ = set_db_and_table(datatype, env="dev")
 
     logger.debug(pformat(search_for_exercise(table)))
-    # logger.debug(pformat(get_bw_workouts(table)))
-
-    # dates_and_muscle_groups = get_dates_and_muscle_groups(table)
-    # logger.debug(pformat(dates_and_muscle_groups))
-    # logger.debug(pformat(show_exercises(table, _WORKOUT_DATE)))
-    # logger.debug(pformat(get_all(table)))
-    # logger.debug(pformat(describe_workout(table, _WORKOUT_DATE)))
-    # logger.debug(pformat(show_exercise(table, _EXERCISE, _WORKOUT_DATE)))
-    # logger.debug(pformat(analyze_workout(table, _EXERCISE)))
+    logger.debug(pformat(describe_workout(table, _WORKOUT_DATE)))
 
 
 if __name__ == "__main__":

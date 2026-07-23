@@ -55,12 +55,12 @@
 
 <main>
 	<h1>Fitness Tracker</h1>
-	<button on:click={showWorkouts}>Show all 2024 workouts</button>
-	<button on:click={showDates}>Show all workout dates</button>
-	<button on:click={showDatesAndSplits}>Show dates and splits</button>
+	<button onclick={showWorkouts}>Show all workouts</button>
+	<button onclick={showDates}>Show all workout dates</button>
+	<button onclick={showDatesAndSplits}>Show dates and splits</button>
 
 	{#if Array.isArray(workouts) && workouts.length > 0}
-		<h2>All 2024 Workouts</h2>
+		<h2>All Workouts</h2>
 		<ul>
 			{#each workouts as workout}
 				<li>
@@ -103,7 +103,7 @@
 			{#each dates as date}
 				<li>
 					{date}
-					<button on:click={() => showWorkoutDetails(date)}
+					<button onclick={() => showWorkoutDetails(date)}
 						>Show Details</button
 					>
 				</li>
@@ -118,8 +118,8 @@
 				<li>
 					<strong>Date:</strong>
 					{date}<br />
-					<strong>Splits:</strong>
-					{splits.join(", ")}
+					<strong>Split:</strong>
+					{splits}
 				</li>
 			{/each}
 		</ul>
@@ -135,7 +135,7 @@
 	main {
 		text-align: center;
 		padding: 1em;
-		max-width: 240px;
+		max-width: 960px;
 		margin: 0 auto;
 	}
 

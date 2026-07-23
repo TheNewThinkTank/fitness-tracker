@@ -9,36 +9,67 @@ cd src && uvicorn main:app --reload
 visit URL: http://127.0.0.1:8000/docs
 """
 
+import datetime
+from contextlib import asynccontextmanager
 import yaml  # type: ignore
-from fastapi import FastAPI, HTTPException, Response  # type: ignore
+from fastapi import FastAPI, HTTPException, Query, Response  # type: ignore
+from pydantic import BaseModel  # type: ignore
 from fastapi.middleware.cors import CORSMiddleware  # type: ignore
 from fastapi.openapi.utils import get_openapi  # type: ignore
-
-# import uvicorn  # type: ignore
-# from tinydb import TinyDB  # type: ignore
-# from src.utils.custom_storage import YAMLStorage  # type: ignore
 import src.crud.read as read  # type: ignore
+from src.utils.config import validate_settings  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    validate_settings()
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "http://localhost:3000",
         "http://localhost:5000",
         "http://localhost:8080",
-        ],  # Update with your frontend URL
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-year = 2024
-# TODO: use singleton for db and table
-# db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
-# table = (db.table("weight_training_log"))
-# training_catalogue = "src/utils/muscles_and_exercises.yaml"
-db, table, training_catalogue = set_db_and_table(datatype="real", year=year)
+_current_year = datetime.date.today().year
+db, table, training_catalogue = set_db_and_table(datatype="real", year=_current_year)
+
+
+def _get_table(year: int):
+    if year == _current_year:
+        return table
+    _, t, _ = set_db_and_table(datatype="real", year=year)
+    return t
+
+
+class HealthResponse(BaseModel):
+    status: str
+
+
+@app.get("/healthz", response_model=HealthResponse, include_in_schema=False)
+async def healthz() -> HealthResponse:
+    """Liveness probe — confirms the process is running."""
+    return HealthResponse(status="ok")
+
+
+@app.get("/readyz", response_model=HealthResponse, include_in_schema=False)
+async def readyz() -> HealthResponse:
+    """Readiness probe — confirms the app can serve traffic (DB reachable)."""
+    try:
+        _ = read.get_dates(table)
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=f"Not ready: {e}")
+    return HealthResponse(status="ok")
 
 
 @app.get("/")
@@ -47,43 +78,44 @@ async def main_page() -> Response:
     return Response("Hello, athlete. Welcome to your tracker!")
 
 
-# def greet(name: str) -> None:
-#     ...
-
-
 @app.get("/data")
-async def get_data():
+async def get_data(year: int = Query(default=None)):
     """Show data"""
-    return [*table]  # Response(f"table data: {table}")
+    t = _get_table(year or _current_year)
+    return [*t]
 
 
 @app.get("/dates")
-async def get_dates() -> list[str]:
+async def get_dates(year: int = Query(default=None)) -> list[str]:
     """Returns a list of all workout dates."""
-    return read.get_dates(table)
+    t = _get_table(year or _current_year)
+    return read.get_dates(t)
 
 
 @app.get("/dates_and_splits")
-async def get_dates_and_splits():  # -> dict[str, list[str]]:
+async def get_dates_and_splits(year: int = Query(default=None)):
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
     try:
-        return read.get_dates_and_muscle_groups(table)
+        t = _get_table(year or _current_year)
+        return read.get_dates_and_muscle_groups(t)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/dates/{date}")
-async def describe_workout(date: str):  # -> dict[str, str]:
-    """Returns a dictionary describing the workout for the given date."""
-    if date not in read.get_dates(table):
+async def describe_workout(date: str, year: int = Query(default=None)) -> list[dict]:
+    """Returns workout summaries for the given date (list because multiple workouts can share a date)."""
+    t = _get_table(year or _current_year)
+    if date not in read.get_dates(t):
         raise HTTPException(status_code=404, detail="Workout date not found")
-    return read.describe_workout(table, date)
+    return read.describe_workout(t, date)
 
 
 @app.get("/{date}/exercises/{exercise}")
-async def show_exercise(exercise: str, date: str) -> list[dict]:
+async def show_exercise(exercise: str, date: str, year: int = Query(default=None)) -> list[dict]:
     """Returns a list of sets and reps for the given exercise and date."""
-    return read.show_exercise(table, exercise, date)
+    t = _get_table(year or _current_year)
+    return read.show_exercise(t, exercise, date)
 
 
 @app.get("/openapi.yaml", include_in_schema=False)

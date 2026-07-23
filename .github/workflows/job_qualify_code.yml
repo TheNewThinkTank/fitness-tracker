@@ -79,7 +79,7 @@ jobs:
           slug: TheNewThinkTank/fitness-tracker
           verbose: true
 
-      - uses: rojopolis/spellcheck-github-actions@0.60.0
+      - uses: rojopolis/spellcheck-github-actions@0.63.0
         name: Spellcheck
         with:
           config_path: .config/.spellcheck.yml

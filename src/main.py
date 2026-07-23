@@ -103,7 +103,7 @@ async def get_dates_and_splits(year: int = Query(default=None)):
 
 
 @app.get("/dates/{date}")
-async def describe_workout(date: str, year: int = Query(default=None)) -> list[dict]:
+async def describe_workout(date: str, year: int = Query(default=None)) -> list[dict] | None:
     """Returns workout summaries for the given date (list because multiple workouts can share a date)."""
     t = _get_table(year or _current_year)
     if date not in read.get_dates(t):

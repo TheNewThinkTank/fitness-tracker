@@ -1,7 +1,9 @@
 FROM python:3.13-slim AS requirements-stage
 
 WORKDIR /tmp
-RUN pip install poetry && poetry self add poetry-plugin-export
+RUN apt-get update && apt-get install -y --no-install-recommends gcc && \
+  pip install poetry && poetry self add poetry-plugin-export
+
 COPY ./pyproject.toml ./poetry.lock* /tmp/
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
@@ -12,7 +14,9 @@ RUN useradd --uid 1000 --create-home --shell /bin/bash appuser
 WORKDIR /code
 
 COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN apt-get update && apt-get install -y --no-install-recommends gcc && \
+  pip install --no-cache-dir --upgrade -r /code/requirements.txt && \
+  apt-get purge -y gcc && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 COPY ./src /code/src
 COPY ./data /code/data

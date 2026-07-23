@@ -1,7 +1,7 @@
 FROM python:3.13-slim AS requirements-stage
 
 WORKDIR /tmp
-RUN apt-get update && apt-get install -y --no-install-recommends gcc && \
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && \
   pip install poetry && poetry self add poetry-plugin-export
 
 COPY ./pyproject.toml ./poetry.lock* /tmp/
@@ -14,9 +14,9 @@ RUN useradd --uid 1000 --create-home --shell /bin/bash appuser
 WORKDIR /code
 
 COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
-RUN apt-get update && apt-get install -y --no-install-recommends gcc && \
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && \
   pip install --no-cache-dir --upgrade -r /code/requirements.txt && \
-  apt-get purge -y gcc && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+  apt-get purge -y build-essential && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 COPY ./src /code/src
 COPY ./data /code/data

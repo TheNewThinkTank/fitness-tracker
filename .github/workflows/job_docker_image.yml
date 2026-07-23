@@ -48,6 +48,8 @@ jobs:
           image: ${{ inputs.image-name }}:${{ inputs.image-tag }}
           fail-build: true
           severity-cutoff: high
+          output-format: table
+          only-fixed: true
 
       - name: Push to DockerHub
         if: inputs.dockerhub-username

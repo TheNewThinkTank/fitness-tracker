@@ -10,14 +10,17 @@ from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 from src.utils.config import settings  # type: ignore
 
 
-def parse_date(date_str: str) -> datetime.date | None:
-    """Parse a date string, returning None for unfilled template placeholders.
+def parse_date(date_str) -> datetime.date | None:
+    """Parse a date value, returning None for unfilled template placeholders.
+    PyYAML's safe_load auto-converts ISO date strings to datetime.date objects,
+    so this handles both types. Returns None for template strings containing Y/M/D.
 
-    :param date_str: date in the format 'YYYY-MM-DD', or a template string containing Y/M/D
-    :type date_str: str
-    :return: parsed date, or None if the string looks like an unfilled template
+    :param date_str: datetime.date object or date string in 'YYYY-MM-DD' format
+    :return: parsed date, or None if the value is an unfilled template
     :rtype: datetime.date | None
     """
+    if isinstance(date_str, datetime.date):
+        return date_str
     if not isinstance(date_str, str) or any(x in date_str for x in "YMD"):
         return None
     return datetime.datetime.strptime(date_str, "%Y-%m-%d").date()

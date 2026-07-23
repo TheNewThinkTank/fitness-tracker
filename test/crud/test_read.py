@@ -94,11 +94,11 @@ def test_describe_workout():
     ]
 
     results = describe_workout(mock_table, "2023-10-01")
-    assert results == {
+    assert results == [{
         "Date of workout": "2023-10-01",
         "pushup": "3 sets",
         "squat": "2 sets",
-    }
+    }]
 
 
 def test_describe_workout_not_found():

@@ -2,11 +2,16 @@
 Get all exercises available for a given musclegroup.
 """
 
+from __future__ import annotations
+
 from functools import lru_cache
 from pprint import pformat  # type: ignore
+from typing import Any
+
 from loguru import logger  # type: ignore
-from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
 @lru_cache(maxsize=None)
@@ -22,15 +27,24 @@ def get_available_exercises(training_catalogue: str, split: str) -> list[str]:
     """
 
     available_exercises = load_yaml_file(training_catalogue)
+    if not isinstance(available_exercises, dict):
+        raise TypeError("Training catalogue must be a mapping of splits to exercises.")
 
-    return available_exercises[split]
+    if split not in available_exercises:
+        raise KeyError(split)
+
+    exercises = available_exercises[split]
+    if not isinstance(exercises, list) or not all(isinstance(item, str) for item in exercises):
+        raise ValueError(f"No valid exercise list found for split {split!r}.")
+
+    return exercises
 
 
 def main() -> None:
     """Get all exercises available for a given musclegroup.
     """
 
-    splits: list = [
+    splits: list[str] = [
         "back",
         # "chest",
         # "legs",

@@ -1,16 +1,21 @@
 """Get the workout program based on the workout date.
 """
 
+from __future__ import annotations
+
 import datetime
 from functools import lru_cache
 from pathlib import Path
 from pprint import pformat  # type: ignore
+from typing import Any
+
 from loguru import logger  # type: ignore
-from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
+
 from src.utils.config import settings  # type: ignore
+from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
-def parse_date(date_str) -> datetime.date | None:
+def parse_date(date_str: str | datetime.date | None) -> datetime.date | None:
     """Parse a date value, returning None for unfilled template placeholders.
     PyYAML's safe_load auto-converts ISO date strings to datetime.date objects,
     so this handles both types. Returns None for template strings containing Y/M/D.
@@ -27,15 +32,25 @@ def parse_date(date_str) -> datetime.date | None:
 
 
 @lru_cache(maxsize=1)
-def _load_programs(path: str) -> list[dict]:
+def _load_programs(path: str) -> list[dict[str, Any]]:
     """Load and parse workout programs from YAML, cached after first read."""
     available_programs = load_yaml_file(path)
-    programs = []
-    for pgm in available_programs["programs"].values():
-        start = parse_date(pgm["start"])
-        end = parse_date(pgm["end"])
-        if start and end:
-            programs.append({"name": pgm["name"], "start": start, "end": end})
+    if not isinstance(available_programs, dict):
+        raise TypeError("Workout program configuration must be a mapping.")
+
+    programs_config = available_programs.get("programs")
+    if not isinstance(programs_config, dict):
+        raise ValueError("Workout program configuration is missing a 'programs' mapping.")
+
+    programs: list[dict[str, Any]] = []
+    for pgm in programs_config.values():
+        if not isinstance(pgm, dict):
+            continue
+        name = pgm.get("name")
+        start = parse_date(pgm.get("start"))
+        end = parse_date(pgm.get("end"))
+        if isinstance(name, str) and start and end:
+            programs.append({"name": name, "start": start, "end": end})
     return programs
 
 

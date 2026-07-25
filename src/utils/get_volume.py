@@ -4,17 +4,31 @@ In the case of multiple workouts on the same day,
 the volume is the sum of the volumes of the workouts.
 """
 
+from __future__ import annotations
+
 from pprint import pformat  # type: ignore
 import re
+from typing import TypedDict, cast
+
 from loguru import logger  # type: ignore
-from typing import Any
+
 from src.utils.get_bodyweight import get_bw  # type: ignore
-from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.utils.powerbands import bands_mapping  # type: ignore
+from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+
+
+class ExerciseSet(TypedDict):
+    reps: int
+    weight: str
+
+
+class WorkoutEntry(TypedDict):
+    date: str
+    exercises: dict[str, list[ExerciseSet]]
 
 
 def get_weight(
-        s: dict,
+        s: ExerciseSet,
         bodyweight: str,
         Sidea_9012_Olympic_Hex_Bar: str
         ) -> float:
@@ -77,7 +91,7 @@ def get_weight(
         return 0.0
 
 
-def get_total_volume(table) -> list[tuple[str, int]]:
+def get_total_volume(table) -> list[tuple[str, float]]:
     """Get the total volume of all workouts, summing volumes for the same date.
 
     :param table: TinyDB table
@@ -88,24 +102,36 @@ def get_total_volume(table) -> list[tuple[str, int]]:
 
     bodyweight = str(get_bw())
     Sidea_9012_Olympic_Hex_Bar = "31"
-    date_and_volume: dict[Any, Any] = {}
+    date_and_volume: dict[str, float] = {}
 
     for item in table:
-        total_volume = 0
-        for exercise in item["exercises"].keys():
-            number_of_sets = len(item["exercises"][exercise])
-            volume_partial = []
+        workout = item if isinstance(item, dict) else {}
+        exercises = workout.get("exercises", {})
+        if not isinstance(exercises, dict):
+            continue
 
-            for s in item["exercises"][exercise]:
-                weight: float = 1
-                if s["weight"][:-3] != "0":
-                    weight = get_weight(s, bodyweight, Sidea_9012_Olympic_Hex_Bar)
-                volume_partial.append(s["reps"] * weight)
+        total_volume = 0.0
+        for exercise, sets in exercises.items():
+            if not isinstance(sets, list):
+                continue
+            number_of_sets = len(sets)
+            volume_partial: list[float] = []
 
-            total_volume += number_of_sets * max(volume_partial)
+            for s in sets:
+                if not isinstance(s, dict):
+                    continue
+                weight_value = str(s.get("weight", "0"))
+                weight = 1.0
+                if weight_value[:-3] != "0":
+                    weight = get_weight(cast(ExerciseSet, s), bodyweight, Sidea_9012_Olympic_Hex_Bar)
+                volume_partial.append(int(s.get("reps", 0)) * weight)
 
-        # Sum volumes for the same date
-        date = item["date"]
+            if volume_partial:
+                total_volume += number_of_sets * max(volume_partial)
+
+        date = workout.get("date")
+        if not isinstance(date, str):
+            continue
         if date in date_and_volume:
             date_and_volume[date] += total_volume
         else:

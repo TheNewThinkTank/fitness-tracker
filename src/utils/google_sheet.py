@@ -1,10 +1,14 @@
 """Google Sheets API.
 """
 
+from __future__ import annotations
+
 from pprint import pformat
-from loguru import logger
+
 import gspread
 from google.oauth2.service_account import Credentials
+from loguru import logger
+
 from src.utils.config import settings
 
 
@@ -18,6 +22,11 @@ def get_sheet(sheet_id: str, sheet_title: str) -> gspread.Worksheet:
     :return: Google Sheet.
     :rtype: gspread.Worksheet
     """
+
+    if not sheet_id:
+        raise ValueError("sheet_id must not be empty.")
+    if not sheet_title:
+        raise ValueError("sheet_title must not be empty.")
 
     scopes = ["https://www.googleapis.com/auth/spreadsheets"]
     creds = Credentials.from_service_account_file(

@@ -2,13 +2,17 @@
 Set db and table depending on datatype (real/simulated).
 """
 
+from __future__ import annotations
+
 from datetime import datetime
 import os
 from pprint import pformat  # type: ignore
 from typing import Any
+
 from loguru import logger  # type: ignore
-from src.utils.config import settings  # type: ignore
 from tinydb import TinyDB  # type: ignore
+
+from src.utils.config import settings  # type: ignore
 from src.utils.custom_storage import YAMLStorage  # type: ignore
 
 
@@ -18,7 +22,9 @@ class TinyDBSingleton:
     _instances: dict[str, "TinyDBSingleton"] = {}
 
     def __new__(cls, db_path: str, storage: Any = YAMLStorage) -> "TinyDBSingleton":
-        os.makedirs(os.path.dirname(db_path), exist_ok=True)
+        directory = os.path.dirname(db_path)
+        if directory:
+            os.makedirs(directory, exist_ok=True)
         if db_path not in cls._instances:
             instance = super().__new__(cls)
             instance.db = TinyDB(db_path, storage=storage)
@@ -43,7 +49,7 @@ def set_db_and_table(
     athlete: str | None = None,
     year: int | None = None,
     env: str = "prd",
-) -> tuple[Any, Any, str]:
+) -> tuple[TinyDB, Any, str]:
     """Set up database and table based on datatype (real/simulated).
     
     :param datatype: Type of data to be used, either "real" or "simulated"

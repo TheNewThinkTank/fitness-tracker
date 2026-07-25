@@ -4,13 +4,23 @@ In the case of multiple workouts on the same day,
 the duration is the sum of the durations of the workouts.
 """
 
+from __future__ import annotations
+
 from datetime import datetime as dt
 from pprint import pformat  # type: ignore
-from typing import Any
+from typing import TypedDict
+
 from loguru import logger  # type: ignore
 from profiling_tools.profiling_utils import profile  # type: ignore
 from datetime_tools.get_duration import get_duration_minutes  # type: ignore
+
 from src.utils.get_data import get_data  # type: ignore
+
+
+class WorkoutDurationEntry(TypedDict):
+    date: str
+    start_time: str
+    end_time: str
 
 
 def get_all_durations(year: str) -> dict:
@@ -25,15 +35,20 @@ def get_all_durations(year: str) -> dict:
     """
 
     data = get_data(year)
-    date_and_duration: dict[Any, Any] = {}
+    date_and_duration: dict[str, int] = {}
     for workout in data:
+        if not isinstance(workout, dict):
+            continue
         if "start_time" not in workout:
             logger.warning("Workout on {} has no start_time — skipping duration.", workout.get("date", "unknown"))
             continue
 
-        date = workout["date"]
-        start_time = workout["start_time"]
-        end_time = workout["end_time"]
+        date = workout.get("date")
+        start_time = workout.get("start_time")
+        end_time = workout.get("end_time")
+        if not isinstance(date, str) or not isinstance(start_time, str) or not isinstance(end_time, str):
+            continue
+
         duration = get_duration_minutes(start_time, end_time)
 
         # Sum durations for the same date

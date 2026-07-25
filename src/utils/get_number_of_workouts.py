@@ -1,11 +1,15 @@
 """Get the number of workouts in a given year."""
 
+from __future__ import annotations
+
 from pprint import pformat  # type: ignore
+
 from loguru import logger  # type: ignore
+
 from src.utils.get_data import get_data  # type: ignore
 
 
-def get_number_of_workouts(year: str) -> int:
+def get_number_of_workouts(year: int | str) -> int:
     """Get the number of workouts in a given year.
 
     :param year: Year to get the number of workouts for.
@@ -14,8 +18,9 @@ def get_number_of_workouts(year: str) -> int:
     :rtype: int
     """
 
-    data = get_data(year)
-    logger.debug(f"{year}, {data}")
+    normalized_year = str(year)
+    data = get_data(normalized_year)
+    logger.debug("Workout count request for year {}", normalized_year)
     return len(data)
 
 

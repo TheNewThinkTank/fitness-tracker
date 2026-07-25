@@ -2,26 +2,30 @@
 Read workout data and calculate combined metrics.
 """
 
+from __future__ import annotations
+
 from datetime import datetime as dt
-from src.utils.config import settings  # type: ignore
-import matplotlib.pyplot as plt  # type: ignore
-import matplotlib.dates as mdates  # type: ignore
-import matplotlib.cm as cm  # type: ignore
-import matplotlib.colors as mcolors  # type: ignore
-from matplotlib.ticker import MaxNLocator  # type: ignore
-import pandas as pd  # type: ignore
-from pprint import pformat  # type: ignore
-from loguru import logger  # type: ignore
-import seaborn as sns  # type: ignore
-from typing import Any, cast  # type: ignore
-from src.common.params import PlotParams  # type: ignore
-from src.utils.set_db_and_table import set_db_and_table  # type: ignore
-from src.utils.get_workout_duration import get_all_durations  # type: ignore
-from src.utils.get_volume import get_total_volume  # type: ignore
-from datetime_tools.lookup import get_year_and_month  # type: ignore
-from src.model.model import one_rep_max_estimator, get_df  # type: ignore
-from src.combined_metrics.get_frequency_data import get_frequency_data  # type: ignore
-from pathlib import Path  # type: ignore
+from pathlib import Path
+from pprint import pformat
+from typing import Any, cast
+
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+import matplotlib.dates as mdates
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+from datetime_tools.lookup import get_year_and_month  # type: ignore[import-untyped]
+from loguru import logger
+from matplotlib.ticker import MaxNLocator
+
+from src.combined_metrics.get_frequency_data import get_frequency_data
+from src.common.params import PlotParams
+from src.model.model import get_df, one_rep_max_estimator
+from src.utils.config import settings
+from src.utils.get_volume import get_total_volume
+from src.utils.get_workout_duration import get_all_durations
+from src.utils.set_db_and_table import set_db_and_table
 
 
 def save_plot(fig: Any, path: str) -> None:

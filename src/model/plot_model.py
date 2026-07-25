@@ -70,6 +70,9 @@ def create_1rm_plots(datatype: str, x: list, y: list, exercise: str) -> None:
             ax = sns.scatterplot(x=x, y=y)
         ax.set_title(f"{exercise}", fontsize=30)
 
+    if ax is None:
+        raise RuntimeError("Unable to create a plot axis")
+
     xticks = ax.get_xticks()
     xticks_dates = [datetime.fromtimestamp(t).strftime("%Y-%m-%d") for t in xticks]
     ax.set_xticklabels(xticks_dates)
@@ -110,6 +113,9 @@ def create_volume_plots(datatype: str, x: list, y: list, exercise: str) -> None:
 
     if ax is None:
         ax = sns.scatterplot(x=x, y=y)
+
+    if ax is None:
+        raise RuntimeError("Unable to create a plot axis")
 
     ax.set_title(f"{exercise}", fontsize=30)
     xticks = ax.get_xticks()

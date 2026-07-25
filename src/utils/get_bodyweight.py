@@ -1,11 +1,11 @@
 """Get the bodyweight from the google sheet.
 """
 
-from loguru import logger  # type: ignore
-import pandas as pd  # type: ignore
-from pprint import pformat  # type: ignore
-from src.utils.config import settings  # type: ignore
-from src.utils.google_sheet import get_sheet  # type: ignore
+from loguru import logger
+import pandas as pd  # type: ignore[import-untyped]
+from pprint import pformat
+from src.utils.config import settings
+from src.utils.google_sheet import get_sheet
 
 
 def get_bw(url: str | None = None) -> float:
@@ -19,7 +19,9 @@ def get_bw(url: str | None = None) -> float:
     """
     resolved_url = url or settings["BODYWEIGHT_CSV_URL"]
     df = pd.read_csv(resolved_url)
-    return df["BODYWEIGHT_KG"].values[-1]
+    if df.empty:
+        raise ValueError("Bodyweight data is empty.")
+    return float(df["BODYWEIGHT_KG"].iloc[-1])
 
 
 def main() -> None:

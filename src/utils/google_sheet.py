@@ -1,11 +1,11 @@
 """Google Sheets API.
 """
 
-from pprint import pformat  # type: ignore
-from loguru import logger  # type: ignore
+from pprint import pformat
+from loguru import logger
 import gspread
 from google.oauth2.service_account import Credentials
-from src.utils.config import settings  # type: ignore
+from src.utils.config import settings
 
 
 def get_sheet(sheet_id: str, sheet_title: str) -> gspread.Worksheet:

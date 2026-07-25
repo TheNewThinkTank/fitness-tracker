@@ -73,7 +73,7 @@ def get_dates_and_muscle_groups(table) -> dict[str, str]:
     return {
         item["date"]: item["split"]
         for item in table
-        if is_workout_record(item)
+        if is_workout_record(item) and isinstance(item.get("split"), str)
     }
 
 
@@ -91,7 +91,9 @@ def show_exercises(table, date: str) -> list[str]:
     all_exercises_during_workout = []
 
     for item in table:
-        if item["date"] == date:
+        if not isinstance(item, dict):
+            continue
+        if item.get("date") == date and isinstance(item.get("exercises"), dict):
             for k, _ in item["exercises"].items():
                 all_exercises_during_workout.append(k)
     return all_exercises_during_workout
@@ -123,14 +125,15 @@ def describe_workout(table, date: str) -> list[dict] | None:
     :rtype: list[dict] | None
     """
 
-    matches = [item for item in table if is_workout_record(item) and item["date"] == date]
+    matches = [item for item in table if isinstance(item, dict) and item.get("date") == date]
     if not matches:
         return None
     results = []
     for workout_data in matches:
         summary = {"Date of workout": date}
-        workout = cast(WorkoutRecord, workout_data)
-        summary.update({k: f"{len(v)} sets" for k, v in workout["exercises"].items()})
+        exercises = workout_data.get("exercises")
+        if isinstance(exercises, dict):
+            summary.update({k: f"{len(v)} sets" for k, v in exercises.items()})
         results.append(summary)
     return results
 
@@ -149,7 +152,9 @@ def show_exercise(table, exercise: str, date: str) -> list:
     """
 
     for item in table:
-        if is_workout_record(item) and item["date"] == date:
+        if not isinstance(item, dict):
+            continue
+        if item.get("date") == date and isinstance(item.get("exercises"), dict):
             return item["exercises"].get(exercise, [])
     return []
 

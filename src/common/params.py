@@ -1,8 +1,11 @@
 """Common parameter data classes for various operations.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import Any, Optional
+
 
 @dataclass
 class PlotParams:

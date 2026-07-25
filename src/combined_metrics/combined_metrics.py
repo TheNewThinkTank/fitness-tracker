@@ -13,7 +13,7 @@ import pandas as pd  # type: ignore
 from pprint import pformat  # type: ignore
 from loguru import logger  # type: ignore
 import seaborn as sns  # type: ignore
-from typing import Any  # type: ignore
+from typing import Any, cast  # type: ignore
 from src.common.params import PlotParams  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.utils.get_workout_duration import get_all_durations  # type: ignore
@@ -213,10 +213,11 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     exercise = preferred_exercise
 
     if not any(
-        exercise in item.get("exercises", {}).keys() for item in table
+        exercise in cast(dict[str, Any], item.get("exercises", {})).keys()
+        for item in table
     ):
         for item in table:
-            exercises = item.get("exercises", {})
+            exercises = cast(dict[str, Any], item.get("exercises", {}))
             if exercises:
                 exercise = next(iter(exercises.keys()))
                 break
@@ -225,8 +226,8 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     if df.empty:
         frames = []
         for item in table:
-            exercises = item.get("exercises", {})
-            if exercise in exercises:
+            exercises = cast(dict[str, Any], item.get("exercises", {}))
+            if isinstance(exercises, dict) and exercise in exercises:
                 frame = pd.DataFrame(exercises[exercise])
                 frame["date"] = item["date"]
                 frames.append(frame)

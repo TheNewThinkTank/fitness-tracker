@@ -2,11 +2,11 @@
 """
 
 from dataclasses import dataclass
-from typing import Optional
+from typing import Any, Optional
 
 @dataclass
 class PlotParams:
-    table: object
+    table: Any
     year: str
     month: Optional[str] = None
     img_path: Optional[str] = None  # fallback to settings if None

@@ -4,8 +4,7 @@ Read workout data and calculate 1RM and training volume.
 
 from datetime import datetime
 import re
-import sys
-from typing import Final
+from typing import Any, Final
 import pandas as pd  # type: ignore
 from loguru import logger  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
@@ -19,7 +18,7 @@ from src.one_rep_max_calc import OneRepMaxCalculator  # type: ignore
 
 
 def get_df(
-    table,
+    table: Any,
     splits: list[str] = ["chest", "push", "chest_and_back"],
     exercise: str = "barbell_bench_press",
 ) -> pd.DataFrame:
@@ -38,13 +37,22 @@ def get_df(
     :rtype: pd.DataFrame
     """
 
-    frames = []
+    frames: list[pd.DataFrame] = []
     for item in table:
-        if not any(x in item["split"] for x in splits):
+        if not isinstance(item, dict):
             continue
-        if exercise in item["exercises"].keys():
-            df = pd.DataFrame(item["exercises"][exercise])
-            df["date"] = item["date"]
+        split_value = item.get("split", "")
+        exercises = item.get("exercises", {})
+        if not isinstance(exercises, dict):
+            continue
+        if not any(x in str(split_value) for x in splits):
+            continue
+        if exercise in exercises:
+            workout_data = exercises[exercise]
+            if not isinstance(workout_data, list):
+                continue
+            df = pd.DataFrame(workout_data)
+            df["date"] = item.get("date")
             frames.append(df)
 
     if not frames:
@@ -115,9 +123,9 @@ def one_rep_max_estimator(df: pd.DataFrame, formula: str="acsm") -> pd.DataFrame
     """
     df_copy = df.copy()
 
-    # Define strategies based on the input formula
+    normalized_formula = formula.lower()
     strategy: OneRepMaxStrategy
-    match formula.lower():
+    match normalized_formula:
         case "acsm":
             strategy = ACSMStrategy()
         case "epley":
@@ -125,7 +133,7 @@ def one_rep_max_estimator(df: pd.DataFrame, formula: str="acsm") -> pd.DataFrame
         case "brzycki":
             strategy = BrzyckiStrategy()
         case _:
-            sys.exit("Invalid formula. Use 'acsm', 'epley', or 'brzycki'.")
+            raise ValueError("Invalid formula. Use 'acsm', 'epley', or 'brzycki'.")
 
     # Initialize calculator with the selected strategy
     calculator = OneRepMaxCalculator(strategy)

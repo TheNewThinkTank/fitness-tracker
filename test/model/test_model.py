@@ -88,6 +88,27 @@ def test_get_df_returns_empty_when_no_matches():
     assert list(df.columns) == ["set_number", "reps", "weight", "date"]
 
 
+def test_get_df_skips_rows_without_exercises():
+    db = TinyDB(storage=MemoryStorage)
+    table = db.table("workouts")
+    table.insert(
+        {
+            "date": "2023-10-01",
+            "split": "chest",
+            "exercises": {
+                "barbell_bench_press": [{"set_number": 1, "reps": 10, "weight": "100 kg"}]
+            },
+        }
+    )
+    table.insert({"date": "2023-10-02", "split": "push"})
+
+    df = get_df(table, splits=["chest", "push"], exercise="barbell_bench_press")
+
+    assert isinstance(df, pd.DataFrame)
+    assert not df.empty
+    assert set(df["date"].unique()) == {"2023-10-01"}
+
+
 # Test get_weight function
 def test_get_weight():
     data = {"weight": ["100 kg", "110 kg", "120 kg"]}
@@ -185,7 +206,7 @@ def test_invalid_formula():
     }
     df = pd.DataFrame(data)
 
-    with pytest.raises(SystemExit):
+    with pytest.raises(ValueError, match="Invalid formula"):
         one_rep_max_estimator(df, formula="invalid_formula")
 
 

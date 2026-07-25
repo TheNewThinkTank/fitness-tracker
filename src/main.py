@@ -11,6 +11,7 @@ visit URL: http://127.0.0.1:8000/docs
 
 import datetime
 from contextlib import asynccontextmanager
+from typing import Any
 import yaml  # type: ignore
 from fastapi import FastAPI, HTTPException, Query, Response  # type: ignore
 from pydantic import BaseModel  # type: ignore
@@ -42,14 +43,15 @@ app.add_middleware(
 )
 
 _current_year = datetime.date.today().year
-db, table, training_catalogue = set_db_and_table(datatype="real", year=_current_year)
 
 
-def _get_table(year: int):
-    if year == _current_year:
+def _get_table(year: int | None = None) -> Any:
+    resolved_year = year or _current_year
+    if resolved_year == _current_year:
+        _, table, _ = set_db_and_table(datatype="real", year=resolved_year)
         return table
-    _, t, _ = set_db_and_table(datatype="real", year=year)
-    return t
+    _, table, _ = set_db_and_table(datatype="real", year=resolved_year)
+    return table
 
 
 class HealthResponse(BaseModel):
@@ -66,9 +68,12 @@ async def healthz() -> HealthResponse:
 async def readyz() -> HealthResponse:
     """Readiness probe — confirms the app can serve traffic (DB reachable)."""
     try:
+        table = _get_table(_current_year)
         _ = read.get_dates(table)
-    except Exception as e:
-        raise HTTPException(status_code=503, detail=f"Not ready: {e}")
+    except ValueError as exc:
+        raise HTTPException(status_code=503, detail=f"Not ready: {exc}") from exc
+    except Exception as exc:  # pragma: no cover - defensive fallback
+        raise HTTPException(status_code=503, detail=f"Not ready: {exc}") from exc
     return HealthResponse(status="ok")
 
 
@@ -79,42 +84,44 @@ async def main_page() -> Response:
 
 
 @app.get("/data")
-async def get_data(year: int = Query(default=None)):
-    """Show data"""
-    t = _get_table(year or _current_year)
-    return [*t]
+async def get_data(year: int | None = Query(default=None)) -> list[dict[str, Any]]:
+    """Show data."""
+    t = _get_table(year)
+    return [dict(item) for item in t]
 
 
 @app.get("/dates")
-async def get_dates(year: int = Query(default=None)) -> list[str]:
+async def get_dates(year: int | None = Query(default=None)) -> list[str]:
     """Returns a list of all workout dates."""
-    t = _get_table(year or _current_year)
+    t = _get_table(year)
     return read.get_dates(t)
 
 
 @app.get("/dates_and_splits")
-async def get_dates_and_splits(year: int = Query(default=None)):
+async def get_dates_and_splits(year: int | None = Query(default=None)) -> dict[str, str]:
     """Returns a dictionary of workout dates and their corresponding muscle groups."""
     try:
-        t = _get_table(year or _current_year)
+        t = _get_table(year)
         return read.get_dates_and_muscle_groups(t)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    except ValueError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
 @app.get("/dates/{date}")
-async def describe_workout(date: str, year: int = Query(default=None)) -> list[dict] | None:
+async def describe_workout(date: str, year: int | None = Query(default=None)) -> list[dict[str, Any]] | None:
     """Returns workout summaries for the given date (list because multiple workouts can share a date)."""
-    t = _get_table(year or _current_year)
+    t = _get_table(year)
     if date not in read.get_dates(t):
         raise HTTPException(status_code=404, detail="Workout date not found")
     return read.describe_workout(t, date)
 
 
 @app.get("/{date}/exercises/{exercise}")
-async def show_exercise(exercise: str, date: str, year: int = Query(default=None)) -> list[dict]:
+async def show_exercise(exercise: str, date: str, year: int | None = Query(default=None)) -> list[dict[str, Any]]:
     """Returns a list of sets and reps for the given exercise and date."""
-    t = _get_table(year or _current_year)
+    t = _get_table(year)
     return read.show_exercise(t, exercise, date)
 
 

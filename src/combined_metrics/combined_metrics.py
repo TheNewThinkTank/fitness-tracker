@@ -24,23 +24,26 @@ from src.combined_metrics.get_frequency_data import get_frequency_data  # type: 
 from pathlib import Path  # type: ignore
 
 
-def save_plot(fig, path) -> None:
+def save_plot(fig: Any, path: str) -> None:
     """Save the plot to the specified path."""
     fig.tight_layout()
     fig.subplots_adjust(top=0.85, bottom=0.2)
-    # Create parent directories if they don't exist
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, bbox_inches='tight')
+    fig.savefig(path, bbox_inches="tight")
     plt.clf()
 
 
-def configure_plot(ax, x_ticks, x_label, y_label, title) -> None:
+def configure_plot(ax: Any, x_ticks: Any, x_label: str, y_label: str, title: str) -> None:
     """Configure plot settings."""
     ax.set_xlabel(x_label, fontsize=15)
     ax.set_ylabel(y_label, fontsize=15)
     ax.set_title(title, fontsize=20)
     ax.grid(True)
     plt.xticks(x_ticks, rotation=45, ha='right')
+
+
+def _get_plot_path(img_path: str, year_to_plot: str, filename: str) -> str:
+    return f"{img_path}{year_to_plot}/{filename}"
 
 
 def plot_frequency(
@@ -117,7 +120,7 @@ def plot_frequency(
         legend.remove()
 
     # plt.show()
-    save_path = f"{img_path}{year_to_plot}/{year_to_plot}_workout_frequency.png"
+    save_path = _get_plot_path(img_path, year_to_plot, f"{year_to_plot}_workout_frequency.png")
     save_plot(fig, save_path)
 
 
@@ -183,7 +186,11 @@ def plot_duration(
         )
 
     # plt.show()
-    save_path = f"{img_path}{year_to_plot}/workout_duration_{month_to_plot}_{year_to_plot}.png"
+    save_path = _get_plot_path(
+        img_path,
+        year_to_plot,
+        f"workout_duration_{month_to_plot}_{year_to_plot}.png",
+    )
     save_plot(fig, save_path)
 
 

@@ -5,6 +5,7 @@ Set db and table depending on datatype (real/simulated).
 from datetime import datetime
 import os
 from pprint import pformat  # type: ignore
+from typing import Any
 from loguru import logger  # type: ignore
 from src.utils.config import settings  # type: ignore
 from tinydb import TinyDB  # type: ignore
@@ -12,38 +13,37 @@ from src.utils.custom_storage import YAMLStorage  # type: ignore
 
 
 class TinyDBSingleton:
-    """Singleton class for TinyDB.
-    """
-    _instances: dict[str, 'TinyDBSingleton'] = {}
+    """Singleton wrapper around TinyDB instances."""
 
-    def __new__(cls, db_path: str, storage=YAMLStorage):
-        # Ensure the directory for db_path exists
+    _instances: dict[str, "TinyDBSingleton"] = {}
+
+    def __new__(cls, db_path: str, storage: Any = YAMLStorage) -> "TinyDBSingleton":
         os.makedirs(os.path.dirname(db_path), exist_ok=True)
         if db_path not in cls._instances:
-            instance = super(TinyDBSingleton, cls).__new__(cls)
+            instance = super().__new__(cls)
             instance.db = TinyDB(db_path, storage=storage)
             cls._instances[db_path] = instance
         return cls._instances[db_path]
 
-    def __init__(self, db_path: str, storage=YAMLStorage):
-        if not hasattr(self, 'db'):
+    def __init__(self, db_path: str, storage: Any = YAMLStorage) -> None:
+        if not hasattr(self, "db"):
             self.db = TinyDB(db_path, storage=storage)
 
-    def get_db(self):
+    def get_db(self) -> TinyDB:
         return self.db
 
-    def close(self):
+    def close(self) -> None:
         for instance in self._instances.values():
-            instance.db.close()  # Close the db file, this ensures no further writes.
-        TinyDBSingleton._instances = {}  # Reset the instances
+            instance.db.close()
+        TinyDBSingleton._instances = {}
 
 
 def set_db_and_table(
-    datatype,
-    athlete=None,
-    year=None,
-    env="prd"  # dev
-):
+    datatype: str,
+    athlete: str | None = None,
+    year: int | None = None,
+    env: str = "prd",
+) -> tuple[Any, Any, str]:
     """Set up database and table based on datatype (real/simulated).
     
     :param datatype: Type of data to be used, either "real" or "simulated"
@@ -61,31 +61,30 @@ def set_db_and_table(
     logger.debug(pformat(settings))
 
     if not athlete:
-        athlete = os.getenv(
-            "ATHLETE",
-            settings.ATHLETE
-            )
+        athlete = os.getenv("ATHLETE", settings.ATHLETE)
 
-    if not year:
+    if year is None:
         year = datetime.now().year
 
     training_catalogue = settings["TRAINING_CATALOGUE"]
 
-    if env != "prd" or 'GITHUB_ACTIONS' in os.environ:
+    if datatype not in {"real", "simulated"}:
+        raise ValueError("datatype must be either 'real' or 'simulated'")
+
+    if env != "prd" or "GITHUB_ACTIONS" in os.environ:
         db = TinyDB(f"data/{year}_workouts.yml", storage=YAMLStorage)
         table = db.table("weight_training_log")
-        # training_catalogue = "src/utils/muscles_and_exercises.yaml"
         return db, table, training_catalogue
 
     db_path = (
-        settings["REAL_WORKOUT_DATABASE"]
-        .replace("<YEAR>", str(year))
-    ) if datatype == "real" else settings["simulated_workout_database"]
+        settings["REAL_WORKOUT_DATABASE"].replace("<YEAR>", str(year))
+        if datatype == "real"
+        else settings["simulated_workout_database"]
+    )
 
     db_singleton = TinyDBSingleton(db_path)
     db = db_singleton.get_db()
     table = db.table(settings[f"{datatype.upper()}_WEIGHT_TABLE"])
-    # training_catalogue = settings["TRAINING_CATALOGUE"]
 
     return db, table, training_catalogue
 

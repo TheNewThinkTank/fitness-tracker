@@ -160,19 +160,43 @@ class WorkoutFactory:
         return Workout(**data)
 
     @staticmethod
+    def _extract_workout_items(payload) -> list[dict]:
+        """Normalize workout payloads from JSON/YAML files."""
+        if payload is None:
+            return []
+
+        if isinstance(payload, list):
+            return [item for item in payload if isinstance(item, dict)]
+
+        if isinstance(payload, dict):
+            if "weight_training_log" in payload:
+                nested_payload = payload["weight_training_log"]
+                return WorkoutFactory._extract_workout_items(nested_payload)
+
+            if {"date", "start_time", "end_time", "split", "exercises"}.issubset(payload.keys()):
+                return [payload]
+
+            if payload and all(isinstance(value, dict) for value in payload.values()):
+                return [value for value in payload.values() if isinstance(value, dict)]
+
+        raise ValueError("Unsupported workout payload format")
+
+    @staticmethod
     def create_workouts_from_json(file_path: str) -> list[Workout]:
         """Creates a list of Workout instances from a JSON file."""
         with open(file_path) as rf:
-            data = json.load(rf)["weight_training_log"]
-            return [WorkoutFactory.create_workout(item) for item in data.values()]
+            payload = json.load(rf)
+            workouts = WorkoutFactory._extract_workout_items(payload)
+            return [WorkoutFactory.create_workout(item) for item in workouts]
 
     @staticmethod
     def create_workouts_from_yaml(file_path: str) -> list[Workout]:
         """Creates a list of Workout instances from a YAML file."""
         with open(file_path) as rf:
             try:
-                data = yaml.safe_load(rf)["weight_training_log"]
-                return [WorkoutFactory.create_workout(item) for item in data.values()]
+                payload = yaml.safe_load(rf)
+                workouts = WorkoutFactory._extract_workout_items(payload)
+                return [WorkoutFactory.create_workout(item) for item in workouts]
             except yaml.YAMLError as e:
                 raise ValueError(f"Invalid YAML in file {file_path}") from e
 

@@ -187,3 +187,22 @@ def test_create_workouts_from_yaml():
     shoulder_workout = next(w for w in workouts if w.date == "2021-12-16")
     assert "cable_extention" in shoulder_workout.exercises
     assert "toe_to_bar" in shoulder_workout.exercises
+
+
+def test_create_workouts_from_yaml_accepts_bare_workout_payload():
+    yaml_content = """date: '2026-07-11'
+start_time: '12:57'
+end_time: '13:48'
+split: fullbody_d
+exercises:
+  hack_squat:
+  - set_number: 1
+    reps: 10
+    weight: 50 kg
+"""
+    mock_file = mock_open(read_data=yaml_content)
+    with patch("builtins.open", mock_file):
+        workouts = WorkoutFactory.create_workouts_from_yaml("dummy_path.yml")
+        assert len(workouts) == 1
+        assert workouts[0].date == "2026-07-11"
+        assert workouts[0].split == "fullbody_d"

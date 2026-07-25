@@ -47,7 +47,10 @@ def get_df(
             df["date"] = item["date"]
             frames.append(df)
 
-    return pd.concat(frames)
+    if not frames:
+        return pd.DataFrame(columns=["set_number", "reps", "weight", "date"])
+
+    return pd.concat(frames, ignore_index=True)
 
 
 def get_weight(df: pd.DataFrame) -> pd.Series:

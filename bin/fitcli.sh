@@ -9,6 +9,15 @@ CONFIG_FILE=".config/fitcli.conf"
 
 mkdir -p logs
 
+if [[ -x "$PWD/.venv/bin/python" ]]; then
+  PYTHON_BIN="$PWD/.venv/bin/python"
+elif command -v python3 >/dev/null 2>&1; then
+  PYTHON_BIN="$(command -v python3)"
+else
+  PYTHON_BIN="python"
+fi
+export PYTHON_BIN
+
 # Load utility functions
 UTILS_DIR="bin/utils"
 
@@ -39,8 +48,8 @@ load_config_variables() {
     # GOOGLE_DRIVE_DATA_PATH=$(echo "$CONFIG_JSON" | jq -r .GOOGLE_DRIVE_DATA_PATH)
     # IMG_PATH=$(echo "$CONFIG_JSON" | jq -r .IMG_PATH)
 
-    GOOGLE_DRIVE_DATA_PATH=$(python3 ./src/utils/config.py | grep "GOOGLE_DRIVE_DATA_PATH" | cut -d':' -f2- | xargs)
-    IMG_PATH=$(python3 ./src/utils/config.py | grep "IMG_PATH" | cut -d':' -f2- | xargs)
+    GOOGLE_DRIVE_DATA_PATH=$($PYTHON_BIN ./src/utils/config.py | grep "GOOGLE_DRIVE_DATA_PATH" | cut -d':' -f2- | xargs)
+    IMG_PATH=$($PYTHON_BIN ./src/utils/config.py | grep "IMG_PATH" | cut -d':' -f2- | xargs)
     IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
 
     log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
@@ -86,12 +95,12 @@ process_workout_date() {
     log "Processing workout file: ${WORKOUT_FILES[$i]} (Workout number: $WORKOUT_NUMBER)"
 
     # run pydantic validation on the workout file
-    if ! python3 ./src/utils/validate.py --file "${WORKOUT_FILES[$i]}"; then
+    if ! "$PYTHON_BIN" ./src/utils/validate.py --file "${WORKOUT_FILES[$i]}"; then
       log "Error: Validation failed for file ${WORKOUT_FILES[$i]}."
       continue
     fi
 
-    if ! python3 ./src/crud/insert.py \
+    if ! "$PYTHON_BIN" ./src/crud/insert.py \
       --file_format "$FILE_FORMAT" \
       --datatype real \
       --dates "$workout_date" \

@@ -205,16 +205,54 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     splits = [
         "push",
         "full_body",
+        "fullbody",
         # "legs",
         # "legs_and_abs",
     ]
-    exercise = "bb_bench_press"  # "squat"
+    preferred_exercise = "bb_bench_press"
+    exercise = preferred_exercise
+
+    if not any(
+        exercise in item.get("exercises", {}).keys() for item in table
+    ):
+        for item in table:
+            exercises = item.get("exercises", {})
+            if exercises:
+                exercise = next(iter(exercises.keys()))
+                break
+
     df = get_df(table, splits=splits, exercise=exercise)
+    if df.empty:
+        frames = []
+        for item in table:
+            exercises = item.get("exercises", {})
+            if exercise in exercises:
+                frame = pd.DataFrame(exercises[exercise])
+                frame["date"] = item["date"]
+                frames.append(frame)
+
+        if frames:
+            df = pd.concat(frames, ignore_index=True)
+        else:
+            logger.warning(
+                "No matching workout data found for exercise %s with splits %s.",
+                exercise,
+                splits,
+            )
+            return
+
     one_rm = one_rep_max_estimator(df)
     one_rm_filtered = one_rm[one_rm.index.isin(_dates)]
+    if one_rm_filtered.empty:
+        logger.warning("No one-rep-max data available after filtering by workout dates.")
+        return
+
     volumes = [
         d_v[1] for d_v in date_and_volume if d_v[0] in one_rm_filtered.index  # dates
     ]
+    if not volumes:
+        logger.warning("No volume data available for the selected workout dates.")
+        return
 
     date_and_duration: dict[Any, Any] = {
         dt.strptime(k, "%Y-%m-%d").date(): v
@@ -234,24 +272,59 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
     ax.xaxis.set_major_locator(mdates.DayLocator())
 
-    sns.scatterplot(
-        x=dates, y=durations, hue=volumes, palette="Reds", s=one_rm_sizes, ax=ax
-        )
-    plt.plot(dates, durations, zorder=0, c="brown")
+    size_min = min(one_rm_sizes)
+    size_max = max(one_rm_sizes)
+    if size_max == size_min:
+        bubble_sizes = [100 for _ in one_rm_sizes]
+    else:
+        bubble_sizes = [
+            60 + ((size - size_min) / (size_max - size_min)) * 180
+            for size in one_rm_sizes
+        ]
+
+    scatter = ax.scatter(
+        dates,
+        durations,
+        c=volumes,
+        cmap="Reds",
+        norm=norm,
+        s=bubble_sizes,
+        alpha=0.75,
+        edgecolors="black",
+        linewidths=0.5,
+        zorder=2,
+    )
+    line, = plt.plot(dates, durations, zorder=0, c="brown", label="Duration trend")
+    ax.legend(
+        handles=[scatter, line],
+        labels=["Workout bubbles", "Duration trend"],
+        frameon=False,
+        loc="upper left",
+        fontsize=10,
+    )
+    ax.set_ylim(bottom=0)
+    ax.set_facecolor("#f7f7f7")
+    for spine in ["top", "right"]:
+        ax.spines[spine].set_visible(False)
 
     legend = ax.get_legend()
     if legend is not None:
         legend.remove()
 
-    plt.colorbar(sm, ax=ax)
+    colorbar = plt.colorbar(sm, ax=ax)
+    colorbar.set_label("Total Volume [kg]", fontsize=11)
+    colorbar.ax.tick_params(labelsize=9)
 
     configure_plot(
         ax,
         dates,
         "Workout Date",
         "Duration [minutes]",
-        f"Duration, Volume, 1RM ({exercise})"
+        f"Duration, Volume and 1RM ({exercise})"
         )
+
+    fig.tight_layout()
+    fig.subplots_adjust(top=0.88, bottom=0.2, right=0.92)
 
     save_path = f"{img_path}all_years/workout_duration_volume_1rm_{exercise}.png"
     save_plot(fig, save_path)

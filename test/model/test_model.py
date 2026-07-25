@@ -68,6 +68,26 @@ def test_get_df(mock_table):
     assert set(df.columns) == expected_columns
 
 
+def test_get_df_returns_empty_when_no_matches():
+    db = TinyDB(storage=MemoryStorage)
+    table = db.table("workouts")
+    table.insert(
+        {
+            "date": "2023-10-01",
+            "split": "legs",
+            "exercises": {
+                "squat": [{"set_number": 1, "reps": 10, "weight": "100 kg"}]
+            },
+        }
+    )
+
+    df = get_df(table, splits=["chest", "push"], exercise="barbell_bench_press")
+
+    assert isinstance(df, pd.DataFrame)
+    assert df.empty
+    assert list(df.columns) == ["set_number", "reps", "weight", "date"]
+
+
 # Test get_weight function
 def test_get_weight():
     data = {"weight": ["100 kg", "110 kg", "120 kg"]}

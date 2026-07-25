@@ -3,7 +3,7 @@
 prepare_figures() {
   local year=$1
   local month=$2
-  if ! python3 ./src/combined_metrics/combined_metrics.py \
+  if ! "$PYTHON_BIN" ./src/combined_metrics/combined_metrics.py \
     --year_to_plot "$year" \
     --month_to_plot "$month"; then
     log "Error: Failed to prepare figures."

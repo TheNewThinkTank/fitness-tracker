@@ -5,8 +5,10 @@ Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
 from pprint import pformat  # type: ignore
+from typing import Any, cast
 from loguru import logger  # type: ignore
 from tinydb import Query  # type: ignore  # used by analyze_workout
+from src.common.workout_types import WorkoutRecord, is_workout_record
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 
@@ -56,7 +58,7 @@ def get_dates(table) -> list[str]:
     :rtype: list[str]
     """
 
-    return [item["date"] for item in table]
+    return [item["date"] for item in table if is_workout_record(item)]
 
 
 def get_dates_and_muscle_groups(table) -> dict[str, str]:
@@ -68,7 +70,11 @@ def get_dates_and_muscle_groups(table) -> dict[str, str]:
     :rtype: dict[str, str]
     """
 
-    return {item["date"]: item["split"] for item in table}
+    return {
+        item["date"]: item["split"]
+        for item in table
+        if is_workout_record(item)
+    }
 
 
 def show_exercises(table, date: str) -> list[str]:
@@ -117,13 +123,14 @@ def describe_workout(table, date: str) -> list[dict] | None:
     :rtype: list[dict] | None
     """
 
-    matches = [item for item in table if item["date"] == date]
+    matches = [item for item in table if is_workout_record(item) and item["date"] == date]
     if not matches:
         return None
     results = []
     for workout_data in matches:
         summary = {"Date of workout": date}
-        summary.update({k: f"{len(v)} sets" for k, v in workout_data["exercises"].items()})
+        workout = cast(WorkoutRecord, workout_data)
+        summary.update({k: f"{len(v)} sets" for k, v in workout["exercises"].items()})
         results.append(summary)
     return results
 
@@ -142,7 +149,7 @@ def show_exercise(table, exercise: str, date: str) -> list:
     """
 
     for item in table:
-        if item["date"] == date:
+        if is_workout_record(item) and item["date"] == date:
             return item["exercises"].get(exercise, [])
     return []
 

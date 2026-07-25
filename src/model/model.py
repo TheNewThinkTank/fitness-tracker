@@ -4,9 +4,10 @@ Read workout data and calculate 1RM and training volume.
 
 from datetime import datetime
 import re
-from typing import Any, Final
+from typing import Any, Final, cast
 import pandas as pd  # type: ignore
 from loguru import logger  # type: ignore
+from src.common.workout_types import WorkoutRecord, is_workout_record
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.one_rep_max import (  # type: ignore
     OneRepMaxStrategy,
@@ -39,20 +40,17 @@ def get_df(
 
     frames: list[pd.DataFrame] = []
     for item in table:
-        if not isinstance(item, dict):
+        if not is_workout_record(item):
             continue
-        split_value = item.get("split", "")
-        exercises = item.get("exercises", {})
-        if not isinstance(exercises, dict):
-            continue
+        workout = cast(WorkoutRecord, item)
+        split_value = workout.get("split", "")
+        exercises = workout.get("exercises", {})
         if not any(x in str(split_value) for x in splits):
             continue
         if exercise in exercises:
             workout_data = exercises[exercise]
-            if not isinstance(workout_data, list):
-                continue
             df = pd.DataFrame(workout_data)
-            df["date"] = item.get("date")
+            df["date"] = workout.get("date")
             frames.append(df)
 
     if not frames:

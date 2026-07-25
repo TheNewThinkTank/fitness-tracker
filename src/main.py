@@ -11,8 +11,9 @@ visit URL: http://127.0.0.1:8000/docs
 
 import datetime
 from contextlib import asynccontextmanager
-from typing import Any
+from typing import Any, cast
 import yaml  # type: ignore
+from src.common.workout_types import WorkoutRecord
 from fastapi import FastAPI, HTTPException, Query, Response  # type: ignore
 from pydantic import BaseModel  # type: ignore
 from fastapi.middleware.cors import CORSMiddleware  # type: ignore
@@ -84,10 +85,10 @@ async def main_page() -> Response:
 
 
 @app.get("/data")
-async def get_data(year: int | None = Query(default=None)) -> list[dict[str, Any]]:
+async def get_data(year: int | None = Query(default=None)) -> list[WorkoutRecord]:
     """Show data."""
     t = _get_table(year)
-    return [dict(item) for item in t]
+    return [cast(WorkoutRecord, dict(item)) for item in t]
 
 
 @app.get("/dates")

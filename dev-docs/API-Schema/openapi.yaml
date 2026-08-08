@@ -1,0 +1,219 @@
+openapi: 3.1.0
+info:
+  title: Fitness Tracker API
+  description: REST API for querying weight-training workout data stored in TinyDB.
+  version: 0.0.1
+paths:
+  /:
+    get:
+      summary: Main Page
+      description: Returns a greeting message for the application.
+      operationId: main_page__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /healthz:
+    get:
+      summary: Liveness Probe
+      description: Confirms the process is running. Used by Kubernetes liveness probes.
+      operationId: healthz_get
+      responses:
+        '200':
+          description: Process is alive
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /readyz:
+    get:
+      summary: Readiness Probe
+      description: Confirms the app can serve traffic (database reachable). Used by Kubernetes readiness probes.
+      operationId: readyz_get
+      responses:
+        '200':
+          description: App is ready
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: App is not ready
+          content:
+            application/json:
+              schema: {}
+  /data:
+    get:
+      summary: Get Data
+      description: Return all workout records for the given year (defaults to current year).
+      operationId: get_data_data_get
+      parameters:
+        - name: year
+          in: query
+          required: false
+          schema:
+            type: integer
+            title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /dates:
+    get:
+      summary: Get Dates
+      description: Returns a list of all workout dates.
+      operationId: get_dates_dates_get
+      parameters:
+        - name: year
+          in: query
+          required: false
+          schema:
+            type: integer
+            title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                title: Response Get Dates Dates Get
+  /dates_and_splits:
+    get:
+      summary: Get Dates And Splits
+      description: Returns a dictionary of workout dates and their corresponding muscle groups.
+      operationId: get_dates_and_splits_dates_and_splits_get
+      parameters:
+        - name: year
+          in: query
+          required: false
+          schema:
+            type: integer
+            title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /dates/{date}:
+    get:
+      summary: Describe Workout
+      description: Returns workout summaries for the given date. Returns a list because multiple workouts can share a date.
+      operationId: describe_workout_dates__date__get
+      parameters:
+        - name: date
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Date
+        - name: year
+          in: query
+          required: false
+          schema:
+            type: integer
+            title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '404':
+          description: Workout date not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /{date}/exercises/{exercise}:
+    get:
+      summary: Show Exercise
+      description: Returns a list of sets and reps for the given exercise and date.
+      operationId: show_exercise__date__exercises__exercise__get
+      parameters:
+        - name: exercise
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Exercise
+        - name: date
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Date
+        - name: year
+          in: query
+          required: false
+          schema:
+            type: integer
+            title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                title: Response Show Exercise  Date  Exercises  Exercise  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+      required:
+        - status
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError

@@ -148,3 +148,58 @@
 07-25 15:20 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/July/fullbody_a_training_log_2026-07-25.yml')]
 07-25 15:20 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/July/fullbody_a_training_log_2026-07-25.yml')]
 07-25 15:20 __main__ INFO workout number: 1
+08-08 10:20 src.utils.logger_config INFO Running ./src/crud/insert.py ...
+08-08 10:20 src.utils.set_db_and_table DEBUG <dynaconf.base.LazySettings object at 0x102495990>
+08-08 10:20 __main__ DEBUG db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=51']>
+08-08 10:20 __main__ INFO datatype: real
+08-08 10:20 __main__ DEBUG table: <Table name='weight_training_log', total=51, storage=<src.utils.custom_storage.YAMLStorage object at 0x1022f17d0>>
+08-08 10:20 __main__ INFO workout date(s): 2026-07-30
+08-08 10:20 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/July/*training_log_2026-07-30.yml
+08-08 10:20 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/July/*training_log_2026-07-30.yml')
+08-08 10:20 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/July/fullbody_b_training_log_2026-07-30.yml')]
+08-08 10:20 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/July/fullbody_b_training_log_2026-07-30.yml')]
+08-08 10:20 __main__ INFO workout number: 1
+08-08 10:29 src.utils.logger_config INFO Running ./src/crud/insert.py ...
+08-08 10:29 src.utils.set_db_and_table DEBUG <dynaconf.base.LazySettings object at 0x1044555d0>
+08-08 10:29 __main__ DEBUG db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=52']>
+08-08 10:29 __main__ INFO datatype: real
+08-08 10:29 __main__ DEBUG table: <Table name='weight_training_log', total=52, storage=<src.utils.custom_storage.YAMLStorage object at 0x105bdc8d0>>
+08-08 10:29 __main__ INFO workout date(s): 2026-08-02
+08-08 10:29 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-02.yml
+08-08 10:29 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-02.yml')
+08-08 10:29 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_c_training_log_2026-08-02.yml')]
+08-08 10:29 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_c_training_log_2026-08-02.yml')]
+08-08 10:29 __main__ INFO workout number: 1
+08-08 10:33 src.utils.logger_config INFO Running ./src/crud/insert.py ...
+08-08 10:33 src.utils.set_db_and_table DEBUG <dynaconf.base.LazySettings object at 0x1024695d0>
+08-08 10:33 __main__ DEBUG db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=53']>
+08-08 10:33 __main__ INFO datatype: real
+08-08 10:33 __main__ DEBUG table: <Table name='weight_training_log', total=53, storage=<src.utils.custom_storage.YAMLStorage object at 0x103ccb210>>
+08-08 10:33 __main__ INFO workout date(s): 2026-08-04
+08-08 10:33 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-04.yml
+08-08 10:33 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-04.yml')
+08-08 10:33 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_d_training_log_2026-08-04.yml')]
+08-08 10:33 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_d_training_log_2026-08-04.yml')]
+08-08 10:33 __main__ INFO workout number: 1
+08-08 10:37 src.utils.logger_config INFO Running ./src/crud/insert.py ...
+08-08 10:37 src.utils.set_db_and_table DEBUG <dynaconf.base.LazySettings object at 0x1031b1810>
+08-08 10:37 __main__ DEBUG db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=54']>
+08-08 10:37 __main__ INFO datatype: real
+08-08 10:37 __main__ DEBUG table: <Table name='weight_training_log', total=54, storage=<src.utils.custom_storage.YAMLStorage object at 0x1038ba210>>
+08-08 10:37 __main__ INFO workout date(s): 2026-08-06
+08-08 10:37 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-06.yml
+08-08 10:37 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-06.yml')
+08-08 10:37 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_a_training_log_2026-08-06.yml')]
+08-08 10:37 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_a_training_log_2026-08-06.yml')]
+08-08 10:37 __main__ INFO workout number: 1
+08-08 10:41 src.utils.logger_config INFO Running ./src/crud/insert.py ...
+08-08 10:41 src.utils.set_db_and_table DEBUG <dynaconf.base.LazySettings object at 0x102b9d790>
+08-08 10:41 __main__ DEBUG db: <TinyDB tables=['weight_training_log'], tables_count=1, default_table_documents_count=0, all_tables_documents_count=['weight_training_log=55']>
+08-08 10:41 __main__ INFO datatype: real
+08-08 10:41 __main__ DEBUG table: <Table name='weight_training_log', total=55, storage=<src.utils.custom_storage.YAMLStorage object at 0x1043d8450>>
+08-08 10:41 __main__ INFO workout date(s): 2026-08-08
+08-08 10:41 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-08.yml
+08-08 10:41 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/*training_log_2026-08-08.yml')
+08-08 10:41 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_b_training_log_2026-08-08.yml')]
+08-08 10:41 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_b_training_log_2026-08-08.yml')]
+08-08 10:41 __main__ INFO workout number: 1

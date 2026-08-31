@@ -35,7 +35,7 @@ jobs:
         run: echo "GOOGLE_DRIVE_DATA_PATH=${{ inputs.google_drive_data_path }}" >> $GITHUB_ENV
 
       - name: Cache mypy dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/mypy
           key: ${{ runner.os }}-mypy-${{ hashFiles('**/mypy.ini') }}

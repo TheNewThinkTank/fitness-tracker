@@ -360,3 +360,65 @@
                   {'reps': 3, 'set_number': 3, 'weight': 'BODYWEIGHT kg'}],
  'pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
             {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}]}
+09-12 16:44 src.utils.logger_config INFO Running ./src/utils/validate.py ...
+09-12 16:44 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-05.yml
+09-12 16:44 __main__ DEBUG {'bulgarian_split_squat': [{'reps': 8, 'set_number': 1, 'weight': '20 kg'},
+                           {'reps': 8, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_cross_over': [{'reps': 12, 'set_number': 1, 'weight': '22.6 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '22.6 kg'}],
+ 'cable_crunch': [{'reps': 10, 'set_number': 1, 'weight': '20.3 kg'},
+                  {'reps': 12, 'set_number': 2, 'weight': '20.3 kg'}],
+ 'cable_upright_row': [{'reps': 12, 'set_number': 1, 'weight': '13.5 kg'},
+                       {'reps': 12, 'set_number': 2, 'weight': '13.5 kg'}],
+ 'clean_and_jerk': [{'reps': 8, 'set_number': 1, 'weight': '30 kg'},
+                    {'reps': 8, 'set_number': 2, 'weight': '30 kg'}],
+ 'gironda_pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'incline_bb_press': [{'reps': 12, 'set_number': 1, 'weight': '40 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '40 kg'}]}
+09-12 16:48 src.utils.logger_config INFO Running ./src/utils/validate.py ...
+09-12 16:48 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_d_training_log_2026-09-07.yml
+09-12 16:48 __main__ DEBUG {'arnold_press': [{'reps': 15, 'set_number': 1, 'weight': '20 kg'},
+                  {'reps': 12, 'set_number': 2, 'weight': '24 kg'}],
+ 'chin_up': [{'reps': 7, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+             {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'dip': [{'reps': 7, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+         {'reps': 7, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'leg_raise': [{'reps': 12, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+               {'reps': 12, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'legpress_calf_raise': [{'reps': 15, 'set_number': 1, 'weight': '80 kg'},
+                         {'reps': 15, 'set_number': 2, 'weight': '80 kg'}],
+ 'machine_low_row': [{'reps': 12, 'set_number': 1, 'weight': '40 kg'},
+                     {'reps': 12, 'set_number': 2, 'weight': '45 kg'}],
+ 'squat': [{'reps': 8, 'set_number': 1, 'weight': '40 kg'},
+           {'reps': 8, 'set_number': 2, 'weight': '40 kg'}]}
+09-12 16:52 src.utils.logger_config INFO Running ./src/utils/validate.py ...
+09-12 16:52 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_a_training_log_2026-09-09.yml
+09-12 16:52 __main__ DEBUG {'bench_press': [{'reps': 15, 'set_number': 1, 'weight': '50 kg'},
+                 {'reps': 12, 'set_number': 2, 'weight': '60 kg'}],
+ 'dead_bugs': [{'reps': 40, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+               {'reps': 30, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'leg_press': [{'reps': 12, 'set_number': 1, 'weight': '100 kg'},
+               {'reps': 12, 'set_number': 2, 'weight': '100 kg'}],
+ 'seated_row': [{'reps': 12, 'set_number': 1, 'weight': '59 kg'},
+                {'reps': 12, 'set_number': 2, 'weight': '59 kg'}],
+ 'side_lateral': [{'reps': 12, 'set_number': 1, 'weight': '20 kg'},
+                  {'reps': 12, 'set_number': 2, 'weight': '20 kg'}],
+ 'standing_calf_raise': [{'reps': 15, 'set_number': 1, 'weight': '40 kg'},
+                         {'reps': 12, 'set_number': 2, 'weight': '40 kg'}]}
+09-12 16:55 src.utils.logger_config INFO Running ./src/utils/validate.py ...
+09-12 16:55 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_b_training_log_2026-09-11.yml
+09-12 16:55 __main__ DEBUG {'db_fly': [{'reps': 12, 'set_number': 1, 'weight': '28 kg'},
+            {'reps': 12, 'set_number': 2, 'weight': '28 kg'}],
+ 'leg_extention': [{'reps': 10, 'set_number': 1, 'weight': '50 kg'},
+                   {'reps': 10, 'set_number': 2, 'weight': '50 kg'}],
+ 'legpress_calf_raise': [{'reps': 15, 'set_number': 1, 'weight': '80 kg'},
+                         {'reps': 15, 'set_number': 2, 'weight': '80 kg'}],
+ 'military_press': [{'reps': 10, 'set_number': 1, 'weight': '30 kg'},
+                    {'reps': 10, 'set_number': 2, 'weight': '30 kg'}],
+ 'pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+            {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'seated_leg_curl': [{'reps': 10, 'set_number': 1, 'weight': '50 kg'},
+                     {'reps': 10, 'set_number': 2, 'weight': '50 kg'}],
+ 'toe_to_bar': [{'reps': 8, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                {'reps': 6, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}]}

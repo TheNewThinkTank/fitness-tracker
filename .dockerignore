@@ -6,10 +6,8 @@ node_modules
 # Ignore frontend directory
 frontend
 
-# Ignore Docker-related files
-Dockerfile
-docker-compose.yml
-.dockerignore
+# Ignore Docker Compose files
+compose*.yaml
 
 # Ignore version control directories and files
 .git
@@ -33,7 +31,7 @@ venv
 .env
 
 docs
-
-src/simulations
-src/crud/insert.py
-src/plot.py
+data
+features
+frontend
+test

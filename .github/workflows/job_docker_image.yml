@@ -19,10 +19,16 @@ on:
         description: "GitHub Owner (for GitHub Packages)"
         required: false
         type: string
+    secrets:
+      DOCKERHUB_TOKEN:
+        required: false
 
 jobs:
   build_scan_and_push:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Check out repository code
@@ -42,23 +48,39 @@ jobs:
       - name: Build Docker image
         run: docker build -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
 
-      - name: Scan Docker image for vulnerabilities
+      - name: Build frontend Docker image
+        run: docker build -t ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ./frontend
+
+      - name: Scan backend image for vulnerabilities
         uses: anchore/scan-action@v5
         with:
           image: ${{ inputs.image-name }}:${{ inputs.image-tag }}
           fail-build: true
           severity-cutoff: high
           output-format: table
-          only-fixed: true
+          only-fixed: false
+
+      - name: Scan frontend image for vulnerabilities
+        uses: anchore/scan-action@v5
+        with:
+          image: ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
+          fail-build: true
+          severity-cutoff: high
+          output-format: table
+          only-fixed: false
 
       - name: Push to DockerHub
         if: inputs.dockerhub-username
         run: |
           docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker tag ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
           docker push ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker push ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
 
       - name: Push to GitHub Packages
         if: inputs.github-owner
         run: |
           docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker tag ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
           docker push ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
+          docker push ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}

@@ -1,36 +1,28 @@
 
-from unittest.mock import patch, MagicMock
-from src.utils.set_db_and_table import (  # type: ignore
-    set_db_and_table,
-    TinyDBSingleton
-    )
+from pathlib import Path
+
+from src.utils.set_db_and_table import TinyDBSingleton  # type: ignore
 
 
-def test_tiny_db_singleton():
-    # Mock the TinyDB class and os.makedirs
-    with patch("tinydb.TinyDB", MagicMock()), patch("os.makedirs", MagicMock()):
-        # Create the first instance
-        instance1 = TinyDBSingleton("dummy_path.yml")
-        db1 = instance1.get_db()
+def test_tiny_db_singleton(tmp_path: Path) -> None:
+    first_path = str(tmp_path / "first.yml")
+    second_path = str(tmp_path / "second.yml")
+    instance1 = TinyDBSingleton(first_path)
+    db1 = instance1.get_db()
 
-        # Create the second instance with the same path
-        instance2 = TinyDBSingleton("dummy_path.yml")
-        db2 = instance2.get_db()
+    instance2 = TinyDBSingleton(first_path)
+    db2 = instance2.get_db()
 
-        # Ensure both instances are the same
-        assert instance1 is instance2
-        assert db1 is db2
+    assert instance1 is instance2
+    assert db1 is db2
 
-        # Create a third instance with a different path
-        instance3 = TinyDBSingleton("another_dummy_path.yml")
-        db3 = instance3.get_db()
+    instance3 = TinyDBSingleton(second_path)
+    db3 = instance3.get_db()
 
-        # Ensure the third instance is different
-        assert instance1 is not instance3
-        assert db1 is not db3
+    assert instance1 is not instance3
+    assert db1 is not db3
 
-        # Close the instances
-        instance1.close()
+    TinyDBSingleton.close_all()
 
 
 # def test_set_db_and_table_real_data():

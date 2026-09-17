@@ -1,5 +1,7 @@
 #!/usr/bin/env bats
 
+# shellcheck disable=SC1091,SC2329
+
 # Test file for fitcli script
 
 # Install Bats:
@@ -52,18 +54,16 @@ teardown() {
     [[ "$output" == *"Date is valid."* ]]
 }
 
-# TODO: complete test below
-# @test "validate_date rejects invalid date" {
-#     run validate_date "2024-02-30"
-#     [ "$status" -ne 0 ]
-#     [[ "$output" == *"Date is invalid."* ]]
-# }
+@test "validate_date rejects invalid date" {
+    run validate_date "2024-02-30"
+    [ "$status" -ne 0 ]
+    [[ "$output" == *"Date is invalid."* ]]
+}
 
-# TODO: complete test below
-# @test "validate_file_format accepts supported format" {
-#     run validate_file_format "yml"
-#     [ "$status" -eq 0 ]
-# }
+@test "validate_file_format accepts supported format" {
+    run validate_file_format "yml"
+    [ "$status" -eq 0 ]
+}
 
 @test "validate_file_format rejects unsupported format" {
     run validate_file_format "xml"
@@ -84,8 +84,8 @@ teardown() {
 #     [[ "$output" == *"Mock combined_metrics.py called with --year_to_plot 2024 --month_to_plot December"* ]]
 # }
 
-@test "open_images tries to open correct image files" {
-    run open_images "2024" "December"
+@test "open_figures tries to open correct image files" {
+    run open_figures "2024" "December"
     [ "$status" -eq 0 ]
     [[ "$output" == *"Mock open called with $TMP_DIR/2024_workout_frequency.png"* ]]
     [[ "$output" == *"Mock open called with $TMP_DIR/workout_duration_December_2024.png"* ]]

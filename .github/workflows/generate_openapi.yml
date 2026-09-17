@@ -1,5 +1,8 @@
 name: Generate OpenAPI JSON
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
 
@@ -14,48 +17,24 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.x'
+          python-version: "3.13"
 
-      - name: Install and cache poetry
-        run: |
-          make -f .config/Makefile install-poetry
-        if: steps.cache.outputs.cache-hit != 'true'
+      - name: Install Poetry
+        run: pip install poetry==2.2.1
 
-      # - name: Set GITHUB_ENV
-      #   run: echo 'export PATH="$HOME/.local/bin:$PATH"' >> $GITHUB_ENV
-
-      - name: Cache poetry dependencies
-        id: cache
-        uses: actions/cache@v5
-        with:
-          path: ~/.cache/pypoetry/virtualenvs
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: ${{ runner.os }}-poetry-
-
-      - name: Install dependencies with poetry
-        run: poetry install
-        env:
-          POETRY_VIRTUALENVS_IN_PROJECT: true
-        if: steps.cache.outputs.cache-hit != 'true'
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
+      - name: Install locked API dependencies
+        run: poetry install --only main
 
       - name: Run OpenAPI generation script
         env:
           PYTHONPATH: ${{ github.workspace }}/src  # Set the PYTHONPATH
         run: |
-          # Ensure the script is executable
-          chmod +x bin/generate_openapi.sh
-          # Run the script within the Poetry environment
           poetry run ./bin/generate_openapi.sh
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add docs/schema/openapi.json
-          git commit -m "Update OpenAPI JSON file"
+          git add docs/project_docs/dev-docs/API-Schema/openapi.json docs/project_docs/dev-docs/API-Schema/openapi.yaml
+          git diff --cached --quiet || git commit -m "docs: update OpenAPI schema"
           git push
-        env:
-          FITNESS_TRACKER_GITHUB_ACCESS_TOKEN: ${{ secrets.FITNESS_TRACKER_GITHUB_ACCESS_TOKEN }}

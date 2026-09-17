@@ -6,11 +6,12 @@ import json
 import yaml  # type: ignore
 from pprint import pformat  # type: ignore
 import regex  # type: ignore
-from typing import Optional
+from typing import Any, Optional
 from loguru import logger  # type: ignore
 # import pydantic
-from pydantic import BaseModel, field_validator  # type: ignore
-from src.utils.config import settings  # type: ignore
+from pydantic import BaseModel, field_validator, model_validator  # type: ignore
+
+from src.common.workout_types import WorkoutData
 
 
 class ExercisesFormatError(Exception):
@@ -35,6 +36,13 @@ class Workout(BaseModel):
     cooldown: Optional[str] = None
     gym: Optional[str] = None
     notes: Optional[str] = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def validate_record(cls, value: Any) -> dict[str, Any]:
+        return WorkoutData.model_validate(value).model_dump(
+            mode="json", exclude_unset=True
+        )
 
     @field_validator("exercises")
     @classmethod

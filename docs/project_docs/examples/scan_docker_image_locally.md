@@ -3,10 +3,8 @@
 Assuming you have a `.env` file at the root of your repo (see `.env.example`):
 
 ```text
-USER=<USER>
-ATHLETE=<ATHLETE>
-EMAIL=<EMAIL>
-GOOGLE_DRIVE_DATA_PATH=data
+FITNESS_TRACKER_DATA_DIR=data
+FITNESS_TRACKER_ATHLETE=default
 ```
 
 Build the image (env vars are injected at runtime, not build time):

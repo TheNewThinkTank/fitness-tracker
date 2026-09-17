@@ -1,107 +1,81 @@
-# This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option or — if you want a full-fledged app framework — use [SvelteKit](https://kit.svelte.dev), the official application framework for Svelte.
+# Fitness Tracker frontend
 
----
+The frontend is a Svelte 5 and TypeScript application built with Vite. It loads
+available years, paginated workout summaries, and exercise details from relative
+`/api` routes.
 
-# svelte app
+## Development
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
-## Get started
-
-Install the dependencies...
+Use Node.js 24 or newer. Start the FastAPI service on port 8000, then run:
 
 ```bash
-cd svelte-app
-npm install
-```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
+npm ci
 npm run dev
 ```
 
-Navigate to [localhost:8080](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
-
-## Building and running in production mode
-
-To create an optimised version of the app:
+Vite listens on `http://localhost:5173` and proxies `/api` to
+`http://localhost:8000`. Override the target when needed:
 
 ```bash
+VITE_API_PROXY_TARGET=http://localhost:9000 npm run dev
+```
+
+If FastAPI requires `FITNESS_TRACKER_API_TOKEN`, pass the same server-side value
+to Vite. The proxy adds the `X-API-Key` header without exposing the token to
+browser code:
+
+```bash
+FITNESS_TRACKER_API_TOKEN=local-token npm run dev
+```
+
+## Quality checks
+
+```bash
+npm run check
+npm test
 npm run build
+npm audit --audit-level=moderate
 ```
 
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+`npm run check` covers Svelte and TypeScript diagnostics. Vitest covers API URL
+construction, error handling, runtime response validation, and server rendering.
 
+### Browser workflows
 
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
+Install Chromium once, then run Playwright on desktop and mobile viewports:
 
 ```bash
-node scripts/setupTypeScript.js
+npx playwright install chromium
+npm run test:e2e
 ```
 
-Or remove the script via:
+Playwright builds the frontend and starts an isolated preview on port 4173.
+Set `E2E_PORT` to use another port. Deterministic API fixtures cover year
+selection, pagination, global ordering, duplicate-day details, and error/retry
+behavior. Screenshots also check that the brand image loads and the page does
+not overflow on mobile.
+
+To include the unmocked browser-to-API test against a running Compose stack:
 
 ```bash
-rm scripts/setupTypeScript.js
+E2E_BASE_URL=http://127.0.0.1:3000 npm run test:e2e
 ```
 
-If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need to set up `@rollup/plugin-alias` to tell Rollup to resolve the aliases. For more info, see [this StackOverflow question](https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte).
+CI runs both sets of tests against the built containers. Failure screenshots
+and traces are retained in the browser-test-results artifact. Local reports are
+available with `npx playwright show-report`.
 
-## Deploying to the web
+## Production
 
-### With [Vercel](https://vercel.com)
+The production Dockerfile builds the application with Node and copies only
+`dist/` into an unprivileged nginx image. nginx serves the single-page app,
+proxies `/api` to the Compose backend, compresses responses, applies immutable
+asset caching, and sends restrictive browser security headers.
 
-Install `vercel` if you haven't already:
+Run both services from the repository root:
 
 ```bash
-npm install -g vercel
+docker compose up --build
 ```
 
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+Open `http://localhost:3000`.

@@ -2,7 +2,6 @@
 Empty specified folder or file.
 """
 
-import sys
 # from file_convertion_tools.cleanup import cleanup, empty_file  # type: ignore
 
 

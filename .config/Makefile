@@ -6,8 +6,8 @@ install-poetry:
 # Install dependencies with poetry
 .PHONY: install-dependencies
 install-dependencies:
-	poetry install
-	env POETRY_VIRTUALENVS_IN_PROJECT=true
+	poetry config virtualenvs.in-project true
+	poetry install --with analytics,integrations,docs
 
 # Lint with ruff
 .PHONY: lint-ruff
@@ -28,7 +28,7 @@ wily-build-and-rank:
 # Run unit tests and make coverage report
 .PHONY: run-tests-and-coverage
 run-tests-and-coverage:
-	poetry run pytest --cov=./ --cov-report xml:cov.xml -k "not test_model"
+	poetry run pytest test --cov=src --cov-report xml:cov.xml
 
 # Qualify code target
 .PHONY: qualify-code

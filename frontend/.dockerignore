@@ -15,6 +15,9 @@ docker-compose.yml
 # Ignore build output
 build
 dist
+coverage
+playwright-report
+test-results
 
 # Ignore IDE and editor directories and files
 .vscode

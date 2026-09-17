@@ -43,6 +43,21 @@ def test_workout_model_invalid():
         Workout(**data)
 
 
+def test_workout_factory_rejects_invalid_calendar_date():
+    data = {
+        "date": "2024-02-30",
+        "start_time": "10:00",
+        "end_time": "11:00",
+        "split": "push",
+        "exercises": {
+            "pushup": [{"set_number": 1, "reps": 10, "weight": "BODYWEIGHT"}]
+        },
+    }
+
+    with pytest.raises(ValueError, match="valid calendar date"):
+        WorkoutFactory.create_workout(data)
+
+
 def test_validate_exercises_valid():
     exercises = {"pushup": [{"set_number": 1, "reps": 10, "weight": "BODYWEIGHT"}]}
     WorkoutValidator.validate_exercises(exercises)

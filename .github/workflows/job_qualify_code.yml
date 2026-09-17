@@ -7,32 +7,37 @@ on:
         required: true
         description: Python version to use
         type: string
-      google_drive_data_path:
-        required: true
-        type: string
-    secrets:
-      ATHLETE:
-        required: true
-      EMAIL:
-        required: true
-      USER:
-        required: true
 
 jobs:
   qualify_code:
     runs-on: ubuntu-latest
+    env:
+      FITNESS_TRACKER_DATA_DIR: data
 
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Python and Poetry
-        uses: TheNewThinkTank/gh-actions/.github/actions/setup-python-poetry@v1.0.4
+      - name: Set up Python
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ inputs.PYTHONVERSION }}
 
-      - name: Set GOOGLE_DRIVE_DATA_PATH
-        run: echo "GOOGLE_DRIVE_DATA_PATH=${{ inputs.google_drive_data_path }}" >> $GITHUB_ENV
+      - name: Install Poetry
+        run: pip install poetry==2.2.1
+
+      - name: Cache project environment
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: ${{ runner.os }}-py${{ inputs.PYTHONVERSION }}-${{ hashFiles('poetry.lock') }}
+
+      - name: Install locked dependencies
+        run: |
+          poetry config virtualenvs.in-project true
+          poetry install --with analytics,integrations,docs
 
       - name: Cache mypy dependencies
         uses: actions/cache@v4
@@ -43,6 +48,9 @@ jobs:
 
       - name: Check poetry version
         run: poetry --version
+
+      - name: Lint with Ruff
+        run: poetry run ruff check src test
 
       - name: Static type checks with mypy
         run: make -f .config/Makefile static-type-checks
@@ -63,15 +71,8 @@ jobs:
         with:
           file_or_dir: "./docs/project_docs/Workout-Programs/workout_programs.yml"
 
-      - name: Set up workspace
-        run: mkdir -p data
-
       - name: Run tests
         run: poetry run pytest --rootdir=$(pwd) test/ --cov --cov-report=xml
-        env:
-          EMAIL: ${{ secrets.EMAIL }}
-          USER: ${{ secrets.USER }}
-          ATHLETE: ${{ secrets.ATHLETE }}
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4

@@ -3,13 +3,36 @@
 ## Overview
 
 Full stack fitness tracking application using TinyDB, FastAPI, Svelte and Docker.
-Add weight-training logs continuously to db.json and query the data through the browser.
-Visually inspect your progression through dates and exercises.
+Store weight-training records in year-based `<YEAR>_workouts.yml` files, each
+containing a TinyDB `weight_training_log` table. Import logs into the year of
+each workout, then browse the data through the read-only FastAPI service and
+Svelte frontend.
+
+The browser opens the latest available year and supports date ordering,
+pagination, and exercise-set details. Workouts have permanent UUIDs, so multiple
+sessions on the same day remain distinct. Imports validate calendar dates and
+record structure before writing; malformed legacy records are logged and
+omitted from API results.
+
+The API caches parsed records and indexes workout IDs. File identity, size, and
+modification/change timestamps invalidate changed data without a server restart.
+API reads do not modify the workout files. Browser responses can remain cached
+for up to 60 seconds under the existing private cache policy.
+
 Most of the project, in particular `src` supports all major platforms (Windows, Linux and MacOS), but the cli `bin/fitcli.sh` currently supports Linux and MacOS only.
 
 ## Getting Started
 
-To get started, follow the instructions in the examples section.
+Follow the [examples](examples/EXAMPLES.md) to install dependencies, import logs,
+and run the application. For an existing data directory, follow the
+[workout ID migration guide](examples/EXAMPLES.md#migrate-existing-workout-ids)
+before editing or renumbering legacy records.
+
+See the [browser workflow checks](examples/EXAMPLES.md#browser-workflow-checks)
+for desktop and mobile testing, the
+[OpenAPI reference](dev-docs/API-Schema/openapi.yaml) for the API contract, and
+the [changelog](dev-docs/CHANGELOG.md#unreleased) for recent changes and
+verification status.
 
 ## References
 

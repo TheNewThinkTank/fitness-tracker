@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh run *)",
+      "Bash(gh api *)",
+      "Bash(grep -v \"^$\")",
+      "Bash(brew list *)",
+      "Bash(grype dir:. --fail-on high -o table)",
+      "Bash(grype dir:. -o table)",
+      "Bash(git pull *)",
+      "Bash(pip show *)",
+      "Bash(pip3 show *)"
+    ]
+  }
+}

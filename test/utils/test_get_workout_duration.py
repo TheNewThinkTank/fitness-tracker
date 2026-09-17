@@ -9,6 +9,7 @@ from src.utils.get_workout_duration import (  # type: ignore
 def test_get_data():
     year = "2021"
     expected_data = {
+        "id": "36f7bca5-dedd-5b61-a01b-717e3fde1a99",
         "date": "2021-12-11",
         "split": "legs",
         "exercises": {

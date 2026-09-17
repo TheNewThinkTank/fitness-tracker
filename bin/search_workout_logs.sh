@@ -2,41 +2,25 @@
 
 set -euo pipefail
 
-log() {
-  echo "$(date +'%Y-%m-%d %H:%M:%S') - $1"
-}
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+PROJECT_ROOT=$(cd "$SCRIPT_DIR/.." && pwd)
 
-load_env_variables() {
-  if [ -f .config/.env ]; then
-    # shellcheck source=/dev/null
-    source .config/.env
-  else
-    echo "Warning: .env file not found. Using default values."
-  fi
-}
+if [[ -f "$PROJECT_ROOT/.env" ]]; then
+  # shellcheck source=/dev/null
+  source "$PROJECT_ROOT/.env"
+fi
 
-load_config_variables() {
-  if [ -f .config/settings.toml ]; then
-    # Call the Python script to process the configuration
-    GOOGLE_DRIVE_DATA_PATH=$(python3 ./src/utils/config.py | grep "GOOGLE_DRIVE_DATA_PATH" | cut -d':' -f2- | xargs)
-    GOOGLE_DRIVE_DATA_PATH+="/${ATHLETE}/log_archive/YML"
-    log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
-  else
-    log "Warning: .config/settings.toml file not found."
-    GOOGLE_DRIVE_DATA_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/log_archive/YML"
-    log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
-  fi
-}
+DATA_DIR="${FITNESS_TRACKER_DATA_DIR:-$PROJECT_ROOT/data}"
+if [[ "$DATA_DIR" != /* ]]; then
+  DATA_DIR="$PROJECT_ROOT/$DATA_DIR"
+fi
+LOG_ARCHIVE="$DATA_DIR/log_archive/YML"
 
-load_env_variables
-load_config_variables
-# log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
+if [[ ! -d "$LOG_ARCHIVE" ]]; then
+  echo "Workout archive does not exist: $LOG_ARCHIVE" >&2
+  exit 1
+fi
 
 # Find all assisted bodyweight exercises in the workout logs.
 
-cd "${GOOGLE_DRIVE_DATA_PATH}"
-
-# grep -rnE --include="*.{yaml,yml}" "weight: BODYWEIGHT - .* kg" .
-
-# using ripgrep
-rg --glob="*.{yaml,yml}" "weight: BODYWEIGHT - .* kg"
+rg --glob="*.{yaml,yml}" "weight: BODYWEIGHT - .* kg" "$LOG_ARCHIVE"

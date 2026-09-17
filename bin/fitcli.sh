@@ -4,22 +4,27 @@ set -euo pipefail
 
 # BASH workflow that inserts data into a database and prepares figures.
 
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+PROJECT_ROOT=$(cd "$SCRIPT_DIR/.." && pwd)
+
 # shellcheck disable=SC2034
-CONFIG_FILE=".config/fitcli.conf"
+CONFIG_FILE="$PROJECT_ROOT/.config/fitcli.conf"
 
-mkdir -p logs
+mkdir -p "$PROJECT_ROOT/logs"
 
-if [[ -x "$PWD/.venv/bin/python" ]]; then
-  PYTHON_BIN="$PWD/.venv/bin/python"
+if [[ -x "$PROJECT_ROOT/.venv/bin/python" ]]; then
+  PYTHON_BIN="$PROJECT_ROOT/.venv/bin/python"
 elif command -v python3 >/dev/null 2>&1; then
   PYTHON_BIN="$(command -v python3)"
 else
   PYTHON_BIN="python"
 fi
 export PYTHON_BIN
+# shellcheck disable=SC2034  # Read by validate_file_format in sourced validation.sh.
+SUPPORTED_FILE_FORMATS=('yml' 'json')
 
 # Load utility functions
-UTILS_DIR="bin/utils"
+UTILS_DIR="$SCRIPT_DIR/utils"
 
 # shellcheck disable=SC1091
 source "${UTILS_DIR}/logging.sh"
@@ -41,22 +46,18 @@ source "${UTILS_DIR}/args.sh"
 source "${UTILS_DIR}/figures.sh"
 
 load_config_variables() {
-  if [ -f .config/settings.toml ]; then
-    # Call the Python script to process the configuration
+  if [[ -f "$PROJECT_ROOT/.config/settings.toml" ]]; then
+    local config_output
+    config_output=$(PYTHONPATH="$PROJECT_ROOT" "$PYTHON_BIN" -m src.utils.config)
+    FITNESS_TRACKER_DATA_DIR=$(printf '%s\n' "$config_output" | awk -F': ' '/^DATA_DIR:/ {print $2}')
+    IMG_PATH=$(printf '%s\n' "$config_output" | awk -F': ' '/^IMG_PATH:/ {print $2}')
+    IMG_PATH="${IMG_PATH%/}/${YEAR_TO_PLOT}/"
 
-    # CONFIG_JSON=$(python3 -m src.utils.config_loader)
-    # GOOGLE_DRIVE_DATA_PATH=$(echo "$CONFIG_JSON" | jq -r .GOOGLE_DRIVE_DATA_PATH)
-    # IMG_PATH=$(echo "$CONFIG_JSON" | jq -r .IMG_PATH)
-
-    GOOGLE_DRIVE_DATA_PATH=$($PYTHON_BIN ./src/utils/config.py | grep "GOOGLE_DRIVE_DATA_PATH" | cut -d':' -f2- | xargs)
-    IMG_PATH=$($PYTHON_BIN ./src/utils/config.py | grep "IMG_PATH" | cut -d':' -f2- | xargs)
-    IMG_PATH="${IMG_PATH}${YEAR_TO_PLOT}/"
-
-    log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
+    log "DEBUG: FITNESS_TRACKER_DATA_DIR = $FITNESS_TRACKER_DATA_DIR"
     log "DEBUG: IMG_PATH = $IMG_PATH"
   else
-    log "Warning: .config/settings.toml file not found. Using default img_path."
-    IMG_PATH="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025/"
+    log "Warning: .config/settings.toml file not found. Using environment defaults."
+    IMG_PATH="${FITNESS_TRACKER_DATA_DIR%/}/img/${YEAR_TO_PLOT}/"
   fi
 }
 
@@ -74,7 +75,7 @@ process_workout_date() {
   fi
 
   MONTH_NAME=$(get_month_name "$MONTH_NUM")
-  BASE_PATH="${GOOGLE_DRIVE_DATA_PATH}/${DYNACONF_ATHLETE}/log_archive/${FILE_FORMAT^^}/${YEAR}/${MONTH_NAME}"
+  BASE_PATH="${FITNESS_TRACKER_DATA_DIR%/}/log_archive/${FILE_FORMAT^^}/${YEAR}/${MONTH_NAME}"
 
   log "BASE_PATH: $BASE_PATH"
 
@@ -95,12 +96,12 @@ process_workout_date() {
     log "Processing workout file: ${WORKOUT_FILES[$i]} (Workout number: $WORKOUT_NUMBER)"
 
     # run pydantic validation on the workout file
-    if ! "$PYTHON_BIN" ./src/utils/validate.py --file "${WORKOUT_FILES[$i]}"; then
+    if ! "$PYTHON_BIN" "$PROJECT_ROOT/src/utils/validate.py" --file "${WORKOUT_FILES[$i]}"; then
       log "Error: Validation failed for file ${WORKOUT_FILES[$i]}."
       continue
     fi
 
-    if ! "$PYTHON_BIN" ./src/crud/insert.py \
+    if ! "$PYTHON_BIN" "$PROJECT_ROOT/src/crud/insert.py" \
       --file_format "$FILE_FORMAT" \
       --datatype real \
       --dates "$workout_date" \
@@ -119,18 +120,25 @@ main() {
   # Default values
   FILE_FORMAT='yml'
   # shellcheck disable=SC2034
-  CONFIG_FILE='./fitcli.conf'
+  CONFIG_FILE="${CONFIG_FILE:-$PROJECT_ROOT/.config/fitcli.conf}"
   # shellcheck disable=SC2034
-  LOG_FILE='logs/fitcli.log'
+  LOG_FILE="$PROJECT_ROOT/logs/fitcli.log"
   # shellcheck disable=SC2034
-  SUPPORTED_FILE_FORMATS=('yml' 'json' 'csv')
-
   parse_arguments "$@"
+
+  if ! validate_file_format "$FILE_FORMAT"; then
+    log "Error: Unsupported file format: $FILE_FORMAT"
+    exit 1
+  fi
 
   # Set default WORKOUT_DATE only if not provided via -d
   if [[ -z "${WORKOUT_DATE:-}" ]]; then
     WORKOUT_DATE=$(date +%F)
     WORKOUT_DATES=("$WORKOUT_DATE")  # Default to today's date
+  fi
+
+  if ! validate_date "$WORKOUT_DATE"; then
+    exit 1
   fi
 
   # Calculate YEAR_TO_PLOT and MONTH_TO_PLOT based on WORKOUT_DATE
@@ -148,7 +156,7 @@ main() {
   validate_env_variables
   load_config_variables  # This depends on YEAR_TO_PLOT, so it must be called after YEAR_TO_PLOT is set
 
-  log "DEBUG: GOOGLE_DRIVE_DATA_PATH = $GOOGLE_DRIVE_DATA_PATH"
+  log "DEBUG: FITNESS_TRACKER_DATA_DIR = $FITNESS_TRACKER_DATA_DIR"
   log "DEBUG: IMG_PATH = $IMG_PATH"
 
   load_config

@@ -7,27 +7,22 @@ check_dependencies() {
 
 validate_date() {
   local input_date="$1"
+  local normalized_date
   echo "Validating date: $input_date"
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS date command
-    if date -j -f "%Y-%m-%d" "$input_date" > /dev/null 2>&1; then
-      echo "Date is valid."
-      return 0
-    else
-      echo "Date is invalid."
-      return 1
-    fi
+    normalized_date=$(date -j -f "%Y-%m-%d" "$input_date" "+%Y-%m-%d" 2>/dev/null) || normalized_date=""
   else
-    # Linux date command
-    if date -d "$input_date" +"%Y-%m-%d" > /dev/null 2>&1; then
-      echo "Date is valid."
-      return 0
-    else
-      echo "Date is invalid."
-      return 1
-    fi
+    normalized_date=$(date -d "$input_date" +"%Y-%m-%d" 2>/dev/null) || normalized_date=""
   fi
+
+  if [[ "$normalized_date" == "$input_date" ]]; then
+    echo "Date is valid."
+    return 0
+  fi
+
+  echo "Date is invalid."
+  return 1
 }
 
 validate_file_format() {

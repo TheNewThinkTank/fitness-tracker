@@ -1,7 +1,5 @@
 
 import pytest
-import sys
-import logging
 import pandas as pd
 from tinydb import TinyDB
 from tinydb.storages import MemoryStorage
@@ -11,7 +9,6 @@ from src.model.model import (  # type: ignore
     calc_volume,
     one_rep_max_estimator,
     get_data,
-    main,
 )
 
 

@@ -2,7 +2,24 @@
 
 from __future__ import annotations
 
-from typing import Any, TypedDict
+from datetime import date as calendar_date
+from typing import Any
+from uuid import UUID, uuid5
+
+from pydantic import BaseModel, ConfigDict, ValidationError, field_validator
+from typing_extensions import TypedDict
+
+WORKOUT_ID_NAMESPACE = UUID("580bcb0f-5d7c-4ba7-970f-5ee56fd5f435")
+
+
+def legacy_workout_id(year: int, document_id: int) -> UUID:
+    """Keep existing API links valid while legacy records receive stored IDs."""
+    return uuid5(WORKOUT_ID_NAMESPACE, f"{year}:{document_id}")
+
+
+def get_workout_id(record: dict[str, Any], year: int, document_id: int) -> UUID:
+    stored_id = record.get("id")
+    return UUID(str(stored_id)) if stored_id else legacy_workout_id(year, document_id)
 
 
 class ExerciseSet(TypedDict, total=False):
@@ -21,6 +38,58 @@ class WorkoutRecord(TypedDict):
     exercises: dict[str, list[ExerciseSet]]
 
 
+def parse_workout_date(value: Any) -> calendar_date:
+    """Parse a calendar date without accepting timestamps or compact dates."""
+    if type(value) is calendar_date:
+        return value
+    if isinstance(value, str):
+        try:
+            parsed_date = calendar_date.fromisoformat(value)
+            if parsed_date.isoformat() == value:
+                return parsed_date
+        except ValueError:
+            pass
+    raise ValueError("date must use YYYY-MM-DD format and be a valid calendar date")
+
+
+class ExerciseSetResponse(BaseModel):
+    model_config = ConfigDict(extra="allow", strict=True)
+
+    set_number: int
+    reps: int
+    weight: str
+    duration: str | None = None
+
+
+class WorkoutMetadata(BaseModel):
+    model_config = ConfigDict(strict=True)
+
+    date: calendar_date
+    split: str | None = None
+    start_time: str | None = None
+    end_time: str | None = None
+    timezone: str | None = None
+
+    @field_validator("date", mode="before")
+    @classmethod
+    def validate_date(cls, value: Any) -> calendar_date:
+        return parse_workout_date(value)
+
+
+class WorkoutData(WorkoutMetadata):
+    """Shared validation for imported records and API-readable workout data."""
+
+    model_config = ConfigDict(extra="allow", strict=True)
+
+    id: UUID | None = None
+    exercises: dict[str, list[ExerciseSetResponse]] | None = None
+
+    @field_validator("id", mode="before")
+    @classmethod
+    def validate_id(cls, value: Any) -> Any:
+        return UUID(value) if isinstance(value, str) else value
+
+
 def is_workout_record(value: Any) -> bool:
     """Return True when a value looks like a workout record.
 
@@ -32,31 +101,8 @@ def is_workout_record(value: Any) -> bool:
     if not isinstance(value, dict):
         return False
 
-    if not isinstance(value.get("date"), str):
+    try:
+        WorkoutData.model_validate(value)
+    except ValidationError:
         return False
-
-    split = value.get("split")
-    if split is not None and not isinstance(split, str):
-        return False
-
-    exercises = value.get("exercises")
-    if exercises is None:
-        return True
-
-    if not isinstance(exercises, dict):
-        return False
-
-    for exercise_sets in exercises.values():
-        if not isinstance(exercise_sets, list):
-            return False
-        for set_data in exercise_sets:
-            if not isinstance(set_data, dict):
-                return False
-            if not isinstance(set_data.get("set_number"), int):
-                return False
-            if not isinstance(set_data.get("reps"), int):
-                return False
-            if not isinstance(set_data.get("weight"), str):
-                return False
-
     return True

@@ -6,22 +6,52 @@ Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 
 import json
 import os
+from collections.abc import Sequence
 from pathlib import Path
 from typing import NewType
+from pydantic import ValidationError
+from src.common.workout_types import WorkoutData, parse_workout_date
 from src.utils.config import settings  # type: ignore
 import yaml  # type: ignore
 from tinydb import table  # type: ignore
 from loguru import logger  # type: ignore
-from datetime_tools.lookup import get_year_and_month  # type: ignore
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 WorkoutDate = NewType("WorkoutDate", str)
+SUPPORTED_LOG_FORMATS = {"json", "yml"}
+
+
+def _validate_file_format(file_format: str) -> str:
+    normalized_format = file_format.lower()
+    if normalized_format not in SUPPORTED_LOG_FORMATS:
+        raise ValueError(
+            f"Invalid file format: {file_format}. Expected 'json' or 'yml'."
+        )
+    return normalized_format
+
+
+def _load_workout_record(
+    log_path: Path, file_format: str, expected_date: str | None = None
+) -> dict:
+    with log_path.open(encoding="utf-8") as handle:
+        content = json.load(handle) if file_format == "json" else yaml.safe_load(handle)
+    try:
+        record = WorkoutData.model_validate(content).model_dump(
+            mode="json", exclude_unset=True
+        )
+    except ValidationError as exc:
+        raise ValueError(f"Invalid workout record in {log_path}: {exc}") from exc
+    if expected_date is not None and record["date"] != expected_date:
+        raise ValueError(f"Workout date in {log_path} does not match {expected_date}")
+    return record
 
 
 def insert_log(
     table: table.Table,
-    log_path: str | Path | list,
-    file_format: str
+    log_path: str | Path | Sequence[str | Path],
+    file_format: str,
+    *,
+    expected_date: str | None = None,
     ) -> None:
     """Store training log from log_path in database table.
 
@@ -34,38 +64,22 @@ def insert_log(
     :type file_format: str
     """
 
-    # Validate file format
-    if file_format not in ['json', 'yml']:
-        raise ValueError(
-            f"Invalid file format: {file_format}. Expected 'json' or 'yml'."
-            )
-
-    # assert log_path
+    normalized_format = _validate_file_format(file_format)
     logger.debug(f"{log_path = }")
 
-    # Convert Path objects to strings
-    if isinstance(log_path, Path):
-        log_path = str(log_path)
-
-    if isinstance(log_path, str):
-        with open(log_path) as rf:
-            if file_format == 'json':
-                content = json.load(rf)
-            elif file_format == 'yml':
-                content = yaml.safe_load(rf)
-            table.insert(content)
-    elif isinstance(log_path, list):
+    if isinstance(log_path, (str, Path)):
+        records = [_load_workout_record(Path(log_path), normalized_format, expected_date)]
+    elif isinstance(log_path, Sequence):
         if not log_path:
             raise ValueError("No files found for the given date and workout number.")
-        for file_path in log_path:
-            with open(file_path) as rf:
-                if file_format == 'json':
-                    content = json.load(rf)
-                elif file_format == 'yml':
-                    content = yaml.safe_load(rf)
-                table.insert(content)
+        records = [
+            _load_workout_record(Path(file_path), normalized_format, expected_date)
+            for file_path in log_path
+        ]
     else:
         raise TypeError(f"Unsupported type for log_path: {type(log_path)}")
+    for record in records:
+        table.insert(record)
 
 
 def insert_all_logs(
@@ -82,12 +96,13 @@ def insert_all_logs(
     :type folderpath: str
     """
 
+    normalized_format = _validate_file_format(file_format)
     logger.debug(f"{folderpath = }")
 
     p = Path(folderpath)
-    all_files = os.listdir(p)
+    all_files = sorted(path for path in os.listdir(p) if path.endswith(f".{normalized_format}"))
     for f in all_files:
-        insert_log(table, p / f, file_format)
+        insert_log(table, p / f, normalized_format)
 
 
 def insert_specific_log(
@@ -109,33 +124,34 @@ def insert_specific_log(
     :type workout_number: int, optional
     """
 
-    YEAR, MONTH = get_year_and_month(date)
-    base_path = Path(settings["GOOGLE_DRIVE_DATA_PATH"])
+    normalized_format = _validate_file_format(file_format)
+    parsed_date = parse_workout_date(date)
+    if workout_number < 1:
+        raise ValueError("workout_number must be at least 1")
 
-    # base_path += (
-    #     f"/{settings['ATHLETE']}/log_archive/{file_format.upper()}/"
-    #     f"{YEAR}/{MONTH}/*training_log_{date}"
-    # )
+    data_root = Path(settings["DATA_DIR"]).expanduser().resolve()
+    base_path = (
+        data_root
+        / "log_archive"
+        / normalized_format.upper()
+        / str(parsed_date.year)
+        / parsed_date.strftime("%B")
+    ).resolve()
+    if not base_path.is_relative_to(data_root):
+        raise ValueError("Workout archive path escapes DATA_DIR")
 
-    base_path = base_path / settings['ATHLETE'] / "log_archive" / file_format.upper() / str(YEAR) / MONTH
-
-    # Construct the file pattern
-    file_pattern = f"*training_log_{date}"
-
-    # TODO: update logic to handle multiple workouts on a given day
+    file_pattern = f"*training_log_{parsed_date.isoformat()}"
     if workout_number > 1:
-        # base_path += f"_{workout_number}"
         file_pattern += f"_{workout_number}"
-    file_pattern += f".{file_format}"
+    file_pattern += f".{normalized_format}"
 
-    # full_path = base_path + '.' + file_format  # json or yml
     full_path = base_path / file_pattern
     logger.debug(f"Searching for files matching: {full_path}")
-    # /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2025/January/*training_log_2025-01-29.yml
-
-    # Use glob to find matching files
-    # log_path = glob.glob(full_path)
-    log_path = list(base_path.glob(file_pattern))
+    log_path = [
+        path
+        for path in base_path.glob(file_pattern)
+        if path.is_file() and path.resolve().is_relative_to(base_path)
+    ]
 
     logger.debug(f"{full_path = }")
     logger.debug(f"{log_path = }")
@@ -143,7 +159,7 @@ def insert_specific_log(
     if not log_path:
         raise FileNotFoundError(f"No files found for date {date} and workout number {workout_number}.")
 
-    insert_log(table, log_path, file_format)
+    insert_log(table, log_path, normalized_format, expected_date=parsed_date.isoformat())
 
 
 def main() -> None:
@@ -197,15 +213,15 @@ def main() -> None:
     dates = args.dates
     workout_number = args.workout_number
 
-    db, table, _ = set_db_and_table(datatype)
-    logger.debug("db: {}", db)
-
     logger.info("datatype: {}", datatype)
-    logger.debug("table: {}", table)
 
     if datatype == "real":
+        if not dates:
+            parser.error("--dates is required for real workout imports")
         logger.info("workout date(s): {}", dates)
         for date in dates.split(","):
+            parsed_date = parse_workout_date(date)
+            db, table, _ = set_db_and_table(datatype, year=parsed_date.year)
             if args.workout_number is None:
                 insert_specific_log(WorkoutDate(date), table, file_format)
             else:
@@ -213,6 +229,7 @@ def main() -> None:
                 logger.info("workout number: {}", workout_number)
 
     elif datatype == "simulated":
+        db, table, _ = set_db_and_table(datatype)
         insert_all_logs(table, "data/simulated/", file_format)
 
     else:

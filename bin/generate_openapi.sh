@@ -1,36 +1,24 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-# Add the src directory to the Python path
-# export PYTHONPATH=$(pwd)/src
+python - <<'PY'
+import json
+from pathlib import Path
 
-find_available_port() {
-  local port=8000
-  while lsof -i:$port &>/dev/null; do
-    port=$((port+1))
-  done
-  echo $port
-}
+import yaml
 
-PORT=$(find_available_port)
+from src.main import app
 
-# Start the FastAPI application
-poetry run uvicorn src.main:app --host 127.0.0.1 --port "$PORT" &
-PID=$!
-sleep 10  # Give the server time to start
-
-# Ensure the directory exists
-mkdir -p docs/project_docs/API-Schema/
-
-# Fetch the OpenAPI JSON and format it
-curl "http://127.0.0.1:$PORT/openapi.json" | jq . > docs/project_docs/API-Schema/openapi.json
-
-curl -v "http://127.0.0.1:$PORT/openapi.yaml" -o docs/project_docs/API-Schema/openapi.yaml
-
-# Kill the server
-kill $PID
-
-# npm install -g widdershins
-# cd docs/project_docs/API-Schema
-# widdershins openapi.json -o openapi.md --summary --language_tabs 'javascript' 'python'
+output_directory = Path("docs/project_docs/dev-docs/API-Schema")
+output_directory.mkdir(parents=True, exist_ok=True)
+schema = app.openapi()
+(output_directory / "openapi.json").write_text(
+    json.dumps(schema, indent=2) + "\n",
+    encoding="utf-8",
+)
+(output_directory / "openapi.yaml").write_text(
+    yaml.safe_dump(schema, sort_keys=False),
+    encoding="utf-8",
+)
+PY

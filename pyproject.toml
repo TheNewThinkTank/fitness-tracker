@@ -1,63 +1,84 @@
-[tool.poetry]
+[project]
 name = "fitness-tracker"
-version = "0.0.1"
+version = "0.1.0"
 description = "Full stack fitness tracking application using TinyDB and FastAPI"
-authors = ["Gustav Rasmussen <TheNewThinkTank@users.noreply.github.com>"]
+authors = [
+    { name = "Gustav Rasmussen", email = "TheNewThinkTank@users.noreply.github.com" },
+]
 license = "MIT"
+requires-python = ">=3.11,<4.0"
+dynamic = ["dependencies"]
+
+[tool.poetry]
 packages = [
     { include = "src" },
 ]
 
 [tool.poetry.dependencies]
-behave = "^1.2.6"
-fastapi = "^0.128.0"
+fastapi = "^0.141.1"
+starlette = "^1.6.0"
+pydantic = "^2.10.4"
+typing-extensions = "^4.12.2"
+python = "^3.11"
+PyYAML = "^6.0.2"
+tinydb = "^4.8.2"
+uvicorn = "^0.40.0"
+python-dotenv = "^1.0.1"
+orjson = "^3.10.12"
+dynaconf = "^3.2.7"
+loguru = "^0.7.3"
+regex = "^2026.1.15"
+
+[tool.poetry.group.analytics]
+optional = true
+
+[tool.poetry.group.analytics.dependencies]
+algo-library = "^0.0.10"
+athleteprofiler = "^0.1.1"
+datetime-convertion-tools = "^0.0.15"
 matplotlib = "^3.10.0"
 numpy = "^2.2.0"
 pandas = "^2.2.3"
-pydantic = "^2.10.4"
-python = "^3.11"
-PyYAML = "^6.0.2"
-seaborn = "^0.13.2"
-Sphinx = "^9.0.4"
-tinydb = "^4.8.2"
-uvicorn = "^0.40.0"
+profiling-tools = "^0.0.14"
+scikit-learn = "^1.6.0"
 scipy = "^1.14.1"
+seaborn = "^0.13.2"
+snakeviz = "^2.2.2"
+statsmodels = "^0.14.4"
+
+[tool.poetry.group.integrations]
+optional = true
+
+[tool.poetry.group.integrations.dependencies]
 google-api-python-client = "^2.156.0"
 google-auth-httplib2 = "^0.3.0"
 google-auth-oauthlib = "^1.2.1"
 gspread = "^6.1.4"
-python-dotenv = "^1.0.1"
-orjson = "^3.10.12"
-athleteprofiler = "^0.1.1"
-profiling-tools = "^0.0.14"
-# file-convertion-tools = "^0.0.16"  # uses tabula-py, with high CVE. Must be updated/changes before use.
-datetime-convertion-tools = "^0.0.15"
-algo-library = "^0.0.10"
-statsmodels = "^0.14.4"
-dynaconf = "^3.2.7"
-loguru = "^0.7.3"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+Sphinx = "^9.0.4"
 sphinx-rtd-theme = "^3.0.2"
-snakeviz = "^2.2.2"
-isort = "^7.0.0"
-regex = "^2026.1.15"
 
 [tool.poetry.group.dev.dependencies]
+behave = "^1.2.6"
 ruff = "^0.8.4"
 mypy = "^1.14.0"
 pytest = "^8.3.4"
 pytest-cov = "^6.0.0"
+httpx2 = "^2.12.0"
 watchfiles = "^1.0.3"
 wily = "^1.25"
 yamllint = "^1.35.1"
 icecream = "^2.1.3"
+isort = "^7.0.0"
 pandas-stubs = "^3.0.3.260530"
 types-seaborn = "^0.13.2.20260724"
 
 [tool.pytest.ini_options]
 pythonpath = "src"  # "src:src/crud"
-
-[tool.poetry.extras]
-docs = ["sphinx", "sphinx_rtd_theme"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

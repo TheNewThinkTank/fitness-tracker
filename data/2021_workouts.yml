@@ -78,6 +78,7 @@ weight_training_log:
       - set_number: 5
         reps: 14
         weight: 0 kg
+    id: 36f7bca5-dedd-5b61-a01b-717e3fde1a99
   '2':
     date: '2021-12-13'
     split: chest
@@ -142,6 +143,7 @@ weight_training_log:
       - set_number: 3
         reps: 10
         weight: 36 kg
+    id: a3e1d492-2dcf-51e0-ad5c-147011e510ad
   '3':
     date: '2021-12-15'
     split: back_and_biceps
@@ -219,6 +221,7 @@ weight_training_log:
       - set_number: 2
         reps: 10
         weight: 30 kg
+    id: 657064f9-bc10-580a-8965-5e5c5e78b163
   '4':
     date: '2021-12-16'
     split: shoulders_and_abs
@@ -270,6 +273,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 0 kg
+    id: 273b42b6-35d6-5a7c-88e0-3a2be6cc3fa1
   '5':
     date: '2021-12-25'
     split: legs
@@ -333,6 +337,7 @@ weight_training_log:
       - set_number: 2
         reps: 20
         weight: 40 kg
+    id: 360dd81f-4a26-5de0-8b39-b7c114b2c745
   '6':
     date: '2021-12-26'
     split: chest
@@ -407,6 +412,7 @@ weight_training_log:
       - set_number: 3
         reps: 8
         weight: 22 kg
+    id: c3af0931-d9ab-5ac1-bbed-47494107d006
   '7':
     date: '2021-12-28'
     split: back_and_biceps
@@ -484,6 +490,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 30 kg
+    id: 3987ba7e-c3ef-59ea-8d35-afb89748f729
   '8':
     date: '2021-12-29'
     split: shoulders_and_abs
@@ -574,3 +581,4 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: 0 kg
+    id: 64078fd3-90f5-5535-9035-0a5d9b45d445

@@ -1,12 +1,10 @@
 [default]
-# DEBUG = true
-# env_file = ".env"
-
-GOOGLE_DRIVE_DATA_PATH = "@jinja /Users/{{ env.USER }}/Library/CloudStorage/GoogleDrive-{{ env.EMAIL }}/My Drive/DATA/fitness-tracker-data"
-img_path = "@jinja {{ this.google_drive_data_path }}/{{ env.ATHLETE }}/img/"
-real_workout_database = "@jinja {{ this.google_drive_data_path }}/{{ env.ATHLETE }}/<YEAR>_workouts.yml"
-real_disciplines_database = "@jinja {{ this.google_drive_data_path }}/{{ env.ATHLETE }}/real_disciplines.json"
-simulated_workout_database = "@jinja {{ this.google_drive_data_path }}/sim_db.yml"
+data_dir = "data"
+athlete = "default"
+img_path = "@format {this.DATA_DIR}/img"
+real_workout_database = "@format {this.DATA_DIR}/<YEAR>_workouts.yml"
+real_disciplines_database = "@format {this.DATA_DIR}/real_disciplines.json"
+simulated_workout_database = "@format {this.DATA_DIR}/sim_db.yml"
 real_weight_table = "weight_training_log"
 real_disciplines_table = "disciplines_log"
 simulated_weight_table = "weight_training_log"
@@ -16,13 +14,10 @@ credentials_path = "local_assets/credentials.json"
 bodyweight_csv_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRPN6RmIAL_8-1x87e48ZkPs2ItSCRp33LxjbeWb7B6WdAZGEX6F_sll70oy58X-abor5xbA2Qt4ZQz/pub?output=csv"
 breath_holding_sheet_id = "1ibiNznk-iWExtRMi0zsbUQL04tXXnpFMKCDfx5rpVt4"
 bodyweight_sheet_id = "1my1zqAWtkhWXDWsrNf-It_dr541o6C7MndMcHOpKiSs"
-# VERSION = "0.0.1"
-
-# [development]
-# key2 = "development_value"
-
-# [production]
-# key2 = "production_value"
-
-[validator]
-GOOGLE_DRIVE_DATA_PATH = {must_exist=true}
+allowed_origins = [
+	"http://localhost:3000",
+	"http://localhost:5000",
+	"http://localhost:5173",
+	"http://localhost:8080",
+]
+api_token = ""

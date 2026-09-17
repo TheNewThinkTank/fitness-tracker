@@ -23,19 +23,20 @@
 # https://lh3.googleusercontent.com/d/1TLjAUuiVDSg3Y6UHymzOW-j1p44CCujO
 
 # Directory containing PNG files
-# Read USER, EMAIL and ATHLETE from .env file
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+PROJECT_ROOT=$(cd "$SCRIPT_DIR/.." && pwd)
 
-if [ -f ../.env ]; then
+if [[ -f "$PROJECT_ROOT/.env" ]]; then
   # shellcheck source=/dev/null
-  source ../.env
-else
-  echo "Warning: .env file not found. Using default values."
-  USER="default_user"
-  EMAIL="default_email"
-  ATHLETE="default_athlete"
+  source "$PROJECT_ROOT/.env"
 fi
 
-IMG_DIR="/Users/${USER}/Library/CloudStorage/GoogleDrive-${EMAIL}/My Drive/DATA/fitness-tracker-data/${ATHLETE}/img/2025"
+DATA_DIR="${FITNESS_TRACKER_DATA_DIR:-$PROJECT_ROOT/data}"
+if [[ "$DATA_DIR" != /* ]]; then
+  DATA_DIR="$PROJECT_ROOT/$DATA_DIR"
+fi
+YEAR="${1:-$(date +%Y)}"
+IMG_DIR="$DATA_DIR/img/$YEAR"
 
 # Function to get Google Drive file ID using gdrive
 get_file_id() {

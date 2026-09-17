@@ -3,35 +3,103 @@ name: Fitness Tracker Workflow
 
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
 
-env:
-  PYTHONVERSION: 3.11
-
 jobs:
-
-  vars:
-    runs-on: ubuntu-latest
-    outputs:
-      PYTHONVERSION: ${{ env.PYTHONVERSION }}
-    steps:
-      - run: echo "Exposing env vars"
-
   qualify_code:
-    needs: vars
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
     uses: ./.github/workflows/job_qualify_code.yml
     with:
-      PYTHONVERSION: ${{ needs.vars.outputs.PYTHONVERSION }}
-      google_drive_data_path: "data"
-    secrets:
-      ATHLETE: ${{ secrets.ATHLETE }}
-      EMAIL: ${{ secrets.EMAIL }}
-      USER: ${{ secrets.USER }}
+      PYTHONVERSION: ${{ matrix.python-version }}
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install locked frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Audit frontend dependencies
+        working-directory: frontend
+        run: npm audit --audit-level=moderate
+
+      - name: Check frontend types
+        working-directory: frontend
+        run: npm run check
+
+      - name: Test frontend
+        working-directory: frontend
+        run: npm test
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+  containers:
+    needs: [qualify_code, frontend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install browser test dependencies
+        working-directory: frontend
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Build and test containers
+        env:
+          FITNESS_TRACKER_API_TOKEN: test-token
+          E2E_BASE_URL: http://127.0.0.1:3000
+        run: |
+          set -euo pipefail
+          trap 'docker compose down --volumes' EXIT
+          docker compose up --build --detach --wait
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://127.0.0.1:8000/years)" = "401"
+          test "$(curl --silent --header 'X-API-Key: test-token' --output /dev/null --write-out '%{http_code}' http://127.0.0.1:8000/years)" = "200"
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://127.0.0.1:3000/api/years)" = "200"
+          npm --prefix frontend run test:e2e
+
+      - name: Upload browser failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-test-results
+          path: |
+            frontend/playwright-report/
+            frontend/test-results/
+          retention-days: 7
 
   docker_image_workflow:
-    needs: qualify_code
+    if: github.event_name != 'pull_request'
+    needs: containers
+    permissions:
+      contents: read
+      packages: write
     uses: ./.github/workflows/job_docker_image.yml
     with:
       image-name: fitness-tracker

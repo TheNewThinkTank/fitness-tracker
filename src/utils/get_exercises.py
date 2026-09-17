@@ -6,7 +6,6 @@ from __future__ import annotations
 
 from functools import lru_cache
 from pprint import pformat  # type: ignore
-from typing import Any
 
 from loguru import logger  # type: ignore
 

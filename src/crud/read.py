@@ -5,10 +5,9 @@ Docs: https://tinydb.readthedocs.io/en/latest/getting-started.html
 """
 
 from pprint import pformat  # type: ignore
-from typing import Any, cast
 from loguru import logger  # type: ignore
 from tinydb import Query  # type: ignore  # used by analyze_workout
-from src.common.workout_types import WorkoutRecord, is_workout_record
+from src.common.workout_types import is_workout_record
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 
 

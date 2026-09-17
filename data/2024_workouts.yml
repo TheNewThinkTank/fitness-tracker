@@ -61,6 +61,7 @@ weight_training_log:
         reps: 1
         weight: BODYWEIGHT kg
         duration: 60 seconds
+    id: b67aadc0-a5b2-5c5b-86a3-5e34ad5cfa9b
   '189':
     date: '2024-01-10'
     start_time: '14:58'
@@ -125,6 +126,7 @@ weight_training_log:
       - set_number: 2
         reps: 6
         weight: 32 kg
+    id: 125e8480-bb41-5312-8eec-328f8e5d486a
   '190':
     date: '2024-01-12'
     start_time: '15:41'
@@ -192,6 +194,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 40 kg
+    id: 174d0e5d-3704-5678-bf31-dd12e647e8a8
   '191':
     date: '2024-01-18'
     start_time: '19:40'
@@ -255,6 +258,7 @@ weight_training_log:
         reps: 1
         weight: BODYWEIGHT kg
         duration: 70 seconds
+    id: 1b9f781e-a55c-5854-8029-d39f624063ea
   '192':
     date: '2024-01-22'
     start_time: '16:02'
@@ -319,6 +323,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 28 kg
+    id: 39b6ff8c-c8b6-5159-a4c8-e29149c12d35
   '193':
     date: '2024-01-27'
     start_time: '16:47'
@@ -387,6 +392,7 @@ weight_training_log:
       - set_number: 3
         reps: 10
         weight: 39 kg
+    id: a9d55dff-13f2-512c-aeef-056758692fdb
   '194':
     date: '2024-02-01'
     start_time: '14:44'
@@ -449,6 +455,7 @@ weight_training_log:
         reps: 1
         weight: BODYWEIGHT kg
         duration: 60 seconds
+    id: 3ede0c5f-d8fe-56b7-ab0a-0bbc8e1a4c4d
   '195':
     date: '2024-02-11'
     start_time: '16:20'
@@ -514,6 +521,7 @@ weight_training_log:
       - set_number: 2
         reps: 6
         weight: 28 kg
+    id: a503ab06-dd10-5283-8388-4bcc20af1c27
   '196':
     date: '2024-02-18'
     start_time: '14:33'
@@ -582,6 +590,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 40 kg
+    id: fdf986cf-0800-56cf-9a8a-32260ecb7727
   '197':
     date: '2024-02-20'
     start_time: '11:50'
@@ -644,6 +653,7 @@ weight_training_log:
         reps: 1
         weight: BODYWEIGHT kg
         duration: 60 seconds
+    id: ef833a8a-1c66-5f35-a739-1cd98ef55b6d
   '198':
     date: '2024-02-23'
     start_time: '15:23'
@@ -709,6 +719,7 @@ weight_training_log:
       - set_number: 2
         reps: 4
         weight: 28 kg
+    id: bff9aa3d-4310-542e-ad5f-0bf2e1230d85
   '199':
     date: '2024-02-25'
     start_time: '12:30'
@@ -777,6 +788,7 @@ weight_training_log:
       - set_number: 3
         reps: 10
         weight: 45 kg
+    id: 1df72556-c310-5925-9851-d50c11982bff
   '200':
     date: '2024-03-03'
     start_time: '10:18'
@@ -833,6 +845,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 13.5 kg
+    id: e972a01f-69ff-5d79-8b8d-935aed063c63
   '201':
     date: '2024-03-05'
     start_time: '10:12'
@@ -899,6 +912,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 25 kg
+    id: a13b6460-24a1-547f-8fa2-c0ca7b67f183
   '202':
     date: '2024-03-09'
     start_time: '14:08'
@@ -968,6 +982,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 39 kg
+    id: d3ec4b50-da69-5014-99ba-4bad1fe99962
   '203':
     date: '2024-03-16'
     start_time: '11:58'
@@ -1024,6 +1039,7 @@ weight_training_log:
       - set_number: 2
         reps: 6
         weight: 20 kg
+    id: 09976597-cafc-5a84-993b-e339bec5c68b
   '204':
     date: '2024-03-17'
     start_time: '12:14'
@@ -1090,6 +1106,7 @@ weight_training_log:
       - set_number: 2
         reps: 5
         weight: 35 kg
+    id: c9407fca-b652-547b-84a2-d3c6f4f2c695
   '205':
     date: '2024-03-24'
     start_time: '18:55'
@@ -1156,6 +1173,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 60 kg
+    id: 24e5ce49-139e-5d97-aeb7-d9c32bea1ffc
   '206':
     date: '2024-03-27'
     start_time: '13:01'
@@ -1212,6 +1230,7 @@ weight_training_log:
       - set_number: 2
         reps: 10
         weight: 12.5 kg
+    id: 2c6121b1-637b-5346-a50b-b8b56eb1ac2a
   '207':
     date: '2024-03-28'
     start_time: '12:43'
@@ -1278,6 +1297,7 @@ weight_training_log:
       - set_number: 2
         reps: 5
         weight: 35 kg
+    id: 0ddec73f-b247-5180-ac15-0f82e8bdb6cf
   '208':
     date: '2024-03-30'
     start_time: '12:45'
@@ -1347,6 +1367,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: 50 kg
+    id: 50e98bb6-b33a-5ec1-8b13-f5942665224e
   '209':
     date: '2024-04-01'
     start_time: '12:42'
@@ -1403,6 +1424,7 @@ weight_training_log:
       - set_number: 2
         reps: 12
         weight: 10 kg
+    id: 5ad0eb97-52ae-5ba6-80b5-8d3049bf48df
   '210':
     date: '2024-04-11'
     start_time: '18:14'
@@ -1469,6 +1491,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 30 kg
+    id: 1d9f0247-5700-5a28-bfa5-d64d767dbd56
   '211':
     date: '2024-04-12'
     start_time: '13:57'
@@ -1538,6 +1561,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 50 kg
+    id: 8591a65c-b3d4-50e1-84d3-1e47963af681
   '212':
     date: '2024-04-13'
     start_time: '19:50'
@@ -1594,6 +1618,7 @@ weight_training_log:
       - set_number: 2
         reps: 12
         weight: 9 kg
+    id: f7a11a4d-0384-5f0a-86e4-ca7c571798a2
   '213':
     date: '2024-04-20'
     start_time: '13:14'
@@ -1660,6 +1685,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 25 kg
+    id: 9b876432-18af-5412-961c-7e1912c6abaa
   '214':
     date: '2024-05-05'
     start_time: '13:29'
@@ -1729,6 +1755,7 @@ weight_training_log:
       - set_number: 3
         reps: 10
         weight: 52 kg
+    id: 43cf9d71-0194-538f-b417-9fc0abee5bd8
   '215':
     date: '2024-06-08'
     start_time: '10:30'
@@ -1785,6 +1812,7 @@ weight_training_log:
       - set_number: 2
         reps: 12
         weight: 9 kg
+    id: 0ff6bd9f-197a-5823-a06f-d5c96934153b
   '216':
     date: '2024-06-11'
     start_time: '11:07'
@@ -1851,6 +1879,7 @@ weight_training_log:
       - set_number: 2
         reps: 10
         weight: 20 kg
+    id: af28c7bc-b3b1-59cd-83a8-2c2b75ffad69
   '217':
     date: '2024-06-13'
     start_time: '13:33'
@@ -1920,6 +1949,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 45 kg
+    id: 0e3e6b06-36ef-5eec-9af0-b6c1e5edb987
   '218':
     date: '2024-06-18'
     start_time: '15:40'
@@ -1976,6 +2006,7 @@ weight_training_log:
       - set_number: 2
         reps: 7
         weight: 15 kg
+    id: 289d9212-37d8-5c40-9f22-ad6bbd0a6350
   '219':
     date: '2024-06-29'
     start_time: '15:45'
@@ -2004,6 +2035,7 @@ weight_training_log:
       - set_number: 6
         reps: 5
         weight: BODYWEIGHT kg
+    id: 0c8ff803-05a3-5e6a-804d-c7eef8cb129e
   '220':
     date: '2024-07-06'
     start_time: '10:52'
@@ -2073,6 +2105,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 45 kg
+    id: 2b3d9be9-e91d-506b-98b9-b494bafef23e
   '221':
     date: '2024-07-07'
     start_time: '21:44'
@@ -2104,6 +2137,7 @@ weight_training_log:
       - set_number: 7
         reps: 8
         weight: BODYWEIGHT kg
+    id: 9a5207e8-766e-52cd-9d05-7a49f4f79c04
   '222':
     date: '2024-07-09'
     start_time: '20:19'
@@ -2170,6 +2204,7 @@ weight_training_log:
       - set_number: 2
         reps: 7
         weight: 30 kg
+    id: 65f816c3-6ec9-5bc0-96bb-d5fd18479d37
   '223':
     date: '2024-07-11'
     start_time: '13:17'
@@ -2239,6 +2274,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 45 kg
+    id: e0fb0cc3-67e5-5c5b-b66f-fe95f604e37e
   '224':
     date: '2024-07-13'
     start_time: '12:29'
@@ -2295,6 +2331,7 @@ weight_training_log:
       - set_number: 2
         reps: 7
         weight: 13.5 kg
+    id: 82ca5d2a-3b35-5397-adf3-5231e73d67e0
   '225':
     date: '2024-07-15'
     start_time: '15:25'
@@ -2361,6 +2398,7 @@ weight_training_log:
       - set_number: 2
         reps: 7
         weight: 30 kg
+    id: ba610572-07b2-5cc0-8c21-a23ead065832
   '226':
     date: '2024-07-17'
     start_time: '15:45'
@@ -2430,6 +2468,7 @@ weight_training_log:
       - set_number: 3
         reps: 10
         weight: 59 kg
+    id: 17905830-4712-538e-bc37-47e417873fd7
   '227':
     date: '2024-07-18'
     start_time: '15:13'
@@ -2486,6 +2525,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 20 kg
+    id: 2e076fe9-70e5-5f7f-b5f3-11c114ffbb01
   '228':
     date: '2024-07-27'
     start_time: '21:04'
@@ -2545,6 +2585,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: Sidea_9012_Olympic_Hex_Bar + 20 kg
+    id: bccf7716-32c2-566a-9180-5b3238d5e492
   '229':
     date: '2024-07-29'
     start_time: '12:23'
@@ -2618,6 +2659,7 @@ weight_training_log:
       - set_number: 3
         reps: 20
         weight: BODYWEIGHT kg
+    id: e042dfdb-ae08-52d5-9841-7e15a54399fc
   '230':
     date: '2024-07-31'
     start_time: '16:48'
@@ -2677,6 +2719,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 40 kg
+    id: e99a846b-d2cf-5d63-bf8e-fad28cd4bf11
   '231':
     date: '2024-08-04'
     start_time: '18:03'
@@ -2736,6 +2779,7 @@ weight_training_log:
       - set_number: 2
         reps: 10
         weight: 16 kg
+    id: 28d677ad-3ceb-5b75-9025-7b2f0054ebd7
   '232':
     date: '2024-08-05'
     start_time: '15:03'
@@ -2795,6 +2839,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: Sidea_9012_Olympic_Hex_Bar + 30 kg
+    id: eb87eb6c-07d9-5326-b27c-c89f42c2b4e5
   '233':
     date: '2024-08-06'
     start_time: '15:26'
@@ -2868,6 +2913,7 @@ weight_training_log:
       - set_number: 3
         reps: 20
         weight: BODYWEIGHT kg
+    id: 62129e3f-5034-5489-a3dc-e05217e022d8
   '234':
     date: '2024-08-10'
     start_time: '13:44'
@@ -2927,6 +2973,7 @@ weight_training_log:
       - set_number: 3
         reps: 9
         weight: 45 kg
+    id: 9834a697-561e-5cbb-9440-9e786e56cc2e
   '235':
     date: '2024-08-15'
     start_time: '11:16'
@@ -2986,6 +3033,7 @@ weight_training_log:
       - set_number: 2
         reps: 8
         weight: 18 kg
+    id: bc212967-d6ac-595e-a7cc-806cd0d7d515
   '236':
     date: '2024-08-16'
     start_time: 09:47
@@ -3045,6 +3093,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: Sidea_9012_Olympic_Hex_Bar + 20 kg
+    id: 0c8e2335-469c-5dde-93cb-8c5c342f4042
   '237':
     date: '2024-08-22'
     start_time: '11:44'
@@ -3118,6 +3167,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: BODYWEIGHT kg
+    id: e19ee86f-7752-5bb2-98e7-a1181957fd70
   '238':
     date: '2024-09-08'
     start_time: '15:25'
@@ -3177,6 +3227,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 23 kg
+    id: ca7802d2-ac86-5ef3-b754-ace11a65c986
   '239':
     date: '2024-09-16'
     start_time: '20:55'
@@ -3216,6 +3267,7 @@ weight_training_log:
       - set_number: 3
         reps: 8
         weight: 28 kg
+    id: fe8ef18d-0fc5-5f92-a8a3-62d907a91ec3
   '240':
     date: '2024-09-22'
     start_time: '21:04'
@@ -3248,6 +3300,7 @@ weight_training_log:
       - set_number: 2
         reps: 12
         weight: 32 kg
+    id: 595984ba-01d0-5576-8118-2575301466a9
   '241':
     date: '2024-10-05'
     start_time: '11:57'
@@ -3323,6 +3376,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: BODYWEIGHT kg
+    id: b5ac48a8-96f6-52f5-9dfe-4409db84958e
   '242':
     date: '2024-10-07'
     start_time: '18:56'
@@ -3382,6 +3436,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 18 kg
+    id: c73ff849-50b4-525a-b9a8-0e2b25e03f85
   '243':
     date: '2024-10-10'
     start_time: '10:44'
@@ -3442,6 +3497,7 @@ weight_training_log:
       - set_number: 3
         reps: 10
         weight: 18 kg
+    id: 16c60682-2ccf-5090-adbf-b968138e95e5
   '244':
     date: '2024-10-13'
     start_time: '11:50'
@@ -3503,6 +3559,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: Sidea_9012_Olympic_Hex_Bar + 20 kg
+    id: 1a4d2180-ed1c-5dc0-b947-fa7e6f5c4e78
   '245':
     date: '2024-10-28'
     start_time: '16:18'
@@ -3578,6 +3635,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: BODYWEIGHT kg
+    id: 9ea4e36a-8650-58a2-9039-001681d55bee
   '246':
     date: '2024-10-31'
     start_time: '19:00'
@@ -3639,6 +3697,7 @@ weight_training_log:
       - set_number: 3
         reps: 10
         weight: 25 kg
+    id: 1491acf6-1d98-5590-b658-2cb5d61cf463
   '247':
     date: '2024-11-09'
     start_time: '18:00'
@@ -3698,6 +3757,7 @@ weight_training_log:
       - set_number: 3
         reps: 8
         weight: 18 kg
+    id: eb9dbb3c-cb4b-5c08-88d4-8a9d3f47eb27
   '248':
     date: '2024-12-06'
     start_time: '14:45'
@@ -3738,6 +3798,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 44 kg
+    id: 8d0dd701-17d5-5702-a524-d04345e43015
   '249':
     date: '2024-12-07'
     start_time: '15:07'
@@ -3812,6 +3873,7 @@ weight_training_log:
       - set_number: 3
         reps: 20
         weight: BODYWEIGHT kg
+    id: f32f2ffb-f540-5629-8edf-6f26ae1e5ddf
   '250':
     date: '2024-12-22'
     start_time: '11:55'
@@ -3872,6 +3934,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: 27 kg
+    id: 3fdbe5da-20e9-5bc2-af79-296bb7002cb5
   '251':
     date: '2024-12-23'
     start_time: '12:55'
@@ -3931,6 +3994,7 @@ weight_training_log:
       - set_number: 3
         reps: 12
         weight: 20 kg
+    id: abc34b5c-3327-53b0-9c71-54beacb861ec
   '252':
     date: '2024-12-25'
     start_time: '13:53'
@@ -3990,6 +4054,7 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: Sidea_9012_Olympic_Hex_Bar + 30 kg
+    id: e4855088-6e90-59cc-8e30-d5befa40e6fa
   '253':
     date: '2024-12-28'
     start_time: '14:12'
@@ -4064,3 +4129,4 @@ weight_training_log:
       - set_number: 3
         reps: 15
         weight: BODYWEIGHT kg
+    id: ca461f6e-b99b-5ecc-8500-96b570c3b3cb

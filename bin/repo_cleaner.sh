@@ -21,7 +21,6 @@ find_large_files() {
 # git rm -r --cached docs/project_docs/img/
 # git rm -r --cached dist/
 # git rm -r --cached node_modules/
-# git rm -r --cached public/build/
 # git rm -r --cached .svelte-kit/
 # git rm --cached .env
 # git rm -r --cached .vscode/

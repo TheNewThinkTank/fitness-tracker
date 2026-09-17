@@ -1,6 +1,5 @@
 
 from unittest.mock import MagicMock
-from tinydb import TinyDB
 from src.crud.update import (  # type: ignore
     filter_exercises_with_whitespace,
     clean_exercise_name,

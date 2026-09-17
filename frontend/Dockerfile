@@ -15,7 +15,7 @@ FROM dependencies AS build
 COPY . .
 RUN npm run check && npm test && npm run build
 
-FROM nginxinc/nginx-unprivileged:1.30.4-alpine-slim@sha256:11f3f6249b4ae3d7a4ec2a51797060107b88ead52b33b6ed3c6c33f55ca96200 AS runtime
+FROM nginxinc/nginx-unprivileged:1.31.6-alpine-slim@sha256:dcc9bf9c084901dddbbce305130a7295c5637b6a8fce3e29cf678d86336982e4 AS runtime
 
 LABEL org.opencontainers.image.title="Fitness Tracker Frontend" \
 	org.opencontainers.image.version="0.1.0" \

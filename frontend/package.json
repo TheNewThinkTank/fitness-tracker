@@ -17,7 +17,7 @@
   "dependencies": {
     "@fontsource/barlow-condensed": "^5.2.7",
     "@fontsource/source-sans-3": "^5.2.7",
-    "@lucide/svelte": "^0.544.0",
+    "@lucide/svelte": "^1.46.0",
     "svelte": "^5.0.0",
     "zod": "^4.1.0"
   },

@@ -75,7 +75,7 @@ jobs:
         run: poetry run pytest --rootdir=$(pwd) test/ --cov --cov-report=xml
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v6
         with:
           slug: TheNewThinkTank/fitness-tracker
           verbose: true

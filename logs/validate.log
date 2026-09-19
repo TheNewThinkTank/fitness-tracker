@@ -360,3 +360,67 @@
                   {'reps': 3, 'set_number': 3, 'weight': 'BODYWEIGHT kg'}],
  'pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
             {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}]}
+09-19 15:04 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-19 15:04 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml
+09-19 15:04 __main__ DEBUG {'bulgarian_split_squat': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                           {'reps': 5, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_cross_over': [{'reps': 12, 'set_number': 1, 'weight': '30 kg'},
+                      {'reps': 8, 'set_number': 2, 'weight': '30 kg'}],
+ 'cable_crunch': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                  {'reps': 10, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_upright_row': [{'reps': 15, 'set_number': 1, 'weight': '17.5 kg'},
+                       {'reps': 15, 'set_number': 2, 'weight': '17.5 kg'}],
+ 'clean_and_jerk': [{'reps': 5, 'set_number': 1, 'weight': '40 kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': '40 kg'}],
+ 'gironda_pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'incline_bb_press': [{'reps': 12, 'set_number': 1, 'weight': '40 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '40 kg'}]}
+09-19 15:06 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-19 15:06 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml
+09-19 15:06 __main__ DEBUG {'bulgarian_split_squat': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                           {'reps': 5, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_cross_over': [{'reps': 12, 'set_number': 1, 'weight': '30 kg'},
+                      {'reps': 8, 'set_number': 2, 'weight': '30 kg'}],
+ 'cable_crunch': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                  {'reps': 10, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_upright_row': [{'reps': 15, 'set_number': 1, 'weight': '17.5 kg'},
+                       {'reps': 15, 'set_number': 2, 'weight': '17.5 kg'}],
+ 'clean_and_jerk': [{'reps': 5, 'set_number': 1, 'weight': '40 kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': '40 kg'}],
+ 'gironda_pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'incline_bb_press': [{'reps': 12, 'set_number': 1, 'weight': '40 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '40 kg'}]}
+09-19 15:09 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-19 15:09 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml
+09-19 15:09 __main__ DEBUG {'bulgarian_split_squat': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                           {'reps': 5, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_cross_over': [{'reps': 12, 'set_number': 1, 'weight': '30 kg'},
+                      {'reps': 8, 'set_number': 2, 'weight': '30 kg'}],
+ 'cable_crunch': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                  {'reps': 10, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_upright_row': [{'reps': 15, 'set_number': 1, 'weight': '17.5 kg'},
+                       {'reps': 15, 'set_number': 2, 'weight': '17.5 kg'}],
+ 'clean_and_jerk': [{'reps': 5, 'set_number': 1, 'weight': '40 kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': '40 kg'}],
+ 'gironda_pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'incline_bb_press': [{'reps': 12, 'set_number': 1, 'weight': '40 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '40 kg'}]}
+09-19 15:16 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-19 15:16 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml
+09-19 15:16 __main__ DEBUG {'bulgarian_split_squat': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                           {'reps': 5, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_cross_over': [{'reps': 12, 'set_number': 1, 'weight': '30 kg'},
+                      {'reps': 8, 'set_number': 2, 'weight': '30 kg'}],
+ 'cable_crunch': [{'reps': 10, 'set_number': 1, 'weight': '20 kg'},
+                  {'reps': 10, 'set_number': 2, 'weight': '20 kg'}],
+ 'cable_upright_row': [{'reps': 15, 'set_number': 1, 'weight': '17.5 kg'},
+                       {'reps': 15, 'set_number': 2, 'weight': '17.5 kg'}],
+ 'clean_and_jerk': [{'reps': 5, 'set_number': 1, 'weight': '40 kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': '40 kg'}],
+ 'gironda_pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'incline_bb_press': [{'reps': 12, 'set_number': 1, 'weight': '40 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '40 kg'}]}

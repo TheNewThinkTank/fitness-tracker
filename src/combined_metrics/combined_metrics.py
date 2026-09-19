@@ -47,7 +47,7 @@ def configure_plot(ax: Any, x_ticks: Any, x_label: str, y_label: str, title: str
 
 
 def _get_plot_path(img_path: str, year_to_plot: str, filename: str) -> str:
-    return f"{img_path}{year_to_plot}/{filename}"
+    return str(Path(img_path) / year_to_plot / filename)
 
 
 def plot_frequency(

@@ -70,6 +70,12 @@ teardown() {
     [ "$status" -ne 0 ]
 }
 
+@test "find_workout_files handles a missing archive directory" {
+    run find_workout_files "$TMP_DIR/missing" "2026-09-14" "yml"
+    [ "$status" -eq 0 ]
+    [ -z "$output" ]
+}
+
 # TODO: complete test below
 # @test "insert_data calls Python script with correct arguments" {
 #     run insert_data "yml" "2024-12-06"

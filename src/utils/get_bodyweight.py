@@ -26,12 +26,20 @@ def get_bw(url: str | None = None) -> float:
     if df.empty:
         raise ValueError("Bodyweight data is empty.")
 
-    if "BODYWEIGHT_KG" not in df.columns:
-        raise ValueError("Bodyweight CSV is missing the BODYWEIGHT_KG column.")
+    bodyweight_column = next(
+        (
+            column
+            for column in ("BODYWEIGHT_KG", "DAILY_BODYWEIGHT_KG")
+            if column in df.columns
+        ),
+        None,
+    )
+    if bodyweight_column is None:
+        raise ValueError(
+            "Bodyweight CSV is missing a BODYWEIGHT_KG or DAILY_BODYWEIGHT_KG column."
+        )
 
-    latest_value = df["BODYWEIGHT_KG"].iloc[-1]
-    if pd.isna(latest_value):
-        raise ValueError("Latest bodyweight value is missing.")
+    latest_value = df[bodyweight_column].dropna().iloc[-1]
 
     return float(latest_value)
 

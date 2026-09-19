@@ -2628,3 +2628,113 @@
 2026-08-25 08:50:38 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/August/fullbody_training_log_2026-08-20.yml inserted into the database.
 2026-08-25 08:50:44 - Figures prepared successfully.
 2026-08-25 08:50:44 - Workflow completed successfully
+2026-09-19 14:38:40 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Documents/projects/fitness-tracker/data
+2026-09-19 14:38:40 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Documents/projects/fitness-tracker/data/img/2026/
+2026-09-19 14:38:40 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Documents/projects/fitness-tracker/data
+2026-09-19 14:38:40 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Documents/projects/fitness-tracker/data/img/2026/
+2026-09-19 14:38:40 - Workflow started
+2026-09-19 14:38:40 - Processing for date: 2026-09-14
+2026-09-19 14:38:40 - BASE_PATH: /Users/gustavcollinrasmussen/Documents/projects/fitness-tracker/data/log_archive/YML/2026/September
+2026-09-19 14:38:40 - Error: No workout files found for date 2026-09-14.
+2026-09-19 14:50:27 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data
+2026-09-19 14:50:27 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data/img/2026/
+2026-09-19 14:50:27 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data
+2026-09-19 14:50:27 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data/img/2026/
+2026-09-19 14:50:27 - Workflow started
+2026-09-19 14:50:27 - Processing for date: 2026-09-14
+2026-09-19 14:50:27 - BASE_PATH: /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data/log_archive/YML/2026/September
+2026-09-19 14:50:27 - Error: No workout files found for date 2026-09-14.
+2026-09-19 14:55:16 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data
+2026-09-19 14:55:16 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data/img/2026/
+2026-09-19 14:55:16 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data
+2026-09-19 14:55:16 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data/img/2026/
+2026-09-19 14:55:16 - Workflow started
+2026-09-19 14:55:16 - Processing for date: 2026-09-14
+2026-09-19 14:55:16 - BASE_PATH: /Users/gustavcollinrasmussen/Google Drive/My Drive/DATA/fitness-tracker-data/log_archive/YML/2026/September
+2026-09-19 14:55:16 - Error: No workout files found for date 2026-09-14.
+2026-09-19 14:58:53 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 14:58:53 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 14:58:53 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 14:58:53 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 14:58:53 - Workflow started
+2026-09-19 14:58:53 - Processing for date: 2026-09-14
+2026-09-19 14:59:06 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 14:59:06 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 14:59:06 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 14:59:06 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 14:59:06 - Workflow started
+2026-09-19 14:59:06 - Processing for date: 2026-09-14
+2026-09-19 14:59:06 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September
+2026-09-19 14:59:06 - Found 1 workout files for date 2026-09-14.
+2026-09-19 14:59:06 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml (Workout number: 1)
+2026-09-19 14:59:11 - Error: Validation failed for file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml.
+2026-09-19 14:59:13 - Error: Failed to prepare figures.
+2026-09-19 15:01:09 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:01:09 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:01:09 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:01:09 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:01:09 - Workflow started
+2026-09-19 15:01:09 - Processing for date: 2026-09-14
+2026-09-19 15:01:09 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September
+2026-09-19 15:01:09 - Found 1 workout files for date 2026-09-14.
+2026-09-19 15:01:09 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml (Workout number: 1)
+2026-09-19 15:01:14 - Error: Validation failed for file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml.
+2026-09-19 15:01:16 - Error: Failed to prepare figures.
+2026-09-19 15:03:22 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:03:22 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:03:22 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:03:22 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:03:22 - Workflow started
+2026-09-19 15:03:22 - Processing for date: 2026-09-14
+2026-09-19 15:03:22 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September
+2026-09-19 15:03:22 - Found 1 workout files for date 2026-09-14.
+2026-09-19 15:03:22 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml (Workout number: 1)
+2026-09-19 15:03:23 - Error: Validation failed for file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml.
+2026-09-19 15:03:47 - Error: Failed to prepare figures.
+2026-09-19 15:04:03 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:04:03 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:04:03 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:04:03 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:04:03 - Workflow started
+2026-09-19 15:04:03 - Processing for date: 2026-09-14
+2026-09-19 15:04:03 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September
+2026-09-19 15:04:03 - Found 1 workout files for date 2026-09-14.
+2026-09-19 15:04:03 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml (Workout number: 1)
+2026-09-19 15:04:03 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml inserted into the database.
+2026-09-19 15:04:09 - Error: Failed to prepare figures.
+2026-09-19 15:06:26 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:06:26 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:06:26 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:06:26 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:06:26 - Workflow started
+2026-09-19 15:06:26 - Processing for date: 2026-09-14
+2026-09-19 15:06:26 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September
+2026-09-19 15:06:26 - Found 1 workout files for date 2026-09-14.
+2026-09-19 15:06:26 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml (Workout number: 1)
+2026-09-19 15:06:27 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml inserted into the database.
+2026-09-19 15:06:33 - Figures prepared successfully.
+2026-09-19 15:06:33 - Workflow completed successfully
+2026-09-19 15:09:40 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:09:40 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:09:40 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:09:40 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:09:40 - Workflow started
+2026-09-19 15:09:40 - Processing for date: 2026-09-14
+2026-09-19 15:09:40 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September
+2026-09-19 15:09:40 - Found 1 workout files for date 2026-09-14.
+2026-09-19 15:09:40 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml (Workout number: 1)
+2026-09-19 15:09:41 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml inserted into the database.
+2026-09-19 15:09:46 - Figures prepared successfully.
+2026-09-19 15:09:46 - Workflow completed successfully
+2026-09-19 15:16:36 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:16:36 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:16:36 - DEBUG: FITNESS_TRACKER_DATA_DIR = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen
+2026-09-19 15:16:36 - DEBUG: IMG_PATH = /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/img/2026/
+2026-09-19 15:16:36 - Workflow started
+2026-09-19 15:16:36 - Processing for date: 2026-09-14
+2026-09-19 15:16:36 - BASE_PATH: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September
+2026-09-19 15:16:36 - Found 1 workout files for date 2026-09-14.
+2026-09-19 15:16:36 - Processing workout file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml (Workout number: 1)
+2026-09-19 15:16:37 - Data from file /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-14.yml inserted into the database.
+2026-09-19 15:16:43 - Figures prepared successfully.
+2026-09-19 15:16:43 - Workflow completed successfully

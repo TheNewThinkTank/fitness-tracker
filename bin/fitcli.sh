@@ -6,6 +6,7 @@ set -euo pipefail
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 PROJECT_ROOT=$(cd "$SCRIPT_DIR/.." && pwd)
+export PYTHONPATH="$PROJECT_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 
 # shellcheck disable=SC2034
 CONFIG_FILE="$PROJECT_ROOT/.config/fitcli.conf"
@@ -75,7 +76,9 @@ process_workout_date() {
   fi
 
   MONTH_NAME=$(get_month_name "$MONTH_NUM")
-  BASE_PATH="${FITNESS_TRACKER_DATA_DIR%/}/log_archive/${FILE_FORMAT^^}/${YEAR}/${MONTH_NAME}"
+  local archive_format
+  archive_format=$(printf '%s' "$FILE_FORMAT" | tr '[:lower:]' '[:upper:]')
+  BASE_PATH="${FITNESS_TRACKER_DATA_DIR%/}/log_archive/${archive_format}/${YEAR}/${MONTH_NAME}"
 
   log "BASE_PATH: $BASE_PATH"
 

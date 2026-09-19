@@ -1,0 +1,72 @@
+exercises:
+- abs:
+  - crunch
+  - hanging_leg_raise
+  - leg_raise
+  - plank
+  - plank_variations:
+    - side_plank
+    - plank_to_push_up
+  - reverse_crunch
+  - russian_twist
+  - side_jackknife
+  - toe_to_bar
+- back:
+  - bb_shrug
+  - bent_over_row
+  - chinup
+  - face_pull
+  - lat_pulldown
+  - pullup
+  - reverse_grip_chinup
+  - seated_row
+  - t_bar_row
+- chest:
+  - bb_bench_press
+  - bb_incline_press
+  - cable_crossover
+  - db_decline_press
+  - db_fly
+  - db_incline_press
+  - db_pullover
+  - dip
+- arms:
+  - bb_curl
+  - cable_triceps_extention
+  - close_grip_bench_press
+  - ezbar_pronated_curl
+  - forearm_cable_supination
+  - french_press
+  - hammer_curl
+  - hanging
+  - overhead_tricep_extension
+  - preacher_curl
+  - skull_crusher
+- legs:
+  - bb_lunge
+  - bulgarian_split_squat
+  - deadlift
+  - front_squat
+  - glute_bridge
+  - hip_thrust
+  - leg_curl
+  - leg_extention
+  - legpress
+  - pistol_squat
+  - romanian_deadlift_(RDL)
+  - seated_calf_raise
+  - squat
+  - standing_calf_raise
+  - step_up
+  - sumo_deadlift
+- shoulders:
+  - arnold_press
+  - cable_crossover
+  - db_front_laterals
+  - db_incline_front_lateral_raise
+  - db_military_press
+  - db_rear_laterals
+  - db_reverse_flys
+  - db_side_laterals
+  - landmine_press
+  - standing_bb_military_press

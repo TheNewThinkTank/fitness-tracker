@@ -284,3 +284,25 @@
 09-19 15:23 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_a_training_log_2026-09-19.yml')]
 09-19 15:23 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_a_training_log_2026-09-19.yml')]
 09-19 15:23 __main__ INFO workout number: 1
+09-26 16:39 src.utils.logger_config INFO Running fitness-tracker/src/crud/insert.py ...
+09-26 16:39 __main__ INFO datatype: real
+09-26 16:39 __main__ INFO workout date(s): 2026-09-21
+09-26 16:39 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/*training_log_2026-09-21.yml
+09-26 16:39 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/*training_log_2026-09-21.yml')
+09-26 16:39 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_b_training_log_2026-09-21.yml')]
+09-26 16:39 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_b_training_log_2026-09-21.yml')]
+09-26 16:39 __main__ INFO workout number: 1
+09-26 16:42 src.utils.logger_config INFO Running fitness-tracker/src/crud/insert.py ...
+09-26 16:42 __main__ INFO datatype: real
+09-26 16:42 __main__ INFO workout date(s): 2026-09-23
+09-26 16:42 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/*training_log_2026-09-23.yml
+09-26 16:42 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/*training_log_2026-09-23.yml')
+09-26 16:42 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-23.yml')]
+09-26 16:42 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-23.yml')]
+09-26 16:42 __main__ INFO workout number: 1
+09-26 16:46 src.utils.logger_config INFO Running fitness-tracker/src/crud/insert.py ...
+09-26 16:46 __main__ INFO datatype: real
+09-26 16:46 __main__ INFO workout date(s): 2026-09-26
+09-26 16:46 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/*training_log_2026-09-26.yml
+09-26 16:46 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/*training_log_2026-09-26.yml')
+09-26 16:46 __main__ DEBUG log_path = []

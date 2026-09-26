@@ -454,3 +454,51 @@
                   {'reps': 12, 'set_number': 2, 'weight': '18 kg'}],
  'standing_calf_raise': [{'reps': 12, 'set_number': 1, 'weight': '50 kg'},
                          {'reps': 12, 'set_number': 2, 'weight': '50 kg'}]}
+09-26 16:39 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-26 16:39 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_b_training_log_2026-09-21.yml
+09-26 16:39 __main__ DEBUG {'db_fly': [{'reps': 12, 'set_number': 1, 'weight': '28 kg'},
+            {'reps': 12, 'set_number': 2, 'weight': '28 kg'}],
+ 'leg_extention': [{'reps': 12, 'set_number': 1, 'weight': '50 kg'},
+                   {'reps': 12, 'set_number': 2, 'weight': '50 kg'}],
+ 'legpress_calf_raise': [{'reps': 15, 'set_number': 1, 'weight': '80 kg'},
+                         {'reps': 15, 'set_number': 2, 'weight': '80 kg'}],
+ 'military_press': [{'reps': 5, 'set_number': 1, 'weight': '40 kg'},
+                    {'reps': 4, 'set_number': 2, 'weight': '40 kg'}],
+ 'pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+            {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'seated_leg_curl': [{'reps': 10, 'set_number': 1, 'weight': '50 kg'},
+                     {'reps': 12, 'set_number': 2, 'weight': '40 kg'}],
+ 'toe_to_bar': [{'reps': 7, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}]}
+09-26 16:42 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-26 16:42 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_c_training_log_2026-09-23.yml
+09-26 16:42 __main__ DEBUG {'bulgarian_split_squat': [{'reps': 5, 'set_number': 1, 'weight': '28 kg'},
+                           {'reps': 5, 'set_number': 2, 'weight': '28 kg'}],
+ 'cable_cross_over': [{'reps': 12, 'set_number': 1, 'weight': '27 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '27 kg'}],
+ 'cable_crunch': [{'reps': 12, 'set_number': 1, 'weight': '20.3 kg'},
+                  {'reps': 12, 'set_number': 2, 'weight': '20.3 kg'}],
+ 'cable_upright_row': [{'reps': 12, 'set_number': 1, 'weight': '20.3 kg'},
+                       {'reps': 12, 'set_number': 2, 'weight': '20.3 kg'}],
+ 'clean_and_jerk': [{'reps': 8, 'set_number': 1, 'weight': '30 kg'},
+                    {'reps': 8, 'set_number': 2, 'weight': '30 kg'}],
+ 'gironda_pullup': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                    {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'incline_bb_press': [{'reps': 15, 'set_number': 1, 'weight': '30 kg'},
+                      {'reps': 12, 'set_number': 2, 'weight': '45 kg'}]}
+09-26 16:46 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-26 16:46 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/fullbody_d_training_log_2026-09-26yml.yml
+09-26 16:46 __main__ DEBUG {'arnold_press': [{'reps': 15, 'set_number': 1, 'weight': '28 kg'},
+                  {'reps': 10, 'set_number': 2, 'weight': '28 kg'}],
+ 'chin_up': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+             {'reps': 5, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'dip': [{'reps': 5, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+         {'reps': 6, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'leg_raise': [{'reps': 12, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+               {'reps': 12, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'machine_row': [{'reps': 15, 'set_number': 1, 'weight': '50 kg'},
+                 {'reps': 15, 'set_number': 2, 'weight': '50 kg'}],
+ 'squat': [{'reps': 8, 'set_number': 1, 'weight': '50 kg'},
+           {'reps': 8, 'set_number': 2, 'weight': '50 kg'}],
+ 'standing_calf_raise': [{'reps': 12, 'set_number': 1, 'weight': '50 kg'},
+                         {'reps': 12, 'set_number': 2, 'weight': '50 kg'}]}

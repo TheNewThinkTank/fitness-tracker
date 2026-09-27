@@ -29,7 +29,11 @@ def get_bw(url: str | None = None) -> float:
     bodyweight_column = next(
         (
             column
-            for column in ("BODYWEIGHT_KG", "DAILY_BODYWEIGHT_KG")
+            for column in (
+                "WEEKLY_BODYWEIGHT_AVG",
+                # "BODYWEIGHT_KG",
+                # "DAILY_BODYWEIGHT_KG",
+                )
             if column in df.columns
         ),
         None,
@@ -49,7 +53,7 @@ def main() -> None:
     """
     sheet = get_sheet(
         sheet_id=settings["BODYWEIGHT_SHEET_ID"],
-        sheet_title="2023-2024",
+        sheet_title="2026",  # "2023-2024",
     )
     logger.debug(pformat(sheet))
     logger.debug(pformat(get_bw()))

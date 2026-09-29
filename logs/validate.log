@@ -550,3 +550,15 @@
            {'reps': 8, 'set_number': 2, 'weight': '50 kg'}],
  'standing_calf_raise': [{'reps': 12, 'set_number': 1, 'weight': '50 kg'},
                          {'reps': 12, 'set_number': 2, 'weight': '50 kg'}]}
+09-29 17:10 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+09-29 17:10 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/push_training_log_2026-09-29.yml
+09-29 17:10 __main__ DEBUG {'db_shoulder_press': [{'reps': 12, 'set_number': 1, 'weight': '32 kg'},
+                       {'reps': 12, 'set_number': 2, 'weight': '32 kg'}],
+ 'db_side_lateral_raise': [{'reps': 12, 'set_number': 1, 'weight': '24 kg'},
+                           {'reps': 12, 'set_number': 2, 'weight': '20 kg'}],
+ 'dip': [{'reps': 6, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+         {'reps': 6, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'incl_db_press': [{'reps': 12, 'set_number': 1, 'weight': '48 kg'},
+                   {'reps': 12, 'set_number': 2, 'weight': '48 kg'}],
+ 'leg_raise': [{'reps': 15, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+               {'reps': 15, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}]}

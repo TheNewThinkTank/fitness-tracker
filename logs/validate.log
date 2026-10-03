@@ -574,3 +574,15 @@
                             {'reps': 12, 'set_number': 2, 'weight': '15 kg'}],
  'yates_row': [{'reps': 12, 'set_number': 1, 'weight': '40 kg'},
                {'reps': 12, 'set_number': 2, 'weight': '40 kg'}]}
+10-03 17:12 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+10-03 17:12 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/October/legs_training_log_2026-10-03.yml
+10-03 17:12 __main__ DEBUG {'deadlift': [{'reps': 12, 'set_number': 1, 'weight': '70 kg'},
+              {'reps': 10, 'set_number': 2, 'weight': '90 kg'}],
+ 'romanian_deadlift': [{'reps': 8, 'set_number': 1, 'weight': '70 kg'},
+                       {'reps': 12, 'set_number': 2, 'weight': '50 kg'}],
+ 'squat': [{'reps': 10, 'set_number': 1, 'weight': '70 kg'},
+           {'reps': 8, 'set_number': 2, 'weight': '80 kg'}],
+ 'standing_calf_raise': [{'reps': 10, 'set_number': 1, 'weight': '80 kg'},
+                         {'reps': 10, 'set_number': 2, 'weight': '80 kg'}],
+ 'walking_lunge': [{'reps': 12, 'set_number': 1, 'weight': '32 kg'},
+                   {'reps': 12, 'set_number': 2, 'weight': '32 kg'}]}

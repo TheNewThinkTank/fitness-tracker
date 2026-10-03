@@ -344,3 +344,11 @@
 09-30 14:42 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/pull_training_log_2026-09-30.yml')]
 09-30 14:42 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/September/pull_training_log_2026-09-30.yml')]
 09-30 14:42 __main__ INFO workout number: 1
+10-03 17:12 src.utils.logger_config INFO Running fitness-tracker/src/crud/insert.py ...
+10-03 17:12 __main__ INFO datatype: real
+10-03 17:12 __main__ INFO workout date(s): 2026-10-03
+10-03 17:12 __main__ DEBUG Searching for files matching: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/October/*training_log_2026-10-03.yml
+10-03 17:12 __main__ DEBUG full_path = PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/October/*training_log_2026-10-03.yml')
+10-03 17:12 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/October/legs_training_log_2026-10-03.yml')]
+10-03 17:12 __main__ DEBUG log_path = [PosixPath('/Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/October/legs_training_log_2026-10-03.yml')]
+10-03 17:12 __main__ INFO workout number: 1

@@ -1,0 +1,45 @@
+---
+
+# TODO: Migrate to docs/project_docs/muscles_and_exercises_weight_ranges.yaml
+# TODO: Implement macro to parse YAML as Markdown for GitHub Pages
+
+legs:
+  - squat: [50, 120]
+  - deadlift: [50, 120]
+  - legpress: [50, 120]
+  - bb_lunge: [20, 70]
+  - leg_extention: [30, 70]
+  - leg_curl: [10, 45]
+  - standing_calf_raise: [5, 30]
+  - seated_calf_raise: [5, 20]
+
+chest:
+  - bb_bench_press: [50, 90]
+  - db_fly: [10, 18]
+  - bb_incline_press: [30, 70]
+  - cable_crossover: [10, 35]
+  - db_pullover: [12, 30]
+  - dip: [0, 5]
+
+back:
+  - lat_pulldown: [40, 70]
+  - seated_row: [40, 70]
+  - chinup: [0, 10]
+  - pullup: [0, 10]
+  - face_pull: [5, 8]
+  - bb_shrug: [10, 15]
+
+shoulders:
+  - db_side_laterals: [2, 10]
+  - db_front_laterals: [2, 10]
+  - db_rear_laterals: [1, 4]
+  - db_military_press: [8, 16]
+  - cable_crossover: [4, 8]
+  - arnold_press: [8, 16]
+
+abs:
+  - crunch: [0]
+  - side_jackknife: [0]
+  - toe_to_bar: [0]
+  - leg_raise: [0]
+  - Reverse_crunch: [0]

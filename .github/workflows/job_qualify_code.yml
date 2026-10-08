@@ -84,7 +84,7 @@ jobs:
           bats bin/test_fitcli.bats
 
       - name: Upload results to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           slug: TheNewThinkTank/fitness-tracker
           verbose: true

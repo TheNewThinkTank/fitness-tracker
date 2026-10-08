@@ -25,10 +25,12 @@ LABEL org.opencontainers.image.title="Fitness Tracker API" \
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    FITNESS_TRACKER_DATA_DIR=/data
+    FITNESS_TRACKER_DATA_DIR=/data \
+    FITNESS_TRACKER_STATE_DIR=/state
 
 RUN addgroup --gid 10001 --system app && \
-    adduser --uid 10001 --system --disabled-password --ingroup app app
+    adduser --uid 10001 --system --disabled-password --ingroup app app && \
+    mkdir -p /state && chown app:app /state && chmod 700 /state
 
 WORKDIR /app
 
@@ -38,6 +40,8 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt && \
 
 COPY --chown=app:app src ./src
 COPY --chown=app:app .config/settings.toml ./.config/settings.toml
+COPY --chown=app:app docs/project_docs/exercises/muscles_and_exercises.yaml ./docs/project_docs/exercises/
+COPY --chown=app:app docs/project_docs/Workout-Programs/workout_programs.yml docs/project_docs/Workout-Programs/workout-program-detail.yml ./docs/project_docs/Workout-Programs/
 
 USER app
 

@@ -1,83 +1,227 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-      "date": {
-          "type": "string",
-          "format": "date"
-      },
-      "start_time": {
-          "type": "string",
-          "format": "HH:MM"
-      },
-      "end_time": {
-          "type": "string",
-          "format": "HH:MM"
-      },
-      "timezone": {
-          "type": "string",
-          "enum": [
-            "CET",
-            "CEST",
-            "ICT",
-            "GMT",
-            "BST"
-          ]
-      },
-      "split": {
-          "type": "string",
-          "enum": [
-            "chest",
-            "back",
-            "arms_abs_calf",
-            "push",
-            "pull",
-            "legs",
-            "full_body",
-            "fullbody_a",
-            "fullbody_b",
-            "fullbody_c",
-            "fullbody_d",
-            "upper_body_a",
-            "upper_body_b",
-            "lower_body_a",
-            "lower_body_b",
-            "other"
-        ]
-      },
-      "gym": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "ExerciseSetResponse": {
+      "additionalProperties": true,
+      "properties": {
+        "set_number": {
+          "minimum": 1,
+          "title": "Set Number",
+          "type": "integer"
+        },
+        "reps": {
+          "maximum": 10000,
+          "minimum": 0,
+          "title": "Reps",
+          "type": "integer"
+        },
+        "weight": {
+          "maxLength": 200,
+          "title": "Weight",
           "type": "string"
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Duration"
+        },
+        "load_multiplier": {
+          "default": 1,
+          "maximum": 2,
+          "minimum": 1,
+          "title": "Load Multiplier",
+          "type": "integer"
+        }
       },
-      "warmup": {
-          "type": "string"
-      },
-      "cooldown": {
-        "type": "string"
-    },
-      "exercises": {
-          "type": "object",
-          "patternProperties": {
-              "^[a-zA-Z0-9_]+$": {
-                  "type": "array",
-                  "items": {
-                      "type": "object",
-                      "properties": {
-                          "set_number": {
-                              "type": "integer"
-                          },
-                          "reps": {
-                              "type": "integer"
-                          },
-                          "weight": {
-                              "type": "string"
-                          }
-                      },
-                      "required": ["set_number", "reps", "weight"]
-                  }
-              }
-          },
-          "additionalProperties": false
-      }
+      "required": [
+        "set_number",
+        "reps",
+        "weight"
+      ],
+      "title": "ExerciseSetResponse",
+      "type": "object"
+    }
   },
-  "required": ["date", "start_time", "end_time", "timezone", "split", "gym", "warmup", "exercises"]
+  "additionalProperties": true,
+  "description": "Shared validation for imported records and API-readable workout data.",
+  "properties": {
+    "date": {
+      "format": "date",
+      "title": "Date",
+      "type": "string"
+    },
+    "split": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Split"
+    },
+    "start_time": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Start Time"
+    },
+    "end_time": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "End Time"
+    },
+    "timezone": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Timezone"
+    },
+    "gym": {
+      "anyOf": [
+        {
+          "maxLength": 200,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Gym"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "maxLength": 5000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    },
+    "bodyweight_kg": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "maximum": 500,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bodyweight Kg"
+    },
+    "rpe": {
+      "anyOf": [
+        {
+          "maximum": 10,
+          "minimum": 1,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rpe"
+    },
+    "rir": {
+      "anyOf": [
+        {
+          "maximum": 20,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rir"
+    },
+    "program_id": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Program Id"
+    },
+    "id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Id"
+    },
+    "exercises": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/ExerciseSetResponse"
+            },
+            "type": "array"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Exercises"
+    }
+  },
+  "required": [
+    "date"
+  ],
+  "title": "WorkoutData",
+  "type": "object"
 }

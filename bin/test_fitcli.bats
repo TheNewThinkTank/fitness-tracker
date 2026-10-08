@@ -18,7 +18,7 @@ setup() {
     export LOG_FILE="$TMP_DIR/test_fitcli.log"
     export IMG_PATH="$TMP_DIR/"
 
-    source ./fitcli.sh
+    source "$BATS_TEST_DIRNAME/fitcli.sh"
     insert_data() { echo "Mocked insert_data called with: $*"; }
     prepare_figures() { echo "Mocked prepare_figures called with: $*"; }
 

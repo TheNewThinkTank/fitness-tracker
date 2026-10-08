@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 check_dependencies() {
-  command -v python3 >/dev/null 2>&1 || { log "Python3 is required but it's not installed. Aborting."; exit 1; }
-  command -v open >/dev/null 2>&1 || { log "'open' command is required but it's not installed. Aborting."; exit 1; }
+  command -v "${PYTHON_BIN:-python3}" >/dev/null 2>&1 || { log "Python is required but it's not installed. Aborting."; exit 1; }
 }
 
 validate_date() {

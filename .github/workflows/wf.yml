@@ -83,6 +83,10 @@ jobs:
           test "$(curl --silent --header 'X-API-Key: test-token' --output /dev/null --write-out '%{http_code}' http://127.0.0.1:8000/years)" = "200"
           test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://127.0.0.1:3000/api/years)" = "200"
           npm --prefix frontend run test:e2e
+          docker compose exec -T backend python -c 'from src.utils.access_control import hash_password; from src.utils.state_store import state_store; state_store.configure("password_hash", hash_password("test-only-browser-password"))'
+          FITNESS_TRACKER_ENABLE_WRITES=true docker compose up --detach --no-deps --force-recreate --wait backend
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://127.0.0.1:3000/api/years)" = "401"
+          E2E_WRITE_TESTS=1 npm --prefix frontend run test:e2e -- --grep authenticated
 
       - name: Upload browser failure evidence
         if: failure()

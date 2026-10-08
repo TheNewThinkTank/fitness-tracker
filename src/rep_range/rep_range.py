@@ -8,55 +8,54 @@ from loguru import logger  # type: ignore
 import seaborn as sns  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import pandas as pd  # type: ignore
-import yaml  # type: ignore
-from src.utils.set_db_and_table import set_db_and_table  # type: ignore
+from src.common.metrics import canonical_exercise
+from src.utils.training_metadata import load_programs, parse_target, program_for_date, split_id
+from src.utils.workout_repository import WorkoutRepository
 
 
 def extract_actual_rep_ranges(table, splits):
     frames = dict()
+    selected_splits = {split_id(split) for split in splits}
     for item in table:
-        if not any(x in item["split"] for x in splits):
+        if split_id(item.get("split") or "") not in selected_splits:
             continue
 
         date = item['date']
-        frames[date] = {}
+        frames.setdefault(date, {})
         for exercise in item['exercises']:
-            frames[date][exercise] = []
+            identifier = canonical_exercise(exercise)
+            frames[date].setdefault(identifier, [])
             for _set in item['exercises'][exercise]:
-                frames[date][exercise].append(_set['reps'])
+                frames[date][identifier].append(_set['reps'])
 
     return frames
 
 
-def extract_recommended_rep_ranges(data):
+def extract_recommended_rep_ranges(data, program_id="program_10"):
     rep_ranges = {}
-    for section, exercises in data.get("program_10", {}).items():
+    for exercises in data.get(program_id, {}).values():
+        if not isinstance(exercises, dict):
+            continue
         for exercise, details in exercises.items():
-            parts = details.split(" of ")[-1].split(" reps")[0]
-            rep_ranges[exercise] = tuple(map(int, parts.split("-")))
+            target = parse_target(exercise, details)
+            if target and target.reps_min is not None and target.reps_max is not None:
+                rep_ranges[target.exercise_id] = (target.reps_min, target.reps_max)
     return rep_ranges
 
 
 def main() -> None:
-    DATA_MODELS = ["real", "simulated"]
-    datatype = DATA_MODELS[0]
     current_year = datetime.now().year
-    _, table, _ = set_db_and_table(datatype, year=current_year)
-
-    splits = [
-        "upper_body_a",
-        "lower_body_a",
-        "upper_body_b",
-        "lower_body_b",
-    ]
+    repository = WorkoutRepository()
+    program = program_for_date(load_programs(), datetime.now().date())
+    if program is None or not program.targets:
+        logger.warning("No structured targets available for the current program.")
+        return
+    table = [record for _, record in repository.documents(current_year)]
+    splits = program.splits
 
     logger.debug(pformat(extract_actual_rep_ranges(table, splits)))
 
-    in_file = "docs/project_docs/Workout-Programs/workout-program-detail.yml"
-    with open(in_file, "r") as rf:
-        data = yaml.safe_load(rf)
-
-    rep_ranges = extract_recommended_rep_ranges(data)
+    rep_ranges = {target.exercise_id: (target.reps_min, target.reps_max) for section in program.targets for target in section.targets if target.reps_min is not None and target.reps_max is not None}
     actual_reps = extract_actual_rep_ranges(table, splits)
 
     combined_data: dict[Any, Any] = {}
@@ -92,6 +91,9 @@ def main() -> None:
                     "Max Reps": max_reps,
                 })
 
+    if not flat_data:
+        logger.warning("No matching performed sets and numeric targets to plot.")
+        return
     df = pd.DataFrame(flat_data)
 
     g = sns.FacetGrid(

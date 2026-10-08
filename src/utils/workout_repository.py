@@ -12,6 +12,7 @@ from pydantic import ValidationError
 from src.common.workout_types import WorkoutData, get_workout_id
 from src.utils.config import settings
 from src.utils.set_db_and_table import get_available_years, get_database_path, set_db_and_table
+from src.utils.state_store import state_store
 
 WorkoutDocument = tuple[int, dict[str, Any]]
 SnapshotKey = tuple[int, Path, str]
@@ -115,13 +116,30 @@ class WorkoutRepository:
     def documents(self, year: int, *, descending: bool = False) -> list[WorkoutDocument]:
         with self._lock:
             keys = self._available_keys()
-            if year not in keys:
+            edits = state_store.workout_rows()
+            edited_ids = {UUID(edit["record"]["id"]) for edit in edits}
+            added = [(0, {**edit["record"], "_version": edit["version"]}) for edit in edits
+                     if not edit["deleted"] and int(edit["record"]["date"][:4]) == year]
+            if year not in keys and not added:
                 raise FileNotFoundError(f"No workout data for {year}")
-            snapshot = self._load(keys[year])
-            return list(reversed(snapshot.documents) if descending else snapshot.documents)
+            imported = self._load(keys[year]).documents if year in keys else ()
+            documents = [(document_id, record) for document_id, record in imported if get_workout_id(record, year, document_id) not in edited_ids]
+            documents.extend(added)
+            documents.sort(key=lambda document: (document[1]["date"], document[0], str(get_workout_id(document[1], year, document[0]))))
+            return list(reversed(documents) if descending else documents)
+
+    def years(self) -> list[int]:
+        edited_years = {int(edit["record"]["date"][:4]) for edit in state_store.workout_rows() if not edit["deleted"]}
+        return sorted(set(get_available_years()) | edited_years)
 
     def find(self, workout_id: UUID) -> tuple[int, int, dict[str, Any]] | None:
         with self._lock:
+            edit = state_store.workout(str(workout_id))
+            if edit:
+                if edit["deleted"]:
+                    return None
+                record = {**edit["record"], "_version": edit["version"]}
+                return int(record["date"][:4]), 0, record
             keys = self._available_keys()
             if workout_id not in self._index:
                 for key in reversed(tuple(keys.values())):

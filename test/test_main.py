@@ -164,6 +164,17 @@ def test_query_validation_and_readiness(api_data: Path) -> None:
     assert readiness.status_code == 200
 
 
+def test_empty_archive_is_ready_for_first_workout(api_data: Path) -> None:
+    for path in api_data.glob("*_workouts.yml"):
+        path.unlink()
+    before = set(api_data.iterdir())
+    with TestClient(app) as client:
+        assert client.get("/readyz").status_code == 200
+        assert client.get("/years").json() == []
+        assert client.get("/analytics/overview").json()["workouts"] == 0
+    assert set(api_data.iterdir()) == before
+
+
 def test_repeated_reads_reuse_parsed_files(
     api_data: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -270,3 +281,146 @@ def test_openapi_metadata_has_single_identity(api_data: Path) -> None:
         "in": "header",
         "name": "X-API-Key",
     }
+
+
+def test_analytics_are_complete_and_not_tied_to_pagination(api_data: Path) -> None:
+    with TestClient(app) as client:
+        response = client.get("/analytics/overview?from=2022-01-01&to=2024-12-31&bucket=month")
+        assert response.status_code == 200
+        body = response.json()
+        assert body["workouts"] == 4
+        assert body["active_days"] == 3
+        assert body["sets"] == 8
+        assert body["volume_kg_reps"] == 2360
+        assert len(body["buckets"]) == 36
+        assert len(body["buckets"][1]["workout_ids"]) == 2
+        assert body["excluded_load_sets"] == 0
+        assert client.get("/workouts?year=2022&limit=1").json()["total"] == 2
+
+
+def test_exercise_history_records_and_export(api_data: Path) -> None:
+    with TestClient(app) as client:
+        exercises = client.get("/exercises").json()
+        assert "bench_press" in {exercise["id"] for exercise in exercises}
+        history = client.get("/analytics/exercises/bb_bench_press?formula=epley").json()
+        assert history["exercise_id"] == "bench_press"
+        assert len(history["sessions"]) == 1
+        assert history["sessions"][0]["volume_kg_reps"] == 590
+        records = client.get("/analytics/records?exercise_id=bench_press").json()
+        assert {record["metric"] for record in records} == {"load", "reps", "estimated_one_rm"}
+        exported = client.get("/analytics/export?exercise_id=bench_press")
+        assert exported.status_code == 200
+        assert "590.0" in exported.text
+        assert "text/csv" in exported.headers["content-type"]
+
+
+def test_analytics_validate_ranges_and_preserve_empty_results(api_data: Path) -> None:
+    with TestClient(app) as client:
+        assert client.get("/analytics/overview?from=2024-02-01&to=2024-01-01").status_code == 422
+        assert client.get("/analytics/overview?bucket=invalid").status_code == 422
+        assert client.get("/analytics/exercises/squat?formula=invalid").status_code == 422
+        empty = client.get("/analytics/overview?from=2026-01-01&to=2026-01-14").json()
+        assert empty["workouts"] == 0
+        assert empty["volume_kg_reps"] is None
+        assert all(bucket["workouts"] == 0 for bucket in empty["buckets"])
+
+
+@pytest.fixture
+def signed_in(api_data: Path):
+    from src.utils.access_control import hash_password
+    from src.utils.state_store import state_store
+
+    original = {key: settings.get(key) for key in ("STATE_DIR", "ENABLE_WRITES")}
+    settings.set("STATE_DIR", str(api_data / "state"))
+    settings.set("ENABLE_WRITES", True)
+    state_store.configure("password_hash", hash_password("test-only-password"))
+    with TestClient(app) as client:
+        response = client.post("/auth/login", json={"password": "test-only-password"}, headers={"Origin": "http://testserver"})
+        assert response.status_code == 200
+        headers = {"Origin": "http://testserver", "X-CSRF-Token": response.json()["csrf_token"]}
+        yield client, headers
+    for key, value in original.items():
+        settings.set(key, value)
+
+
+def test_writes_require_session_origin_and_csrf(signed_in):
+    client, headers = signed_in
+    payload = _record("2026-01-01", "legs", "squat")
+    assert client.post("/workouts", json=payload).status_code == 403
+    assert client.post("/workouts", json=payload, headers={**headers, "Origin": "https://wrong.example"}).status_code == 403
+    assert client.post("/workouts", json=payload, headers=headers).status_code == 201
+
+
+def test_transactional_workout_edit_move_and_delete(signed_in):
+    client, headers = signed_in
+    original = client.get("/workouts?year=2022").json()["items"][0]
+    payload = _record("2027-01-01", "legs", "squat")
+    assert client.put(f"/workouts/{original['id']}", json=payload, headers=headers).status_code == 428
+    updated = client.put(f"/workouts/{original['id']}", json=payload, headers={**headers, "If-Match": "1"})
+    assert updated.status_code == 200
+    assert updated.json()["id"] == original["id"]
+    assert updated.json()["version"] == 2
+    assert 2027 in client.get("/years").json()
+    assert client.get("/workouts?year=2022").json()["total"] == 1
+    assert client.put(f"/workouts/{original['id']}", json=payload, headers={**headers, "If-Match": "1"}).status_code == 409
+    assert client.delete(f"/workouts/{original['id']}", headers={**headers, "If-Match": "2"}).status_code == 204
+    assert client.get(f"/workouts/{original['id']}").status_code == 404
+
+
+def test_measurement_import_is_atomic_and_uses_historical_mass(signed_in):
+    client, headers = signed_in
+    bad = "date,weight_kg\n2026-01-01,80\n2026-02-30,81\n"
+    assert client.post("/body-metrics/import", content=bad, headers=headers).status_code == 422
+    assert client.get("/body-metrics").json() == []
+    good = "date,weight_kg\n2026-01-01,80\n2026-02-01,81\n"
+    assert client.post("/body-metrics/import", content=good, headers=headers).json()["imported"] == 2
+    workout = client.post("/workouts", json=_record("2026-01-05", "pull", "pullup"), headers=headers).json()
+    payload = _record("2026-01-05", "pull", "pullup")
+    payload["exercises"]["pullup"] = [{"set_number": 1, "reps": 5, "weight": "BODYWEIGHT - 20 kg"}]
+    client.put(f"/workouts/{workout['id']}", json=payload, headers={**headers, "If-Match": "1"})
+    session = client.get("/analytics/exercises/pullup?from=2026-01-01&to=2026-01-10").json()["sessions"][0]
+    assert session["bodyweight_kg"] == 80
+    assert session["volume_kg_reps"] == 300
+    assert session["estimated_one_rm_kg"] is None
+
+
+def test_measurement_csv_preserves_columns_not_in_the_file(signed_in):
+    client, headers = signed_in
+    assert client.post("/body-metrics", json={"date": "2026-01-01", "weight_kg": 80, "waist_cm": 85}, headers=headers).status_code == 200
+    assert client.post("/body-metrics/import", content="date,weight_kg\n2026-01-01,81\n", headers=headers).status_code == 200
+    assert client.get("/body-metrics").json()[0]["waist_cm"] == 85
+    assert client.get("/body-metrics").json()[0]["weight_kg"] == 81
+
+
+def test_program_targets_and_workout_import(signed_in):
+    client, headers = signed_in
+    payload = {"planned_workouts": 20, "targets": [{"id": "full_body_a", "targets": [{"exercise_id": "squat", "sets": 3, "reps_min": 4, "reps_max": 6}]}]}
+    assert client.put("/programs/program_14/targets", json=payload, headers=headers).status_code == 200
+    content = [_record("2026-01-01", "legs", "squat"), _record("2026-01-02", "legs", "squat")]
+    assert client.post("/workouts/import", json=content, headers=headers).json()["imported"] == 2
+    assert client.get("/workouts?year=2026").json()["total"] == 2
+
+
+def test_password_change_revokes_existing_browser_session(signed_in):
+    from src.utils.access_control import hash_password
+    from src.utils.state_store import state_store
+
+    client, _ = signed_in
+    assert client.get("/years").status_code == 200
+    state_store.configure("password_hash", hash_password("different-test-password"))
+    assert client.get("/years").status_code == 401
+    assert client.get("/healthz").status_code == 200
+
+
+def test_import_keeps_metadata_and_rejects_deleted_id_reuse(signed_in):
+    from src.utils.state_store import state_store
+
+    client, headers = signed_in
+    record = {**_record("2026-01-01", "legs", "squat"), "warmup": "Mobility"}
+    assert client.post("/workouts/import", json=record, headers=headers).status_code == 200
+    workout = client.get("/workouts?year=2026").json()["items"][0]
+    updated = client.put(f"/workouts/{workout['id']}", json=_record("2026-01-02", "legs", "squat"), headers={**headers, "If-Match": "1"})
+    assert updated.status_code == 200
+    assert state_store.workout(workout["id"])["record"]["warmup"] == "Mobility"
+    assert client.delete(f"/workouts/{workout['id']}", headers={**headers, "If-Match": "2"}).status_code == 204
+    assert client.post("/workouts/import", json={**record, "id": workout["id"]}, headers=headers).status_code == 409

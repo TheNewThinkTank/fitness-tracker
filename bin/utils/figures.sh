@@ -15,6 +15,15 @@ prepare_figures() {
 open_figures() {
   local year=$1
   local month=$2
-  open "${IMG_PATH}${year}_workout_frequency.png" || { log "Error: Failed to open image ${year}_workout_frequency.png"; exit 1; }
-  open "${IMG_PATH}workout_duration_${month}_${year}.png" || { log "Error: Failed to open image workout_duration_${month}_${year}.png"; exit 1; }
+  local opener
+  if command -v open >/dev/null 2>&1; then
+    opener=open
+  elif command -v xdg-open >/dev/null 2>&1; then
+    opener=xdg-open
+  else
+    log "Figures saved in $IMG_PATH; no desktop image viewer available."
+    return 0
+  fi
+  "$opener" "${IMG_PATH}${year}_workout_frequency.png" || { log "Error: Failed to open image ${year}_workout_frequency.png"; exit 1; }
+  "$opener" "${IMG_PATH}workout_duration_${month}_${year}.png" || { log "Error: Failed to open image workout_duration_${month}_${year}.png"; exit 1; }
 }

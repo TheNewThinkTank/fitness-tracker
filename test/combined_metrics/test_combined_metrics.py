@@ -30,7 +30,7 @@ def test_plot_duration_runs_without_error(monkeypatch, tmp_path):
     table = [{"date": "2026-01-01"}]
 
     monkeypatch.setattr(combined_metrics, "settings", {"IMG_PATH": f"{tmp_path}/"})
-    monkeypatch.setattr(combined_metrics, "get_all_durations", lambda year: {"2026-01-01": 30})
+    monkeypatch.setattr(combined_metrics, "get_all_durations", lambda year, table=None: {"2026-01-01": 30})
     monkeypatch.setattr(combined_metrics, "get_total_volume", lambda table: [("2026-01-01", 200)])
     monkeypatch.setattr(combined_metrics, "save_plot", lambda fig, path: None)
 
@@ -51,7 +51,7 @@ def test_plot_duration_volume_1rm_runs_without_error(monkeypatch, tmp_path):
     ]
 
     monkeypatch.setattr(combined_metrics, "settings", {"IMG_PATH": f"{tmp_path}/"})
-    monkeypatch.setattr(combined_metrics, "get_all_durations", lambda year: {"2026-01-01": 30, "2026-01-02": 45})
+    monkeypatch.setattr(combined_metrics, "get_all_durations", lambda year, table=None: {"2026-01-01": 30, "2026-01-02": 45})
     monkeypatch.setattr(combined_metrics, "get_total_volume", lambda table: [("2026-01-01", 200), ("2026-01-02", 250)])
     monkeypatch.setattr(
         combined_metrics,
@@ -68,3 +68,16 @@ def test_plot_duration_volume_1rm_runs_without_error(monkeypatch, tmp_path):
     params = PlotParams(table=table, year="2026")
 
     combined_metrics.plot_duration_volume_1rm(params)
+
+
+def test_duration_plot_joins_missing_and_unordered_loads_by_date(monkeypatch, tmp_path):
+    monkeypatch.setattr(combined_metrics, "get_all_durations", lambda year, table=None: {"2026-01-02": 30, "2026-01-01": 40})
+    monkeypatch.setattr(combined_metrics, "get_total_volume", lambda table: [("2026-01-01", 200)])
+    monkeypatch.setattr(combined_metrics, "save_plot", lambda fig, path: None)
+    combined_metrics.plot_duration(PlotParams(table=[], year="2026", month="January", img_path=str(tmp_path)))
+
+
+def test_duration_plot_skips_unavailable_volume(monkeypatch, tmp_path):
+    monkeypatch.setattr(combined_metrics, "get_all_durations", lambda year, table=None: {"2026-01-01": 40})
+    monkeypatch.setattr(combined_metrics, "get_total_volume", lambda table: [])
+    combined_metrics.plot_duration(PlotParams(table=[], year="2026", month="January", img_path=str(tmp_path)))

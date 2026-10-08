@@ -50,7 +50,10 @@ jobs:
         run: poetry --version
 
       - name: Lint with Ruff
-        run: poetry run ruff check src test
+        run: poetry run ruff check --config .config/ruff.toml src test
+
+      - name: Check API and workout schema contracts
+        run: poetry run ./bin/generate_openapi.sh --check
 
       - name: Static type checks with mypy
         run: make -f .config/Makefile static-type-checks
@@ -73,6 +76,12 @@ jobs:
 
       - name: Run tests
         run: poetry run pytest --rootdir=$(pwd) test/ --cov --cov-report=xml
+
+      - name: Test CLI behavior
+        run: |
+          sudo -n apt-get update
+          sudo -n apt-get install --yes bats
+          bats bin/test_fitcli.bats
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4

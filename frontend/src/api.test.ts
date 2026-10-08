@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { ApiError, fetchWorkoutPage, fetchYears } from "./api";
+import { ApiError, fetchAuthStatus, fetchOverview, fetchWorkoutPage, fetchYears, saveMeasurement } from "./api";
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -70,5 +70,30 @@ describe("API client", () => {
     await expect(fetchYears()).rejects.toEqual(
       new ApiError(502, "The server returned an unexpected response"),
     );
+  });
+
+  it("validates analytics responses before exposing chart data", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ workouts: 10 }), { status: 200 })));
+    await expect(fetchOverview({ from: "2026-01-01", to: "2026-02-01" })).rejects.toEqual(new ApiError(502, "The server returned an unexpected response"));
+  });
+
+  it("forwards an already-aborted caller signal without waiting for a timeout", async () => {
+    const controller = new AbortController();
+    controller.abort();
+    vi.stubGlobal("fetch", vi.fn(async (_url: string, options: RequestInit) => {
+      options.signal?.throwIfAborted();
+      return new Response("[]", { status: 200 });
+    }));
+    await expect(fetchYears(controller.signal)).rejects.toMatchObject({ name: "AbortError" });
+  });
+
+  it("uses in-memory CSRF headers and same-origin cookies for writes", async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ authenticated: true, auth_required: true, writes_enabled: true, csrf_token: "test-csrf" }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ date: "2026-01-01", weight_kg: 80, waist_cm: null, resting_heart_rate: null }), { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+    await fetchAuthStatus();
+    await saveMeasurement({ date: "2026-01-01", weight_kg: 80, waist_cm: null, resting_heart_rate: null });
+    expect(fetchMock).toHaveBeenLastCalledWith("/api/body-metrics", expect.objectContaining({ method: "POST", credentials: "same-origin", cache: "no-store", headers: expect.objectContaining({ "X-CSRF-Token": "test-csrf" }) }));
   });
 });

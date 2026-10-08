@@ -12,6 +12,7 @@ from typing import Any
 from loguru import logger  # type: ignore
 
 from src.utils.config import settings  # type: ignore
+from src.utils.config import PROJECT_ROOT
 from src.utils.file_conversions.load_yaml import load_yaml_file  # type: ignore
 
 
@@ -49,7 +50,7 @@ def _load_programs(path: str) -> list[dict[str, Any]]:
         name = pgm.get("name")
         start = parse_date(pgm.get("start"))
         end = parse_date(pgm.get("end"))
-        if isinstance(name, str) and start and end:
+        if isinstance(name, str) and start:
             programs.append({"name": name, "start": start, "end": end})
     return programs
 
@@ -62,11 +63,12 @@ def get_pgm_from_date(workout_date: str) -> str | None:
     :return: name of the workout program
     :rtype: str | None
     """
-    path = str(Path.cwd() / settings.workout_programs)
+    configured_path = Path(settings.workout_programs)
+    path = str(configured_path if configured_path.is_absolute() else PROJECT_ROOT / configured_path)
     programs = _load_programs(path)
     target = datetime.datetime.strptime(workout_date, "%Y-%m-%d").date()
     for pgm in programs:
-        if pgm["start"] <= target <= pgm["end"]:
+        if pgm["start"] <= target and (pgm["end"] is None or target <= pgm["end"]):
             return pgm["name"]
     return None
 

@@ -9,3 +9,5 @@ node_modules
 .venv
 .gstack/
 .claude/
+data/.state/
+.coverage

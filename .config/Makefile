@@ -12,12 +12,12 @@ install-dependencies:
 # Lint with ruff
 .PHONY: lint-ruff
 lint-ruff:
-	poetry run ruff check
+	poetry run ruff check --config .config/ruff.toml src test
 
 # Static type checks with mypy
 .PHONY: static-type-checks
 static-type-checks:
-	poetry run mypy src/ --exclude '/site-packages/'
+	poetry run mypy --config-file .config/mypy.ini src/ --exclude '/site-packages/'
 
 # Wily build and rank
 .PHONY: wily-build-and-rank
@@ -34,3 +34,7 @@ run-tests-and-coverage:
 .PHONY: qualify-code
 qualify-code: install-poetry install-dependencies lint-ruff \
 	static-type-checks wily-build-and-rank run-tests-and-coverage
+
+.PHONY: check-contracts
+check-contracts:
+	poetry run ./bin/generate_openapi.sh --check

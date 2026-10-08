@@ -11,8 +11,14 @@ services:
       FITNESS_TRACKER_ALLOWED_ORIGINS: "[]"
       FITNESS_TRACKER_API_TOKEN: "${FITNESS_TRACKER_API_TOKEN:-}"
       FITNESS_TRACKER_DATA_DIR: /data
+      FITNESS_TRACKER_STATE_DIR: /state
+      FITNESS_TRACKER_ENABLE_WRITES: "${FITNESS_TRACKER_ENABLE_WRITES:-false}"
+      FITNESS_TRACKER_AUTH_REQUIRED: "${FITNESS_TRACKER_AUTH_REQUIRED:-false}"
+      FITNESS_TRACKER_COOKIE_SECURE: "${FITNESS_TRACKER_COOKIE_SECURE:-false}"
+      FITNESS_TRACKER_PASSWORD_HASH: "${FITNESS_TRACKER_PASSWORD_HASH:-}"
     volumes:
       - ./data:/data:ro
+      - state:/state
     ports:
       - "127.0.0.1:8000:8000"
     read_only: true
@@ -84,3 +90,6 @@ services:
 networks:
   app:
     driver: bridge
+
+volumes:
+  state:

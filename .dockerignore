@@ -35,3 +35,15 @@ data
 features
 frontend
 test
+
+!docs/
+docs/**
+!docs/project_docs/
+docs/project_docs/**
+!docs/project_docs/exercises/
+docs/project_docs/exercises/**
+!docs/project_docs/exercises/muscles_and_exercises.yaml
+!docs/project_docs/Workout-Programs/
+docs/project_docs/Workout-Programs/**
+!docs/project_docs/Workout-Programs/workout_programs.yml
+!docs/project_docs/Workout-Programs/workout-program-detail.yml

@@ -2,8 +2,10 @@
 Prepare workout frequency data for plotting.
 """
 
+from collections import Counter
+from datetime import date, timedelta
+
 import pandas as pd  # type: ignore
-from datetime_tools.get_year_and_week import get_year_and_week  # type: ignore
 
 
 def get_frequency_data(table, year_to_plot: str) -> pd.DataFrame:
@@ -17,29 +19,19 @@ def get_frequency_data(table, year_to_plot: str) -> pd.DataFrame:
     :rtype: pd.DataFrame
     """
 
-    df = pd.DataFrame()
+    counts: Counter[date] = Counter()
     for item in table:
-
-        if not item["date"].startswith(year_to_plot):
+        try:
+            workout_date = date.fromisoformat(str(item["date"]))
+        except (ValueError, KeyError, TypeError):
             continue
-
-        year, week = get_year_and_week(item["date"])
-
-        df_tmp = pd.DataFrame(
-            {"year": year,
-             "week": week,
-             "workouts": 0
-             },
-            index=[0]
-            )
-        df = pd.concat(
-            [df, df_tmp],
-            ignore_index=True,
-        )
-    res = df.groupby(["year", "week"]).size()
-    res_df = res.to_frame(name="workouts").reset_index()
-    res_df["date"] = pd.to_datetime(
-        res_df.assign(day=1, month=1)[["year", "month", "day"]]
-    ) + pd.to_timedelta(res_df.week * 7, unit="days")
-
-    return res_df
+        if workout_date.year == int(year_to_plot):
+            counts[workout_date - timedelta(days=workout_date.weekday())] += 1
+    rows = []
+    if counts:
+        current = min(counts)
+        while current <= max(counts):
+            iso_year, week, _ = current.isocalendar()
+            rows.append({"year": str(iso_year), "week": week, "workouts": counts[current], "date": pd.Timestamp(current)})
+            current += timedelta(days=7)
+    return pd.DataFrame(rows, columns=["year", "week", "workouts", "date"])

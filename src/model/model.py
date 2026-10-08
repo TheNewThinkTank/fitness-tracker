@@ -3,10 +3,10 @@ Read workout data and calculate 1RM and training volume.
 """
 
 from datetime import datetime
-import re
 from typing import Any, Final, cast
 import pandas as pd  # type: ignore
 from loguru import logger  # type: ignore
+from src.common.metrics import MAX_ESTIMATION_REPS, canonical_exercise, parse_load
 from src.common.workout_types import WorkoutRecord, is_workout_record
 from src.utils.set_db_and_table import set_db_and_table  # type: ignore
 from src.one_rep_max import (  # type: ignore
@@ -47,10 +47,13 @@ def get_df(
         exercises = workout.get("exercises", {})
         if not any(x in str(split_value) for x in splits):
             continue
-        if exercise in exercises:
-            workout_data = exercises[exercise]
+        for name, workout_data in exercises.items():
+            if canonical_exercise(name) != canonical_exercise(exercise):
+                continue
             df = pd.DataFrame(workout_data)
             df["date"] = workout.get("date")
+            if workout.get("bodyweight_kg") is not None:
+                df["bodyweight_kg"] = workout["bodyweight_kg"]
             frames.append(df)
 
     if not frames:
@@ -60,10 +63,7 @@ def get_df(
 
 
 def get_weight(df: pd.DataFrame) -> pd.Series:
-    """Extracts numeric weight in kg from the 'weight' column.
-
-    Handles plain weights ("80 kg"), bodyweight-only ("BODYWEIGHT" → 0),
-    and bodyweight-offset forms ("BODYWEIGHT + 10 kg" → 10, "BODYWEIGHT - 5 kg" → -5).
+    """Extract known load in kg, leaving unavailable bodyweight as NaN.
 
     :param df: Pandas dataframe with 'weight' column
     :type df: pd.DataFrame
@@ -71,26 +71,17 @@ def get_weight(df: pd.DataFrame) -> pd.Series:
     :rtype: pd.Series
     """
 
-    def _parse(value: str) -> float:
-        value = value.strip()
-        if value == "BODYWEIGHT":
-            return 0.0
-        m = re.match(
-            r"^BODYWEIGHT\s*([+-])\s*(\d+(?:\.\d+)?)\s*kg$", value, re.IGNORECASE
-        )
-        if m:
-            sign = 1 if m.group(1) == "+" else -1
-            return sign * float(m.group(2))
-        m = re.match(r"^(\d+(?:\.\d+)?)\s*kg$", value)
-        if m:
-            return float(m.group(1))
-        raise ValueError(f"Cannot parse weight: {value!r}")
-
-    return df["weight"].map(_parse)
+    masses = df.get("bodyweight_kg", pd.Series(None, index=df.index, dtype=object))
+    multiplier = df.get("load_multiplier", pd.Series(1, index=df.index)).fillna(1)
+    return pd.Series(
+        [parse_load(str(weight), mass).total_kg for weight, mass in zip(df["weight"], masses)],
+        index=df.index,
+        dtype=float,
+    ) * multiplier
 
 
 def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
-    """Sets times reps times load.
+    """Sum each set's repetitions times load by workout date.
 
     :param df: DataFrame containing weight, reps, and set_number data
     :type df: pd.DataFrame
@@ -99,14 +90,9 @@ def calc_volume(df: pd.DataFrame) -> pd.DataFrame:
     """
 
     df_copy = df.copy()
-    num_of_sets_df = df_copy.groupby("date")[["set_number"]].agg("max")
-    reps_df = df_copy.groupby("date")[["reps"]].agg("max")
     df_copy["weight"] = get_weight(df_copy)
-    weight_df = df_copy.groupby("date")[["weight"]].agg("max")
-    df_res = pd.concat([num_of_sets_df, reps_df, weight_df], axis=1)
-    df_res["volume"] = df_res["set_number"] * df_res["reps"] * df_res["weight"]
-
-    return df_res.drop(["set_number", "reps", "weight"], axis=1)
+    df_copy["volume"] = df_copy["reps"] * df_copy["weight"]
+    return df_copy.groupby("date")[["volume"]].sum(min_count=1)
 
 
 def one_rep_max_estimator(df: pd.DataFrame, formula: str="acsm") -> pd.DataFrame:
@@ -138,9 +124,14 @@ def one_rep_max_estimator(df: pd.DataFrame, formula: str="acsm") -> pd.DataFrame
 
     # Vectorized calculation for the whole DataFrame
     weights = get_weight(df_copy)
-    reps = df_copy['reps']  # .astype(int)
+    external = df_copy["weight"].map(lambda weight: parse_load(str(weight)).kind == "external")
+    eligible = external & weights.notna() & (weights > 0) & df_copy["reps"].between(1, MAX_ESTIMATION_REPS)
+    df_copy = df_copy.loc[eligible].copy()
+    weights = weights.loc[eligible]
+    reps = df_copy["reps"]
 
     df_copy["1RM"] = calculator.calculate(weights, reps)
+    df_copy.loc[reps == 1, "1RM"] = weights.loc[reps == 1]
 
     # Return the max 1RM per date
     return df_copy.groupby("date")[["1RM"]].agg("max")

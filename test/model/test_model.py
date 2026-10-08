@@ -130,6 +130,8 @@ def test_calc_volume():
     assert isinstance(volume_df, pd.DataFrame)
     assert "volume" in volume_df.columns
     assert not volume_df.empty
+    assert volume_df.loc["2023-10-01", "volume"] == 1880
+    assert volume_df.loc["2023-10-02", "volume"] == 1140
 
 
 # Test one_rep_max_estimator function

@@ -144,7 +144,7 @@ def plot_duration(
     month_to_plot = params.month
     img_path = params.img_path or settings["IMG_PATH"]
 
-    _date_and_duration = get_all_durations(year_to_plot)
+    _date_and_duration = get_all_durations(year_to_plot, table=table)
 
     date_and_duration = {
         date: duration
@@ -155,10 +155,16 @@ def plot_duration(
     logger.debug(pformat(date_and_duration))
 
     date_and_volume = get_total_volume(table)
-    volumes = [d_v[1] for d_v in date_and_volume if d_v[0] in date_and_duration.keys()]
+    volume_by_date = dict(date_and_volume)
+    selected_dates = sorted(set(date_and_duration) & set(volume_by_date))
+    if not selected_dates:
+        logger.warning("No matching known-load and timed workouts to plot.")
+        return
+    volumes = [volume_by_date[date] for date in selected_dates]
 
     date_and_duration = {
-        dt.strptime(k, "%Y-%m-%d").date(): v for k, v in date_and_duration.items()
+        dt.strptime(date, "%Y-%m-%d").date(): date_and_duration[date]
+        for date in selected_dates
     }
     dates = list(date_and_duration.keys())
     durations = list(date_and_duration.values())
@@ -186,7 +192,7 @@ def plot_duration(
         dates,
         "Workout Date",
         "Duration [minutes]",
-        f"Duration and Total Volume [kg] ({month_to_plot} {year_to_plot})"
+        f"Duration and Known-load Volume [kg-reps] ({month_to_plot} {year_to_plot})"
         )
 
     # plt.show()
@@ -210,7 +216,7 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     year_to_plot = params.year
     img_path = params.img_path or settings["IMG_PATH"]
 
-    _date_and_duration = get_all_durations(year_to_plot)
+    _date_and_duration = get_all_durations(year_to_plot, table=table)
     date_and_volume = get_total_volume(table)
     _dates = _date_and_duration.keys()
     splits = [
@@ -254,22 +260,21 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
             return
 
     one_rm = one_rep_max_estimator(df)
-    one_rm_filtered = one_rm[one_rm.index.isin(_dates)]
+    volume_by_date = dict(date_and_volume)
+    matching_dates = sorted(set(_dates) & set(volume_by_date) & set(one_rm.index))
+    one_rm_filtered = one_rm.loc[matching_dates]
     if one_rm_filtered.empty:
         logger.warning("No one-rep-max data available after filtering by workout dates.")
         return
 
-    volumes = [
-        d_v[1] for d_v in date_and_volume if d_v[0] in one_rm_filtered.index  # dates
-    ]
+    volumes = [volume_by_date[date] for date in matching_dates]
     if not volumes:
         logger.warning("No volume data available for the selected workout dates.")
         return
 
     date_and_duration: dict[Any, Any] = {
-        dt.strptime(k, "%Y-%m-%d").date(): v
-        for k, v in _date_and_duration.items()
-        if k in one_rm_filtered.index
+        dt.strptime(date, "%Y-%m-%d").date(): _date_and_duration[date]
+        for date in matching_dates
     }
 
     dates: list[Any] = list(date_and_duration.keys())
@@ -324,7 +329,7 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
         legend.remove()
 
     colorbar = plt.colorbar(sm, ax=ax)
-    colorbar.set_label("Total Volume [kg]", fontsize=11)
+    colorbar.set_label("Known-load Volume [kg-reps]", fontsize=11)
     colorbar.ax.tick_params(labelsize=9)
 
     configure_plot(
@@ -338,7 +343,7 @@ def plot_duration_volume_1rm(params: PlotParams) -> None:
     fig.tight_layout()
     fig.subplots_adjust(top=0.88, bottom=0.2, right=0.92)
 
-    save_path = f"{img_path}all_years/workout_duration_volume_1rm_{exercise}.png"
+    save_path = str(Path(img_path) / "all_years" / f"workout_duration_volume_1rm_{exercise}.png")
     save_plot(fig, save_path)
 
 

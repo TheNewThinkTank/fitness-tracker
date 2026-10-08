@@ -28,15 +28,34 @@ def get_available_exercises(training_catalogue: str, split: str) -> list[str]:
     available_exercises = load_yaml_file(training_catalogue)
     if not isinstance(available_exercises, dict):
         raise TypeError("Training catalogue must be a mapping of splits to exercises.")
+    if isinstance(available_exercises.get("exercises"), list):
+        groups = {}
+        for group in available_exercises["exercises"]:
+            if isinstance(group, dict):
+                groups.update(group)
+        available_exercises = groups
 
     if split not in available_exercises:
         raise KeyError(split)
 
     exercises = available_exercises[split]
-    if not isinstance(exercises, list) or not all(isinstance(item, str) for item in exercises):
+    if not isinstance(exercises, list):
         raise ValueError(f"No valid exercise list found for split {split!r}.")
 
-    return exercises
+    def flatten(values: list) -> list[str]:
+        names: list[str] = []
+        for value in values:
+            if isinstance(value, str):
+                names.append(value)
+            elif isinstance(value, dict):
+                for variants in value.values():
+                    if isinstance(variants, list):
+                        names.extend(flatten(variants))
+            else:
+                raise ValueError(f"Invalid exercise in split {split!r}.")
+        return names
+
+    return flatten(exercises)
 
 
 def main() -> None:

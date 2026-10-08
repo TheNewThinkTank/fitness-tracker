@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Dumbbell, X } from "@lucide/svelte";
+  import { ChartLine, Dumbbell, Pencil, X } from "@lucide/svelte";
 
   import type { WorkoutDetail } from "../api";
   import { formatDate, formatSplit } from "../format";
@@ -9,9 +9,11 @@
     workout: WorkoutDetail | null;
     error: string;
     onClose: () => void;
+    onProgress?: (exercise: string) => void;
+    onEdit?: (workout: WorkoutDetail) => void;
   }
 
-  let { state, workout, error, onClose }: Props = $props();
+  let { state, workout, error, onClose, onProgress, onEdit }: Props = $props();
 </script>
 
 <aside class="detail-panel" aria-labelledby="detail-title" aria-busy={state === "loading"}>
@@ -42,6 +44,7 @@
       <button type="button" class="secondary-button" onclick={onClose}>Close</button>
     </div>
   {:else if workout}
+    {#if onEdit}<div class="detail-actions"><button class="secondary-button" type="button" onclick={() => onEdit?.(workout!)}><Pencil size={16} /> Edit workout</button></div>{/if}
     <dl class="workout-facts">
       <div>
         <dt>Split</dt>
@@ -52,10 +55,15 @@
         <dd>{workout.start_time ?? "Not logged"} to {workout.end_time ?? "Not logged"}</dd>
       </div>
       <div>
-        <dt>Volume</dt>
+        <dt>Workload</dt>
         <dd>{workout.set_count} sets across {workout.exercise_count} exercises</dd>
       </div>
+      {#if workout.gym}<div><dt>Gym</dt><dd>{workout.gym}</dd></div>{/if}
+      {#if workout.bodyweight_kg != null}<div><dt>Bodyweight</dt><dd>{workout.bodyweight_kg} kg</dd></div>{/if}
+      {#if workout.rpe != null}<div><dt>RPE</dt><dd>{workout.rpe}</dd></div>{/if}
+      {#if workout.rir != null}<div><dt>RIR</dt><dd>{workout.rir}</dd></div>{/if}
     </dl>
+    {#if workout.notes}<p class="workout-notes">{workout.notes}</p>{/if}
 
     <div class="exercise-list">
       {#each Object.entries(workout.exercises) as [exercise, sets]}
@@ -64,6 +72,7 @@
             <Dumbbell size={17} />
             <h3>{formatSplit(exercise)}</h3>
             <span>{sets.length} sets</span>
+            {#if onProgress}<button class="row-action" type="button" title="View exercise progress" aria-label={`View ${formatSplit(exercise)} progress`} onclick={() => onProgress?.(exercise)}><ChartLine size={15} /></button>{/if}
           </div>
           <div class="set-grid" role="table" aria-label={`${formatSplit(exercise)} sets`}>
             <div class="set-row set-header" role="row">
@@ -75,7 +84,7 @@
               <div class="set-row" role="row">
                 <span role="cell">{exerciseSet.set_number ?? setIndex + 1}</span>
                 <span role="cell">{exerciseSet.reps ?? exerciseSet.duration ?? "Not logged"}</span>
-                <span role="cell">{exerciseSet.weight ?? "Not logged"}</span>
+                <span role="cell">{exerciseSet.weight ?? "Not logged"}{#if exerciseSet.load_multiplier === 2}<small class="set-extra">per hand</small>{/if}{#if exerciseSet.duration}<small class="set-extra">Hold: {exerciseSet.duration}</small>{/if}{#if exerciseSet.height != null}<small class="set-extra">Height: {String(exerciseSet.height)}</small>{/if}</span>
               </div>
             {/each}
           </div>

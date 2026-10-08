@@ -21,3 +21,9 @@ allowed_origins = [
 	"http://localhost:8080",
 ]
 api_token = ""
+enable_writes = false
+state_dir = ""
+auth_required = false
+cookie_secure = false
+password_hash = ""
+program_targets = "docs/project_docs/Workout-Programs/workout-program-detail.yml"

@@ -24,6 +24,11 @@ settings.validators.register(
     Validator("ATHLETE", default="default", is_type_of=str),
     Validator("ALLOWED_ORIGINS", default=[], is_type_of=list),
     Validator("API_TOKEN", default="", is_type_of=str),
+    Validator("ENABLE_WRITES", default=False, is_type_of=bool),
+    Validator("AUTH_REQUIRED", default=False, is_type_of=bool),
+    Validator("COOKIE_SECURE", default=False, is_type_of=bool),
+    Validator("PASSWORD_HASH", default="", is_type_of=str),
+    Validator("STATE_DIR", default="", is_type_of=str),
 )
 
 

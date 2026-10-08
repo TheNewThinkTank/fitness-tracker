@@ -12,7 +12,7 @@ from typing import TypedDict
 
 from loguru import logger  # type: ignore
 from profiling_tools.profiling_utils import profile  # type: ignore
-from datetime_tools.get_duration import get_duration_minutes  # type: ignore
+from src.common.metrics import session_duration
 
 from src.utils.get_data import get_data  # type: ignore
 
@@ -23,7 +23,7 @@ class WorkoutDurationEntry(TypedDict):
     end_time: str
 
 
-def get_all_durations(year: str) -> dict:
+def get_all_durations(year: str, table=None) -> dict:
     """Get the total duration of all workouts in a given year,
     summing durations for the same date.
 
@@ -34,8 +34,8 @@ def get_all_durations(year: str) -> dict:
     :rtype: dict
     """
 
-    data = get_data(year)
-    date_and_duration: dict[str, int] = {}
+    data = get_data(year) if table is None else list(table)
+    date_and_duration: dict[str, float] = {}
     for workout in data:
         if not isinstance(workout, dict):
             continue
@@ -49,7 +49,9 @@ def get_all_durations(year: str) -> dict:
         if not isinstance(date, str) or not isinstance(start_time, str) or not isinstance(end_time, str):
             continue
 
-        duration = get_duration_minutes(start_time, end_time)
+        duration = session_duration(start_time, end_time)
+        if duration is None:
+            continue
 
         # Sum durations for the same date
         if date in date_and_duration:

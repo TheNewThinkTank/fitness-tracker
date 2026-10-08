@@ -6,8 +6,8 @@ from datetime import date as calendar_date
 from typing import Any
 from uuid import UUID, uuid5
 
-from pydantic import BaseModel, ConfigDict, ValidationError, field_validator
-from typing_extensions import TypedDict
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
+from typing_extensions import NotRequired, TypedDict
 
 WORKOUT_ID_NAMESPACE = UUID("580bcb0f-5d7c-4ba7-970f-5ee56fd5f435")
 
@@ -36,6 +36,7 @@ class WorkoutRecord(TypedDict):
     date: str
     split: str
     exercises: dict[str, list[ExerciseSet]]
+    bodyweight_kg: NotRequired[float]
 
 
 def parse_workout_date(value: Any) -> calendar_date:
@@ -55,10 +56,11 @@ def parse_workout_date(value: Any) -> calendar_date:
 class ExerciseSetResponse(BaseModel):
     model_config = ConfigDict(extra="allow", strict=True)
 
-    set_number: int
-    reps: int
-    weight: str
-    duration: str | None = None
+    set_number: int = Field(ge=1)
+    reps: int = Field(ge=0, le=10000)
+    weight: str = Field(max_length=200)
+    duration: str | None = Field(default=None, max_length=100)
+    load_multiplier: int = Field(default=1, ge=1, le=2)
 
 
 class WorkoutMetadata(BaseModel):
@@ -69,6 +71,12 @@ class WorkoutMetadata(BaseModel):
     start_time: str | None = None
     end_time: str | None = None
     timezone: str | None = None
+    gym: str | None = Field(default=None, max_length=200)
+    notes: str | None = Field(default=None, max_length=5000)
+    bodyweight_kg: float | None = Field(default=None, gt=0, le=500)
+    rpe: float | None = Field(default=None, ge=1, le=10)
+    rir: int | None = Field(default=None, ge=0, le=20)
+    program_id: str | None = Field(default=None, max_length=100)
 
     @field_validator("date", mode="before")
     @classmethod
@@ -88,6 +96,31 @@ class WorkoutData(WorkoutMetadata):
     @classmethod
     def validate_id(cls, value: Any) -> Any:
         return UUID(value) if isinstance(value, str) else value
+
+
+class WorkoutWrite(WorkoutMetadata):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    exercises: dict[str, list[ExerciseSetResponse]] = Field(min_length=1, max_length=100)
+
+    @model_validator(mode="after")
+    def valid_session(self) -> "WorkoutWrite":
+        import re
+        from src.common.metrics import session_duration
+
+        if not 1900 <= self.date.year <= 2100:
+            raise ValueError("Workout date must be between 1900 and 2100")
+        if bool(self.start_time) != bool(self.end_time):
+            raise ValueError("Provide both start and end times, or leave both empty")
+        if self.start_time and session_duration(self.start_time, self.end_time) is None:
+            raise ValueError("Provide a valid workout time window of at most 12 hours")
+        for name, sets in self.exercises.items():
+            if not re.fullmatch(r"[a-zA-Z0-9_()\-]{1,100}", name):
+                raise ValueError("Exercise names must use letters, numbers, underscores, parentheses, or hyphens")
+            if not 1 <= len(sets) <= 100:
+                raise ValueError("Each exercise needs between 1 and 100 sets")
+            if len({exercise_set.set_number for exercise_set in sets}) != len(sets):
+                raise ValueError("Set numbers must be unique within each exercise")
+        return self
 
 
 def is_workout_record(value: Any) -> bool:

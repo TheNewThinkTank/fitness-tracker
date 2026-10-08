@@ -4,6 +4,29 @@ The frontend is a Svelte 5 and TypeScript application built with Vite. It loads
 available years, paginated workout summaries, and exercise details from relative
 `/api` routes.
 
+## Views
+
+- **Archive:** workout paging and detail, plus opt-in logging, version-aware
+	editing/deletion, and JSON import.
+- **Progress:** full-range analytics, exercise and constant-load filters,
+	formula selection, program-phase overlays, comparisons, personal records,
+	an activity calendar, source-workout drill-down, and CSV export.
+- **Programs:** dated history, planned/recorded workouts, checked rep-range
+	adherence, and structured target editing.
+- **Body Metrics:** historical weight, waist, and resting-heart-rate charts,
+	manual entry, CSV import/export, and confirmed deletion.
+
+Chart and editor modules load on demand. Zod validates numeric responses before
+they reach ECharts; missing values remain null. Tooltips use canvas rich text,
+and tables remain available alongside charts. Date/exercise/formula filters and
+workout links are encoded in the URL.
+
+Editing requires the backend's athlete password and
+`FITNESS_TRACKER_ENABLE_WRITES=true`. Provisioning and HTTPS configuration are
+documented in the [project README](../README.md#analytics-and-editing).
+Sessions use HttpOnly cookies and in-memory CSRF headers, never localStorage
+credentials or browser-side service keys.
+
 ## Development
 
 Use Node.js 24 or newer. Start the FastAPI service on port 8000, then run:
@@ -51,9 +74,9 @@ npm run test:e2e
 
 Playwright builds the frontend and starts an isolated preview on port 4173.
 Set `E2E_PORT` to use another port. Deterministic API fixtures cover year
-selection, pagination, global ordering, duplicate-day details, and error/retry
-behavior. Screenshots also check that the brand image loads and the page does
-not overflow on mobile.
+selection, pagination, duplicate-day details, error/retry behavior, complete
+progress totals, selected calendar years, chart pixels, CSV export, and
+program/body navigation. Screenshots check assets and mobile overflow.
 
 To include the unmocked browser-to-API test against a running Compose stack:
 
@@ -64,6 +87,10 @@ E2E_BASE_URL=http://127.0.0.1:3000 npm run test:e2e
 CI runs both sets of tests against the built containers. Failure screenshots
 and traces are retained in the browser-test-results artifact. Local reports are
 available with `npx playwright show-report`.
+
+Authenticated browser tests require separate disposable state and
+`E2E_WRITE_TESTS=1`; run with `--grep authenticated`. CI provisions a fixture-only
+password automatically. Never run write tests against personal workout state.
 
 ## Production
 

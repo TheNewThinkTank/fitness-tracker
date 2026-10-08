@@ -1,0 +1,4626 @@
+weight_training_log:
+  '1':
+    date: '2025-12-31'
+    start_time: '16:39'
+    end_time: '16:55'
+    timezone: CET
+    split: legs
+    warmup: 5 mintes walking.
+    cooldown: Stretching. Hangs.
+    gym: PG Gasvaerksvej
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 16 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      - set_number: 3
+        reps: 5
+        weight: 8 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 27 kg
+      - set_number: 2
+        reps: 10
+        weight: 27 kg
+      - set_number: 3
+        reps: 10
+        weight: 27 kg
+      calf_press:
+      - set_number: 1
+        reps: 12
+        weight: 39 kg
+      - set_number: 2
+        reps: 10
+        weight: 39 kg
+      - set_number: 3
+        reps: 12
+        weight: 39 kg
+    id: c0b7076b-8032-5f6c-8857-aa57c4cd35e5
+  '2':
+    date: '2026-01-07'
+    start_time: '18:06'
+    end_time: '18:28'
+    timezone: CET
+    split: home-workout
+    warmup: ''
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      chair_pushup:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 9
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT kg
+      one_arm_kb_high_row:
+      - set_number: 1
+        reps: 7
+        weight: 12 kg
+      - set_number: 2
+        reps: 7
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+    id: e5052335-99f6-503c-915c-338d0d76e5bd
+  '3':
+    date: '2026-01-08'
+    start_time: '14:37'
+    end_time: '14:50'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      chair_pushup:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT kg
+      kb_halo:
+      - set_number: 1
+        reps: 14
+        weight: 12 kg
+      - set_number: 2
+        reps: 14
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+    id: 68770b8c-6fe9-5600-a3b6-21bac995eebb
+  '4':
+    date: '2026-01-09'
+    start_time: '14:00'
+    end_time: '14:25'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 4
+        reps: 10
+        weight: BODYWEIGHT kg
+      chair_pushup:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 30
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      leg_raise:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      bird_dogs:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+    id: a09a926d-a995-5b88-9538-21fd4fb600c3
+  '5':
+    date: '2026-01-10'
+    start_time: '16:44'
+    end_time: '17:12'
+    timezone: CET
+    split: torso
+    warmup: ''
+    cooldown: Stretching. Static hangs.
+    gym: PG Frederiksberg
+    notes: T-Bar row and kelso shrug done as supersets.
+    exercises:
+      lat_pull_down:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      behind_the_neck_pull_down:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      kelso_shrug:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      db_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      machine_fly:
+      - set_number: 1
+        reps: 12
+        weight: 39 kg
+      - set_number: 2
+        reps: 12
+        weight: 39 kg
+      back_extension:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 6
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+    id: d68f3e4d-8e24-537b-b52f-9d1362f55369
+  '6':
+    date: '2026-01-11'
+    start_time: '16:08'
+    end_time: '16:26'
+    timezone: CET
+    split: arms
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: PG Koebmagergade
+    exercises:
+      db_side_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      egyptian_side_lateral_raise:
+      - set_number: 1
+        reps: 4
+        weight: 6.8 kg
+      - set_number: 2
+        reps: 6
+        weight: 4.5 kg
+      cable_reverse_fly:
+      - set_number: 1
+        reps: 11
+        weight: 13.6 kg
+      - set_number: 2
+        reps: 12
+        weight: 9 kg
+      cable_french_press:
+      - set_number: 1
+        reps: 12
+        weight: 13.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 11.3 kg
+      - set_number: 3
+        reps: 12
+        weight: 9 kg
+      db_incline_curl:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 9
+        weight: 14 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 45 kg
+      - set_number: 2
+        reps: 15
+        weight: 45 kg
+      face_pull_with_push:
+      - set_number: 1
+        reps: 10
+        weight: 9 kg
+      - set_number: 2
+        reps: 8
+        weight: 9 kg
+    id: c28146bf-f8af-5f99-ad5c-1f7b443babf7
+  '7':
+    date: '2026-01-15'
+    start_time: '19:52'
+    end_time: '20:10'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      - set_number: 4
+        reps: 10
+        weight: 12 kg
+      chair_pushup:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 30
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 30
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      bird_dogs:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+    id: 4a7eff1a-b49a-59f6-8b48-06bd523861e8
+  '8':
+    date: '2026-01-16'
+    start_time: '14:10'
+    end_time: '14:28'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      - set_number: 3
+        reps: 10
+        weight: 12 kg
+      - set_number: 4
+        reps: 10
+        weight: 12 kg
+      chair_pushup:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      bird_dogs:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+    id: 0be047ee-516d-5f63-bbb5-8527b2d01cff
+  '9':
+    date: '2026-01-20'
+    start_time: '16:45'
+    end_time: '17:20'
+    timezone: CET
+    split: legs
+    warmup: ''
+    cooldown: Stretching. Hangs. 5 minutes Muay Thai bag work.
+    gym: PG Valby
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      - set_number: 3
+        reps: 10
+        weight: 60 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 7
+        weight: 20 kg
+      - set_number: 2
+        reps: 7
+        weight: 20 kg
+      - set_number: 3
+        reps: 7
+        weight: 20 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 41 kg
+      - set_number: 3
+        reps: 10
+        weight: 36 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 7
+        weight: 70 kg
+      - set_number: 2
+        reps: 7
+        weight: 70 kg
+      - set_number: 3
+        reps: 7
+        weight: 70 kg
+    id: b4e2756b-d0a4-5865-8f97-186dcbfac347
+  '10':
+    date: '2026-01-24'
+    start_time: '14:12'
+    end_time: '14:47'
+    timezone: CET
+    split: torso
+    warmup: 5 min. muay thai on heavy bag.
+    cooldown: Stretching. Static hangs.
+    gym: PG Valby
+    notes: T-Bar row and kelso shrug done as supersets.
+    exercises:
+      lat_pull_down:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      behind_the_neck_pull_down:
+      - set_number: 1
+        reps: 10
+        weight: 39 kg
+      - set_number: 2
+        reps: 10
+        weight: 39 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      kelso_shrug:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      db_press:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      machine_fly:
+      - set_number: 1
+        reps: 12
+        weight: 39 kg
+      - set_number: 2
+        reps: 12
+        weight: 39 kg
+      back_extension:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+    id: cc7d7360-30d4-5589-97e3-98a569434e86
+  '11':
+    date: '2026-01-27'
+    start_time: '18:12'
+    end_time: '18:40'
+    timezone: CET
+    split: arms
+    warmup: 5 min Muay Thai bag work.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    exercises:
+      db_side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 14 kg
+      - set_number: 2
+        reps: 12
+        weight: 14 kg
+      egyptian_side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 4.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 4.5 kg
+      cable_reverse_fly:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 30 kg
+      cable_french_press:
+      - set_number: 1
+        reps: 15
+        weight: 20 kg
+      - set_number: 2
+        reps: 15
+        weight: 25 kg
+      - set_number: 3
+        reps: 12
+        weight: 25 kg
+      db_incline_curl:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      - set_number: 3
+        reps: 10
+        weight: 20 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 55 kg
+      - set_number: 2
+        reps: 15
+        weight: 55 kg
+      face_pull_with_push:
+      - set_number: 1
+        reps: 10
+        weight: 9 kg
+      - set_number: 2
+        reps: 10
+        weight: 9 kg
+    id: e1580c27-06e0-51ef-b5ab-0a3345ebdb5d
+  '12':
+    date: '2026-01-29'
+    start_time: '16:50'
+    end_time: '17:05'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 8
+        weight: 12 kg
+      - set_number: 2
+        reps: 8
+        weight: 12 kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+    id: 9884e59e-09a2-53cd-9338-f0894fce5926
+  '13':
+    date: '2026-01-30'
+    start_time: '16:46'
+    end_time: '17:03'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 6
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+    id: 23adbebb-2dca-55cd-86b6-916db7968bc7
+  '14':
+    date: '2026-01-31'
+    start_time: '16:46'
+    end_time: '17:34'
+    timezone: CET
+    split: legs
+    warmup: 5 minutes Muay Thai bag work.
+    cooldown: Stretching. Hangs.
+    gym: PG Valby
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 28 kg
+      - set_number: 2
+        reps: 5
+        weight: 28 kg
+      - set_number: 3
+        reps: 5
+        weight: 28 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      - set_number: 3
+        reps: 12
+        weight: 40 kg
+    id: 368c58e7-86b1-5c04-a219-acaf980d0fbd
+  '15':
+    date: '2026-02-01'
+    start_time: '17:09'
+    end_time: '17:33'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      pushup:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 25
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 21
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+    id: 25f22278-25b4-54f6-919e-aabe10129fa5
+  '16':
+    date: '2026-02-03'
+    start_time: '19:29'
+    end_time: '19:58'
+    timezone: CET
+    split: torso
+    warmup: 5 min. muay thai on heavy bag.
+    cooldown: Stretching. Static hangs.
+    gym: PG Staalen
+    notes: T-Bar row and kelso shrug done as supersets.
+    exercises:
+      lat_pull_down:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      behind_the_neck_pull_down:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 12
+        weight: 36 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      kelso_shrug:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      db_press:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      machine_fly:
+      - set_number: 1
+        reps: 12
+        weight: 52 kg
+      - set_number: 2
+        reps: 12
+        weight: 52 kg
+      back_extension:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+    id: decd12bf-a85c-5117-b9e3-ba57b7e003f3
+  '17':
+    date: '2026-02-04'
+    start_time: '17:18'
+    end_time: '17:35'
+    timezone: CET
+    split: home-workout
+    warmup: Wing Tsun first 2 forms.
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      pushup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 10
+        weight: 12 kg
+      - set_number: 2
+        reps: 10
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 25
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+    id: e8db1589-ede1-5562-b5f8-5de63d4fb0d2
+  '18':
+    date: '2026-02-13'
+    start_time: '16:40'
+    end_time: '17:04'
+    timezone: CET
+    split: arms
+    warmup: 5 min Muay Thai bag work.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    exercises:
+      db_side_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      egyptian_side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 4.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 4.5 kg
+      cable_reverse_fly:
+      - set_number: 1
+        reps: 12
+        weight: 18 kg
+      - set_number: 2
+        reps: 12
+        weight: 18 kg
+      cable_french_press:
+      - set_number: 1
+        reps: 15
+        weight: 18 kg
+      - set_number: 2
+        reps: 12
+        weight: 23 kg
+      - set_number: 3
+        reps: 12
+        weight: 27 kg
+      db_incline_curl:
+      - set_number: 1
+        reps: 12
+        weight: 18 kg
+      - set_number: 2
+        reps: 9
+        weight: 18 kg
+      - set_number: 3
+        reps: 9
+        weight: 18 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 40 kg
+      face_pull_with_push:
+      - set_number: 1
+        reps: 10
+        weight: 14 kg
+      - set_number: 2
+        reps: 9
+        weight: 14 kg
+    id: c48fbef7-2c9a-5483-b159-919b29a814e6
+  '19':
+    date: '2026-02-22'
+    start_time: '15:42'
+    end_time: '16:20'
+    timezone: CET
+    split: legs
+    warmup: 2 minutes elliptical trainer, level 5.
+    cooldown: Stretching. Hangs.
+    gym: PG BIG
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      - set_number: 3
+        reps: 8
+        weight: 40 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 16 kg
+      - set_number: 2
+        reps: 5
+        weight: 16 kg
+      - set_number: 3
+        reps: 5
+        weight: 16 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 8
+        weight: 32 kg
+      - set_number: 3
+        reps: 8
+        weight: 32 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 30 kg
+      - set_number: 3
+        reps: 12
+        weight: 30 kg
+    id: 94f1174e-8a90-5430-91cf-0cd2934b5c70
+  '20':
+    date: '2026-02-24'
+    start_time: '19:43'
+    end_time: '20:13'
+    timezone: CET
+    split: torso
+    warmup: 5 min. muay thai on heavy bag.
+    cooldown: Stretching. Static hangs.
+    gym: PG Staalen
+    notes: T-Bar row and kelso shrug done as supersets.
+    exercises:
+      lat_pull_down:
+      - set_number: 1
+        reps: 8
+        weight: 52 kg
+      - set_number: 2
+        reps: 9
+        weight: 45 kg
+      behind_the_neck_pull_down:
+      - set_number: 1
+        reps: 8
+        weight: 39 kg
+      - set_number: 2
+        reps: 8
+        weight: 32 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      kelso_shrug:
+      - set_number: 1
+        reps: 10
+        weight: 35 kg
+      - set_number: 2
+        reps: 10
+        weight: 35 kg
+      db_press:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      machine_fly:
+      - set_number: 1
+        reps: 12
+        weight: 52 kg
+      - set_number: 2
+        reps: 10
+        weight: 66 kg
+      back_extension:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+    id: fcf37cbf-e240-5040-a113-e73e3f7031f1
+  '21':
+    date: '2026-02-28'
+    start_time: '16:37'
+    end_time: '17:06'
+    timezone: CET
+    split: arms
+    warmup: 3 min elliptical trainer, level 5.
+    cooldown: Static hangs. Stretching.
+    gym: PG Ballerup
+    exercises:
+      db_side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 10 kg
+      egyptian_side_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 4.5 kg
+      - set_number: 2
+        reps: 10
+        weight: 4.5 kg
+      cable_reverse_fly:
+      - set_number: 1
+        reps: 12
+        weight: 11.4 kg
+      - set_number: 2
+        reps: 12
+        weight: 11.4 kg
+      cable_french_press:
+      - set_number: 1
+        reps: 12
+        weight: 14.7 kg
+      - set_number: 2
+        reps: 12
+        weight: 11.4 kg
+      - set_number: 3
+        reps: 12
+        weight: 11.4 kg
+      db_incline_curl:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      - set_number: 3
+        reps: 12
+        weight: 16 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 40 kg
+      face_pull_with_push:
+      - set_number: 1
+        reps: 10
+        weight: 7.9 kg
+      - set_number: 2
+        reps: 10
+        weight: 7.9 kg
+    id: 2e1fce52-af3b-5f00-b3ac-e9706218d361
+  '22':
+    date: '2026-03-03'
+    start_time: '20:57'
+    end_time: '21:21'
+    timezone: CET
+    split: home-workout
+    warmup: ''
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      pushup:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 8
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+    id: 64c632fb-2509-5cc4-86c0-9c02bc0aa0e3
+  '23':
+    date: '2026-03-04'
+    start_time: '11:51'
+    end_time: '12:39'
+    timezone: CET
+    split: legs
+    warmup: 15 minutes biking.
+    cooldown: Stretching. Hangs. 15 minutes biking.
+    gym: PG Staalen
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      - set_number: 3
+        reps: 8
+        weight: 70 kg
+      deadlift:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 2
+        weight: 70 kg
+      - set_number: 3
+        reps: 2
+        weight: 70 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 20 kg
+      - set_number: 2
+        reps: 5
+        weight: 20 kg
+      - set_number: 3
+        reps: 5
+        weight: 20 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 32 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      - set_number: 3
+        reps: 10
+        weight: 32 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      - set_number: 3
+        reps: 8
+        weight: 60 kg
+    id: 5d470dd8-d5c2-576a-abd7-5c68e82e5496
+  '24':
+    date: '2026-03-07'
+    start_time: '12:05'
+    end_time: '12:41'
+    timezone: CET
+    split: torso
+    warmup: 5 min. muay thai on heavy bag.
+    cooldown: Stretching. Static hangs.
+    gym: PG Valby
+    notes: '"T-Bar row and kelso shrug done as supersets.
+
+      Swapped the order of toe-to-bar and back-extension
+
+      (only one back extention machine available that was not broken, which had a
+      queue).
+
+      Also, a big queue to the machine fly."
+
+      '
+    exercises:
+      lat_pull_down:
+      - set_number: 1
+        reps: 10
+        weight: 52 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      behind_the_neck_pull_down:
+      - set_number: 1
+        reps: 10
+        weight: 39 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      t_bar_row:
+      - set_number: 1
+        reps: 12
+        weight: 35 kg
+      - set_number: 2
+        reps: 12
+        weight: 35 kg
+      kelso_shrug:
+      - set_number: 1
+        reps: 12
+        weight: 35 kg
+      - set_number: 2
+        reps: 12
+        weight: 35 kg
+      db_press:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 12
+        weight: 36 kg
+      db_incline_press:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      machine_fly:
+      - set_number: 1
+        reps: 15
+        weight: 52 kg
+      - set_number: 2
+        reps: 12
+        weight: 66 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    id: 8c022fd3-49ed-5241-b8d0-59dfca489108
+  '25':
+    date: '2026-03-09'
+    start_time: '11:55'
+    end_time: '12:21'
+    timezone: CET
+    split: arms
+    warmup: 15 minutes biking.
+    cooldown: Static hangs. Stretching. 15 minutes biking.
+    gym: PG Staalen
+    exercises:
+      db_side_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      egyptian_side_lateral_raise:
+      - set_number: 1
+        reps: 10
+        weight: 4.5 kg
+      - set_number: 2
+        reps: 10
+        weight: 4.5 kg
+      cable_reverse_fly:
+      - set_number: 1
+        reps: 8
+        weight: 13.6 kg
+      - set_number: 2
+        reps: 12
+        weight: 9 kg
+      cable_french_press:
+      - set_number: 1
+        reps: 8
+        weight: 15.8 kg
+      - set_number: 2
+        reps: 10
+        weight: 13.5 kg
+      - set_number: 3
+        reps: 12
+        weight: 11.3 kg
+      db_incline_curl:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      - set_number: 3
+        reps: 8
+        weight: 16 kg
+      bb_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 40 kg
+      face_pull_with_push:
+      - set_number: 1
+        reps: 8
+        weight: 9 kg
+      - set_number: 2
+        reps: 8
+        weight: 6.8 kg
+    id: 2f67bc46-fd68-52aa-b981-ef741ebef039
+  '26':
+    date: '2026-03-14'
+    start_time: '12:13'
+    end_time: '12:51'
+    timezone: CET
+    split: fullbody_a
+    warmup: 5 minutes elliptical trainer, level 5.
+    cooldown: Static hangs. Stretching.
+    gym: PG Big
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 1
+        weight: 80 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 66 kg
+      - set_number: 2
+        reps: 10
+        weight: 66 kg
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 86 kg
+      - set_number: 2
+        reps: 12
+        weight: 86 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+    id: be8d1653-3b73-5de6-915e-02187c9ea5bb
+  '27':
+    date: '2026-03-18'
+    start_time: '11:19'
+    end_time: '11:49'
+    timezone: CET
+    split: home-workout
+    warmup: ''
+    cooldown: Stretching.
+    gym: Home
+    exercises:
+      kb_snatch:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_swings:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 15
+        weight: 12 kg
+      kb_clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      one_arm_kb_row:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      pushup:
+      - set_number: 1
+        reps: 6
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+      kb_reverse_lunge:
+      - set_number: 1
+        reps: 5
+        weight: 12 kg
+      - set_number: 2
+        reps: 5
+        weight: 12 kg
+      kb_goblet_squat:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      kb_halo:
+      - set_number: 1
+        reps: 12
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      crunch:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      back_extension:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+      side_jackknife:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    id: fa0740c4-bf2e-5606-b65a-fe29e430da9e
+  '28':
+    date: '2026-03-23'
+    start_time: '12:00'
+    end_time: '12:42'
+    timezone: CET
+    split: fullbody_b
+    warmup: 5 minutes elliptical trainer, level 5.
+    cooldown: Static hangs. Stretching.
+    gym: "PG Vanl\xF8se"
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      military_press:
+      - set_number: 1
+        reps: 12
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 30 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 59 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+    id: a6e9453d-6564-5d95-92cf-083f11562209
+  '29':
+    date: '2026-03-29'
+    start_time: '14:43'
+    end_time: '15:19'
+    timezone: CET
+    split: fullbody_c
+    warmup: 5 minutes muay thai on heavy bag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 4
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 50 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 12
+        weight: 14 kg
+      - set_number: 2
+        reps: 10
+        weight: 18 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 12
+        weight: 36 kg
+      - set_number: 2
+        reps: 12
+        weight: 46 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 28 kg
+      - set_number: 2
+        reps: 5
+        weight: 28 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 12
+        weight: 10.2 kg
+      - set_number: 2
+        reps: 12
+        weight: 10.2 kg
+    id: acd7c07e-9bb0-5045-9fbe-5f1facb6070a
+  '30':
+    date: '2026-04-01'
+    start_time: '12:39'
+    end_time: '13:09'
+    timezone: CEST
+    split: fullbody_d
+    warmup: 15 minutes biking.
+    cooldown: Static hangs. Stretching. 25 minutes biking.
+    gym: PG Staalen
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      chin_up:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      machine_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+      arnold_press:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      leg_raise:
+      - set_number: 1
+        reps: 13
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 14
+        weight: BODYWEIGHT kg
+    id: 8b9dc77f-9100-5fd5-b1bd-4a62e9daaaca
+  '31':
+    date: '2026-04-06'
+    start_time: '13:03'
+    end_time: '13:30'
+    timezone: CEST
+    split: fullbody_a
+    warmup: 3 minutes treadmill, level 5.
+    cooldown: Static hangs. Stretching.
+    gym: PG Staalen
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 8
+        weight: 65 kg
+      - set_number: 2
+        reps: 8
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 8
+        weight: 66 kg
+      - set_number: 2
+        reps: 8
+        weight: 59 kg
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 66 kg
+      - set_number: 2
+        reps: 10
+        weight: 73 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 20
+        weight: BODYWEIGHT kg
+    id: 5025d7b5-0d52-5c7e-8560-007a12339326
+  '32':
+    date: '2026-04-14'
+    start_time: '18:34'
+    end_time: '19:08'
+    timezone: CEST
+    split: fullbody_b
+    warmup: 5 minutes walking.
+    cooldown: Static hangs. Stretching.
+    gym: PG Ballerup
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 4
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 8
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      military_press:
+      - set_number: 1
+        reps: 12
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 59 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 45 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 8
+        weight: 32 kg
+      - set_number: 2
+        reps: 8
+        weight: 32 kg
+    id: 8216172c-48b5-568b-b2e0-855329a5a5bb
+  '33':
+    date: '2026-04-21'
+    start_time: '18:42'
+    end_time: '19:07'
+    timezone: CEST
+    split: fullbody_c
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: PG Staalen
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 4
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 4
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 12
+        weight: 30 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 12
+        weight: 13.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 13.5 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 6
+        weight: 31.6 kg
+      - set_number: 2
+        reps: 7
+        weight: 27 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 4
+        weight: 32 kg
+      - set_number: 2
+        reps: 4
+        weight: 32 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 10
+        weight: 23 kg
+      - set_number: 2
+        reps: 10
+        weight: 23 kg
+    id: 251790cf-e6e3-5103-90e1-d9ac2ed584e5
+  '34':
+    date: '2026-04-24'
+    start_time: 09:53
+    end_time: '10:15'
+    timezone: CEST
+    split: fullbody_d
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: PG BIG
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 6
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      chin_up:
+      - set_number: 1
+        reps: 6
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 6
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 60 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      machine_row:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 10
+        weight: 41 kg
+      arnold_press:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 10
+        weight: 24 kg
+      leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+    id: 82c48a31-bede-5e89-b0b1-0b22bf12acf9
+  '35':
+    date: '2026-04-28'
+    start_time: '19:44'
+    end_time: '20:10'
+    timezone: CEST
+    split: fullbody_a
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: PG Staalen
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 5
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 66 kg
+      - set_number: 2
+        reps: 10
+        weight: 66 kg
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 100 kg
+      - set_number: 2
+        reps: 12
+        weight: 140 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 8
+        weight: 80 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 40
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 40
+        weight: BODYWEIGHT kg
+    id: 8d6c4611-d151-5a4b-99b7-c0930cf62069
+  '36':
+    date: '2026-05-02'
+    start_time: '16:01'
+    end_time: '16:38'
+    timezone: CEST
+    split: fullbody_b
+    warmup: 5 minutes treadmill.
+    cooldown: Static hangs. Stretching.
+    gym: PG BIG
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 4
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 10
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      military_press:
+      - set_number: 1
+        reps: 4
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 30 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 73 kg
+      - set_number: 2
+        reps: 10
+        weight: 59 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 41 kg
+      - set_number: 2
+        reps: 10
+        weight: 32 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+    id: fbfb0240-dd3c-54e2-bbee-885a30718b65
+  '37':
+    date: '2026-05-09'
+    start_time: '14:42'
+    end_time: '15:15'
+    timezone: CEST
+    split: fullbody_c
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: PG Koebmagergade
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 3
+        weight: 30 kg
+      - set_number: 2
+        reps: 4
+        weight: 30 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 4
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 4
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 10
+        weight: 10.2 kg
+      - set_number: 2
+        reps: 10
+        weight: 10.2 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 10
+        weight: 27 kg
+      - set_number: 2
+        reps: 8
+        weight: 27 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 28 kg
+      - set_number: 2
+        reps: 6
+        weight: 16 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 10
+        weight: 13.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 20.3 kg
+    id: 54f00c57-4e24-5a4a-98a4-0b915696d9dc
+  '38':
+    date: '2026-05-10'
+    start_time: '12:58'
+    end_time: '13:31'
+    timezone: CEST
+    split: fullbody_d
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    notes: No dip equipment available.
+    gym: PG Valby
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      chin_up:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 7
+        weight: BODYWEIGHT kg
+      seated_triceps_press:
+      - set_number: 1
+        reps: 20
+        weight: 36 kg
+      - set_number: 2
+        reps: 10
+        weight: 59 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      machine_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 8
+        weight: 70 kg
+      arnold_press:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      leg_raise:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    id: edde67a7-b897-5508-ad98-3bacadd5e298
+  '39':
+    date: '2026-06-04'
+    start_time: '18:30'
+    end_time: '18:59'
+    timezone: CEST
+    split: fullbody_a
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Staalen
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 6
+        weight: 60 kg
+      - set_number: 2
+        reps: 6
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 10
+        weight: 52 kg
+      - set_number: 2
+        reps: 10
+        weight: 52 kg
+      leg_press:
+      - set_number: 1
+        reps: 8
+        weight: 86 kg
+      - set_number: 2
+        reps: 10
+        weight: 79 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 16 kg
+      - set_number: 2
+        reps: 10
+        weight: 16 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 40
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 40
+        weight: BODYWEIGHT kg
+    id: f0637068-064e-52fb-ad97-88b9c6e242ee
+  '40':
+    date: '2026-06-28'
+    start_time: '15:19'
+    end_time: '15:45'
+    timezone: CEST
+    split: fullbody_b
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      military_press:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 52 kg
+      - set_number: 2
+        reps: 12
+        weight: 52 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 36 kg
+      seated_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 7
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+    id: 0b74e4f4-5ec9-5294-94b0-fc851772d19d
+  '41':
+    date: '2026-07-01'
+    start_time: '14:19'
+    end_time: '14:43'
+    timezone: CEST
+    split: fullbody_c
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 12
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 30 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 20
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 17.5 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 12
+        weight: 25 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 20 kg
+      - set_number: 2
+        reps: 5
+        weight: 20 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 12
+        weight: 25 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+    id: 18b37e6d-bd31-5155-9692-4f55b31106d4
+  '42':
+    date: '2026-07-04'
+    start_time: '18:28'
+    end_time: '18:52'
+    timezone: CEST
+    split: fullbody_d
+    warmup: 15 minutes biking.
+    cooldown: Static hangs. Stretching. 15 minutes biking.
+    gym: PG Staalen
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 8
+        weight: 50 kg
+      chin_up:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      machine_row:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      arnold_press:
+      - set_number: 1
+        reps: 10
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      leg_raise:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+    id: e53c983b-904e-5556-8a3b-009d78df00f4
+  '43':
+    date: '2026-07-05'
+    start_time: '14:39'
+    end_time: '15:03'
+    timezone: CEST
+    split: fullbody_a
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 10
+        weight: 45 kg
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 80 kg
+      - set_number: 2
+        reps: 12
+        weight: 80 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      side_lateral:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 14 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 40
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 30
+        weight: BODYWEIGHT kg
+    id: b9f09549-00c4-5a45-af04-722d8e8d6612
+  '44':
+    date: '2026-07-07'
+    start_time: '14:00'
+    end_time: '14:27'
+    timezone: CEST
+    split: fullbody_b
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      military_press:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      leg_extention:
+      - set_number: 1
+        reps: 20
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 70 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+    id: e2849782-1cb8-5861-acdb-33f3cb2f327c
+  '45':
+    date: '2026-07-08'
+    start_time: '10:56'
+    end_time: '11:17'
+    timezone: CEST
+    split: fullbody_c
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 4
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 12
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 10 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+    id: 2524c975-702c-5e0b-8749-10ab0be8ec83
+  '46':
+    date: '2026-07-11'
+    start_time: '12:57'
+    end_time: '13:48'
+    timezone: CEST
+    split: fullbody_d
+    warmup: 3 minutes crosstrainer.
+    cooldown: Static hangs. Stretching.
+    gym: PG BIG
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 60 kg
+      chin_up:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 30 kg
+      machine_row:
+      - set_number: 1
+        reps: 5
+        weight: 52 kg
+      - set_number: 2
+        reps: 15
+        weight: 32 kg
+      arnold_press:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      leg_raise:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+    id: 0ec8b9fa-7dfc-58bf-ace4-d70bbbda44e4
+  '47':
+    date: '2026-07-14'
+    start_time: '10:26'
+    end_time: '10:59'
+    timezone: CEST
+    split: fullbody_a
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 70 kg
+      leg_press:
+      - set_number: 1
+        reps: 20
+        weight: 100 kg
+      - set_number: 2
+        reps: 20
+        weight: 120 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 90 kg
+      - set_number: 2
+        reps: 10
+        weight: 110 kg
+      side_lateral:
+      - set_number: 1
+        reps: 15
+        weight: 16 kg
+      - set_number: 2
+        reps: 20
+        weight: 16 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 40
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 40
+        weight: BODYWEIGHT kg
+    id: fadde997-078d-5b21-9d3b-5e55a75d6f9e
+  '48':
+    date: '2026-07-16'
+    start_time: '10:44'
+    end_time: '11:05'
+    timezone: CEST
+    split: fullbody_b
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 15
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      military_press:
+      - set_number: 1
+        reps: 6
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 40 kg
+      - set_number: 2
+        reps: 10
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 100 kg
+      - set_number: 2
+        reps: 15
+        weight: 100 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+    id: 3ce9f77d-a91d-525f-876b-7d88650dac8b
+  '49':
+    date: '2026-07-17'
+    start_time: '13:39'
+    end_time: '14:05'
+    timezone: CEST
+    split: fullbody_c
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 4
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 15
+        weight: 30 kg
+      - set_number: 2
+        reps: 15
+        weight: 30 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 12
+        weight: 15 kg
+      - set_number: 2
+        reps: 12
+        weight: 15 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 8
+        weight: 16 kg
+      - set_number: 2
+        reps: 8
+        weight: 16 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 15
+        weight: 20 kg
+    id: 88cf2bee-6972-5c72-a022-21949b45c707
+  '50':
+    date: '2026-07-23'
+    start_time: '19:57'
+    end_time: '20:21'
+    timezone: CEST
+    split: fullbody_d
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: PG Staalen
+    exercises:
+      hack_squat:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      chin_up:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 20
+        weight: 30 kg
+      - set_number: 2
+        reps: 15
+        weight: 30 kg
+      machine_row:
+      - set_number: 1
+        reps: 20
+        weight: 40 kg
+      - set_number: 2
+        reps: 15
+        weight: 40 kg
+      arnold_press:
+      - set_number: 1
+        reps: 20
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      leg_raise:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    id: 2ea80ccd-e50c-5faf-b057-5c0708912909
+  '51':
+    date: '2026-07-25'
+    start_time: '15:19'
+    end_time: '15:51'
+    timezone: CEST
+    split: fullbody_a
+    warmup: 10 pushups.
+    cooldown: Static hangs. Stretching. 5 minutes Muay Thai on heavybag.
+    gym: PG Valby
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 15
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 59 kg
+      leg_press:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 20
+        weight: 50 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 15
+        weight: 20 kg
+      side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 18 kg
+      - set_number: 2
+        reps: 12
+        weight: 18 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 50
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 50
+        weight: BODYWEIGHT kg
+      hollow_body_hold:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 30 seconds
+    id: 8cd5136c-459d-522d-8ff4-72fb3632edc4
+  '52':
+    date: '2026-07-30'
+    start_time: '11:59'
+    end_time: '12:21'
+    timezone: CEST
+    split: fullbody_b
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      military_press:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 55 kg
+      - set_number: 2
+        reps: 12
+        weight: 55 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 20
+        weight: 80 kg
+      - set_number: 2
+        reps: 20
+        weight: 80 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+    id: b2a0a12e-01df-56de-8c2b-f32c865f20f7
+  '53':
+    date: '2026-08-02'
+    start_time: '13:51'
+    end_time: '14:17'
+    timezone: CEST
+    split: fullbody_c
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: PG Gasvaerksvej
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 4
+        weight: 45 kg
+      - set_number: 2
+        reps: 5
+        weight: 45 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 12
+        weight: 14.7 kg
+      - set_number: 2
+        reps: 12
+        weight: 14.7 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 12
+        weight: 25 kg
+      - set_number: 2
+        reps: 12
+        weight: 25 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 24 kg
+      - set_number: 2
+        reps: 7
+        weight: 24 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 10
+        weight: 21.6 kg
+      - set_number: 2
+        reps: 10
+        weight: 21.6 kg
+    id: 4bc13f8b-0dbf-555a-85d7-548d927fa594
+  '54':
+    date: '2026-08-04'
+    start_time: '12:00'
+    end_time: '12:24'
+    timezone: CEST
+    split: fullbody_d
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      chin_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 8
+        weight: BODYWEIGHT kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 90 kg
+      - set_number: 2
+        reps: 15
+        weight: 90 kg
+      machine_low_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      arnold_press:
+      - set_number: 1
+        reps: 15
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      leg_raise:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    id: 3160e609-51f3-5287-ae29-9b976d5b97ee
+  '55':
+    date: '2026-08-06'
+    start_time: '13:54'
+    end_time: '14:20'
+    timezone: CEST
+    split: fullbody_a
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      leg_press:
+      - set_number: 1
+        reps: 20
+        weight: 100 kg
+      - set_number: 2
+        reps: 12
+        weight: 120 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 100 kg
+      - set_number: 2
+        reps: 12
+        weight: 100 kg
+      side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 16 kg
+      - set_number: 2
+        reps: 12
+        weight: 16 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 40
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 40
+        weight: BODYWEIGHT kg
+      hollow_body_hold:
+      - set_number: 1
+        reps: 1
+        weight: BODYWEIGHT kg
+        duration: 30 seconds
+    id: 18b8ddf7-91b8-51db-8b70-4420f3c72a93
+  '56':
+    date: '2026-08-08'
+    start_time: '14:37'
+    end_time: '15:21'
+    timezone: CEST
+    split: fullbody_b
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 6
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      military_press:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 30 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 59 kg
+      prone_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 41 kg
+      - set_number: 2
+        reps: 12
+        weight: 41 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 6
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+    id: 06cb3256-6542-5e9a-a9c7-0939946473c3
+  '57':
+    date: '2026-08-11'
+    start_time: '15:50'
+    end_time: '16:09'
+    timezone: CEST
+    split: fullbody
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: Marriott Salgados, Algarve, Portugal
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      - set_number: 3
+        reps: 12
+        weight: 45 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 12
+        weight: 45 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      - set_number: 3
+        reps: 12
+        weight: 45 kg
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      - set_number: 3
+        reps: 12
+        weight: 28 kg
+    id: dfb9bb7e-6b6f-5ddd-91c2-b1c264e4f57d
+  '58':
+    date: '2026-08-18'
+    start_time: '18:16'
+    end_time: '18:42'
+    timezone: CEST
+    split: fullbody
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    notes: 'feet_elevated_pushup: approx. 20 cm elevation'
+    gym: Marriott Salgados, Algarve, Portugal
+    exercises:
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      - set_number: 3
+        reps: 12
+        weight: 60 kg
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_rdl:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      - set_number: 3
+        reps: 12
+        weight: 32 kg
+      feet_elevated_pushup:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 12
+        weight: BODYWEIGHT kg
+      db_rear_fly:
+      - set_number: 1
+        reps: 15
+        weight: 12 kg
+      - set_number: 2
+        reps: 12
+        weight: 12 kg
+      - set_number: 3
+        reps: 12
+        weight: 12 kg
+    id: 22968ad5-d5c6-58b3-9146-808720fbd95d
+  '59':
+    date: '2026-08-20'
+    start_time: '13:05'
+    end_time: '13:27'
+    timezone: CEST
+    split: fullbody
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    notes: 'feet_elevated_pushup: approx. 40 cm elevation'
+    gym: Marriott Salgados, Algarve, Portugal
+    exercises:
+      1_leg_standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 10
+        weight: BODYWEIGHT kg
+      pistol_squat:
+      - set_number: 1
+        reps: 3
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 3
+        weight: BODYWEIGHT kg
+      - set_number: 3
+        reps: 3
+        weight: BODYWEIGHT kg
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      feet_elevated_pushup:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+      db_shrug:
+      - set_number: 1
+        reps: 15
+        weight: 44 kg
+      - set_number: 2
+        reps: 15
+        weight: 44 kg
+    id: 857a6815-3298-5d14-a86b-e79ebcfed84e
+  '60':
+    date: '2026-09-05'
+    start_time: '13:06'
+    end_time: '13:48'
+    timezone: CEST
+    split: fullbody_c
+    warmup: 10 minutes biking.
+    cooldown: Static hangs. Stretching. 10 minutes biking.
+    gym: PG Staalen
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 12
+        weight: 13.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 13.5 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 12
+        weight: 22.6 kg
+      - set_number: 2
+        reps: 12
+        weight: 22.6 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 8
+        weight: 20 kg
+      - set_number: 2
+        reps: 8
+        weight: 20 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 10
+        weight: 20.3 kg
+      - set_number: 2
+        reps: 12
+        weight: 20.3 kg
+    id: ee25905b-5f02-5aae-bbec-cdd0ee51360b
+  '61':
+    date: '2026-09-07'
+    start_time: '15:14'
+    end_time: '15:36'
+    timezone: CEST
+    split: fullbody_d
+    warmup: 5 min Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 40 kg
+      - set_number: 2
+        reps: 8
+        weight: 40 kg
+      chin_up:
+      - set_number: 1
+        reps: 7
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 7
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 7
+        weight: BODYWEIGHT kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      machine_low_row:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      arnold_press:
+      - set_number: 1
+        reps: 15
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 24 kg
+      leg_raise:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    id: 1b817d27-4c09-5da6-9920-b8b01a5288ea
+  '62':
+    date: '2026-09-09'
+    start_time: '11:19'
+    end_time: '12:01'
+    timezone: CEST
+    split: fullbody_a
+    warmup: 3 minutes crosstrainer level 5.
+    cooldown: Static hangs. Stretching.
+    gym: PG BIG
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 59 kg
+      - set_number: 2
+        reps: 12
+        weight: 59 kg
+      leg_press:
+      - set_number: 1
+        reps: 12
+        weight: 100 kg
+      - set_number: 2
+        reps: 12
+        weight: 100 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 40
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 30
+        weight: BODYWEIGHT kg
+    id: d181f487-a13e-59ff-9eff-0cc7ba7a9510
+  '63':
+    date: '2026-09-11'
+    start_time: '13:30'
+    end_time: '13:51'
+    timezone: CEST
+    split: fullbody_b
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      military_press:
+      - set_number: 1
+        reps: 10
+        weight: 30 kg
+      - set_number: 2
+        reps: 10
+        weight: 30 kg
+      leg_extention:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 10
+        weight: 50 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+    id: c36d66d9-77e9-5315-a70c-f0efc74b57e9
+  '64':
+    date: '2026-09-14'
+    split: fullbody_c
+    start_time: '11:59'
+    end_time: '12:27'
+    timezone: CEST
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 5
+        weight: 40 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 15
+        weight: 17.5 kg
+      - set_number: 2
+        reps: 15
+        weight: 17.5 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 12
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 5
+        weight: 20 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 10
+        weight: 20 kg
+      - set_number: 2
+        reps: 10
+        weight: 20 kg
+    warmup: 10 minutes biking.
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    id: b442dd4e-95af-48fb-b961-fd8c2a2aa152
+  '65':
+    date: '2026-09-16'
+    split: fullbody_d
+    start_time: '13:32'
+    end_time: '13:58'
+    timezone: CEST
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      chin_up:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 10
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 10
+        weight: BODYWEIGHT kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 20
+        weight: 80 kg
+      machine_low_row:
+      - set_number: 1
+        reps: 12
+        weight: 60 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      arnold_press:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      leg_raise:
+      - set_number: 1
+        reps: 20
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 13
+        weight: BODYWEIGHT kg
+    warmup: 5 min Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    id: 6dc171b0-d3a3-4e7b-b530-0faac0c21f39
+  '66':
+    date: '2026-09-19'
+    split: fullbody_a
+    start_time: '13:39'
+    end_time: '14:10'
+    timezone: CEST
+    exercises:
+      bench_press:
+      - set_number: 1
+        reps: 12
+        weight: 52.5 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      seated_row:
+      - set_number: 1
+        reps: 12
+        weight: 66 kg
+      - set_number: 2
+        reps: 12
+        weight: 66 kg
+      leg_press:
+      - set_number: 1
+        reps: 15
+        weight: 100 kg
+      - set_number: 2
+        reps: 15
+        weight: 100 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      side_lateral:
+      - set_number: 1
+        reps: 12
+        weight: 18 kg
+      - set_number: 2
+        reps: 12
+        weight: 18 kg
+      dead_bugs:
+      - set_number: 1
+        reps: 40
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 30
+        weight: BODYWEIGHT kg
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    id: 25cca089-5094-4c74-9bd9-459e15408362
+  '67':
+    date: '2026-09-21'
+    split: fullbody_b
+    start_time: '11:41'
+    end_time: '12:00'
+    timezone: CEST
+    exercises:
+      pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      db_fly:
+      - set_number: 1
+        reps: 12
+        weight: 28 kg
+      - set_number: 2
+        reps: 12
+        weight: 28 kg
+      military_press:
+      - set_number: 1
+        reps: 5
+        weight: 40 kg
+      - set_number: 2
+        reps: 4
+        weight: 40 kg
+      leg_extention:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      seated_leg_curl:
+      - set_number: 1
+        reps: 10
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      legpress_calf_raise:
+      - set_number: 1
+        reps: 15
+        weight: 80 kg
+      - set_number: 2
+        reps: 15
+        weight: 80 kg
+      toe_to_bar:
+      - set_number: 1
+        reps: 7
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    id: 38a21c28-e945-4354-9589-e3b33b189b84
+  '68':
+    date: '2026-09-23'
+    split: fullbody_c
+    start_time: '13:26'
+    end_time: '13:57'
+    timezone: CEST
+    exercises:
+      clean_and_jerk:
+      - set_number: 1
+        reps: 8
+        weight: 30 kg
+      - set_number: 2
+        reps: 8
+        weight: 30 kg
+      gironda_pullup:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      incline_bb_press:
+      - set_number: 1
+        reps: 15
+        weight: 30 kg
+      - set_number: 2
+        reps: 12
+        weight: 45 kg
+      cable_upright_row:
+      - set_number: 1
+        reps: 12
+        weight: 20.3 kg
+      - set_number: 2
+        reps: 12
+        weight: 20.3 kg
+      cable_cross_over:
+      - set_number: 1
+        reps: 12
+        weight: 27 kg
+      - set_number: 2
+        reps: 12
+        weight: 27 kg
+      bulgarian_split_squat:
+      - set_number: 1
+        reps: 5
+        weight: 28 kg
+      - set_number: 2
+        reps: 5
+        weight: 28 kg
+      cable_crunch:
+      - set_number: 1
+        reps: 12
+        weight: 20.3 kg
+      - set_number: 2
+        reps: 12
+        weight: 20.3 kg
+    warmup: 15 minutes biking.
+    cooldown: Static hangs. Stretching. 15 minutes biking.
+    gym: PG Staalen
+    id: fbac2c8d-4889-42e8-aa74-f4c7734cb694
+  '69':
+    date: '2026-09-26'
+    split: fullbody_d
+    start_time: '10:56'
+    end_time: '11:16'
+    timezone: CEST
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 8
+        weight: 50 kg
+      chin_up:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      machine_row:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 15
+        weight: 50 kg
+      arnold_press:
+      - set_number: 1
+        reps: 15
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      leg_raise:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: "PG Vanl\xF8se"
+    id: a89d65ca-3506-4f71-bd6e-cee0dd37dfaa
+  '70':
+    date: '2026-09-26'
+    split: fullbody_d
+    start_time: '10:56'
+    end_time: '11:16'
+    timezone: CEST
+    exercises:
+      squat:
+      - set_number: 1
+        reps: 8
+        weight: 50 kg
+      - set_number: 2
+        reps: 8
+        weight: 50 kg
+      chin_up:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 5
+        weight: BODYWEIGHT kg
+      dip:
+      - set_number: 1
+        reps: 5
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      machine_row:
+      - set_number: 1
+        reps: 15
+        weight: 50 kg
+      - set_number: 2
+        reps: 15
+        weight: 50 kg
+      arnold_press:
+      - set_number: 1
+        reps: 15
+        weight: 28 kg
+      - set_number: 2
+        reps: 10
+        weight: 28 kg
+      leg_raise:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: "PG Vanl\xF8se"
+    id: 740c828f-ef9a-40da-89b7-97adfb84acd3
+  '71':
+    date: '2026-09-29'
+    split: push
+    start_time: '11:43'
+    end_time: '12:09'
+    timezone: CEST
+    exercises:
+      incl_db_press:
+      - set_number: 1
+        reps: 12
+        weight: 48 kg
+      - set_number: 2
+        reps: 12
+        weight: 48 kg
+      db_shoulder_press:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      dip:
+      - set_number: 1
+        reps: 6
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 6
+        weight: BODYWEIGHT kg
+      db_side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 24 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      leg_raise:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+    warmup: ''
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    id: a930b54e-db3d-4779-b4b6-fc532ec33acd
+  '72':
+    date: '2026-09-30'
+    split: pull
+    start_time: '11:46'
+    end_time: '12:07'
+    timezone: CEST
+    exercises:
+      lat_pulldown:
+      - set_number: 1
+        reps: 12
+        weight: 50 kg
+      - set_number: 2
+        reps: 12
+        weight: 60 kg
+      yates_row:
+      - set_number: 1
+        reps: 12
+        weight: 40 kg
+      - set_number: 2
+        reps: 12
+        weight: 40 kg
+      one_arm_high_cable_row:
+      - set_number: 1
+        reps: 12
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 15 kg
+      cable_overhead_raise:
+      - set_number: 1
+        reps: 12
+        weight: 10 kg
+      - set_number: 2
+        reps: 12
+        weight: 10 kg
+      back_extension:
+      - set_number: 1
+        reps: 12
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 12
+        weight: BODYWEIGHT kg
+    warmup: 15 minutes biking.
+    cooldown: Static hangs. Stretching.
+    gym: NN LP
+    id: 5e9c34e5-b768-4323-952a-52fb3a69efb5
+  '73':
+    date: '2026-10-03'
+    split: legs
+    start_time: '13:39'
+    end_time: '14:15'
+    timezone: CEST
+    exercises:
+      deadlift:
+      - set_number: 1
+        reps: 12
+        weight: 70 kg
+      - set_number: 2
+        reps: 10
+        weight: 90 kg
+      squat:
+      - set_number: 1
+        reps: 10
+        weight: 70 kg
+      - set_number: 2
+        reps: 8
+        weight: 80 kg
+      walking_lunge:
+      - set_number: 1
+        reps: 12
+        weight: 32 kg
+      - set_number: 2
+        reps: 12
+        weight: 32 kg
+      romanian_deadlift:
+      - set_number: 1
+        reps: 8
+        weight: 70 kg
+      - set_number: 2
+        reps: 12
+        weight: 50 kg
+      standing_calf_raise:
+      - set_number: 1
+        reps: 10
+        weight: 80 kg
+      - set_number: 2
+        reps: 10
+        weight: 80 kg
+    warmup: 5 minutes Muay Thai on heavy bag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    id: cb42bad2-86ce-4ed4-a383-0c4fab92ba3e
+  '74':
+    date: '2026-10-08'
+    split: push
+    start_time: '13:44'
+    end_time: '14:07'
+    timezone: CEST
+    exercises:
+      incl_db_press:
+      - set_number: 1
+        reps: 12
+        weight: 52 kg
+      - set_number: 2
+        reps: 10
+        weight: 52 kg
+      db_shoulder_press:
+      - set_number: 1
+        reps: 9
+        weight: 36 kg
+      - set_number: 2
+        reps: 8
+        weight: 36 kg
+      dip:
+      - set_number: 1
+        reps: 8
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 7
+        weight: BODYWEIGHT kg
+      db_side_lateral_raise:
+      - set_number: 1
+        reps: 12
+        weight: 20 kg
+      - set_number: 2
+        reps: 12
+        weight: 20 kg
+      leg_raise:
+      - set_number: 1
+        reps: 15
+        weight: BODYWEIGHT kg
+      - set_number: 2
+        reps: 15
+        weight: BODYWEIGHT kg
+    warmup: 5 minutes Muay Thai on heavybag.
+    cooldown: Static hangs. Stretching.
+    gym: PG Valby
+    id: a9e1fd09-6151-484b-9f09-6419de015497

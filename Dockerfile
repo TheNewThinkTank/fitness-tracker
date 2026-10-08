@@ -1,4 +1,4 @@
-FROM python:3.13.15-slim@sha256:9d2e5553305c7c7b0097999bb17187c69b921ccd6bc9d40e4bb5ebe652c00285 AS requirements
+FROM python:3.14.7-slim@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d AS requirements
 
 ARG POETRY_VERSION=2.2.1
 ARG POETRY_EXPORT_VERSION=1.9.0
@@ -16,7 +16,7 @@ RUN poetry export \
     --output requirements.txt \
     --without-hashes
 
-FROM python:3.13.15-alpine@sha256:7415fbc3c9e4979cc717d92377ab2bc7b2b4a2af1ac03cc52b5f3f88efedaf3a AS runtime
+FROM python:3.14.8-alpine@sha256:f6a589d43c42b9e7f7dc67a12d37132491f362859a5d750607710cc56da3bc72 AS runtime
 
 LABEL org.opencontainers.image.title="Fitness Tracker API" \
     org.opencontainers.image.version="0.1.0" \

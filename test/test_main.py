@@ -1,6 +1,6 @@
 from collections.abc import Iterator
 from pathlib import Path
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 import pytest
 import yaml
@@ -349,6 +349,138 @@ def test_writes_require_session_origin_and_csrf(signed_in):
     assert client.post("/workouts", json=payload).status_code == 403
     assert client.post("/workouts", json=payload, headers={**headers, "Origin": "https://wrong.example"}).status_code == 403
     assert client.post("/workouts", json=payload, headers=headers).status_code == 201
+
+
+def test_frontend_workout_insert_round_trip_and_analytics(signed_in, api_data: Path) -> None:
+    from src.utils.state_store import StateStore
+
+    client, headers = signed_in
+    archives = {path: path.read_bytes() for path in api_data.glob("*_workouts.yml")}
+    payload = {
+        "date": "2030-01-02", "split": "push", "start_time": "23:30", "end_time": "00:30", "timezone": "America/Los_Angeles",
+        "gym": "Test gym", "notes": "Evening session", "program_id": "program_14", "bodyweight_kg": 80, "rpe": 8, "rir": 2,
+        "exercises": {
+            "bench_press": [
+                {"set_number": 1, "reps": 5, "weight": "60 kg", "duration": None, "height": None, "load_multiplier": 1},
+                {"set_number": 2, "reps": 3, "weight": "65 kg", "duration": None, "height": None, "load_multiplier": 1},
+            ],
+            "dumbbell_row": [{"set_number": 1, "reps": 8, "weight": "20 kg", "duration": "00:30", "height": "40 cm", "load_multiplier": 2}],
+        },
+    }
+    response = client.post("/workouts", json=payload, headers=headers)
+    assert response.status_code == 201
+    assert response.headers["cache-control"] == "no-store"
+    created = response.json()
+    identifier = created["id"]
+    assert UUID(identifier).version == 4
+    assert created["version"] == 1
+    assert created["year"] == 2030
+    assert created["exercise_count"] == 2
+    assert created["set_count"] == 3
+    for field in ("date", "split", "start_time", "end_time", "timezone", "gym", "notes", "program_id", "bodyweight_kg", "rpe", "rir"):
+        assert created[field] == payload[field]
+    assert created["exercises"]["dumbbell_row"] == payload["exercises"]["dumbbell_row"]
+    assert client.get(f"/workouts/{identifier}").json() == created
+    assert client.get("/years").json() == [2022, 2024, 2030]
+    listed = client.get("/workouts?year=2030&order=desc&limit=25&offset=0").json()
+    assert listed["total"] == 1
+    assert listed["items"][0]["id"] == identifier
+    assert listed["items"][0]["set_count"] == 3
+    overview = client.get("/analytics/overview?from=2030-01-02&to=2030-01-02").json()
+    assert overview["workouts"] == 1
+    assert overview["sets"] == 3
+    assert overview["reps"] == 16
+    assert overview["volume_kg_reps"] == 815
+    assert overview["duration_minutes"] == 60
+    assert overview["sessions"][0]["bodyweight_kg"] == 80
+    persisted = StateStore().workout(identifier)
+    assert persisted is not None
+    assert persisted["record"]["notes"] == payload["notes"]
+    assert persisted["record"]["exercises"]["dumbbell_row"] == payload["exercises"]["dumbbell_row"]
+    assert {path: path.read_bytes() for path in api_data.glob("*_workouts.yml")} == archives
+
+
+def test_frontend_workout_insert_into_empty_archive(signed_in, api_data: Path) -> None:
+    client, headers = signed_in
+    for path in api_data.glob("*_workouts.yml"):
+        path.unlink()
+    assert client.get("/years").json() == []
+    response = client.post("/workouts", json=_record("2030-01-02", "legs", "squat"), headers=headers)
+    assert response.status_code == 201
+    assert client.get("/years").json() == [2030]
+    assert client.get("/workouts?year=2030").json()["total"] == 1
+    assert client.get(f"/workouts/{response.json()['id']}").json() == response.json()
+    assert list(api_data.glob("*_workouts.yml")) == []
+
+
+def test_frontend_workout_inserts_on_same_day_remain_distinct(signed_in) -> None:
+    client, headers = signed_in
+    payload = _record("2030-01-02", "legs", "squat")
+    first = client.post("/workouts", json=payload, headers=headers)
+    second = client.post("/workouts", json=payload, headers=headers)
+    assert first.status_code == second.status_code == 201
+    assert first.json()["id"] != second.json()["id"]
+    identifiers = {first.json()["id"], second.json()["id"]}
+    assert {item["id"] for item in client.get("/workouts?year=2030").json()["items"]} == identifiers
+    overview = client.get("/analytics/overview?from=2030-01-02&to=2030-01-02").json()
+    assert overview["workouts"] == 2
+    assert overview["active_days"] == 1
+
+
+@pytest.mark.parametrize("patch", [
+    pytest.param({"date": "2030-02-30"}, id="invalid-calendar-date"),
+    pytest.param({"date": "1899-12-31"}, id="date-below-range"),
+    pytest.param({"date": "2101-01-01"}, id="date-above-range"),
+    pytest.param({"end_time": None}, id="unpaired-times"),
+    pytest.param({"end_time": "09:00"}, id="zero-duration"),
+    pytest.param({"end_time": "22:00"}, id="over-12-hours"),
+    pytest.param({"exercises": {}}, id="no-exercises"),
+    pytest.param({"exercises": {"../squat": [{"set_number": 1, "reps": 8, "weight": "40 kg"}]}}, id="invalid-name"),
+    pytest.param({"exercises": {"squat": []}}, id="no-sets"),
+    pytest.param({"exercises": {"squat": [{"set_number": 1, "reps": 8, "weight": "40 kg"}] * 2}}, id="duplicate-set-numbers"),
+    pytest.param({"exercises": {"squat": [{"set_number": 1, "reps": 1.5, "weight": "40 kg"}]}}, id="fractional-reps"),
+    pytest.param({"exercises": {"squat": [{"set_number": 1, "reps": -1, "weight": "40 kg"}]}}, id="negative-reps"),
+    pytest.param({"exercises": {"squat": [{"set_number": 1, "reps": 8, "weight": 40}]}}, id="numeric-load"),
+    pytest.param({"exercises": {"squat": [{"set_number": 1, "reps": 8, "weight": "40 kg", "load_multiplier": 3}]}}, id="invalid-multiplier"),
+    pytest.param({"exercises": {"squat": [{"set_number": 1, "reps": 8, "weight": "40 kg", "duration": "x" * 101}]}}, id="oversized-duration"),
+    pytest.param({"exercises": {"squat": [{"set_number": index, "reps": 8, "weight": "40 kg"} for index in range(1, 102)]}}, id="too-many-sets"),
+    pytest.param({"bodyweight_kg": 0}, id="nonpositive-bodyweight"),
+    pytest.param({"rpe": 11}, id="rpe-above-range"),
+    pytest.param({"rir": 1.5}, id="fractional-rir"),
+    pytest.param({"notes": "x" * 5001}, id="oversized-notes"),
+    pytest.param({"program_id": "unknown-program"}, id="unknown-program"),
+    pytest.param({"unexpected": True}, id="unexpected-field"),
+])
+def test_frontend_workout_insert_rejects_invalid_payload(signed_in, patch: dict) -> None:
+    from src.utils.state_store import state_store
+
+    client, headers = signed_in
+    payload = {**_record("2030-01-02", "legs", "squat"), **patch}
+    response = client.post("/workouts", json=payload, headers=headers)
+    assert response.status_code == 422
+    assert client.get("/years").json() == [2022, 2024]
+    assert state_store.workout_rows() == []
+
+
+def test_frontend_workout_insert_denies_unauthorized_requests(signed_in) -> None:
+    from src.utils.state_store import state_store
+
+    client, headers = signed_in
+    payload = _record("2030-01-02", "legs", "squat")
+    for denied in (
+        {"Origin": headers["Origin"]},
+        {"X-CSRF-Token": headers["X-CSRF-Token"]},
+        {**headers, "X-CSRF-Token": "incorrect-csrf"},
+        {**headers, "Origin": "null"},
+        {**headers, "Origin": "https://wrong.example"},
+    ):
+        assert client.post("/workouts", json=payload, headers=denied).status_code == 403
+    settings.set("ENABLE_WRITES", False)
+    assert client.post("/workouts", json=payload, headers=headers).status_code == 403
+    settings.set("ENABLE_WRITES", True)
+    client.cookies.clear()
+    assert client.post("/workouts", json=payload, headers=headers).status_code == 401
+    assert state_store.workout_rows() == []
 
 
 def test_transactional_workout_edit_move_and_delete(signed_in):

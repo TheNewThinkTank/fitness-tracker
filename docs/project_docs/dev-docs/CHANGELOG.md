@@ -10,12 +10,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Permanent stored workout UUIDs, including an idempotent migration that
-    preserves existing API URLs. All 253 bundled workouts have been backfilled;
+    preserves existing API URLs. The 253 workouts in the bundled 2021-2024
+    archives have been backfilled;
     see the [migration guide](../examples/EXAMPLES.md#migrate-existing-workout-ids)
     for external data directories.
 - Desktop and mobile Playwright coverage for year selection, pagination,
     duplicate-day workout details, and error recovery. Container CI is configured
     to run these workflows and retain failure screenshots and traces.
+- Progress, Programs, and Body Metrics views with full-range analytics,
+    historical measurements, structured program targets, and CSV export.
+- Single-athlete sessions and opt-in transactional workout, measurement,
+    import, and target editing, separate from the read-only YAML archives.
+- A header-level **Log workout** action available from every frontend view,
+    with multiple exercises and sets, optional metadata, and permanent workout
+    IDs. Successful inserts open the saved year and detail in Archive.
+- Frontend input-contract checks and desktop/mobile insertion regressions for
+    permissions, overnight times, metadata, retries, busy states, local dates,
+    real persistence, literal notes, and exact analytics totals.
 
 ### Changed
 
@@ -24,6 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Workout reads use cached, validated snapshots and a UUID index. File changes,
     replacement, deletion, and moves between years invalidate the relevant
     entries without a server restart or repeated parsing of unchanged YAML.
+- Browser-created workouts, imported archives, and edit overrides share the
+    API read model and analytics; a new workout year does not require a YAML file.
+- Updated the documentation overview, frontend guide, examples, and runtime
+    architecture explanation for authenticated workout entry and its storage
+    and testing boundaries.
 
 ### Fixed
 
@@ -36,18 +52,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     deleted workout's public ID. Stored IDs survive updates and document
     renumbering.
 - Non-ASCII API tokens return `401` instead of raising a server error.
+- New-workout dates use the athlete's local date rather than UTC. Failed
+    retryable saves retain the draft, while pending saves prevent repeated
+    submission and dismissal.
+- Both start and end times are required together, distinct exercise names and
+    set limits are checked before submission, and saved workout links retain
+    the correct year after reload.
 
 ### Verification status
+
+Local verification on 2026-10-09: 188 backend tests passed with 2 existing skips,
+35 frontend unit tests passed, and 44 desktop/mobile browser cases passed across
+the production-preview, real read-only, and authenticated disposable-state runs.
+Ruff, mypy with the repository's Pydantic plugin configuration, Svelte/TypeScript
+checks, production builds, generated-schema drift checks, and dependency audit
+passed. The existing large-chart-bundle build warning remains.
+
+Production Docker verification on local ARM64 also passed: both images built
+and became healthy, with 38 read-only browser cases and 4 authenticated insertion
+and editing cases passing through Nginx and FastAPI. The two preview-only
+injected-CSP cases are intentionally skipped against deployments; actual
+production CSP and response security headers were verified separately.
+Container users, read-only roots and archive mounts, dropped capabilities,
+isolated writable state, proxy authentication, and absence of the service key
+from public frontend assets were checked. Original and copied YAML archives
+remained byte-identical, and disposable containers, state, and image tags were
+removed. This local run did not include an image-vulnerability scan or public
+HTTPS deployment verification.
 
 Local verification on 2026-09-14: 134 backend tests passed with 2 skipped,
 5 frontend unit tests passed, and all 8 desktop/mobile browser tests passed
 against FastAPI with Vite's token-protected proxy. Ruff, mypy, Svelte/TypeScript
 checks, and the production frontend build also passed.
 
-Container runtime verification remains outstanding because the Docker Desktop
-and OrbStack daemons were unavailable. The configured container CI workflow is
-not a claim that these changes have already passed against the production
-containers locally.
+For that 2026-09-14 run, container runtime verification was outstanding because
+the Docker Desktop and OrbStack daemons were unavailable. The configured CI
+workflow alone was not a claim of a completed local container run; the
+2026-10-09 results above close that verification gap.
 
 ### Planned
 

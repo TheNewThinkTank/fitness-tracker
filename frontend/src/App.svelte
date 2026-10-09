@@ -115,12 +115,17 @@
     if (from) url.searchParams.set("to", to || new Date().toISOString().slice(0, 10));
     window.history.replaceState(null, "", url); changeView("progress");
   }
-  function editWorkout(workout: WorkoutDetail | null): void { editingWorkout = workout; showEditor = true; }
+  function editWorkout(workout: WorkoutDetail | null): void { if (!canEdit) return; editingWorkout = workout; showEditor = true; }
   async function savedWorkout(workout?: WorkoutDetail): Promise<void> {
-    showEditor = false; notice = workout ? "Workout saved" : "Workout deleted";
-    if (workout) selectedYear = workout.year;
+    showEditor = false;
+    if (workout) {
+      if (!editingWorkout) changeView("archive");
+      selectedYear = workout.year;
+      const url = new URL(window.location.href); url.searchParams.set("year", String(workout.year)); window.history.replaceState(null, "", url);
+    }
+    notice = workout ? "Workout saved" : "Workout deleted";
     await loadInitialData(); refresh += 1;
-    if (workout) void openWorkout(workout.id);
+    if (workout) await openWorkout(workout.id);
   }
   function dataChanged(): void { refresh += 1; void loadInitialData(); }
   async function uploadWorkouts(): Promise<void> {
@@ -269,6 +274,7 @@
     </div>
   </div>
   <div class="header-actions">
+  <button class="header-command" type="button" aria-label="Log workout" disabled={!canEdit} title={canEdit ? "Log a workout" : auth?.writes_enabled ? "Sign in to log a workout" : "Workout entry is disabled on this server"} onclick={() => editWorkout(null)}><Plus size={17} /> Log workout</button>
   {#if auth?.authenticated}<button class="header-command" type="button" onclick={() => void logOut()}><LogOut size={17} /> Sign out</button>{:else if auth?.auth_required}<button class="header-command" type="button" onclick={() => { showSignIn = true; }}><LogIn size={17} /> Sign in</button>{/if}
   <button
     class="icon-button"
@@ -296,7 +302,7 @@
   {:else}
   <div class="view-content" role="tabpanel" id={`panel-${view}`} aria-labelledby={`tab-${view}`} tabindex="0">
   {#if view === "archive"}
-  {#if canEdit}<div class="archive-actions"><button class="primary-button" type="button" onclick={() => editWorkout(null)}><Plus size={17} /> Log workout</button><input class="visually-hidden" type="file" accept=".json,application/json" bind:this={workoutUpload} aria-label="Import workouts JSON" onchange={() => void uploadWorkouts()} /><button class="secondary-button" type="button" disabled={importing} onclick={() => workoutUpload?.click()}><Upload size={17} /> Import JSON</button></div>{/if}
+  {#if canEdit}<div class="archive-actions"><input class="visually-hidden" type="file" accept=".json,application/json" bind:this={workoutUpload} aria-label="Import workouts JSON" onchange={() => void uploadWorkouts()} /><button class="secondary-button" type="button" disabled={importing} onclick={() => workoutUpload?.click()}><Upload size={17} /> Import JSON</button></div>{/if}
   <WorkoutControls
     {years}
     {selectedYear}

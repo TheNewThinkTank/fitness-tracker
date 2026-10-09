@@ -115,8 +115,28 @@ CSRF headers. Password changes revoke sessions. Before public exposure, set
 `FITNESS_TRACKER_AUTH_REQUIRED=true` and `FITNESS_TRACKER_COOKIE_SECURE=true`
 behind HTTPS. This is a single-athlete application, not a multi-user service.
 
-Workout edits, deletions, measurements, and target overrides use transactional
-SQLite, separate from read-only YAML archives. Stale `If-Match` versions return
+#### Log a workout
+
+After enabling writes and signing in, select **Log workout** in the header from
+any view. The editor starts with your local date and a blank exercise name. Add
+exercises and sets, using the catalog's exercise identifiers, and optionally
+record gym, program, bodyweight, RPE, reps in reserve, notes, hold duration,
+height, and per-hand loads.
+
+Provide both start and end times or leave both blank. Overnight sessions are
+supported; the recorded time window must be greater than zero and at most
+12 hours. Exercise names must be distinct within a workout. Inputs are checked
+before submission, controls stay locked while saving, and failed requests retain
+the draft for correction or retry.
+
+**Save workout** creates a permanent ID, switches to Archive, selects the saved
+year, and opens the new workout. The workout URL remains usable after reload.
+The header action is disabled on read-only servers or before sign-in.
+See the [frontend guide](docs/project_docs/examples/svelte_frontend_setup.md)
+for setup and the complete entry workflow.
+
+Workout creation, edits, deletions, measurements, and target overrides use
+transactional SQLite, separate from read-only YAML archives. Stale `If-Match` versions return
 `409`; missing versions return `428`. Do not edit the same imported records
 concurrently through both the CLI and app. Back up YAML and SQLite state together;
 stop the backend or use SQLite's backup API to copy an active database. Keep
@@ -180,7 +200,8 @@ The primary API endpoints are:
 | `GET /programs` | Program history, structured targets, and observed adherence |
 | `GET /body-metrics` | Historical weight, waist, and resting-heart-rate measurements |
 | `GET /auth/status`, `POST /auth/login`, `POST /auth/logout` | Session status, sign-in, and revocation |
-| `POST /workouts`, `PUT /workouts/{id}`, `DELETE /workouts/{id}` | Opt-in versioned workout editing |
+| `POST /workouts` | Create a workout and return its detail, permanent ID, and version with `201` |
+| `PUT /workouts/{id}`, `DELETE /workouts/{id}` | Update or delete a workout; an `If-Match` version is required |
 | `POST /workouts/import` | Atomic workout JSON import |
 | `POST /body-metrics`, `POST /body-metrics/import`, `DELETE /body-metrics/{date}` | Measurement entry, CSV import, and deletion |
 | `PUT /programs/{id}/targets` | Persistent structured target overrides |
@@ -268,6 +289,14 @@ CI then provisions a fixture-only password in disposable state, enables writes,
 and runs authenticated browser workflows. For a separate disposable local stack,
 use `E2E_WRITE_TESTS=1` and `--grep authenticated`; never point these write tests
 at personal state. Use `E2E_PASSWORD` only for that test fixture's password.
+
+The authenticated insertion checks cover the real POST through the proxy,
+metadata, reload persistence, literal note rendering, and exact analytics
+totals. They delete their own inserted workout. Separate edit/delete, import,
+measurement, and program-target checks also write state, so the entire test
+volume must be disposable. See the
+[browser testing guide](docs/project_docs/examples/EXAMPLES.md#browser-workflow-checks)
+and [dated verification results](docs/project_docs/dev-docs/CHANGELOG.md#verification-status).
 
 ## Container images
 

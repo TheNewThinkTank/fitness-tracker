@@ -27,6 +27,20 @@ documented in the [project README](../README.md#analytics-and-editing).
 Sessions use HttpOnly cookies and in-memory CSRF headers, never localStorage
 credentials or browser-side service keys.
 
+## Log a workout
+
+The header's **Log workout** action is available from every view. It remains
+disabled on read-only servers or until the athlete signs in. The editor starts
+with the athlete's local date and a blank exercise name, supports multiple
+exercises and sets, and accepts optional times, gym, program, bodyweight, effort,
+hold duration, height, per-hand loads, and notes.
+
+Workout writes are checked against the backend's date, time-window, metadata,
+and set limits before submission. Times must be provided together; overnight
+sessions are supported. Controls are locked during a save, and failed requests
+retain the draft for correction or retry. A successful insert selects the saved
+year in Archive, opens the new workout, and keeps the link usable after reload.
+
 ## Development
 
 Use Node.js 24 or newer. Start the FastAPI service on port 8000, then run:
@@ -61,7 +75,8 @@ npm audit --audit-level=moderate
 ```
 
 `npm run check` covers Svelte and TypeScript diagnostics. Vitest covers API URL
-construction, error handling, runtime response validation, and server rendering.
+construction, workout input constraints, authenticated POST payloads,
+version-aware updates, error handling, response validation, and server rendering.
 
 ### Browser workflows
 
@@ -76,7 +91,10 @@ Playwright builds the frontend and starts an isolated preview on port 4173.
 Set `E2E_PORT` to use another port. Deterministic API fixtures cover year
 selection, pagination, duplicate-day details, error/retry behavior, complete
 progress totals, selected calendar years, chart pixels, CSV export, and
-program/body navigation. Screenshots check assets and mobile overflow.
+program/body navigation. Workout insertion tests cover permission gating,
+multiple sets, metadata, new years, local dates, invalid inputs, server-error
+retries, and repeat-submission prevention. Screenshots check assets and mobile
+overflow.
 
 To include the unmocked browser-to-API test against a running Compose stack:
 
@@ -91,6 +109,14 @@ available with `npx playwright show-report`.
 Authenticated browser tests require separate disposable state and
 `E2E_WRITE_TESTS=1`; run with `--grep authenticated`. CI provisions a fixture-only
 password automatically. Never run write tests against personal workout state.
+
+The authenticated insertion regression also verifies an unmocked POST through
+the proxy, persisted detail after reload, literal note rendering, and exact
+analytics totals, then deletes its own inserted workout:
+
+```bash
+E2E_BASE_URL=http://127.0.0.1:3000 E2E_WRITE_TESTS=1 npm run test:e2e -- --grep authenticated
+```
 
 ## Production
 

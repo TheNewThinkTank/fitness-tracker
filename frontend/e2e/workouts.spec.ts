@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-import type { SessionMetrics, WorkoutDetail } from "../src/api";
+import type { AuthStatus, SessionMetrics, WorkoutDetail, WorkoutInput } from "../src/api";
 
 function workout(
   sequence: number,
@@ -152,6 +152,54 @@ async function mockWorkouts(page: Page): Promise<void> {
       record ? { json: record } : { status: 404, json: { detail: "Workout not found" } },
     );
   });
+}
+
+async function mockWritableWorkouts(page: Page, initial: WorkoutDetail[] = []) {
+  await mockWorkouts(page);
+  const stored = [...initial];
+  const submissions: WorkoutInput[] = [];
+  await page.route("**/api/**", async (route) => {
+    const url = new URL(route.request().url());
+    if (url.pathname === "/api/auth/status") {
+      await route.fulfill({ json: { authenticated: true, auth_required: true, writes_enabled: true, csrf_token: "insert-csrf" } });
+    } else if (url.pathname === "/api/years") {
+      await route.fulfill({ json: [...new Set(stored.map((record) => record.year))].sort((first, second) => first - second) });
+    } else if (url.pathname === "/api/workouts" && route.request().method() === "POST") {
+      const payload = route.request().postDataJSON() as WorkoutInput;
+      submissions.push(payload);
+      const created: WorkoutDetail = {
+        ...payload, id: workout(1000 + submissions.length, payload.date).id, year: Number(payload.date.slice(0, 4)), version: 1,
+        exercise_count: Object.keys(payload.exercises).length,
+        set_count: Object.values(payload.exercises).reduce((total, sets) => total + sets.length, 0),
+      };
+      stored.push(created);
+      await route.fulfill({ status: 201, json: created });
+    } else if (url.pathname === "/api/workouts") {
+      const year = Number(url.searchParams.get("year"));
+      const limit = Number(url.searchParams.get("limit"));
+      const offset = Number(url.searchParams.get("offset"));
+      const matching = stored.filter((record) => record.year === year).sort((first, second) => first.date.localeCompare(second.date));
+      if (url.searchParams.get("order") === "desc") matching.reverse();
+      await route.fulfill({ json: { items: matching.slice(offset, offset + limit), year, total: matching.length, limit, offset } });
+    } else if (url.pathname.startsWith("/api/workouts/")) {
+      const record = stored.find((item) => url.pathname === `/api/workouts/${item.id}`);
+      if (record && route.request().method() === "PUT") {
+        const payload = route.request().postDataJSON() as WorkoutInput;
+        const updated: WorkoutDetail = {
+          ...record, ...payload, year: Number(payload.date.slice(0, 4)), version: record.version + 1,
+          exercise_count: Object.keys(payload.exercises).length,
+          set_count: Object.values(payload.exercises).reduce((total, sets) => total + sets.length, 0),
+        };
+        stored[stored.indexOf(record)] = updated;
+        await route.fulfill({ json: updated });
+      } else {
+        await route.fulfill(record ? { json: record } : { status: 404, json: { detail: "Workout not found" } });
+      }
+    } else {
+      await route.fallback();
+    }
+  });
+  return { stored, submissions };
 }
 
 test("selects years and paginates in global date order", async ({ page }) => {
@@ -336,6 +384,245 @@ test("workout editor accepts canonical names with valid browser constraints", as
   expect(errors).toEqual([]);
 });
 
+for (const permissions of [
+  { name: "read-only", authenticated: false, auth_required: false, writes_enabled: false },
+  { name: "signed-out", authenticated: false, auth_required: true, writes_enabled: true },
+]) {
+  test(`workout insertion is disabled for ${permissions.name} sessions`, async ({ page }) => {
+    await mockWorkouts(page);
+    await page.route("**/api/auth/status", (route) => route.fulfill({ json: { ...permissions, csrf_token: null } }));
+    await page.goto("/");
+    await expect(page.getByRole("button", { name: "Log workout", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Log workout", exact: true })).toBeDisabled();
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+  });
+}
+
+test("workout insertion records multiple sets and metadata from any view", async ({ page }, testInfo) => {
+  const { submissions } = await mockWritableWorkouts(page, records);
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("console", (message) => { if (message.type() === "error") errors.push(message.text()); });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Next page" }).click();
+  await page.getByRole("tab", { name: "Programs", exact: true }).click();
+  await page.getByRole("button", { name: "Log workout", exact: true }).click();
+  const editor = page.getByRole("dialog", { name: "Log workout", exact: true });
+  await expect(editor.getByLabel("Exercise 1 name", { exact: true })).toHaveValue("");
+  await editor.getByLabel("Workout date", { exact: true }).fill("2030-01-02");
+  await editor.getByLabel("Workout split", { exact: true }).fill("push");
+  await editor.getByLabel("Workout start time", { exact: true }).fill("23:30");
+  await editor.getByLabel("Workout end time", { exact: true }).fill("00:30");
+  await editor.getByLabel("Workout gym", { exact: true }).fill("Test gym");
+  await editor.getByLabel("Workout program", { exact: true }).selectOption("program_test");
+  await editor.getByLabel("Workout bodyweight", { exact: true }).fill("80");
+  await editor.getByLabel("Session RPE", { exact: true }).fill("8");
+  await editor.getByLabel("Reps in reserve", { exact: true }).fill("2");
+  await editor.getByLabel("Exercise 1 name", { exact: true }).fill("Bench_Press");
+  await editor.getByLabel("Exercise 1 set 1 reps", { exact: true }).fill("5");
+  await editor.getByLabel("Exercise 1 set 1 load", { exact: true }).fill("60 kg");
+  await editor.getByRole("button", { name: "Add set", exact: true }).click();
+  await editor.getByLabel("Exercise 1 set 2 reps", { exact: true }).fill("3");
+  await editor.getByLabel("Exercise 1 set 2 load", { exact: true }).fill("65 kg");
+  await editor.getByRole("button", { name: "Add exercise", exact: true }).click();
+  await editor.getByLabel("Exercise 2 name", { exact: true }).fill("dumbbell_row");
+  await editor.getByLabel("Exercise 2 set 1 load", { exact: true }).fill("20 kg");
+  await editor.locator(".exercise-editor").nth(1).getByLabel("Per hand", { exact: true }).check();
+  await editor.getByLabel("Workout notes", { exact: true }).fill("Browser insertion regression");
+  expect(await editor.evaluate((dialog) => dialog.scrollWidth <= dialog.clientWidth + 1)).toBe(true);
+  await testInfo.attach("workout-insertion", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+
+  const response = page.waitForResponse((result) => result.url().endsWith("/api/workouts") && result.request().method() === "POST");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  const inserted = await response;
+  expect(inserted.status()).toBe(201);
+  expect(inserted.request().headers()["x-csrf-token"]).toBe("insert-csrf");
+  expect(inserted.request().headers()["if-match"]).toBeUndefined();
+  expect(submissions).toHaveLength(1);
+  expect(submissions[0]).toMatchObject({
+    date: "2030-01-02", split: "push", start_time: "23:30", end_time: "00:30", gym: "Test gym", program_id: "program_test",
+    bodyweight_kg: 80, rpe: 8, rir: 2, notes: "Browser insertion regression",
+    exercises: {
+      bench_press: [{ set_number: 1, reps: 5, weight: "60 kg", load_multiplier: 1 }, { set_number: 2, reps: 3, weight: "65 kg", load_multiplier: 1 }],
+      dumbbell_row: [{ set_number: 1, reps: 8, weight: "20 kg", load_multiplier: 2 }],
+    },
+  });
+  expect(submissions[0].timezone).toBe(await page.evaluate(() => Intl.DateTimeFormat().resolvedOptions().timeZone));
+  await expect(editor).toHaveCount(0);
+  await expect(page.getByRole("tab", { name: "Archive", exact: true })).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByRole("combobox", { name: "Training year", exact: true })).toHaveValue("2030");
+  await expect(page.locator(".log-panel tbody tr")).toHaveCount(1);
+  await expect(page.getByRole("complementary")).toContainText("Browser insertion regression");
+  await expect(page).toHaveURL(/year=2030/);
+  await page.reload();
+  await expect(page.getByRole("combobox", { name: "Training year", exact: true })).toHaveValue("2030");
+  await expect(page.getByRole("complementary")).toContainText("Browser insertion regression");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  expect(errors).toEqual([]);
+});
+
+test("workout editing stays in Progress while retaining version-aware saves", async ({ page }) => {
+  await mockWritableWorkouts(page, records);
+  await page.goto("/?view=progress&exercise=squat&from=2024-01-01&to=2024-01-30");
+  await page.getByRole("button", { name: "Open progress workout from 30 Jan 2024", exact: true }).click();
+  await page.getByRole("button", { name: "Edit workout", exact: true }).click();
+  const editor = page.getByRole("dialog", { name: "Edit workout", exact: true });
+  await editor.getByLabel("Exercise 1 set 1 reps", { exact: true }).fill("9");
+  const response = page.waitForResponse((result) => result.request().method() === "PUT");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  const updated = await response;
+  expect((await updated.request().allHeaders())["if-match"]).toBe("1");
+  expect((await updated.json() as WorkoutDetail).version).toBe(2);
+  await expect(editor).toHaveCount(0);
+  await expect(page.getByRole("tab", { name: "Progress", exact: true })).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByRole("complementary").getByRole("cell", { name: "9", exact: true })).toBeVisible();
+  await expect(page).toHaveURL(/view=progress/);
+});
+
+test("workout insertion rejects incomplete times and duplicate exercise names", async ({ page }) => {
+  const { submissions } = await mockWritableWorkouts(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Log workout", exact: true }).click();
+  const editor = page.getByRole("dialog");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor.getByLabel("Exercise 1 name", { exact: true })).toBeFocused();
+  await editor.getByLabel("Exercise 1 name", { exact: true }).fill("bench_press");
+  await editor.getByLabel("Workout start time", { exact: true }).fill("09:00");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor.getByRole("alert")).toContainText("Provide both start and end times");
+  await editor.getByLabel("Workout end time", { exact: true }).fill("22:00");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor.getByRole("alert")).toContainText("at most 12 hours");
+  await editor.getByLabel("Workout end time", { exact: true }).fill("10:00");
+  await editor.getByRole("button", { name: "Add exercise", exact: true }).click();
+  await editor.getByLabel("Exercise 2 name", { exact: true }).fill("BENCH_PRESS");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor.getByRole("alert")).toHaveText("Use a distinct name for each exercise");
+  expect(submissions).toHaveLength(0);
+  await editor.getByRole("button", { name: "Cancel", exact: true }).click();
+  await expect(editor).toHaveCount(0);
+  expect(submissions).toHaveLength(0);
+});
+
+test("workout insertion preserves entries on server errors and supports retry", async ({ page }) => {
+  const { submissions } = await mockWritableWorkouts(page);
+  const attempts: WorkoutInput[] = [];
+  await page.route("**/api/workouts", async (route) => {
+    if (route.request().method() !== "POST") { await route.fallback(); return; }
+    attempts.push(route.request().postDataJSON() as WorkoutInput);
+    if (attempts.length === 1) await route.fulfill({ status: 422, json: { detail: [{ loc: ["body", "program_id"], msg: "Unknown workout program" }] } });
+    else if (attempts.length === 2) await route.fulfill({ status: 503, json: { detail: "Workout service unavailable" } });
+    else await route.fallback();
+  });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Log workout", exact: true }).click();
+  const editor = page.getByRole("dialog");
+  await editor.getByLabel("Workout date", { exact: true }).fill("2030-01-02");
+  await editor.getByLabel("Exercise 1 name", { exact: true }).fill("squat");
+  await editor.getByLabel("Exercise 1 set 1 load", { exact: true }).fill("100 kg");
+  await editor.getByLabel("Workout notes", { exact: true }).fill("Keep this draft");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor.getByRole("alert")).toHaveText("program_id: Unknown workout program");
+  await expect(editor.getByRole("alert")).toBeInViewport();
+  await expect(editor.getByLabel("Exercise 1 set 1 load", { exact: true })).toHaveValue("100 kg");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor.getByRole("alert")).toHaveText("Workout service unavailable");
+  await expect(editor.getByRole("alert")).toBeInViewport();
+  await expect(editor.getByLabel("Workout notes", { exact: true })).toHaveValue("Keep this draft");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor).toHaveCount(0);
+  expect(attempts).toHaveLength(3);
+  expect(attempts[1]).toEqual(attempts[0]);
+  expect(attempts[2]).toEqual(attempts[0]);
+  expect(submissions).toHaveLength(1);
+  await expect(page.getByRole("combobox", { name: "Training year", exact: true })).toHaveValue("2030");
+  await expect(page.getByRole("complementary")).toContainText("Keep this draft");
+});
+
+test("workout insertion prevents repeat submission and dismissal while saving", async ({ page }) => {
+  const { submissions } = await mockWritableWorkouts(page);
+  let attempts = 0;
+  let release: () => void = () => {};
+  const pending = new Promise<void>((resolve) => { release = resolve; });
+  await page.route("**/api/workouts", async (route) => {
+    if (route.request().method() === "POST") { attempts += 1; await pending; }
+    await route.fallback();
+  });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Log workout", exact: true }).click();
+  const editor = page.getByRole("dialog");
+  await editor.getByLabel("Exercise 1 name", { exact: true }).fill("squat");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor.getByRole("button", { name: "Saving", exact: true })).toBeDisabled();
+  await expect(editor.getByLabel("Workout date", { exact: true })).toBeDisabled();
+  await expect(editor.getByRole("button", { name: "Cancel", exact: true })).toBeDisabled();
+  await expect(editor.getByRole("button", { name: "Close workout editor", exact: true })).toBeDisabled();
+  await page.keyboard.press("Escape");
+  await expect(editor).toBeVisible();
+  await editor.locator("form").evaluate((form) => form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true })));
+  release();
+  await expect(editor).toHaveCount(0);
+  expect(attempts).toBe(1);
+  expect(submissions).toHaveLength(1);
+});
+
+test("workout insertion renumbers remaining sets and preserves at least one exercise", async ({ page }) => {
+  const { submissions } = await mockWritableWorkouts(page);
+  await page.goto("/");
+  await page.getByRole("button", { name: "Log workout", exact: true }).click();
+  const editor = page.getByRole("dialog");
+  await expect(editor.getByRole("button", { name: "Remove exercise 1", exact: true })).toBeDisabled();
+  await expect(editor.getByRole("button", { name: "Remove exercise 1 set 1", exact: true })).toBeDisabled();
+  await editor.getByLabel("Exercise 1 name", { exact: true }).fill("plank");
+  await editor.getByLabel("Exercise 1 set 1 reps", { exact: true }).fill("0");
+  await editor.getByLabel("Exercise 1 set 1 load", { exact: true }).fill("BODYWEIGHT");
+  await editor.getByLabel("Exercise 1 set 1 duration", { exact: true }).fill("00:30");
+  await editor.getByLabel("Exercise 1 set 1 height", { exact: true }).fill("40 cm");
+  await editor.getByRole("button", { name: "Add set", exact: true }).click();
+  await editor.getByRole("button", { name: "Add set", exact: true }).click();
+  await editor.getByLabel("Exercise 1 set 3 load", { exact: true }).fill("BODYWEIGHT + 5 kg");
+  await editor.getByRole("button", { name: "Remove exercise 1 set 2", exact: true }).click();
+  await editor.getByRole("button", { name: "Add exercise", exact: true }).click();
+  await editor.getByRole("button", { name: "Remove exercise 2", exact: true }).click();
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor).toHaveCount(0);
+  expect(submissions[0].exercises.plank).toMatchObject([
+    { set_number: 1, reps: 0, weight: "BODYWEIGHT", duration: "00:30", height: "40 cm" },
+    { set_number: 2, weight: "BODYWEIGHT + 5 kg" },
+  ]);
+});
+
+test("workout insertion returns to sign-in when the session expires", async ({ page }) => {
+  await mockWritableWorkouts(page);
+  await page.route("**/api/workouts", async (route) => {
+    if (route.request().method() === "POST") await route.fulfill({ status: 401, json: { detail: "Athlete sign-in required" } });
+    else await route.fallback();
+  });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Log workout", exact: true }).click();
+  const editor = page.getByRole("dialog");
+  await editor.getByLabel("Exercise 1 name", { exact: true }).fill("squat");
+  await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+  await expect(editor).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Athlete sign-in", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Log workout", exact: true })).toBeDisabled();
+});
+
+test.describe("workout insertion local dates", () => {
+  test.use({ timezoneId: "America/Los_Angeles" });
+  test("workout insertion uses the athlete's local date rather than the UTC date", async ({ page }) => {
+    await mockWritableWorkouts(page);
+    await page.clock.install({ time: new Date("2030-01-01T00:30:00Z") });
+    await page.goto("/");
+    await page.getByRole("button", { name: "Log workout", exact: true }).click();
+    await expect(page.getByRole("dialog").getByLabel("Workout date", { exact: true })).toHaveValue("2029-12-31");
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+    await page.getByRole("button", { name: "Log workout", exact: true }).click();
+    await expect(page.getByRole("dialog").getByLabel("Exercise 1 name", { exact: true })).toHaveValue("");
+  });
+});
+
 test("deployed analytics return complete typed progress data", async ({ page, request }) => {
   test.skip(!process.env.E2E_BASE_URL, "Set E2E_BASE_URL for real analytics integration");
   const exercises = await request.get("/api/exercises");
@@ -348,6 +635,84 @@ test("deployed analytics return complete typed progress data", async ({ page, re
   await page.getByRole("tab", { name: "Programs", exact: true }).click();
   await expect(page.getByLabel("Training program", { exact: true })).toBeVisible();
   await expect(page.getByRole("alert")).toHaveCount(0);
+});
+
+test("authenticated workout insertion persists metadata and updates real analytics", async ({ page }, testInfo) => {
+  test.skip(process.env.E2E_WRITE_TESTS !== "1", "Enable only against disposable, password-protected state");
+  const date = testInfo.project.name === "desktop" ? "2031-01-01" : "2031-01-02";
+  const notes = `Browser insertion ${testInfo.project.name} <b>literal note</b>`;
+  const errors: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  let created: WorkoutDetail | undefined;
+  await page.goto("/");
+  await page.getByLabel("Athlete password").fill(process.env.E2E_PASSWORD || "test-only-browser-password");
+  await page.getByRole("region", { name: "Athlete sign-in", exact: true }).getByRole("button", { name: "Sign in", exact: true }).click();
+  await page.getByRole("button", { name: "Log workout", exact: true }).click();
+  const editor = page.getByRole("dialog");
+  await editor.getByLabel("Workout date", { exact: true }).fill(date);
+  await editor.getByLabel("Workout split", { exact: true }).fill("push");
+  await editor.getByLabel("Workout start time", { exact: true }).fill("23:30");
+  await editor.getByLabel("Workout end time", { exact: true }).fill("00:30");
+  await editor.getByLabel("Workout gym", { exact: true }).fill("Integration gym");
+  await editor.getByLabel("Workout program", { exact: true }).selectOption("program_14");
+  await editor.getByLabel("Workout bodyweight", { exact: true }).fill("80");
+  await editor.getByLabel("Session RPE", { exact: true }).fill("8");
+  await editor.getByLabel("Reps in reserve", { exact: true }).fill("2");
+  await editor.getByLabel("Workout notes", { exact: true }).fill(notes);
+  await editor.getByLabel("Exercise 1 name", { exact: true }).fill("Bench_Press");
+  await editor.getByLabel("Exercise 1 set 1 reps", { exact: true }).fill("5");
+  await editor.getByLabel("Exercise 1 set 1 load", { exact: true }).fill("60 kg");
+  await editor.getByRole("button", { name: "Add set", exact: true }).click();
+  await editor.getByLabel("Exercise 1 set 2 reps", { exact: true }).fill("3");
+  await editor.getByLabel("Exercise 1 set 2 load", { exact: true }).fill("65 kg");
+  await editor.getByRole("button", { name: "Add exercise", exact: true }).click();
+  await editor.getByLabel("Exercise 2 name", { exact: true }).fill("dumbbell_row");
+  await editor.getByLabel("Exercise 2 set 1 reps", { exact: true }).fill("8");
+  await editor.getByLabel("Exercise 2 set 1 load", { exact: true }).fill("20 kg");
+  await editor.locator(".exercise-editor").nth(1).getByLabel("Per hand", { exact: true }).check();
+  await testInfo.attach("real-workout-insertion", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+
+  try {
+    const response = page.waitForResponse((result) => result.url().endsWith("/api/workouts") && result.request().method() === "POST");
+    await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+    const inserted = await response;
+    expect(inserted.status()).toBe(201);
+    created = await inserted.json() as WorkoutDetail;
+    const requestHeaders = await inserted.request().allHeaders();
+    expect(inserted.headers()["cache-control"]).toBe("no-store");
+    expect(requestHeaders["origin"]).toBe(new URL(page.url()).origin);
+    expect(requestHeaders["x-csrf-token"]).toBeTruthy();
+    expect(requestHeaders["x-api-key"]).toBeUndefined();
+    expect(created).toMatchObject({ date, year: 2031, version: 1, exercise_count: 2, set_count: 3, notes, gym: "Integration gym", bodyweight_kg: 80, rpe: 8, rir: 2, program_id: "program_14" });
+    expect(created.exercises.bench_press).toMatchObject([{ set_number: 1, reps: 5, weight: "60 kg" }, { set_number: 2, reps: 3, weight: "65 kg" }]);
+    expect(created.exercises.dumbbell_row[0].load_multiplier).toBe(2);
+    await expect(editor).toHaveCount(0);
+    await expect(page.getByRole("combobox", { name: "Training year", exact: true })).toHaveValue("2031");
+    await expect(page.getByRole("complementary")).toContainText(notes);
+    await expect(page.locator(".workout-notes b")).toHaveCount(0);
+
+    const detail = await page.request.get(`/api/workouts/${created.id}`);
+    expect(detail.status()).toBe(200);
+    expect(await detail.json()).toEqual(created);
+    const overview = await page.request.get(`/api/analytics/overview?from=${date}&to=${date}`);
+    expect(overview.status()).toBe(200);
+    expect(await overview.json()).toMatchObject({ workouts: 1, active_days: 1, sets: 3, reps: 16, volume_kg_reps: 815, duration_minutes: 60 });
+    await page.reload();
+    await expect(page.getByRole("combobox", { name: "Training year", exact: true })).toHaveValue("2031");
+    await expect(page.getByRole("complementary")).toContainText(notes);
+    await expect(page.locator(".log-panel tbody tr").filter({ has: page.locator(`time[datetime="${date}"]`) })).toHaveCount(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    const image = page.locator(".brand-mark");
+    expect(await image.evaluate((element: HTMLImageElement) => element.naturalWidth)).toBeGreaterThan(0);
+    expect(errors).toEqual([]);
+    await testInfo.attach("real-inserted-workout", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+  } finally {
+    if (created) {
+      const auth = await (await page.request.get("/api/auth/status")).json() as AuthStatus;
+      const removed = await page.request.delete(`/api/workouts/${created.id}`, { headers: { Origin: new URL(page.url()).origin, "X-CSRF-Token": auth.csrf_token || "", "If-Match": String(created.version) } });
+      expect(removed.status()).toBe(204);
+    }
+  }
 });
 
 test("authenticated workout and measurement editing works through the proxy", async ({ page }, testInfo) => {

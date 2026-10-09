@@ -35,6 +35,46 @@ const workoutDetailSchema = workoutSummarySchema.extend({
   exercises: z.record(z.string(), z.array(exerciseSetSchema)),
 });
 
+const workoutInputSchema = workoutDetailSchema
+  .omit({ id: true, year: true, exercise_count: true, set_count: true, version: true })
+  .extend({
+    date: z.iso.date().refine((value) => value >= "1900-01-01" && value <= "2100-12-31", "Workout date must be between 1900 and 2100"),
+    start_time: z.iso.time().nullable(),
+    end_time: z.iso.time().nullable(),
+    gym: z.string().max(200).nullable().optional(),
+    notes: z.string().max(5000).nullable().optional(),
+    bodyweight_kg: z.number().positive().max(500).nullable().optional(),
+    rpe: z.number().min(1).max(10).nullable().optional(),
+    rir: z.number().int().min(0).max(20).nullable().optional(),
+    program_id: z.string().max(100).nullable().optional(),
+    exercises: z.record(
+      z.string().regex(/^[a-zA-Z0-9_()\-]{1,100}$/, "Use a valid exercise name"),
+      z.array(exerciseSetSchema.extend({
+        set_number: z.number().int().positive(),
+        reps: z.number().int().min(0).max(10000),
+        weight: z.string().max(200),
+        duration: z.string().max(100).nullable().optional(),
+        load_multiplier: z.number().int().min(1).max(2).optional(),
+      })).min(1).max(100).refine(
+        (sets) => new Set(sets.map((entry) => entry.set_number)).size === sets.length,
+        "Set numbers must be unique within each exercise",
+      ),
+    ).refine((exercises) => Object.keys(exercises).length >= 1 && Object.keys(exercises).length <= 100, "Include between 1 and 100 exercises"),
+  })
+  .strict()
+  .superRefine((workout, context) => {
+    if (Boolean(workout.start_time) !== Boolean(workout.end_time)) {
+      context.addIssue({ code: "custom", path: [workout.start_time ? "end_time" : "start_time"], message: "Provide both start and end times, or leave both empty" });
+    } else if (workout.start_time && workout.end_time) {
+      const [startHours, startMinutes, startSeconds = 0] = workout.start_time.split(":").map(Number);
+      const [endHours, endMinutes, endSeconds = 0] = workout.end_time.split(":").map(Number);
+      const seconds = (endHours * 3600 + endMinutes * 60 + endSeconds - startHours * 3600 - startMinutes * 60 - startSeconds + 86400) % 86400;
+      if (!(seconds > 0 && seconds <= 43200)) {
+        context.addIssue({ code: "custom", path: ["end_time"], message: "Provide a valid workout time window of at most 12 hours" });
+      }
+    }
+  });
+
 const workoutPageSchema = z.object({
   items: z.array(workoutSummarySchema),
   total: z.number().int().nonnegative(),
@@ -47,7 +87,7 @@ export type WorkoutSummary = z.infer<typeof workoutSummarySchema>;
 export type ExerciseSet = z.infer<typeof exerciseSetSchema>;
 export type WorkoutDetail = z.infer<typeof workoutDetailSchema>;
 export type WorkoutPage = z.infer<typeof workoutPageSchema>;
-export type WorkoutInput = Omit<WorkoutDetail, "id" | "year" | "exercise_count" | "set_count" | "version">;
+export type WorkoutInput = z.input<typeof workoutInputSchema>;
 
 const nullableNumber = z.number().nullable();
 const sessionSchema = z.object({
@@ -298,7 +338,12 @@ export async function signOut(): Promise<void> {
   csrfToken = null;
 }
 export function saveWorkout(workout: WorkoutInput, original?: WorkoutDetail): Promise<WorkoutDetail> {
-  const options = writeOptions(original ? "PUT" : "POST", workout);
+  const parsed = workoutInputSchema.safeParse(workout);
+  if (!parsed.success) {
+    const message = parsed.error.issues.map((issue) => `${issue.path.join(".") || "Workout"}: ${issue.message}`).join("; ");
+    return Promise.reject(new ApiError(422, message));
+  }
+  const options = writeOptions(original ? "PUT" : "POST", parsed.data);
   if (original) options.headers = { ...options.headers, "If-Match": String(original.version) };
   return requestJson(original ? `/workouts/${encodeURIComponent(original.id)}` : "/workouts", workoutDetailSchema, undefined, DEFAULT_TIMEOUT_MS, options);
 }

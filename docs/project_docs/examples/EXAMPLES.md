@@ -65,8 +65,8 @@ when experimenting with the examples.
 
 ## Migrate existing workout IDs
 
-The 253 bundled workouts have been backfilled with permanent IDs while retaining
-their existing API URLs. For an external legacy data directory, back up its
+The bundled year archives include permanent IDs while retaining their existing
+API URLs. For an external legacy data directory, back up its
 files and stop other writers before migrating. Set `FITNESS_TRACKER_DATA_DIR`
 to that directory, then preview and apply the migration:
 
@@ -124,6 +124,19 @@ npm --prefix frontend run dev
 The development frontend is available at `http://localhost:5173` and proxies API
 requests to port 8000.
 
+### Log workouts through the frontend
+
+The default server is read-only. Follow the
+[frontend setup guide](svelte_frontend_setup.md#enable-workout-entry) to provision
+an athlete password and enable writes, then sign in and select **Log workout**
+in the header. The editor supports multiple exercises and sets, local dates,
+overnight time windows, and optional workout metadata.
+
+Saving opens the new workout in Archive and selects its year. Browser-created
+workouts live in SQLite state, not in the YAML archive files used by the CLI
+examples above. Preserve the Compose `state` volume when stopping or upgrading
+the application; do not use `docker compose down --volumes` on personal state.
+
 ## Testing endpoints locally
 
 Overview of endpoints:
@@ -156,8 +169,10 @@ npm --prefix frontend run test:e2e
 Playwright builds the frontend and starts an isolated preview on port 4173; set
 `E2E_PORT` to choose another port. Deterministic API fixtures exercise year
 selection, pagination, ordering, duplicate-day details, and error/retry behavior
-on desktop and mobile viewports. The unmocked integration test is skipped unless
-`E2E_BASE_URL` points to a running application.
+on desktop and mobile viewports. They also cover progress totals, chart rendering,
+permission gating, workout metadata, local dates, input validation, draft retries,
+and repeat-submission prevention. Unmocked read-only integration tests are skipped
+unless `E2E_BASE_URL` points to a running application.
 
 For a running Compose stack:
 
@@ -170,7 +185,32 @@ The container CI job is configured to run the browser suite against the built
 Compose services and retain failure screenshots and traces in the
 `browser-test-results` artifact. See the
 [verification status](../dev-docs/CHANGELOG.md#verification-status) for the
-checks performed locally and the outstanding container runtime verification.
+dated native and production-container results.
+
+### Authenticated insertion and editing
+
+Use a separate disposable Compose project and state volume, or separate local
+data/state directories. Provision only a fixture password in that state and
+start its backend with `FITNESS_TRACKER_ENABLE_WRITES=true`. Do not reuse a
+personal password or run these workflows against personal SQLite state.
+
+For an isolated test stack on port 3000:
+
+```bash
+E2E_BASE_URL=http://127.0.0.1:3000 E2E_WRITE_TESTS=1 npm --prefix frontend run test:e2e -- --grep authenticated
+```
+
+The default fixture password is `test-only-browser-password`; `E2E_PASSWORD`
+can override it for a different test fixture. The insertion regression checks
+the actual POST through the proxy, session/Origin/CSRF protections, optional
+metadata, literal note rendering, detail after reload, and exact volume and
+overnight-duration totals. It deletes its own inserted workout afterward.
+The other authenticated workflow also changes imports, measurements, and program
+targets, so treat the entire test volume as disposable.
+
+Against a running deployment, the two preview-only injected-CSP cases are
+intentionally skipped. The production Nginx response headers must be checked
+separately; a preview test alone does not establish deployment security.
 
 ## Example: insert breath holding data in TinyDB
 

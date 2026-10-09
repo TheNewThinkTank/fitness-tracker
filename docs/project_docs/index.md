@@ -2,11 +2,11 @@
 
 ## Overview
 
-Full stack fitness tracking application using TinyDB, FastAPI, Svelte and Docker.
-Store weight-training records in year-based `<YEAR>_workouts.yml` files, each
-containing a TinyDB `weight_training_log` table. Import logs into the year of
-each workout, then browse the data through the read-only FastAPI service and
-Svelte frontend.
+Full stack fitness tracking application using TinyDB, SQLite, FastAPI, Svelte
+and Docker. Imported weight-training records live in year-based
+`<YEAR>_workouts.yml` files, each containing a TinyDB `weight_training_log`
+table. FastAPI reads those archives without changing them. Optional frontend
+workout entry and edits use transactional SQLite state, separate from YAML.
 
 The browser opens the latest available year and supports date ordering,
 pagination, and exercise-set details. Workouts have permanent UUIDs, so multiple
@@ -16,8 +16,26 @@ omitted from API results.
 
 The API caches parsed records and indexes workout IDs. File identity, size, and
 modification/change timestamps invalidate changed data without a server restart.
-API reads do not modify the workout files. Browser responses can remain cached
-for up to 60 seconds under the existing private cache policy.
+API reads do not modify the workout files. Anonymous responses use the private,
+60-second cache policy; session-protected data uses `no-store`.
+
+## Track and log workouts
+
+- **Archive:** browse workouts by year, inspect sets, and edit or import records
+    when authenticated writes are enabled.
+- **Progress:** review full-range volume, activity, exercise history, personal
+    records, and program phases; drill down to source workouts or export CSV.
+- **Programs:** review dated programs and structured targets, with opt-in target
+    editing.
+- **Body Metrics:** view historical measurements, with opt-in manual entry and
+    CSV import.
+
+The header's **Log workout** action is available from every view. Enable writes,
+provision an athlete password, and sign in before using it. Enter multiple
+exercises and sets, plus optional times, gym, program, bodyweight, effort, and
+notes. Successful saves open the new workout in Archive and preserve its link
+after reload. See the [frontend guide](examples/svelte_frontend_setup.md)
+for setup, validation rules, retry behavior, and storage details.
 
 Most of the project, in particular `src` supports all major platforms (Windows, Linux and MacOS), but the cli `bin/fitcli.sh` currently supports Linux and MacOS only.
 
@@ -30,6 +48,8 @@ before editing or renumbering legacy records.
 
 See the [browser workflow checks](examples/EXAMPLES.md#browser-workflow-checks)
 for desktop and mobile testing, the
+[architecture](architecture/architecture.md#application-runtime) for the
+browser, archive, and writable-state boundaries, the
 [OpenAPI reference](dev-docs/API-Schema/openapi.yaml) for the API contract, and
 the [changelog](dev-docs/CHANGELOG.md#unreleased) for recent changes and
 verification status.

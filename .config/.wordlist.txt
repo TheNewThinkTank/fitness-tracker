@@ -1,3 +1,16 @@
+TLS
+ACSM
+Bodyweight
+CSRF
+HttpOnly
+SameSite
+CSV
+MiB
+UTF
+ini
+toml
+fitcli
+UID
 auth
 backend
 backfilled

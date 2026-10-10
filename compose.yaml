@@ -7,9 +7,11 @@ services:
       target: runtime
     image: fitness-tracker-backend:local
     init: true
+    user: "${FITNESS_TRACKER_CONTAINER_UID:-10001}:${FITNESS_TRACKER_CONTAINER_GID:-10001}"
     environment:
       FITNESS_TRACKER_ALLOWED_ORIGINS: "[]"
       FITNESS_TRACKER_API_TOKEN: "${FITNESS_TRACKER_API_TOKEN:-}"
+      FITNESS_TRACKER_ATHLETE: "${FITNESS_TRACKER_ATHLETE:-default}"
       FITNESS_TRACKER_DATA_DIR: /data
       FITNESS_TRACKER_STATE_DIR: /state
       FITNESS_TRACKER_ENABLE_WRITES: "${FITNESS_TRACKER_ENABLE_WRITES:-false}"
@@ -17,8 +19,13 @@ services:
       FITNESS_TRACKER_COOKIE_SECURE: "${FITNESS_TRACKER_COOKIE_SECURE:-false}"
       FITNESS_TRACKER_PASSWORD_HASH: "${FITNESS_TRACKER_PASSWORD_HASH:-}"
     volumes:
-      - ./data:/data:ro
-      - state:/state
+      - type: bind
+        source: "${FITNESS_TRACKER_DATA_DIR:-./data}"
+        target: /data
+        read_only: true
+        bind:
+          create_host_path: false
+      - "${FITNESS_TRACKER_STATE_DIR:-state}:/state"
     ports:
       - "127.0.0.1:8000:8000"
     read_only: true

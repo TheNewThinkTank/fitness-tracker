@@ -12,6 +12,7 @@ settings = Dynaconf(
     environments=True,
     default_env="default",
     load_dotenv=True,
+    dotenv_path=str(PROJECT_ROOT / ".env"),
     merge_enabled=True,
 )
 

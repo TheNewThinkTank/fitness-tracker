@@ -28,6 +28,9 @@ you need to point at another directory or protect direct API access:
 cp .env.example .env
 ```
 
+The backend reads `.env` from the repository root, even when launched from
+another working directory. Existing process environment variables take precedence.
+
 Supported variables:
 
 | Variable | Description |
@@ -36,10 +39,41 @@ Supported variables:
 | `FITNESS_TRACKER_ATHLETE` | Athlete label used by optional integrations. Defaults to `default` |
 | `FITNESS_TRACKER_ALLOWED_ORIGINS` | JSON list of origins allowed to call FastAPI directly |
 | `FITNESS_TRACKER_API_TOKEN` | Optional token required in the `X-API-Key` header |
-| `FITNESS_TRACKER_STATE_DIR` | Writable SQLite directory; defaults to `DATA_DIR/.state` locally and `/state` in Compose |
+| `FITNESS_TRACKER_STATE_DIR` | Writable SQLite directory; defaults to `DATA_DIR/.state` locally. An absolute host path is mounted at `/state` in Compose; unset uses its named `state` volume |
+| `FITNESS_TRACKER_CONTAINER_UID` | Non-root Docker backend user ID; defaults to `10001`. Match `id -u` for bind-mounted state |
+| `FITNESS_TRACKER_CONTAINER_GID` | Docker backend group ID; defaults to `10001`. Match `id -g` for bind-mounted state |
 | `FITNESS_TRACKER_ENABLE_WRITES` | Enable session-protected editing; defaults to `false` |
 | `FITNESS_TRACKER_AUTH_REQUIRED` | Require athlete sign-in; a password must be provisioned first |
 | `FITNESS_TRACKER_COOKIE_SECURE` | Require HTTPS and Secure cookies; enable behind a TLS reverse proxy |
+
+### Google Drive storage
+
+Google Drive for desktop can sync the athlete directory without a separate
+Google API integration. Set its actual filesystem path in `.env`, quoting spaces
+instead of adding shell backslashes:
+
+```dotenv
+FITNESS_TRACKER_DATA_DIR="/Users/your-user/Library/CloudStorage/GoogleDrive-your-account/My Drive/DATA/fitness-tracker-data/your-athlete"
+FITNESS_TRACKER_ATHLETE=your-athlete
+FITNESS_TRACKER_STATE_DIR="${FITNESS_TRACKER_DATA_DIR}/.state"
+FITNESS_TRACKER_ENABLE_WRITES=true
+```
+
+The synced athlete directory must already exist and be available locally. Do not
+create a replacement directory under a missing Drive mount. App saves persist
+in `.state/tracker.sqlite3`, not in memory or the imported year-based YAML files.
+Provision the athlete password as described below before starting with writes enabled.
+
+For Docker, first create `.state` inside the existing athlete directory as your
+host user, and set `FITNESS_TRACKER_CONTAINER_UID` and
+`FITNESS_TRACKER_CONTAINER_GID` in `.env` to the outputs of `id -u` and `id -g`.
+Keep `.state` private; it also holds authentication state. If moving existing
+workouts to Drive, stop the backend and transfer its SQLite state as well as YAML.
+
+A successful save commits locally; Google Drive handles the subsequent upload.
+Use only one active backend against a synced folder. Before switching computers,
+stop the backend and wait for Drive to finish syncing; this is not a shared,
+multi-device SQLite database.
 
 ### Docker Compose
 
@@ -53,8 +87,9 @@ docker compose up --build
 
 The browser calls `/api` on the frontend origin. nginx forwards those requests
 to FastAPI, so production browser traffic does not need CORS or a public backend
-address. Compose mounts `data/` read-only and waits for backend readiness before
-starting the frontend.
+address. Compose mounts `FITNESS_TRACKER_DATA_DIR` (default `data/`) read-only
+and waits for backend readiness before starting the frontend. A missing archive
+directory is rejected rather than silently created.
 
 To enable token protection, set the same value for both services through the
 Compose environment:
@@ -167,7 +202,7 @@ Start FastAPI:
 
 ```bash
 poetry install --with analytics,integrations,docs
-FITNESS_TRACKER_DATA_DIR=data poetry run uvicorn src.main:app --reload
+poetry run uvicorn src.main:app --reload
 ```
 
 Start Vite in another terminal:

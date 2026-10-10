@@ -1,0 +1,20 @@
+
+# TODO: Implement macro to parse YAML as Markdown for GitHub Pages
+
+legs:
+  - bb_lunge
+  - bulgarian_split_squat
+  - deadlift
+  - front_squat
+  - glute_bridge
+  - hip_thrust
+  - leg_curl
+  - leg_extention
+  - legpress
+  - pistol_squat
+  - romanian_deadlift_(RDL)
+  - seated_calf_raise
+  - squat
+  - standing_calf_raise
+  - step_up
+  - sumo_deadlift

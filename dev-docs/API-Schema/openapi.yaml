@@ -1,0 +1,1946 @@
+openapi: 3.1.0
+info:
+  title: Fitness Tracker API
+  description: Workout archives, progression analytics, and opt-in session-protected
+    editing.
+  version: 0.1.0
+paths:
+  /:
+    get:
+      summary: Main Page
+      operationId: main_page__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageResponse'
+  /years:
+    get:
+      summary: List Years
+      operationId: list_years_years_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  type: integer
+                type: array
+                title: Response List Years Years Get
+      security:
+      - APIKeyHeader: []
+  /workouts:
+    get:
+      summary: List Workouts
+      operationId: list_workouts_workouts_get
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: year
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 2100
+            minimum: 1900
+          - type: 'null'
+          title: Year
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 100
+          minimum: 1
+          default: 50
+          title: Limit
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+          title: Offset
+      - name: order
+        in: query
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+          default: desc
+          title: Order
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkoutPage'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Workout
+      operationId: create_workout_workouts_post
+      security:
+      - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkoutWrite'
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkoutDetail'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /workouts/{workout_id}:
+    get:
+      summary: Get Workout
+      operationId: get_workout_workouts__workout_id__get
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: workout_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Workout Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkoutDetail'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      summary: Update Workout
+      operationId: update_workout_workouts__workout_id__put
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: workout_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Workout Id
+      - name: if-match
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: If-Match
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkoutWrite'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkoutDetail'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      summary: Delete Workout
+      operationId: delete_workout_workouts__workout_id__delete
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: workout_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Workout Id
+      - name: if-match
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: If-Match
+      responses:
+        '204':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /data:
+    get:
+      summary: Get Data
+      operationId: get_data_data_get
+      deprecated: true
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: year
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 2100
+            minimum: 1900
+          - type: 'null'
+          title: Year
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 100
+          minimum: 1
+          default: 100
+          title: Limit
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+          title: Offset
+      - name: order
+        in: query
+        required: false
+        schema:
+          enum:
+          - asc
+          - desc
+          type: string
+          default: desc
+          title: Order
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkoutDetail'
+                title: Response Get Data Data Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /dates:
+    get:
+      summary: Get Dates
+      operationId: get_dates_dates_get
+      deprecated: true
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: year
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 2100
+            minimum: 1900
+          - type: 'null'
+          title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: date
+                title: Response Get Dates Dates Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /dates_and_splits:
+    get:
+      summary: Get Dates And Splits
+      operationId: get_dates_and_splits_dates_and_splits_get
+      deprecated: true
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: year
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 2100
+            minimum: 1900
+          - type: 'null'
+          title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkoutSummary'
+                title: Response Get Dates And Splits Dates And Splits Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /dates/{workout_date}:
+    get:
+      summary: Describe Workout
+      operationId: describe_workout_dates__workout_date__get
+      deprecated: true
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: workout_date
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date
+          title: Workout Date
+      - name: year
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 2100
+            minimum: 1900
+          - type: 'null'
+          title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkoutDetail'
+                title: Response Describe Workout Dates  Workout Date  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /exercises:
+    get:
+      summary: List Exercises
+      operationId: list_exercises_exercises_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ExerciseInfo'
+                type: array
+                title: Response List Exercises Exercises Get
+      security:
+      - APIKeyHeader: []
+  /analytics/overview:
+    get:
+      summary: Training Overview
+      operationId: training_overview_analytics_overview_get
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: from
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: From
+      - name: to
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: To
+      - name: bucket
+        in: query
+        required: false
+        schema:
+          enum:
+          - day
+          - week
+          - month
+          type: string
+          default: week
+          title: Bucket
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingOverview'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/exercises/{exercise_id}:
+    get:
+      summary: Exercise History
+      operationId: exercise_history_analytics_exercises__exercise_id__get
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: exercise_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Exercise Id
+      - name: from
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: From
+      - name: to
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: To
+      - name: formula
+        in: query
+        required: false
+        schema:
+          enum:
+          - epley
+          - brzycki
+          - acsm
+          type: string
+          default: epley
+          title: Formula
+      - name: load_kg
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: number
+            maximum: 5000
+            minimum: 0
+          - type: 'null'
+          title: Load Kg
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExerciseHistory'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /analytics/records:
+    get:
+      summary: Personal Records
+      operationId: personal_records_analytics_records_get
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: exercise_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Exercise Id
+      - name: from
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: From
+      - name: to
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: To
+      - name: formula
+        in: query
+        required: false
+        schema:
+          enum:
+          - epley
+          - brzycki
+          - acsm
+          type: string
+          default: epley
+          title: Formula
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonalRecord'
+                title: Response Personal Records Analytics Records Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /programs:
+    get:
+      summary: Training Programs
+      operationId: training_programs_programs_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProgramProgress'
+                type: array
+                title: Response Training Programs Programs Get
+      security:
+      - APIKeyHeader: []
+  /analytics/export:
+    get:
+      summary: Export Progress
+      operationId: export_progress_analytics_export_get
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: from
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: From
+      - name: to
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: To
+      - name: exercise_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Exercise Id
+      - name: formula
+        in: query
+        required: false
+        schema:
+          enum:
+          - epley
+          - brzycki
+          - acsm
+          type: string
+          default: epley
+          title: Formula
+      - name: load_kg
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: number
+            maximum: 5000
+            minimum: 0
+          - type: 'null'
+          title: Load Kg
+      responses:
+        '200':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /workouts/import:
+    post:
+      summary: Import Workouts
+      operationId: import_workouts_workouts_import_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportResult'
+      security:
+      - APIKeyHeader: []
+  /body-metrics:
+    get:
+      summary: Body Metrics
+      operationId: body_metrics_body_metrics_get
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: from
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: From
+      - name: to
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: To
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BodyMeasurement'
+                title: Response Body Metrics Body Metrics Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Save Body Metric
+      operationId: save_body_metric_body_metrics_post
+      security:
+      - APIKeyHeader: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BodyMeasurement'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BodyMeasurement'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /body-metrics/{measured_date}:
+    delete:
+      summary: Delete Body Metric
+      operationId: delete_body_metric_body_metrics__measured_date__delete
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: measured_date
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date
+          title: Measured Date
+      responses:
+        '204':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /body-metrics/import:
+    post:
+      summary: Import Body Metrics
+      operationId: import_body_metrics_body_metrics_import_post
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportResult'
+      security:
+      - APIKeyHeader: []
+  /programs/{program_id}/targets:
+    put:
+      summary: Save Program Targets
+      operationId: save_program_targets_programs__program_id__targets_put
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: program_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Program Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProgramTargetsUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProgramProgress'
+                title: Response Save Program Targets Programs  Program Id  Targets
+                  Put
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /{workout_date}/exercises/{exercise}:
+    get:
+      summary: Show Exercise
+      operationId: show_exercise__workout_date__exercises__exercise__get
+      deprecated: true
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: workout_date
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date
+          title: Workout Date
+      - name: exercise
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Exercise
+      - name: year
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 2100
+            minimum: 1900
+          - type: 'null'
+          title: Year
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExerciseSetResponse'
+                title: Response Show Exercise  Workout Date  Exercises  Exercise  Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /auth/status:
+    get:
+      tags:
+      - Authentication
+      summary: Status
+      operationId: status_auth_status_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+      security:
+      - APIKeyHeader: []
+  /auth/login:
+    post:
+      tags:
+      - Authentication
+      summary: Login
+      operationId: login_auth_login_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthStatus'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKeyHeader: []
+  /auth/logout:
+    post:
+      tags:
+      - Authentication
+      summary: Logout
+      operationId: logout_auth_logout_post
+      responses:
+        '204':
+          description: Successful Response
+      security:
+      - APIKeyHeader: []
+components:
+  schemas:
+    ActivityBucket:
+      properties:
+        date:
+          type: string
+          format: date
+          title: Date
+        workouts:
+          type: integer
+          title: Workouts
+          default: 0
+        active_days:
+          type: integer
+          title: Active Days
+          default: 0
+        sets:
+          type: integer
+          title: Sets
+          default: 0
+        reps:
+          type: integer
+          title: Reps
+          default: 0
+        volume_kg_reps:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Volume Kg Reps
+        duration_minutes:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Duration Minutes
+        known_load_sets:
+          type: integer
+          title: Known Load Sets
+          default: 0
+        excluded_load_sets:
+          type: integer
+          title: Excluded Load Sets
+          default: 0
+        workout_ids:
+          items:
+            type: string
+            format: uuid
+          type: array
+          title: Workout Ids
+      type: object
+      required:
+      - date
+      title: ActivityBucket
+    AuthStatus:
+      properties:
+        authenticated:
+          type: boolean
+          title: Authenticated
+        auth_required:
+          type: boolean
+          title: Auth Required
+        writes_enabled:
+          type: boolean
+          title: Writes Enabled
+        csrf_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Csrf Token
+      type: object
+      required:
+      - authenticated
+      - auth_required
+      - writes_enabled
+      - csrf_token
+      title: AuthStatus
+    BodyMeasurement:
+      properties:
+        date:
+          type: string
+          format: date
+          title: Date
+        weight_kg:
+          anyOf:
+          - type: number
+            maximum: 500.0
+            exclusiveMinimum: 0.0
+          - type: 'null'
+          title: Weight Kg
+        waist_cm:
+          anyOf:
+          - type: number
+            maximum: 400.0
+            exclusiveMinimum: 0.0
+          - type: 'null'
+          title: Waist Cm
+        resting_heart_rate:
+          anyOf:
+          - type: integer
+            maximum: 250.0
+            minimum: 20.0
+          - type: 'null'
+          title: Resting Heart Rate
+      additionalProperties: false
+      type: object
+      required:
+      - date
+      title: BodyMeasurement
+    ExerciseHistory:
+      properties:
+        exercise_id:
+          type: string
+          title: Exercise Id
+        start:
+          type: string
+          format: date
+          title: Start
+        end:
+          type: string
+          format: date
+          title: End
+        formula:
+          type: string
+          enum:
+          - epley
+          - brzycki
+          - acsm
+          title: Formula
+        max_estimation_reps:
+          type: integer
+          title: Max Estimation Reps
+          default: 10
+        load_kg:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Load Kg
+        sessions:
+          items:
+            $ref: '#/components/schemas/SessionMetrics'
+          type: array
+          title: Sessions
+        comparison:
+          additionalProperties:
+            $ref: '#/components/schemas/MetricChange'
+          type: object
+          title: Comparison
+      type: object
+      required:
+      - exercise_id
+      - start
+      - end
+      - formula
+      - sessions
+      - comparison
+      title: ExerciseHistory
+    ExerciseInfo:
+      properties:
+        id:
+          type: string
+          title: Id
+        label:
+          type: string
+          title: Label
+        aliases:
+          items:
+            type: string
+          type: array
+          title: Aliases
+        muscle_groups:
+          items:
+            type: string
+          type: array
+          title: Muscle Groups
+        workouts:
+          type: integer
+          title: Workouts
+        first_date:
+          type: string
+          format: date
+          title: First Date
+        last_date:
+          type: string
+          format: date
+          title: Last Date
+        load_convention:
+          type: string
+          title: Load Convention
+          default: Recorded load; per-hand sets require an explicit multiplier
+      type: object
+      required:
+      - id
+      - label
+      - aliases
+      - muscle_groups
+      - workouts
+      - first_date
+      - last_date
+      title: ExerciseInfo
+    ExerciseSetResponse:
+      properties:
+        set_number:
+          type: integer
+          minimum: 1.0
+          title: Set Number
+        reps:
+          type: integer
+          maximum: 10000.0
+          minimum: 0.0
+          title: Reps
+        weight:
+          type: string
+          maxLength: 200
+          title: Weight
+        duration:
+          anyOf:
+          - type: string
+            maxLength: 100
+          - type: 'null'
+          title: Duration
+        load_multiplier:
+          type: integer
+          maximum: 2.0
+          minimum: 1.0
+          title: Load Multiplier
+          default: 1
+      additionalProperties: true
+      type: object
+      required:
+      - set_number
+      - reps
+      - weight
+      title: ExerciseSetResponse
+    ExerciseTarget:
+      properties:
+        exercise_id:
+          type: string
+          title: Exercise Id
+        sets:
+          type: integer
+          maximum: 100.0
+          minimum: 1.0
+          title: Sets
+        reps_min:
+          anyOf:
+          - type: integer
+            maximum: 1000.0
+            minimum: 0.0
+          - type: 'null'
+          title: Reps Min
+        reps_max:
+          anyOf:
+          - type: integer
+            maximum: 1000.0
+            minimum: 0.0
+          - type: 'null'
+          title: Reps Max
+        max_reps:
+          type: boolean
+          title: Max Reps
+          default: false
+      additionalProperties: false
+      type: object
+      required:
+      - exercise_id
+      - sets
+      title: ExerciseTarget
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ImportResult:
+      properties:
+        imported:
+          type: integer
+          title: Imported
+      type: object
+      required:
+      - imported
+      title: ImportResult
+    LoginRequest:
+      properties:
+        password:
+          type: string
+          maxLength: 1024
+          minLength: 1
+          format: password
+          title: Password
+          writeOnly: true
+      additionalProperties: false
+      type: object
+      required:
+      - password
+      title: LoginRequest
+    MessageResponse:
+      properties:
+        message:
+          type: string
+          title: Message
+      type: object
+      required:
+      - message
+      title: MessageResponse
+    MetricChange:
+      properties:
+        current:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Current
+        previous:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Previous
+        delta:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Delta
+        percent:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Percent
+      type: object
+      required:
+      - current
+      - previous
+      - delta
+      - percent
+      title: MetricChange
+    PersonalRecord:
+      properties:
+        exercise_id:
+          type: string
+          title: Exercise Id
+        metric:
+          type: string
+          enum:
+          - load
+          - reps
+          - estimated_one_rm
+          - assistance
+          - hold
+          - height
+          title: Metric
+        value:
+          type: number
+          title: Value
+        unit:
+          type: string
+          title: Unit
+        date:
+          type: string
+          format: date
+          title: Date
+        workout_id:
+          type: string
+          format: uuid
+          title: Workout Id
+      type: object
+      required:
+      - exercise_id
+      - metric
+      - value
+      - unit
+      - date
+      - workout_id
+      title: PersonalRecord
+    ProgramProgress:
+      properties:
+        program:
+          $ref: '#/components/schemas/TrainingProgram'
+        workouts:
+          type: integer
+          title: Workouts
+        completion_percent:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Completion Percent
+        sets:
+          type: integer
+          title: Sets
+        volume_kg_reps:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Volume Kg Reps
+        target_sets:
+          type: integer
+          title: Target Sets
+        checked_sets:
+          type: integer
+          title: Checked Sets
+        within_rep_range:
+          type: integer
+          title: Within Rep Range
+        rep_adherence_percent:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Rep Adherence Percent
+      type: object
+      required:
+      - program
+      - workouts
+      - completion_percent
+      - sets
+      - volume_kg_reps
+      - target_sets
+      - checked_sets
+      - within_rep_range
+      - rep_adherence_percent
+      title: ProgramProgress
+    ProgramSplit:
+      properties:
+        id:
+          type: string
+          maxLength: 100
+          minLength: 1
+          title: Id
+        targets:
+          items:
+            $ref: '#/components/schemas/ExerciseTarget'
+          type: array
+          maxItems: 100
+          title: Targets
+      additionalProperties: false
+      type: object
+      required:
+      - id
+      - targets
+      title: ProgramSplit
+    ProgramTargetsUpdate:
+      properties:
+        planned_workouts:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Planned Workouts
+        targets:
+          items:
+            $ref: '#/components/schemas/ProgramSplit'
+          type: array
+          title: Targets
+      type: object
+      required:
+      - targets
+      title: ProgramTargetsUpdate
+    SessionMetrics:
+      properties:
+        workout_id:
+          type: string
+          format: uuid
+          title: Workout Id
+        date:
+          type: string
+          format: date
+          title: Date
+        split:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Split
+        program_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Program Id
+        program_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Program Name
+        sets:
+          type: integer
+          title: Sets
+        reps:
+          type: integer
+          title: Reps
+        volume_kg_reps:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Volume Kg Reps
+        known_load_sets:
+          type: integer
+          title: Known Load Sets
+        excluded_load_sets:
+          type: integer
+          title: Excluded Load Sets
+        duration_minutes:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Duration Minutes
+        sets_per_minute:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Sets Per Minute
+        best_load_kg:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Best Load Kg
+        best_reps:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Best Reps
+        estimated_one_rm_kg:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Estimated One Rm Kg
+        relative_strength:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Relative Strength
+        assistance_kg:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Assistance Kg
+        hold_seconds:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Hold Seconds
+        height_cm:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Height Cm
+        unusual:
+          type: boolean
+          title: Unusual
+          default: false
+        bodyweight_kg:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Bodyweight Kg
+      type: object
+      required:
+      - workout_id
+      - date
+      - split
+      - program_id
+      - program_name
+      - sets
+      - reps
+      - volume_kg_reps
+      - known_load_sets
+      - excluded_load_sets
+      - duration_minutes
+      - sets_per_minute
+      title: SessionMetrics
+    TrainingOverview:
+      properties:
+        start:
+          type: string
+          format: date
+          title: Start
+        end:
+          type: string
+          format: date
+          title: End
+        bucket:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          title: Bucket
+        workouts:
+          type: integer
+          title: Workouts
+        active_days:
+          type: integer
+          title: Active Days
+        sets:
+          type: integer
+          title: Sets
+        reps:
+          type: integer
+          title: Reps
+        volume_kg_reps:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Volume Kg Reps
+        known_load_sets:
+          type: integer
+          title: Known Load Sets
+        excluded_load_sets:
+          type: integer
+          title: Excluded Load Sets
+        duration_minutes:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Duration Minutes
+        duration_workouts:
+          type: integer
+          title: Duration Workouts
+        longest_gap_days:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Longest Gap Days
+        buckets:
+          items:
+            $ref: '#/components/schemas/ActivityBucket'
+          type: array
+          title: Buckets
+        activity:
+          items:
+            $ref: '#/components/schemas/ActivityBucket'
+          type: array
+          title: Activity
+        splits:
+          additionalProperties:
+            type: integer
+          type: object
+          title: Splits
+        muscle_group_sets:
+          additionalProperties:
+            type: integer
+          type: object
+          title: Muscle Group Sets
+        sessions:
+          items:
+            $ref: '#/components/schemas/SessionMetrics'
+          type: array
+          title: Sessions
+        comparison:
+          additionalProperties:
+            $ref: '#/components/schemas/MetricChange'
+          type: object
+          title: Comparison
+        volume_unit:
+          type: string
+          title: Volume Unit
+          default: kg-reps
+      type: object
+      required:
+      - start
+      - end
+      - bucket
+      - workouts
+      - active_days
+      - sets
+      - reps
+      - volume_kg_reps
+      - known_load_sets
+      - excluded_load_sets
+      - duration_minutes
+      - duration_workouts
+      - longest_gap_days
+      - buckets
+      - activity
+      - splits
+      - muscle_group_sets
+      - sessions
+      - comparison
+      title: TrainingOverview
+    TrainingProgram:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
+        start:
+          type: string
+          format: date
+          title: Start
+        end:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End
+        splits:
+          items:
+            type: string
+          type: array
+          title: Splits
+        planned_workouts:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Planned Workouts
+        targets:
+          items:
+            $ref: '#/components/schemas/ProgramSplit'
+          type: array
+          title: Targets
+      type: object
+      required:
+      - id
+      - name
+      - start
+      - end
+      - splits
+      - planned_workouts
+      - targets
+      title: TrainingProgram
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    WorkoutDetail:
+      properties:
+        date:
+          type: string
+          format: date
+          title: Date
+        split:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Split
+        start_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Time
+        end_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Time
+        timezone:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Timezone
+        gym:
+          anyOf:
+          - type: string
+            maxLength: 200
+          - type: 'null'
+          title: Gym
+        notes:
+          anyOf:
+          - type: string
+            maxLength: 5000
+          - type: 'null'
+          title: Notes
+        bodyweight_kg:
+          anyOf:
+          - type: number
+            maximum: 500.0
+            exclusiveMinimum: 0.0
+          - type: 'null'
+          title: Bodyweight Kg
+        rpe:
+          anyOf:
+          - type: number
+            maximum: 10.0
+            minimum: 1.0
+          - type: 'null'
+          title: Rpe
+        rir:
+          anyOf:
+          - type: integer
+            maximum: 20.0
+            minimum: 0.0
+          - type: 'null'
+          title: Rir
+        program_id:
+          anyOf:
+          - type: string
+            maxLength: 100
+          - type: 'null'
+          title: Program Id
+        id:
+          type: string
+          format: uuid
+          title: Id
+        year:
+          type: integer
+          title: Year
+        exercise_count:
+          type: integer
+          title: Exercise Count
+        set_count:
+          type: integer
+          title: Set Count
+        version:
+          type: integer
+          title: Version
+          default: 1
+        exercises:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/ExerciseSetResponse'
+            type: array
+          type: object
+          title: Exercises
+      type: object
+      required:
+      - date
+      - id
+      - year
+      - exercise_count
+      - set_count
+      - exercises
+      title: WorkoutDetail
+    WorkoutPage:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/WorkoutSummary'
+          type: array
+          title: Items
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        offset:
+          type: integer
+          title: Offset
+        year:
+          type: integer
+          title: Year
+      type: object
+      required:
+      - items
+      - total
+      - limit
+      - offset
+      - year
+      title: WorkoutPage
+    WorkoutSummary:
+      properties:
+        date:
+          type: string
+          format: date
+          title: Date
+        split:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Split
+        start_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Time
+        end_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Time
+        timezone:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Timezone
+        gym:
+          anyOf:
+          - type: string
+            maxLength: 200
+          - type: 'null'
+          title: Gym
+        notes:
+          anyOf:
+          - type: string
+            maxLength: 5000
+          - type: 'null'
+          title: Notes
+        bodyweight_kg:
+          anyOf:
+          - type: number
+            maximum: 500.0
+            exclusiveMinimum: 0.0
+          - type: 'null'
+          title: Bodyweight Kg
+        rpe:
+          anyOf:
+          - type: number
+            maximum: 10.0
+            minimum: 1.0
+          - type: 'null'
+          title: Rpe
+        rir:
+          anyOf:
+          - type: integer
+            maximum: 20.0
+            minimum: 0.0
+          - type: 'null'
+          title: Rir
+        program_id:
+          anyOf:
+          - type: string
+            maxLength: 100
+          - type: 'null'
+          title: Program Id
+        id:
+          type: string
+          format: uuid
+          title: Id
+        year:
+          type: integer
+          title: Year
+        exercise_count:
+          type: integer
+          title: Exercise Count
+        set_count:
+          type: integer
+          title: Set Count
+        version:
+          type: integer
+          title: Version
+          default: 1
+      type: object
+      required:
+      - date
+      - id
+      - year
+      - exercise_count
+      - set_count
+      title: WorkoutSummary
+    WorkoutWrite:
+      properties:
+        date:
+          type: string
+          format: date
+          title: Date
+        split:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Split
+        start_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Start Time
+        end_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: End Time
+        timezone:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Timezone
+        gym:
+          anyOf:
+          - type: string
+            maxLength: 200
+          - type: 'null'
+          title: Gym
+        notes:
+          anyOf:
+          - type: string
+            maxLength: 5000
+          - type: 'null'
+          title: Notes
+        bodyweight_kg:
+          anyOf:
+          - type: number
+            maximum: 500.0
+            exclusiveMinimum: 0.0
+          - type: 'null'
+          title: Bodyweight Kg
+        rpe:
+          anyOf:
+          - type: number
+            maximum: 10.0
+            minimum: 1.0
+          - type: 'null'
+          title: Rpe
+        rir:
+          anyOf:
+          - type: integer
+            maximum: 20.0
+            minimum: 0.0
+          - type: 'null'
+          title: Rir
+        program_id:
+          anyOf:
+          - type: string
+            maxLength: 100
+          - type: 'null'
+          title: Program Id
+        exercises:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/ExerciseSetResponse'
+            type: array
+          type: object
+          maxProperties: 100
+          minProperties: 1
+          title: Exercises
+      additionalProperties: false
+      type: object
+      required:
+      - date
+      - exercises
+      title: WorkoutWrite
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-Key

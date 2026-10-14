@@ -76,6 +76,37 @@ teardown() {
     [ -z "$output" ]
 }
 
+@test "log appends timestamped messages without rotating a small file" {
+    printf '%s\n' "Previous entry" > "$LOG_FILE"
+    run log "Current entry"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *" - Current entry" ]]
+    [ "$(wc -l < "$LOG_FILE")" -eq 2 ]
+    [ ! -e "${LOG_FILE}.1" ]
+}
+
+@test "log rotates ten MiB files and keeps only five backups" {
+    printf '%10485760s' '' > "$LOG_FILE"
+    for archive in 1 2 3 4 5; do
+        printf '%s\n' "Backup $archive" > "${LOG_FILE}.${archive}"
+    done
+    run log "First entry after rotation"
+    [ "$status" -eq 0 ]
+    [ "$(wc -l < "$LOG_FILE")" -eq 1 ]
+    [ "$(wc -c < "${LOG_FILE}.1")" -eq 10485760 ]
+    [ "$(< "${LOG_FILE}.2")" = "Backup 1" ]
+    [ "$(< "${LOG_FILE}.5")" = "Backup 4" ]
+    [ ! -e "${LOG_FILE}.6" ]
+}
+
+@test "log stops without appending when rotation fails" {
+    printf '%10485760s' '' > "$LOG_FILE"
+    mv() { return 1; }
+    run log "Must not be appended"
+    [ "$status" -eq 1 ]
+    [ "$(wc -c < "$LOG_FILE")" -eq 10485760 ]
+}
+
 # TODO: complete test below
 # @test "insert_data calls Python script with correct arguments" {
 #     run insert_data "yml" "2024-12-06"

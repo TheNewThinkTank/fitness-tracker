@@ -48,9 +48,15 @@ Supported variables:
 
 ### Google Drive storage
 
-Google Drive for desktop can sync the athlete directory without a separate
-Google API integration. Set its actual filesystem path in `.env`, quoting spaces
-instead of adding shell backslashes:
+Prefer a local live SQLite database and sync the completed backup ZIPs to Google
+Drive. This avoids cloud-sync conflicts involving a live database and its journal
+files; no Google API integration is required. For example, keep state in a local
+private directory and pass the existing Drive backup directory to the backup
+command below. Existing storage settings are not changed automatically.
+
+The legacy single-device configuration can also sync the athlete directory.
+Set its actual filesystem path in `.env`, quoting spaces instead of adding shell
+backslashes:
 
 ```dotenv
 FITNESS_TRACKER_DATA_DIR="/Users/your-user/Library/CloudStorage/GoogleDrive-your-account/My Drive/DATA/fitness-tracker-data/your-athlete"
@@ -90,6 +96,21 @@ to FastAPI, so production browser traffic does not need CORS or a public backend
 address. Compose mounts `FITNESS_TRACKER_DATA_DIR` (default `data/`) read-only
 and waits for backend readiness before starting the frontend. A missing archive
 directory is rejected rather than silently created.
+
+If a save or subsequent archive load fails, inspect the backend rather than
+deleting state to reset the app:
+
+```bash
+docker compose ps --all
+docker compose logs --tail=100 backend
+```
+
+Check that the configured data and state directories exist, the backend user
+owns its private SQLite database, and the state mount is writable. SQLite and
+permission errors return a non-cacheable `503` with a storage diagnostic instead
+of a bare `500`; backend logs retain the underlying error. Permission hardening
+runs before the write transaction, so its failure does not leave a saved workout
+behind. Do not use `docker compose down --volumes` on personal state.
 
 To enable token protection, set the same value for both services through the
 Compose environment:
@@ -170,12 +191,24 @@ The header action is disabled on read-only servers or before sign-in.
 See the [frontend guide](docs/project_docs/examples/svelte_frontend_setup.md)
 for setup and the complete entry workflow.
 
+#### Edit or delete a workout
+
+After signing in with writes enabled, open a workout and select **Edit workout**
+to change its date, exercises, sets, or metadata. Select **Delete workout** in the
+detail panel for a separate confirmation; **Keep workout** cancels it. Deletion
+is also available inside the editor. Failed deletions leave the confirmation
+open for retry. A successful deletion clears the workout URL so reloading does
+not reopen a deleted record.
+
+Multiple workouts on the same date are supported. Each has its own UUID and
+version; editing or deleting one does not change the other sessions that day.
+
 Workout creation, edits, deletions, measurements, and target overrides use
 transactional SQLite, separate from read-only YAML archives. Stale `If-Match` versions return
 `409`; missing versions return `428`. Do not edit the same imported records
 concurrently through both the CLI and app. Back up YAML and SQLite state together;
-stop the backend or use SQLite's backup API to copy an active database. Keep
-the Compose `state` volume when preserving user data.
+use the full-state backup command below rather than copying a live SQLite file.
+Keep the Compose `state` volume when preserving user data.
 
 Workout JSON imports accept one object or a list of up to 1,000 workouts and
 1 MiB. All rows validate before one transaction; supplied IDs and metadata are
@@ -332,6 +365,119 @@ measurement, and program-target checks also write state, so the entire test
 volume must be disposable. See the
 [browser testing guide](docs/project_docs/examples/EXAMPLES.md#browser-workflow-checks)
 and [dated verification results](docs/project_docs/dev-docs/CHANGELOG.md#verification-status).
+
+## Log retention
+
+Compose already bounds each container's stdout/stderr logs to three 10 MB files.
+Use `docker compose logs --tail=100 backend` to inspect a recent window without
+creating another growing log file on the host.
+
+Python CLI logs rotate at 10 MB and retain five gzip-compressed archives per log
+plus the active file. Exception locals are not dumped into these logs. The shell
+CLI rotates its log at 10 MiB and retains five numbered backups plus the active
+file; rotation failures stop the append. Retention is applied during subsequent
+logging, not by deleting existing logs during an upgrade. These file policies
+assume a single CLI writer per log file.
+
+## Backup and restore
+
+Create a full backup from the configured archive and state directories:
+
+```bash
+poetry run python -m src.utils.state_backup backup "$HOME/Backups/fitness-tracker"
+```
+
+Each backup has a unique timestamped filename and mode `0600`. It contains raw
+year-based workout archives, a consistent SQLite snapshot, program and exercise
+metadata, and a SHA-256 manifest. SQLite's backup API includes committed WAL data
+without stopping the API. YAML and metadata must remain unchanged during the
+snapshot; concurrent CLI changes are detected and require retrying the backup.
+Backups are written to a temporary file and published only after completion.
+
+For a running Compose backend, create the backup in writable temporary storage,
+then copy its completed output to the host:
+
+```bash
+docker compose exec backend python -m src.utils.state_backup backup /tmp/fitness-backups
+docker compose cp backend:/tmp/fitness-backups ./fitness-backups
+```
+
+Keep sufficient temporary space available. Compose's default `/tmp` limit is
+64 MiB; larger deployments need a suitable writable backup mount. The backup
+format limits total uncompressed data to 512 MiB and 256 files. Backups include
+password hashes stored in SQLite, workout notes, and creation keys, so protect
+and encrypt copies as appropriate. They do not include `.env`, API keys,
+environment-provided password hashes, or external integration credentials.
+Checksums detect corruption, not the authenticity of an untrusted backup.
+Scheduling and off-device retention remain under your control; old backups are
+never deleted automatically.
+
+Restore a completed ZIP into a **new** directory:
+
+```bash
+poetry run python -m src.utils.state_backup restore \
+  ./fitness-backups/fitness-tracker-TIMESTAMP-UUID.zip \
+  "$HOME/fitness-tracker-restored"
+```
+
+Restore verifies checksums, file paths, quotas, schema version, and SQLite
+integrity. Existing destinations, traversal paths, duplicate entries, encrypted
+ZIP members, and symlinks are rejected. It never replaces the running app's
+files. Workouts, edits, deletion markers, measurements, password hash, targets,
+and creation keys are preserved; browser sessions are revoked and login-attempt
+counters are cleared.
+
+The command prints shell-quoted environment settings for the restored archive,
+state, table, and metadata paths. Review them and stop the old backend before
+switching the app. Configure Docker with host paths and matching UID/GID as
+described above; do not copy container-only `/tmp` paths into host configuration.
+Do not expose a restored password-protected database as a public download.
+
+## Write reliability
+
+SQLite schema migrations are ordered, transactional, and tracked with
+`PRAGMA user_version`. Existing unversioned and version-one state upgrades without
+losing records; a failed migration rolls back. A newer schema is refused rather
+than silently downgraded. Take a backup before upgrading a deployment. Migrations
+run on writes or explicitly during maintenance:
+
+```bash
+poetry run python -m src.utils.state_backup migrate
+```
+
+New workout POSTs accept an optional UUID `Idempotency-Key` header. The editor
+keeps one key for the open draft, including retries after failed or lost
+responses. An unchanged retry returns the original workout ID and `201` response;
+no second workout is inserted. Keys survive restarts and backup/restore. A reused
+key with changed data, or after the original workout was edited/deleted, returns
+`409` and requires reloading. Authentication, same-origin checks, and CSRF apply
+to replays as well as first attempts.
+
+A new editor draft receives a new key, so deliberate same-date sessions remain
+distinct. Closing the editor discards its draft key. API clients that omit the
+header retain the previous create-every-time behavior. Imports are unchanged and
+do not gain POST retry deduplication automatically.
+
+## Analytics performance
+
+Analytics now reads workouts, measurements, and program overrides in one SQLite
+read transaction, then merges cached YAML with that snapshot. Concurrent edits
+cannot mix pre-edit workouts with post-edit measurements or targets in one
+response. Password hashes and session records are not loaded into analytics.
+
+A local warm preparation check on 2026-10-14 used 405 bundled workouts plus
+2,400 synthetic SQLite overlays across six years. Over nine samples after
+warmup, preparation fell from about 101 ms to 24 ms; SQLite SELECTs per request
+fell from 22 to 3. This measures service preparation, not end-to-end latency or a
+deployment SLA. A regression asserts the three-query budget and unchanged totals:
+
+```bash
+poetry run pytest test/test_main.py -k analytics_reads_state_once
+```
+
+The strict-CSP browser check also enforces a 256 KiB gzip budget for each loaded
+script chunk, including charts. Vite's existing minified-size warning stays
+visible; it measures a different size and its threshold is not raised.
 
 ## Container images
 

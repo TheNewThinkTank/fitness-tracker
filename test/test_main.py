@@ -1,5 +1,6 @@
 from collections.abc import Iterator
 from pathlib import Path
+import sqlite3
 from uuid import UUID, uuid4
 
 import pytest
@@ -175,6 +176,31 @@ def test_empty_archive_is_ready_for_first_workout(api_data: Path) -> None:
     assert set(api_data.iterdir()) == before
 
 
+@pytest.mark.parametrize("error", [
+    sqlite3.OperationalError("database is locked"),
+    sqlite3.DatabaseError("database disk image is malformed"),
+    PermissionError("private/state/tracker.sqlite3"),
+])
+def test_storage_errors_return_service_unavailable_without_leaking_details(
+    api_data: Path, monkeypatch: pytest.MonkeyPatch, error: Exception,
+) -> None:
+    from src.utils.state_store import state_store
+
+    def unavailable(*arguments, **options):
+        raise error
+
+    with TestClient(app, raise_server_exceptions=False) as client:
+        monkeypatch.setattr(state_store, "read", unavailable)
+        for endpoint in ("/auth/status", "/years", "/workouts", "/analytics/overview"):
+            response = client.get(endpoint)
+            assert response.status_code == 503
+            assert response.headers["cache-control"] == "no-store"
+            assert response.json()["detail"] == "Workout storage is unavailable. Check the backend logs and state-directory permissions."
+            assert str(error) not in response.text
+        assert client.get("/healthz").status_code == 200
+        assert client.get("/readyz").status_code == 503
+
+
 def test_repeated_reads_reuse_parsed_files(
     api_data: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -281,6 +307,28 @@ def test_openapi_metadata_has_single_identity(api_data: Path) -> None:
         "in": "header",
         "name": "X-API-Key",
     }
+
+
+def test_analytics_reads_state_once_instead_of_once_per_year(signed_in, monkeypatch) -> None:
+    from src.main import _analytics
+
+    statements = []
+    original_connect = sqlite3.connect
+
+    def tracked_connection(*arguments, **options):
+        connection = original_connect(*arguments, **options)
+        connection.set_trace_callback(statements.append)
+        return connection
+
+    monkeypatch.setattr(sqlite3, "connect", tracked_connection)
+    overview = _analytics().overview()
+    assert overview.workouts == 4
+    assert overview.volume_kg_reps == 2360
+    selections = [statement for statement in statements if statement.startswith("SELECT")]
+    assert sum("FROM workouts" in statement for statement in selections) == 1
+    assert sum("FROM measurements" in statement for statement in selections) == 1
+    assert sum("FROM configuration" in statement for statement in selections) == 1
+    assert len(selections) == 3
 
 
 def test_analytics_are_complete_and_not_tied_to_pagination(api_data: Path) -> None:
@@ -427,6 +475,48 @@ def test_frontend_workout_inserts_on_same_day_remain_distinct(signed_in) -> None
     assert overview["active_days"] == 1
 
 
+def test_creation_key_replays_the_original_api_response(signed_in) -> None:
+    client, headers = signed_in
+    key = str(uuid4())
+    payload = _record("2030-01-02", "legs", "squat")
+    created = client.post("/workouts", json=payload, headers={**headers, "Idempotency-Key": key})
+    replayed = client.post("/workouts", json={**payload, "gym": None}, headers={**headers, "Idempotency-Key": key.upper()})
+    assert created.status_code == replayed.status_code == 201
+    assert replayed.json() == created.json()
+    assert replayed.headers["cache-control"] == "no-store"
+    assert client.get("/workouts?year=2030").json()["total"] == 1
+    conflict = client.post("/workouts", json={**payload, "notes": "Different session"}, headers={**headers, "Idempotency-Key": key})
+    assert conflict.status_code == 409
+    assert client.get("/workouts?year=2030").json()["total"] == 1
+
+
+def test_creation_key_replays_still_require_session_and_csrf(signed_in) -> None:
+    client, headers = signed_in
+    payload = _record("2030-01-02", "legs", "squat")
+    key = str(uuid4())
+    assert client.post("/workouts", json=payload, headers={**headers, "Idempotency-Key": key}).status_code == 201
+    assert client.post("/workouts", json=payload, headers={"Origin": headers["Origin"], "Idempotency-Key": key}).status_code == 403
+    client.cookies.clear()
+    assert client.post("/workouts", json=payload, headers={**headers, "Idempotency-Key": key}).status_code == 401
+
+
+def test_creation_key_is_a_validated_uuid(signed_in) -> None:
+    client, headers = signed_in
+    payload = _record("2030-01-02", "legs", "squat")
+    assert client.post("/workouts", json=payload, headers={**headers, "Idempotency-Key": "not-a-uuid"}).status_code == 422
+    assert client.get("/years").json() == [2022, 2024]
+
+
+def test_creation_key_does_not_recreate_an_updated_workout(signed_in) -> None:
+    client, headers = signed_in
+    payload = _record("2030-01-02", "legs", "squat")
+    key = str(uuid4())
+    created = client.post("/workouts", json=payload, headers={**headers, "Idempotency-Key": key}).json()
+    assert client.put(f"/workouts/{created['id']}", json=payload, headers={**headers, "If-Match": "1"}).status_code == 200
+    assert client.post("/workouts", json=payload, headers={**headers, "Idempotency-Key": key}).status_code == 409
+    assert client.get("/workouts?year=2030").json()["total"] == 1
+
+
 @pytest.mark.parametrize("patch", [
     pytest.param({"date": "2030-02-30"}, id="invalid-calendar-date"),
     pytest.param({"date": "1899-12-31"}, id="date-below-range"),
@@ -494,9 +584,15 @@ def test_transactional_workout_edit_move_and_delete(signed_in):
     assert updated.json()["version"] == 2
     assert 2027 in client.get("/years").json()
     assert client.get("/workouts?year=2022").json()["total"] == 1
+    overview = client.get("/analytics/overview").json()
+    assert overview["workouts"] == 4
+    assert next(session for session in overview["sessions"] if session["workout_id"] == original["id"])["date"] == "2027-01-01"
     assert client.put(f"/workouts/{original['id']}", json=payload, headers={**headers, "If-Match": "1"}).status_code == 409
     assert client.delete(f"/workouts/{original['id']}", headers={**headers, "If-Match": "2"}).status_code == 204
     assert client.get(f"/workouts/{original['id']}").status_code == 404
+    overview = client.get("/analytics/overview").json()
+    assert overview["workouts"] == 3
+    assert original["id"] not in {session["workout_id"] for session in overview["sessions"]}
 
 
 def test_measurement_import_is_atomic_and_uses_historical_mass(signed_in):
@@ -525,9 +621,14 @@ def test_measurement_csv_preserves_columns_not_in_the_file(signed_in):
 
 
 def test_program_targets_and_workout_import(signed_in):
+    from src.utils.training_metadata import ProgramSplit
+
     client, headers = signed_in
     payload = {"planned_workouts": 20, "targets": [{"id": "full_body_a", "targets": [{"exercise_id": "squat", "sets": 3, "reps_min": 4, "reps_max": 6}]}]}
     assert client.put("/programs/program_14/targets", json=payload, headers=headers).status_code == 200
+    program = next(entry["program"] for entry in client.get("/programs").json() if entry["program"]["id"] == "program_14")
+    assert program["planned_workouts"] == 20
+    assert program["targets"] == [ProgramSplit.model_validate(section).model_dump(mode="json") for section in payload["targets"]]
     content = [_record("2026-01-01", "legs", "squat"), _record("2026-01-02", "legs", "squat")]
     assert client.post("/workouts/import", json=content, headers=headers).json()["imported"] == 2
     assert client.get("/workouts?year=2026").json()["total"] == 2

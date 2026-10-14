@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { gzipSync } from "node:zlib";
 
 import type { AuthStatus, SessionMetrics, WorkoutDetail, WorkoutInput } from "../src/api";
 
@@ -192,6 +193,9 @@ async function mockWritableWorkouts(page: Page, initial: WorkoutDetail[] = []) {
         };
         stored[stored.indexOf(record)] = updated;
         await route.fulfill({ json: updated });
+      } else if (record && route.request().method() === "DELETE") {
+        stored.splice(stored.indexOf(record), 1);
+        await route.fulfill({ status: 204 });
       } else {
         await route.fulfill(record ? { json: record } : { status: 404, json: { detail: "Workout not found" } });
       }
@@ -252,6 +256,51 @@ test("opens distinct details for two workouts on the same day", async ({ page },
     body: await page.screenshot({ fullPage: true }),
     contentType: "image/png",
   });
+});
+
+test("same-day workout deletion preserves the other session and clears its saved link", async ({ page }, testInfo) => {
+  const first = { ...workout(1101, "2026-10-14"), notes: "First same-day workout" };
+  const second = { ...workout(1102, "2026-10-14"), notes: "Second same-day workout" };
+  const { stored } = await mockWritableWorkouts(page, [first, second]);
+  let failDelete = true;
+  await page.route(`**/api/workouts/${first.id}`, async (route) => {
+    if (route.request().method() === "DELETE" && failDelete) {
+      failDelete = false;
+      await route.fulfill({ status: 503, json: { detail: "Workout storage is unavailable" } });
+    } else await route.fallback();
+  });
+  await page.goto(`/?workout=${first.id}`);
+  const detail = page.getByRole("complementary");
+  await expect(detail).toContainText(first.notes);
+  const rows = page.locator(".log-panel tbody tr");
+  await expect(rows).toHaveCount(2);
+  await detail.getByRole("button", { name: "Delete workout", exact: true }).click();
+  const confirmation = page.getByRole("dialog", { name: "Delete workout", exact: true });
+  await confirmation.getByRole("button", { name: "Keep workout", exact: true }).click();
+  await expect(confirmation).not.toBeVisible();
+  expect(stored).toHaveLength(2);
+  await detail.getByRole("button", { name: "Delete workout", exact: true }).click();
+  await testInfo.attach("same-day-workout-delete-confirmation", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+  await confirmation.getByRole("button", { name: "Confirm delete", exact: true }).click();
+  await expect(confirmation.getByRole("alert")).toContainText("Workout storage is unavailable");
+  expect(stored).toHaveLength(2);
+  await expect(rows).toHaveCount(2);
+  const removedResponse = page.waitForResponse((response) => response.url().endsWith(`/api/workouts/${first.id}`) && response.request().method() === "DELETE");
+  await confirmation.getByRole("button", { name: "Confirm delete", exact: true }).click();
+  const removed = await removedResponse;
+  expect(removed.status()).toBe(204);
+  expect(removed.request().headers()["if-match"]).toBe(String(first.version));
+  await expect(rows).toHaveCount(1);
+  await expect(detail).toHaveCount(0);
+  await expect(page).not.toHaveURL(/[?&]workout=/);
+  expect(stored.map((entry) => entry.id)).toEqual([second.id]);
+  await page.reload();
+  await expect(rows).toHaveCount(1);
+  await expect(page.getByRole("alert")).toHaveCount(0);
+  await rows.first().getByRole("button").click();
+  await expect(detail).toContainText(second.notes);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  await testInfo.attach("same-day-workout-after-deletion", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
 });
 
 test("recovers from an API error when Retry is pressed", async ({ page }) => {
@@ -349,10 +398,14 @@ test("programs and historical body metrics are navigable", async ({ page }) => {
   await expect(page.getByRole("img", { name: "Resting heart rate (bpm)", exact: true })).toBeVisible();
 });
 
-test("production charts render under the strict proxy CSP", async ({ page }) => {
+test("production charts render under the strict proxy CSP", async ({ page }, testInfo) => {
   test.skip(Boolean(process.env.E2E_BASE_URL), "Use the built production preview for the injected CSP check");
   await mockWorkouts(page);
   const violations: string[] = [];
+  const scriptSizes: Promise<number>[] = [];
+  page.on("response", (response) => {
+    if (response.request().resourceType() === "script") scriptSizes.push(response.body().then((body) => gzipSync(body).length));
+  });
   page.on("console", (message) => { if (message.type() === "error") violations.push(message.text()); });
   await page.route("**/*", async (route) => {
     if (!route.request().isNavigationRequest()) { await route.fallback(); return; }
@@ -363,6 +416,11 @@ test("production charts render under the strict proxy CSP", async ({ page }) => 
   await expect(page.locator(".chart-grid > figure:first-child canvas")).toBeVisible();
   await page.getByLabel("Progress metric").selectOption("best_load_kg");
   await expect(page.getByRole("img", { name: "Best recorded load (kg)", exact: true })).toBeVisible();
+  const sizes = await Promise.all(scriptSizes);
+  expect(sizes.length).toBeGreaterThan(0);
+  const largest = Math.max(...sizes);
+  expect(largest).toBeLessThanOrEqual(256 * 1024);
+  await testInfo.attach("script-gzip-budget", { body: JSON.stringify({ largest_script_gzip_bytes: largest, budget_bytes: 256 * 1024 }), contentType: "application/json" });
   expect(violations).toEqual([]);
 });
 
@@ -507,9 +565,11 @@ test("workout insertion rejects incomplete times and duplicate exercise names", 
 test("workout insertion preserves entries on server errors and supports retry", async ({ page }) => {
   const { submissions } = await mockWritableWorkouts(page);
   const attempts: WorkoutInput[] = [];
+  const creationKeys: string[] = [];
   await page.route("**/api/workouts", async (route) => {
     if (route.request().method() !== "POST") { await route.fallback(); return; }
     attempts.push(route.request().postDataJSON() as WorkoutInput);
+    creationKeys.push(route.request().headers()["idempotency-key"] || "");
     if (attempts.length === 1) await route.fulfill({ status: 422, json: { detail: [{ loc: ["body", "program_id"], msg: "Unknown workout program" }] } });
     else if (attempts.length === 2) await route.fulfill({ status: 503, json: { detail: "Workout service unavailable" } });
     else await route.fallback();
@@ -534,6 +594,8 @@ test("workout insertion preserves entries on server errors and supports retry", 
   expect(attempts).toHaveLength(3);
   expect(attempts[1]).toEqual(attempts[0]);
   expect(attempts[2]).toEqual(attempts[0]);
+  expect(creationKeys[0]).toMatch(/^[0-9a-f-]{36}$/);
+  expect(new Set(creationKeys).size).toBe(1);
   expect(submissions).toHaveLength(1);
   await expect(page.getByRole("combobox", { name: "Training year", exact: true })).toHaveValue("2030");
   await expect(page.getByRole("complementary")).toContainText("Keep this draft");
@@ -644,6 +706,17 @@ test("authenticated workout insertion persists metadata and updates real analyti
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   let created: WorkoutDetail | undefined;
+  let committed: WorkoutDetail | undefined;
+  const creationKeys: string[] = [];
+  await page.route("**/api/workouts", async (route) => {
+    if (route.request().method() !== "POST") { await route.fallback(); return; }
+    creationKeys.push(route.request().headers()["idempotency-key"] || "");
+    const response = await route.fetch();
+    if (!committed && response.status() === 201) {
+      committed = await response.json() as WorkoutDetail;
+      await route.fulfill({ status: 503, json: { detail: "Save response was lost" } });
+    } else await route.fulfill({ response });
+  });
   await page.goto("/");
   await page.getByLabel("Athlete password").fill(process.env.E2E_PASSWORD || "test-only-browser-password");
   await page.getByRole("region", { name: "Athlete sign-in", exact: true }).getByRole("button", { name: "Sign in", exact: true }).click();
@@ -673,11 +746,18 @@ test("authenticated workout insertion persists metadata and updates real analyti
   await testInfo.attach("real-workout-insertion", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
 
   try {
+    await editor.getByRole("button", { name: "Save workout", exact: true }).click();
+    await expect(editor.getByRole("alert")).toHaveText("Save response was lost");
+    await expect(editor.getByLabel("Workout notes", { exact: true })).toHaveValue(notes);
     const response = page.waitForResponse((result) => result.url().endsWith("/api/workouts") && result.request().method() === "POST");
     await editor.getByRole("button", { name: "Save workout", exact: true }).click();
     const inserted = await response;
     expect(inserted.status()).toBe(201);
     created = await inserted.json() as WorkoutDetail;
+    expect(created.id).toBe(committed?.id);
+    expect(creationKeys).toHaveLength(2);
+    expect(creationKeys[0]).toMatch(/^[0-9a-f-]{36}$/);
+    expect(new Set(creationKeys).size).toBe(1);
     const requestHeaders = await inserted.request().allHeaders();
     expect(inserted.headers()["cache-control"]).toBe("no-store");
     expect(requestHeaders["origin"]).toBe(new URL(page.url()).origin);
@@ -707,9 +787,10 @@ test("authenticated workout insertion persists metadata and updates real analyti
     expect(errors).toEqual([]);
     await testInfo.attach("real-inserted-workout", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
   } finally {
-    if (created) {
+    const saved = created || committed;
+    if (saved) {
       const auth = await (await page.request.get("/api/auth/status")).json() as AuthStatus;
-      const removed = await page.request.delete(`/api/workouts/${created.id}`, { headers: { Origin: new URL(page.url()).origin, "X-CSRF-Token": auth.csrf_token || "", "If-Match": String(created.version) } });
+      const removed = await page.request.delete(`/api/workouts/${saved.id}`, { headers: { Origin: new URL(page.url()).origin, "X-CSRF-Token": auth.csrf_token || "", "If-Match": String(saved.version) } });
       expect(removed.status()).toBe(204);
     }
   }
@@ -735,6 +816,18 @@ test("authenticated workout and measurement editing works through the proxy", as
   const created = await (await createdResponse).json() as WorkoutDetail;
   expect(created.version).toBe(1);
   await expect(page.getByRole("complementary")).toContainText(`Browser regression ${testInfo.project.name}`);
+  const auth = await (await page.request.get("/api/auth/status")).json() as AuthStatus;
+  const security = { Origin: new URL(page.url()).origin, "X-CSRF-Token": auth.csrf_token || "" };
+  const secondResponse = await page.request.post("/api/workouts", {
+    headers: security,
+    data: { date, split: "pull", notes: `Second same-day session ${testInfo.project.name}`, exercises: { dumbbell_row: [{ set_number: 1, reps: 8, weight: "20 kg" }] } },
+  });
+  expect(secondResponse.status()).toBe(201);
+  const second = await secondResponse.json() as WorkoutDetail;
+  expect(second.id).not.toBe(created.id);
+  await page.reload();
+  await expect(page.getByRole("complementary")).toContainText(`Browser regression ${testInfo.project.name}`);
+  await expect(page.locator(".log-panel tbody tr").filter({ has: page.locator(`time[datetime="${date}"]`) })).toHaveCount(2);
   await page.getByRole("button", { name: "Edit workout", exact: true }).click();
   await editor.getByLabel("Exercise 1 set 1 reps", { exact: true }).fill("6");
   const updatedResponse = page.waitForResponse((response) => response.url().endsWith(`/api/workouts/${created.id}`) && response.request().method() === "PUT");
@@ -743,11 +836,18 @@ test("authenticated workout and measurement editing works through the proxy", as
   expect(updated.version).toBe(2);
   expect(updated.id).toBe(created.id);
   await expect(page.getByRole("complementary").getByRole("cell", { name: "6", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Edit workout", exact: true }).click();
-  await editor.getByRole("button", { name: "Delete workout", exact: true }).click();
-  await editor.getByRole("button", { name: "Confirm delete", exact: true }).click();
-  await expect(editor).toHaveCount(0);
+  await page.getByRole("complementary").getByRole("button", { name: "Delete workout", exact: true }).click();
+  await page.getByRole("dialog", { name: "Delete workout", exact: true }).getByRole("button", { name: "Confirm delete", exact: true }).click();
+  await expect(page.getByRole("dialog", { name: "Delete workout", exact: true })).toHaveCount(0);
   await expect(page.getByRole("status")).toContainText("Workout deleted");
+  await expect(page).not.toHaveURL(/[?&]workout=/);
+  await page.reload();
+  await expect(page.getByRole("alert")).toHaveCount(0);
+  expect((await page.request.get(`/api/workouts/${created.id}`)).status()).toBe(404);
+  const remaining = await page.request.get(`/api/workouts/${second.id}`);
+  expect(remaining.status()).toBe(200);
+  expect(await remaining.json()).toMatchObject({ version: 1, notes: second.notes, exercises: second.exercises });
+  expect((await page.request.delete(`/api/workouts/${second.id}`, { headers: { ...security, "If-Match": "1" } })).status()).toBe(204);
 
   const imported = { date, split: "push", exercises: { bench_press: [{ set_number: 1, reps: 5, weight: "60 kg" }] } };
   await page.getByLabel("Import workouts JSON", { exact: true }).setInputFiles({ name: "workouts.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(imported)) });

@@ -94,6 +94,16 @@ paths:
       operationId: create_workout_workouts_post
       security:
       - APIKeyHeader: []
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Idempotency-Key
       requestBody:
         required: true
         content:

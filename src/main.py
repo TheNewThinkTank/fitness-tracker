@@ -213,6 +213,17 @@ async def validation_error(request: Request, error: RequestValidationError) -> J
     return JSONResponse(status_code=422, content={"detail": [{"loc": item["loc"], "msg": item["msg"], "type": item["type"]} for item in error.errors()]})
 
 
+@app.exception_handler(sqlite3.Error)
+@app.exception_handler(PermissionError)
+async def storage_error(request: Request, error: Exception) -> JSONResponse:
+    logger.error("Workout storage unavailable on {} ({}): {}", request.url.path, type(error).__name__, error)
+    return JSONResponse(
+        status_code=503,
+        content={"detail": "Workout storage is unavailable. Check the backend logs and state-directory permissions."},
+        headers={"Cache-Control": "no-store"},
+    )
+
+
 @app.get("/healthz", response_model=HealthResponse, include_in_schema=False)
 def healthz() -> HealthResponse:
     return HealthResponse(status="ok")
@@ -357,12 +368,12 @@ def show_exercise(
 
 
 def _analytics() -> TrainingAnalytics:
-    documents = [
-        (year, document_id, record)
-        for year in workout_repository.years()
-        for document_id, record in workout_repository.documents(year)
-    ]
-    return TrainingAnalytics(documents, measurements=state_store.measurements())
+    snapshot = state_store.snapshot()
+    return TrainingAnalytics(
+        workout_repository.snapshot(snapshot.workouts),
+        measurements=snapshot.measurements,
+        programs=load_programs(overrides=snapshot.configuration),
+    )
 
 
 def _analytics_range(service: TrainingAnalytics, start: datetime.date | None, end: datetime.date | None) -> tuple[datetime.date, datetime.date]:
@@ -447,10 +458,12 @@ def _expected_version(value: str | None) -> int:
 
 
 @api.post("/workouts", response_model=WorkoutDetail, status_code=201, dependencies=[Depends(require_write_access)])
-def create_workout(payload: WorkoutWrite, response: Response) -> WorkoutDetail:
+def create_workout(payload: WorkoutWrite, response: Response, idempotency_key: Annotated[UUID | None, Header(alias="Idempotency-Key")] = None) -> WorkoutDetail:
     _validate_program(payload.program_id)
-    record = {**payload.model_dump(mode="json", exclude_none=True), "id": state_store.new_id()}
-    state_store.save_workout(record)
+    try:
+        record = state_store.create_workout(payload.model_dump(mode="json", exclude_none=True), idempotency_key=str(idempotency_key) if idempotency_key is not None else None)
+    except VersionConflict as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
     response.headers["Cache-Control"] = "no-store"
     return _to_detail(0, record, payload.date.year)
 

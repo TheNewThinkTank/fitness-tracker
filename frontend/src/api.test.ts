@@ -119,7 +119,7 @@ describe("API client", () => {
     await expect(saveWorkout(newWorkout)).resolves.toEqual(createdWorkout);
     expect(fetchMock).toHaveBeenLastCalledWith("/api/workouts", expect.objectContaining({
       method: "POST", credentials: "same-origin", cache: "no-store",
-      headers: { Accept: "application/json", "Content-Type": "application/json", "X-CSRF-Token": "insert-csrf" },
+      headers: { Accept: "application/json", "Content-Type": "application/json", "X-CSRF-Token": "insert-csrf", "Idempotency-Key": expect.stringMatching(/^[0-9a-f-]{36}$/) },
       body: expect.any(String),
     }));
     const options = fetchMock.mock.calls[1][1] as RequestInit;
@@ -134,6 +134,19 @@ describe("API client", () => {
     expect(fetchMock).toHaveBeenCalledWith(`/api/workouts/${createdWorkout.id}`, expect.objectContaining({
       method: "PUT", headers: expect.objectContaining({ "If-Match": "1" }),
     }));
+    expect(new Headers(fetchMock.mock.calls[0][1].headers).has("Idempotency-Key")).toBe(false);
+  });
+
+  it("reuses the supplied creation key after a failed save response", async () => {
+    const key = "00000000-0000-4000-8000-000000000099";
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ detail: "Save response was lost" }), { status: 503 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify(createdWorkout), { status: 201 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(saveWorkout(newWorkout, undefined, key)).rejects.toMatchObject({ status: 503 });
+    await expect(saveWorkout(newWorkout, undefined, key)).resolves.toEqual(createdWorkout);
+    expect(fetchMock.mock.calls.map((call) => new Headers(call[1].headers).get("Idempotency-Key"))).toEqual([key, key]);
   });
 
   it.each([

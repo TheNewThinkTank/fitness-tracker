@@ -10,6 +10,7 @@
   let { original = null, onClose, onSaved }: Props = $props();
   let modal: HTMLDialogElement;
   const today = new Date();
+  const creationKey = crypto.randomUUID();
   let date = $state(`${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`);
   let split = $state("full_body");
   let start = $state("");
@@ -52,7 +53,7 @@
         exercises[name] = row.sets.map((exerciseSet, index) => ({ ...exerciseSet.extra, set_number: index + 1, reps: exerciseSet.reps, weight: exerciseSet.weight, duration: exerciseSet.duration || null, height: exerciseSet.height || null, load_multiplier: exerciseSet.perHand ? 2 : 1 }));
       }
       const payload: WorkoutInput = { date, split: split.trim(), start_time: start || null, end_time: end || null, timezone: original ? original.timezone : Intl.DateTimeFormat().resolvedOptions().timeZone, gym: gym.trim() || null, notes: notes || null, program_id: program || null, bodyweight_kg: mass ?? null, rpe: rpe ?? null, rir: rir ?? null, exercises };
-      const saved = await saveWorkout(payload, original || undefined);
+      const saved = await saveWorkout(payload, original || undefined, creationKey);
       onSaved(saved);
     } catch (cause) { error = cause instanceof Error ? cause.message : "Workout could not be saved"; modal.scrollTop = 0; }
     finally { busy = false; }

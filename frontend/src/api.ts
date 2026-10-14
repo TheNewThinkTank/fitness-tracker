@@ -337,7 +337,7 @@ export async function signOut(): Promise<void> {
   await requestVoid("/auth/logout", writeOptions("POST"));
   csrfToken = null;
 }
-export function saveWorkout(workout: WorkoutInput, original?: WorkoutDetail): Promise<WorkoutDetail> {
+export function saveWorkout(workout: WorkoutInput, original?: WorkoutDetail, creationKey?: string): Promise<WorkoutDetail> {
   const parsed = workoutInputSchema.safeParse(workout);
   if (!parsed.success) {
     const message = parsed.error.issues.map((issue) => `${issue.path.join(".") || "Workout"}: ${issue.message}`).join("; ");
@@ -345,6 +345,7 @@ export function saveWorkout(workout: WorkoutInput, original?: WorkoutDetail): Pr
   }
   const options = writeOptions(original ? "PUT" : "POST", parsed.data);
   if (original) options.headers = { ...options.headers, "If-Match": String(original.version) };
+  else options.headers = { ...options.headers, "Idempotency-Key": creationKey ?? crypto.randomUUID() };
   return requestJson(original ? `/workouts/${encodeURIComponent(original.id)}` : "/workouts", workoutDetailSchema, undefined, DEFAULT_TIMEOUT_MS, options);
 }
 export function deleteWorkout(workout: WorkoutDetail): Promise<void> {

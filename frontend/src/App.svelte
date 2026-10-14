@@ -4,6 +4,7 @@
 
   import {
     ApiError,
+    deleteWorkout,
     fetchAuthStatus,
     fetchWorkout,
     fetchWorkoutPage,
@@ -116,13 +117,18 @@
     window.history.replaceState(null, "", url); changeView("progress");
   }
   function editWorkout(workout: WorkoutDetail | null): void { if (!canEdit) return; editingWorkout = workout; showEditor = true; }
+  async function removeWorkout(workout: WorkoutDetail): Promise<void> {
+    if (!canEdit) return;
+    await deleteWorkout(workout);
+    await savedWorkout();
+  }
   async function savedWorkout(workout?: WorkoutDetail): Promise<void> {
     showEditor = false;
     if (workout) {
       if (!editingWorkout) changeView("archive");
       selectedYear = workout.year;
       const url = new URL(window.location.href); url.searchParams.set("year", String(workout.year)); window.history.replaceState(null, "", url);
-    }
+    } else closeWorkout();
     notice = workout ? "Workout saved" : "Workout deleted";
     await loadInitialData(); refresh += 1;
     if (workout) await openWorkout(workout.id);
@@ -371,6 +377,7 @@
         onClose={closeWorkout}
         onProgress={(exercise) => showProgress(exercise)}
         onEdit={canEdit ? editWorkout : undefined}
+        onDelete={canEdit ? removeWorkout : undefined}
       />
     {/if}
   </div>
@@ -382,7 +389,7 @@
     {#await import("./components/BodyMetricsView.svelte")}<div class="loading-state">Loading measurements</div>{:then component}<svelte:component this={component.default} {canEdit} {refresh} onChanged={dataChanged} />{/await}
   {/if}
   </div>
-  {#if view !== "archive" && detailState !== "idle"}<div class="progress-detail"><WorkoutDetailPanel state={detailState} workout={selectedWorkout} error={detailError} onClose={closeWorkout} onProgress={(exercise) => showProgress(exercise)} onEdit={canEdit ? editWorkout : undefined} /></div>{/if}
+  {#if view !== "archive" && detailState !== "idle"}<div class="progress-detail"><WorkoutDetailPanel state={detailState} workout={selectedWorkout} error={detailError} onClose={closeWorkout} onProgress={(exercise) => showProgress(exercise)} onEdit={canEdit ? editWorkout : undefined} onDelete={canEdit ? removeWorkout : undefined} /></div>{/if}
   {/if}
 </main>
 {#if showEditor && canEdit}{#await import("./components/WorkoutEditor.svelte")}{:then component}<svelte:component this={component.default} original={editingWorkout} onClose={() => { showEditor = false; }} onSaved={(workout?: WorkoutDetail) => void savedWorkout(workout)} />{/await}{/if}

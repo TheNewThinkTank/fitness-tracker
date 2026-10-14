@@ -1166,6 +1166,7 @@ legend { padding: 0 8px; font-size: 14px; font-weight: 700; text-transform: capi
 }
 
 .editor-modal::backdrop { background: rgba(32, 37, 33, 0.55); }
+.confirmation-modal { width: min(440px, calc(100% - 32px)); }
 .editor-fields { margin: 0; padding: 0; border: 0; }
 .modal-heading { padding-top: 0; }
 .modal-actions { justify-content: space-between; padding-top: 18px; margin-top: 18px; border-top: 1px solid var(--line); }

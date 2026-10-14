@@ -128,6 +128,23 @@ class WorkoutRepository:
             documents.sort(key=lambda document: (document[1]["date"], document[0], str(get_workout_id(document[1], year, document[0]))))
             return list(reversed(documents) if descending else documents)
 
+    def snapshot(self, edits: list[dict[str, Any]] | None = None) -> list[tuple[int, int, dict[str, Any]]]:
+        with self._lock:
+            keys = self._available_keys()
+            edits = state_store.workout_rows() if edits is None else edits
+            edited_ids = {UUID(edit["record"]["id"]) for edit in edits}
+            documents = [
+                (year, document_id, record)
+                for year, key in keys.items()
+                for document_id, record in self._load(key).documents
+                if get_workout_id(record, year, document_id) not in edited_ids
+            ]
+            documents.extend(
+                (int(edit["record"]["date"][:4]), 0, {**edit["record"], "_version": edit["version"]})
+                for edit in edits if not edit["deleted"]
+            )
+            return documents
+
     def years(self) -> list[int]:
         edited_years = {int(edit["record"]["date"][:4]) for edit in state_store.workout_rows() if not edit["deleted"]}
         return sorted(set(get_available_years()) | edited_years)

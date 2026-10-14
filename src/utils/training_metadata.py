@@ -92,7 +92,7 @@ def parse_target(exercise: str, value: Any) -> ExerciseTarget | None:
     )
 
 
-def load_programs() -> list[TrainingProgram]:
+def load_programs(*, overrides: dict[str, str] | None = None) -> list[TrainingProgram]:
     programs = _yaml(metadata_path("WORKOUT_PROGRAMS")).get("programs", {})
     detail_path = settings.get("PROGRAM_TARGETS", "docs/project_docs/Workout-Programs/workout-program-detail.yml")
     path = Path(str(detail_path))
@@ -121,7 +121,7 @@ def load_programs() -> list[TrainingProgram]:
             planned_workouts=planned if isinstance(planned, int) and planned > 0 else None,
             targets=targets,
         )
-        override = state_store.configuration(f"program:{identifier}")
+        override = overrides.get(f"program:{identifier}") if overrides is not None else state_store.configuration(f"program:{identifier}")
         if override:
             values = json.loads(override)
             parsed_program.planned_workouts = values.get("planned_workouts")

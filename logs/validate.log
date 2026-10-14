@@ -598,3 +598,15 @@
                    {'reps': 10, 'set_number': 2, 'weight': '52 kg'}],
  'leg_raise': [{'reps': 15, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
                {'reps': 15, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}]}
+10-14 23:27 src.utils.logger_config INFO Running fitness-tracker/src/utils/validate.py ...
+10-14 23:27 __main__ DEBUG Validating workout data from file: /Users/gustavcollinrasmussen/Library/CloudStorage/GoogleDrive-gustavcollinrasmussen@gmail.com/My Drive/DATA/fitness-tracker-data/gustav_rasmussen/log_archive/YML/2026/October/pull_training_log_2026-10-14.yml
+10-14 23:27 __main__ DEBUG {'back_extension': [{'reps': 13, 'set_number': 1, 'weight': 'BODYWEIGHT kg'},
+                    {'reps': 12, 'set_number': 2, 'weight': 'BODYWEIGHT kg'}],
+ 'cable_overhead_raise': [{'reps': 10, 'set_number': 1, 'weight': '15 kg'},
+                          {'reps': 10, 'set_number': 2, 'weight': '15 kg'}],
+ 'lat_pulldown': [{'reps': 10, 'set_number': 1, 'weight': '70 kg'},
+                  {'reps': 10, 'set_number': 2, 'weight': '65 kg'}],
+ 'one_arm_high_cable_row': [{'reps': 12, 'set_number': 1, 'weight': '17.5 kg'},
+                            {'reps': 12, 'set_number': 2, 'weight': '20 kg'}],
+ 'yates_row': [{'reps': 6, 'set_number': 1, 'weight': '70 kg'},
+               {'reps': 12, 'set_number': 2, 'weight': '50 kg'}]}

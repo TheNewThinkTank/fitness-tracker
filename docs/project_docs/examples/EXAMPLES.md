@@ -216,7 +216,21 @@ separately; a preview test alone does not establish deployment security.
 
 ```bash
 python3 src/utils/get_breath_holding.py
-
-./bin/fitcli.sh
-./bin/fitcli.sh -d 2024-03-03 -f json
 ```
+
+## Example: Import workout logs with Oxygen
+
+```bash
+poetry install --with analytics
+poetry run oxygen run -d 2024-03-03 -f json --dry-run
+poetry run oxygen run -d 2024-03-03 -f json --no-open
+poetry run oxygen insert -d 2024-03-03,2024-03-04 -f json
+poetry run oxygen prepare-figures -y 2024 -m March
+```
+
+Oxygen uses the existing archive layout and project environment settings, but
+validates selected files before writing and assigns stable IDs to new file imports.
+Repeated dates are deduplicated; separate same-day files remain separate workouts.
+Image opening is opt-in. The shell workflow remains available for compatibility.
+See the [Oxygen guide](oxygen_cli.md) for configuration, safe repeat imports,
+SQLite-aware plots, and cross-platform opening.

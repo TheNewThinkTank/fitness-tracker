@@ -37,7 +37,9 @@ notes. Successful saves open the new workout in Archive and preserve its link
 after reload. See the [frontend guide](examples/svelte_frontend_setup.md)
 for setup, validation rules, retry behavior, and storage details.
 
-Most of the project, in particular `src` supports all major platforms (Windows, Linux and MacOS), but the cli `bin/fitcli.sh` currently supports Linux and MacOS only.
+The [Oxygen CLI](examples/oxygen_cli.md) provides validated imports, headless
+figure generation, and optional image opening on Windows, Linux, and macOS.
+The legacy `bin/fitcli.sh` workflow remains available for Linux and macOS.
 
 ## Getting Started
 

@@ -249,6 +249,32 @@ npm run dev
 The development frontend runs at `http://localhost:5173` and proxies `/api` to
 `http://localhost:8000`.
 
+## Oxygen CLI
+
+Oxygen is the portable Python replacement for the `bin/fitcli.sh` workflow.
+Installing the root project installs both `oxygen` and `python -m oxygen`:
+
+```bash
+poetry install --with analytics
+poetry run oxygen --help
+poetry run oxygen run -d 2024-03-11 --dry-run
+poetry run oxygen run -d 2024-03-11,2024-03-18 --no-open
+```
+
+It imports every matching numbered YAML/JSON log into the correct year, validates
+the batch before writes, skips unchanged file reimports, and prepares figures once
+per selected year/month. Dates default to today at invocation time. Desktop opening
+is opt-in with `--open`; use `--no-figures` for a core-only import workflow.
+
+`insert`, `prepare-figures`, and `open-images` are also available independently.
+Global `--data-dir`, `--image-dir`, and safe TOML `--config` options override project
+paths without editing configuration. Plotting includes local SQLite edits and
+deletions; import itself writes year-based YAML, not SQLite. Keep a single YAML
+writer and back up archives and state together.
+
+See the [Oxygen guide](docs/project_docs/examples/oxygen_cli.md) for the source-log
+layout, configuration, repeat-import behavior, image locations, and failure limits.
+
 ## API
 
 The primary API endpoints are:
@@ -333,9 +359,11 @@ replacement does not provide multi-process transactions.
 
 ```bash
 # Backend
-poetry run ruff check --config .config/ruff.toml src test
-poetry run mypy --config-file .config/mypy.ini src --exclude '/site-packages/'
+poetry run ruff check --config .config/ruff.toml src oxygen test
+poetry run mypy --config-file .config/mypy.ini src oxygen/oxygen --exclude '/site-packages/'
 poetry run pytest test
+poetry run oxygen --help
+poetry run python -m oxygen --help
 
 # Frontend
 npm --prefix frontend run check

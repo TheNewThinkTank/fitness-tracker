@@ -50,13 +50,20 @@ jobs:
         run: poetry --version
 
       - name: Lint with Ruff
-        run: poetry run ruff check --config .config/ruff.toml src test
+        run: poetry run ruff check --config .config/ruff.toml src oxygen test
 
       - name: Check API and workout schema contracts
         run: poetry run ./bin/generate_openapi.sh --check
 
       - name: Static type checks with mypy
-        run: make -f .config/Makefile static-type-checks
+        run: |
+          make -f .config/Makefile static-type-checks
+          poetry run mypy --config-file .config/mypy.ini oxygen/oxygen
+
+      - name: Check Oxygen entry points
+        run: |
+          poetry run oxygen --help
+          poetry run python -m oxygen --help
 
       - name: wily build and rank
         run: make -f .config/Makefile wily-build-and-rank

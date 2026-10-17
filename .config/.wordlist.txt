@@ -14,6 +14,7 @@ Checksums
 ci
 cli
 CLI
+CLIs
 Compose's
 config
 CORS
@@ -61,11 +62,13 @@ liveness
 Liveness
 ln
 localhost
+Loguru
 macOS
 MacOS
 MiB
 minified
 mkdir
+Multiline
 musclegroups
 mv
 mypy
@@ -112,6 +115,8 @@ TypeScript
 UID
 Unmigrated
 unmocked
+unterminated
+Untracking
 untrusted
 unversioned
 url
@@ -131,4 +136,5 @@ warmup
 wf
 yaml
 YAML
+Yearless
 ZIPs

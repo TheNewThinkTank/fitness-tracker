@@ -4,26 +4,46 @@ import sys
 from pathlib import Path
 from loguru import logger  # type: ignore
 
+from src.utils.log_archive import (
+    archive_log,
+    cleanup_archives,
+    diagnostic_log_path,
+    private_log_opener,
+    rotation_required,
+)
 
-def setup_logger(log_file: str = "app.log", log_dir: str = "logs/") -> None:
+
+def setup_logger(log_file: str = "app.log", log_dir: str | Path | None = None) -> None:
     """Configure loguru for file + console output.
 
     :param log_file: Name of the log file, defaults to "app.log"
     :type log_file: str, optional
-    :param log_dir: Log directory, defaults to "logs/"
+    :param log_dir: Log directory, defaults to FITNESS_TRACKER_LOG_DIR or project logs/
     :type log_dir: str, optional
     """
-    Path(log_dir).mkdir(parents=True, exist_ok=True)
+    source = diagnostic_log_path(log_file, log_dir)
+    cleanup_archives(log_file, source.parent)
+
+    def rotate(message, output):
+        return rotation_required(
+            Path(output.name), str(message), message.record["time"]
+        )
+
+    def compress(filename):
+        archive_log(Path(filename), log_file, source.parent)
+        cleanup_archives(log_file, source.parent)
 
     logger.remove()  # Remove default handler
     logger.add(sys.stderr, level="INFO", backtrace=False, diagnose=False)
     logger.add(
-        f"{log_dir}/{log_file}",
+        source,
         level="DEBUG",
-        format="{time:MM-DD HH:mm} {name} {level} {message}",
-        rotation="10 MB",
-        retention=5,
-        compression="gz",
+        format="{time:YYYY-MM-DDTHH:mm:ss.SSSZ} {name} {level} {message}",
+        rotation=rotate,
+        compression=compress,
+        encoding="utf-8",
+        opener=private_log_opener,
+        catch=False,
         backtrace=False,
         diagnose=False,
     )

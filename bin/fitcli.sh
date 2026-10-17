@@ -11,8 +11,6 @@ export PYTHONPATH="$PROJECT_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 # shellcheck disable=SC2034
 CONFIG_FILE="$PROJECT_ROOT/.config/fitcli.conf"
 
-mkdir -p "$PROJECT_ROOT/logs"
-
 if [[ -x "$PROJECT_ROOT/.venv/bin/python" ]]; then
   PYTHON_BIN="$PROJECT_ROOT/.venv/bin/python"
 elif command -v python3 >/dev/null 2>&1; then
@@ -64,23 +62,24 @@ load_config_variables() {
 
 process_workout_date() {
   local workout_date="$1"
+  local failed_files=0
 
-  log "Processing for date: $workout_date"
+  log "Processing for date: $workout_date" || return
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    YEAR=$(date -j -f "%Y-%m-%d" "$workout_date" +%Y)
-    MONTH_NUM=$(date -j -f "%Y-%m-%d" "$workout_date" +%m)
+    YEAR=$(date -j -f "%Y-%m-%d" "$workout_date" +%Y) || return
+    MONTH_NUM=$(date -j -f "%Y-%m-%d" "$workout_date" +%m) || return
   else
-    YEAR=$(date -d "$workout_date" +%Y)
-    MONTH_NUM=$(date -d "$workout_date" +%m)
+    YEAR=$(date -d "$workout_date" +%Y) || return
+    MONTH_NUM=$(date -d "$workout_date" +%m) || return
   fi
 
-  MONTH_NAME=$(get_month_name "$MONTH_NUM")
+  MONTH_NAME=$(get_month_name "$MONTH_NUM") || return
   local archive_format
-  archive_format=$(printf '%s' "$FILE_FORMAT" | tr '[:lower:]' '[:upper:]')
+  archive_format=$(printf '%s' "$FILE_FORMAT" | tr '[:lower:]' '[:upper:]') || return
   BASE_PATH="${FITNESS_TRACKER_DATA_DIR%/}/log_archive/${archive_format}/${YEAR}/${MONTH_NAME}"
 
-  log "BASE_PATH: $BASE_PATH"
+  log "BASE_PATH: $BASE_PATH" || return
 
   WORKOUT_FILES=()
   while IFS= read -r -d '' file; do
@@ -88,19 +87,20 @@ process_workout_date() {
   done < <(find_workout_files "$BASE_PATH" "$workout_date" "$FILE_FORMAT")
 
   if [[ ${#WORKOUT_FILES[@]} -eq 0 ]]; then
-    log "Error: No workout files found for date $workout_date."
-    exit 1
+    log "Error: No workout files found for date $workout_date." || return
+    return 1
   fi
 
-  log "Found ${#WORKOUT_FILES[@]} workout files for date $workout_date."
+  log "Found ${#WORKOUT_FILES[@]} workout files for date $workout_date." || return
 
   for ((i = 0; i < ${#WORKOUT_FILES[@]}; i++)); do
     WORKOUT_NUMBER=$((i + 1))
-    log "Processing workout file: ${WORKOUT_FILES[$i]} (Workout number: $WORKOUT_NUMBER)"
+    log "Processing workout file: ${WORKOUT_FILES[$i]} (Workout number: $WORKOUT_NUMBER)" || return
 
     # run pydantic validation on the workout file
     if ! "$PYTHON_BIN" "$PROJECT_ROOT/src/utils/validate.py" --file "${WORKOUT_FILES[$i]}"; then
-      log "Error: Validation failed for file ${WORKOUT_FILES[$i]}."
+      log "Error: Validation failed for file ${WORKOUT_FILES[$i]}." || return
+      failed_files=$((failed_files + 1))
       continue
     fi
 
@@ -109,23 +109,32 @@ process_workout_date() {
       --datatype real \
       --dates "$workout_date" \
       --workout_number "$WORKOUT_NUMBER"; then
-      log "Error: Failed to insert data from file ${WORKOUT_FILES[$i]} into the database."
+      log "Error: Failed to insert data from file ${WORKOUT_FILES[$i]} into the database." || return
+      failed_files=$((failed_files + 1))
       continue
     fi
-    log "Data from file ${WORKOUT_FILES[$i]} inserted into the database."
+    log "Data from file ${WORKOUT_FILES[$i]} inserted into the database." || return
   done
 
-  prepare_figures "$YEAR" "$MONTH_NAME"
-  open_figures "$YEAR" "$MONTH_NAME"
+  if (( failed_files > 0 )); then
+    log "Error: $failed_files workout file(s) failed for date $workout_date." || return
+    return 1
+  fi
+  prepare_figures "$YEAR" "$MONTH_NAME" || return
+  open_figures "$YEAR" "$MONTH_NAME" || return
 }
 
 main() {
+  local log_directory failed_dates=0
   # Default values
   FILE_FORMAT='yml'
   # shellcheck disable=SC2034
   CONFIG_FILE="${CONFIG_FILE:-$PROJECT_ROOT/.config/fitcli.conf}"
+  load_env_variables
+  log_directory=$("$PYTHON_BIN" -m src.utils.log_archive path) || return
+  export FITNESS_TRACKER_LOG_DIR="$log_directory"
   # shellcheck disable=SC2034
-  LOG_FILE="$PROJECT_ROOT/logs/fitcli.log"
+  LOG_FILE="$log_directory/fitcli.log"
   # shellcheck disable=SC2034
   parse_arguments "$@"
 
@@ -155,7 +164,6 @@ main() {
     # MONTH_TO_PLOT=$(date -d "$WORKOUT_DATE" +%B)
   fi
 
-  load_env_variables
   validate_env_variables
   load_config_variables  # This depends on YEAR_TO_PLOT, so it must be called after YEAR_TO_PLOT is set
 
@@ -168,9 +176,15 @@ main() {
   log "Workflow started"
 
   for workout_date in "${WORKOUT_DATES[@]}"; do
-    process_workout_date "$workout_date"
+    if ! process_workout_date "$workout_date"; then
+      failed_dates=$((failed_dates + 1))
+    fi
   done
 
+  if (( failed_dates > 0 )); then
+    log "Workflow completed with errors ($failed_dates date(s) failed)." || return
+    return 1
+  fi
   log "Workflow completed successfully"
 }
 

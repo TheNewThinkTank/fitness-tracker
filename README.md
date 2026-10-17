@@ -400,12 +400,72 @@ Compose already bounds each container's stdout/stderr logs to three 10 MB files.
 Use `docker compose logs --tail=100 backend` to inspect a recent window without
 creating another growing log file on the host.
 
-Python CLI logs rotate at 10 MB and retain five gzip-compressed archives per log
-plus the active file. Exception locals are not dumped into these logs. The shell
-CLI rotates its log at 10 MiB and retains five numbered backups plus the active
-file; rotation failures stop the append. Retention is applied during subsequent
-logging, not by deleting existing logs during an upgrade. These file policies
-assume a single CLI writer per log file.
+The Bash workflow and the Python insert, model, and validation CLIs share a
+diagnostic-log policy. This does not change workout files in `DATA_DIR/log_archive`
+or the workout databases. Oxygen does not create a separate file-log sink.
+
+- Active files keep their familiar names: `fitcli.log`, `insert.log`, `model.log`,
+	and `validate.log`. New entries include the year, seconds, milliseconds, and
+	timezone in ISO 8601 format. Python file logs retain DEBUG details; exception
+	locals are not dumped.
+- Rotation happens before the next entry when the event month changes or the
+	file would exceed 10 MiB. It works across CLI restarts and uses the log's event
+	date, not the workout date or file modification time. A single oversized entry
+	is kept whole. An unterminated final entry also causes rotation to avoid joining
+	two records together.
+- Closed files become `archive/YYYY-MM/<name>.NNNN.log.gz` beneath the log
+	directory. Numbered names never overwrite existing archives. Gzip contents are
+	checksum-verified before the source is removed. Undated or mixed-month files
+	rotated without migration are preserved intact under `archive/legacy/`.
+- New log and archive files use private permissions. Rotation or compression
+	failures stop the append and propagate an error. A failed Loguru rotation may
+	leave the preserved original under a timestamped filename beside the active
+	log; do not discard that file.
+- These policies require **one writer per log file**. Stop CLI workflows before
+	migration or other manual log maintenance. There is no background scheduler;
+	rotation and cleanup happen during subsequent logging.
+
+Set `FITNESS_TRACKER_LOG_DIR` in the environment or root `.env` to change the
+location. It defaults to the project's `logs/` directory; relative overrides are
+also project-relative, regardless of the command's working directory. Logs and
+their archives are excluded from Git. Untracking files does not erase old Git
+history.
+
+`FITNESS_TRACKER_LOG_RETENTION_DAYS=0` is the default: **no automatic deletion**.
+An optional positive value such as `365` removes this log's dated gzip archives
+older than that many days, measured from archive creation time. Cleanup never
+removes legacy snapshots or unrelated files. Preserving archives indefinitely
+bounds active files, not total archive disk usage.
+
+### Migrating existing logs
+
+Preview the four CLI logs without modifying them:
+
+```bash
+poetry run python -m src.utils.log_archive migrate
+```
+
+After stopping CLI writers, apply the previewed policy:
+
+```bash
+poetry run python -m src.utils.log_archive migrate --apply
+```
+
+Use `--log-dir "/absolute/path/to/logs"` before `migrate` to target another
+directory. Migration preserves a verified, complete original snapshot for each
+changed file under `archive/legacy/`, splits dated records into monthly archives,
+and leaves only the current month active. Multiline entries and original bytes
+are preserved. Yearless logs are archived intact, never assigned a guessed year.
+The JSON result lists source checksums, byte counts, backups, and new archives.
+
+Replacement is atomic per file, not across all four files. Changed sources are
+rejected before replacement. Already-migrated files are skipped on a later run;
+an interrupted attempt can leave additional verified archives, not overwritten
+history. Migration never applies automatic archive deletion.
+
+The Bash workflow reports validation/import failures with a nonzero exit status
+and an error summary, rather than claiming success. It skips figures for failed
+dates; earlier successful imports are not rolled back.
 
 ## Backup and restore
 

@@ -11,3 +11,4 @@ node_modules
 .claude/
 data/.state/
 .coverage
+/logs/

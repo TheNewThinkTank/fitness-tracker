@@ -77,34 +77,97 @@ teardown() {
 }
 
 @test "log appends timestamped messages without rotating a small file" {
-    printf '%s\n' "Previous entry" > "$LOG_FILE"
+    log "Previous entry"
     run log "Current entry"
     [ "$status" -eq 0 ]
     [[ "$output" == *" - Current entry" ]]
     [ "$(wc -l < "$LOG_FILE")" -eq 2 ]
-    [ ! -e "${LOG_FILE}.1" ]
+    [ ! -e "$TMP_DIR/archive" ]
+    [[ "$output" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2} ]]
 }
 
-@test "log rotates ten MiB files and keeps only five backups" {
-    printf '%10485760s' '' > "$LOG_FILE"
-    for archive in 1 2 3 4 5; do
-        printf '%s\n' "Backup $archive" > "${LOG_FILE}.${archive}"
-    done
+@test "log rotates ten MiB files into a dated gzip archive" {
+    log "Previous entry"
+    printf '%10485760s' '' >> "$LOG_FILE"
+    printf '\n' >> "$LOG_FILE"
+    original_size=$(wc -c < "$LOG_FILE")
     run log "First entry after rotation"
     [ "$status" -eq 0 ]
     [ "$(wc -l < "$LOG_FILE")" -eq 1 ]
-    [ "$(wc -c < "${LOG_FILE}.1")" -eq 10485760 ]
-    [ "$(< "${LOG_FILE}.2")" = "Backup 1" ]
-    [ "$(< "${LOG_FILE}.5")" = "Backup 4" ]
-    [ ! -e "${LOG_FILE}.6" ]
+    archive="$TMP_DIR/archive/$(date +%Y-%m)/test_fitcli.0001.log.gz"
+    gzip -t "$archive"
+    [ "$(gzip -dc "$archive" | wc -c)" -eq "$original_size" ]
+}
+
+@test "log rotates a small old file on the next invocation" {
+    printf '%s\n' "2024-07-17 17:02:10 - Previous entry" > "$LOG_FILE"
+    run log "Current entry"
+    [ "$status" -eq 0 ]
+    [ "$(wc -l < "$LOG_FILE")" -eq 1 ]
+    [ "$(gzip -dc "$TMP_DIR/archive/2024-07/test_fitcli.0001.log.gz")" = "2024-07-17 17:02:10 - Previous entry" ]
 }
 
 @test "log stops without appending when rotation fails" {
     printf '%10485760s' '' > "$LOG_FILE"
-    mv() { return 1; }
+    printf '%s\n' "Blocked archive directory" > "$TMP_DIR/archive"
     run log "Must not be appended"
     [ "$status" -eq 1 ]
     [ "$(wc -c < "$LOG_FILE")" -eq 10485760 ]
+}
+
+configure_workflow_fixture() {
+    export FITNESS_TRACKER_LOG_DIR="$TMP_DIR/logs with spaces"
+    FAILURE_STAGE="$1"
+    REAL_PYTHON_BIN="$PYTHON_BIN"
+    fixture_python() {
+        if [[ "$1" == "-m" && "$2" == "src.utils.log_archive" ]]; then
+            "$REAL_PYTHON_BIN" "$@"
+        elif [[ "$1" == *"validate.py" ]]; then
+            [[ "$FAILURE_STAGE" != "validation" ]]
+        elif [[ "$1" == *"insert.py" ]]; then
+            [[ "$FAILURE_STAGE" != "insertion" ]]
+        else
+            return 1
+        fi
+    }
+    PYTHON_BIN=fixture_python
+    load_env_variables() { export FITNESS_TRACKER_DATA_DIR="$TMP_DIR"; }
+    validate_env_variables() { return 0; }
+    load_config_variables() { return 0; }
+    load_config() { return 0; }
+    check_dependencies() { return 0; }
+    find_workout_files() { printf '%s\0' "$TMP_DIR/fixture.yml"; }
+    prepare_figures() { echo "Fixture figures prepared"; }
+    open_figures() { return 0; }
+}
+
+@test "workflow reports validation failure without claiming success" {
+    configure_workflow_fixture validation
+    run main -d "2026-10-17"
+    [ "$status" -eq 1 ]
+    [[ "$output" == *"Validation failed"* ]]
+    [[ "$output" == *"Workflow completed with errors"* ]]
+    [[ "$output" != *"Workflow completed successfully"* ]]
+    [[ "$output" != *"Fixture figures prepared"* ]]
+}
+
+@test "workflow reports insertion failure without claiming success" {
+    configure_workflow_fixture insertion
+    run main -d "2026-10-17"
+    [ "$status" -eq 1 ]
+    [[ "$output" == *"Failed to insert data"* ]]
+    [[ "$output" == *"Workflow completed with errors"* ]]
+    [[ "$output" != *"Workflow completed successfully"* ]]
+    [[ "$output" != *"Fixture figures prepared"* ]]
+}
+
+@test "workflow honors a log directory with spaces from another working directory" {
+    configure_workflow_fixture none
+    cd "$TMP_DIR"
+    run main -d "2026-10-17"
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"Workflow completed successfully"* ]]
+    [ -f "$FITNESS_TRACKER_LOG_DIR/fitcli.log" ]
 }
 
 # TODO: complete test below

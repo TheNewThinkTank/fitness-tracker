@@ -9,9 +9,9 @@ or plotting packages for help, validation, dry runs, and imports.
 Install from the repository root, not from the legacy `oxygen/` setup directory:
 
 ```bash
-poetry install --with analytics
-poetry run oxygen --help
-poetry run python -m oxygen --help
+uv sync --locked --group analytics
+uv run --locked oxygen --help
+uv run --locked python -m oxygen --help
 ```
 
 The root project installs the `oxygen` executable. It also supports
@@ -21,8 +21,8 @@ Fitness Tracker core; the root project is the supported installation route.
 For a smaller install without plots:
 
 ```bash
-poetry install
-poetry run oxygen run --no-figures
+uv sync --locked --no-default-groups
+uv run --locked --no-default-groups oxygen run --no-figures
 ```
 
 Plotting loads optional analytics packages only when requested. Missing plotting
@@ -80,9 +80,9 @@ and Windows-unsafe filename punctuation are rejected before import or plotting.
 The combined workflow imports records and prepares figures, without opening a GUI:
 
 ```bash
-poetry run oxygen run -d 2024-03-11 --dry-run
-poetry run oxygen run -d 2024-03-11,2024-03-18 --no-open
-poetry run oxygen run -d 2024-03-11 -d 2025-01-02 --open
+uv run --locked oxygen run -d 2024-03-11 --dry-run
+uv run --locked oxygen run -d 2024-03-11,2024-03-18 --no-open
+uv run --locked oxygen run -d 2024-03-11 -d 2025-01-02 --open
 ```
 
 Repeat `-d` or use comma-separated dates. Repeated dates are processed once.
@@ -92,12 +92,12 @@ the selected date is today's local date, calculated for each invocation.
 Use individual steps when appropriate:
 
 ```bash
-poetry run oxygen insert -d 2024-03-11 -f yml
-poetry run oxygen insert -d 2024-03-18 -f json -w 2
-poetry run oxygen run -d 2024-03-18 -f json --no-figures
-poetry run oxygen prepare-figures -y 2024 -m March
-poetry run oxygen open-images -y 2024 -m 03
-poetry run oxygen show-help
+uv run --locked oxygen insert -d 2024-03-11 -f yml
+uv run --locked oxygen insert -d 2024-03-18 -f json -w 2
+uv run --locked oxygen run -d 2024-03-18 -f json --no-figures
+uv run --locked oxygen prepare-figures -y 2024 -m March
+uv run --locked oxygen open-images -y 2024 -m 03
+uv run --locked oxygen show-help
 ```
 
 `--workout-date`, `--dates`, and `-d` are aliases. `--file-format` accepts `yml` and
@@ -117,9 +117,9 @@ analytics packages. `--no-figures` skips plotting entirely; combining it with
 Global options go before the command:
 
 ```bash
-poetry run oxygen --data-dir "/path/with spaces/workouts" \
+uv run --locked oxygen --data-dir "/path/with spaces/workouts" \
   --image-dir "/path/with spaces/reports" run -d 2024-03-11 --dry-run
-poetry run oxygen --config ./oxygen.toml insert -d 2024-03-11
+uv run --locked oxygen --config ./oxygen.toml insert -d 2024-03-11
 ```
 
 An Oxygen configuration file is TOML, not a shell script:
@@ -207,9 +207,9 @@ printed paths. Oxygen itself creates no extra growing log files.
 ## Verification
 
 ```bash
-poetry run pytest test/test_oxygen.py
-poetry run ruff check --config .config/ruff.toml src oxygen test
-poetry run mypy --config-file .config/mypy.ini src oxygen/oxygen
+uv run --locked --group analytics pytest test/test_oxygen.py
+uv run --locked ruff check --config .config/ruff.toml src oxygen test
+uv run --locked mypy --config-file .config/mypy.ini src oxygen/oxygen
 ```
 
 Tests cover temporary real YAML/JSON imports, multi-year and same-day routing,

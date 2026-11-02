@@ -4,7 +4,7 @@
 node_modules
 
 # Ignore Docker-related files
-Dockerfile
+Containerfile
 docker-compose.yml
 .dockerignore
 

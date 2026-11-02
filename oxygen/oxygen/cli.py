@@ -192,7 +192,7 @@ def _plotting() -> Any:
         matplotlib.use("Agg", force=True)
         return importlib.import_module("src.combined_metrics.combined_metrics")
     except ImportError as error:
-        raise click.ClickException("Plotting dependencies are unavailable. Run 'poetry install --with analytics', or use 'run --no-figures'.") from error
+        raise click.ClickException("Plotting dependencies are unavailable. Run 'uv sync --locked --group analytics', or use 'run --no-figures'.") from error
 
 
 def _render(table: Any, year: int, month: str, image_dir: Path) -> None:

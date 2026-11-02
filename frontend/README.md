@@ -120,7 +120,7 @@ E2E_BASE_URL=http://127.0.0.1:3000 E2E_WRITE_TESTS=1 npm run test:e2e -- --grep 
 
 ## Production
 
-The production Dockerfile builds the application with Node and copies only
+The production `Containerfile` builds the application with Node and copies only
 `dist/` into an unprivileged nginx image. nginx serves the single-page app,
 proxies `/api` to the Compose backend, compresses responses, applies immutable
 asset caching, and sends restrictive browser security headers.
@@ -129,6 +129,13 @@ Run both services from the repository root:
 
 ```bash
 docker compose up --build
+```
+
+Compose selects `frontend/Containerfile` explicitly. To build just the frontend
+from the repository root:
+
+```bash
+docker build --file frontend/Containerfile --tag fitness-tracker-frontend:local ./frontend
 ```
 
 Open `http://localhost:3000`.

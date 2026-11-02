@@ -1,20 +1,18 @@
 FROM python:3.13.15-slim@sha256:9d2e5553305c7c7b0097999bb17187c69b921ccd6bc9d40e4bb5ebe652c00285 AS requirements
 
-ARG POETRY_VERSION=2.2.1
-ARG POETRY_EXPORT_VERSION=1.9.0
+ARG UV_VERSION=0.13.6
 
 WORKDIR /build
 
-RUN pip install --no-cache-dir \
-    "poetry==${POETRY_VERSION}" \
-    "poetry-plugin-export==${POETRY_EXPORT_VERSION}"
+RUN pip install --no-cache-dir "uv==${UV_VERSION}"
 
-COPY pyproject.toml poetry.lock ./
-RUN poetry export \
-    --only main \
+COPY pyproject.toml uv.lock ./
+RUN uv export \
+    --locked \
+    --no-default-groups \
+    --no-emit-project \
     --format requirements.txt \
-    --output requirements.txt \
-    --without-hashes
+    --output-file requirements.txt
 
 FROM python:3.13.15-alpine@sha256:7415fbc3c9e4979cc717d92377ab2bc7b2b4a2af1ac03cc52b5f3f88efedaf3a AS runtime
 
@@ -35,7 +33,7 @@ RUN addgroup --gid 10001 --system app && \
 WORKDIR /app
 
 COPY --from=requirements /build/requirements.txt ./requirements.txt
-RUN pip install --no-cache-dir --upgrade -r requirements.txt && \
+RUN pip install --no-cache-dir --require-hashes --no-deps -r requirements.txt && \
     rm requirements.txt
 
 COPY --chown=app:app src ./src

@@ -2,6 +2,8 @@
   "weight_training_log": {
     "1": {
       "date": "2021-12-11",
+      "start_time": "10:00",
+      "end_time": "11:00",
       "split": "legs",
       "exercises": {
         "squat": [
@@ -20,6 +22,8 @@
     },
     "2": {
       "date": "2021-12-13",
+      "start_time": "10:00",
+      "end_time": "11:00",
       "split": "chest",
       "exercises": {
         "deadlift": [

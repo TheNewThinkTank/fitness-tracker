@@ -119,18 +119,31 @@ def test_insert_all_logs_invalid_format(tmp_path: Path) -> None:
         insert_all_logs(mock_table, str(tmp_path), "txt")
 
 
-def test_insert_specific_log_uses_confined_archive_path(tmp_path: Path) -> None:
+@pytest.mark.parametrize(
+    ("workout_date", "year", "month", "file_format"),
+    [
+        ("2024-01-07", "2024", "January", "yml"),
+        ("2021-12-10", "2021", "December", "json"),
+        ("2022-06-27", "2022", "June", "json"),
+    ],
+)
+def test_insert_specific_log_uses_confined_archive_path(
+    tmp_path: Path, workout_date: str, year: str, month: str, file_format: str
+) -> None:
     mock_table = MagicMock(spec=table.Table)
-    archive = tmp_path / "log_archive" / "YML" / "2024" / "January"
+    archive = tmp_path / "log_archive" / file_format.upper() / year / month
     archive.mkdir(parents=True)
-    content = _workout_record()
-    log_path = archive / "training_log_2024-01-07.yml"
-    log_path.write_text(yaml.safe_dump(content), encoding="utf-8")
+    content = _workout_record(workout_date)
+    log_path = archive / f"training_log_{workout_date}.{file_format}"
+    log_path.write_text(
+        json.dumps(content) if file_format == "json" else yaml.safe_dump(content),
+        encoding="utf-8",
+    )
     original_data_dir = settings.DATA_DIR
     settings.set("DATA_DIR", str(tmp_path))
 
     try:
-        insert_specific_log(WorkoutDate("2024-01-07"), mock_table)
+        insert_specific_log(WorkoutDate(workout_date), mock_table, file_format)
     finally:
         settings.set("DATA_DIR", original_data_dir)
 

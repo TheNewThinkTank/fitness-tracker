@@ -30,6 +30,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Replaced Poetry with uv and a committed `uv.lock`. Application dependencies
+    and optional analytics, integration, documentation, and development groups
+    use standard project metadata. Existing locked dependency versions are
+    retained; CI, Make targets, schema generation, and examples use locked uv
+    commands. Existing checkouts can migrate with `uv sync --locked --all-groups`.
+- Replaced the Poetry build backend with Hatchling while retaining both Python
+    packages, the Oxygen entry point, and bundled static runtime metadata.
+- Renamed the backend and frontend build definitions to `Containerfile` and
+    selected them explicitly in Compose and image workflows. Backend builds
+    export hashed core-only requirements from `uv.lock`; direct Docker builds
+    now require `--file Containerfile` or `--file frontend/Containerfile` with
+    the corresponding build context.
 - Imports, API records, and standalone validation share Pydantic calendar-date
     and record-structure validation while preserving additional metadata.
 - Workout reads use cached, validated snapshots and a UUID index. File changes,
@@ -40,6 +52,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated the documentation overview, frontend guide, examples, and runtime
     architecture explanation for authenticated workout entry and its storage
     and testing boundaries.
+
+### Removed
+
+- Behave, its unused support dependencies, and the `features/` tree. Existing
+    pytest suites now cover all three program-date expectations, historical
+    date-to-archive lookup, multi-row model extraction, and JSON validation.
+    The JSON sample moved to `test/fixtures/workouts_fixture.json`, with the
+    timestamps required by the current validation model. Tests use temporary
+    archives rather than depending on personal training logs.
 
 ### Fixed
 
@@ -60,6 +81,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     the correct year after reload.
 
 ### Verification status
+
+Tooling migration verification on 2026-11-02: 292 pytest cases passed with
+2 existing skips on both Python 3.11 and 3.13. Ruff, configured mypy, schema
+drift, active changed workflow lint, Compose configuration, and MkDocs checks
+passed. The legacy AWS workflow retains only pre-existing lint warnings.
+Source and wheel builds passed; a fresh core-only Python 3.13 install verified
+bundled assets, API imports, Oxygen entry points, and repeat JSON imports without
+Poetry or Behave. Container image builds and startup were not reverified because
+the Docker daemon was unavailable. Frontend and browser tests were not rerun
+for this tooling migration.
 
 Local verification on 2026-10-09: 188 backend tests passed with 2 existing skips,
 35 frontend unit tests passed, and 44 desktop/mobile browser cases passed across

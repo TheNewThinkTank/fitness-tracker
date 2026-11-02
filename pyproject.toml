@@ -7,91 +7,92 @@ authors = [
 ]
 license = "MIT"
 requires-python = ">=3.11,<4.0"
-dynamic = ["dependencies"]
+dependencies = [
+    "click>=8.1.8,<9.0.0",
+    "fastapi>=0.141.1,<0.142.0",
+    "starlette>=1.6.0,<2.0.0",
+    "pydantic>=2.10.4,<3.0.0",
+    "typing-extensions>=4.12.2,<5.0.0",
+    "PyYAML>=6.0.2,<7.0.0",
+    "tinydb>=4.8.2,<5.0.0",
+    "uvicorn>=0.40.0,<0.41.0",
+    "python-dotenv>=1.0.1,<2.0.0",
+    "orjson>=3.10.12,<4.0.0",
+    "dynaconf>=3.2.7,<4.0.0",
+    "loguru>=0.7.3,<0.8.0",
+    "regex>=2026.1.15,<2027.0.0",
+]
 
 [project.scripts]
 oxygen = "oxygen.cli:cli"
 
-[tool.poetry]
-packages = [
-    { include = "src" },
-    { include = "oxygen", from = "oxygen" },
+[dependency-groups]
+analytics = [
+    "algo-library>=0.0.10,<0.0.11",
+    "athleteprofiler>=0.1.1,<0.2.0",
+    "datetime-convertion-tools>=0.0.15,<0.0.16",
+    "matplotlib>=3.10.0,<4.0.0",
+    "numpy>=2.2.0,<3.0.0",
+    "pandas>=2.2.3,<3.0.0",
+    "profiling-tools>=0.0.14,<0.0.15",
+    "scikit-learn>=1.6.0,<2.0.0",
+    "scipy>=1.14.1,<2.0.0",
+    "seaborn>=0.13.2,<0.14.0",
+    "snakeviz>=2.2.2,<3.0.0",
+    "statsmodels>=0.14.4,<0.15.0",
 ]
-include = [
-    { path = ".config/settings.toml", format = ["sdist", "wheel"] },
-    { path = "docs/project_docs/exercises/muscles_and_exercises.yaml", format = ["sdist", "wheel"] },
-    { path = "docs/project_docs/Workout-Programs/workout_programs.yml", format = ["sdist", "wheel"] },
-    { path = "docs/project_docs/Workout-Programs/workout-program-detail.yml", format = ["sdist", "wheel"] },
+integrations = [
+    "google-api-python-client>=2.156.0,<3.0.0",
+    "google-auth-httplib2>=0.3.0,<0.4.0",
+    "google-auth-oauthlib>=1.2.1,<2.0.0",
+    "gspread>=6.1.4,<7.0.0",
 ]
-
-[tool.poetry.dependencies]
-click = "^8.1.8"
-fastapi = "^0.141.1"
-starlette = "^1.6.0"
-pydantic = "^2.10.4"
-typing-extensions = "^4.12.2"
-python = "^3.11"
-PyYAML = "^6.0.2"
-tinydb = "^4.8.2"
-uvicorn = "^0.40.0"
-python-dotenv = "^1.0.1"
-orjson = "^3.10.12"
-dynaconf = "^3.2.7"
-loguru = "^0.7.3"
-regex = "^2026.1.15"
-
-[tool.poetry.group.analytics]
-optional = true
-
-[tool.poetry.group.analytics.dependencies]
-algo-library = "^0.0.10"
-athleteprofiler = "^0.1.1"
-datetime-convertion-tools = "^0.0.15"
-matplotlib = "^3.10.0"
-numpy = "^2.2.0"
-pandas = "^2.2.3"
-profiling-tools = "^0.0.14"
-scikit-learn = "^1.6.0"
-scipy = "^1.14.1"
-seaborn = "^0.13.2"
-snakeviz = "^2.2.2"
-statsmodels = "^0.14.4"
-
-[tool.poetry.group.integrations]
-optional = true
-
-[tool.poetry.group.integrations.dependencies]
-google-api-python-client = "^2.156.0"
-google-auth-httplib2 = "^0.3.0"
-google-auth-oauthlib = "^1.2.1"
-gspread = "^6.1.4"
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-Sphinx = "^9.0.4"
-sphinx-rtd-theme = "^3.0.2"
-
-[tool.poetry.group.dev.dependencies]
-behave = "^1.2.6"
-ruff = "^0.8.4"
-mypy = "^1.14.0"
-pytest = "^8.3.4"
-pytest-cov = "^6.0.0"
-httpx2 = "^2.12.0"
-watchfiles = "^1.0.3"
-wily = "^1.25"
-yamllint = "^1.35.1"
-icecream = "^2.1.3"
-isort = "^7.0.0"
-pandas-stubs = "^3.0.3.260530"
-types-seaborn = "^0.13.2.20260724"
-types-pyyaml = ">=6.0,<7.0"
+docs = [
+    "Sphinx>=9.0.4,<10.0.0",
+    "sphinx-rtd-theme>=3.0.2,<4.0.0",
+]
+dev = [
+    "ruff>=0.8.4,<0.9.0",
+    "mypy>=1.14.0,<2.0.0",
+    "pytest>=8.3.4,<9.0.0",
+    "pytest-cov>=6.0.0,<7.0.0",
+    "httpx2>=2.12.0,<3.0.0",
+    "watchfiles>=1.0.3,<2.0.0",
+    "wily>=1.25,<2.0",
+    "yamllint>=1.35.1,<2.0.0",
+    "icecream>=2.1.3,<3.0.0",
+    "isort>=7.0.0,<8.0.0",
+    "pandas-stubs>=3.0.3.260530,<4.0.0",
+    "types-seaborn>=0.13.2.20260724,<0.14.0.0",
+    "types-pyyaml>=6.0,<7.0",
+]
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "oxygen"]
 
+[tool.hatch.build.targets.wheel]
+packages = ["src", "oxygen/oxygen"]
+
+[tool.hatch.build.targets.wheel.force-include]
+".config/settings.toml" = ".config/settings.toml"
+"docs/project_docs/exercises/muscles_and_exercises.yaml" = "docs/project_docs/exercises/muscles_and_exercises.yaml"
+"docs/project_docs/Workout-Programs/workout_programs.yml" = "docs/project_docs/Workout-Programs/workout_programs.yml"
+"docs/project_docs/Workout-Programs/workout-program-detail.yml" = "docs/project_docs/Workout-Programs/workout-program-detail.yml"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/oxygen/oxygen",
+    "/.config/settings.toml",
+    "/docs/project_docs/exercises/muscles_and_exercises.yaml",
+    "/docs/project_docs/Workout-Programs/workout_programs.yml",
+    "/docs/project_docs/Workout-Programs/workout-program-detail.yml",
+    "/pyproject.toml",
+    "/uv.lock",
+    "/README.md",
+    "/LICENSE",
+]
+
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling>=1.27,<2.0"]
+build-backend = "hatchling.build"

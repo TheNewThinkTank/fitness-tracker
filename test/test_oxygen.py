@@ -6,7 +6,6 @@ import sys
 from datetime import date
 from uuid import UUID, uuid4
 
-import click
 from click.testing import CliRunner
 import pytest
 import yaml
@@ -279,13 +278,14 @@ def test_run_prepares_each_period_once_and_is_headless_by_default(cli_data, monk
 def test_missing_plot_dependencies_fail_before_import(cli_data, monkeypatch):
     _log(cli_data, "2024-03-11")
 
-    def missing_plotting():
-        raise click.ClickException("Install the analytics dependencies")
+    def missing_plotting(module_name):
+        raise ImportError(f"Missing plotting module: {module_name}")
 
-    monkeypatch.setattr(oxygen_cli, "_plotting", missing_plotting)
+    monkeypatch.setattr(oxygen_cli.importlib, "import_module", missing_plotting)
     result = _invoke(cli_data, "run", "-d", "2024-03-11")
     assert result.exit_code == 1
-    assert "analytics dependencies" in result.output
+    assert "uv sync --locked --group analytics" in result.output
+    assert "run --no-figures" in result.output
     assert not (cli_data / "2024_workouts.yml").exists()
 
 

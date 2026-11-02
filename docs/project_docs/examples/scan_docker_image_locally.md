@@ -10,7 +10,7 @@ FITNESS_TRACKER_ATHLETE=default
 Build the image (env vars are injected at runtime, not build time):
 
 ```bash
-docker build -t fitness-tracker:latest .
+docker build --file Containerfile -t fitness-tracker:latest .
 ```
 
 Then scan with Grype:

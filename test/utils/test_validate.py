@@ -1,3 +1,4 @@
+from pathlib import Path
 
 import pytest
 from unittest.mock import patch, mock_open
@@ -163,28 +164,16 @@ def test_create_workout():
 
 
 def test_create_workouts_from_json():
-    json_data = {
-        "weight_training_log": {
-            "1": {
-                "date": "2023-10-01",
-                "start_time": "10:00",
-                "end_time": "11:00",
-                "split": "Upper Body",
-                "exercises": {
-                    "pushup": [{"set_number": 1, "reps": 10, "weight": "BODYWEIGHT"}]
-                },
-                "warmup": None,
-                "gym": None,
-                "note": None,
-            }
-        }
-    }
-    mock_file = mock_open(read_data=json.dumps(json_data))
-    with patch("builtins.open", mock_file):
-        workouts = WorkoutFactory.create_workouts_from_json("dummy_path.json")
-        assert len(workouts) == 1
-        assert isinstance(workouts[0], Workout)
-        assert workouts[0].date == "2023-10-01"
+    fixture = Path(__file__).resolve().parents[1] / "fixtures" / "workouts_fixture.json"
+    with fixture.open(encoding="utf-8") as source:
+        records = json.load(source)["weight_training_log"]
+
+    workouts = WorkoutFactory.create_workouts_from_json(str(fixture))
+
+    assert len(workouts) == 2
+    assert all(isinstance(workout, Workout) for workout in workouts)
+    assert all(isinstance(workout.exercises, dict) for workout in workouts)
+    assert [workout.model_dump(exclude_none=True) for workout in workouts] == list(records.values())
 
 
 def test_create_workouts_from_yaml():

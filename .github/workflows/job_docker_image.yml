@@ -46,10 +46,10 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ inputs.github-owner }} --password-stdin
 
       - name: Build Docker image
-        run: docker build -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
+        run: docker build -f Containerfile -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
 
       - name: Build frontend Docker image
-        run: docker build -t ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ./frontend
+        run: docker build -f frontend/Containerfile -t ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ./frontend
 
       - name: Scan backend image for vulnerabilities
         uses: anchore/scan-action@v5

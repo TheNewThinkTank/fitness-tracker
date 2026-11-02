@@ -43,6 +43,7 @@ GitLab
 GitOps
 gzip
 gzip
+Hatchling
 homelab
 html
 http
@@ -62,6 +63,7 @@ liveness
 Liveness
 ln
 localhost
+lockfile
 Loguru
 macOS
 MacOS
@@ -124,6 +126,7 @@ usr
 UTF
 utils
 UUID
+uv
 uvicorn
 Ventura
 viewports

@@ -6,10 +6,10 @@ First, clone the project:<br>
 `git clone https://github.com/TheNewThinkTank/fitness-tracker.git`
 
 Run the commands below from the repository root. Use Python 3.11 or 3.13,
-Poetry 2.2.1, and Node.js 24 or newer for the frontend.
+uv 0.13.6 or newer, and Node.js 24 or newer for the frontend.
 
 ```bash
-poetry install --with analytics,integrations,docs
+uv sync --locked --all-groups
 ```
 
 ### Import workout logs
@@ -40,7 +40,7 @@ and a string `weight`. Additional workout and set metadata is preserved. Omit
 Import the log with:
 
 ```bash
-poetry run python -m src.crud.insert --datatype real --dates 2024-01-07 --file_format yml
+uv run --locked python -m src.crud.insert --datatype real --dates 2024-01-07 --file_format yml
 ```
 
 This writes to `data/2024_workouts.yml`, not the current calendar year's file.
@@ -48,14 +48,14 @@ To import across years, first prepare both archive files, including
 `data/log_archive/YML/2022/February/training_log_2022-02-08.yml`, then run:
 
 ```bash
-poetry run python -m src.crud.insert --datatype real --dates 2022-02-08,2024-01-07 --file_format yml
+uv run --locked python -m src.crud.insert --datatype real --dates 2022-02-08,2024-01-07 --file_format yml
 ```
 
 The importer selects a separate database for each date's year. For a second
 workout on the same day, use a filename such as `training_log_2024-01-07_2.yml`:
 
 ```bash
-poetry run python -m src.crud.insert --datatype real --dates 2024-01-07 --workout_number 2
+uv run --locked python -m src.crud.insert --datatype real --dates 2024-01-07 --workout_number 2
 ```
 
 JSON logs use the same record structure under `log_archive/JSON/<YEAR>/<Month>/`
@@ -71,14 +71,14 @@ files and stop other writers before migrating. Set `FITNESS_TRACKER_DATA_DIR`
 to that directory, then preview and apply the migration:
 
 ```bash
-poetry run python -m src.utils.set_db_and_table --migrate-ids --dry-run
-poetry run python -m src.utils.set_db_and_table --migrate-ids
+uv run --locked python -m src.utils.set_db_and_table --migrate-ids --dry-run
+uv run --locked python -m src.utils.set_db_and_table --migrate-ids
 ```
 
 Limit the operation to one year when needed:
 
 ```bash
-poetry run python -m src.utils.set_db_and_table --migrate-ids --year 2024
+uv run --locked python -m src.utils.set_db_and_table --migrate-ids --year 2024
 ```
 
 Use `--datatype simulated` to migrate the configured simulated database. The
@@ -114,7 +114,7 @@ docker compose up --build
 
 ```bash
 # Start the backend
-FITNESS_TRACKER_DATA_DIR=data poetry run uvicorn src.main:app --reload
+FITNESS_TRACKER_DATA_DIR=data uv run --locked uvicorn src.main:app --reload
 
 # Start the frontend (separate terminal)
 npm --prefix frontend ci
@@ -221,11 +221,11 @@ python3 src/utils/get_breath_holding.py
 ## Example: Import workout logs with Oxygen
 
 ```bash
-poetry install --with analytics
-poetry run oxygen run -d 2024-03-03 -f json --dry-run
-poetry run oxygen run -d 2024-03-03 -f json --no-open
-poetry run oxygen insert -d 2024-03-03,2024-03-04 -f json
-poetry run oxygen prepare-figures -y 2024 -m March
+uv sync --locked --group analytics
+uv run --locked oxygen run -d 2024-03-03 -f json --dry-run
+uv run --locked oxygen run -d 2024-03-03 -f json --no-open
+uv run --locked oxygen insert -d 2024-03-03,2024-03-04 -f json
+uv run --locked oxygen prepare-figures -y 2024 -m March
 ```
 
 Oxygen uses the existing archive layout and project environment settings, but

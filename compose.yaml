@@ -4,6 +4,7 @@ services:
   backend:
     build:
       context: .
+      dockerfile: Containerfile
       target: runtime
     image: fitness-tracker-backend:local
     init: true
@@ -57,6 +58,7 @@ services:
   frontend:
     build:
       context: ./frontend
+      dockerfile: Containerfile
       target: runtime
     image: fitness-tracker-frontend:local
     init: true

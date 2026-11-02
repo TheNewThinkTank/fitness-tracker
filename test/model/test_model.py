@@ -52,6 +52,7 @@ def test_get_df(mock_table):
     # Check that the DataFrame is not empty
     assert isinstance(df, pd.DataFrame)
     assert not df.empty
+    assert len(df) == 4
     
     # Check that the DataFrame contains the correct exercise
     assert "barbell_bench_press" in mock_table.all()[0]["exercises"].keys()

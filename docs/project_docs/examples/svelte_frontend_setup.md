@@ -20,7 +20,7 @@ Open `http://localhost:3000`. For development, start FastAPI and Vite in separat
 terminals:
 
 ```bash
-FITNESS_TRACKER_DATA_DIR=data poetry run uvicorn src.main:app --reload
+FITNESS_TRACKER_DATA_DIR=data uv run --locked uvicorn src.main:app --reload
 
 # In a separate terminal
 npm --prefix frontend ci
@@ -40,8 +40,8 @@ the backend with `FITNESS_TRACKER_ENABLE_WRITES=true`.
 For a local API:
 
 ```bash
-poetry run python -m src.utils.access_control --set-password
-FITNESS_TRACKER_ENABLE_WRITES=true poetry run uvicorn src.main:app --reload
+uv run --locked python -m src.utils.access_control --set-password
+FITNESS_TRACKER_ENABLE_WRITES=true uv run --locked uvicorn src.main:app --reload
 ```
 
 For Compose, provision the password in the persistent state volume:

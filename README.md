@@ -154,8 +154,8 @@ Editing is opt-in and requires a password. Provision it interactively, then
 restart the local API with editing enabled:
 
 ```bash
-poetry run python -m src.utils.access_control --set-password
-FITNESS_TRACKER_ENABLE_WRITES=true poetry run uvicorn src.main:app --reload
+uv run --locked python -m src.utils.access_control --set-password
+FITNESS_TRACKER_ENABLE_WRITES=true uv run --locked uvicorn src.main:app --reload
 ```
 
 For Compose, provision the password in its persistent state volume:
@@ -229,13 +229,15 @@ the CSV retain their previous values. Explicit nulls in JSON can clear optional 
 
 ### Without containers
 
-Requirements: Python 3.11 or 3.13, Poetry 2.2.1, and Node.js 24.
+Requirements: Python 3.11 or 3.13, uv 0.13.6 or newer, and Node.js 24.
+See the [uv installation guide](https://docs.astral.sh/uv/getting-started/installation/)
+if uv is not installed.
 
 Start FastAPI:
 
 ```bash
-poetry install --with analytics,integrations,docs
-poetry run uvicorn src.main:app --reload
+uv sync --locked --all-groups
+uv run --locked uvicorn src.main:app --reload
 ```
 
 Start Vite in another terminal:
@@ -249,16 +251,48 @@ npm run dev
 The development frontend runs at `http://localhost:5173` and proxies `/api` to
 `http://localhost:8000`.
 
+### Python dependencies
+
+uv manages the project-local `.venv` and installs the root project in editable
+mode. The `dev` dependency group is installed by default; `analytics`,
+`integrations`, and `docs` are opt-in groups:
+
+```bash
+# Core application and development tools
+uv sync --locked
+
+# Add plotting and analytics packages
+uv sync --locked --group analytics
+
+# Full development and test environment
+uv sync --locked --all-groups
+
+# Core application only, without development or optional groups
+uv sync --locked --no-default-groups
+```
+
+`uv sync` removes packages outside the selected groups. For core-only commands,
+also pass `--no-default-groups` to `uv run` so it does not add development tools.
+Existing Poetry users can switch by running `uv sync --locked --all-groups`;
+Poetry is no longer needed for installation, builds, or CI.
+
+Use `uv add PACKAGE` for application dependencies, `uv add --group GROUP PACKAGE`
+for group dependencies, and `uv lock --upgrade-package PACKAGE` for a targeted
+update. Commit both `pyproject.toml` and `uv.lock` when dependencies change.
+`--locked` rejects stale metadata instead of silently rewriting the lockfile.
+Build source distributions and wheels with `uv build`; Hatchling packages both
+the API and Oxygen, including their static configuration and training metadata.
+
 ## Oxygen CLI
 
 Oxygen is the portable Python replacement for the `bin/fitcli.sh` workflow.
 Installing the root project installs both `oxygen` and `python -m oxygen`:
 
 ```bash
-poetry install --with analytics
-poetry run oxygen --help
-poetry run oxygen run -d 2024-03-11 --dry-run
-poetry run oxygen run -d 2024-03-11,2024-03-18 --no-open
+uv sync --locked --group analytics
+uv run --locked oxygen --help
+uv run --locked oxygen run -d 2024-03-11 --dry-run
+uv run --locked oxygen run -d 2024-03-11,2024-03-18 --no-open
 ```
 
 It imports every matching numbered YAML/JSON log into the correct year, validates
@@ -317,8 +351,8 @@ Generated OpenAPI files live in
 `docs/project_docs/dev-docs/API-Schema/`. Regenerate them with:
 
 ```bash
-poetry run ./bin/generate_openapi.sh
-poetry run ./bin/generate_openapi.sh --check
+uv run --locked ./bin/generate_openapi.sh
+uv run --locked ./bin/generate_openapi.sh --check
 ```
 
 ## Workout data and identity
@@ -333,7 +367,7 @@ Real-workout imports select the database for each requested date, including
 comma-separated dates spanning multiple years:
 
 ```bash
-poetry run python -m src.crud.insert --datatype real --dates 2022-02-08,2024-01-07
+uv run --locked python -m src.crud.insert --datatype real --dates 2022-02-08,2024-01-07
 ```
 
 New workouts receive a stored UUID when written through configured workout
@@ -346,8 +380,8 @@ idempotent migration from a writable environment before editing or renumbering
 legacy records:
 
 ```bash
-poetry run python -m src.utils.set_db_and_table --migrate-ids --dry-run
-poetry run python -m src.utils.set_db_and_table --migrate-ids
+uv run --locked python -m src.utils.set_db_and_table --migrate-ids --dry-run
+uv run --locked python -m src.utils.set_db_and_table --migrate-ids
 ```
 
 Use `--year 2024` to limit migration or `--datatype simulated` for simulated
@@ -357,13 +391,18 @@ replacement does not provide multi-process transactions.
 
 ## Testing
 
+All Python tests run with pytest under `test/`. The former BDD scenarios are
+covered by the existing program lookup, archive import, model, and validation
+unit tests; there is no separate BDD runner or `features/` directory.
+
 ```bash
 # Backend
-poetry run ruff check --config .config/ruff.toml src oxygen test
-poetry run mypy --config-file .config/mypy.ini src oxygen/oxygen --exclude '/site-packages/'
-poetry run pytest test
-poetry run oxygen --help
-poetry run python -m oxygen --help
+uv sync --locked --all-groups
+uv run --locked ruff check --config .config/ruff.toml src oxygen test
+uv run --locked mypy --config-file .config/mypy.ini src oxygen/oxygen --exclude '/site-packages/'
+uv run --locked pytest test
+uv run --locked oxygen --help
+uv run --locked python -m oxygen --help
 
 # Frontend
 npm --prefix frontend run check
@@ -442,13 +481,13 @@ bounds active files, not total archive disk usage.
 Preview the four CLI logs without modifying them:
 
 ```bash
-poetry run python -m src.utils.log_archive migrate
+uv run --locked python -m src.utils.log_archive migrate
 ```
 
 After stopping CLI writers, apply the previewed policy:
 
 ```bash
-poetry run python -m src.utils.log_archive migrate --apply
+uv run --locked python -m src.utils.log_archive migrate --apply
 ```
 
 Use `--log-dir "/absolute/path/to/logs"` before `migrate` to target another
@@ -472,7 +511,7 @@ dates; earlier successful imports are not rolled back.
 Create a full backup from the configured archive and state directories:
 
 ```bash
-poetry run python -m src.utils.state_backup backup "$HOME/Backups/fitness-tracker"
+uv run --locked python -m src.utils.state_backup backup "$HOME/Backups/fitness-tracker"
 ```
 
 Each backup has a unique timestamped filename and mode `0600`. It contains raw
@@ -503,7 +542,7 @@ never deleted automatically.
 Restore a completed ZIP into a **new** directory:
 
 ```bash
-poetry run python -m src.utils.state_backup restore \
+uv run --locked python -m src.utils.state_backup restore \
   ./fitness-backups/fitness-tracker-TIMESTAMP-UUID.zip \
   "$HOME/fitness-tracker-restored"
 ```
@@ -530,7 +569,7 @@ than silently downgraded. Take a backup before upgrading a deployment. Migration
 run on writes or explicitly during maintenance:
 
 ```bash
-poetry run python -m src.utils.state_backup migrate
+uv run --locked python -m src.utils.state_backup migrate
 ```
 
 New workout POSTs accept an optional UUID `Idempotency-Key` header. The editor
@@ -560,7 +599,7 @@ fell from 22 to 3. This measures service preparation, not end-to-end latency or 
 deployment SLA. A regression asserts the three-query budget and unchanged totals:
 
 ```bash
-poetry run pytest test/test_main.py -k analytics_reads_state_once
+uv run --locked pytest test/test_main.py -k analytics_reads_state_once
 ```
 
 The strict-CSP browser check also enforces a 256 KiB gzip budget for each loaded
@@ -568,6 +607,15 @@ script chunk, including charts. Vite's existing minified-size warning stays
 visible; it measures a different size and its threshold is not raised.
 
 ## Container images
+
+The build definitions are `Containerfile` and `frontend/Containerfile`.
+Compose selects both explicitly, so `docker compose up --build` is unchanged.
+For direct Docker builds, specify the build file and matching context:
+
+```bash
+docker build --file Containerfile --tag fitness-tracker-backend:local .
+docker build --file frontend/Containerfile --tag fitness-tracker-frontend:local ./frontend
+```
 
 Two images are built, scanned, and published to GitHub Container Registry after
 the Python and frontend CI jobs pass on `main`:
@@ -577,8 +625,10 @@ ghcr.io/thenewthinktank/fitness-tracker:latest
 ghcr.io/thenewthinktank/fitness-tracker-frontend:latest
 ```
 
-The backend image contains only API dependencies and bundled training metadata,
-and runs one Uvicorn worker. SQLite state persists in `/state`; YAML remains
+The backend build exports only core dependencies from `uv.lock` and verifies
+their hashes during installation. Neither uv nor development tools are copied
+into the runtime image. The backend contains bundled training metadata and runs
+one Uvicorn worker. SQLite state persists in `/state`; YAML remains
 read-only. The frontend image contains
 only nginx and the compiled static files. Both run as non-root users and include
 health checks. Kubernetes deployments also need writable persistent state

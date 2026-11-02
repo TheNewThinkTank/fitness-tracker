@@ -19,17 +19,21 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install Poetry
-        run: pip install poetry==2.2.1
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "0.13.6"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
 
       - name: Install locked API dependencies
-        run: poetry install --only main
+        run: uv sync --locked --no-dev
 
       - name: Run OpenAPI generation script
         env:
           PYTHONPATH: ${{ github.workspace }}/src  # Set the PYTHONPATH
         run: |
-          poetry run ./bin/generate_openapi.sh
+          uv run --locked --no-dev ./bin/generate_openapi.sh
 
       - name: Commit and push changes
         run: |

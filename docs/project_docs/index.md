@@ -43,6 +43,12 @@ The legacy `bin/fitcli.sh` workflow remains available for Linux and macOS.
 
 ## Getting Started
 
+Python dependencies are managed by uv and locked in `uv.lock`. Run
+`uv sync --locked --all-groups` from the repository root for the full development
+environment. Python tests use pytest under `test/`; no separate BDD framework
+is required. Container builds use the backend and frontend `Containerfile`
+definitions selected by Compose.
+
 Follow the [examples](examples/EXAMPLES.md) to install dependencies, import logs,
 and run the application. For an existing data directory, follow the
 [workout ID migration guide](examples/EXAMPLES.md#migrate-existing-workout-ids)

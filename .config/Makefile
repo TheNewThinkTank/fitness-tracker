@@ -1,40 +1,34 @@
-# Install and cache poetry
-.PHONY: install-poetry
-install-poetry:
-	curl -sSL https://install.python-poetry.org | python3 -
-
-# Install dependencies with poetry
+# Install dependencies with uv
 .PHONY: install-dependencies
 install-dependencies:
-	poetry config virtualenvs.in-project true
-	poetry install --with analytics,integrations,docs
+	uv sync --locked --all-groups
 
 # Lint with ruff
 .PHONY: lint-ruff
 lint-ruff:
-	poetry run ruff check --config .config/ruff.toml src test
+	uv run --locked ruff check --config .config/ruff.toml src oxygen test
 
 # Static type checks with mypy
 .PHONY: static-type-checks
 static-type-checks:
-	poetry run mypy --config-file .config/mypy.ini src/ --exclude '/site-packages/'
+	uv run --locked mypy --config-file .config/mypy.ini src oxygen/oxygen --exclude '/site-packages/'
 
 # Wily build and rank
 .PHONY: wily-build-and-rank
 wily-build-and-rank:
-	poetry run wily build src
-	poetry run wily rank src
+	uv run --locked wily build src
+	uv run --locked wily rank src
 
 # Run unit tests and make coverage report
 .PHONY: run-tests-and-coverage
 run-tests-and-coverage:
-	poetry run pytest test --cov=src --cov-report xml:cov.xml
+	uv run --locked pytest test --cov=src --cov-report xml:cov.xml
 
 # Qualify code target
 .PHONY: qualify-code
-qualify-code: install-poetry install-dependencies lint-ruff \
+qualify-code: install-dependencies lint-ruff \
 	static-type-checks wily-build-and-rank run-tests-and-coverage
 
 .PHONY: check-contracts
 check-contracts:
-	poetry run ./bin/generate_openapi.sh --check
+	uv run --locked ./bin/generate_openapi.sh --check

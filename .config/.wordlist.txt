@@ -1,4 +1,6 @@
 ACSM
+Ansible
+Authelia
 auth
 backend
 backfilled
@@ -27,6 +29,7 @@ deduplication
 degit
 dev
 Dojo
+dotenv
 env
 Epley
 Expections
@@ -45,6 +48,7 @@ gzip
 gzip
 Hatchling
 homelab
+homelab's
 html
 http
 HttpOnly
@@ -79,6 +83,7 @@ npm
 npx
 OpenAPI
 orchestrators
+PN
 POSTs
 pre
 pwd
@@ -92,8 +97,10 @@ reimports
 repos
 rmdir
 ro
+rollout
 RPE
 SameSite
+scalable
 Seaborn
 SELECTs
 seperate

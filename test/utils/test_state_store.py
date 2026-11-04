@@ -251,6 +251,7 @@ def test_project_dotenv_loads_a_quoted_path_from_an_unrelated_directory(tmp_path
     environment = {
         key: value for key, value in os.environ.items()
         if not key.startswith(("FITNESS_TRACKER_", "DYNACONF_"))
+        and key != "PYTHON_DOTENV_DISABLED"
     }
     result = subprocess.run(
         [sys.executable, "-c", (

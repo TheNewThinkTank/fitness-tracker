@@ -107,7 +107,7 @@ jobs:
     uses: ./.github/workflows/job_docker_image.yml
     with:
       image-name: fitness-tracker
-      image-tag: latest
+      image-tag: ${{ github.sha }}
       github-owner: thenewthinktank
 
   # deploy_to_AWS_ECR:

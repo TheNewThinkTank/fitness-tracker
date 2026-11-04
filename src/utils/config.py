@@ -1,5 +1,6 @@
 """Load and validate application configuration."""
 
+import os
 from pathlib import Path
 
 from dynaconf import Dynaconf, Validator  # type: ignore
@@ -11,7 +12,9 @@ settings = Dynaconf(
     envvar_prefix="FITNESS_TRACKER",
     environments=True,
     default_env="default",
-    load_dotenv=True,
+    load_dotenv=(
+        os.environ.get("PYTHON_DOTENV_DISABLED", "").lower() not in {"1", "true", "t", "yes", "y"}
+    ),
     dotenv_path=str(PROJECT_ROOT / ".env"),
     merge_enabled=True,
 )

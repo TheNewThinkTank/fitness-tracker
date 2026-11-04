@@ -46,6 +46,31 @@ Supported variables:
 | `FITNESS_TRACKER_AUTH_REQUIRED` | Require athlete sign-in; a password must be provisioned first |
 | `FITNESS_TRACKER_COOKIE_SECURE` | Require HTTPS and Secure cookies; enable behind a TLS reverse proxy |
 
+### PN51 Kubernetes deployment
+
+The sibling `homelab` repository owns the PN51 manifests and Argo CD Application.
+It deploys the existing frontend proxy and a single backend process. The backend
+uses a retained local SQLite volume at `/state`, a separate read-only `/data`
+mount, and a `Recreate` rollout. Keep one backend replica; multiple replicas do
+not make this file-backed application safely scalable.
+
+This deployment starts with empty local data. It does not mount Google Drive,
+copy personal archives, load a repository `.env`, or install Google integrations.
+`PYTHON_DOTENV_DISABLED=1` explicitly disables dotenv loading in the container.
+Athlete sessions, secure cookies, same-origin checks, and CSRF protection remain
+enabled behind the homelab's Authelia-protected HTTPS route.
+
+The publishing workflow builds both images only after its test gates, uses the
+full source commit SHA as the image tag, and uploads an `image-release.json`
+artifact with the backend/frontend digests. Homelab deployment pins those
+digests, not `latest`. Do not publish local source, images, secrets, or personal
+data without reviewing the release first. Runtime credentials are provisioned
+outside Git by homelab Ansible and are not baked into browser JavaScript.
+
+See the sibling homelab GitOps guide for release approval, external Secret
+bootstrap, Argo CD synchronization, access, and recovery. Cluster deployment
+does not change the default local or Compose workflow described below.
+
 ### Google Drive storage
 
 Prefer a local live SQLite database and sync the completed backup ZIPs to Google

@@ -29,6 +29,11 @@ jobs:
     permissions:
       contents: read
       packages: write
+    env:
+      IMAGE_NAME: ${{ inputs.image-name }}
+      IMAGE_TAG: ${{ inputs.image-tag }}
+      DOCKERHUB_USERNAME: ${{ inputs.dockerhub-username }}
+      GITHUB_OWNER: ${{ inputs.github-owner }}
 
     steps:
       - name: Check out repository code
@@ -43,13 +48,17 @@ jobs:
 
       - name: Log in to GitHub Packages
         if: inputs.github-owner
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ inputs.github-owner }} --password-stdin
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ inputs.github-owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -f Containerfile -t ${{ inputs.image-name }}:${{ inputs.image-tag }} .
+        run: docker build -f Containerfile --label "org.opencontainers.image.revision=${GITHUB_SHA}" -t "${IMAGE_NAME}:${IMAGE_TAG}" .
 
       - name: Build frontend Docker image
-        run: docker build -f frontend/Containerfile -t ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ./frontend
+        run: docker build -f frontend/Containerfile --label "org.opencontainers.image.revision=${GITHUB_SHA}" -t "${IMAGE_NAME}-frontend:${IMAGE_TAG}" ./frontend
 
       - name: Scan backend image for vulnerabilities
         uses: anchore/scan-action@v5
@@ -72,15 +81,44 @@ jobs:
       - name: Push to DockerHub
         if: inputs.dockerhub-username
         run: |
-          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
-          docker tag ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
-          docker push ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
-          docker push ${{ inputs.dockerhub-username }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
+          docker tag "${IMAGE_NAME}:${IMAGE_TAG}" "${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
+          docker tag "${IMAGE_NAME}-frontend:${IMAGE_TAG}" "${DOCKERHUB_USERNAME}/${IMAGE_NAME}-frontend:${IMAGE_TAG}"
+          docker push "${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
+          docker push "${DOCKERHUB_USERNAME}/${IMAGE_NAME}-frontend:${IMAGE_TAG}"
 
       - name: Push to GitHub Packages
         if: inputs.github-owner
         run: |
-          docker tag ${{ inputs.image-name }}:${{ inputs.image-tag }} ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
-          docker tag ${{ inputs.image-name }}-frontend:${{ inputs.image-tag }} ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
-          docker push ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}:${{ inputs.image-tag }}
-          docker push ghcr.io/${{ inputs.github-owner }}/${{ inputs.image-name }}-frontend:${{ inputs.image-tag }}
+          docker tag "${IMAGE_NAME}:${IMAGE_TAG}" "ghcr.io/${GITHUB_OWNER}/${IMAGE_NAME}:${IMAGE_TAG}"
+          docker tag "${IMAGE_NAME}-frontend:${IMAGE_TAG}" "ghcr.io/${GITHUB_OWNER}/${IMAGE_NAME}-frontend:${IMAGE_TAG}"
+          docker push "ghcr.io/${GITHUB_OWNER}/${IMAGE_NAME}:${IMAGE_TAG}"
+          docker push "ghcr.io/${GITHUB_OWNER}/${IMAGE_NAME}-frontend:${IMAGE_TAG}"
+
+      - name: Record immutable release references
+        if: inputs.github-owner
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          release = {"revision": os.environ["GITHUB_SHA"]}
+          for component, suffix in (("backend", ""), ("frontend", "-frontend")):
+              repository = f"ghcr.io/{os.environ['GITHUB_OWNER']}/{os.environ['IMAGE_NAME']}{suffix}"
+              reference = f"{repository}:{os.environ['IMAGE_TAG']}"
+              metadata = json.loads(subprocess.check_output(["docker", "image", "inspect", reference], text=True))[0]
+              digests = [digest for digest in metadata["RepoDigests"] if digest.startswith(repository + "@sha256:")]
+              if len(digests) != 1:
+                  raise SystemExit(f"Expected exactly one published digest for {component}")
+              release[component] = digests[0]
+          Path("image-release.json").write_text(json.dumps(release, indent=2) + "\n")
+          PY
+
+      - name: Upload immutable release references
+        if: inputs.github-owner
+        uses: actions/upload-artifact@v4
+        with:
+          name: fitness-tracker-images-${{ github.sha }}
+          path: image-release.json
+          if-no-files-found: error

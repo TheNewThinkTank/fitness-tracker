@@ -61,11 +61,18 @@ Athlete sessions, secure cookies, same-origin checks, and CSRF protection remain
 enabled behind the homelab's Authelia-protected HTTPS route.
 
 The publishing workflow builds both images only after its test gates, uses the
-full source commit SHA as the image tag, and uploads an `image-release.json`
-artifact with the backend/frontend digests. Homelab deployment pins those
-digests, not `latest`. Do not publish local source, images, secrets, or personal
-data without reviewing the release first. Runtime credentials are provisioned
-outside Git by homelab Ansible and are not baked into browser JavaScript.
+ordered tag `main-<workflow run number>.<run attempt>`, and publishes only from
+`main`. Each attempt has a distinct tag. The full source commit SHA remains in
+the OCI revision label and `image-release.json`, together with the tag and both
+backend/frontend tag-plus-digest references. The artifact name is
+`fitness-tracker-images-main-<run number>.<attempt>`.
+
+Homelab Renovate promotes both images in one PR with immutable digest pins,
+not `latest`. Required infrastructure and secret checks must pass before
+auto-merge; Argo CD then syncs the merged Git revision to PN51. Neither bot
+receives cluster credentials. Do not publish local source, images, secrets, or
+personal data without reviewing the release first. Runtime credentials are
+provisioned outside Git by homelab Ansible and are not baked into browser JavaScript.
 
 See the sibling homelab GitOps guide for release approval, external Secret
 bootstrap, Argo CD synchronization, access, and recovery. Cluster deployment
@@ -643,12 +650,32 @@ docker build --file frontend/Containerfile --tag fitness-tracker-frontend:local 
 ```
 
 Two images are built, scanned, and published to GitHub Container Registry after
-the Python and frontend CI jobs pass on `main`:
+the Python, frontend, container, and browser CI jobs and both image scans pass on
+`main`. Published release references use the same numbered tag:
 
+```text
+ghcr.io/thenewthinktank/fitness-tracker:main-<run number>.<attempt>
+ghcr.io/thenewthinktank/fitness-tracker-frontend:main-<run number>.<attempt>
 ```
-ghcr.io/thenewthinktank/fitness-tracker:latest
-ghcr.io/thenewthinktank/fitness-tracker-frontend:latest
+
+After a successful `main` release, download its paired immutable references.
+Replace `YOUR_SUCCESSFUL_RUN_ID` with the release workflow run ID:
+
+```bash
+RUN_ID=YOUR_SUCCESSFUL_RUN_ID
+RELEASE_TAG=$(gh api "repos/TheNewThinkTank/fitness-tracker/actions/runs/${RUN_ID}" \
+	--jq '"main-\(.run_number).\(.run_attempt)"')
+gh run download "$RUN_ID" --repo TheNewThinkTank/fitness-tracker \
+	--name "fitness-tracker-images-${RELEASE_TAG}" \
+	--dir ".local/releases/${RELEASE_TAG}"
 ```
+
+Confirm `image-release.json` names the successful run's source revision and the
+same release tag for both components. Copy its complete `backend` and `frontend`
+tag-plus-digest values into the homelab deployment together; never substitute
+`latest` or remove the digests. Run homelab's `make fitness-check` before
+publishing that Git change. Subsequent promotions use Renovate and the required
+homelab PR checks as described in the PN51 section.
 
 The backend build exports only core dependencies from `uv.lock` and verifies
 their hashes during installation. Neither uv nor development tools are copied

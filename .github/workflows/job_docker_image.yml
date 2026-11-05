@@ -103,7 +103,7 @@ jobs:
           import subprocess
           from pathlib import Path
 
-          release = {"revision": os.environ["GITHUB_SHA"]}
+          release = {"revision": os.environ["GITHUB_SHA"], "tag": os.environ["IMAGE_TAG"]}
           for component, suffix in (("backend", ""), ("frontend", "-frontend")):
               repository = f"ghcr.io/{os.environ['GITHUB_OWNER']}/{os.environ['IMAGE_NAME']}{suffix}"
               reference = f"{repository}:{os.environ['IMAGE_TAG']}"
@@ -111,7 +111,7 @@ jobs:
               digests = [digest for digest in metadata["RepoDigests"] if digest.startswith(repository + "@sha256:")]
               if len(digests) != 1:
                   raise SystemExit(f"Expected exactly one published digest for {component}")
-              release[component] = digests[0]
+              release[component] = f"{reference}@{digests[0].split('@', 1)[1]}"
           Path("image-release.json").write_text(json.dumps(release, indent=2) + "\n")
           PY
 
@@ -119,6 +119,6 @@ jobs:
         if: inputs.github-owner
         uses: actions/upload-artifact@v4
         with:
-          name: fitness-tracker-images-${{ github.sha }}
+          name: fitness-tracker-images-${{ inputs.image-tag }}
           path: image-release.json
           if-no-files-found: error

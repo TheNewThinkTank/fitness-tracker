@@ -1,9 +1,10 @@
 # Architecture
 
-The diagram summarizes external integrations and image deployment. The browser
+The diagram summarizes optional external integrations and image deployment. The browser
 request path and the writable-state boundary are described under
 [Application runtime](#application-runtime); the diagram does not show those
-components.
+components. The PN51 deployment does not mount Google Drive or connect to Google
+Sheets; its state stays on a retained local SQLite volume.
 
 ```mermaid
 graph TD
@@ -28,13 +29,22 @@ graph TD
 
     subgraph CI_CD [CI/CD]
         GHA[GitHub Actions]
-        GHCR[GHCR — ghcr.io/thenewthinktank/fitness-tracker]
-        FLUX[FluxCD — homelab repo]
-        GHA -->|Qualify code, build & scan image| GHCR
-        GHCR -->|Image automation| FLUX
-        FLUX -->|GitOps reconciliation| K8S
+        GHCR[GHCR - backend and frontend images]
+        RNV[Renovate]
+        GIT[homelab Git repository]
+        ARGO[Argo CD]
+        GHA -->|Test, build and scan both images| GHCR
+        GHCR -->|Numbered tags and digests| RNV
+        RNV -->|Paired image PR| GIT
+        GIT -->|Merged desired state| ARGO
+        ARGO -->|GitOps reconciliation| K8S
     end
 ```
+
+Renovate promotes both digest-pinned images through a homelab PR. Required CI
+checks gate its merge, and Argo CD reconciles the published Git revision. These
+are separate asynchronous steps, not direct image pushes to the cluster. Neither
+publishing CI nor Renovate receives cluster credentials.
 
 ## Application runtime
 

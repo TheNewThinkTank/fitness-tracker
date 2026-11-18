@@ -1,4 +1,4 @@
-FROM python:3.13.15-slim@sha256:9d2e5553305c7c7b0097999bb17187c69b921ccd6bc9d40e4bb5ebe652c00285 AS requirements
+FROM python:3.15.2-slim@sha256:65a65fc7b30b06cb6df4930fd4650697cb23f4c2698ab81fc87e4b031bc36928 AS requirements
 
 ARG UV_VERSION=0.13.6
 
@@ -14,7 +14,7 @@ RUN uv export \
     --format requirements.txt \
     --output-file requirements.txt
 
-FROM python:3.13.15-alpine@sha256:7415fbc3c9e4979cc717d92377ab2bc7b2b4a2af1ac03cc52b5f3f88efedaf3a AS runtime
+FROM python:3.15.2-alpine@sha256:0f9552bb28711333da16915ec146f5e6bb44a7fdac9ced15dc17c2e0206346dd AS runtime
 
 LABEL org.opencontainers.image.title="Fitness Tracker API" \
     org.opencontainers.image.version="0.1.0" \
